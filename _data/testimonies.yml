@@ -1,0 +1,20 @@
+- testimony-1: 
+  name: John Doe
+  content: I have been running into errors lately and instead of getting frustrated and going off and doing something else and then coming back I am going to try to figure it out myself more now.  I see that it is always simple mistakes.  
+  image: assets/img/blog-img/0001.jpg
+  recognition: Chief Executive Officer(CEO)
+- testimony-2: 
+  name: Christopher Allen
+  content: The struggle is real.  Even as I have tried to do the course that my teacher Alivia mentioned I struggled to download what I needed.  Now I have to go back and figure it out.  
+  image: assets/img/blog-img/0002.jpg
+  recognition: Blockchain Expert
+- testimony-3: 
+  name: Mike Miller
+  content: Thank God it is Monday! It is time to make a dream a reality!  This blog will take SportsTechWest to another level!  
+  image: assets/img/blog-img/0003.jpg
+  recognition: Software Engineer
+- testimony-4: 
+  name: Jane Foster
+  content: This week our goal was to successfully create a github page and as it turns out there is documentaion that exists which walk you through creating a GitHub Page, this information is laid out as a course.  
+  image: assets/img/blog-img/0004.jpg
+  recognition: Marketer

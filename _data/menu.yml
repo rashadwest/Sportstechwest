@@ -1,0 +1,15 @@
+# To add links to the navigation bar.
+- example:
+  title: "About"
+  url: /about
+  hide: false
+  position: 1
+- type-on-strap:
+  title: "Analytics Culture"
+  url: /analytics-culture
+  position: 2
+- video-gallery:
+  title: "Video Gallery"
+  url: /video-gallery
+  position: 3
+  hide: false

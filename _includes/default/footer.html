@@ -1,0 +1,69 @@
+{% comment %} <footer class="site-footer">
+    <p class="text">
+        {{ site.footer_text | default: "Powered by <a href='https://jekyllrb.com/'>Jekyll</a> with <a href='https://github.com/sylhare/Type-on-Strap'>Type on Strap</a>" }}</p>
+    <div class="footer-icons">
+        <ul>
+            <!-- Social icons from Font Awesome, if enabled -->
+            {% include social/icons.liquid %}
+        </ul>
+    </div>
+    {% if site.mermaid %}
+        <script type="module">
+          mermaid.initialize({ startOnLoad: false, theme: "default" });
+          mermaid.run({ nodes: [...document.querySelectorAll('.language-mermaid'), ...document.querySelectorAll('.mermaid')] });
+        </script>
+    {% endif %}
+</footer>
+
+ {% endcomment %}
+
+ <footer class="footer">
+    <div class="newsletter">
+      <p>Subscribe to our Newsletter</p>
+      <form class="newsletter-form-footer">
+        <input required type="email" placeholder="Enter your email" />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  
+    <div class="footer-nav">
+      <div class="footer-header_nav">
+            <!-- Toggle menu -->
+            {% for nav-links in site.data.menu %}
+              <ul>
+                <li><a href="{{nav-links.url | relative_url}}">{{nav-links.title}}</a></li>
+              </ul>
+            {% endfor %}
+      </div>
+      <div class="footer-social">
+
+        {% for symbol in site.data.social-icons %}        
+        <a href="{{symbol.url}}">
+          <li class="fab {{symbol.icon}}"></li>
+        </a>
+        
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+
+      <p>Copyright &copy;2024. 
+      <a href="{{ '/' | relative_url }}">
+        {{ site.title }}
+      </a>
+      </p>
+
+      {% if site.avatar %}
+        <a href="{{ '/' | relative_url }}">
+          <img alt="logo img" class="avatar" width="70px" height="50px" src="{{ site.avatar | relative_url }}" loading="lazy"/>
+        </a>
+            {% endif %}
+
+      <ul>
+        <li><a href="{{ site.url }}{{ site.baseurl }}/terms-of-service">Terms of Service</a></li>
+        <li><a href="{{ site.url }}{{ site.baseurl }}/privacy-policy">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </footer>
