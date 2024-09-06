@@ -1,6 +1,7 @@
 ---
 layout: post
 feature-img: "assets/img/feature-img/1.webp"
+thumbnail: "assets/img/feature-img/1.webp"
 title: "FETC Future Education"
 ---
 
