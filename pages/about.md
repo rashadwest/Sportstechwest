@@ -88,3 +88,5 @@ I appreiciate you going on this journey with me as I know it will be fun. Below 
 - Speaker, Johnson C. Smith Sports Management Department 
 - Speaker, Howard University Sports Management Department
 
+
+{% include gallery.html gallery_path=page.image-gallery %}

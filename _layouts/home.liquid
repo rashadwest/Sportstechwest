@@ -22,10 +22,11 @@ layout: default
     </style>
     <section class="main-content">
         <div class="text-content">
-            <h1>Get the latest on sports, technology, and investing</h1>
-            <p>Every Sunday, we deliver news and insights to industry leaders. Subscribe here to stay up to date on the trends, partnerships, investments, and companies shaping the space. Read by professionals from companies such as ESPN, Fanatics, DraftKings, Boardroom, Sorare, KB Partners, Overtime and more.</p>
-                <form class="newsletter-form">
-                  <input type="email" required placeholder="Enter your email" />
+            <h1>{{site.title}}</h1>
+            <p>{{ site.description }}</p>
+                <form class="newsletter-form" action="https://formspree.io/f/xrbzvwye" method="post">
+                  <input type="email" name="email" required placeholder="Enter your email" />
+                  <textarea name="message" required placeholder="Enter your message"></textarea>
                   <button type="submit">Subscribe</button>
                 </form>
         </div>

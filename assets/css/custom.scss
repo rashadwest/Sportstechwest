@@ -394,4 +394,38 @@ header> .main{
   }
 
 
-  
+  .newsletter-form input[type=email] {
+    color: #000;
+}
+  .newsletter-form input[type=text] {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #000;
+    margin-right: 10px;
+}
+.newsletter-form{
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.newsletter-form button {
+  padding: 10px 20px;
+  background-color: #020202;
+  color: #fff;
+  border: 1px solid #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+}
+
+textarea {
+  overflow: auto;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ddd;
+  color: #000;
+  border-radius: 5px;
+  margin-right: 10px;
+}
