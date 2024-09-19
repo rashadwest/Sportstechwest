@@ -1,18 +1,6 @@
 - sliderShow1:
   title: Image 1
-  image: assets/img/feature-img/1.webp
+  image: assets/img/feature-img/1.png
 - sliderShow2:
   title: Image 2
-  image: assets/img/feature-img/2.webp
-- sliderShow3:
-  title: Image 3
-  image: assets/img/feature-img/3.webp
-- sliderShow4:
-  title: Image 4
-  image: assets/img/feature-img/4.jpg
-- sliderShow5:
-  title: Image 5
-  image: assets/img/feature-img/5.webp
-- sliderShow6:
-  title: Image 6
-  image: assets/img/feature-img/6.webp
+  image: assets/img/feature-img/2.png
