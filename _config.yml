@@ -4,7 +4,7 @@ url: ""
 
 # THEME-SPECIFIC CONFIGURATION
 title: SportsTechWest                                   # site's title
-description: "This blog is about a NBA Project that Rashad West started to enhance his youth programs STEAM game where they use basketball to teach mathematics."      # used by search engines
+description: "Rashad West's basketball project is transforming the way youth engage with STEAM (Science, Technology, Engineering, Arts, Mathematics) education. What began as an initiative to teach mathematics through basketball has now evolved into two dynamic platforms: a robot sports coding game for younger kids and an analytics platform designed specifically for NIL athletes. By integrating basketball drills with math concepts like scoring and probability, the program offers students an interactive and practical approach to learning, using the game they love as a tool for academic growth."
 avatar: assets/img/logo/logo.png                        # Empty for no avatar in navbar
 favicon: assets/img/logo/favicon.png                           # Icon displayed in the tab
 

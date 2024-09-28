@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "CES Sports AI XR"
+thumbnail: "assets/img/blog-img/20240110_160544.jpg"
 ---
 
 # CES_XR_AI_Main_Show

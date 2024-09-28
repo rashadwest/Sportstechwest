@@ -11,7 +11,7 @@
             </a>
         </div>
         {% endif %}
-        <span>
+        <div id="content">
           <header>
             <h1>
               <a aria-label="{{ post.title }}" class="post-link" href="{{ post.url | relative_url }}">
@@ -29,7 +29,7 @@
                   {% endif %}
               </div>
           {% endif %}
-      </span>
+      </div>
     </div>
     {% endfor %}
 </div>

@@ -439,3 +439,32 @@ textarea {
   -o-object-fit: contain !important;
   object-fit: contain !important;
 }
+@media screen and (min-width: 64rem) {
+  #content{
+    width: 300%;
+  }
+  .posts .post-teaser:nth-child(odd) {
+    border-bottom: 1px solid rgba(0, 0, 0, .3) !important;
+    display: flex;
+    flex-direction: row;
+    column-gap: 30px !important;
+}
+.posts .post-teaser:nth-child(even) {
+  border-bottom: 1px solid rgba(0, 0, 0, .3) !important;
+  display: flex;
+  flex-direction: row-reverse;
+  column-gap: 30px !important;
+}
+}
+@media screen and (max-width: 64rem) {
+  .posts .post-teaser {
+    border-bottom: 1px solid rgba(0, 0, 0, .3) !important;
+    display: flex;
+    row-gap: 30px !important;
+    flex-direction: column !important;
+}
+}
+.posts .post-teaser .post-img {
+  height: 250px !important;
+}
+

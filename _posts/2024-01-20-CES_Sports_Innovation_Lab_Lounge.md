@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "CES Sports Innovation Lab Lounge"
+thumbnail: "assets/img/blog-img/speaker3.jpg"
 ---
 
 # Sports_Innovation_Lab_Lounge
