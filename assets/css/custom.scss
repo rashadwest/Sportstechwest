@@ -29,13 +29,7 @@ nav a#pull i {
   width: 80px;
   margin-top: 15px;
 }
-  .main-content {
-    display: flex;
-    flex-direction: column !important;
-    background-color: #000;
-    color: #fff;
-    padding: 40px 20px;
-  }
+
   a#pull {
     display: contents !important;
 }
@@ -44,10 +38,6 @@ nav li {
   text-align: left !important;
   margin-left: 10% !important;
 }
-  .text-content {
-    max-width: 100% !important;
-    margin-bottom: 15%;
-  }
   .subscribe-form button {
     margin-top: 15px;
   }
@@ -455,6 +445,23 @@ textarea {
   flex-direction: row-reverse;
   column-gap: 30px !important;
 }
+.introduction{
+  display: flex;
+  flex-direction: row;
+  column-gap: 25px;
+}
+.introduction p:nth-child(odd){
+  display: block;
+  flex: 1;
+  font-size: small;
+  text-align: justify;
+}
+.introduction p:nth-child(even){
+  display: block;
+  flex: 1;
+  font-size: small;
+  text-align: justify;
+}
 }
 @media screen and (max-width: 64rem) {
   .posts .post-teaser {
@@ -463,8 +470,32 @@ textarea {
     row-gap: 30px !important;
     flex-direction: column !important;
 }
+.text-content {
+  max-width: 100% !important;
+  margin-bottom: 15%;
 }
-.posts .post-teaser .post-img {
-  height: 250px !important;
+.introduction{
+  display: flex;
+  flex-direction: column ;
+  column-gap: 0px;
 }
-
+.introduction p:nth-child(odd){
+  display: block;
+  flex: 1;
+  font-size: larger;
+  text-align: justify;
+}
+.introduction p:nth-child(even){
+  display: block;
+  flex: 1;
+  font-size: larger;
+  text-align: justify;
+}
+.main-content {
+  display: flex;
+  flex-direction: column-reverse !important;
+  background-color: #000;
+  color: #fff;
+  padding: 40px 20px;
+}
+}
