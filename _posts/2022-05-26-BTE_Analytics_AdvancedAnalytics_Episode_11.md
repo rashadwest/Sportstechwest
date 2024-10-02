@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "BTE Analytics AdvancedAnalytics Episode 11"
+thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.png"
 ---
 
 #Advanced Analytics 

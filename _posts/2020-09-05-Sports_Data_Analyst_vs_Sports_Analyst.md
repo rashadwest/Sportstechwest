@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Sports Data Analyst vs Sports Analyst"
+thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.png"
 ---
 
 # Sports Data Analyst vs. Sports Analyst

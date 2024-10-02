@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Is Marbury right about analysts"
+thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.png"
 ---
 
 Steph Marbury had a quote "You can't break the game down to me if you never played at this level before, if you never had sex before and you're a virgin, you can't tell me how it is to bust a nut."

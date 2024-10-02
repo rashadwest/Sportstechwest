@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Understanding Data Sciences Purpose"
+thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.png"
 ---
 
 # Understanding Data Sciences purpose

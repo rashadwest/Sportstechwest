@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Halloween NBA Shotchart"
+thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.png"
 ---
 
 I started Halloween off by coding a new shot chart using NBA data. 

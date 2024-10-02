@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Rubbing off on my teacher"
+thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.png"
 ---
 
 # Rubbing off on my teacher (a little)

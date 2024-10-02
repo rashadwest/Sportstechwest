@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "2020-07-14 Terms on Terms"
+thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.png"
 ---
 
 # Terms on Terms

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "First week of Python"
+thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.png"
 ---
 
 # 1st week of Python

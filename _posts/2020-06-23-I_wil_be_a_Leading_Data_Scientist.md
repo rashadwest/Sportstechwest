@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "I wil be a Leading Data Scientist"
+thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.png"
 ---
  
 # I will be a Leading Data Scientist
