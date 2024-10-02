@@ -447,19 +447,19 @@ textarea {
 }
 .introduction{
   display: flex;
-  flex-direction: row;
-  column-gap: 25px;
+  flex-direction: column;
+  row-gap: 10px;
 }
 .introduction p:nth-child(odd){
   display: block;
   flex: 1;
-  font-size: small;
+  font-size: medium;
   text-align: justify;
 }
 .introduction p:nth-child(even){
   display: block;
   flex: 1;
-  font-size: small;
+  font-size: medium;
   text-align: justify;
 }
 }
