@@ -19,7 +19,7 @@
   position: 4
   hide: false
 - certificate:
-  title: "Certificates"
-  url: /certificate
+  title: "Courses and Certificates"
+  url: /courses-and-certificates
   position: 5
   hide: false
