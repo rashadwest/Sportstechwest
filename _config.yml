@@ -3,7 +3,8 @@ baseurl: "/Sportstechwest"
 url: ""
 
 # THEME-SPECIFIC CONFIGURATION
-title: "Inside Sports Tech: Insights from an Innovator Building the Future of Athlete Performance."                                 # site's title
+title: "SportsTechwest"
+title_2: "Inside Sports Tech: Insights from an Innovator Building the Future of Athlete Performance."                 # site's title
 description: '<div class="introduction"> <p>“<strong>Welcome to SportsTechWest</strong>, a blog exploring the journey from professional athlete to sports tech vagabonder. Join us in discovering the global intersection of sports and technology.</p><p>Rashad West is actively developing innovative initiatives that combine athletics with education, focusing on STEM programs and engaging games for youth. In addition to these efforts, he is working on an analytics platform that empowers NIL athletes to monetize their performance data, providing them with valuable tools to enhance their competitive edge. Through these projects, Rashad aims to bridge the gap between sports and education, fostering skills that benefit both young learners and athletes alike.”</p></div>'
 
 avatar: assets/img/logo/logo.png                        # Empty for no avatar in navbar
