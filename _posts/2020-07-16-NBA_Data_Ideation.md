@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "NBA Data Ideation"
-thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.png"
+thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 ---
 
 # NBA Data Ideation 

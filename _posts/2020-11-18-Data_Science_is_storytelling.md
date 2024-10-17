@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Data Science is storytelling"
-thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.png"
+thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 ---
 
 ![Data storytelling]({{site.url}}{{site.baseurl}}/assets/img/blog-img/data_story3_sq-1.png?raw=true)

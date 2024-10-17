@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Dribble Project"
-thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.png"
+thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 ---
 
 "The moment of innocent revelry was short-lived. The coach seized control of his body again. Above a baked bean tray, Kerr started pantomiming And1 mixtape handles, muttering to himself, "Now if we could just stop doing this … shit."

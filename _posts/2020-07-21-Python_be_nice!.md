@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python be nice!"
-thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.png"
+thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 ---
 
 # Python be Nice!

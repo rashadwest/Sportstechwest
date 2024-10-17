@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Building with Innovators"
-thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.png"
+thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 ---
 
 # Building with Innovators: My Journey with Techstars Washington, DC and How It Will Fuel My Sports Analytics Journey

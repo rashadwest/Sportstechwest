@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Player Development"
-thumbnail: "assets/img/blog-img/wip2.jpg"
+thumbnail: "assets/img/blog-img/wip2.webp"
 ---
 
 # Player Development 

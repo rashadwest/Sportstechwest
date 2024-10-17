@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Dribble Tree Work"
-thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.png"
+thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 ---
 
 ![KD & Steph look on as they wait to play]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Steph_Durant.webp?raw=true)

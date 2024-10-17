@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "No Excuses"
-thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.png"
+thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 ---
 T
 he code below was right and I needed no hint and it all made sense.  I am getting somewhere. Stick with it. 
