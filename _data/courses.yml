@@ -1,65 +1,65 @@
 - Certificate 1:
   title: AI Ethics
-  path: assets/img/courses-and-certificates/AI Ethics.png
+  path: assets/img/courses-and-certificates/AI Ethics.webp
   pdf-link: /assets/img/courses-and-certificates/pdf/AI_Ethics_certificate.pdf
 - Certificate 2:
   title: AI Fundamentals
-  path: assets/img/courses-and-certificates/AI Fundamentals.png
+  path: assets/img/courses-and-certificates/AI Fundamentals.webp
   pdf-link: /assets/img/courses-and-certificates/pdf/AI_fundamentals_certificate.pdf
 - Certificate 3:
   title: Data Manipulation with pandas
-  path: assets/img/courses-and-certificates/Data Manipulation with pandas.png
+  path: assets/img/courses-and-certificates/Data Manipulation with pandas.webp
   pdf-link: /assets/img/courses-and-certificates/pdf/Data_Manipulation_Pandas_certificate.pdf
 - Certificate 4:
   title: Generative AI Concepts
-  path: assets/img/courses-and-certificates/Generative AI Concepts.png
+  path: assets/img/courses-and-certificates/Generative AI Concepts.webp
   pdf-link: /assets/img/courses-and-certificates/pdf/Generative_AI_certificate.pdf
 - Certificate 5:
   title: Intermediate Python
-  path: assets/img/courses-and-certificates/Intermediate Python.png
+  path: assets/img/courses-and-certificates/Intermediate Python.webp
   pdf-link: /assets/img/courses-and-certificates/pdf/Intermediate_Python_certificate.pdf
 - Certificate 6:
   title: Introduction to ChatGPT
-  path: assets/img/courses-and-certificates/Introduction to ChatGPT.png
+  path: assets/img/courses-and-certificates/Introduction to ChatGPT.webp
   pdf-link: /assets/img/courses-and-certificates/pdf/Intro_ChatGPT_certificate.pdf
 - Certificate 7:
   title: Introduction to Data Literacy
-  path: assets/img/courses-and-certificates/Introduction to Data Literacy.png
+  path: assets/img/courses-and-certificates/Introduction to Data Literacy.webp
   pdf-link: /assets/img/courses-and-certificates/pdf/data_literacy_certificate.pdf
 - Certificate 8:
   title: Introduction to Data Visualization with Matplotlib
-  path: assets/img/courses-and-certificates/Introduction to Data Visualization with Matplotlib.png
+  path: assets/img/courses-and-certificates/Introduction to Data Visualization with Matplotlib.webp
   pdf-link: /assets/img/courses-and-certificates/pdf/Intro_data_viz_matplotlib_certificate.pdf
 - Certificate 9:
   title: Introduction to Data Visualization with seaborn
-  path: assets/img/courses-and-certificates/Introduction to Data Visualization with seaborn.png
+  path: assets/img/courses-and-certificates/Introduction to Data Visualization with seaborn.webp
   pdf-link: /assets/img/courses-and-certificates/pdf/Intro_data_viz_seaborn_certificate.pdf
 - Certificate 10:
   title: Introduction to Python
-  path: assets/img/courses-and-certificates/Introduction to Python.png
+  path: assets/img/courses-and-certificates/Introduction to Python.webp
   pdf-link: /assets/img/courses-and-certificates/pdf/Introduction_Python_certificate.pdf
 - Certificate 11:
   title: Introduction to SQL
-  path: assets/img/courses-and-certificates/Introduction to SQL.png
+  path: assets/img/courses-and-certificates/Introduction to SQL.webp
   pdf-link: /assets/img/courses-and-certificates/pdf/Intro_SQL_certificate.pdf
 - Certificate 12:
   title: Large Language Models (LLMs) Concepts
-  path: assets/img/courses-and-certificates/Large Language Models (LLMs) Concepts.png
+  path: assets/img/courses-and-certificates/Large Language Models (LLMs) Concepts.webp
   pdf-link: /assets/img/courses-and-certificates/pdf/.pdf
 - Certificate 13:
   title: Understanding Data Engineering
-  path: assets/img/courses-and-certificates/Understanding Data Engineering.png
+  path: assets/img/courses-and-certificates/Understanding Data Engineering.webp
   pdf-link: /assets/img/courses-and-certificates/pdf/data_engineering_certificate.pdf
 - Certificate 14:
   title: Understanding Data Science
-  path: assets/img/courses-and-certificates/Understanding Data Science.png
+  path: assets/img/courses-and-certificates/Understanding Data Science.webp
   pdf-link: /assets/img/courses-and-certificates/pdf/Understanding_Data_Science_certificate.pdf
 - Certificate 15:
   title: Understanding Data Visualization
-  path: assets/img/courses-and-certificates/Understanding Data Visualization.png
+  path: assets/img/courses-and-certificates/Understanding Data Visualization.webp
   pdf-link: /assets/img/courses-and-certificates/pdf/Understanding_Data_Viz_certificate.pdf
 - Certificate 16:
   title: Understanding Machine Learning
-  path: assets/img/courses-and-certificates/Understanding Machine Learning.png
+  path: assets/img/courses-and-certificates/Understanding Machine Learning.webp
   pdf-link: /assets/img/courses-and-certificates/pdf/LLM_certificate.pdf
 

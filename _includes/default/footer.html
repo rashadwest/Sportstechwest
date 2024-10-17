@@ -39,7 +39,7 @@
 
         {% for symbol in site.data.social-icons %}        
         <a href="{{symbol.url}}">
-          <li class="fab {{symbol.icon}}"></li>
+          <li aria-label="{{symbol.aria-label}}" class="fab {{symbol.icon}}"></li>
         </a>
         
         </a>

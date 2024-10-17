@@ -1,8 +1,12 @@
 ---
 layout: default
 ---
+
+
+
 <div class="home">
     <style scoped>
+        {% include custom.css %}
         {% assign image = site.header_feature_image | relative_url | split: '.' %}
         .call-out_img {
             background-image: url('{{ image | join: '.' }}');
@@ -50,8 +54,12 @@ layout: default
             </div>
         </div>
     </section>
-    {% capture _blog %}{% include blog/blog.liquid %}{% endcapture %}
-    {{ _blog | split: " " | join: " "}}
+    <section class="blog-section">
+        <a href="/blog-post">INTERESTING TO READ</a>
+        <div class="post-card">
+
+        </div>
+    </section>
     
 </div>
 

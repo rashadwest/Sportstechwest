@@ -1,12 +1,16 @@
 - social-twitter:
   url: https://www.twitter.com/sportstechwest
   icon: fa-twitter
+  arial-label: This is a Twitter X icon
 - social-github:
   url: https://github.com/rashadwest
   icon: fa-github
+  arial-label: This is a Github icon X icon
 - social-instagram:
   url: instagram.com/sportstechwest
   icon: fa-instagram
+  arial-label: This is an Instagram X icon
 - social-youtube:
   url: https://www.twitter.com/sportstechwest
   icon: fa-youtube
+  arial-label: This is a Youtube icon
