@@ -543,10 +543,10 @@ textarea {
   .clear {
       z-index: 1000;
       position: relative;
-      padding-left: 50px;
+      padding-left: 35px;
   }
   .fa-search, #theme-toggle{
-      padding-left: 50px;
+      padding-left: 35px;
   }
 }
 
@@ -594,7 +594,7 @@ textarea {
   .carousel {
     min-height: 100vh;
     position: relative;
-    top: 74px !important;
+    top: 65px !important;
   }
   .main-post__image img {
     width: 100%;
@@ -610,18 +610,19 @@ textarea {
     display: flex;
     flex-direction: column !important;
     width: 100%;
-    margin-top: 12%;
-    padding-left: 5%;
-    column-gap: 12%;
+    margin-top: 15% !important;
+    padding: 5%;
+    column-gap: 0 !important;
   }
   .text-intro{
-    margin-right: 30px;
+    margin-right: 0px;
   }
+  
   .video-img-intro{
     flex: 50%
   }
   .video-img-intro img{
-    width: 630px !important;
+    width: 100% !important;
     margin-top: 20px;
   }
 }
@@ -886,5 +887,5 @@ textarea {
 }
 .video-img-intro img{
   width: 500px;
-  margin-top: 20px;
+  margin-top: 55px;
 }
