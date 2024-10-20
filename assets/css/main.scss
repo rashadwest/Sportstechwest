@@ -12,6 +12,7 @@
 .carousel {
   min-height: 100vh;
   position: relative;
+  top: 90px;
 }
 
 .progress-bar {
@@ -23,7 +24,7 @@
   &__fill {
     width: 0;
     height: inherit;
-    background: #c20000;
+    background: var(--progress);
     transition: all 0.16s;
   }
   &--primary {
@@ -35,8 +36,6 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  margin-top: 7%;
-  z-index: -1;
 }
 .slides {
   width: 100%;
@@ -92,7 +91,7 @@
   }
   &__tag {
     font-size: 0.95em;
-    background: #c20000;
+    background: var(--progress);
     padding: 6px 18px;
   }
   &__title {
@@ -124,8 +123,8 @@
 
 .main-post__link:hover .main-post__link-text,
 .main-post__link:hover .main-post__link-icon--arrow path {
-  color: #c20000;
-  stroke: #c20000;
+  color: var(--link);
+  stroke: var(--link);
 }
 
 .main-post--active {

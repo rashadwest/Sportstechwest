@@ -2,6 +2,7 @@
 layout: default
 ---
 
+{% include default/carousel.html %}
 
 <div class="home">
     <style scoped>
@@ -24,7 +25,7 @@ layout: default
         {% endif %}
     </style>
     
-    
+ 
     
     {% capture _blog %}{% include blog/blog.liquid %}{% endcapture %}
     {{ _blog | split: " " | join: " "}}
