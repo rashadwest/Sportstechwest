@@ -621,7 +621,7 @@ textarea {
   .video-img-intro{
     flex: 50%
   }
-  .video-img-intro img{
+  .video-img-intro video{
     width: 100% !important;
     margin-top: 20px;
   }
@@ -875,7 +875,7 @@ textarea {
   display: flex;
   flex-direction: row;
   width: 100%;
-  margin-top: 12%;
+  margin-top: 10%;
   padding-left: 5%;
   column-gap: 5%;
 }
@@ -885,7 +885,7 @@ textarea {
 .video-img-intro{
   flex: 50%
 }
-.video-img-intro img{
-  width: 500px;
+.video-img-intro video{
+  width: 550px;
   margin-top: 55px;
 }
