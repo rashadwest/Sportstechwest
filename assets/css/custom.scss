@@ -22,6 +22,11 @@ nav ul {
   font-size: 20px;
   margin-left: -12px;
 }
+
+.site-header a{
+  position: relative !important;
+  z-index: 9999 !important;
+}
 nav a#pull i {
   margin-top: 30px !important;
 }
@@ -541,13 +546,32 @@ textarea {
 }
 @media screen and (max-width: 768px) {
   .clear {
-      z-index: 1000;
-      position: relative;
-      padding-left: 35px;
+    z-index: 1000;
+    position: relative;
+    padding-left: 33px !important;
+    margin-top: 0px;
+    right: -15px;
   }
   .fa-search, #theme-toggle{
-      padding-left: 35px;
+      padding-left: 50px !important;
   }
+  nav ul {
+    width: 125% !important;
+    overflow: hidden;
+    margin-left: 0px;
+    transition: opacity .25s 0s, font-size .25s 0s;
+    transition-delay: 0s;
+}
+}
+@media screen and (max-width: 568px) {
+
+  nav ul {
+    width: 140% !important;
+    overflow: hidden;
+    margin-left: 0px;
+    transition: opacity .25s 0s, font-size .25s 0s;
+    transition-delay: 0s;
+}
 }
 
 
