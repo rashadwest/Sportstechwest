@@ -13,7 +13,7 @@
       {% for image in site.static_files %}
           {% if image.path contains include.gallery_path %}
               {% unless image.path contains '.md' %}
-                  {% if image_count < 20 %}
+                  {% if image_count < 200 %}
                       <img src="{{ image.path | relative_url }}" alt="" class="grid-item" style="padding: 10px; border-radius: 5px;">
                       {% assign image_count = image_count | plus: 1 %}
                   {% endif %}
