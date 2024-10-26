@@ -35,6 +35,8 @@ nav a#pull i {
   margin-top: 15px;
 }
 
+
+
   a#pull {
     display: contents !important;
 }
@@ -110,11 +112,26 @@ nav li {
   background-size: cover;
   width: 140px !important;
   height: auto !important;
+ 
+}
+@media (prefers-color-scheme: light) {
+  .avatar-dark{
+      display: none;
+  }
+  .avatar-light{
+    filter: invert(1) !important;
+  }
 }
 nav ul {
   line-height: 2.5 !important;
 }
 @media (prefers-color-scheme: dark) {
+  .avatar-light{
+    display: none;
+}
+.avatar-dark{
+  filter: invert(1) !important;
+}
   .footer {
     background-color: var(--background-footer) !important;
     color: var(--color-footer) !important;
@@ -122,13 +139,9 @@ nav ul {
   .posts .post-teaser {
     border-bottom: 1px solid rgba(0, 0, 0, .5) !important;
   }
-  .avatar{
-    filter: invert(1) !important;
-  } 
+  
 }
-.avatar{
-  filter: invert(1) !important;
-} 
+
 
 .site-header {
   border-bottom: 1px solid rgb(255, 255, 255);
