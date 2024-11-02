@@ -575,6 +575,11 @@ textarea {
     transition: opacity .25s 0s, font-size .25s 0s;
     transition-delay: 0s;
 }
+.main-post__tag {
+  font-size: .8em  !important;
+  background: var(--progress);
+  padding: 6px 8px !important;
+}
 }
 @media screen and (max-width: 568px) {
 

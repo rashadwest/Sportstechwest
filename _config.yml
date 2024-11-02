@@ -59,3 +59,4 @@ defaults:
       type: "posts"
     values:
       layout: "post" # Use your specific layout name here
+

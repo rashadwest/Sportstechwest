@@ -5,12 +5,21 @@ permalink: /about/
 feature-img: "assets/img/header/about.jpg"
 tags: [About]
 ---
-
-My name is Rashad West and I am creating a data science project to create an algo and model for player performance.  Currently I am working on using data to challenge the assumption of the best point guard shooter of all time.  We have a STEAM game we created called Beat The Expert so this will help access player performance as we use basketball to teach mathematics. 
-
-What I am addressing may have many factors that determine a players shooting performance.  Some of the advanced metrics include effective field goal percentage and effecitive shot quality.  I will be creating innovative shot plots, heat maps, and box scores for our youth players.
-
-I appreiciate you going on this journey with me as I know it will be fun. Below is some of my story.
+<style>
+.intro-image{
+  object-fit: contain;
+  width: 500px;
+  height: auto;
+}
+</style>
+<section class="about-section">
+  <div class="description-section">
+    {{site.data.about.intro}}
+  </div>                   
+  <div class="image-section">
+    <img class="intro-image" src="{{site.baseurl}}/assets/img/feature-img/20240110_160544.webp" alt="">
+  </div>
+</section>
 
 ## Education
 - Hampton University, BS, Business Management
