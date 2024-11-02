@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
    * Make the header images move on scroll
    */
   window.addEventListener('scroll', function () {
-    const offset = -(window.scrollY || window.pageYOffset || document.body.scrollTop) / 3;
+    const offset = -(window.scrollY || window.pageYOffset || document.body.scrollTop) / 1;
     const main = document.getElementById('main');
     if (main) {
       main.style.backgroundPosition = '100% ' + (offset - 50) + 'px' + ', 0%, center top';

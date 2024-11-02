@@ -13,18 +13,7 @@ const themeButton = {
     'dark': `<i class="fas fa-adjust fa-rotate-180" aria-hidden="true"></i><span class="navbar-label-with-icon"> ${lightBtn}</span>`
 };
 
-function currentTheme(){
-    return localStorage.getItem('theme');
-}
 
-function setMode(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-    const toggle = document.getElementById('theme-toggle');
-    if (toggle) {
-        toggle.innerHTML = themeButton[theme];
-    }
-}
 
 function themeToggle() {
     let sessionPrefers = currentTheme();

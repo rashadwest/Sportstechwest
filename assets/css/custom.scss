@@ -118,8 +118,14 @@ nav li {
   .avatar-dark{
       display: none;
   }
+  .site-header {
+    background: var(--background);
+}
   .avatar-light{
-    filter: invert(1) !important;
+    filter: invert(0) !important;
+  }
+  .navbar-label{
+    color: var(--nav-links);
   }
 }
 nav ul {
@@ -144,7 +150,7 @@ nav ul {
 
 
 .site-header {
-  border-bottom: 1px solid rgb(255, 255, 255);
+  border-bottom: 1px solid var(--nav-links);
 }
 .main-content {
   display: flex;
@@ -220,11 +226,15 @@ header> .main{
     color: var(--color-footer) !important;
     padding: 20px;
     text-align: center;
+    border-top-color: var(--color-footer);
+  }
+  .footer a, li, ul {
+    color: var(--color-footer) !important;
   }
   
   .newsletter {
     padding: 60px 0;
-    border: 1px solid #fff;
+    border: 1px solid var(--color-footer);
     margin-bottom: 20px;
     border-radius: 10px;
   }

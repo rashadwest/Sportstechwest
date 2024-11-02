@@ -2,100 +2,192 @@
 layout: page
 title: About
 permalink: /about/
-feature-img: "assets/img/header/about.jpg"
+feature-img: "assets/img/header/about.webp"
 tags: [About]
 ---
 <style>
-.intro-image{
-  object-fit: contain;
-  width: 500px;
-  height: auto;
-}
+{% include about.css%}
 </style>
-<section class="about-section">
-  <div class="description-section">
-    {{site.data.about.intro}}
+<section class="about-1">
+  <div class="about-1__description">
+    <h1>Hey, I'm Rashad West…</h1>
+    <p>I’m bringing data science into basketball, creating an algorithm and model to analyze player performance with a new perspective. Currently, I’m challenging assumptions about the best point guard shooter of all time, using data to deepen the conversation. We even developed a STEAM game, <strong><i>Beat The Expert</i></strong>, allowing players to assess their skills and learn mathematics through basketball.</p> <p>This project delves beyond basic stats to explore factors impacting shooting performance, including metrics like effective field goal percentage and shot quality. I'm excited to introduce tools like shot plots, heat maps, and customized box scores, especially for our youth players.</p>
+    <p>Thanks for joining me on this journey—I'm looking forward to where it takes us! Here’s a bit more of my story…</p>
   </div>                   
-  <div class="image-section">
-    <img class="intro-image" src="{{site.baseurl}}/assets/img/feature-img/20240110_160544.webp" alt="">
+  <div class="about-1__image">
+    <img class="" src="{{site.baseurl}}/assets/img/blog-img/about-rashad-west.png" alt="">
+  </div>
+</section>
+<p class="about-1__foot-text">Let’s get to know each other a little better…</p>
+<br>
+<hr class="line">
+<br>
+<section class="about-2">
+  <div class="about-2__description">
+    <p>Over the years, I’ve dedicated myself to helping young players and fans of basketball 
+      deepen their skills and understanding of the game through data-driven insights and 
+      STEAM education. My work is all about challenging assumptions, finding new ways 
+      to evaluate performance, and supporting players as they grow. It's been a privilege
+       to bring innovative tools to the game and help others find joy and empowerment in
+        learning through basketball. </p>
+  </div>
+  <div class="about-2__flex">
+    <div class="about-2__description-1">
+      <h2>Education</h2>
+      <ul>
+        <li>Hampton University, BS, Business Management</li>
+        <li>Stanford University, Entrepreneurship & Innovation Program</li>
+        <li>New York University, AI School (Artificial Intelligence)</li>
+      </ul>
+  
+      <h2>Data Analytics Coursework</h2>
+      <ul>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.datacamp.com%2Fstatement-of-accomplishment%2Fcourse%2Ffabb7d75677a5fd7cde59a125e02650a7b02fc38" target="_blank" rel="noopener noreferrer">Datacamp: Introduction to Python</a></li>
+      </ul>
+  
+      <h2>Other CS Coursework</h2>
+      <ul>
+        <li>General Assembly: Introduction to Ruby on Rails (weekend course)</li>
+        <li>General Assembly: Introduction to IOS development (weekend course)</li>
+        <li>Unity C# Game Development 2D</li>
+        <li>CS50: Introduction to Game Development</li>
+      </ul>
+      <h2>Certifications</h2>
+      <ul>
+        <li>Google, VR & 360 video certification</li>
+        <li>NIL Certification (Front Office Sports, Instagram, Facebook)</li>
+        <li>Crypto in Sports Essentials (Front Office Sports, Coinbase)</li>
+      </ul>
+    </div>
+    <div class="about-2__image">
+      <img src="{{site.baseurl}}/assets/img/blog-img/Speaker5.webp" alt="">
+    </div>
   </div>
 </section>
 
-## Education
-- Hampton University, BS, Business Management
-- Stanford University, Entrepreneurship & Innovation Program
-- New York University, AI School (Artificial Intelligence)
+<section class="about-3">
+ 
+  <div class="about-3__flex">
+    <div class="about-3__description-1">
+      <h2>Projects</h2>
+    <ul>
+      <li>Beat The Expert VR application (version 1)
+        <ul>
+          <li>It is a virtual trainer</li>
+        </ul>
+      </li>
+      <li>Beat The Expert VR application (version 2)
+        <ul>
+          <li>It is a virtual trainer where you can compete with virtual characters</li>
+        </ul>
+      </li>
+      <li>Beat The Expert WebApp
+        <ul>
+          <li>It houses our curriculum and game</li>
+        </ul>
+      </li>
+      <li>Single Mothers VR experience
+        <ul>
+          <li>Shows an experience of a low-class single mother</li>
+        </ul>
+      </li>
+      <li>VR Diamond League
+        <ul>
+          <li>Producing the next elite athlete</li>
+        </ul>
+      </li>
+      <li>Sports Coding game
+        <ul>
+          <li>Teaching kids how to code through sports</li>
+        </ul>
+      </li>
+    </ul>
 
-## Data Analytics Coursework
-- [Datacamp: Introduction to Python](https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.datacamp.com%2Fstatement-of-accomplishment%2Fcourse%2Ffabb7d75677a5fd7cde59a125e02650a7b02fc38)
+    <h2>Innovation Programs</h2>
+    <ul>
+      <li>Berkley Startup Program
+        <ul>
+          <li>Learned about the legal aspects of a startup</li>
+        </ul>
+      </li>
+      <li>Code 2040 Entrepreneurship weekend</li>
+    </ul>
+    </div>
+    <div class="about-3__image">
+      <img src="{{site.baseurl}}/assets/img/blog-img/projects.png" alt="">
+    </div>
+  </div>
+</section>
 
-## Other CS Coursework
-- General Assembly: Introduction to Ruby on Rails (weekend course)
-- General Assembly: Introduction to IOS development (weekend course)
-- Unity C# Game Development 2D
-- CS50: Introduction to Game Development
-
-## Certifications 
-- Google, VR & 360 video certification
-- NIL Certification (Front Office Sports, Instagram, Facebook)
-- Crypto in Sports Essentials (Front Office Sports, Coinbase)
-
-## Projects 
-- Beat The Expert VR application (version 1)
- - It is a virtual trainer
-- Beat The Expert VR application (version 2)
-  - It is a virtual trainer where you can compete with virutal characters
-- Beat The Expert WebApp 
-  - It houses our curriculum and game
-- Single Mothers VR experience 
-  - Shows an experience of a low class single mother
-- VR Diamond League 
-  - Producing the next elite athlete 
-- Sports Coding game 
-  - Teaching kids how to code through sports 
-
-## Innovation Programs
-- Berkley Startup Program
- - Learned about the legal aspects of a startup
-- Code 2040 Entrepreneurship weekend
-
-## Work History
-- Wells Fargo
-- Credit Suisse 
-- Frontlines Operations, General Assembly (Aquired by Adecco)
-- Lead Trainer, Lifetime Athletic 
-- CEO, Courtside Xperience Labs Inc.
-- Managing Parnter, Beat The Expert
-
-## Interships 
-- Bloc Data Science internship, 2020
-
-## Fellowships & Accelerators
-- Oculus(Meta) LaunchPad Fellow 2017, 2018
-- HQ Labs (NCIDEA, Groundwork Labs)
-
-## Professional Athletic Experience
-- Idaho Stampede, NBA Developmental League 
-- OTC Basket, Argentina LEB
-- Gestribera Ciudad De Vigo Basket, Spain 
-- Assis Basket, Brazil 
-- Antranik Basket, Lebanon 
-- KK Vardar Basket, Macedonia
-- PurInstinct, Canada
-
-# Community 
-- Creator, Beat the Expert (STEAM Sport)
-- Creator, North Carolina Small Business Fund VR Workshop
-- Organizer, Black Wall Street Tech Futures event
-- Leadership Team, Catalyst Network Foundation 
-- Board Member, Greater Development of All Youth (G.D.A.Y Camps)
-- Speaker, Microsoft ManCode events
-- Speaker, Boys and Girls Club Golf Tournament
-- Speaker, Verizon Innovative Learning (NCCU summer initiaive)
-- Speaker, Shaw University Sports Banquet
-- Speaker, Saint Augustine University Sports Management Department 
-- Speaker, Johnson C. Smith Sports Management Department 
-- Speaker, Howard University Sports Management Department
+<section class="about-4">
+  <h2>How I can support you to thrive in your business…</h2>
+  <div class="about-4__follow-up">
+    <div class="about-4__image-1">
+      <a href="#" target="_blank" rel="noopener noreferrer">
+      <img src="{{site.baseurl}}/assets/img/blog-img/Speaker1.webp" alt="">
+        <p class="about-4__image-1__para-1">1:1</p>
+        <p class="about-4__image-1__para-2">Want to dive deep together 1:1 so you can bridge the gap between where you are now and where you truly want to be in your business?</p>
+      </a>
+    </div>
+    <div class="about-4__image-2">
+      <a href="#" target="_blank" rel="noopener noreferrer">
+      <img src="{{site.baseurl}}/assets/img/blog-img/speaker2.webp" alt="">
+        <p class="about-4__image-2__para-1">your simple & spacious business</p>
+        <p class="about-4__image-2__para-2">My flagship group program for online business owners ready to bring more freedom, ease, and intentional growth into your business.</p>
+      </a>
+    </div>
+  </div>
+</section>
 
 
-{% include gallery.html gallery_path=page.image-gallery %}
+<h2>Work History</h2>
+<ul>
+  <li>Wells Fargo</li>
+  <li>Credit Suisse</li>
+  <li>Frontlines Operations, General Assembly (Acquired by Adecco)</li>
+  <li>Lead Trainer, Lifetime Athletic</li>
+  <li>CEO, Courtside Xperience Labs Inc.</li>
+  <li>Managing Partner, Beat The Expert</li>
+</ul>
+
+<h2>Internships</h2>
+<ul>
+  <li>Bloc Data Science internship, 2020</li>
+</ul>
+
+<h2>Fellowships & Accelerators</h2>
+<ul>
+  <li>Oculus (Meta) LaunchPad Fellow 2017, 2018</li>
+  <li>HQ Labs (NCIDEA, Groundwork Labs)</li>
+</ul>
+
+<h2>Professional Athletic Experience</h2>
+<ul>
+  <li>Idaho Stampede, NBA Developmental League</li>
+  <li>OTC Basket, Argentina LEB</li>
+  <li>Gestribera Ciudad De Vigo Basket, Spain</li>
+  <li>Assis Basket, Brazil</li>
+  <li>Antranik Basket, Lebanon</li>
+  <li>KK Vardar Basket, Macedonia</li>
+  <li>PurInstinct, Canada</li>
+</ul>
+
+
+<h1>Community</h1>
+<ul>
+  <li>Creator, Beat the Expert (STEAM Sport)</li>
+  <li>Creator, North Carolina Small Business Fund VR Workshop</li>
+  <li>Organizer, Black Wall Street Tech Futures event</li>
+  <li>Leadership Team, Catalyst Network Foundation</li>
+  <li>Board Member, Greater Development of All Youth (G.D.A.Y Camps)</li>
+  <li>Speaker, Microsoft ManCode events</li>
+  <li>Speaker, Boys and Girls Club Golf Tournament</li>
+  <li>Speaker, Verizon Innovative Learning (NCCU summer initiative)</li>
+  <li>Speaker, Shaw University Sports Banquet</li>
+  <li>Speaker, Saint Augustine University Sports Management Department</li>
+  <li>Speaker, Johnson C. Smith Sports Management Department</li>
+  <li>Speaker, Howard University Sports Management Department</li>
+</ul>
+
+
+
