@@ -9,6 +9,10 @@
   .about-1__description{
     text-align: center;
   }
+  .about-1, .about-3, .about-5, .about-7{
+    display: flex;
+    justify-content: center;
+  }
   .about-1__description h1{
     font-size: 45px;
     color: grey;
@@ -19,7 +23,6 @@
   }
   .about-2{
     background-color: #c7c7c7;
-    min-height: 100vh;
     padding: 0px;
   }
   .about-2__description{
@@ -35,7 +38,6 @@
   
   .about-3{
     background-color: #ffffff;
-    min-height: 100vh;
   }
   .about-3__flex{
     padding: 4% 4%;
@@ -44,7 +46,6 @@
   }
   .about-4{
     background-color: #c7c7c7;
-    min-height: 100vh;
   }
   .about-4 h2{
     text-align: center;
@@ -116,7 +117,7 @@
   .about-6{
     text-align: center;
     padding: 4% 4%;
-    margin: 0% 10%;
+    margin: 4% 10% 10% 10%;
     box-shadow: 15px 15px 200px rgb(234 234 234);
   }
   .about-6 h2{
@@ -139,6 +140,17 @@
     color: #ffffff;
     background-color: #808080;
     border: 0px solid transparent;
+  }
+  .about-7{
+    background-color: #c7c7c7;
+  }
+  .about-7__flex{
+    padding: 4% 4%;
+    display: flex;
+    flex-direction: row;
+  }
+  .about-7 li{
+    padding-bottom:10px ;
   }
   @media screen and (max-width: 1024px) {
     .post-content{
@@ -183,6 +195,26 @@
     column-gap: 25px;
     padding: 0% 4%;
   }
+  .about-5__flex{
+    padding: 4% 4%;
+    display: flex;
+    flex-direction: column-reverse
+  }
+  .about-6 span{
+    font-size: 200%;
+  }
+  .about-6__button {
+    padding: 10px 15px;
+    color: #ffffff;
+    background-color: #808080;
+    border: 0px solid transparent;
+    font-size: medium;
+}
+.about-7__flex {
+  padding: 4% 4%;
+  display: flex;
+  flex-direction: column-reverse;
+}
   }
   @media screen and (min-width: 1024px) {
     .line{

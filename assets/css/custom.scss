@@ -61,7 +61,7 @@ nav li {
     margin-left: 20px;
   }
   .newsletter {
-    padding: 20px 0;
+    padding: 20px 10px !important;
     border: 1px solid #fff;
     margin-bottom: 20px;
     border-radius: 10px;
@@ -226,6 +226,13 @@ nav ul {
 }
 .title-padder {
   padding: 1%;
+}
+.title-padder{
+  .subtitle{
+    font-size: xx-large;
+    font-weight: bold;
+  }
+
 }
 .post-content h1 {
   color: var(--h1);
@@ -672,9 +679,7 @@ textarea {
     object-fit: cover;
     object-position: -600px;
 }
-  #more-intro{
-    min-height: 100vh;
-  }
+
   .intro-container{
     display: flex;
     flex-direction: column !important;
@@ -946,7 +951,7 @@ textarea {
 }
 
 #more-intro{
-  min-height: 100vh;
+  margin-bottom: 50px;
 }
 .intro-container{
   display: flex;
