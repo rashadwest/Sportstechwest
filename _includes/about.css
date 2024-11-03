@@ -102,6 +102,44 @@
   .about-4__image-2 .about-4__image-2__para-2{
     font-weight: bolder;
   }
+  .about-5__flex{
+    padding: 4% 4%;
+    display: flex;
+    flex-direction: row;
+  }
+  .about-5__description-1{
+    flex: 50%;
+  }
+  .about-5__image{
+    flex: 50%;
+  }
+  .about-6{
+    text-align: center;
+    padding: 4% 4%;
+    margin: 0% 10%;
+    box-shadow: 15px 15px 200px rgb(234 234 234);
+  }
+  .about-6 h2{
+    color: #808080;
+    font-style: italic;
+    font-weight: bold;
+  }
+  .about-6__client-name{
+    font-style: italic;
+    font-weight: bold;
+  }
+  .about-6__date{
+    text-align: right;
+    margin-right: 20px;
+    color: #c7c7c7;
+    font-style: italic;
+  }
+  .about-6__button{
+    padding: 10px 20px;
+    color: #ffffff;
+    background-color: #808080;
+    border: 0px solid transparent;
+  }
   @media screen and (max-width: 1024px) {
     .post-content{
       padding: 4% 0%;

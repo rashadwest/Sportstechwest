@@ -8,7 +8,7 @@
   {% capture _head %}{% include default/head.liquid %}{% endcapture %}
   {{ _head | split: " " | join: " "}}
   <body>
-    {% capture _navbar %}{% include default/navbar.liquid %}{% endcapture %}
+    {% capture _navbar %}{% include default/navbar.html %}{% endcapture %}
     {{ _navbar | split: " " | join: " "}}
    
     <div class="content">
@@ -21,4 +21,27 @@
       
       
   </body>
+
+  <script>
+    
+    const currentPath = window.location.pathname.replace(/\/$/, ''); // Get the current path without trailing slash
+
+
+
+    // Select all elements with the class "nav-link"
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Iterate through each link
+    navLinks.forEach(link => {
+        let href = link.getAttribute('href').replace(/\/$/, ''); // Get the href of the link without trailing slash
+        // Check if href matches the current path
+        if (href === currentPath) {
+            link.classList.add('active'); // Add 'active' class if paths match
+        }
+    });
+
+
+
+
+</script>
 </html>

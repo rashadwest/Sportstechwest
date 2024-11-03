@@ -105,7 +105,21 @@ nav li {
   .fa-youtube{
     margin-left: 5px !important;
   }
-
+/* Active link styling */
+.nav-link.active {
+  background-color: #8e8e8e;
+  color: #fff;
+  border-radius: 20px;
+  display: block;
+  padding: 0px 20px;  
+}
+.nav-link:hover{
+  background-color: #8e8e8e;
+  color: #fff;
+  border-radius: 20px;
+  display: block;
+  padding: 0px 20px;  
+}
 }
 
 .avatar{
@@ -131,6 +145,8 @@ nav li {
 nav ul {
   line-height: 2.5 !important;
 }
+
+
 @media (prefers-color-scheme: dark) {
   .avatar-light{
     display: none;
@@ -151,6 +167,7 @@ nav ul {
 
 .site-header {
   border-bottom: 1px solid var(--nav-links);
+  background: linear-gradient(48deg, #bcbcbc, transparent);
 }
 .main-content {
   display: flex;
@@ -905,6 +922,14 @@ textarea {
   }
   .hide-on-desktop {
     display: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  .nav-link.active {
+    border-bottom-style: solid;
+  }
+  .nav-link:hover{
+    border-bottom-style: solid;
   }
 }
 
