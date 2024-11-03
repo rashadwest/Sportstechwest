@@ -570,7 +570,9 @@ textarea {
   margin-bottom: 10px; /* Space between image and button */
   cursor: pointer;
 }
-
+.grid-item{
+  cursor: pointer;
+}
 .image-container button {
   display: block;
   width: fit-content;
