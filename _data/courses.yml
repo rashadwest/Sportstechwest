@@ -45,20 +45,24 @@
 - Certificate 12:
   title: Large Language Models (LLMs) Concepts
   path: assets/img/courses-and-certificates/Large Language Models (LLMs) Concepts.webp
-  pdf-link: /assets/img/courses-and-certificates/pdf/.pdf
+  pdf-link: /assets/img/courses-and-certificates/pdf/LLM_certificate.pdf
 - Certificate 13:
+  title: Marketing Analytics for Business
+  path: assets/img/courses-and-certificates/Marketing Analytics for Business.png
+  pdf-link: /assets/img/courses-and-certificates/pdf/Marketing_Analytics_certificate.pdf
+- Certificate 14:
   title: Understanding Data Engineering
   path: assets/img/courses-and-certificates/Understanding Data Engineering.webp
   pdf-link: /assets/img/courses-and-certificates/pdf/data_engineering_certificate.pdf
-- Certificate 14:
+- Certificate 15:
   title: Understanding Data Science
   path: assets/img/courses-and-certificates/Understanding Data Science.webp
   pdf-link: /assets/img/courses-and-certificates/pdf/Understanding_Data_Science_certificate.pdf
-- Certificate 15:
+- Certificate 16:
   title: Understanding Data Visualization
   path: assets/img/courses-and-certificates/Understanding Data Visualization.webp
   pdf-link: /assets/img/courses-and-certificates/pdf/Understanding_Data_Viz_certificate.pdf
-- Certificate 16:
+- Certificate 17:
   title: Understanding Machine Learning
   path: assets/img/courses-and-certificates/Understanding Machine Learning.webp
   pdf-link: /assets/img/courses-and-certificates/pdf/LLM_certificate.pdf
