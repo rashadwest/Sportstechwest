@@ -48,7 +48,7 @@ We need to make the distinctions of the hexidecimal color chart so that everyone
 
 Think about data coorilation.  Think about how to define putting the player in a specific location.  We have to make our own way of defining our system 
 similar to a Second Spectrum.  When we label the actual colors our grid will enable us to have a great visual representation of where a player takes a shot.
-![Hexidecimal color example]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-07-16%20at%205.34.41%20PM.png)
+![Hexidecimal color example]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-07-16%20at%205.34.41%20PM.webp)
 
 
 Model 

@@ -47,8 +47,8 @@ Do not let life take that away from you because of one bad person or circumstanc
 Here is some information on Alston and his journey below and how he helps individuals learn about Blockchain at his formal school the other HU.  Its all love though! :)
 
 Alston Ezra Clark
-https://www.youtube.com/watch?v=JtK21MtqFOE&t=2s
+[https://www.youtube.com/watch?v=JtK21MtqFOE&t=2s](https://www.youtube.com/watch?v=JtK21MtqFOE&t=2s)
 
 Alston Ezra Clark
-zionroar.com
-https://www.zionroar.com/
+[zionroar.com](https://www.zionroar.com/)
+

@@ -20,7 +20,7 @@ Back to when you have fun playing games like king of the court, 50, 21, etc. wit
 
 We are bringing the fun back to the game and making it about more than just highlights by giving the players and statisticians the power over their own data. 
 
-![]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Speaker2.jpg?raw=true)
-![]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Speaker3.jpg?raw=true)
-![]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Speaker4.jpg?raw=true)
-![]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Speaker5.jpg?raw=true)
+![]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Speaker2.webp?raw=true)
+![]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Speaker3.webp?raw=true)
+![]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Speaker4.webp?raw=true)
+![]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Speaker5.webp?raw=true)

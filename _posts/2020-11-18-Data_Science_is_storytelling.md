@@ -4,7 +4,7 @@ title: "Data Science is storytelling"
 thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 ---
 
-![Data storytelling]({{site.url}}{{site.baseurl}}/assets/img/blog-img/data_story3_sq-1.png?raw=true)
+![Data storytelling]({{site.url}}{{site.baseurl}}/assets/img/blog-img/data_story3_sq-1.webp?raw=true)
 
 I am starting to feel good about learning data science.  It is merely factual storytelling.  If you can find facts and use them to tell a story, you are a good data scientist. 
 

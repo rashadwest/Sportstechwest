@@ -69,7 +69,3 @@ Figure out a way to give them the evolution of the product!
 Elementary School 
 Middle School 
 High School 
-
-
-
-

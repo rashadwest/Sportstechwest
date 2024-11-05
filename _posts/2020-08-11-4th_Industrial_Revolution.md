@@ -8,7 +8,7 @@ thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 
 ## The culture of data and analytics
 
-![]({{site.url}}{{site.baseurl}}/assets/img/blog-img/4th-industrial-revolution-graphics.png?=raw)
+![]({{site.url}}{{site.baseurl}}/assets/img/blog-img/4th-industrial-revolution-graphics.webp?=raw)
 
 The talent coming into the analytics business is impressive.  I think in sports there should be two different types of people. The person who knows the game of basketball and then a math or data expert. 
 I think it would be great if these two individuals work together.  

@@ -9,11 +9,11 @@ thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 I have been running into errors lately and instead of getting frustrated and going off and doing something else and then coming back I am going to 
 try to figure it out myself more now.  I see that it is always simple mistakes.  
 
-![Error]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-07-19%20at%202.10.55%20PM.png)
+![Error]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-07-19%20at%202.10.55%20PM.webp)
 
 
 Sometimes it is the simple things like the word areas and not area. 
-![Solution]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-07-19%20at%202.10.55%20PM.png)
+![Solution]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-07-19%20at%202.10.55%20PM.webp)
 
 # area variables (in square meters)
 hall = 11.25

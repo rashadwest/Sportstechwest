@@ -15,7 +15,7 @@ In probability and statistics, a probability mass function is a function that gi
 A histogram is always calculated using a finite number of samples, while the pmf is what would be obtained with an infinite number of samples.
 
 I do not know why the second line is not right.  Instead they do not need much the solution is below. 
-![PMF problem set]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-08-02%20at%2010.27.13%20PM.png?raw=true)
+![PMF problem set]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-08-02%20at%2010.27.13%20PM.webp?raw=true)
 
 I figured out the 3rd line easily with the hint.  I try my best not to take the hint!
-![Solution]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-08-02%20at%2010.47.43%20PM.png?raw=true)
+![Solution]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-08-02%20at%2010.47.43%20PM.webp?raw=true)

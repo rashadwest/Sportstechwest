@@ -16,5 +16,5 @@ Steph is a little different, however. Kyrie looks for the pick and roll or pin d
 
 I plan to look at the top 9 games of Steph and Kyrie this week.  If you wonder why it is 9 games, it is because I cannot find one of Stephs’ games film.
 
-![BTE_Analytics]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Stephen%20Curry%20_%209%20Game%20stats%20(1)%20(1).jpeg?raw=true)
+![BTE_Analytics]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Stephen%20Curry%20_%209%20Game%20stats%20(1)%20(1).webp?raw=true)
  

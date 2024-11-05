@@ -20,21 +20,21 @@ Data:
 
 Chris Mullen
 
-https://www.basketball-reference.com/players/m/mullich01.html
-https://www.basketball-reference.com/players/m/mullich01/gamelog/1989/
-https://www.basketball-reference.com/players/m/mullich01/gamelog/1990/
-https://www.basketball-reference.com/players/m/mullich01/gamelog/1991/
+[https://www.basketball-reference.com/players/m/mullich01.html](https://www.basketball-reference.com/players/m/mullich01.html)
+[https://www.basketball-reference.com/players/m/mullich01/gamelog/1989/](https://www.basketball-reference.com/players/m/mullich01/gamelog/1989/)
+[https://www.basketball-reference.com/players/m/mullich01/gamelog/1990/](https://www.basketball-reference.com/players/m/mullich01/gamelog/1990/)
+[https://www.basketball-reference.com/players/m/mullich01/gamelog/1991/](https://www.basketball-reference.com/players/m/mullich01/gamelog/1991/)
 Tim Hardaway
 
-https://www.basketball-reference.com/players/h/hardati01.html
-https://www.basketball-reference.com/players/h/hardati01/gamelog/1990/
-https://www.basketball-reference.com/players/h/hardati01/gamelog/1991/
+[https://www.basketball-reference.com/players/h/hardati01.html](https://www.basketball-reference.com/players/h/hardati01.html)
+[https://www.basketball-reference.com/players/h/hardati01/gamelog/1990/](https://www.basketball-reference.com/players/h/hardati01/gamelog/1990/)
+[https://www.basketball-reference.com/players/h/hardati01/gamelog/1991/](https://www.basketball-reference.com/players/h/hardati01/gamelog/1991/)
 Mitch Richmond
 
-https://www.basketball-reference.com/players/r/richmmi01.html
-https://www.basketball-reference.com/players/r/richmmi01/gamelog/1989/
-https://www.basketball-reference.com/players/r/richmmi01/gamelog/1990/
-https://www.basketball-reference.com/players/r/richmmi01/gamelog/1991/
+[https://www.basketball-reference.com/players/r/richmmi01.html](https://www.basketball-reference.com/players/r/richmmi01.html)
+[https://www.basketball-reference.com/players/r/richmmi01/gamelog/1989/](https://www.basketball-reference.com/players/r/richmmi01/gamelog/1989/)
+[https://www.basketball-reference.com/players/r/richmmi01/gamelog/1990/](https://www.basketball-reference.com/players/r/richmmi01/gamelog/1990/)
+[https://www.basketball-reference.com/players/r/richmmi01/gamelog/1991/](https://www.basketball-reference.com/players/r/richmmi01/gamelog/1991/)
 Assumptions:
 
 "Chris Mullen is above; We are trying to figure out why he had a decrease in performance year after year. 27 points, 6 rebounds and 4 assists is comparable to Lebron James and this was early in Chris Mullens career."

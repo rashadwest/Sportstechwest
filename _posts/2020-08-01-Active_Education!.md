@@ -25,4 +25,4 @@ My friend Dr. John Drazan says it best in this speech he gave at MIT when he won
 
 The one thing I realize that in our society seeing is believing! Execute! Execute! Execute!
 
-![A player doing the BTE Dribble Tree]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-09-01%20at%2010.30.08%20PM.png?raw=true)
+![A player doing the BTE Dribble Tree]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-09-01%20at%2010.30.08%20PM.webp?raw=true)

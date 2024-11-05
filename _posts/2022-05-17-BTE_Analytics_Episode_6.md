@@ -8,7 +8,7 @@ thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 
 A note I sent myself when I first started on this journey. 
 
-![A note to self]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202022-05-18%20at%2012.24.03%20AM.png?raw=true)
+![A note to self]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202022-05-18%20at%2012.24.03%20AM.webp?raw=true)
 
 This is how it all started with analytics. I was in NYC working at General Assembly part time and working out for basketball.  I started to record 
 basketball training audio with crowd noise to work out by myself.  That was the first version of the virtual trainer.  

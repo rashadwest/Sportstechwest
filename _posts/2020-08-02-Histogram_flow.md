@@ -24,11 +24,11 @@ Histograms are one of the most useful tools in exploratory data analysis. They q
 
 As we saw in a previous exercise, the NSFG dataset includes a variable 'agecon' that records age at conception for each pregnancy. Here, you're going to plot a histogram of this variable. You'll use the bins parameter that you saw in the video, and also a new parameter - histtype - which you can read more about here in the matplotlib documentation. Learning how to read documentation is an essential skill. If you want to learn more about matplotlib, you can check out DataCamp's Introduction to Matplotlib course.
 
-![Histogram]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-08-02%20at%209.25.03%20PM.png?raw=true)
+![Histogram]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-08-02%20at%209.25.03%20PM.webp?raw=true)
 
 This is an assignment where I messed up on the code in the second line.  I was not sure how to make it happen.  You can see the error below.  As you can see my solution 
 intitally I just have birth_weight and full_term out of order.  
-![Compute:Infant baby weight assignment]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-08-02%20at%208.57.35%20PM.png?raw=true)
+![Compute:Infant baby weight assignment]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-08-02%20at%208.57.35%20PM.webp?raw=true)
 
 ```
 # Create a Boolean Series for full-term babies

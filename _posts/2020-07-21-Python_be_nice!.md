@@ -68,7 +68,7 @@ Another example I did this right but I did not think to put downstairs = areas[:
 
 Below was an euphoric moment for me.  I figured out how to think about this problem.  At first I did not know what they were talking about. Then I ran some of the code and then looked back at what values were printed for floats in the previous excercise.  I wonder if this is the only way to go about this.  I will ask Alivia tomorrow. 
 
-![List Lesson]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-07-24%20at%202.26.15%20AM.png)
+![List Lesson]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-07-24%20at%202.26.15%20AM.webp)
 
 On this one I do not understand what I did wrong.  I cannot wait to see the results.  They are starting to make it fun as I feel like I am invloved in building a house.
 

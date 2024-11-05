@@ -14,6 +14,6 @@ We are looking throughout the year at certain players to determine their efficie
 know the dribble tree or it may seem confusing.  I have also included the dribble tree legend here.  I will continue to post about the progress of this vizualization. 
 I am also working on a shot plot but their are a few bugs that I am working through at the moment in my jupiter notebook.
 
-![BTE Analytic]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Rozier_Morant.png?raw=true)
+![BTE Analytic]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Rozier_Morant.webp?raw=true)
 
-![BTE Dribble Tree]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-08-30%20at%209.37.28%20PM.png?raw=true)
+![BTE Dribble Tree]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-08-30%20at%209.37.28%20PM.webp?raw=true)

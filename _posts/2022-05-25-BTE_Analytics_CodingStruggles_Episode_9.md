@@ -17,8 +17,8 @@ I have been working on two things all day today.
     - I am going to look into more ways to add the file 
 
 
-  - ![Struggle1]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Struggle1.png?raw=true)
-  - ![Struggle2]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Struggle2.png?raw=true)
+  - ![Struggle1]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Struggle1.webp?raw=true)
+  - ![Struggle2]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Struggle2.webp?raw=true)
 
 
 I need to work on being more productive when I cannot accomplish a goal that I wanted to accomplish on the workday. 

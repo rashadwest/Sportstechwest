@@ -27,4 +27,4 @@ SyntaxError: can't assign to literal
 
 Adding image
 
-![alt text]({{ site.url }}{{ site.baseurl }}/assets/img/blog-img/Screen Shot 2020-07-07 at 11.53.25 AM.png)
+![alt text]({{ site.url }}{{ site.baseurl }}/assets/img/blog-img/Screen Shot 2020-07-07 at 11.53.25 AM.webp)

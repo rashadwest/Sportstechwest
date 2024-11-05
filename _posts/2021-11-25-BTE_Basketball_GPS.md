@@ -23,16 +23,16 @@ What we have now is google maps and you can tell where the cars are on the map. 
 This can help to determine a players strengths 
 
 This is the first Crossover dribble of the possesion off of the catch and really is not an attacking dribble. (Crossover/Blue/2)
-![Bball GPS]({{site.url}}{{site.baseurl}}/assets/img/blog-img/DW%20-%20Cross.png?raw=true)
+![Bball GPS]({{site.url}}{{site.baseurl}}/assets/img/blog-img/DW%20-%20Cross.webp?raw=true)
 
 This is a Pound prep dribble to go into a move. (Pound/Red/1)
-![Bball GPS]({{site.url}}{{site.baseurl}}/assets/img/blog-img/DW%20-%20Pound(1).png?raw=true)
+![Bball GPS]({{site.url}}{{site.baseurl}}/assets/img/blog-img/DW%20-%20Pound(1).webp?raw=true)
 
 This is the In & Out combo dribble as he does a attacking move to shift his defender and get to the basket. (In&Out/Green/3)
-![Bball GPS]({{site.url}}{{site.baseurl}}/assets/img/blog-img/DW%20-%20In%20%26%20Out.png?raw=true)
+![Bball GPS]({{site.url}}{{site.baseurl}}/assets/img/blog-img/DW%20-%20In%20%26%20Out.webp?raw=true)
 
 This is a Pound dribble past his defender to then cuff the ball and take two long steps to get to the rim and finish or get fouled (Pound/Red/1)
-![Bball GPS]({{site.url}}{{site.baseurl}}/assets/img/blog-img/DW%20-%20Pound(2).png?raw=true)
+![Bball GPS]({{site.url}}{{site.baseurl}}/assets/img/blog-img/DW%20-%20Pound(2).webp?raw=true)
 
 This is the result of the play which is a dunk. (No Dribble)
-![Bball GPS]({{site.url}}{{site.baseurl}}/assets/img/blog-img/DW%20-%20Dunk.png?raw=true)
+![Bball GPS]({{site.url}}{{site.baseurl}}/assets/img/blog-img/DW%20-%20Dunk.webp?raw=true)

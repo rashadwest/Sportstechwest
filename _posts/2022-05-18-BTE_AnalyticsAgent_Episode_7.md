@@ -12,7 +12,7 @@ He leaned completely on the data. Data and analytics will revolutionize sports i
 
 It shows her vitals, including height, weight, etc like most platforms. It goes into more details as it talks about the quality of her game, including short passes, long passes, tackles, interceptions, etc. This is all great, but what is interesting is it shows player potential. 
 
-![TransferLab: Lauren Hemp ‘Centre-Back All Around’]({{ site.url }}{{ site.baseurl }}/assets/img/blog-img/Lauren%20Hemp.png?raw=true)
+![TransferLab: Lauren Hemp ‘Centre-Back All Around’]({{ site.url }}{{ site.baseurl }}/assets/img/blog-img/Lauren%20Hemp.webp?raw=true)
 
 We think we are doing something similar to our platform. If players want to see their value, they can come to us. I would not suggest they get rid of their agent because a bunch of players are not business savvy and need to focus on their craft. I think the time is coming where every player is going to hire an analytic company to show their value. 
 
@@ -30,7 +30,7 @@ It would be great to work with agents on helping them get their players a fair d
 
 "One Premier League data scientist told TGG he expected all leading players to come into contract negotiations with a ‘portfolio’ like this within the next three years."
 
-![Rankings: ‘Top Centre-Backs – All Around’ at U23]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Rankings.png?raw=true)
+![Rankings: ‘Top Centre-Backs – All Around’ at U23]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Rankings.webp?raw=true)
 
 This is the first time a player has reached out to the company in soccer and we think Beat The Expert will be the first in basketball. We will rank players a little different.  We will show the head to head match up.  Unique data against unique data. BTE will be different in this regard.
 

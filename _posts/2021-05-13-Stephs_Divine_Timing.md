@@ -4,7 +4,7 @@ title: "Stephs Divine Timing"
 thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 ---
 
-![Steph_Stats]({{site.url}}{{site.baseurl}}/assets/img/blog-img/New_Steph.jpg?raw=true)
+![Steph_Stats]({{site.url}}{{site.baseurl}}/assets/img/blog-img/New_Steph.webp?raw=true)
 
 
 Steph is the best shooter of all time. He also had divine timing that has made him unguardable in the modern-day NBA.  Let's look at what made him great at this time.  It also made me think about why players like Dame Lililard and Steph Curry did not end up in the spark of the bench category like Jamal Crawford and Lou Williams.  If he was a starter in the 80's or 90's I think he would fall somewhere between Mark Price and Steve Nash because of the lack of opportunities to shoot. 
@@ -30,7 +30,7 @@ Here is why I think if Steph was a player in the late 90's early 2000s, his curr
 
 -- Shooting the ball off the dribble from 3ball was looked at as selfish.  At the time, no one really could do so because the step back was only looked at as a good shot from the 2 point line.  The lack of moves that free you up in a limited amount of dribbles made it hard to create a good amount of space.  
 
-![alt text]({{site.url}}{{site.baseurl}}/assets/img/blog-img/steph_shot_plot.png?raw=true)
+![alt text]({{site.url}}{{site.baseurl}}/assets/img/blog-img/steph_shot_plot.webp?raw=true)
 
 
 Images: Compliment of STATMUSE

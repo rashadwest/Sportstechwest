@@ -6,7 +6,7 @@ thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 
 # Bubble Innovation Opportunities 
 
-![]({{site.url}}{{site.baseurl}}/assets/img/blog-img/NBA%20Bubble.jpeg?raw=true)
+![]({{site.url}}{{site.baseurl}}/assets/img/blog-img/NBA%20Bubble.webp?raw=true)
 
 Looking at the NBA bubble, I see so many opportunities for startups and companies to create things that will enhance the fan experience.  
 

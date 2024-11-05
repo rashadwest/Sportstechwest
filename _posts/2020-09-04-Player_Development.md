@@ -6,7 +6,7 @@ thumbnail: "assets/img/blog-img/wip2.webp"
 
 # Player Development 
 
-![]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Steph.png?raw=true)
+![]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Steph.webp?raw=true)
 
 We have to hold players accountable.  I have a list of things in which I believe should be focus areas for player development. Players should ask themselves if they can do better in each statistical category.   
 

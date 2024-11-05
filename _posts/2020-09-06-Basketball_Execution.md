@@ -6,7 +6,7 @@ thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 
 # Basketball Execution 
 
-![]({{site.url}}{{site.baseurl}}/assets/img/blog-img/raptors%20vs%20celtics%203s.png?raw=true)
+![]({{site.url}}{{site.baseurl}}/assets/img/blog-img/raptors%20vs%20celtics%203s.webp?raw=true)
 
 First and foremost, I want to thank "The Athletic" for showing this great graphic in their recent article about "basketball grandmasters." Secondly,  it is hard for me to say anyone is a grandmaster without winning a championship.  That is what a grandmaster is. Brand Stevens won on the college level but not on the professional level.
 

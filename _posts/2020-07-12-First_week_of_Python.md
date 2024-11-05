@@ -85,10 +85,3 @@ In [11]: I started with $100 and now have $194.87171000000012. Awesome!
 <script.py> output:
     I started with $100 and now have $194.87171000000012. Awesome!
 ```
-
-
-
-
-
-
-

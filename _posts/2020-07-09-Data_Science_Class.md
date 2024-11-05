@@ -14,6 +14,6 @@ I have realized that data science has been around for a long time but the tools 
 I am thankful for the time in which I am learning it. It is a blessing. 
 
 Here is the video.
-https://youtu.be/WEBUWYxaqLQ
+[https://youtu.be/WEBUWYxaqLQ](https://youtu.be/WEBUWYxaqLQ)
 
 Here is the written content.

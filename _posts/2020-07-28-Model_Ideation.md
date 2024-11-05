@@ -18,7 +18,7 @@ My idea is to create an algo similar to what Genius has.  The company Genius has
 that comment on what the meaning of each line, bar, or lyric means.  
 
 This could enable individuals to search for topics or anything they want and most things could turn out search results if they keep a large database of everything that is stored.  
-https://genius.com/
+[https://genius.com/](https://genius.com/)
 
 They could sort everything through a filtering system by subject matter and let the subject results with that particular word or phrase in it to be brought up first.
 
