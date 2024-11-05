@@ -224,10 +224,19 @@ nav ul {
 .post-content img {
   margin: 30px auto !important;
 }
+.post-content p a {
+  color: #36c !important;
+}
+.post-content p h1 {
+  
+}
 .title-padder {
   padding: 1%;
 }
 .title-padder{
+  .title{
+    text-shadow: 0px 0px 0px white !important;
+  }
   .subtitle{
     font-size: xx-large;
     font-weight: bold;
