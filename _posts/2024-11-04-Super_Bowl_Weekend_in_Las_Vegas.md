@@ -16,7 +16,7 @@ I also caught up with [Mitch Richmond](https://en.wikipedia.org/wiki/Mitch_Richm
 ![superbowl-1]({{site.baseurl}}/assets/img/blog-img/superbowl-1.webp)
 
 ### My First Pitch on Data Equity
-In the midst of the weekend’s events, I had my first pitch with [Jessica Gilman](https://mitsloan.mit.edu/faculty/directory/jessica-gilman) from [MIT Sloan School of Management](https://mitsloan.mit.edu/), presenting my work in **data equity**. Sharing my vision with someone from such a respected institution was a significant milestone, and I valued her insights and feedback.
+In the midst of the weekend’s events, I had my first pitch with [Jessica Gilman](https://www.instagram.com/jessroadtrip/) from [MIT Sloan School of Management](https://exec.mit.edu/s/), presenting my work in **data equity**. Sharing my vision with someone from such a respected institution was a significant milestone, and I valued her insights and feedback.
 
 ### Meeting with Sports Technology Investors
 Super Bowl weekend also brought together investors from various industries, allowing me to make new connections with those who see potential in **sports technology**.
@@ -25,7 +25,7 @@ Super Bowl weekend also brought together investors from various industries, allo
 I spent quality time with good friends from [Hampton University](https://home.hamptonu.edu/), including my former teammate Jeff Granger and Chad Easterling. The weekend was a perfect mix of business and personal moments, filled with unforgettable events.
 
 ### Memorable Events Hosted Across Las Vegas
-I attended gatherings hosted by **The Players Impact Group**, [Lawrence Taylor](https://en.wikipedia.org/wiki/Lawrence_Taylor)'s camp event, and pitch sessions at **WeWork** and other venues across Las Vegas. From [Marshawn Lynch](https://en.wikipedia.org/wiki/Marshawn_Lynch) and [Too Short](https://en.wikipedia.org/wiki/Too_Short)’s event to the high energy at each pitch, the entire weekend was packed with inspiration and connection.
+I attended gatherings hosted by **The Players Impact Group**, [Lawrence Taylor](https://www.profootballhof.com/players/lawrence-taylor/)'s camp event, and pitch sessions at **WeWork** and other venues across Las Vegas. From [Marshawn Lynch](https://www.nfl.com/players/marshawn-lynch/) and [Too Short](https://www.imdb.com/name/nm0790001/)’s event to the high energy at each pitch, the entire weekend was packed with inspiration and connection.
 
 ### Reflecting on the 49ers and Future Goals
 The only downside? My childhood team, the [San Francisco 49ers](https://www.49ers.com/), didn’t make it to the game. Although I didn’t attend this year’s Super Bowl, I’m already setting my sights on going next year, fully inspired and ready to take on new goals. This weekend reminded me just how powerful connections and experiences can be, pushing me forward in both life and work.

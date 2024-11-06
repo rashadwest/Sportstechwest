@@ -1,6 +1,18 @@
 ---
 layout: default
 ---
+
+<style>
+@media screen and (min-width: 1024px) {
+    .post-content img {
+        width: 75%;
+        display: flex;
+        cursor: pointer;
+    }
+}
+
+
+</style>
 <article {% if page.feature-img or page.color %}class="feature-image" {% endif %}>
     <header id="main" style="">
         <div class="title-padder">
@@ -29,3 +41,27 @@ layout: default
 </article>
 
 {% include blog/post_footer.liquid color=page.color img=page.feature-img %}
+
+<script>
+    const lightbox = document.createElement('div')
+lightbox.id = 'lightbox'
+document.body.appendChild(lightbox)
+
+const images = document.querySelectorAll('.post-content img')
+images.forEach(image => {
+  image.addEventListener('click', e => {
+    lightbox.classList.add('active')
+    const img = document.createElement('img')
+    img.src = image.src
+    while (lightbox.firstChild) {
+      lightbox.removeChild(lightbox.firstChild)
+    }
+    lightbox.appendChild(img)
+  })
+})
+
+lightbox.addEventListener('click', e => {
+  if (e.target !== e.currentTarget) return
+  lightbox.classList.remove('active')
+})
+</script>
