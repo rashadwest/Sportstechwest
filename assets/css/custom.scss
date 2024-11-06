@@ -223,6 +223,7 @@ nav ul {
 }
 .post-content img {
   margin: 30px auto !important;
+  display: flex;
 }
 .post-content p a {
   color: #36c !important;
@@ -939,6 +940,9 @@ textarea {
   .hide-on-desktop {
     display: none;
   }
+  .post-content img {
+    width: 75%;
+  }
 }
 @media screen and (min-width: 768px) {
   .nav-link.active {
@@ -982,3 +986,4 @@ textarea {
   width: 400px;
   margin-top: 55px;
 }
+

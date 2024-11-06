@@ -2,16 +2,18 @@
 layout: post
 thumbnail: "assets/img/blog-img/superbowl-lvii-las-vegas.jpg"
 title: "Super Bowl Weekend in Las Vegas: Connections and Experiences"
+feature-img: "assets/img/header/superbowl-lvii-las-vegas.webp"
 ---
-
-
-![superbowl-lvii-las-vegas]({{site.baseurl}}/assets/img/blog-img/superbowl-lvii-las-vegas.jpg)
 
 ### Unforgettable Connections with NFL Legends
 Super Bowl weekend in Las Vegas was unforgettable—not just because of the big game but for the incredible networking opportunities and meaningful connections it brought. A highlight was spending time with NFL legends [Ray Lewis](https://en.wikipedia.org/wiki/Ray_Lewis) and [Charles Woodson](https://en.wikipedia.org/wiki/Charles_Woodson) at **Eight**, the upscale cigar lounge at [Resorts World Las Vegas](https://www.rwlasvegas.com/). Sharing that space with two athletes I’ve admired for years and connecting with them on a personal level was truly surreal. 
 
+![superbowl-2]({{site.baseurl}}/assets/img/blog-img/superbowl-2.webp)
+
 ### Reconnecting with Mitch Richmond
 I also caught up with [Mitch Richmond](https://en.wikipedia.org/wiki/Mitch_Richmond), a conversation that reminded me of my journey. Mitch and I originally met on a flight from San Francisco to [NBA Summer League](https://www.nba.com/summer-league), and he’s always been easy to talk to, with a real understanding of my mission.
+
+![superbowl-1]({{site.baseurl}}/assets/img/blog-img/superbowl-1.webp)
 
 ### My First Pitch on Data Equity
 In the midst of the weekend’s events, I had my first pitch with [Jessica Gilman](https://mitsloan.mit.edu/faculty/directory/jessica-gilman) from [MIT Sloan School of Management](https://mitsloan.mit.edu/), presenting my work in **data equity**. Sharing my vision with someone from such a respected institution was a significant milestone, and I valued her insights and feedback.
