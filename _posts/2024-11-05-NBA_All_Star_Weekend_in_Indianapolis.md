@@ -1,6 +1,6 @@
 ---
 layout: post
-thumbnail: "assets/img/blog-img/nba-all-stars-image.webp"
+thumbnail: "assets/img/header/nba-all-stars-image.webp"
 title: "NBA All-Star Weekend in Indianapolis: Events, Challenges, and Unforgettable Connections"
 feature-img: "assets/img/header/nba-all-stars-image.webp"
 ---
