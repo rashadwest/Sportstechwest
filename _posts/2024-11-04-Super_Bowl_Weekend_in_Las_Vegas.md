@@ -1,6 +1,6 @@
 ---
 layout: post
-thumbnail: "assets/img/blog-img/superbowl-lvii-las-vegas-thumbnail.webp"
+thumbnail: "assets/img/header/superbowl-lvii-las-vegas.webp"
 title: "Super Bowl Weekend in Las Vegas: Connections and Experiences"
 feature-img: "assets/img/header/superbowl-lvii-las-vegas.webp"
 ---
