@@ -13,9 +13,24 @@ layout: default
       width: 50%;
       display: flex;
       height: 40%;
+      margin-bottom: 20px;
+  }
+  .img-flex{
+    display: flex;
+    flex-direction: roll;
+  }
+  .img-flex img{
+    flex: 50%;
+    width: 40%;
+    padding: 0px 2% !important;
+    object-fit: cover;
   }
 }
-
+@media screen and (max-width: 768px) {
+  .post-content video {
+      width: 100%;
+  }
+}
 
 </style>
 <article {% if page.feature-img or page.color %}class="feature-image" {% endif %}>

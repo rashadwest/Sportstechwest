@@ -1,45 +1,32 @@
 <!DOCTYPE html> 
 <html> 
 <body> 
+<style>
+  .hover-effect span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
 
-<div style="text-align:center"> 
-  <button onclick="playPause()">Play/Pause</button> 
-  <button onclick="makeBig()">Big</button>
-  <button onclick="makeSmall()">Small</button>
-  <button onclick="makeNormal()">Normal</button>
-  <br><br>
-  <video id="video1" width="420">
-    
-    <source src="{{site.baseurl}}/assets/img/feature-img/Performance_Data_Monetization(480p).webm" type="video/webm" />
-    Your browser does not support HTML video.
-  </video>
-</div> 
+.hover-effect:hover span {
+  transform: scale(1.2); /* Increase font size */
+}
 
-<script> 
-var myVideo = document.getElementById("video1"); 
+.hover-effect span:nth-child(1) { transition-delay: 0s; }
+.hover-effect span:nth-child(2) { transition-delay: 0.05s; }
+.hover-effect span:nth-child(3) { transition-delay: 0.1s; }
+.hover-effect span:nth-child(4) { transition-delay: 0.15s; }
+.hover-effect span:nth-child(5) { transition-delay: 0.2s; }
+.hover-effect span:nth-child(6) { transition-delay: 0.25s; }
 
-function playPause() { 
-  if (myVideo.paused) 
-    myVideo.play(); 
-  else 
-    myVideo.pause(); 
-} 
+.hover-effect:hover span {
+  transform: scale(1); /* Return to original size */
+}
 
-function makeBig() { 
-    myVideo.width = 560; 
-} 
-
-function makeSmall() { 
-    myVideo.width = 320; 
-} 
-
-function makeNormal() { 
-    myVideo.width = 420; 
-} 
-</script> 
-
-<p>Video courtesy of <a href="https://www.bigbuckbunny.org/" target="_blank">Big Buck Bunny</a>.</p>
-
+</style>
+  <h1 class="hover-effect">
+    <span>S</span><span>e</span><span>a</span><span>r</span><span>c</span><span>h</span>
+  </h1>
+  
 </body> 
 </html>
 

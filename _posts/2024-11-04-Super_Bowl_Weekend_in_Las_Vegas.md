@@ -13,7 +13,10 @@ Super Bowl weekend in Las Vegas was unforgettable—not just because of the big 
 ### Reconnecting with Mitch Richmond
 I also caught up with [Mitch Richmond](https://en.wikipedia.org/wiki/Mitch_Richmond), a conversation that reminded me of my journey. Mitch and I originally met on a flight from San Francisco to [NBA Summer League](https://www.nba.com/summer-league), and he’s always been easy to talk to, with a real understanding of my mission.
 
-![superbowl-1]({{site.baseurl}}/assets/img/blog-img/superbowl-1.webp)
+<div style="text-align: center">
+  <img src="{{site.baseurl}}/assets/img/blog-img/superbowl-1.webp" alt="Reconnecting with Mitch Richmond">
+  <p style="font-style: italic; font-size: 0.9em; font-weight:bold;">Reconnecting with Mitch Richmond</p>
+</div>
 
 ### My First Pitch on Data Equity
 In the midst of the weekend’s events, I had my first pitch with [Jessica Gilman](https://www.instagram.com/jessroadtrip/) from [MIT Sloan School of Management](https://exec.mit.edu/s/), presenting my work in **data equity**. Sharing my vision with someone from such a respected institution was a significant milestone, and I valued her insights and feedback.
@@ -27,5 +30,11 @@ I spent quality time with good friends from [Hampton University](https://home.ha
 ### Memorable Events Hosted Across Las Vegas
 I attended gatherings hosted by **The Players Impact Group**, [Lawrence Taylor](https://www.profootballhof.com/players/lawrence-taylor/)'s camp event, and pitch sessions at **WeWork** and other venues across Las Vegas. From [Marshawn Lynch](https://www.nfl.com/players/marshawn-lynch/) and [Too Short](https://www.imdb.com/name/nm0790001/)’s event to the high energy at each pitch, the entire weekend was packed with inspiration and connection.
 
+<div style="text-align: center">
+  <img src="{{site.baseurl}}/assets/img/blog-img/superbowl-result.webp" alt="Superbowl result, Febuary 11th 2024">
+  <p style="font-style: italic; font-size: 0.9em; font-weight:bold;">Superbowl result, Febuary 11th 2024</p>
+</div>
+
 ### Reflecting on the 49ers and Future Goals
-The only downside? My childhood team, the [San Francisco 49ers](https://www.49ers.com/), didn’t make it to the game. Although I didn’t attend this year’s Super Bowl, I’m already setting my sights on going next year, fully inspired and ready to take on new goals. This weekend reminded me just how powerful connections and experiences can be, pushing me forward in both life and work.
+The only downside? My childhood team, the [San Francisco 49ers](https://www.49ers.com/), didn’t make it to the game. Although I didn’t attend this year’s Super Bowl, I plan to go into it next year to get the full experience. This weekend reminded me just how powerful connections and experiences can be, pushing me forward in both life and work.
+
