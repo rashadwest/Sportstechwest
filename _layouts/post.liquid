@@ -31,6 +31,13 @@ layout: default
       width: 100%;
   }
 }
+@media screen and (max-width: 1023px) {
+  .post-content video {
+      display: flex;
+      width: 75% !important;
+      margin-bottom: 20px !important;
+  }
+}
 
 </style>
 <article {% if page.feature-img or page.color %}class="feature-image" {% endif %}>
