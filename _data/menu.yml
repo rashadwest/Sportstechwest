@@ -9,17 +9,22 @@
   url: /about
   hide: false
   position: 2
+- blog:
+  title: "Blogs"
+  url: /blog
+  hide: false
+  position: 3
 - analytics:
   title: "Analytics Culture"
   url: /analytics-culture
-  position: 3
+  position: 4
 - video-gallery:
   title: "Video Gallery"
   url: /video-gallery
-  position: 4
+  position: 5
   hide: false
 - certificate:
   title: "Courses and Certificates"
   url: /courses-and-certificates
-  position: 5
+  position: 6
   hide: false
