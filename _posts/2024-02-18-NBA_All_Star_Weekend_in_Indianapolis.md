@@ -8,11 +8,6 @@ feature-img: "assets/img/header/nba-all-stars-image.webp"
 ## A Memorable Weekend with Sports Executives
 NBA All-Star weekend in [Indianapolis](https://visitindy.com/) was packed with unforgettable moments. I had the chance to attend exclusive events with **sports executives**, surrounded by people as passionate about the game as I am. It was an amazing weekend spent with my guys, **DT** and **Chad**, who made each moment even better. Indianapolis turned out to be the ideal spot for a memorable experience—but it had its challenges too. 
 
-<video width="50%" height="40%" controls poster="{{site.baseurl}}/assets/img/blog-img/poster-nba-all-stars.webp">
-  <source src="{{site.baseurl}}/assets/img/blog-img/nba-all-stars-video.webm" type="video/webm">
-</video>
-  <p style="font-style: italic; font-size: 0.9em; font-weight: bold; text-align: center;">Too Short - Marshawn Lynch event in Vegas at Eight</p>
-
 ## The Challenge of Charging an Electric Car in Indianapolis
 One night, I couldn’t find a charging station for my [electric rental car](https://www.rentalcars.com/en/electric-car/), so I had to stay up all night to keep it from going dead until the rental car place opened the next morning. It was a minor setback in an otherwise fantastic weekend, but it taught me a valuable lesson in preparedness when traveling with an electric vehicle.
 

@@ -8,7 +8,10 @@ feature-img: "assets/img/header/superbowl-lvii-las-vegas.webp"
 ### Unforgettable Connections with NFL Legends
 Super Bowl weekend in Las Vegas was unforgettable—not just because of the big game but for the incredible networking opportunities and meaningful connections it brought. A highlight was spending time with NFL legends [Ray Lewis](https://en.wikipedia.org/wiki/Ray_Lewis) and [Charles Woodson](https://en.wikipedia.org/wiki/Charles_Woodson) at **Eight**, the upscale cigar lounge at [Resorts World Las Vegas](https://www.rwlasvegas.com/). Sharing that space with two athletes I’ve admired for years and connecting with them on a personal level was truly surreal. 
 
-![superbowl-2]({{site.baseurl}}/assets/img/blog-img/superbowl-2.webp)
+<video width="50%" height="40%" controls poster="{{site.baseurl}}/assets/img/blog-img/poster-nba-all-stars.webp">
+  <source src="{{site.baseurl}}/assets/img/blog-img/nba-all-stars-video.webm" type="video/webm">
+</video>
+  <p style="font-style: italic; font-size: 0.9em; font-weight: bold; text-align: center;">Too Short - Marshawn Lynch event in Vegas at Eight</p>
 
 ### Reconnecting with Mitch Richmond
 I also caught up with [Mitch Richmond](https://en.wikipedia.org/wiki/Mitch_Richmond), a conversation that reminded me of my journey. Mitch and I originally met on a flight from San Francisco to [NBA Summer League](https://www.nba.com/summer-league), and he’s always been easy to talk to, with a real understanding of my mission.
@@ -23,6 +26,8 @@ In the midst of the weekend’s events, I had my first pitch with [Jessica Gilma
 
 ### Meeting with Sports Technology Investors
 Super Bowl weekend also brought together investors from various industries, allowing me to make new connections with those who see potential in **sports technology**.
+
+![superbowl-2]({{site.baseurl}}/assets/img/blog-img/superbowl-2.webp)
 
 ### Quality Time with Friends from Hampton University
 I spent quality time with good friends from [Hampton University](https://home.hamptonu.edu/), including my former teammate Jeff Granger and Chad Easterling. The weekend was a perfect mix of business and personal moments, filled with unforgettable events.
