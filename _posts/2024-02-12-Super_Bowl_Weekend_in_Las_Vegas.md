@@ -1,6 +1,6 @@
 ---
 layout: post
-thumbnail: "assets/img/header/superbowl-lvii-las-vegas-thumbnail.webp"
+thumbnail: "assets/img/header/thumbnails/superbowl-lvii-las-vegas-thumbnail.webp"
 title: "Super Bowl Weekend in Las Vegas: Connections and Experiences"
 feature-img: "assets/img/header/superbowl-lvii-las-vegas.webp"
 ---
@@ -42,4 +42,3 @@ I attended gatherings hosted by **The Players Impact Group**, [Lawrence Taylor](
 
 ### Reflecting on the 49ers and Future Goals
 The only downside? My childhood team, the [San Francisco 49ers](https://www.49ers.com/), didn’t make it to the game. Although I didn’t attend this year’s Super Bowl, I plan to go into it next year to get the full experience. This weekend reminded me just how powerful connections and experiences can be, pushing me forward in both life and work.
-
