@@ -14,9 +14,9 @@ One night, I couldn’t find a charging station for my [electric rental car](htt
 ## Exclusive Events and Networking Opportunities
 Beyond that unexpected adventure, the weekend was filled with some of the best events and networking experiences. I made it to a [Hennessy](https://www.hennessy.com/us/) party, the [NBPA (National Basketball Players Association)](https://nbpa.com/) party, the **NBA Dunk Contest** and **3-Point Contest** afterparty, and an event hosted by [Baron Davis](https://en.wikipedia.org/wiki/Baron_Davis) that felt like an all-in-one conference. Each of these gatherings brought together influential voices in the sports world, offering invaluable insights and opportunities to reconnect with friends from past events.
 
-<div class="img-flex" style="text-align: center">
-  <img src="{{site.baseurl}}/assets/img/blog-img/nba-all-stars-1.webp" alt="nba-all-stars-1" >
-  <img src="{{site.baseurl}}/assets/img/blog-img/nba-all-stars-4.webp" alt="nba-all-stars-4" >
+<div class="image-gallery" style="text-align: center">
+  <img class="img-2" src="{{site.baseurl}}/assets/img/blog-img/nba-all-stars-1.webp" alt="nba-all-stars-1" >
+  <img class="img-2" src="{{site.baseurl}}/assets/img/blog-img/nba-all-stars-4.webp" alt="nba-all-stars-4" >
 </div>
 
 ## Reuniting with Friends at the NBPA Event
