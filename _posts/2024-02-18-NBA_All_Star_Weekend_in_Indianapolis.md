@@ -1,6 +1,6 @@
 ---
 layout: post
-thumbnail: "assets/img/header/thumbnails/2024_NBA_All_Star_Game_logo.webp"
+thumbnail: "assets/img/header/thumbnails/2024_NBA_All_Star_Game_logo.png"
 title: "NBA All-Star Weekend in Indianapolis: Events, Challenges, and Unforgettable Connections"
 feature-img: "assets/img/header/2024_NBA_All_Star_Game_logo.webp"
 ---
