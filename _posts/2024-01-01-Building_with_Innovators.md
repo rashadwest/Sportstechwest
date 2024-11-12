@@ -1,19 +1,39 @@
 ---
 layout: post
-title: "Building with Innovators"
-thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
+title: "Building with Innovators: My Journey with Techstars Washington, DC and How It Will Fuel My Sports Analytics Journey"
+thumbnail: "assets/img/header/thumbnails/techstars.webp"
+feature-img: "assets/img/header/techstars.webp"
 ---
 
-# Building with Innovators: My Journey with Techstars Washington, DC and How It Will Fuel My Sports Analytics Journey
+## A Transformative Journey with Techstars Washington, DC
 
-My time with **Techstars Washington, DC** was nothing short of transformative. I had the privilege of building alongside an exceptional group of entrepreneurs and visionaries. The experience not only deepened my understanding of business but also allowed me to create a network that has become invaluable to my professional journey, particularly as I continue to grow in **sports analytics.**
+My time with **[Techstars Washington, DC](https://www.techstars.com/) was nothing short of transformative. I had the privilege of building alongside an exceptional group of [entrepreneurs](https://en.wikipedia.org/wiki/Entrepreneurship) and visionaries. This experience deepened my understanding of [business](https://www.investopedia.com/terms/b/business.asp) and allowed me to create a network that has become invaluable in my professional journey, especially as I grow in the field of [sports analytics](https://en.wikipedia.org/wiki/Sports_analytics).
 
-Techstars, as a program, offers more than just mentorship and support; it provides exposure to a diverse range of minds, ideas, and talents. The cohort I was part of was truly unique—a level of diversity that Techstars had never seen before. Entrepreneurs from different industries, backgrounds, and walks of life came together, pushing boundaries and creating innovative solutions to complex problems. It was exciting to witness, and even more rewarding to contribute.
+![Rashad West at Techstars]({{site.baseurl}}/assets/img/blog-img/Techstars_DC.webp)
 
-What really made this experience pivotal for me is how it aligns with my work in **sports analytics**. Being around such talented individuals inspired me to think bigger and more strategically about how data can be used to transform the way athletes and teams operate. Whether we were tackling challenges head-on, brainstorming groundbreaking ideas, or simply sharing our entrepreneurial journeys, I found myself applying new business strategies and tech-driven approaches that will directly benefit my work in **BTE Analytics** and the broader sports industry.
+## Unmatched Mentorship and Diverse Cohorts
 
-The entrepreneurial insight and technical knowledge I’ve gained are instrumental in advancing my sports analytics vision, where **player data equity** and **athlete partnerships** will be a key focus. Many of the principles around scaling a business, integrating tech, and building a sustainable network that I learned from Techstars will fuel the next phase of my sports analytics company.
+[Techstars](https://www.techstars.com/programs) offers more than just mentorship and support; it provides exposure to a diverse range of minds, ideas, and talents. The cohort I was part of was unprecedented in its diversity, representing a wide array of [industries](https://en.wikipedia.org/wiki/Industry), backgrounds, and perspectives. Entrepreneurs came together to push boundaries and create innovative [solutions](https://en.wikipedia.org/wiki/Innovation) to complex problems. Witnessing this level of collaboration was exciting, and contributing to it was even more rewarding.
 
-Many of the entrepreneurs I had the opportunity to work with are now doing extraordinary things, continuing to grow their businesses and leave their mark on the world. I count myself fortunate to have been a part of their journey and to have shared this time of growth and innovation.
+## Aligning with My Vision in Sports Analytics
 
-In the end, **Techstars Washington, DC** not only provided me with a wealth of knowledge but also lasting relationships with individuals who are driving change in their respective fields. These connections will be crucial as I continue to innovate and lead in the sports analytics space, where data-driven solutions are becoming the future of athletic success. It was a true honor to be involved with such a forward-thinking group, and I am excited to see where these connections and insights will lead my career in sports analytics.
+What made this experience pivotal was how it aligns with my work in [sports analytics](https://en.wikipedia.org/wiki/Analytics_in_sport). Being around such talented individuals inspired me to think bigger and more strategically about leveraging [data](https://www.ibm.com/analytics/data-science) to transform how [athletes](https://en.wikipedia.org/wiki/Athlete) and [teams](https://en.wikipedia.org/wiki/Sports_team) operate. Whether we were tackling challenges, brainstorming groundbreaking ideas, or sharing our entrepreneurial journeys, I applied new [business strategies](https://www.investopedia.com/terms/b/business-strategy.asp) and tech-driven approaches that directly benefit my work in BTE Analytics and the broader sports industry.
+
+![Vision at Analytics with Techstars]({{site.baseurl}}/assets/img/blog-img/691A5953.webp)
+
+## Gaining Entrepreneurial Insight and Technical Knowledge
+
+The [entrepreneurial insight](https://hbr.org/2006/11/how-entrepreneurs-craft-strategies-that-work) and [technical knowledge](https://en.wikipedia.org/wiki/Technical_knowledge) I gained through Techstars are instrumental in advancing my sports analytics vision, especially in areas like [player data equity](https://en.wikipedia.org/wiki/Data_privacy) and athlete partnerships. The principles I learned about scaling a business, integrating [technology](https://www.techstars.com/technology), and building a sustainable network will fuel the next phase of my sports analytics company.
+
+## Celebrating the Success of Fellow Entrepreneurs
+
+Many entrepreneurs I had the opportunity to work with are now doing extraordinary things, continuing to grow their businesses and leave a lasting impact. I am fortunate to have been part of their journey, sharing this time of growth, innovation, and collaboration with such a talented group.
+
+<div class="image-gallery" style="text-align: center">
+  <img class="img-2" src="{{site.baseurl}}/assets/img/blog-img/IMG-20231209-WA0006.webp" alt="rashad west at techstars" >
+  <img class="img-2" src="{{site.baseurl}}/assets/img/blog-img/DSC08926(1).webp" alt="rashad west at techstars" >
+</div>
+
+## Building Lasting Relationships in the Sports Analytics Space
+
+In the end, [Techstars Washington, DC](https://www.techstars.com/programs/washington-dc-techstars-accelerator) provided me with a wealth of knowledge and lasting relationships with individuals driving change in their respective fields. These connections will be crucial as I continue to innovate and lead in [sports analytics](https://www.sportingnews.com/sports-analytics) where data-driven solutions represent the future of [athletic success](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7357294/). It was an honor to be involved with such a forward-thinking group, and I am excited to see how these connections and insights will propel my career forward.
