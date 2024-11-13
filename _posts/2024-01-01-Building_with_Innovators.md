@@ -29,10 +29,7 @@ The [entrepreneurial insight](https://hbr.org/topic/subject/entrepreneurship) an
 
 Many entrepreneurs I had the opportunity to work with are now doing extraordinary things, continuing to grow their businesses and leave a lasting impact. I am fortunate to have been part of their journey, sharing this time of growth, innovation, and collaboration with such a talented group.
 
-<div class="image-gallery" style="text-align: center">
-  <img class="img-2" src="{{site.baseurl}}/assets/img/blog-img/IMG-20231209-WA0006.webp" alt="rashad west at techstars" >
-  <img class="img-2" src="{{site.baseurl}}/assets/img/blog-img/DSC08926(1).webp" alt="rashad west at techstars" >
-</div>
+![Vision at Analytics with Techstars]({{site.baseurl}}/assets/img/blog-img/IMG-20231209-WA0006.webp)
 
 ## Building Lasting Relationships in the Sports Analytics Space
 
