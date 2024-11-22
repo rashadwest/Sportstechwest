@@ -37,7 +37,7 @@ We want our grid to map each players shot chart.  When they take a shot it will 
 When you shoot at a specific spot it is a certain color.  This enables us to have the ability to know where a person shots.  Currently the NBA does not show this type of data in their 
 advanced stats section of their website.  
 
-![Color ShotChart]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-07-16%20at%204.39.26%20PM.png)
+![Color ShotChart]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-07-16%20at%204.39.26%20PM.webp)
 
 We discussed this map as well. I learned more about a matrix today and how that can help me in the process of creating this.  
 
@@ -48,7 +48,7 @@ We need to make the distinctions of the hexidecimal color chart so that everyone
 
 Think about data coorilation.  Think about how to define putting the player in a specific location.  We have to make our own way of defining our system 
 similar to a Second Spectrum.  When we label the actual colors our grid will enable us to have a great visual representation of where a player takes a shot.
-![Hexidecimal color example]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-07-16%20at%205.34.41%20PM.webp)
+![Hexidecimal Screen Shot 2020-07-16 at 4.39.26 PMcolor example]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-07-16%20at%205.34.41%20PM.webp)
 
 
 Model 

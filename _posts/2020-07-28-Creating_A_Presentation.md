@@ -43,7 +43,7 @@ STEAM (E)sports:
 - How much do they charge? What is our focus?
 - Doing the AR is different for this.
 - These are the top esports teams.
-[Esports Top 10](https://esportsobserver.com/top10-esports-teams-2019/)
+[Esports Top 10](https://www.esports.net/news/top-10-esports-games/)
 
 School Districts:
 - Get a free trial for my people

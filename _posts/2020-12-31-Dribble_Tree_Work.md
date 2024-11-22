@@ -4,7 +4,7 @@ title: "Dribble Tree Work"
 thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 ---
 
-![KD & Steph look on as they wait to play]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Steph_Durant.webp?raw=true)
+![KD & Steph look on as they wait to play]({{site.url}}{{site.baseurl}}/assets/img/blog-img/steph-durant.webp?raw=true)
 
 "The moment of innocent revelry was short-lived. The coach seized control of his body again. Above a baked bean tray, Kerr started pantomiming And1 mixtape handles, muttering to himself, "Now if we could just stop doing this … shit."
 Kerr's stylistic preference was no secret. During the Game 6 blowout, from the FedEx Forum seats, you could hear the coach repeatedly hollering, "Move the ball!" or "Move the fucking ball!"

@@ -15,7 +15,7 @@ Being in [Boston](https://www.bostonusa.com/) for the [MIT XR Hackathon](https:/
 </div>
 
 ## Exploring the Latest Advancements in XR Technology
-Seeing the latest advancements in **headsets** and **3D printing technology** gave me new insights into where XR is headed. This experience motivated me more than ever to keep pushing forward in this field. On top of the tech and networking, I also had the chance to see my dad’s side of the family and reconnect with friends from my early days in XR, including familiar faces from the [Oculus LaunchPad](https://www.oculus.com/blog/introducing-oculus-launch-pad/). These events bring together both the professional and personal sides of my journey, making it all the more meaningful.
+Seeing the latest advancements in **headsets** and **3D printing technology** gave me new insights into where XR is headed. This experience motivated me more than ever to keep pushing forward in this field. On top of the tech and networking, I also had the chance to see my dad’s side of the family and reconnect with friends from my early days in XR, including familiar faces from the [Oculus LaunchPad](https://developers.meta.com/horizon/blog/introducing-start-and-launch-pad-support-for-horizon-worlds/). These events bring together both the professional and personal sides of my journey, making it all the more meaningful.
 
 <div class="image-gallery" style="text-align: center">
   <img class="img-2" src="{{site.baseurl}}/assets/img/blog-img/20240302_164704.webp" alt="MIT-HACKATHON" >

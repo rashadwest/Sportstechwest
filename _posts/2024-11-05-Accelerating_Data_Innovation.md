@@ -20,7 +20,7 @@ Going through the [Rolling Insights Accelerator](https://rolling-insights.com/br
 ## Fireside Chats with Leaders in Sports Innovation
 
 As part of the program, I’ve had the opportunity to attend fireside chats with some of the most 
-successful figures in [sports innovation](https://sports.yahoo.com/sports-innovation-lab-announces-global-134200831.html).
+successful figures in [sports innovation](https://www.sportsilab.com/).
  The other [sports tech companies](https://techcrunch.com/tag/sports-technology/) in the accelerator
   have been fantastic—each team brings unique questions and insights that elevate our discussions. 
   This experience has significantly deepened my knowledge of data and analytics, thanks to learning

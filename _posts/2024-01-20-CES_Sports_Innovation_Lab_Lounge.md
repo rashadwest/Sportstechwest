@@ -16,7 +16,3 @@ There was also a session titled "2034: A Sports Odyssey - Imagining the Stadium 
 
 These discussions at CES Sports Zone and Sports Innovation Lab Lounge indicate a broader trend in the sports industry, where technology, data analytics, and changing fan dynamics are reshaping how sports are consumed, marketed, and experienced.
 
-![Sports Innovation]({{site.url}}{{site.baseurl}}/assets/img/blog-img/SIL1.webp?raw=true)
-![Sports Innovation]({{site.url}}{{site.baseurl}}/assets/img/blog-img/SIL2.webp?raw=true)
-![Sports Innovation]({{site.url}}{{site.baseurl}}/assets/img/blog-img/SIL3.webp?raw=true)
-

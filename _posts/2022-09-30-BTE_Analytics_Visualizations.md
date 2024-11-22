@@ -6,7 +6,7 @@ thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 
 # BTE_Analytics_Visualizations
 
-![]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Scatter%20Plot%20for%20data%20.png?raw=true)
+![]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Scatter%20Plot%20for%20data%20.webp?raw=true)
 
 
 Here are some of the visualizations we have created for looking at dribble data between Kyrie, Steph, and CJ McCollum. I need to add different parts 

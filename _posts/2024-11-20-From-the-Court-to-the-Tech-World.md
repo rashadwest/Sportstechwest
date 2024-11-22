@@ -5,7 +5,7 @@ thumbnail: "assets/img/header/thumbnails/olympics-paris.webp"
 feature-img: "assets/img/header/olympics-paris-darken.webp"
 ---
 
-As a former [athlete](https://en.wikipedia.org/wiki/Athlete) turned [tech entrepreneur](https://www.forbes.com/sites/theyec/2023/11/17/how-to-become-a-successful-tech-entrepreneur/), I’ve had my share of unforgettable moments on and off the court. But my trip to the [Paris Olympics](https://olympics.com/en/) this year was an extraordinary milestone. It was more than just an event—it was a pivotal moment in my journey with [BTE Analytics](https://www.bteanalytics.com/) and our mission to revolutionize [data equity](https://www.dataversity.net/data-equity-the-next-chapter-in-data-ethics/) for athletes.
+As a former [athlete](https://en.wikipedia.org/wiki/Athlete) turned tech entrepreneur, I’ve had my share of unforgettable moments on and off the court. But my trip to the [Paris Olympics](https://olympics.com/en/) this year was an extraordinary milestone. It was more than just an event—it was a pivotal moment in my journey with **BTE Analytics** and our mission to revolutionize [data equity](https://data.org/resources/what-is-data-equity-and-why-does-it-matter/#:~:text=the%20Ford%20Foundation.-,Data%20Equity%20is%20a%20set%20of%20principles%20and%20practices%20to,justice%2C%20equity%2C%20and%20inclusivity.) for athletes.
 
 Let me break it down for you.
 
@@ -18,9 +18,9 @@ Let me break it down for you.
 
 ### Breaking Bread with Olympians
 
-Being surrounded by the world’s most elite athletes at the [USA House](https://teamusa.org/USA-House) reminded me why I started this journey. Over two days, I had the privilege of meeting iconic figures like [Maverick Carter](https://en.wikipedia.org/wiki/Maverick_Carter) and [Paul Rivera](https://www.linkedin.com/in/paulrivera/). We discussed everything from sports to [business](https://www.inc.com/business), life, and the importance of venturing beyond the field.
+Being surrounded by the world’s most elite athletes at the [USA House](https://teamusa.org/USA-House) reminded me why I started this journey. Over two days, I had the privilege of meeting iconic figures like [Maverick Carter](https://en.wikipedia.org/wiki/Maverick_Carter) and [Paul Rivera](https://www.linkedin.com/in/paulrivera/). We discussed everything from sports to **business**, life, and the importance of venturing beyond the field.
 
-These conversations reinforced my belief in empowering athletes with tools to redefine success—whether it’s through [sports tech](https://sporttech.io/) or life off the field. Stories of triumph and challenges alike echoed the importance of our mission at BTE Analytics.
+These conversations reinforced my belief in empowering athletes with tools to redefine success—whether it’s through [sports tech](https://sporttech.io/) or life off the field. Stories of triumph and challenges alike echoed the importance of our mission at **BTE Analytics**.
 
 <div class="image-gallery" style="text-align: center">
   <img class="img-3" src="{{site.baseurl}}/assets/img/blog-img/together-with-olympians-2.webp" alt="together-with-olympians" >
@@ -31,7 +31,7 @@ These conversations reinforced my belief in empowering athletes with tools to re
 
 ### Witnessing History in the Making
 
-I had the once-in-a-lifetime opportunity to attend the gold medal match between [USA](https://www.usoc.org/) and [Brazil](https://www.cbf.com.br/), where the legendary [Marta](https://www.fifa.com/fifaplus/en/articles/marta-brazil-legend-legacy) played her final Olympic game. The story of how I got there—thanks to a last-minute invitation from a [VC](https://www.investopedia.com/terms/v/venturecapital.asp)—is one for another day, but that match was more than historic.
+I had the once-in-a-lifetime opportunity to attend the gold medal match between [USA](https://www.usoc.org/) and [Brazil](https://www.cbf.com.br/), where the legendary [Marta](https://artsandculture.google.com/story/meet-marta-the-record-breaking-brazilian-football-player/UAWxrX7MR4XIfg?hl=en) played her final Olympic game. The story of how I got there—thanks to a last-minute invitation from a [VC](https://www.investopedia.com/terms/v/venturecapital.asp)—is one for another day, but that match was more than historic.
 
 It was a catalyst for discussions on [tech industry trends](https://www.gartner.com/en/information-technology), [go-to-market strategies](https://www.coursera.org/articles/go-to-market-strategy), and how innovative [business models](https://www.investopedia.com/terms/b/businessmodel.asp) are transforming sports tech. These insights are already shaping the direction of **BTE Analytics**, helping us better serve athletes globally.
 
@@ -63,7 +63,7 @@ I also had the chance to connect with incredible athletes like the US volleyball
 
 One of the standout moments was attending the [Athlete Soul](https://www.theathleticsoul.org/) event and hearing from my friend and former Olympian, [Mikel Thomas](https://en.wikipedia.org/wiki/Mikel_Thomas). His talk was more than inspiring—it was a wake-up call.
 
-Athletes need platforms like **BTE Analytics** that focus on their [equity](https://www.forbes.com/sites/theyec/2023/11/07/the-role-of-equity-in-modern-business/), their data, and their futures.
+Athletes need platforms like **BTE Analytics** that focus on their equity, their data, and their futures.
 
 <div class="image-gallery" style="text-align: center">
   <img class="img-4" src="{{site.baseurl}}/assets/img/blog-img/athletic-soul-1.webp" alt="athletic-soul" >

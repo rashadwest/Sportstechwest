@@ -33,7 +33,7 @@ Super Bowl weekend also brought together investors from various industries, allo
 I spent quality time with good friends from [Hampton University](https://home.hamptonu.edu/), including my former teammate Jeff Granger and Chad Easterling. The weekend was a perfect mix of business and personal moments, filled with unforgettable events.
 
 ### Memorable Events Hosted Across Las Vegas
-I attended gatherings hosted by **The Players Impact Group**, [Lawrence Taylor](https://www.profootballhof.com/players/lawrence-taylor/)'s camp event, and pitch sessions at **WeWork** and other venues across Las Vegas. From [Marshawn Lynch](https://www.nfl.com/players/marshawn-lynch/) and [Too Short](https://www.imdb.com/name/nm0790001/)’s event to the high energy at each pitch, the entire weekend was packed with inspiration and connection.
+I attended gatherings hosted by **The Players Impact Group**, [Lawrence Taylor](https://www.profootballhof.com/players/lawrence-taylor/)'s camp event, and pitch sessions at **WeWork** and other venues across Las Vegas. From [Marshawn Lynch](https://www.nfl.com/players/marshawn-lynch/) and [Too Short](https://www.youtube.com/channel/UCT5WSvzLbxkwTvTwpPVkUFw)’s event to the high energy at each pitch, the entire weekend was packed with inspiration and connection.
 
 <div style="text-align: center">
   <img src="{{site.baseurl}}/assets/img/blog-img/superbowl-result.webp" alt="Superbowl result, Febuary 11th 2024">
