@@ -19,6 +19,10 @@ layout: default
       height: 40%;
       margin-bottom: 20px;
   }
+  .post-content iframe {
+      display: flex;
+      margin-bottom: 20px;
+  }
   .image-gallery{
     display: flex;
     flex-direction: row;
@@ -55,9 +59,17 @@ layout: default
   .post-content video {
       width: 100%;
   }
+  .post-content iframe {
+      width: 100%;
+  }
 }
 @media screen and (max-width: 1023px) {
   .post-content video {
+      display: flex;
+      width: 75% !important;
+      margin-bottom: 20px !important;
+  }
+  .post-content iframe {
       display: flex;
       width: 75% !important;
       margin-bottom: 20px !important;

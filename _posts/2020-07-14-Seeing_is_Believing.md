@@ -50,5 +50,5 @@ Alston Ezra Clark
 [https://www.youtube.com/watch?v=JtK21MtqFOE&t=2s](https://www.youtube.com/watch?v=JtK21MtqFOE&t=2s)
 
 Alston Ezra Clark
-[zionroar.com](https://www.zionroar.com/)
+[zionroar.com](https://www.youtube.com/channel/UCpECkE5y8GOS05WTEcYTClw?view_as=subscriber)
 
