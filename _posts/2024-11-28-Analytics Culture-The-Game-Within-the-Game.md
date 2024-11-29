@@ -51,6 +51,8 @@ Our dribble metrics are built to capture those moments. We spotlight the style t
 
 <p style="font-style: italic; font-size: 0.9em; font-weight: bold; text-align: center;">Typical Soccer player</p>
 
+---
+
 ## The BTE Way: Advancing the Game
 
 Just as [Spalding’s design advanced basketball](https://sportstechwest.com/assets/img/blog-img/First_Designs_for_basketball.webp) in its early days, BTE Analytics is taking the next step in how the game is seen, understood, and played. While traditional metrics measure what happened, we focus on *how* it happened and *why* it matters.
@@ -60,6 +62,8 @@ Our innovative approach brings modern tools to basketball, enabling athletes to 
 <img  src="{{site.baseurl}}/assets/img/feature-img/1.gif" alt="basketball analysis" >
 
 This is more than analytics—it’s storytelling for the [modern athlete](https://www.modernathlete.co.za/). By combining our advanced metrics with the game’s visual appeal, we give athletes a platform to show their personality and define their legacy in a way that’s never been done before.
+
+---
 
 ## Empowering Athletes and Promoting Data Equity
 
@@ -78,6 +82,8 @@ When I started this company, it wasn’t just about giving athletes tools to imp
 
 That’s why at BTE Analytics, we’re building something different. We’re not just about performance. We’re about *personality*. Because in the end, it’s not just about being good.
 It’s about being different and defining your legacy within the game.
+
+---
 
 #### Full Disclaimer:
 This blog post references content from the History Channel’s program [“The Mega-Brands That Built America.”](https://www.history.com/shows/the-mega-brands-that-built-america) All historical material and imagery used are for educational and commentary purposes under fair use. Full credit is given to the History Channel, and viewers are encouraged to explore the original program for more details.
