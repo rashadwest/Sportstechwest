@@ -59,7 +59,9 @@ Just as [Spalding’s design advanced basketball](https://sportstechwest.com/ass
 
 Our innovative approach brings modern tools to basketball, enabling athletes to measure the subtle but critical aspects of their game, like tendencies and efficiency off the dribble. For example, imagine knowing exactly how many defenders were beaten with a crossover or the percentage of successful possessions initiated by a hesitation dribble. These are the insights that not only help players refine their craft but also allow fans and brands to connect with their unique style.
 
-<img  src="{{site.baseurl}}/assets/img/feature-img/1.gif" alt="basketball analysis" >
+<img  src="{{site.baseurl}}/assets/img/feature-img/2.gif" alt="basketball analysis" >
+
+<img  src="{{site.baseurl}}/assets/img/blog-img/basketball-metric.webp" alt="basketball-metric" >
 
 This is more than analytics—it’s storytelling for the [modern athlete](https://www.modernathlete.co.za/). By combining our advanced metrics with the game’s visual appeal, we give athletes a platform to show their personality and define their legacy in a way that’s never been done before.
 
@@ -68,7 +70,7 @@ This is more than analytics—it’s storytelling for the [modern athlete](https
 ## Empowering Athletes and Promoting Data Equity
 
 <img  src="{{site.baseurl}}/assets/img/blog-img/1871_Albert_Spalding_Baseball-card-Boston_Red_Stockings.webp" alt="1871_Albert_Spalding_Baseball-card-Boston_Red_Stockings" >
-
+<p style="font-style: italic; font-size: 0.9em; font-weight: bold; text-align: center;">Albert Spalding baseball card</p>
 At BTE Analytics, our mission goes beyond performance metrics. We’re committed to leveling the playing field for athletes through [data equity](https://ope.ed.gov/athletics/). Too often, the data athletes generate benefits others—teams, leagues, or sponsors—without the athlete getting their fair share.
 
 We’re changing that. By highlighting tendencies, style, and individuality, we empower athletes to take ownership of their data and use it to tell their own stories. Whether it’s **building a brand, attracting sponsors, or connecting with fans**, our platform gives athletes the tools to monetize their performance and gain value from the game they’ve dedicated their lives to.

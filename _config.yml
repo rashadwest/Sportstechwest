@@ -22,7 +22,7 @@ permalink: /:categories/:year/:month/:day/:title/
 # For layout customization, go to the "_sass > base" folder, and check "_variables.scss"
 katex: true                                             # Enable if using math markup
 mermaid: default                                        # Enable mermaid-js for diagrams, use theme: base, forest, dark, default, neutral
-google_analytics:                                       # Measurement ID, e.g. "G-00000"
+google_analytics:  G-2HRF3QW4EB                                     # Measurement ID, e.g. "G-00000"
 cookie_consent: false                                   # To respect the usage of cookies
 color_theme: auto                                       # auto, dark or light
 
