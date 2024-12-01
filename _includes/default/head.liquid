@@ -70,7 +70,7 @@
     {% endif %}
 
     <!-- seo tags -->
-    <meta property="og:image" content="{{ '/' | absolute_url }}{% if page.thumbnail %}{{ page.thumbnail }}{% else %}{{ page.feature-img | default: site.header_feature_image }}{% endif %}">
+    <meta property="og:image" content="https://sportstechwest.com/assets/img/feature-img/20240110_160544.webp">
     {% unless page.layout == post %}
     <meta property="og:type" content="website" />
     {% endunless %}
@@ -83,14 +83,14 @@
     {% feed_meta %}
 
     <!-- Twitter Cards -->
-    <meta name="twitter:title" content="{{ page.title | default: site.title  | truncate: 6 }}">
+    <meta name="twitter:title" content="{{ page.title | default: site.title }}">
     <meta name="twitter:description" content="{{ page.content | default: site.header_text | strip_html | strip_newlines | truncate: 160 }}">
     {% if site.data.social.twitter %}
     <meta name="twitter:creator" content="@{{ site.data.social.twitter }}">
     <meta name="twitter:site" content="@{{ site.data.social.twitter }}">
     {% endif %}
     <meta name="twitter:card" content="{% unless page.thumbnail %}summary{% else %}summary_large_image{% endunless %}">
-    <meta name="twitter:image" content="{{ '/' | absolute_url }}{% if page.thumbnail %}{{ page.thumbnail }}{% else %}{{ page.feature-img | default: site.header_feature_image }}{% endif %}">
+    <meta name="twitter:image" content="https://sportstechwest.com/assets/img/feature-img/20240110_160544.webp">
     <meta name="twitter:image:alt" content="{{ page.title | default: site.title }}">
     <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
 <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
