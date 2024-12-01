@@ -81,7 +81,7 @@
     {% feed_meta %}
 
     <!-- Twitter Cards -->
-    <meta name="twitter:title" content="{{ page.title | default: site.title }}">
+    <meta name="twitter:title" content="{{ page.title | default: site.title  | truncate: 6 }}">
     <meta name="twitter:description" content="{{ page.content | default: site.header_text | strip_html | strip_newlines | truncate: 160 }}">
     {% if site.data.social.twitter %}
     <meta name="twitter:creator" content="@{{ site.data.social.twitter }}">
