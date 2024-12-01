@@ -75,7 +75,9 @@
     <meta property="og:type" content="website" />
     {% endunless %}
     {% seo %}
-
+    
+    <meta property="og:logo" content="{{ '/' | absolute_url }}{{ site.avatar }}" />
+        
     <!-- RSS -->
     <link rel="alternate" type="application/atom+xml" title="{{ site.title | default: 'Title' }}" href="{{ 'feed.xml' | absolute_url }}"/>
     {% feed_meta %}
