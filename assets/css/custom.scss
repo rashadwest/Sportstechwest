@@ -3,7 +3,6 @@
 
 @import "type-on-strap";
 
-
 html{
   scroll-behavior: smooth;
 }
@@ -413,6 +412,27 @@ header> .main{
     text-decoration: none;
   }
   
+  #comment-button {
+    display: block;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    z-index: 99;
+    font-size: 11px;
+    border: none;
+    outline: none;
+    background-color: rgb(33, 33, 33);
+    opacity: 0.5;
+    color: white;
+    cursor: pointer;
+    padding: 11px;
+    border-radius: 4px;
+    scroll-behavior: smooth;
+    border: 1px solid white;
+  }
+
   #myBtn {
     display: block;
     width: 50px;
@@ -434,7 +454,7 @@ header> .main{
     border: 1px solid white;
   }
   
-  #myBtn:hover {
+  #myBtn:hover #comment-button:hover {
     background-color: #555;
   }
   .fa-chevron-up{
@@ -443,8 +463,52 @@ header> .main{
     margin-top: -1px;
     margin-left: -1px;
   }
+  .fa-comment{
+    color: aliceblue;
+    font-size: 30px;
+    margin-top: -1px;
+    margin-left: -1px;
+  }
 
+  #disqus_thread{
+    padding-top: 40px;
+  }
+  .tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  }
 
+  .tooltip .tooltiptext {
+  visibility: hidden;
+    width: 140px;
+    height: 50px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    right: 110%;
+    height: 40px;
+    font-size: 15px;
+  }
+
+  .tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent black;
+  }
+  .tooltip:hover .tooltiptext {
+  visibility: visible;
+  }
   .newsletter-form input[type=email] {
     color: #000;
 }

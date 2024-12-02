@@ -7,4 +7,5 @@ excluded: true
 feature-img: "assets/img/blog-img/mlb.webp"
 thumbnail: "assets/img/blog-img/mlb.webp"
 icon: "fa-archive"
+comments: false
 ---

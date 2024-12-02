@@ -7,6 +7,16 @@
 <html lang="en">
   {% capture _head %}{% include default/head.liquid %}{% endcapture %}
   {{ _head | split: " " | join: " "}}
+  <style>
+    {% if page.comments == false %}
+#disqus_thread{
+    display: none;
+}
+#comment-button{
+  display: none !important;
+}
+{% endif %}
+  </style>
   <body>
     {% capture _navbar %}{% include default/navbar.html %}{% endcapture %}
     {{ _navbar | split: " " | join: " "}}
@@ -14,10 +24,34 @@
     <div class="content">
       {{ content }}
     </div>
+
+    <div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://sports-tech-west.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     {% capture _footer %}{% include default/footer.html %}{% endcapture %}
     {{ _footer | split: " " | join: " "}}
-      
+
       <a id="myBtn" href="#"><i class="fas fa-chevron-up"></i></a>
+
+      <a id="comment-button" class="tooltip" href="#disqus_thread"><i class="fas fa-comment"></i>
+        <span class="tooltiptext">Add comments</span>
+      </a>
       
       
   </body>

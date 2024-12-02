@@ -1,45 +1,34 @@
----
-layout: page
----
-<!-- #CodePenChallenge: Lightness -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+</head>
+<body>
+	<div class="object">
+		hello world!
+	</div>
+<style>
+	.object {
+  animation: MoveUpDown 1s linear infinite;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
 
-<div class="overlay"></div>
-
-<div class="text">
-	<div class="wrapper">
-		<div id="L" class="letter">L</div>
-		<div class="shadow">L</div>
-	</div>
-	<div class="wrapper">
-		<div id="I" class="letter">I</div>
-		<div class="shadow">I</div>
-	</div>
-	<div class="wrapper">
-		<div id="G" class="letter">G</div>
-		<div class="shadow">G</div>
-	</div>
-	<div class="wrapper">
-		<div id="H" class="letter">H</div>
-		<div class="shadow">H</div>
-	</div>
-	<div class="wrapper">
-		<div id="T" class="letter">T</div>
-		<div class="shadow">T</div>
-	</div>
-	<div class="wrapper">
-		<div id="N" class="letter">N</div>
-		<div class="shadow">N</div>
-	</div>
-	<div class="wrapper">
-		<div id="E" class="letter">E</div>
-		<div class="shadow">E</div>
-	</div>
-	<div class="wrapper">
-		<div id="S" class="letter">S</div>
-		<div class="shadow">S</div>
-	</div>
-	<div class="wrapper">
-		<div id="Stwo" class="letter">S</div>
-		<div class="shadow">S</div>
-	</div>
-</div>
+@keyframes MoveUpDown {
+  0%, 100% {
+    top: 0;
+  }
+  50% {
+    bottom: 100px;
+  }
+}
+</style>
+</body>
+</html>
