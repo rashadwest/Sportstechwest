@@ -1098,3 +1098,11 @@ textarea {
   margin-top: 0px !important;
 }
 }
+@media (max-width: 480px) {
+  #myBtn{
+    bottom: 70px !important;
+  }
+  #comment-button{
+    bottom: 145px !important;
+  }
+}
