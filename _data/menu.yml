@@ -15,8 +15,8 @@
   hide: false
   position: 3
 - analytics:
-  title: "Analytics Culture"
-  url: /analytics-culture
+  title: "Insights"
+  url: /insights
   position: 4
 - video-gallery:
   title: "Video Gallery"

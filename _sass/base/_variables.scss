@@ -1,6 +1,6 @@
 /* TYPOGRAPHY */
 // $font-family-main: 'Source Sans Pro', Helvetica, Arial, sans-serif;
-$font-family-main: monospace;
+$font-family-main: "Roboto", sans-serif;
 $font-family-headings: 'Source Sans Pro', Helvetica, Arial, sans-serif;
 $font-family-logo: 'Source Sans Pro', Helvetica, Arial, sans-serif;
 $font-size: 1.25em;
@@ -40,7 +40,7 @@ html, html[data-theme="light"] {
   --meta: #595959;
   --link: #242526;
   --link-archive: #a2a5a8;
-  --link-constant: #dedede;
+  --link-constant: black;
   --header-background: #24292e;
   --header-background-archive: #909396;
   --header-text: #ffffff;

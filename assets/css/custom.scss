@@ -1,6 +1,16 @@
 ---
 ---
 
+
+:root {
+  --nav-header_main: #cce0eb;
+  --nav-header_submain: #6cd3ff;
+  --primary-color: #007bff;
+  --secondary-color: #ff5722;
+}
+body{
+  background-image: radial-gradient(circle farthest-corner at 10% 20%, rgb(225, 228, 230) 1.1%, rgb(187, 229, 255) 43.7%, rgb(172 205 243) 89.7%);
+}
 @import "type-on-strap";
 
 html{
@@ -151,10 +161,9 @@ nav ul {
     display: none;
 }
 .avatar-dark{
-  filter: invert(1) !important;
+  filter: invert(0) !important;
 }
   .footer {
-    background-color: var(--background-footer) !important;
     color: var(--color-footer) !important;
   }
   .posts .post-teaser {
@@ -166,7 +175,8 @@ nav ul {
 
 .site-header {
   border-bottom: 1px solid var(--nav-links);
-  background: linear-gradient(48deg, #bcbcbc, transparent);
+  background-color: #0093E9;
+  background-image: linear-gradient(160deg, var(--nav-header_main) 0%, var(--nav-header_submain) 100%);
 }
 .main-content {
   display: flex;
@@ -254,7 +264,6 @@ header> .main{
 }
 /* General Footer Styling */
 .footer {
-    background-color: var(--background-footer) !important;
     color: var(--color-footer) !important;
     padding: 20px;
     text-align: center;
@@ -473,6 +482,10 @@ header> .main{
   #disqus_thread{
     padding-top: 40px;
   }
+  .disqus-footer__wrapper--refresh {
+    padding-top: 9px;
+    border-color: #000a1f;
+}
   .tooltip {
   position: relative;
   display: inline-block;
