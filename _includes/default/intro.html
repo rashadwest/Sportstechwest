@@ -1,3 +1,57 @@
+<style>
+.intro-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Default: Two columns, each taking 50% width */
+    gap: 20px;
+    align-items: center;
+    max-width: 1280px;
+    margin: auto;
+    margin-top: 200px;
+}
+
+.text-intro,
+.video-img-intro {
+    padding: 10px; /* Optional: Add padding for content */
+}
+.text-intro {
+    margin-top: -130px;
+}
+
+.video-img-intro video {
+    width: 100%; /* Ensure the video fits its container */
+    height: 650px; /* Maintain aspect ratio */
+}
+
+/* Tablet view: Stack into two rows */
+@media (max-width: 768px) {
+    .intro-container {
+        grid-template-columns: 1fr; /* Single column layout */
+        grid-template-rows: auto auto; /* Rows will adjust to content height */
+    }
+    .text-intro {
+    margin-top: 0px;
+}
+
+}
+
+/* Mobile view: Single column, smaller spacing */
+@media (max-width: 480px) {
+    .intro-container {
+        grid-template-columns: 1fr; /* Single column */
+        gap: 10px; /* Smaller gap for mobile */
+    }
+
+    .text-intro {
+        text-align: center; /* Optional: Center text for mobile view */
+    }
+    .text-intro {
+    margin-top: 0px;
+}
+
+}
+
+
+</style>
 <section id="more-intro">
     <div class="intro-container">
         <div class="text-intro">
