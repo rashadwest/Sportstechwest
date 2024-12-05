@@ -4,7 +4,7 @@
 
 :root {
   --nav-header_main: rgb(204, 224, 235);
-  --nav-header_submain: rgb(108, 211, 255);
+  --nav-header_submain: #6cd3ff;
   --nav-header_submain_footer: rgb(27 142 191);
   --primary-color: #007bff;
   --secondary-color: #ff5722;
@@ -189,7 +189,6 @@ nav ul {
 .footer{
   border-bottom: 1px solid var(--nav-links);
   background-color: #0093E9;
-  background-image: linear-gradient(160deg, var(--nav-header_main) 0%, var(--nav-header_submain_footer) 100%);
   margin-top: 50px;
   padding-top: 50px;
   border-top: 1px solid black;
@@ -801,7 +800,7 @@ textarea {
   }
   .video-img-intro video{
     width: 100% !important;
-    margin-top: 20px !important;
+    margin-top: -60px !important;
   }
 }
 
