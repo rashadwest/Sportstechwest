@@ -1,3 +1,18 @@
+<style>
+  footer{
+    background: url({{site.baseurl}}/assets/img/feature-img/added-details/lotus-footer.png);
+    width: 100%;
+    background-size: cover;
+    background-position: 0px 550px; /* Move the image 50px to the right and 20px down */
+  }
+@media screen and (max-width: 768px) {
+  footer{
+    background-position: 0px 0px;
+    height: 100vh; 
+  }
+}
+</style>
+
 {% comment %} <footer class="site-footer">
     <p class="text">
         {{ site.footer_text | default: "Powered by <a href='https://jekyllrb.com/'>Jekyll</a> with <a href='https://github.com/sylhare/Type-on-Strap'>Type on Strap</a>" }}</p>
