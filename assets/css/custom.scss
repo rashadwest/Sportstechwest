@@ -191,7 +191,6 @@ nav ul {
 }
 .footer{
   border-bottom: 1px solid var(--nav-links);
-  background-color: #0093E9;
   margin-top: 50px;
   padding-top: 50px;
   border-top: 1px solid black;
@@ -774,7 +773,7 @@ textarea {
       padding-left: 50px;
   }
   .carousel {
-    min-height: 20vh !important;
+    min-height: 30vh !important;
     position: relative;
     top: 65px !important;
   }
@@ -782,7 +781,7 @@ textarea {
     width: 100%;
     height: 100%;
     display: block;
-    object-fit: fill !important;
+    object-fit: cover !important;
     object-position: center;
 }
 
@@ -1061,9 +1060,6 @@ textarea {
 
 #more-intro{
   margin-bottom: 50px;
-}
-.intro-container{
-  padding-left: 5%;
 }
 
 @media screen and (min-width: 1920px) {
