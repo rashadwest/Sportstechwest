@@ -17,7 +17,7 @@
           --light-red:#f3ac99;
           --light-teal:#a6c8cc;
           --light-gray:#ddd5d6;
-          --theme-color2: radial-gradient(circle farthest-corner at 10% 20%, rgb(116 236 187) 1.1%, rgb(187, 229, 255) 43.7%, rgb(172 205 243) 216.7%);;
+          --theme-color2: radial-gradient(circle farthest-corner at 10% 20%, rgb(116 236 187) 1.1%, rgb(187, 229, 255) 43.7%, rgb(172 205 243) 216.7%);
         }
     
      .site-logo {
@@ -247,13 +247,13 @@
                   <div class="swiper-container gallery-thumbs">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                          <img class="u1" src="https://md-aqil.github.io/images/2091127763_1_1_1.jpg" alt="">
+                          <img class="u1" src="https://md-aqil.github.io/images/2091127763_1_1_1.jpg" alt="Client_1">
                         </div>
                         <div class="swiper-slide">
-                          <img class="u1" src="https://md-aqil.github.io/images/beautiful-beauty-face-2657838.jpg" alt="">
+                          <img class="u1" src="https://md-aqil.github.io/images/beautiful-beauty-face-2657838.jpg" alt="Client_2">
                         </div> 
                         <div class="swiper-slide">
-                          <img class="u1" src="https://md-aqil.github.io/images/beautiful-beauty-face-2657838.jpg" alt="">
+                          <img class="u1" src="https://md-aqil.github.io/images/beautiful-beauty-face-2657838.jpg" alt="Client_3">
                         </div> 
                     </div>
                   </div>
@@ -265,7 +265,7 @@
                         <!-- Slides -->
                         {% for testimonial in site.data.testimonies %}
                         <div class="swiper-slide">
-                          <img class="insider_image" src="{{testimonial.mobile_image}}" alt="">
+                          <img class="insider_image" src="{{testimonial.mobile_image}}" alt="{{testimonial.name}}">
                           <div class="quote">
                               <img class="quote-icon"> <i class="fas fa-quote-left fa-3x"></i>
                             <p>
