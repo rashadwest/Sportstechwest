@@ -8,6 +8,7 @@
   --nav-header_submain_footer: rgb(27 142 191);
   --primary-color: #007bff;
   --secondary-color: #ff5722;
+  --general_margin: 50px;
 }
 body{
   background-image: radial-gradient(circle farthest-corner at 10% 20%, rgb(225, 228, 230) 1.1%, rgb(187, 229, 255) 43.7%, rgb(172 205 243) 216.7%);
@@ -1057,7 +1058,7 @@ textarea {
 }
 
 #more-intro{
-  margin-bottom: 50px;
+  margin-bottom: var(--general_margin);
 }
 
 @media screen and (min-width: 1920px) {
