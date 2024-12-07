@@ -196,3 +196,39 @@ display: inline-block;
   transition: all 250ms ease-out 0s;
   width: 20px;
 }
+
+@media screen and (max-width: 768px) {
+  .testimonial-section{
+    flex-direction: column !important;
+  }
+  .testi-user-img{
+    display: none !important;
+  }
+  .testimonial-section .user-saying{
+    width: 100% !important;
+  }
+  .testimonial-section .quote{
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .testimonial-section .quote{
+    width: 95% !important;
+    justify-content: flex-start !important;
+  }
+  .insider_image{
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: top;
+    margin: auto;
+    margin-top: 100px;
+    display: flex;
+    border: 3px solid #3190E7;
+  }
+}
+@media screen and (min-width: 768px) {
+  .insider_image{
+    display: none;
+  }
+}

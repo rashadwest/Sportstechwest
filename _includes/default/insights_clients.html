@@ -1,5 +1,11 @@
 <style>
 
+.spacer{
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  max-width: 1280px;
+}
 
     :root {
       --dark-green: #9cc675;
@@ -11,7 +17,7 @@
       --light-red:#f3ac99;
       --light-teal:#a6c8cc;
       --light-gray:#ddd5d6;
-      --theme-color2: #000;
+      --theme-color2: radial-gradient(circle farthest-corner at 10% 20%, rgb(116 236 187) 1.1%, rgb(187, 229, 255) 43.7%, rgb(172 205 243) 216.7%);;
     }
 
  .site-logo {
@@ -88,7 +94,7 @@
    font-size: 14px;
    letter-spacing: 0.04em;
    text-align: right;
-   color: #cdcdcd;
+   color: black;
    opacity: 0.65;
 }
 
@@ -185,7 +191,7 @@
 .testimonial-section .user-saying {
     background: var(--theme-color2);
     width: 60%;
-    color: #cdcdcd;
+    color: black;
     height: 100%;
 }
 
@@ -206,7 +212,7 @@
 }
 
 .testimonial-section .quote p {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 300;
     line-height: 1.3;
     margin: 7 0 7 0;
@@ -218,66 +224,60 @@
     margin-bottom: 20px;
     color: #cdcdcd;
 }
+.text-clients{
+  text-align: center;
+}
+.text-clients span{
+ color: #35adf8; 
+ background-image: linear-gradient(45deg, #1c86c8 12%, #37aa53 83%);
+ background-clip: text; 
+ -webkit-background-clip: text; 
+ -webkit-text-fill-color: transparent; 
+}
 </style>
-<section class="spacer">    
+<section class="spacer">  
+  <div class="text-clients">
+    <h2>My Happy <span>Clients</span></h2>
+  </div>
         <div class="testimonial-section">
-          <div class="testi-user-img">
-          <div class="swiper-container gallery-thumbs">
-              <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <img class="u1" src="https://md-aqil.github.io/images/2091127763_1_1_1.jpg" alt="">
-                  </div>
-                  <div class="swiper-slide">
-                    <img class="u1" src="https://md-aqil.github.io/images/beautiful-beauty-face-2657838.jpg" alt="">
-                  </div> 
-                  <div class="swiper-slide">
-                    <img class="u1" src="https://md-aqil.github.io/images/beautiful-beauty-face-2657838.jpg" alt="">
-                  </div> 
+            <div class="testi-user-img">
+              <div class="swiper-container gallery-thumbs">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img class="u1" src="https://md-aqil.github.io/images/2091127763_1_1_1.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                      <img class="u1" src="https://md-aqil.github.io/images/beautiful-beauty-face-2657838.jpg" alt="">
+                    </div> 
+                    <div class="swiper-slide">
+                      <img class="u1" src="https://md-aqil.github.io/images/beautiful-beauty-face-2657838.jpg" alt="">
+                    </div> 
                 </div>
               </div>
-          </div>
+            </div>
           <div class="user-saying">
               <div class="swiper-container testimonial">
                   <!-- Additional required wrapper -->
                   <div class="swiper-wrapper ">
                     <!-- Slides -->
+                    {% for testimonial in site.data.testimonies %}
                     <div class="swiper-slide">
+                      <img class="insider_image" src="{{testimonial.mobile_image}}" alt="">
                       <div class="quote">
                           <img class="quote-icon"> <i class="fas fa-quote-left fa-3x"></i>
                         <p>
-Aman worked on a project to create a new website for our meditation centre. The project involved developing a brand new site which incorporates a new booking and membership system to facilitate our online classes. 
-
-We are very happy with the website. It is very beautiful and meets our stated requirements well. Aman was a delight to work with. 
+                          {{testimonial.quote}}
                         </p>
-                        <div class="name">Gen Kelsang Leksang</div>
-                        <div class="designation">Client & Resident Teacher<br>Kadampa Meditation Centre Birmingham</div>
+                        <div class="name">{{testimonial.name}}</div>
+                        <div class="designation">{{testimonial.designation}}</div>
                       </div>
                     </div>
-                    <div class="swiper-slide">
-                      <div class="quote">
-                        <img class="quote-icon"> <i class="fas fa-quote-left fa-3x"></i>
-                        <p>
-                            Aman did a wonderful job in designing the new website for KMC Birmingham. From producing prototypes to final implementation and post live support  Aman was involved in all aspects of the life cycle...he has a particular eye for detail researching topics such as the security options thoroughly. Aman was a delight to work, happy to take on board suggestions and committed to build a quality product. Highly recommend him.
-                        </p>
-                        <div class="name">Roland Jones</div>
-                        <div class="designation">Education Programme Co-ordinator<br>Kadampa Meditation Centre Swansea</div>
-                      </div>
-                    </div>
-                    <div class="swiper-slide">
-                      <div class="quote">
-                          <img class="quote-icon"> <i class="fas fa-quote-left fa-3x"></i>
-                            <p>
-                              I have always found him to deeply care about every project he has been working on. He researches it thoroughly and tries to always do the best possible job having really thought through his course of action. Aman is a really kind, sincere and very respectful person; a pleasure to work with. I wish him every success with his career path and wouldn’t hesitate to recommend him.
-                            </p>
-                            <div class="name">Gen Kelsang Lhasang</div>
-                            <div class="designation">Education Programme Co-ordinator<br>Kadampa Meditation Center Birmingham</div>
-                      </div>
-                    </div>
-                </div>
+                    {% endfor %}
+                  </div>
                     <!-- If we need pagination -->
                   <div class="swiper-pagination swiper-pagination-white"></div>
                 
-                </div>
+              </div>
           </div>
         </div>
       </section>
