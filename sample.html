@@ -1,62 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Background Shapes</title>
+  <meta charset="utf-8" />
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Demo styles -->
   <style>
+    html,
     body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #f4f4f9;
-    }
-
-    .image-container {
       position: relative;
-      width: 300px;
-      height: 300px;
-    }
-
-    .image-container img {
-      width: 100%;
       height: 100%;
-      border-radius: 50%; /* Makes the image circular */
-      position: relative;
-      z-index: 1; /* Ensures the image is on top of the shapes */
     }
 
-    /* Adding shapes behind the image */
-    .image-container::before {
-      content: "";
-      position: absolute;
-      top: -20px;
-      left: -20px;
-      width: 340px;
-      height: 340px;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Gradient shape */
-      border-radius: 50%; /* Makes it a circle */
-      z-index: 0; /* Places it behind the image */
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
     }
 
-    .image-container::after {
-      content: "";
+    .swiper {
+      width: 600px;
+      height: 600px;
       position: absolute;
-      bottom: -30px;
-      right: -30px;
-      width: 200px;
-      height: 200px;
-      background: rgba(0, 150, 136, 0.3); /* Semi-transparent teal */
-      transform: rotate(45deg); /* Makes it a diamond */
-      z-index: 0;
+      left: 50%;
+      top: 50%;
+      margin-left: -150px;
+      margin-top: -150px;
+    }
+
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
     }
   </style>
 </head>
+
 <body>
-  <div class="image-container">
-    <img src="https://via.placeholder.com/300" alt="Profile Picture">
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+      </div>
+      <div class="swiper-slide">
+        <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+      </div>
+      <div class="swiper-slide">
+        <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+      </div>
+      <div class="swiper-slide">
+        <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
   </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      autoplay: {
+        delay: 7000,
+        disableOnInteraction: false,
+      },
+      effect: "cube",
+      grabCursor: true,
+      cubeEffect: {
+        shadow: true,
+        slideShadows: true,
+        shadowOffset: 20,
+        shadowScale: 0.94,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });
+  </script>
 </body>
+
 </html>
