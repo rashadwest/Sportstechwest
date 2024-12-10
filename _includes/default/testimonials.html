@@ -247,14 +247,14 @@
                   <div class="swiper-container gallery-thumbs">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                          <img class="u1" src="https://md-aqil.github.io/images/2091127763_1_1_1.jpg" alt="Client_1">
+                          <img class="u1" src="{{site.baseurl}}/assets/img/clients/Hodge__Julius.webp" alt="Client_1">
                         </div>
-                        <div class="swiper-slide">
-                          <img class="u1" src="https://md-aqil.github.io/images/beautiful-beauty-face-2657838.jpg" alt="Client_2">
+                        <!-- <div class="swiper-slide">
+                          <img class="u1" src="{{site.baseurl}}/assets/img/clients/Hodge__Julius.webp" alt="Client_2">
                         </div> 
                         <div class="swiper-slide">
-                          <img class="u1" src="https://md-aqil.github.io/images/beautiful-beauty-face-2657838.jpg" alt="Client_3">
-                        </div> 
+                          <img class="u1" src="{{site.baseurl}}/assets/img/clients/Hodge__Julius.webp" alt="Client_3">
+                        </div>  -->
                     </div>
                   </div>
                 </div>
@@ -265,7 +265,7 @@
                         <!-- Slides -->
                         {% for testimonial in site.data.testimonies %}
                         <div class="swiper-slide">
-                          <img class="insider_image" src="{{testimonial.mobile_image}}" alt="{{testimonial.name}}">
+                          <img class="insider_image" src="{{site.baseurl}}/assets/img/clients/{{testimonial.mobile_image}}" alt="{{testimonial.name}}">
                           <div class="quote">
                               <img class="quote-icon"> <i class="fas fa-quote-left fa-3x"></i>
                             <p>
