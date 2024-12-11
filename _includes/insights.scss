@@ -5,6 +5,48 @@
     --primary-color: #007bff;
     --secondary-color: #ff5722;
   }
+
+
+  .insights{
+    max-width: var(--general_width);
+    margin: auto;
+    margin-bottom: var(--general_margins);
+  }
+  .post-content img {
+    padding: 0px 0px !important;
+    cursor: zoom-in;
+    margin: 0px auto !important;
+  }
+  #myGrid{
+    margin: auto 150px;
+  }
+
+
+  @media screen and (max-width: 768px) {
+    #myGrid {
+      margin: auto;
+  }
+  .text-gradient{
+    font-size: 30px !important;
+    text-align: center;
+  }
+  }
+  @media screen and (min-width: 769px ) and (max-width: 1024px) {
+    #myGrid {
+      margin: auto;
+  }
+  .text-gradient{
+    font-size: 30px !important;
+    text-align: center;
+  }
+  }
+  @media screen and (min-width: 1024px) and (max-width: 1280px) {
+    
+  }
+  @media screen and (min-width: 1280px) {
+    
+  }
+
 .carousel {
     top: 0 !important;
     width: 100%;
@@ -15,6 +57,7 @@
     overflow: hidden;
     position: relative;
     margin: 0px auto;
+    margin-bottom: var(--general_margin);
   }
   
   .carousel-item {
@@ -226,3 +269,4 @@
   }
   
   }
+

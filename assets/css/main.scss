@@ -7,6 +7,17 @@
     background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
   }
   
+  .text-gradient{
+    color: #35adf8; 
+    background-image: linear-gradient(45deg, #1c86c8 12%, #37aa53 83%);
+    background-clip: text; 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    padding: 15px 0px;
+    font-weight: bolder;
+    font-size: 40px !important;
+   }
+
   $animationSpeed: 40s;
   
   // Animation
@@ -61,7 +72,7 @@
     /* CSS */
 .button-86 {
   all: unset;
-  width: 100px;
+  width: 120px;
   height: 30px;
   font-size: 16px;
   background: transparent;
