@@ -9,10 +9,10 @@
   url: /about
   hide: false
   position: 2
-- blog:
-  title: "Blogs"
-  url: /blog
-  hide: false
+# - blog:
+#   title: "Blogs"
+#   url: /blog
+#   hide: false
   position: 3
 - analytics:
   title: "Insights"
