@@ -1,9 +1,7 @@
 ---
-layout: page
+layout: our-mission
 title: Our Mission
 permalink: /our-mission
-excluded: true
-feature-img: "assets/img/header/Analytic_Shaq.webp"
-thumbnail: "assets/img/header/Analytic_Shaq.webp"
+comments: false
 tags: [mission]
 ---

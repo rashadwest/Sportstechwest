@@ -13,6 +13,11 @@
 #   title: "Blogs"
 #   url: /blog
 #   hide: false
+#    position: 3
+- blog:
+  title: "Our Mission"
+  url: /our-mission
+  hide: false
   position: 3
 - analytics:
   title: "Insights"
