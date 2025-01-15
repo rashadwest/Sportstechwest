@@ -13,6 +13,8 @@ tags: [Video Gallery]
 
 {% include gallery.html gallery_path=page.image-gallery %}
 
+    {% include default/email-list.html %}
+
 <script>
     const lightbox = document.createElement('div')
 lightbox.id = 'lightbox'

@@ -9,3 +9,5 @@ thumbnail: "assets/img/blog-img/mlb.webp"
 icon: "fa-archive"
 comments: false
 ---
+
+    {% include default/email-list.html %}
