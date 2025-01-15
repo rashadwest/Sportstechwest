@@ -16,8 +16,24 @@
   display: none !important;
 }
 {% endif %}
+.progress-container {
+  width: 100%;
+  height: 3px;
+  background: #000000;
+  position: fixed;
+  z-index: 100000;
+}
+
+.progress-bar {
+  height: 3px;
+  background: #ff0000;
+  width: 0%;
+}
   </style>
   <body>
+    <div class="progress-container">
+      <div class="progress-bar" id="myBar"></div>
+    </div>
     {% capture _navbar %}{% include default/navbar.html %}{% endcapture %}
     {{ _navbar | split: " " | join: " "}}
    
@@ -115,6 +131,15 @@ window._klOnsite.push(['openForm', 'Yh7fSH']);
     console.log('prev '+prev);
   }
 });
+// When the user scrolls the page, execute myFunction 
+window.onscroll = function() {myFunction()};
+
+function myFunction() {
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+  document.getElementById("myBar").style.width = scrolled + "%";
+}
 </script>
 
 </html>

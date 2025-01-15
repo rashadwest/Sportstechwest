@@ -8,7 +8,7 @@ feature-img: "assets/img/header/NCWS.webp"
 
 ### UNC Vs. Wake Forest
  
-I saw the game on espn and realized it was right next to the city I was raised in Raleigh, NC. I go over to Cary, NC and had to find parking.
+I saw the game on [espn](https://www.espn.com/) and realized it was right next to the city I was raised in Raleigh, NC. I go over to Cary, NC and had to find parking.
 
 I then had to walk in a pattern to go out toward the street and around the "forest" to get to the game. It was an adventure but not as much as my journey to the car and out of the parking lot I will tell you about.
 
@@ -25,7 +25,7 @@ I struggled to get footage of them running out after the game because my phone w
 I then headed back to the car and decided to go through the woods this time with people. With my phone dead I had to depend on the person in front of me to lead me with there flashlight. I am just thankful to God that I do not have a twisted ankle. Then the parking lot was a bottle neck so it was a long wait and with no phone the radio would sufficie. It was good times! I was sitting there reflecting on it listening to my music.
 
 
-Duke vs Incarnate Word
+### Duke vs Incarnate Word
 
 I was invited to Duke for a game with my guy B.Merritt and had the opportunity to get shown around by Jae Lucas and the  Duke staff. It was great being able to chop it up with some of the Freshman including Cooper Flagg, Darren Harris, and Slim. I think it is starting to make me want to be around the game more and more.
 
@@ -37,7 +37,7 @@ They added the newest technology like the Noah but other than that it is still a
 
 O yeah, the game wasn't the best for either side but I enjoyed being in the atmosphere and engaging with the fans.
 
-GLeague Showcase
+### GLeague Showcase
 
 When I showed up at the showcase I wasn't sure of what to expect.
 
@@ -45,4 +45,4 @@ When I walked in it was a vip entrance and the event was invite only. I ended up
 
 Catching up with individuals from playing like Kyle Hines, Ish Smith, Earnest Scott, and meeting some new friends that I've developed from Front Office like the GM's and Scouts was also amazing.
 
-I expect to go there every year. 
+I expect to go there every year.
