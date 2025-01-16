@@ -62,3 +62,6 @@ defaults:
     values:
       layout: "post" # Use your specific layout name here
 
+url: "http://sportstechwest.com" # the base hostname & protocol for your site
+plugins:
+  - jekyll-sitemap
