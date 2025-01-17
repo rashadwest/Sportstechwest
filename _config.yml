@@ -1,6 +1,6 @@
 # SITE CONFIGURATION
 baseurl: "/Sportstechwest"
-url: ""
+url: "https://sportstechwest.com"
 
 # THEME-SPECIFIC CONFIGURATION
 title: "SportsTechwest"
