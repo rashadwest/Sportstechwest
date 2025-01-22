@@ -1,5 +1,5 @@
 <style>
-.intro-container {
+  .intro-container {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Default: Two columns, each taking 50% width */
     gap: 20px;
@@ -9,106 +9,113 @@
     align-items: flex-start;
     padding: 100px 100px var(--general_margin) 100px;
     margin-top: 70px;
+  }
 
-}
-
-.text-intro,
-.video-img-intro {
+  .text-intro,
+  .video-img-intro {
     padding: 10px; /* Optional: Add padding for content */
-}
-.text-intro h2{
+  }
+  .text-intro h2 {
     margin-top: 0px;
     font-size: 30px;
     font-weight: bolder;
-}
-.text-intro p {
+  }
+  .text-intro p {
     font-size: 20px;
-}
+  }
 
-.video-img-intro img {
+  .video-img-intro img {
     width: 100%; /* Ensure the video fits its container */
     height: auto; /* Maintain aspect ratio */
     border-radius: 20px;
-}
+  }
 
-/* Tablet view: Stack into two rows */
-@media (max-width: 768px) {
+  /* Tablet view: Stack into two rows */
+  @media (max-width: 768px) {
     .intro-container {
-        grid-template-columns: 1fr; /* Single column layout */
-        grid-template-rows: auto auto; /* Rows will adjust to content height */
-        max-width: 1280px;
-        margin: auto;
-        align-items: flex-start;
-        padding: 30px !important;
-        margin-top: 30px !important;
-        grid-auto-rows: minmax(100px, auto); /* Adjust row height */
-        grid-auto-flow: dense; /* Allow items to fill in reverse order */
+      grid-template-columns: 1fr; /* Single column layout */
+      grid-template-rows: auto auto; /* Rows will adjust to content height */
+      max-width: 1280px;
+      margin: auto;
+      align-items: flex-start;
+      padding: 30px !important;
+      margin-top: 30px !important;
+      grid-auto-rows: minmax(100px, auto); /* Adjust row height */
+      grid-auto-flow: dense; /* Allow items to fill in reverse order */
     }
     .text-intro {
-    margin-top: 0px;
-}
-.text-intro h2{
-    font-size: 26px !important;
-}
-.text-intro p {
-    font-size: 17px;
-}
-.text-intro:nth-child(1) {
-  order: 2;
-}
+      margin-top: 0px;
+    }
+    .text-intro h2 {
+      font-size: 26px !important;
+    }
+    .text-intro p {
+      font-size: 17px;
+    }
+    .text-intro:nth-child(1) {
+      order: 2;
+    }
 
-.video-img-intro:nth-child(2) {
-  order: 1;
-  margin-top: 50px;
-}
-}
+    .video-img-intro:nth-child(2) {
+      order: 1;
+      margin-top: 50px;
+    }
+  }
 
-/* Mobile view: Single column, smaller spacing */
-@media (max-width: 480px) {
+  /* Mobile view: Single column, smaller spacing */
+  @media (max-width: 480px) {
     .intro-container {
-        grid-template-columns: 1fr; /* Single column */
-        gap: 10px; /* Smaller gap for mobile */
+      grid-template-columns: 1fr; /* Single column */
+      gap: 10px; /* Smaller gap for mobile */
     }
 
     .text-intro {
-        text-align: left; /* Optional: Center text for mobile view */
-        font-size: xx-large;
+      text-align: left; /* Optional: Center text for mobile view */
+      font-size: xx-large;
     }
     .text-intro {
-    margin-top: 0px;
-}
-}
+      margin-top: 0px;
+    }
+  }
 
-.text-intro span{
- color: #35adf8; 
- background-image: linear-gradient(45deg, #1c86c8 12%, #37aa53 83%);
- background-clip: text; 
- -webkit-background-clip: text; 
- -webkit-text-fill-color: transparent; 
-}
-.video-img-intro{
+  .text-intro span {
+    color: #35adf8;
+    background-image: linear-gradient(45deg, #1c86c8 12%, #37aa53 83%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .video-img-intro {
     position: relative;
     background: url({{site.baseurl}}/assets/img/feature-img/added-details/bg-11.png);
-}
-.bg-image{
+  }
+  .bg-image {
     position: absolute;
     margin-left: -20px;
     z-index: 10;
-}
-
+  }
 </style>
 <section id="more-intro">
-    <div class="intro-container">
-        <div class="text-intro">
-            <h2><span>Where Sports Meets Innovation</span>—Led by SportsTechWest.</h2>
-            <p><span style="font-weight: bold; ">“Welcome to SportsTechWest</span>, a blog exploring the journey from professional athlete to sports tech vagabonder. Join us in discovering the global intersection of sport, science and technology.”</p>
-            <a href="{{site.baseurl}}/about" target="_blank" rel="noopener noreferrer"><button class="button-86" role="button">About Me</button></a>
-        </div>
-        <div class="video-img-intro">
-                <img src="{{site.baseurl}}/assets/img/feature-img/Newest_STW.gif" alt="Newest_STW" />
-        </div>
+  <div class="intro-container">
+    <div class="text-intro">
+      <h2><span>Where Sports Meets Innovation</span>—Led by SportsTechWest.</h2>
+      <p>
+        <span style="font-weight: bold">“Welcome to SportsTechWest</span>, a
+        blog exploring the journey from professional athlete to sports tech
+        vagabonder. Join us in discovering the global intersection of sport,
+        science and technology.”
+      </p>
+      <a href="{{site.baseurl}}/about" target="_blank" rel="noopener noreferrer"
+        ><button class="button-86" role="button">About Me</button></a
+      >
     </div>
-
+    <div class="video-img-intro">
+      <img
+        src="{{site.baseurl}}/assets/img/feature-img/Symposium.jpg"
+        alt="Newest_STW"
+      />
+    </div>
+  </div>
 </section>
 
-<hr style="border-bottom: 1px solid rgba(0, 0, 0, .3) !important;">
+<hr style="border-bottom: 1px solid rgba(0, 0, 0, 0.3) !important" />
