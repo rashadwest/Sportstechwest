@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Analytics Culture: “The Game Within the Game”"
-thumbnail: "assets/img/header/thumbnails/Ncws.jpg"
-feature-img: "assets/img/header/Ncws.webp"
+thumbnail: "assets/img/header/thumbnails/Ncws.jpeg"
+feature-img: "assets/img/header/NCWS.webp"
 ---
 
 ## The Decision to Go
