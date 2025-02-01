@@ -18,7 +18,7 @@ Let me break it down for you.
 
 ### Breaking Bread with Olympians
 
-Being surrounded by the world’s most elite athletes at the [USA House](https://teamusa.org/USA-House) reminded me why I started this journey. Over two days, I had the privilege of meeting iconic figures like [Maverick Carter](https://en.wikipedia.org/wiki/Maverick_Carter) and [Paul Rivera](https://www.linkedin.com/in/paulrivera/). We discussed everything from sports to **business**, life, and the importance of venturing beyond the field.
+Being surrounded by the world’s most elite athletes at the [USA House](https://teamusa.org/USA-House) reminded me why I started this journey. Over two days, I had the privilege of meeting iconic figures like [Maverick Carter](https://en.wikipedia.org/wiki/Maverick_Carter) and [Paul Rivera](https://www.linkedin.com/in/paulrivera/) while walking in Paris. We discussed everything from sports to **business**, life, and the importance of venturing beyond the field.
 
 These conversations reinforced my belief in empowering athletes with tools to redefine success whether it’s through [sports tech](https://sporttech.io/) or life off the field. Stories of triumph and challenges alike echoed the importance of our mission at **BTE Analytics**.
 
