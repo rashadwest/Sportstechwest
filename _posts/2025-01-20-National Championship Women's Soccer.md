@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Analytics Culture: “The Game Within the Game”"
+title: "Analytics Culture: UNC Legacy “From No Control to Comeback”"
 thumbnail: "assets/img/header/thumbnails/Ncws.jpeg"
 feature-img: "assets/img/header/NCWS.webp"
 ---
@@ -30,9 +30,20 @@ Learn more about UNC Women’s Soccer’s legacy [here](https://goheels.com/spor
 
 ---
 
-## The Game Itself
+## 62 & The Game Itself 
 
-The game was **intense but scrappy**. Neither team had a clear upper hand, and it was a constant back-and-forth. But then **UNC’s attack** started breaking through. Their pressure led to a big opportunity: a **free kick** right outside the penalty box. It was one of those moments where the air in the stadium changes.
+First Half Possession vs. Second Half Adjustments
+Wake Forest controlled the first half with 62% possession, more shots, and more corners, keeping UNC on the back foot. But in the second half, UNC flipped the script, retaining more possession and creating better attacking opportunities.
+
+One big difference? Olivia Thomas started finding more space. UNC’s adjustments allowed her to get on the ball in dangerous areas, leading to more chances to get a shot off. The breakthrough came in the 62nd minute and that was all they needed.
+
+UNC didn’t play their best defensive game. Wake Forest still had chances, but UNC came out unscathed. Sometimes, it’s not about locking down defensively but making the most of your key moments.
+
+What to ask: How did UNC’s tactical shift open up space for Olivia? Did they press higher or just transition more efficiently?
+
+Lastly, the game was intense but scrappy. Neither team had a clear upper hand and it was constant back and forth. But then UNC’s attack started breaking through. Their pressure led to a big opportunity: a free kick right outside the penalty box. It was one of those moments where the air in the stadium changes.
+
+The 62% possession in the first half, followed by UNC flipping the script and scoring in the 62nd minute, perfectly illustrates the shift in momentum.
 
 <div class="image-gallery" style="text-align: center">
   <img class="img-2" src="{{site.baseurl}}/assets/img/blog-img/NCWS_1.jpg" alt="NCWS_1" >
