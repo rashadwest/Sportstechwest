@@ -11,35 +11,35 @@ At [BTE Analytics](https://sportstechwest.com/analytics-culture), we’re not ju
 
 <p style="font-style: italic; font-size: 0.9em; font-weight: bold; text-align: center;">NBA "The Art Of Dribbling" MOMENTS</p>
 
-When [basketball](https://hoopheadspod.com/a-brief-history-of-basketball/) first started, players were dribbling with soccer balls until [Spalding](https://en.wikipedia.org/wiki/Spalding_(company)#:~:text=However%2C%20many%20NBA%20players%20complained,backboard%2C%20and%20cut%20their%20fingers.) and [James Naismith](https://en.wikipedia.org/wiki/James_Naismith) teamed up to design a ball for the game. [Soccer balls](https://soccerballworld.com/history-of-the-soccer-ball/) at the time were too flat to bounce well and too slick to grip, making dribbling nearly impossible. This innovation—a basketball designed specifically for dribbling—completely changed the game.
+When [basketball](https://hoopheadspod.com/a-brief-history-of-basketball/) first started, players dribbled with soccer balls until [Spalding](https://en.wikipedia.org/wiki/Spalding_(company)#:~:text=However%2C%20many%20NBA%20players%20complained,backboard%2C%20and%20cut%20their%20fingers.) manufactured the first official basketball for the sport, improving its design to allow better handling and dribbling. [Soccer balls](https://soccerballworld.com/history-of-the-soccer-ball/) at the time were too flat to bounce well and too slick to grip, making dribbling nearly impossible. This innovation, a basketball designed for better grip, bounce, and control, transformed the way the game was played.
 
 *Disclaimer: The historical content in this section references [“The Mega-Brands That Built America,”](https://www.history.com/shows/the-mega-brands-that-built-america) a program by the History Channel. This content is used under fair use for educational and commentary purposes. All rights to the original material belong to the History Channel.*
 
 <img  src="{{site.baseurl}}/assets/img/blog-img/Bumps_that_enabled_modern_day_palming_of_the_ball.webp" alt="Bumps_that_enabled_modern_day_palming_of_the_ball" >
 
-<p style="font-style: italic; font-size: 0.9em; font-weight: bold; text-align: center;">Bumps that enabled modern-day palming of the ball</p>
+<p style="font-style: italic; font-size: 0.9em; font-weight: bold; text-align: center;">Bumps that enabled modern day palming of the ball</p>
 
-The redesigned basketball not only allowed players to dribble effectively but also enabled them to control the ball when shooting or carrying it. That breakthrough opened the door for dribbling to evolve into an art form. The crossover, the hesitation, the spin—all those moves we celebrate today wouldn’t exist without that critical step forward.
+The redesigned basketball not only allowed players to dribble effectively but also enabled them to control the ball when shooting or carrying it. That breakthrough opened the door for dribbling to evolve into an art form. From the crossover to the hesitation to the spin, all these moves we celebrate today wouldn’t exist without that critical step forward.
 
 ---
 
 ## How Spalding and Naismith Shaped Generations of Thinkers
 
-The collaboration between **Spalding and Naismith** wasn’t just about solving a problem—it was about [innovation](https://www.evp.vc/opinion/four-technologies-driving-innovation-in-the-nba-and-beyond). They saw the potential for basketball to be more than just a game. They envisioned a sport where tools and ideas could evolve alongside the athletes, making the game more dynamic and exciting.
+The collaboration between **Spalding and Naismith** wasn’t just about solving a problem; it was about [innovation](https://www.evp.vc/opinion/four-technologies-driving-innovation-in-the-nba-and-beyond). They saw the potential for basketball to be more than just a game. They envisioned a sport where tools and ideas could evolve alongside the athletes, making the game more dynamic and exciting.
 
 <img  src="{{site.baseurl}}/assets/img/blog-img/Fair_Use_for_site.gif" alt="How Spalding and Naismith Shaped Generations of Thinkers" >
 
-That mindset inspired generations of thinkers to push the boundaries of what’s possible in sports. Their creation of a [better basketball](https://coachtube.com/users/betterbasketball) wasn’t just about performance—it was about unlocking creativity. **With a ball that could dribble**, players could suddenly invent their own moves, express their individuality, and rewrite the playbook.
+That mindset inspired generations of thinkers to push the boundaries of what’s possible in sports. Their creation of a [better basketball](https://coachtube.com/users/betterbasketball) wasn’t just about performance; it was about unlocking creativity. **With a ball that could be dribbled more effectively**, players could suddenly invent their own moves, express their individuality, and rewrite the playbook.
 
 At [BTE Analytics](https://sportstechwest.com/analytics-culture), we carry forward that same spirit. We believe that innovation in sports isn’t just about technology; it’s about making the game more accessible, more engaging, and more meaningful. Just as Spalding and Naismith’s design opened up a new world of possibilities for athletes, we’re pushing the limits by giving players new ways to understand and monetize their performance.
 
-Through our **advanced metrics**, we’re not just measuring the game; we’re redefining how it’s played and experienced. Athletes today have the tools to not only perform but also to leave a lasting legacy. Innovation like this continues to shape sports, and we’re proud to be part of that journey.
+Through our **advanced metrics**, we’re not just measuring the game; we’re redefining how it’s played and experienced. Athletes today have the tools not only to perform but also to leave a lasting legacy. Innovation like this continues to shape sports, and we’re proud to be part of that journey.
 
 ---
 
 ## Why Style and Tendencies Matter
 
-I’ve always said, ***the numbers don’t tell the whole story, Highlights do***. And let’s be real: with full-game viewership on the decline, like it or not, highlights drive the sport.
+I’ve always said, ***the numbers don’t tell the whole story-highlights do***. And let’s be real: with full game viewership on the decline, like it or not, highlights drive the sport.
 
 That’s why we’re focused on metrics that bring the highlights to life. Fans don’t just want to know you scored 20 points; they want to see how you scored them. Was it the pull-up jumper in crunch time? The no-look assist that caught the defense sleeping? Or that lethal hesitation move that froze your defender?
 
@@ -63,7 +63,7 @@ Our innovative approach brings modern tools to basketball, enabling athletes to 
 
 <img  src="{{site.baseurl}}/assets/img/blog-img/basketball-metric.webp" alt="basketball-metric" >
 
-This is more than analytics—it’s storytelling for the [modern athlete](https://www.modernathlete.co.za/). By combining our advanced metrics with the game’s visual appeal, we give athletes a platform to show their personality and define their legacy in a way that’s never been done before.
+This is more than analytics, it’s storytelling for the [modern athlete](https://www.modernathlete.co.za/). By combining our advanced metrics with the game’s visual appeal, we give athletes a platform to show their personality and define their legacy in a way that’s never been done before.
 
 ---
 
