@@ -59,7 +59,7 @@ Thanks for joining me on this journey. I am excited about where we are taking th
       <h2>Education</h2>
       <ul>
         <li>Hampton University, BS, Business Management</li>
-        <li>Stanford University, Entrepreneurship & Innovation Program</li>
+        <li>Stanford University, Entrepreneurship & Innovation Program (Remote)</li>
         <li>New York University, AI School (Artificial Intelligence)</li>
       </ul>
 
@@ -67,10 +67,10 @@ Thanks for joining me on this journey. I am excited about where we are taking th
       <ul>
         <li>
           <a
-            href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.datacamp.com%2Fstatement-of-accomplishment%2Fcourse%2Ffabb7d75677a5fd7cde59a125e02650a7b02fc38"
+            href="https://sportstechwest.com/courses-and-certificates"
             target="_blank"
             rel="noopener noreferrer"
-            >Datacamp: Introduction to Python</a
+            >Datacamp: See Coursework Section</a
           >
         </li>
       </ul>
@@ -101,7 +101,7 @@ Thanks for joining me on this journey. I am excited about where we are taking th
 <section class="about-3">
   <div class="about-3__flex">
     <div class="about-3__description-1">
-      <h2>Projects</h2>
+      <h2>Past Projects</h2>
       <ul>
         <li>
           Beat The Expert VR application (version 1)
@@ -166,7 +166,7 @@ Thanks for joining me on this journey. I am excited about where we are taking th
   <div class="about-4__follow-up">
     <div class="about-4__image-1">
       <a
-        href="https://sparc.world/RashadWest/calendar/speaking-engagements"
+        href="https://sparc.world/RashadWest/calendar/Emerging-Tech"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -180,7 +180,7 @@ Thanks for joining me on this journey. I am excited about where we are taking th
     </div>
     <div class="about-4__image-2">
       <a
-        href="https://sparc.world/RashadWest/calendar/speaking-engagements"
+        href="https://sparc.world/RashadWest/calendar/group-coaching"
         target="_blank"
         rel="noopener noreferrer"
         style="object-fit: cover; width: 570px; height: 350px"
@@ -189,7 +189,7 @@ Thanks for joining me on this journey. I am excited about where we are taking th
         <p class="about-4__image-2__para-1">your simple & spacious business</p>
         <p class="about-4__image-2__para-2">
           My flagship group program for online business owners ready to bring
-          more freedom, ease, and intentional growth into your business.
+          more freedom, ease, and intentional growth into their business.
         </p>
       </a>
     </div>
