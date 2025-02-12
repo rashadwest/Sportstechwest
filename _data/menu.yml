@@ -19,15 +19,15 @@
 #   url: /our-mission
 #   hide: false
 #   position: 3
-- analytics:
-  title: "Insights"
-  url: /insights
-  position: 4
-- video-gallery:
-  title: "Video Gallery"
-  url: /video-gallery
-  position: 5
-  hide: false
+# - analytics:
+#  title: "Insights"
+#  url: /insights
+#  position: 4
+# - video-gallery:
+#  title: "Video Gallery"
+#  url: /video-gallery
+#  position: 5
+#  hide: false
 - certificate:
   title: "Courses and Certificates"
   url: /courses-and-certificates
