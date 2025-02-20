@@ -1,32 +1,36 @@
-<!-- Photo Grid -->
-<style>
-.post-content h1{
-    margin: 65px 0 65px 0;
-    font-weight: bolder; 
-    font-size: 36px !important;
-}
-
-.post-content h1 span{
-    color: #35adf8; 
-    background-image: linear-gradient(45deg, #1c86c8 12%, #37aa53 83%);
-    background-clip: text; 
-    -webkit-background-clip: text; 
-    -webkit-text-fill-color: transparent; 
-}
-</style>
-
-<div class="w3-row post-content" id="myGrid">
-    <h1> Our <span>Insights</span> Gallery</h1>
-    {% for div in site.data.gallery.divs %}
-    <div class="w3-third">
-    {% for image in div.images %}
-    <img src="{{site.baseurl}}/assets/img/insight-gallery/{{ image }}" style="width:100%" alt="{{image}}">
-    {% endfor %}
-    </div>
-    {% endfor %}
-  </div>
-  
-  <!-- End Page Content -->
+<div class="insight_gallery">
+  <article class="gallery_1">
+    <img
+      src="https://assets.codepen.io/1506195/unsplash-music-0.avif"
+      alt="guitar player at concert"
+    />
+    <img
+      src="https://assets.codepen.io/1506195/unsplash-music-1.avif"
+      alt="duo singing"
+    />
+    <img
+      src="https://assets.codepen.io/1506195/unsplash-music-2.avif"
+      alt="crowd cheering"
+    />
+    <img
+      src="https://assets.codepen.io/1506195/unsplash-music-3.avif"
+      alt="singer performing"
+    />
+    <img
+      src="https://assets.codepen.io/1506195/unsplash-music-4.avif"
+      alt="singer fistbumping crowd"
+    />
+    <img
+      src="https://assets.codepen.io/1506195/unsplash-music-5.avif"
+      alt="man with a guitar singing"
+    />
+    <img
+      src="https://assets.codepen.io/1506195/unsplash-music-6.avif"
+      alt="crowd looking at a lighted stage"
+    />
+    <img
+      src="https://assets.codepen.io/1506195/unsplash-music-7.avif"
+      alt="woman singing on stage"
+    />
+  </article>
 </div>
-
-<hr style="border-bottom: 1px solid rgba(0, 0, 0, .3) !important;">
