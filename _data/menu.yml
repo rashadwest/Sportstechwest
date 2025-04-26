@@ -9,25 +9,25 @@
   url: /about
   hide: false
   position: 2
-# - blog:
-#   title: "Blogs"
-#   url: /blog
-#   hide: false
-#    position: 3
-# - blog:
-#   title: "Our Mission"
-#   url: /our-mission
-#   hide: false
-#   position: 3
-# - analytics:
-#  title: "Insights"
-#  url: /insights
-#  position: 4
-# - video-gallery:
-#  title: "Video Gallery"
-#  url: /video-gallery
-#  position: 5
-#  hide: false
+- blog:
+  title: "Blogs"
+  url: /blog
+  hide: false
+  position: 3
+- blog:
+  title: "Our Mission"
+  url: /our-mission
+  hide: false
+  position: 3
+- analytics:
+  title: "Insights"
+  url: /insights
+  position: 4
+- video-gallery:
+  title: "Video Gallery"
+  url: /video-gallery
+  position: 5
+  hide: false
 - certificate:
   title: "Courses and Certificates"
   url: /courses-and-certificates
