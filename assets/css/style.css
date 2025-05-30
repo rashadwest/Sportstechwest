@@ -1527,16 +1527,7 @@ footer.dark-wrapper,
 }
 .image-wrapper.gradient-overlay:before {
   background: none;
-  background-image: -o-linear-gradient(
-    315deg,
-    rgba(111, 63, 124, 0.55) 0%,
-    rgba(88, 73, 170, 0.55) 100%
-  );
-  background-image: linear-gradient(
-    85deg,
-    rgba(116, 161, 245, 0.55) 0%,
-    rgba(123, 211, 255, 0.55) 100%
-  );
+  background-color: rgba(128, 128, 128, 0.221);
 }
 .image-wrapper.no-overlay:before {
   display: none;
