@@ -1,15 +1,17 @@
 ---
 layout: post
 title: "Building with Innovators: My Journey with Techstars Washington, DC and How It Will Fuel My Sports Analytics Journey"
-thumbnail: "assets/img/header/thumbnails/techstars.webp"
-feature-img: "assets/img/header/techstars.webp"
+thumbnail: "assets/images/blog-img/techstars.webp"
+author: Rashad West
+cateogory: Sports Analytics
+tag: Innovation
 ---
 
 ## A Transformative Journey with Techstars Washington, DC
 
-My time with **[Techstars Washington, DC](https://www.techstars.com/) was nothing short of transformative. I had the privilege of building alongside an exceptional group of [entrepreneurs](https://en.wikipedia.org/wiki/Entrepreneurship) and visionaries. This experience deepened my understanding of [business](https://www.investopedia.com/terms/b/business.asp) and allowed me to create a network that has become invaluable in my professional journey, especially as I grow in the field of [sports analytics](https://www.datacamp.com/blog/sports-analytics-how-different-sports-use-data-analysis).
+My time with \*\*[Techstars Washington, DC](https://www.techstars.com/) was nothing short of transformative. I had the privilege of building alongside an exceptional group of [entrepreneurs](https://en.wikipedia.org/wiki/Entrepreneurship) and visionaries. This experience deepened my understanding of [business](https://www.investopedia.com/terms/b/business.asp) and allowed me to create a network that has become invaluable in my professional journey, especially as I grow in the field of [sports analytics](https://www.datacamp.com/blog/sports-analytics-how-different-sports-use-data-analysis).
 
-![Rashad West at Techstars]({{site.baseurl}}/assets/img/blog-img/Techstars_DC.webp)
+![Rashad West at Techstars]({{site.baseurl}}/assets/images/blog-img/Techstars_DC.webp)
 
 ## Unmatched Mentorship and Diverse Cohorts
 
@@ -19,7 +21,7 @@ My time with **[Techstars Washington, DC](https://www.techstars.com/) was nothin
 
 What made this experience pivotal was how it aligns with my work in [sports analytics](https://www.datacamp.com/blog/sports-analytics-how-different-sports-use-data-analysis). Being around such talented individuals inspired me to think bigger and more strategically about leveraging [data](https://www.ibm.com/analytics/data-science) to transform how [athletes](https://en.wikipedia.org/wiki/Athlete) and [teams](https://en.wikipedia.org/wiki/Sports_team) operate. Whether we were tackling challenges, brainstorming groundbreaking ideas, or sharing our entrepreneurial journeys, I applied new [business strategies](https://online.hbs.edu/blog/post/what-is-business-strategy) and tech-driven approaches that directly benefit my work in BTE Analytics and the broader sports industry.
 
-![Vision at Analytics with Techstars]({{site.baseurl}}/assets/img/blog-img/691A5953.webp)
+![Vision at Analytics with Techstars]({{site.baseurl}}/assets/images/blog-img/691A5953.webp)
 
 ## Gaining Entrepreneurial Insight and Technical Knowledge
 
@@ -29,7 +31,7 @@ The [entrepreneurial insight](https://hbr.org/topic/subject/entrepreneurship) an
 
 Many entrepreneurs I had the opportunity to work with are now doing extraordinary things, continuing to grow their businesses and leave a lasting impact. I am fortunate to have been part of their journey, sharing this time of growth, innovation, and collaboration with such a talented group.
 
-![Vision at Analytics with Techstars]({{site.baseurl}}/assets/img/blog-img/IMG-20231209-WA0006.webp)
+![Vision at Analytics with Techstars]({{site.baseurl}}/assets/images/blog-img/IMG-20231209-WA0006.webp)
 
 ## Building Lasting Relationships in the Sports Analytics Space
 

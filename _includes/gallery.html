@@ -1,27 +1,23 @@
-<style>
-  /* force scrollbar */
-  html { overflow-y: scroll; }
-  
-  /* To overwrite page's padding, to get bigger images */
-  /* article {padding:2%;} */
-  </style>
-  
-  <div id='masonry' class="grid">
-      <div class="grid-sizer"></div>
-      <div class="gutter-sizer"></div>
-      {% assign image_count = 0 %}
-      {% for image in site.static_files %}
-          {% if image.path contains include.gallery_path %}
-              {% unless image.path contains '.md' %}
-                  {% if image_count < 200 %}
-                      <img src="{{ image.path | relative_url }}" alt="" class="grid-item" style="padding: 10px; border-radius: 5px;">
-                      {% assign image_count = image_count | plus: 1 %}
-                  {% endif %}
-              {% endunless %}
-          {% endif %}
-      {% endfor %}
-  </div>
-  
-  <script src="{{ '/assets/js/vendor/imagesloaded.pkgd.min.js' | relative_url }}" type="text/javascript"></script>
-  <script src="{{ '/assets/js/vendor/masonry.pkgd.min.js' | relative_url }}" type="text/javascript"></script>
-  
+
+<div class="space20"></div>
+<div class="post-gallery light-gallery-wrapper">
+    <div class="tiles tiles-s">
+        <div class="items row">
+            {% for gallery in page.gallery %}
+            <div class="item {% if forloop.index < 3 %} col-md-6 {% else %} col-md-4 {% endif %}">
+                <figure class="overlay overlay1 rounded">
+                    <a href="{{gallery.img}}" class="lightbox">
+                        <img src="{{gallery.img}}" alt="{{gallery.img}}"></a>
+                    <figcaption>
+                        <h5 class="from-top mb-0">View Larger</h5>
+                    </figcaption>
+                </figure>
+            </div>
+            <!--/.item -->
+            {% endfor %}
+        </div>
+        <!--/.items -->
+    </div>
+    <!--/.tiles -->
+</div>
+<!--/.post-gallery -->

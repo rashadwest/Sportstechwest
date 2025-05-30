@@ -1,19 +1,33 @@
 ---
 layout: post
 title: "From the Court to the Tech World: My Unforgettable Experience at the Paris Olympics and What It Means for BTE Analytics"
-thumbnail: "assets/img/header/thumbnails/olympics-paris.webp"
-feature-img: "assets/img/header/olympics-paris-darken.webp"
+thumbnail: "assets/images/thumbnails/olympics-paris.webp"
+author: Rashad West
+tag: Sports
+category: [Analytics, BTE]
+trending: true
+badge_color: "bg-meander"
 ---
 
 As a former [athlete](https://en.wikipedia.org/wiki/Athlete) turned tech entrepreneur, I’ve had my share of unforgettable moments on and off the court. But my trip to the [Paris Olympics](https://olympics.com/en/) this year was an extraordinary milestone. It was more than just an event it was a pivotal moment in my journey with **BTE Analytics** and our mission to revolutionize [data equity](https://data.org/resources/what-is-data-equity-and-why-does-it-matter/#:~:text=the%20Ford%20Foundation.-,Data%20Equity%20is%20a%20set%20of%20principles%20and%20practices%20to,justice%2C%20equity%2C%20and%20inclusivity.) for athletes.
 
 Let me break it down for you.
 
-<video width="50%" height="40%" controls poster="{{site.baseurl}}/assets/img/blog-img/paris-poster.png">
-  <source src="{{site.baseurl}}/assets/img/blog-img/paris-poster.webm" type="video/webm">
-</video>
-  <p style="font-style: italic; font-size: 0.9em; font-weight: bold; text-align: center;">Paris Olympics 2024</p>
-
+<div class="wrapper gray-wrapper">
+  <div class="container inner">
+    <div class="row">
+      <div class="col-lg-10 offset-lg-1">
+        <h2 class="section-title mb-40 text-center">Paris Olympics 2024</h2>
+        <video poster="{{relative_url}}/assets/media/poster/paris-poster.png" class="player" playsinline controls preload="none">
+          <source src="{{relative_url}}/assets/media/paris-poster.webm" type="video/webm">
+        </video>
+      </div>
+      <!-- /column -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</div>
 ---
 
 ### Breaking Bread with Olympians
@@ -23,9 +37,9 @@ Being surrounded by the world’s most elite athletes at the [USA House](https:/
 These conversations reinforced my belief in empowering athletes with tools to redefine success whether it’s through [sports tech](https://sporttech.io/) or life off the field. Stories of triumph and challenges alike echoed the importance of our mission at **BTE Analytics**.
 
 <div class="image-gallery" style="text-align: center">
-  <img class="img-3" src="{{site.baseurl}}/assets/img/blog-img/together-with-olympians-2.webp" alt="together-with-olympians" >
-  <img class="img-3" src="{{site.baseurl}}/assets/img/blog-img/together-with-olympians-1.webp" alt="together-with-olympians" >
-  <img class="img-3" src="{{site.baseurl}}/assets/img/blog-img/together-with-olympians-3.webp" alt="together-with-olympians" >
+  <img class="img-3" src="{{site.baseurl}}/assets/images/blog-img/together-with-olympians-2.webp" alt="together-with-olympians" >
+  <img class="img-3" src="{{site.baseurl}}/assets/images/blog-img/together-with-olympians-1.webp" alt="together-with-olympians" >
+  <img class="img-3" src="{{site.baseurl}}/assets/images/blog-img/together-with-olympians-3.webp" alt="together-with-olympians" >
 </div>
 ---
 
@@ -36,10 +50,10 @@ I had the once in a lifetime opportunity to attend the gold medal match between 
 It was a catalyst for discussions on [tech industry trends](https://www.gartner.com/en/information-technology), [go to market strategies](https://www.coursera.org/articles/go-to-market-strategy), and how innovative [business models](https://www.investopedia.com/terms/b/businessmodel.asp) are transforming sports tech. These insights are already shaping the direction of **BTE Analytics**, helping us better serve athletes globally.
 
 <div class="image-gallery" style="text-align: center">
-  <img class="img-4" src="{{site.baseurl}}/assets/img/blog-img/historian-moments-paris-1.webp" alt="historian-moments-paris" >
-  <img class="img-4" src="{{site.baseurl}}/assets/img/blog-img/historian-moments-paris-2.webp" alt="historian-moments-paris" >
-  <img class="img-4" src="{{site.baseurl}}/assets/img/blog-img/historian-moments-paris-3.webp" alt="historian-moments-paris" >
-  <img class="img-4" src="{{site.baseurl}}/assets/img/blog-img/historian-moments-paris-4.webp" alt="historian-moments-paris" >
+  <img class="img-4" src="{{site.baseurl}}/assets/images/blog-img/historian-moments-paris-1.webp" alt="historian-moments-paris" >
+  <img class="img-4" src="{{site.baseurl}}/assets/images/blog-img/historian-moments-paris-2.webp" alt="historian-moments-paris" >
+  <img class="img-4" src="{{site.baseurl}}/assets/images/blog-img/historian-moments-paris-3.webp" alt="historian-moments-paris" >
+  <img class="img-4" src="{{site.baseurl}}/assets/images/blog-img/historian-moments-paris-4.webp" alt="historian-moments-paris" >
 </div>
 ---
 
@@ -66,9 +80,9 @@ One of the standout moments was attending the [Athlete Soul](https://www.theathl
 Athletes need platforms like **BTE Analytics** that focus on their equity, their data, and their futures.
 
 <div class="image-gallery" style="text-align: center">
-  <img class="img-4" src="{{site.baseurl}}/assets/img/blog-img/athletic-soul-1.webp" alt="athletic-soul" >
-  <img class="img-4" src="{{site.baseurl}}/assets/img/blog-img/athletic-soul-2.webp" alt="athletic-soul" >
-  <img class="img-4" src="{{site.baseurl}}/assets/img/blog-img/athletic-soul-3.webp" alt="athletic-soul" >
+  <img class="img-4" src="{{site.baseurl}}/assets/images/blog-img/athletic-soul-1.webp" alt="athletic-soul" >
+  <img class="img-4" src="{{site.baseurl}}/assets/images/blog-img/athletic-soul-2.webp" alt="athletic-soul" >
+  <img class="img-4" src="{{site.baseurl}}/assets/images/blog-img/athletic-soul-3.webp" alt="athletic-soul" >
 </div>
 
 ---
@@ -82,7 +96,7 @@ Our discussions with the [Olympic Committee](https://olympics.com/ioc) and [LA O
 ---
 
 <div class="image-gallery" style="text-align: center">
-      <img class="" src="{{site.baseurl}}/assets/img/blog-img/bte.webp" alt="bte" >
+      <img class="" src="{{site.baseurl}}/assets/images/blog-img/bte.webp" alt="bte" >
 </div>
 
 As I reflect on this unforgettable experience, I’m more motivated than ever. **BTE Analytics** is not just a tech company it’s a movement. And this trip to Paris reminded me why we do what we do.

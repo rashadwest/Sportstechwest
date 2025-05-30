@@ -1,0 +1,57 @@
+---
+layout: page
+---
+
+<!--wrapper portfolio-->
+{% if site.data.portfolio_page.portfolios_area.enable %}
+<div class="wrapper light-wrapper">
+  <div class="container inner">
+    <div class="space10"></div>
+    <div class="grid grid-view boxed">
+      <div class="isotope-filter text-center">
+        <ul>
+          <li><a class="button active" data-filter="*">All</a></li>
+          {% for category in site.data.portfolio_page.portfolios_area.categories
+          %}
+          <li>
+            <a class="button" data-filter=".{{category.filter}}"
+              >{{category.title}}</a
+            >
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="clearfix"></div>
+      <div class="tiles text-center light-gallery-wrapper">
+        <div class="row isotope">
+          {% for portfolio in
+          site.data.portfolio_page.portfolios_area.portfolios %}
+          <div
+            class="item grid-sizer col-md-6 col-lg-4 {% for filter in portfolio.filters %} {{filter}} {% endfor %}"
+          >
+            <div class="box bg-white shadow p-30">
+              <figure class="main overlay overlay2 rounded mb-30">
+                <a href="{{portfolio.big_image}}" class="lightbox">
+                  <img src="{{portfolio.sm_image}}" alt="{{portfolio.title}}" />
+                </a>
+              </figure>
+              <div class="post-content">
+                <h2 class="post-title mb-10">{{portfolio.title}}</h2>
+                <div class="meta mb-0">{{portfolio.sub_title}}</div>
+              </div>
+              <!-- /.post-content -->
+            </div>
+            <!-- /.box -->
+          </div>
+          <!-- /.item -->
+          {% endfor %}
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.tiles -->
+    </div>
+    <!-- /.grid -->
+  </div>
+</div>
+{% endif %}
+<!--/.wrapper portfolio-->

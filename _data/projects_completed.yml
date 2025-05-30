@@ -1,0 +1,12 @@
+completed_projects:
+  enable: true
+  bg_image: "/assets/images/art/bg15.webp"
+  lists:
+    - numbers: "100"
+      title: "Completed Projects"
+
+    - numbers: "13"
+      title: "Satisfied Customers"
+
+    - numbers: "20"
+      title: "Conferences"

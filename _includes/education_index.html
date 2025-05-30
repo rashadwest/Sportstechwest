@@ -1,0 +1,57 @@
+{% if site.data.education_index.how_it_works.enable %}
+<div class="wrapper gray-wrapper">
+  <div class="container inner">
+    <h1
+      class="text-xl font-semibold text-center col-lg-12 max-w-full px-5 md:max-w-[75%] mx-auto"
+    >
+      {{site.data.education_index.how_it_works.sub_title}}
+    </h1>
+    <div class="row">
+      {% if site.data.education_index.how_it_works.image %}
+      <div class="col-lg-6 order-lg-2">
+        <figure>
+          <img
+            src="{{site.data.education_index.how_it_works.image}}"
+            alt="{{site.data.education_index.how_it_works.title}}"
+            class=""
+            style="
+              border-bottom-left-radius: 32px;
+              border-top-right-radius: 32px;
+            "
+          />
+        </figure>
+      </div>
+      {% endif %}
+      <div class="space40"></div>
+      <div class="space50 d-none d-md-block d-lg-none"></div>
+      <div class="col-lg-6 pr-60 pr-md-15">
+        <h2 class="title-color">
+          {{site.data.education_index.how_it_works.title}}
+        </h2>
+        {% for step in site.data.education_index.how_it_works.steps %}
+        <div class="space30"></div>
+        <div class="d-flex flex-row justify-content-start">
+          <div>
+            <span class="icon icon-blob {{step.icon_style}} mr-25">
+              <i class="{{step.icon}}"></i
+              ><span class="step bg-blue">{{forloop.index}}</span>
+            </span>
+          </div>
+          <div>
+            <h5>{{step.title}}</h5>
+            {% if step.description %}
+            <p class="mb-0">{{step.description}}</p>
+            {% endif %} {% if step.url %}
+            <a href="{{site.url}}{{site.baseurl}}/{{step.url}}"
+              >{{step.text}}</a
+            >
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /.wrapper -->
+{% endif %}

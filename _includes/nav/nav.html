@@ -1,0 +1,52 @@
+<!-- Classic Header-->
+{% if page.classic_nav == true or page.header_style == 'one' %}
+{% include nav/nav-master.html extra_class=" transparent  navbar-hover-opacity" logo_class="logo"
+container_class="container"%}
+
+<!-- Classic Light Header-->
+{% elsif page.classic_light_nav == true or page.header_style == 'two' %}
+{% include nav/nav-master.html extra_class="bg-white shadow" logo_class="logo" container_class="container"%}
+
+<!-- Classic Dark Header-->
+{% elsif page.dark_nav == true or page.header_style == 'three' %}
+{% include nav/nav-master.html extra_class="dark-wrapper inverse-text navbar-hover-opacity" light_logo="true"
+container_class="container"%}
+
+<!-- Header With TopBar-->
+{% elsif page.top_nav == true or page.header_style == 'four' %}
+{% include nav/nav-master.html extra_class=" bg-white shadow" flex_col="flex-column" logo_class="logo"
+container_class="container"%}
+
+<!-- Wide Header-->
+{% elsif page.wide_nav == true or page.header_style == 'five' %}
+{% include nav/nav-master.html extra_class=" wide absolute transparent inverse-text navbar-hover-opacity"
+light_logo="true" container_class="container-fluid flex-row justify-content-center" alignment_class="mx-auto" %}
+
+<!-- Extended Header-->
+{% elsif page.extended_nav == true or page.header_style == 'six' %}
+{% include nav/nav-master.html extra_class=" extended " logo_class="logo" container_class="container flex-lg-column"
+alignment_class="mx-auto"%}
+
+<!-- Fancy Light Header-->
+{% elsif page.fancy_light_nav == true or page.header_style == 'seven' %}
+{% include nav/nav-master.html extra_class=" navbar-fancy" flex_col="flex-column" logo_class="logo"
+container_class="container"%}
+
+<!-- Fancy dark Header-->
+{% elsif page.fancy_dark_nav == true or page.header_style == 'eight' %}
+{% include nav/nav-master.html extra_class="navbar-fancy navbar-fancy-dark inverse-text" flex_col="flex-column"
+light_logo="true" container_class="container"%}
+
+<!-- Centered Header-->
+{% elsif page.centered_nav == true or page.header_style == 'nine' %}
+{% include nav/nav-master.html extra_class="absolute transparent inverse-text navbar-hover-opacity" light_logo="true"
+container_class="container flex-row justify-content-center" alignment_class="mx-auto" %}
+
+{% elsif page.simple_nav == true or page.header_style == 'ten' %}
+{% include nav/nav-master.html extra_class=" transparent navbar-hover-opacity" logo_class="logo"
+container_class="container"%}
+
+{% else %}
+{% include nav/nav-master.html extra_class="absolute transparent inverse-text navbar-hover-opacity nav-uppercase"
+light_logo="true" container_class="container flex-row justify-content-center" alignment_class="mx-auto" %}
+{% endif %}

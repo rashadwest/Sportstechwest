@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include meta.html %}
+    <!-- Stylesheets-->
+    {% include styles.html %} {% if
+    site.data.general_settings.google_analytics.enable %}
+    <!-- Google Analytics-->
+    {% include analytics.html %} {% endif %}
+  </head>
+
+  <body {% if page.overflow %} class="overflow-hidden" {% endif %}>
+    <div class="content-wrapper">{{ content }}</div>
+    <!-- Site Scripts-->
+    {% include footer/footer-9.html light_logo="true" %} {% include scripts.html
+    %}
+  </body>
+</html>

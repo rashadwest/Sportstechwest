@@ -1,0 +1,23 @@
+about_area:
+  enable: true
+  title: "About Us"
+  sub_title: "We specialize in web, mobile, brand & product design. We love to turn ideas into beautiful things."
+  projects_number: 450
+  project_tag: "Completed Projects"
+  image: "/assets/images/art/"
+  skills:
+    - title: "Web Development"
+      numbers: 100
+      style: "pink"
+
+    - title: "Product Design"
+      numbers: 80
+      style: "blue"
+
+    - title: "Identity & Branding"
+      numbers: 85
+      style: "green"
+
+    - title: "Mobile Development"
+      numbers: 90
+      style: "purple"

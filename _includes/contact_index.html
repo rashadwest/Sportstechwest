@@ -1,0 +1,114 @@
+{% if site.data.contact_index.contact_area.enable %}
+<div class="wrapper light-wrapper">
+  <div class="container inner">
+    <div class="row align-items-start">
+      <div class="col-lg-6">
+        <div class="position-relative">
+          {% if site.data.contact_index.contact_area.image %}
+          <figure>
+            <img
+              src="{{site.data.contact_index.contact_area.image}}"
+              alt="{{site.data.contact_index.contact_area.title}}"
+            />
+          </figure>
+          {% endif %}
+          <div
+            class="box bg-default color-white shadow p-30 position-absolute"
+            style="top: 73%; left: 10%"
+          >
+            {% if site.data.contact_index.contact_area.address %}
+            <address>{{site.data.contact_index.contact_area.address}}</address>
+            {% endif %}
+            <a
+              href="mailto:{{site.data.contact_index.contact_area.action_email}}"
+              class="nocolor"
+              >{{site.data.contact_index.contact_area.action_email}}</a
+            ><br />{{site.data.general_settings.phone_number}}
+          </div>
+          <!--/.box -->
+        </div>
+      </div>
+      <!--/column -->
+      <div class="space80 d-lg-none"></div>
+      <div class="col-lg-6 pl-60 pl-md-15">
+        {% if site.data.contact_index.contact_area.title %}
+        <h2 class="section-title">
+          {{site.data.contact_index.contact_area.title}}
+        </h2>
+        {% endif %} {% if site.data.contact_index.contact_area.sub_title %}
+        <p class="lead larger">
+          {{site.data.contact_index.contact_area.sub_title}}
+        </p>
+        {% endif %}
+        <div class="space30"></div>
+        <form
+          id="contact-form"
+          class="fields-white"
+          action="https://formsubmit.io/send/{{site.data.contact_index.contact_area.action_email}}"
+        >
+          <div class="messages"></div>
+          <div class="controls">
+            <div class="row g-3">
+              {% for forms_data in
+              site.data.contact_index.contact_area.forms_data %} {% if
+              forms_data.field_type == "input" %}
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input
+                    id="{{forms_data.field_name}}"
+                    type="text"
+                    name="{{forms_data.field_name}}"
+                    class="form-control"
+                    placeholder="{{forms_data.placeholder}} *"
+                    required="required"
+                    data-error="{{forms_data.error_message}}"
+                  />
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+              {% else if forms_data.field_type == "textarea" %}
+              <div class="col-md-12">
+                <div class="form-group">
+                  <textarea
+                    id="{{forms_data.field_name}}"
+                    name="{{forms_data.field_name}}"
+                    class="form-control"
+                    placeholder="{{forms_data.placeholder}} *"
+                    rows="4"
+                    required="required"
+                    data-error="{{forms_data.error_message}}"
+                  ></textarea>
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+              {% endif %} {% endfor %}
+            </div>
+            <div class="form-row">
+              <div class="col-md-12">
+                <input
+                  type="submit"
+                  class="btn btn-send"
+                  value="Send message"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-12">
+                <p class="text-muted mb-0">
+                  <strong>*</strong> These fields are required.
+                </p>
+              </div>
+            </div>
+          </div>
+        </form>
+        <!-- /form -->
+      </div>
+      <!--/column -->
+    </div>
+    <!--/.row -->
+    <div class="space40"></div>
+  </div>
+  <!-- /.container -->
+</div>
+<!-- /.wrapper -->
+{% endif %}

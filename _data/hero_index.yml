@@ -1,0 +1,7 @@
+hero_area:
+  enable: true
+  bg_image: "/assets/images/display/Symposium.jpg"
+  title: "Where sports meets Creativity"
+  sub_title: "Check out my Journey and Achievements"
+  btn_text: "Let's Begin"
+  btn_url: "#about"

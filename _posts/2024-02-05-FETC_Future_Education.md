@@ -1,10 +1,14 @@
 ---
 layout: post
-thumbnail: "assets/img/blog-img/0003.webp"
+thumbnail: "assets/images/blog-img/0003.webp"
 title: "FETC Future Education"
+tags: FETC
+category: Education
+author: Rashad West
+badge_color: "bg-meander"
 ---
 
-# FETC_Future_of_Education_Tech_Conference 
+# FETC Future of Education Tech Conference
 
 Attending the Future of Education Technology Conference (FETC) and showcasing our innovative BTE BallCODE game was an exhilarating experience. This game uniquely combines analytics with coding in a gaming format, making learning accessible and engaging for everyone. Beyond our contribution, it was invigorating to witness a range of pioneering educational technologies.
 
@@ -19,4 +23,3 @@ VR/AR: Virtual and Augmented Reality (VR/AR) technologies were also a significan
 AI in Education: Artificial Intelligence (AI) was another key theme, with discussions centered on its role in transforming educational practices. The conference featured keynotes on the future of AI in education, exploring how AI can be used to personalize learning, automate administrative tasks, and provide real-time insights into student performance. The focus was on building AI literacy among students, as demonstrated by MagicSchool AI's platform, which aims to teach students responsible use of AI while unlocking new learning opportunities​​​​.
 
 These topics at FETC 2024 underscore the intersection of technology and education, highlighting the potential of esports, VR/AR, and AI to revolutionize the learning landscape. By integrating these technologies into educational frameworks, educators can provide students with engaging, relevant, and forward-thinking learning experiences.
-

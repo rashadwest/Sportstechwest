@@ -1,7 +1,32 @@
 ---
-layout: home
-title: Home
-thumbnail: "assets/img/header/thumbnails/basketball-history.webp"
-comments: false
+permalink: /
+thumbnail: /assets/images/display/Symposium.jpg
+layout: default
+title: Sports Tech West
+meta_title: SportsTechWest
+meta_description: |
+  Welcome to SportsTechWest, a blog exploring the journey from professional athlete
+  to sports tech vagabonder. Join us in discovering the global intersection of sport,
+  science and technology.
+custom_color: cobalt
+custom_font: font4
+
+clients_carousel:
+  enable: true
 ---
 
+{% include nav/nav-1.html extra_class="" drop_search=true
+alignment_class="mx-auto" %} {% include hero_index.html %} {% include
+about_index.html %} {% include education_index.html %} {% include
+video_area.html %} {% include portfolio.html %}
+<!--wrapper testimonial-->
+
+{% include projects_completed.html %} {% include testimonials.html %}
+<!--wrapper Blog-->
+{% include blogs_index.html %}
+<!--/.wrapper blog-->
+<!--wrapper Contact Us-->
+
+<div class="space60"></div>
+<!-- end wrapper Contact Us-->
+{% include footer/footer-9.html light_logo="true" %}

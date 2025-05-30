@@ -1,0 +1,5 @@
+blogs_area:
+  enable: true
+  title: "Our Journal"
+  description: "Here are the latest posts from <br> my blog that grabbed the most attention"
+  posts_number: 3

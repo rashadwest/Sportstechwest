@@ -1,148 +1,20 @@
 <!DOCTYPE html>
-<!--
-    Type on Strap jekyll theme v2.4.10
-    Theme free for personal and commercial use under the MIT license
-    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
--->
 <html lang="en">
-  {% capture _head %}{% include default/head.liquid %}{% endcapture %}
-  {{ _head | split: " " | join: " "}}
-  <style>
-    {% if page.comments == false %}
-#disqus_thread, #layout{
-    display: none;
-}
-#comment-button{
-  display: none !important;
-}
-{% endif %}
-.progress-container {
-  width: 100%;
-  height: 3px;
-  background: #000000;
-  position: fixed;
-  z-index: 100000;
-}
+  <head>
+    {% include meta.html %}
+    <!-- Stylesheets-->
+    {% include styles.html %} {% if
+    site.data.general_settings.google_analytics.enable %}
+    <!-- Google Analytics-->
+    {% include analytics.html %} {% endif %}
+    <style>
+      {% include custom.css %}
+    </style>
+  </head>
 
-.progress-bar {
-  height: 3px;
-  background: #ff0000;
-  width: 0%;
-}
-@media screen and (max-width: 1024px) {
-
-}
-  </style>
-  <body>
-    <div class="progress-container">
-      <div class="progress-bar" id="myBar"></div>
-    </div>
-    {% capture _navbar %}{% include default/navbar.html %}{% endcapture %}
-    {{ _navbar | split: " " | join: " "}}
-   
-    <div class="content">
-      {{ content }}
-    </div>
-
-    <div id="disqus_thread"></div>
-<script>
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-    /*
-    var disqus_config = function () {
-    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    */
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://sports-tech-west.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-    document.getElementById('layout').id = 'disqus-thread';
-
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    {% include default/footer.html %}
-    
-
-      <a id="myBtn" href="#"><i class="fas fa-chevron-up"></i></a>
-
-      <a id="comment-button" class="tooltip" href="#disqus_thread"><i class="fas fa-comment"></i>
-        <span class="tooltiptext">Add comments</span>
-      </a>
+  <body {% if page.overflow %} class="overflow-hidden" {% endif %}>
+    <div class="content-wrapper">{{ content }}</div>
+    <!-- Site Scripts-->
+    {% include scripts.html %} {% include backtotop.html %}
   </body>
-
-  <script>
-    
-    const currentPath = window.location.pathname.replace(/\/$/, ''); // Get the current path without trailing slash
-
-    // Select all elements with the class "nav-link"
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    // Iterate through each link
-    navLinks.forEach(link => {
-        let href = link.getAttribute('href').replace(/\/$/, ''); // Get the href of the link without trailing slash
-        // Check if href matches the current path
-        if (href === currentPath) {
-            link.classList.add('active'); // Add 'active' class if paths match
-        }
-    });
-</script>
- <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
-<script async type='text/javascript' src='https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=RrMZeT'></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<script>
-  window._klOnsite = window._klOnsite || [];
-window._klOnsite.push(['openForm', 'Yh7fSH']);
-  $(function(){
-  $('.carousel-item').eq(0).addClass('active_cta');
-  var total = $('.carousel-item').length;
-  var current = 0;
-  $('#moveRight').on('click', function(){
-    var next=current;
-    current= current+1;
-    setSlide(next, current);
-  });
-  $('#moveLeft').on('click', function(){
-    var prev=current;
-    current = current- 1;
-    setSlide(prev, current);
-  });
-  function setSlide(prev, next){
-    var slide= current;
-    if(next>total-1){
-     slide=0;
-      current=0;
-    }
-    if(next<0){
-      slide=total - 1;
-      current=total - 1;
-    }
-           $('.carousel-item').eq(prev).removeClass('active_cta');
-           $('.carousel-item').eq(slide).addClass('active_cta');
-      setTimeout(function(){
-
-      },800);
-    
-
-    
-    console.log('current '+current);
-    console.log('prev '+prev);
-  }
-});
-// When the user scrolls the page, execute myFunction 
-window.onscroll = function() {myFunction()};
-
-function myFunction() {
-  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  var scrolled = (winScroll / height) * 100;
-  document.getElementById("myBar").style.width = scrolled + "%";
-}
-</script>
-
 </html>

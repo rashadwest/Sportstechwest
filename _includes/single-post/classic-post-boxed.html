@@ -1,0 +1,102 @@
+<div class="wrapper light-wrapper">
+    <div class="container inner pt-80">
+      <div class="row">
+        {% if page.boxed-sidebar %}
+        <div class="col-lg-8">
+          {% else %} 
+          <div class="col-lg-10 offset-lg-1 ">
+            {% endif %} 
+          <div class="blog classic-view boxed">
+            <div class="post mb-0">
+              <div class="box bg-white shadow">
+              {% if page.post_image %}
+              <figure class="rounded text-center">
+                <img src="{{page.post_image}}" alt="{{page.title}}"/>
+              </figure>
+              {% endif %}
+              <div class="space40"></div>
+              <div class="post-content">
+                {% if page.categories %}
+                <div class="category text-center">
+                  <a href="/category/{{page.categories[0] | slugify}}" class="badge rounded-pill {{badge_color}}">{{page.categories[0]}}</a>
+                </div>
+                {% endif %}
+                <h2 class="post-title text-center">{{page.title}}</h2>
+                <div class="meta text-center">
+                  {% if page.date %}
+                   <span class="date"><i class="jam jam-clock"></i>{{page.date | date_to_string}}</span>
+                  {% endif %}
+                  {% if page.author %}
+                   <span class="author"><i class="jam jam-user"></i><a href="/author/{{page.author | slugify}}">By {{page.author}}</a></span>
+                  {% endif %}
+                </div>
+                 {{page.content}}
+                {% if page.post_format == "gallery" %}
+                <div class="space20"></div>
+                <div class="post-gallery light-gallery-wrapper">
+                  <div class="tiles tiles-s">
+                    <div class="items row">
+                      {% for gallery in page.gallery %}
+                      <div class="item {% if forloop.index < 3 %} col-md-6 {% else %} col-md-4 {% endif %}">
+                        <figure class="overlay overlay1 rounded">
+                          <a href="{{gallery.img}}" class="lightbox">
+                          <img src="{{gallery.img}}" alt="{{gallery.img}}"></a>
+                          <figcaption>
+                            <h5 class="from-top mb-0">View Larger</h5>
+                          </figcaption>
+                        </figure>
+                      </div>
+                      <!--/.item -->
+                      {% endfor %}
+                    </div>
+                    <!--/.items -->
+                  </div>
+                  <!--/.tiles -->
+                </div>
+                <!--/.post-gallery -->
+                {% endif %}
+                <div class="clearfix"></div>
+                <div class="space40"></div>
+                <div class="space10"></div>
+                <div class="d-lg-flex justify-content-between align-items-center meta-footer">
+                   <ul class="list-unstyled tag-list">
+                      {% capture tags %}
+                        {% for tag in page.tags %}
+                          <li data-sort="{{ site.posts.size | minus: tag[1].size | prepend: '0000' | slice: -4, 4 }}">
+                             <a class="btn btn-s" href="/tag/{{tag |slugify}}">{{ tag }}</a>
+                          </li>
+                        {% endfor %}
+                      {% endcapture %}
+                      {{ tags | split:'</li>' | sort | join:'</li>' }}
+                  </ul>
+                  <div class="space20 d-lg-none"></div>
+                  <div class="d-flex align-items-center">
+                   {% include social-share.html %}
+                  </div>
+                </div>
+              </div>
+              <!-- /.post-content -->
+            </div>
+            </div>
+            <!-- /.post -->
+          </div>
+          <!-- /.blog -->
+        </div>
+        <!-- /column -->
+        <div class="space30 d-none d-md-block d-lg-none"></div>
+        {% if page.boxed-sidebar %}
+        <aside class="col-lg-4 sidebar box bg-white">
+          {% include sidebar.html %}
+          {% else %}
+      <aside class="col-lg-4 sidebar">
+        
+        {% include sidebar.html %}
+      </aside>
+      
+        {% endif %}
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- /.wrapper -->

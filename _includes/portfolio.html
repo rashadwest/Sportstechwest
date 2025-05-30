@@ -1,15 +1,69 @@
-<!-- Portfolio Grid Section -->
-<div class="portfolio-grid">
-    {% for item in site.portfolio %}
-    <div class="portfolio-cell">
-        <a class="portfolio-link" data-keyboard="true" href="{{ item.url | relative_url }}">
-            <div class="caption" title="{{ item.title }}">
-                <div class="caption-content">
-                    <i class="fas fa-search-plus fa-3x"></i>
-                </div>
+<!--wrapper portfolio-->
+{% if site.data.portfolio_index.portfolios_area.enable %}
+<div class="wrapper light-wrapper">
+  <div class="container inner">
+    <h2 class="section-title text-center">
+      {{site.data.portfolio_index.portfolios_area.title}}
+    </h2>
+    <p class="lead larger text-center">
+      {{site.data.portfolio_index.portfolios_area.sub_title}}
+    </p>
+    <div class="space30"></div>
+    <div class="grid grid-view boxed">
+      <div class="isotope-filter text-center">
+        <ul>
+          <li><a class="button active" data-filter="*">All</a></li>
+          {% for category in
+          site.data.portfolio_index.portfolios_area.categories %}
+          <li>
+            <a class="button" data-filter=".{{category.filter}}"
+              >{{category.title}}</a
+            >
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="clearfix"></div>
+      <div class="tiles text-center light-gallery-wrapper">
+        <div class="row isotope">
+          {% for portfolio in
+          site.data.portfolio_index.portfolios_area.portfolios %}
+          <div
+            class="item grid-sizer col-md-6 col-lg-4 {% for filter in portfolio.filters %} {{filter}} {% endfor %}"
+          >
+            <div class="box bg-white shadow p-30">
+              <figure class="main overlay overlay2 rounded mb-30">
+                <a href="{{portfolio.big_image}}" class="lightbox">
+                  <img src="{{portfolio.sm_image}}" alt="{{portfolio.title}}" />
+                </a>
+              </figure>
+              <div class="post-content">
+                <h2 class="post-title mb-10">
+                  <a href="{{portfolio.url}}">{{portfolio.title}}</a>
+                </h2>
+                <div class="meta mb-0">{{portfolio.sub_title}}</div>
+              </div>
+              <!-- /.post-content -->
             </div>
-            <img alt="" class="" src="{{ item.img | relative_url }}">
-        </a>
+            <!-- /.box -->
+          </div>
+          <!-- /.item -->
+          {% endfor %}
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.tiles -->
     </div>
-    {% endfor %}
+    <!-- /.grid -->
+    <div class="space20"></div>
+    <div class="text-center">
+      <a
+        href="{{site.data.portfolio_index.portfolios_area.button_url}}"
+        class="btn btn-1 btn-default mb-0"
+        >{{site.data.portfolio_index.portfolios_area.button_text}}</a
+      >
+    </div>
+  </div>
 </div>
+{% endif %}
+<!--/.wrapper portfolio-->

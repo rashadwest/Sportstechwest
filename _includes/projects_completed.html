@@ -1,0 +1,28 @@
+{% if site.data.projects_completed.completed_projects.enable %}
+<div
+  class="wrapper image-wrapper bg-image inverse-text"
+  data-image-src="{{site.data.projects_completed.completed_projects.bg_image}}"
+>
+  <div class="container inner text-center">
+    <div class="row">
+      <div class="col-lg-10 offset-lg-1">
+        <div class="row counter justify-content-center">
+          {% for list in site.data.projects_completed.completed_projects.lists
+          %}
+          <div class="col-md-3 text-center">
+            <h3 class="value">{{list.numbers}}</h3>
+            <p><strong>{{list.title}}</strong></p>
+          </div>
+          {% endfor %}
+        </div>
+        <!--/.row -->
+      </div>
+      <!-- /column -->
+    </div>
+    <!-- /.row -->
+    <div class="space120"></div>
+  </div>
+  <!-- /.container -->
+</div>
+<!-- /.wrapper -->
+{% endif %}

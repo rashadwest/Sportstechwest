@@ -1,0 +1,42 @@
+how_it_works:
+  enable: true
+  title: "Work in Progress"
+  sub_title: "My Achievements"
+  image: "/assets/images/display/Speaker5.webp"
+  steps:
+    - title: "Education"
+      description: "<ul>
+        <li>- 🎓 Hampton University, BS, Business Management</li>
+        <li>- 💡 Stanford University, Entrepreneurship & Innovation Program (Remote)</li>
+        <li>- 🤖 New York University, AI School (Artificial Intelligence)</li>
+        </ul>
+        "
+      icon_style: "icon-blob-teal color-teal"
+      icon: "icofont-education"
+
+    - title: "Data Analytics Coursework"
+      url: "portfolios"
+      text: "Datacamp: See Coursework Section"
+      icon_style: "icon-blob-blue color-blue"
+      icon: "icofont-data"
+
+    - title: "Other CS Coursework"
+      description: "<ul>
+        <li>- 💻 General Assembly: Introduction to Ruby on Rails (weekend course)</li>
+        <li>- 📱 General Assembly: Introduction to iOS Development (weekend course)</li>
+        <li>- 🎮 Unity C# Game Development 2D</li>
+        <li>- 🕹️ CS50: Introduction to Game Development</li>
+        </ul>
+        "
+      icon_style: "icon-blob-yellow color-yellow"
+      icon: "icofont-network-tower"
+
+    - title: "Certifications"
+      description: "<ul>
+        <li>- 🎥 Google, VR & 360 Video Certification</li>
+        <li>- 📲 NIL Certification (Front Office Sports, Instagram, Facebook)</li>
+        <li>- 🪙 Crypto in Sports Essentials (Front Office Sports, Coinbase)</li>
+        </ul>
+        "
+      icon_style: "icon-blob-green color-green"
+      icon: "icofont-certificate-alt-2"

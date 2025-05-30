@@ -1,0 +1,6 @@
+video_area:
+  enable: true
+  title: "How We Do It?"
+  sub_title: "Find out everything you need to know <br>about creating a business process model."
+  image: "/assets/images/display/video_image.jpg"
+  video_url: "https://www.youtube.com/watch?v=26TbMXXOe0I"

@@ -1,0 +1,60 @@
+<div class="wrapper light-wrapper" id="about">
+    <div class="container inner">
+      {% if site.data.about_index.about_area.enable %}
+        <div class="row align-items-center">
+          <div class="col-lg-6 order-lg-2 text-center">
+            <div class="position-relative">
+              {% if site.data.about_index.about_area.image %}
+              <figure>
+                <div class="img-blob blob12"><img src="{{relative_url}}/assets/images/display/Newest_STW.gif" style="width: 30rem" alt="" /></div>
+              </figure>
+              {% endif %}
+              <!-- <div class="row counter counter-s position-absolute" style="top: 45%; right: 8%;">
+                <div class="col-md-10 text-center">
+                  <div class="box bg-white shadow">
+                    {% if site.data.about_index.about_area.projects_number %}
+                     <h3><span class="value">{{site.data.about_index.about_area.projects_number}}</span>+</h3>
+                    {% endif %}
+                    {% if site.data.about_index.about_area.project_tag %}
+                     <p>{{site.data.about_index.about_area.project_tag}}</p>
+                    {% endif %}
+                  </div>
+                  /.box
+                </div>
+                /column
+              </div> -->
+              <!--/.row -->
+            </div>
+          </div>
+          <!--/column -->
+          <div class="space30 d-none d-md-block d-lg-none"></div>
+          <div class="col-lg-6 pr-60 pr-md-15">
+            <!-- {% if site.data.about_index.about_area.title %}
+             <h2 class="section-title mb-20">{{ site.data.about_index.about_area.title }}</h2>
+            {% endif %} -->
+            
+            <h2 class="display-1 text-[2rem] md:text-[2.5rem]">Where Sports Meets <br><span class="typer color-default" data-bs-delay="100" data-delim=":" data-words="Innovation.:Talent.: and Creativity."></span><span class="cursor color-default" data-owner="typer"></span></h2>
+              <p class="fs-21"><span class="dropcap color-default">W</span class="fw-bold">elcome to SportsTechWest</span>, a
+                blog exploring the journey from professional athlete to sports tech
+                vagabonder. Join us in discovering the global intersection of sport,
+                science and technology.</p>
+             
+            <div class="space20"></div>
+            <a href="/about" class="btn btn-dark btn-l">About Us</a>
+            <!-- <ul class="progress-list">
+              {% for skills in site.data.about_index.about_area.skills %}
+              <li>
+                <p>{{skills.title}}</p>
+                <div class="progressbar line {{skills.style}}" data-value="{{skills.numbers}}"></div>
+              </li>
+              {% endfor %}
+            </ul> -->
+            <!-- /.progress-list -->
+          </div>
+          <!--/column -->
+        </div>
+        <!--/.row --> 
+        {% endif %}
+    </div>
+  </div>
+  <!--wrapper About Us-->

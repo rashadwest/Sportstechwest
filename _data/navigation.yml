@@ -1,0 +1,291 @@
+main_menu:
+  - text: "Home"
+    url: "/"
+
+  - text: "Portfolios"
+    url: "/portfolios"
+
+  - text: "About"
+    url: "/about"
+
+  # - text: "Insights"
+  #   url: "#"
+
+  # - text: "Our Mission"
+  #   url: "#"
+
+  - text: "Blog"
+    url: "/blogs"
+
+  # - text: "Pages"
+  #   url: "/"
+  #   menu_type: "dropdown"
+  #   level_two:
+  #     - sub_menu_text: "Services"
+  #       sub_menu:
+  #         - text: "Service 01"
+  #           url: "/services/index"
+
+  #         - text: "Service 02"
+  #           url: "/services/index-2"
+
+  #         - text: "Service 03"
+  #           url: "/services/index-3"
+
+  #         - text: "Service 04"
+  #           url: "/services/index-4"
+
+  #         - text: "Service 05"
+  #           url: "/services/index-5"
+
+  # - sub_menu_text: "About Us"
+  #   sub_menu:
+  #     - text: "About 01"
+  #       url: "/about/about"
+
+  #     - text: "About 02"
+  #       url: "/about/about-2"
+
+  #     - text: "About 03"
+  #       url: "/about/about-3"
+
+  # - text: "About 04"
+  #   url: "/about/about-4"
+
+  # - sub_menu_text: "Contact"
+  #   sub_menu:
+  #     - text: "Contact 01"
+  #       url: "/contact/contact-1"
+
+  #     - text: "Contact 02"
+  #       url: "/contact/contact-2"
+
+  #     - text: "Contact 03"
+  #       url: "/contact/contact-3"
+
+  #     - text: "Contact 04"
+  #       url: "/contact/contact-4"
+  # level_one:
+  #   - text: "FAQ"
+  #     url: "/faq"
+
+  #   - text: "Page Loading "
+  #     url: "/loading"
+
+  #   - text: "Page Scrolling"
+  #     url: "/scroll"
+
+  # - text: "Elements"
+  #   url: "/"
+  #   menu_type: "megamenu"
+  #   submenu:
+  #     - text: "Accordion"
+  #       url: "/elements/accordion"
+
+  #     - text: "Dividers"
+  #       url: "/elements/dividers"
+
+  #     - text: "Lightbox"
+  #       url: "/elements/lightbox"
+
+  #     - text: "Tabs"
+  #       url: "/elements/tabs"
+
+  #     - text: "Alerts"
+  #       url: "/elements/alerts"
+
+  #     - text: "Dropcap"
+  #       url: "/elements/dropcap"
+
+  #     - text: "Lists"
+  #       url: "/elements/lists"
+
+  #     - text: "Team"
+  #       url: "/elements/team"
+
+  #     - text: "Animated Text"
+  #       url: "/elements/animated_text"
+
+  #     - text: "Forms"
+  #       url: "/elements/forms"
+
+  #     - text: "Media Player"
+  #       url: "/elements/media_player"
+
+  #     - text: "Testimonials"
+  #       url: "/elements/testimonials"
+
+  #     - text: "Blockquote"
+  #       url: "/elements/blockquote"
+
+  #     - text: "Buttons & Badges"
+  #       url: "/elements/buttons_badges"
+
+  #     - text: "Call to Action"
+  #       url: "/elements/call_to_action"
+
+  #     - text: "Carousel"
+  #       url: "/elements/carousel"
+
+  #     - text: "Clients"
+  #       url: "/elements/clients"
+
+  #     - text: "Countdown"
+  #       url: "/elements/countdown"
+
+  #     - text: "Counter"
+  #       url: "/elements/counter"
+
+  #     - text: "Icons - Concept"
+  #       url: "/elements/icons_concept"
+
+  #     - text: "Icons - Jam"
+  #       url: "/elements/icons_jam"
+
+  #     - text: "Icons - Icofont"
+  #       url: "/elements/icons_icofont"
+
+  #     - text: "Icons - Lineal"
+  #       url: "/elements/icons_lineal"
+
+  #     - text: "Icon Box"
+  #       url: "/elements/icon_box"
+
+  #     - text: "Image Hover"
+  #       url: "/elements/image_hover"
+
+  #     - text: "Image Mask"
+  #       url: "/elements/icons_image_mask"
+
+  #     - text: "Modal"
+  #       url: "/elements/modal"
+
+  #     - text: "Pricing Tables"
+  #       url: "/elements/pricing"
+
+  #     - text: "Process Steps"
+  #       url: "/elements/process_steps"
+
+  #     - text: "Progress Bar"
+  #       url: "/elements/progress_bar"
+
+  #     - text: "Scroll Animations"
+  #       url: "/elements/scroll_animations"
+
+  #     - text: "Social Icons"
+  #       url: "/elements/social_icons"
+
+  #     - text: "Tables"
+  #       url: "/elements/tables"
+
+  #     - text: "Titles"
+  #       url: "/elements/titles"
+
+  #     - text: "Toggle"
+  #       url: "/elements/toggle"
+
+  #     - text: "Tooltip & Popover"
+  #       url: "/elements/tooltip_popover"
+
+  #     - text: "Typography"
+  #       url: "/elements/typography"
+
+  #     - text: "Video Popup"
+  #       url: "/elements/video_popup"
+
+  #     - text: "Waves"
+  #       url: "/elements/waves"
+
+  #     - text: "Wrappers"
+  #       url: "/elements/wrappers"
+
+  # - text: "Portfolio"
+  #   url: "#"
+  #   level_one:
+  #     - text: "Portfolio"
+  #       url: "/portfolios/grid-portfolio"
+
+  #     - text: "Grid Portfolio With Details"
+  #       url: "/portfolios/grid-portfolio-details"
+
+  #     - text: "Masonry Portfolio"
+  #       url: "/portfolios/masonry-portfolio"
+
+  #     - text: "Masonry Portfolio With Details"
+  #       url: "/portfolios/masonry-portfolio-details"
+
+  #     - text: "Mosaic Portfolio"
+  #       url: "/portfolios/mosaic-portfolio"
+
+  #     - text: "Full Screen Grid Portfolio"
+  #       url: "/portfolios/fullscreen-grid"
+
+  #     - text: "Portfolio With Item Details"
+  #       url: "/portfolios/portfolio-item-details"
+
+  #     - text: "Box Portfolio With Item Details"
+  #       url: "/portfolios/box-item-details"
+  #   level_two:
+  #     - sub_menu_text: "Portfolio Posts"
+  #       sub_menu:
+  #         - text: "Post with multiple images"
+  #           url: "/portfolios/with-multiple-images"
+  #         - text: "Post with slider"
+  #           url: "/portfolios/with-slider"
+  #         - text: "Post with masonry gallery"
+  #           url: "/portfolios/with-masonry"
+  #         - text: "Post with carousel"
+  #           url: "/portfolios/with-columns"
+  #         - text: "Post with columns"
+  #           url: "/portfolios/with-carousel"
+  #         - text: "Post with video"
+  #           url: "/portfolios/with-video"
+
+  # - text: "Blog"
+  #   url: "/blogs/index"
+  #   menu_type: "dropdown"
+  #   level_one:
+  #     - text: "Classic Grid"
+  #       url: "/blogs/index"
+
+  #     - text: "Classic Grid With Sidebar"
+  #       url: "/blogs/index-2"
+
+  #     - text: "Box Grid Blog"
+  #       url: "/blogs/index-3"
+
+  #     - text: "Box Grid Blog With Sidebar"
+  #       url: "/blogs/index-4"
+
+  #     - text: "Classic Blog"
+  #       url: "/blogs/index-5"
+
+  #     - text: "Classic Blog with Sidebar"
+  #       url: "/blogs/index-6"
+
+  #     - text: "Boxed Classic Blog"
+  #       url: "/blogs/index-7"
+
+  #     - text: "Boxed Classic Blog With Sidebar"
+  #       url: "/blogs/index-8"
+  #   level_two:
+  #     - sub_menu_text: "Blog Posts"
+  #       sub_menu:
+  #         - text: "Post with sidebar"
+  #           url: "/posts/simple-post-with-sidebar"
+  #         - text: "Post with no sidebar"
+  #           url: "/posts/simple-post-with-no-sidebar"
+  #         - text: "Box Post with no sidebar"
+  #           url: "/posts/post-boxed"
+  #         - text: "Box Post with sidebar"
+  #           url: "/posts/post-boxed-sidebar"
+  #         - text: "Post with code highlight"
+  #           url: "/posts/post-with-code-highlight"
+  #         - text: "Post with video"
+  #           url: "/posts/post-with-video"
+  #         - text: "Post with image"
+  #           url: "/posts/post-with-image"
+  #         - text: "Post with carousel"
+  #           url: "/posts/post-with-carousel"
+  #         - text: "Post with gallery"
+  #           url: "/posts/post-with-gallery"

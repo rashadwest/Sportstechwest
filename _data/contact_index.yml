@@ -1,0 +1,33 @@
+contact_area:
+  enable: true
+  title: "Get in Touch"
+  sub_title: "Have any questions? Reach out to us from our contact form and we will get back to you shortly."
+  action_email: "tortoizthemes@gmail.com"
+  image: "/assets/images/art/about8.webp"
+  address: |
+    <strong>Moonshine St. 14/05 <br>Light City, London</strong>
+  forms_data:
+    - field_type: "input"
+      field_name: "first_name"
+      placeholder: "First Name"
+      error_message: "First Name Is required"
+
+    - field_type: "input"
+      field_name: "last_name"
+      placeholder: "Last Name"
+      error_message: "Last Name Is required"
+
+    - field_type: "input"
+      field_name: "last_email"
+      placeholder: "Email"
+      error_message: "Email Is required"
+
+    - field_type: "input"
+      field_name: "user_phone"
+      placeholder: "Phone"
+      error_message: "Phone Number Is required"
+
+    - field_type: "textarea"
+      field_name: "user_message"
+      placeholder: "Message"
+      error_message: "Message Is required"

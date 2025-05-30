@@ -1,0 +1,55 @@
+<div class="wrapper overflow-top bleed-s">
+    <div class="container inner pt-0">
+        {% if site.data.testimonials.testimonials.enable %}
+      <div class="grid-view">
+        <div class="carousel owl-carousel gap-small" data-margin="0" data-dots="true" data-autoplay="false" data-autoplay-timeout="5000" data-responsive='{"0":{"items": "1"}, "768":{"items": "2"}, "992":{"items": "2"}, "1140":{"items": "3"}}'>
+        {% for feedback in site.data.testimonials.testimonials.feedback %}
+          <div class="item">
+            <div class="item-inner">
+              <div class="box bg-white shadow">
+                  <blockquote>
+                    <p>"{{feedback.quote | truncate: 150}}"</p>
+                    <div class="blockquote-details">
+                      {% if feedback.image %}
+                      <div class="img-blob blob1">
+                        <img src="{{feedback.image}}" alt="{{feedback.name}}"/>
+                      </div>
+                      {% else %}
+                      <div class="img-blob blob1">
+                        <img src="/assets/images/clients/dummy-user.png" alt="Dummy User"/>
+                      </div>
+                      {% endif %}
+                      <div class="info">
+                        <h6 class="mb-0">{{feedback.name}}</h6>
+                        {% if feedback.designation %}
+                        <span class="meta mb-0">{{feedback.designation}}</span>
+                        {% else %}
+                        <span class="meta mb-0">No Designation</span>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </blockquote>
+              </div>
+              <!-- /.box -->
+            </div>
+            <!-- /.item-inner -->
+          </div>
+          <!-- /.item -->
+          {% endfor %}
+        </div>
+        <!-- /.owl-carousel -->
+      </div>
+      <!-- /.grid-view -->
+      {% endif %}
+      {% if site.date.testimonials.clients_carousel.enable %}
+      <div class="space80"></div>
+        {% include clients-carousel.html %}
+      </div>
+      <!-- /.owl-carousel -->
+      {% endif %}
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- /.wrapper -->
+  
+  <!--/.wrapper testimonial-->

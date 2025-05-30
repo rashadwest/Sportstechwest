@@ -1,0 +1,32 @@
+---
+layout: default
+---
+
+{% include nav/nav-3.html  logo_class="logo" %}
+
+{% include single-post/classic-post-sidebar.html %}
+
+{% if page.author %}
+{% include author.html %}
+{% endif %}
+{% if page.slider_post %}
+{% include single-post/slider-posts.html slider_post_title="Other Posts You Might Like" %}
+{% elsif page.trending %}
+{% include single-post/trending-posts.html slider_post_title="Trending Posts" %}
+{% endif %}
+
+<div class="wrapper gray-wrapper">
+  <div class="container inner">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        {% include disqus-comments.html %}
+      </div>
+      <!-- /column -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</div>
+<!-- /.wrapper -->
+</div>
+{% include footer/footer-9.html light_logo="true" %}

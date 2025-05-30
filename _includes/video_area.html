@@ -1,0 +1,30 @@
+<!--wrapper video CTA-->
+{% if site.data.video_area.video_area.enable %}
+<div class="video-area">
+  <div
+    class="wrapper image-wrapper bg-image gradient-overlay inverse-text"
+    data-image-src="{{site.data.video_area.video_area.image}}"
+  >
+    <div class="container inner pt-140 pb-140 text-center">
+      <div class="row">
+        <div class="col-md-7 mx-auto">
+          <h2 class="section-title text-center">
+            {{site.data.video_area.video_area.title}}
+          </h2>
+          <p class="lead larger text-center">
+            {{site.data.video_area.video_area.sub_title}}
+          </p>
+          <div class="space10"></div>
+          <div class="light-gallery-wrapper">
+            <a
+              href="{{site.data.video_area.video_area.video_url}}"
+              class="btn-play lightbox"
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+<!--/.wrapper video CTA-->
