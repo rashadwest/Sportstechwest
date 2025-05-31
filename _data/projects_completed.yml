@@ -2,11 +2,11 @@ completed_projects:
   enable: true
   bg_image: "/assets/images/art/bg15.webp"
   lists:
-    - numbers: "100"
-      title: "Completed Projects"
+    - numbers: "4"
+      title: "Emerging Technology Solutions Developed"
 
-    - numbers: "13"
-      title: "Satisfied Customers"
+    - numbers: "40"
+      title: "Countries Business &  Basketball"
 
-    - numbers: "20"
-      title: "Conferences"
+    - numbers: "6"
+      title: "Professional athlete"

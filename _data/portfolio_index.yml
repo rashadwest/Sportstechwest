@@ -48,13 +48,7 @@ portfolios_area:
       url: "#"
       filters:
         - certificates
-    - title: "Superbowl"
-      sub_title: "Super Bowl Weekend in Las Vegas"
-      sm_image: "/assets/images/gallery/superbowl-2.webp"
-      big_image: "/assets/images/gallery/superbowl-2.webp"
-      url: "#"
-      filters:
-        - gallery
+
     - title: "NBA All Stars Event"
       sub_title: "Photo with Paul Roberson"
       sm_image: "/assets/images/gallery/nba-all-stars-1.webp"
@@ -62,13 +56,7 @@ portfolios_area:
       url: "#"
       filters:
         - gallery
-    - title: "Paul Roberson at Vault Event during NBA Summer League"
-      sub_title: "Photo with Paul Roberson"
-      sm_image: "/assets/images/gallery/nba-all-stars-3.webp"
-      big_image: "/assets/images/gallery/nba-all-stars-3.webp"
-      url: "#"
-      filters:
-        - gallery
+
     - title: "Rashad West at the Paris Olympics"
       sub_title: "BTE Analytics"
       sm_image: "/assets/images/gallery/bte.webp"
@@ -83,13 +71,7 @@ portfolios_area:
       url: "#"
       filters:
         - gallery
-    - title: "Analytics with Spencer"
-      sub_title: "Dribbles Analysed"
-      sm_image: "/assets/images/gallery/1.gif"
-      big_image: "/assets/images/gallery/1.gif"
-      url: "#"
-      filters:
-        - analytics_culture
+
     - title: "Steph Curry BTE 4 Combos"
       sub_title: "Steph Curry Analytics"
       sm_image: "/assets/images/gallery/2.gif"
@@ -97,24 +79,51 @@ portfolios_area:
       url: "#"
       filters:
         - analytics_culture
-    - title: "Exploring the Latest Advancements in XR Technology"
-      sub_title: "Analyzing NBA Positions and Interactions"
-      sm_image: "/assets/images/gallery/20240302_164716.webp"
-      big_image: "/assets/images/gallery/20240302_164716.webp"
+
+    - title: "School Photo with kids"
+      sub_title: "Gallery"
+      sm_image: "/assets/images/portfolio/video_image.jpg"
+      big_image: "/assets/images/portfolio/video_image.jpg"
       url: "#"
       filters:
-        - analytics_culture
-    - title: "Sports Analytics Conference"
-      sub_title: "The Strain of Success"
-      sm_image: "/assets/images/gallery/20240302_164842.webp"
-      big_image: "/assets/images/gallery/20240302_164842.webp"
+        - gallery
+
+    - title: "Iggy Evan"
+      sub_title: "Gallery"
+      sm_image: "/assets/images/portfolio/Iggy_Evan.jpeg"
+      big_image: "/assets/images/portfolio/Iggy_Evan.jpeg"
       url: "#"
       filters:
-        - analytics_culture
+        - gallery
+
     - title: "First Designs for Basketball"
       sub_title: "Analysis"
-      sm_image: "/assets/images/gallery/First_Designs_for_basketball.webp"
-      big_image: "/assets/images/gallery/First_Designs_for_basketball.webp"
+      sm_image: "/assets/images/portfolio/First_Designs_for_basketball.webp"
+      big_image: "/assets/images/portfolio/First_Designs_for_basketball.webp"
       url: "#"
       filters:
         - analytics_culture
+
+    - title: "CJ MCCollom Pelicans"
+      sub_title: "Analysis"
+      sm_image: "/assets/images/portfolio/CJ_MCCollom_Pelicans.png"
+      big_image: "/assets/images/portfolio/CJ_MCCollom_Pelicans.png"
+      url: "#"
+      filters:
+        - analytics_culture
+
+    - title: "BTE Analytics Moveahead Partnership"
+      sub_title: "Analysis"
+      sm_image: "/assets/images/portfolio/BTE_Analytics_Moveahead_Partnership.png"
+      big_image: "/assets/images/portfolio/BTE_Analytics_Moveahead_Partnership.png"
+      url: "#"
+      filters:
+        - analytics_culture
+
+    - title: "Dribbling VR"
+      sub_title: "Gallery"
+      sm_image: "/assets/images/portfolio/Dribbling_VR.jpg"
+      big_image: "/assets/images/portfolio/Dribbling_VR.jpg"
+      url: "#"
+      filters:
+        - gallery
