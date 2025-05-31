@@ -252,13 +252,13 @@ portfolios_area:
       filters:
         - analytics_culture
 
-    - title: "School Photo with kids"
-      sub_title: "Gallery"
-      sm_image: "/assets/images/portfolio/video_image.jpg"
-      big_image: "/assets/images/portfolio/video_image.jpg"
-      url: "#"
-      filters:
-        - gallery
+    # - title: "School Photo with kids"
+    #   sub_title: "Gallery"
+    #   sm_image: "/assets/images/portfolio/video_image.jpg"
+    #   big_image: "/assets/images/portfolio/video_image.jpg"
+    #   url: "#"
+    #   filters:
+    #     - gallery
 
     - title: "Iggy Evan"
       sub_title: "Gallery"
@@ -276,13 +276,13 @@ portfolios_area:
       filters:
         - analytics_culture
 
-    - title: "CJ MCCollom Pelicans"
-      sub_title: "Analysis"
-      sm_image: "/assets/images/portfolio/CJ_MCCollom_Pelicans.png"
-      big_image: "/assets/images/portfolio/CJ_MCCollom_Pelicans.png"
-      url: "#"
-      filters:
-        - analytics_culture
+    # - title: "CJ MCCollom Pelicans"
+    #   sub_title: "Analysis"
+    #   sm_image: "/assets/images/portfolio/CJ_MCCollom_Pelicans.png"
+    #   big_image: "/assets/images/portfolio/CJ_MCCollom_Pelicans.png"
+    #   url: "#"
+    #   filters:
+    #     - analytics_culture
 
     - title: "BTE Analytics Moveahead Partnership"
       sub_title: "Analysis"
@@ -292,10 +292,10 @@ portfolios_area:
       filters:
         - analytics_culture
 
-    - title: "Dribbling VR"
-      sub_title: "Gallery"
-      sm_image: "/assets/images/portfolio/Dribbling_VR.jpg"
-      big_image: "/assets/images/portfolio/Dribbling_VR.jpg"
-      url: "#"
-      filters:
-        - gallery
+    # - title: "Dribbling VR"
+    #   sub_title: "Gallery"
+    #   sm_image: "/assets/images/portfolio/Dribbling_VR.jpg"
+    #   big_image: "/assets/images/portfolio/Dribbling_VR.jpg"
+    #   url: "#"
+    #   filters:
+    #     - gallery
