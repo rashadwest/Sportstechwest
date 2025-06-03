@@ -51,42 +51,42 @@ portfolios_area:
 
     - title: "NBA All Stars Event"
       sub_title: "Photo with Paul Roberson"
-      sm_image: "/assets/images/gallery/nba-all-stars-1.webp"
-      big_image: "/assets/images/gallery/nba-all-stars-1.webp"
+      sm_image: "/assets/images/portfolio/nba-all-stars-1.webp"
+      big_image: "/assets/images/portfolio/nba-all-stars-1.webp"
       url: "#"
       filters:
         - gallery
 
     - title: "Rashad West at the Paris Olympics"
       sub_title: "BTE Analytics"
-      sm_image: "/assets/images/gallery/bte.webp"
-      big_image: "/assets/images/gallery/bte.webp"
+      sm_image: "/assets/images/portfolio/bte.webp"
+      big_image: "/assets/images/portfolio/bte.webp"
       url: "#"
       filters:
         - gallery
     - title: "Rashad West together with Olympians"
       sub_title: "Breaking Bread with Olympians"
-      sm_image: "/assets/images/gallery/together-with-olympians-3.webp"
-      big_image: "/assets/images/gallery/together-with-olympians-3.webp"
+      sm_image: "/assets/images/portfolio/together-with-olympians-3.webp"
+      big_image: "/assets/images/portfolio/together-with-olympians-3.webp"
       url: "#"
       filters:
         - gallery
 
-    - title: "Steph Curry BTE 4 Combos"
+    - title: "Steph Curry Dribble Efficiency"
       sub_title: "Steph Curry Analytics"
-      sm_image: "/assets/images/gallery/2.gif"
-      big_image: "/assets/images/gallery/2.gif"
+      sm_image: "/assets/images/portfolio/2.gif"
+      big_image: "/assets/images/portfolio/2.gif"
       url: "#"
       filters:
         - analytics_culture
 
-    - title: "School Photo with kids"
-      sub_title: "Gallery"
-      sm_image: "/assets/images/portfolio/video_image.jpg"
-      big_image: "/assets/images/portfolio/video_image.jpg"
-      url: "#"
-      filters:
-        - gallery
+    # - title: "School Photo with kids"
+    #   sub_title: "Gallery"
+    #   sm_image: "/assets/images/portfolio/video_image.jpg"
+    #   big_image: "/assets/images/portfolio/video_image.jpg"
+    #   url: "#"
+    #   filters:
+    #     - gallery
 
     - title: "Iggy Evan"
       sub_title: "Gallery"
@@ -104,13 +104,13 @@ portfolios_area:
       filters:
         - analytics_culture
 
-    - title: "CJ MCCollom Pelicans"
-      sub_title: "Analysis"
-      sm_image: "/assets/images/portfolio/CJ_MCCollom_Pelicans.png"
-      big_image: "/assets/images/portfolio/CJ_MCCollom_Pelicans.png"
-      url: "#"
-      filters:
-        - analytics_culture
+    # - title: "CJ MCCollom Pelicans"
+    #   sub_title: "Analysis"
+    #   sm_image: "/assets/images/portfolio/CJ_MCCollom_Pelicans.png"
+    #   big_image: "/assets/images/portfolio/CJ_MCCollom_Pelicans.png"
+    #   url: "#"
+    #   filters:
+    #     - analytics_culture
 
     - title: "BTE Analytics Moveahead Partnership"
       sub_title: "Analysis"
@@ -120,10 +120,10 @@ portfolios_area:
       filters:
         - analytics_culture
 
-    - title: "Dribbling VR"
-      sub_title: "Gallery"
-      sm_image: "/assets/images/portfolio/Dribbling_VR.jpg"
-      big_image: "/assets/images/portfolio/Dribbling_VR.jpg"
-      url: "#"
-      filters:
-        - gallery
+    # - title: "Dribbling VR"
+    #   sub_title: "Gallery"
+    #   sm_image: "/assets/images/portfolio/Dribbling_VR.jpg"
+    #   big_image: "/assets/images/portfolio/Dribbling_VR.jpg"
+    #   url: "#"
+    #   filters:
+    #     - gallery
