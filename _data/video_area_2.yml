@@ -2,5 +2,5 @@ video_area_2:
   enable: true
   title: "How We Do It?"
   sub_title: "Find out our latest product in data science."
-  image: "/assets/images/display/video_image.jpg"
+  image: "/assets/images/display/IMG-20250604-WA0010.jpg"
   video_url: "https://youtu.be/c21p2h6gfdg"
