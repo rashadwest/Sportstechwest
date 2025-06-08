@@ -8,11 +8,11 @@ main_menu:
   - text: "About"
     url: "/about"
 
-  # - text: "Insights"
-  #   url: "#"
+  - text: "Insights"
+    url: "#"
 
-  # - text: "Our Mission"
-  #   url: "#"
+  - text: "Our Mission"
+    url: "#"
 
   - text: "Blog"
     url: "/blogs"
