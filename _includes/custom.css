@@ -86,3 +86,15 @@ footer .widget img {
 .pagination .active a {
   color: white !important;
 }
+
+.post-content p,
+ul,
+ol,
+li {
+  font-size: larger;
+  line-height: 35px;
+}
+.post-content ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
