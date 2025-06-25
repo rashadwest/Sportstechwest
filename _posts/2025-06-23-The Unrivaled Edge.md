@@ -13,7 +13,9 @@ author: "Rashad West"
 
 ## 1v1, 3v3, 5v5 Dominance
 
-As the [**WNBA**](https://wnba.com) season heats up and the MVP race intensifies, every possession, especially the crucial 1v1 matchups, reveals a player's true caliber.  [**Napheesa Collier**](https://www.wnba.com/player/napheesa-collier), a standout talent for the Minnesota Lynx, is making a compelling case for the MVP award this year, showcasing a level of individual dominance that sets her apart.
+As the [**WNBA**](https://wnba.com) season unfolds, [**Napheesa Collier's**](https://www.wnba.com/player/napheesa-collier) name is not just prominent in the MVP discussion, it's virtually synonymous with it. Her on-court performance is more than just impressive; it's a compelling narrative of a player reaching new heights. Consider her career-best numbers this season: leading the league in scoring (24.4 points per game), a career high in assists (3.6 per game), and remarkable shooting percentages across the board, including 52.4 percent from the field, 42.1 percent from three-point range, and an astounding 93.1 percent from the free-throw line.
+
+These percentages are not just stellar; if she maintains them, Napheesa Collier will join [**Elena Delle Donne**](https://www.wnba.com/player/203399/elena-delle-donne) as only the second WNBA player ever to achieve the exclusive 50 percent field goal, 40 percent three point, 90 percent free throw (50/40/90) season. These aren't just incremental gains; they represent a significant leap in her offensive efficiency and overall impact. But beyond these undeniable statistics, it begs a question for us at BTE Analytics: Is there a deeper, more fundamental shift in her game that has unlocked this unprecedented success? Could her recent experiences in high-stakes 1v1 matchups and the dynamic world of 3v3 basketball be a powerful catalyst?
 
 While traditional stats tell part of the story, what truly defines an MVP candidate in these high stakes moments? We often talk about athleticism and mobility, but at BTE Analytics, our data points to something more decisive: versatility in one on one play, honed by the unique pressures of the 3v3 game.
 
