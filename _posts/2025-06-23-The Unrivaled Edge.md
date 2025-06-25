@@ -27,9 +27,9 @@ ___
 
 ## Before we dive into the insights, let's define our terms:
 
-- **Mobility** is how well a player moves: their speed, lateral quickness, and ability to cover ground.
+-<span style="font-size: 1em;">Item One</span> **Mobility** is how well a player moves: their speed, lateral quickness, and ability to cover ground.
 
-- **Versatility** is how many different ways a player can score, counter, or adapt once they're in the play.
+-<span style="font-size: 1em;">Item Two</span> **Versatility** is how many different ways a player can score, counter, or adapt once they're in the play.
 
 When we broke down the data, the difference between mobility and versatility was clear and decisive, especially in high leverage 1v1 scenarios.
 
@@ -55,10 +55,10 @@ ___
 
 ## And this isn't just about individual accolades. It's a key insight for:
 
-- **Player Development:** Are we training players to simply react, or to adjust and find solutions by understanding spacing and creating gaps?
+- <span style="font-size: 1em;">Item One</span> **Player Development:** Are we training players to simply react, or to adjust and find solutions by understanding spacing and creating gaps?
 
-- **Game Strategy:** Are teams building systems that reward athleticism alone, or foster versatile problem solvers who can exploit smaller areas?
+- <span style="font-size: 1em;">Item Two</span>  **Game Strategy:** Are teams building systems that reward athleticism alone, or foster versatile problem solvers who can exploit smaller areas?
 
-- **Talent Evaluation:** Are we identifying players who thrive in chaos and consistently offer more options on the court, particularly those with experience in varied game formats like 3v3?
+- <span style="font-size: 1em;">Item Three</span> **Talent Evaluation:** Are we identifying players who thrive in chaos and consistently offer more options on the court, particularly those with experience in varied game formats like 3v3?
 
 Because in elite competition, especially in the tight confines of the WNBA MVP race, the game isn't just about who moves best. It's about who solves best. And right now, Napheesa Collier's unparalleled versatility in 1v1 situations, significantly enhanced by her 3v3 understanding of spacing and gap attacking, is a prime example of why she's driving her team's success and making such a compelling MVP case.
