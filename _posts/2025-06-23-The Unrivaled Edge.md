@@ -11,7 +11,7 @@ categories: [Analytics, Culture]
 author: "Rashad West"
 ---
 
-## **1v1, 3v3, 5v5 Dominance**
+## 1v1, 3v3, 5v5 Dominance
 
 As the [**WNBA**](https://wnba.com) season heats up and the MVP race intensifies, every possession, especially the crucial 1v1 matchups, reveals a player's true caliber.  [**Napheesa Collier**](https://www.wnba.com/player/napheesa-collier), a standout talent for the Minnesota Lynx, is making a compelling case for the MVP award this year, showcasing a level of individual dominance that sets her apart.
 
@@ -23,7 +23,9 @@ Collier's performance in the Unrivaled 3v3 league itself was exceptional. In 14 
 
 We specifically studied a compelling matchup from this 1v1 tournament featuring Napheesa Collier against [**Aaliyah Edwards**](https://www.wnba.com/player/aaliyah-edwards), another elite athlete who possesses physicality, size, and mobility. What this detailed data analysis revealed illuminates exactly why Collier is currently so impactful and a frontrunner for the WNBA MVP. The ability to excel in both 3v3 and 1v1 formats highlights her comprehensive understanding of offensive creation.
 
-**Before we dive into the insights, let's define our terms:**
+___
+
+## Before we dive into the insights, let's define our terms:
 
 **Mobility** is how well a player moves: their speed, lateral quickness, and ability to cover ground.
 **Versatility** is how many different ways a player can score, counter, or adapt once they're in the play.
@@ -31,7 +33,7 @@ When we broke down the data, the difference between mobility and versatility was
 
 ___
 
-## **What We Saw: Collier's MVP Level Versatility**
+## What We Saw: Collier's MVP Level Versatility
 Mobility gets you to the spot. Versatility, often sharpened by the spatial demands of 3v3, decides what happens next.
 
 Aaliyah Edwards, in this particular 1v1 tournament, showcased impressive speed and straight line power. However, Napheesa Collier, already known for her physicality and size, demonstrated a significantly wider and more adaptable skill set. She didn't need to be solely faster; she just needed more answers to Edwards' challenges.
@@ -42,12 +44,14 @@ In contrast, predictability limits outcomes. Edwards, in that specific 1v1 scena
 
 ___
 
-## **Bottom Line: The MVP's Decisive Edge**
+## Bottom Line: The MVP's Decisive Edge
 At the elite WNBA level, every player possesses exceptional athleticism. What truly separates a regular season standout from an MVP contender like Napheesa Collier is the strategic capacity to adapt, counter, and solve problems in real time, especially by leveraging offensive spacing. Athleticism opens the door. Versatility, cultivated through diverse playing experiences like 3v3, walks you through it, often leading to wins.
 
 Mobility got Edwards into position. Versatility let Collier take over and ultimately win the matchup. The insights gleaned from Unrivaled's high stakes 1v1 format vividly demonstrate these principles, showcasing the nuanced difference that makes a player indispensable. Her involvement in the 3v3 format likely sharpens her ability to identify and attack the limited spacing found even in 1v1 scenarios.
 
-And this isn't just about individual accolades. It's a key insight for:
+___
+
+## And this isn't just about individual accolades. It's a key insight for:
 
 **Player Development:** Are we training players to simply react, or to adjust and find solutions by understanding spacing and creating gaps?
 **Game Strategy:** Are teams building systems that reward athleticism alone, or foster versatile problem solvers who can exploit smaller areas?
