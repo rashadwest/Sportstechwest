@@ -11,6 +11,8 @@ categories: [Analytics, Culture]
 author: "Rashad West"
 ---
 
+## **1v1, 3v3, 5v5 Dominance**
+
 As the [**WNBA**](https://wnba.com) season heats up and the MVP race intensifies, every possession, especially the crucial 1v1 matchups, reveals a player's true caliber.  [**Napheesa Collier**](https://www.wnba.com/player/napheesa-collier), a standout talent for the Minnesota Lynx, is making a compelling case for the MVP award this year, showcasing a level of individual dominance that sets her apart.
 
 While traditional stats tell part of the story, what truly defines an MVP candidate in these high stakes moments? We often talk about athleticism and mobility, but at BTE Analytics, our data points to something more decisive: versatility in one on one play, honed by the unique pressures of the 3v3 game.
@@ -29,7 +31,7 @@ When we broke down the data, the difference between mobility and versatility was
 
 ___
 
-**What We Saw: Collier's MVP Level Versatility**
+## **What We Saw: Collier's MVP Level Versatility**
 Mobility gets you to the spot. Versatility, often sharpened by the spatial demands of 3v3, decides what happens next.
 
 Aaliyah Edwards, in this particular 1v1 tournament, showcased impressive speed and straight line power. However, Napheesa Collier, already known for her physicality and size, demonstrated a significantly wider and more adaptable skill set. She didn't need to be solely faster; she just needed more answers to Edwards' challenges.
