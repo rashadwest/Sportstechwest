@@ -2,10 +2,10 @@
 layout: post
 title: "The Unrivaled Edge: What Women's 1v1 Data Can Teach Scouts About Elite Prospects"
 thumbnail: "assets/images/thumbnails/BTE_Collier_Edwards_1v1_Feb_14_2025.png"
-badge_color: "bg-meander"
+badge_color: "text-bg-info"
 trending: true
 simple_nav: true
-date: 2025-01-20
+date: 2025-06-23
 tags: sports
 categories: [Analytics, Culture]
 author: "Rashad West"

@@ -3,8 +3,9 @@ layout: post
 title: "Analytics Culture: “The Game Within the Game”"
 thumbnail: "assets/images/thumbnails/basketball-history.webp"
 trending: true
+badge_color: "text-bg-danger"
 tags: NBA History
-category: [Analytics, Basketball]
+category: [Basketball, Analytics]
 author: Rashad West
 badge_color: "bg-meander"
 ---

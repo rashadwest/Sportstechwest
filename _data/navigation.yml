@@ -9,7 +9,7 @@ main_menu:
     url: "/about"
 
   - text: "Insights"
-    url: "#"
+    url: "/insights"
 
   - text: "Our Mission"
     url: "#"

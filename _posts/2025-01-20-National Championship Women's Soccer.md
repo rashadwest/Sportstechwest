@@ -2,12 +2,12 @@
 layout: post
 title: "Analytics Culture: UNC Legacy “From No Control to Comeback”"
 thumbnail: "assets/images/thumbnails/Ncws.jpeg"
-badge_color: "bg-meander"
+badge_color: "bg-cobalt"
 trending: true
 simple_nav: true
 date: 2025-01-20
 tags: sports
-categories: [Analytics, Culture]
+categories: [Culture]
 author: "Rashad West"
 ---
 

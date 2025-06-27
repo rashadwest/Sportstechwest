@@ -91,8 +91,8 @@ footer .widget img {
 ul,
 ol,
 li {
-  font-size: larger;
-  line-height: 35px;
+  font-size: medium;
+  line-height: 25px;
 }
 .post-content ul {
   list-style-type: disc;
