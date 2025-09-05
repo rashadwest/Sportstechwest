@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Tips Youth Bball Development"
-description: "How players use 1v1 to get to 3v3 to get to 5v5"
+description: "From Individual Skills to Team Basketball: A Progressive Framework"
 thumbnail: "assets/images/thumbnails/10_Tips_Youth_Bball_Development.png"
 badge_color: "text-bg-primary"
 trending: true
@@ -13,7 +13,7 @@ author: "Rashad West"
 ---
 
 
-# Player Drive Progressions: The Basketball Mental Development Framework
+# From Individual Skills to Team Basketball: A Progressive Framework
 
 Basketball players make split-second decisions that determine success or failure. But how do we teach players to process information and react correctly in milliseconds? The answer lies in understanding basketball as a progression of if/then statements, developed through three distinct formats.
 
