@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basketball Development Framework: 1v1 → 3v3 → 5v5</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ff6b6b, #ffa500, #4ecdc4);
+            padding: 40px;
+            text-align: center;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .chart-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+        }
+        
+        .chart-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #ffa500;
+            text-align: center;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 165, 0, 0.1));
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            border-left: 5px solid;
+            transition: all 0.3s ease;
+        }
+        
+        .metric-card.individual { border-left-color: #ff6b6b; }
+        .metric-card.decision { border-left-color: #ffa500; }
+        .metric-card.team { border-left-color: #4ecdc4; }
+        
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .metric-value {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .metric-value.individual { color: #ff6b6b; }
+        .metric-value.decision { color: #ffa500; }
+        .metric-value.team { color: #4ecdc4; }
+        
+        .metric-label {
+            font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 5px;
+        }
+        
+        .metric-description {
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.4;
+        }
+        
+        .comparison-section {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #4ecdc4;
+            text-align: center;
+        }
+        
+        .format-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .format-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid;
+        }
+        
+        .format-card.one-v-one { border-color: #ff6b6b; }
+        .format-card.three-v-three { border-color: #ffa500; }
+        .format-card.five-v-five { border-color: #4ecdc4; }
+        
+        .format-name {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .format-name.one-v-one { color: #ff6b6b; }
+        .format-name.three-v-three { color: #ffa500; }
+        .format-name.five-v-five { color: #4ecdc4; }
+        
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+        
+        .stat-value-format {
+            font-weight: 600;
+            color: white;
+        }
+        
+        .insights-section {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(52, 152, 219, 0.1));
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 2px solid rgba(78, 205, 196, 0.3);
+        }
+        
+        .insight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .insight-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            border-left: 4px solid #4ecdc4;
+        }
+        
+        .insight-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4ecdc4;
+            margin-bottom: 10px;
+        }
+        
+        .insight-text {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.5;
+            font-size: 0.9em;
+        }
+        
+        .progress-section {
+            margin-bottom: 30px;
+        }
+        
+        .progress-bars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .progress-item {
+            text-align: center;
+        }
+        
+        .progress-label {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .progress-label.one-v-one { color: #ff6b6b; }
+        .progress-label.three-v-three { color: #ffa500; }
+        .progress-label.five-v-five { color: #4ecdc4; }
+        
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            transition: width 2s ease;
+            border-radius: 10px;
+        }
+        
+        .progress-fill.one-v-one { background: linear-gradient(90deg, #ff6b6b, #ff8e8e); }
+        .progress-fill.three-v-three { background: linear-gradient(90deg, #ffa500, #ffb833); }
+        .progress-fill.five-v-five { background: linear-gradient(90deg, #4ecdc4, #7ed3d3); }
+        
+        .progress-percentage {
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        @media (max-width: 1200px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+            
+            .format-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .progress-bars {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .canvas-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+        }
+        
+        .data-table {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+        
+        .data-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .data-table th,
+        .data-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .data-table th {
+            background: rgba(255, 255, 255, 0.1);
+            font-weight: 600;
+            color: #ffa500;
+        }
+        
+        .data-table td {
+            color: rgba(255, 255, 255, 0.9);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Basketball Development Framework</h1>
+            <div class="subtitle">Progressive Player Development: Individual Skills → Decision Making → Team Systems</div>
+        </div>
+        
+        <div class="metrics-grid">
+            <div class="metric-card individual">
+                <div class="metric-value individual">1v1</div>
+                <div class="metric-label">Foundation Phase</div>
+                <div class="metric-description">Build individual skills: ball handling, shooting mechanics, footwork, and primary defender reads</div>
+            </div>
+            
+            <div class="metric-card decision">
+                <div class="metric-value decision">3v3</div>
+                <div class="metric-label">Decision Phase</div>
+                <div class="metric-description">Develop court vision, help defense recognition, and quick decision-making in reduced space</div>
+            </div>
+            
+            <div class="metric-card team">
+                <div class="metric-value team">5v5</div>
+                <div class="metric-label">System Phase</div>
+                <div class="metric-description">Master team concepts, offensive systems, full-court awareness, and complex defensive schemes</div>
+            </div>
+        </div>
+        
+        <div class="dashboard">
+            <div class="chart-container">
+                <div class="chart-title">Skill Development by Format</div>
+                <div class="canvas-container">
+                    <canvas id="skillRadarChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <div class="chart-title">Player Development Progression</div>
+                <div class="canvas-container">
+                    <canvas id="progressionChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="comparison-section">
+            <div class="section-title">Format Comparison: Development Focus Areas</div>
+            <div class="format-stats">
+                <div class="format-card one-v-one">
+                    <div class="format-name one-v-one">1v1 Basketball</div>
+                    <div class="stat-item">
+                        <span>Primary Focus:</span>
+                        <span class="stat-value-format">Individual Skills</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Ball Handling:</span>
+                        <span class="stat-value-format">95%</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Shot Creation:</span>
+                        <span class="stat-value-format">90%</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Court Vision:</span>
+                        <span class="stat-value-format">30%</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Team Play:</span>
+                        <span class="stat-value-format">20%</span>
+                    </div>
+                </div>
+                
+                <div class="format-card three-v-three">
+                    <div class="format-name three-v-three">3v3 Basketball</div>
+                    <div class="stat-item">
+                        <span>Primary Focus:</span>
+                        <span class="stat-value-format">Decision Making</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Ball Handling:</span>
+                        <span class="stat-value-format">70%</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Shot Creation:</span>
+                        <span class="stat-value-format">80%</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Court Vision:</span>
+                        <span class="stat-value-format">85%</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Team Play:</span>
+                        <span class="stat-value-format">70%</span>
+                    </div>
+                </div>
+                
+                <div class="format-card five-v-five">
+                    <div class="format-name five-v-five">5v5 Basketball</div>
+                    <div class="stat-item">
+                        <span>Primary Focus:</span>
+                        <span class="stat-value-format">Team Systems</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Ball Handling:</span>
+                        <span class="stat-value-format">60%</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Shot Creation:</span>
+                        <span class="stat-value-format">65%</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Court Vision:</span>
+                        <span class="stat-value-format">95%</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Team Play:</span>
+                        <span class="stat-value-format">95%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="data-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Development Area</th>
+                            <th>1v1 Emphasis</th>
+                            <th>3v3 Emphasis</th>
+                            <th>5v5 Emphasis</th>
+                            <th>Progression Logic</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Ball Handling</strong></td>
+                            <td>High (95%)</td>
+                            <td>Medium (70%)</td>
+                            <td>Low (60%)</td>
+                            <td>Foundation skill → Less individual dominance</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Shooting</strong></td>
+                            <td>High (90%)</td>
+                            <td>High (80%)</td>
+                            <td>Medium (65%)</td>
+                            <td>Individual skill → Team shot selection</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Court Vision</strong></td>
+                            <td>Low (30%)</td>
+                            <td>High (85%)</td>
+                            <td>Very High (95%)</td>
+                            <td>Individual focus → Full court awareness</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Decision Making</strong></td>
+                            <td>Medium (60%)</td>
+                            <td>Very High (90%)</td>
+                            <td>High (85%)</td>
+                            <td>Simple reads → Complex team decisions</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Team Play</strong></td>
+                            <td>Low (20%)</td>
+                            <td>Medium (70%)</td>
+                            <td>Very High (95%)</td>
+                            <td>Individual success → Team integration</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="progress-section">
+            <div class="section-title">Development Timeline</div>
+            <div class="progress-bars">
+                <div class="progress-item">
+                    <div class="progress-label one-v-one">Foundation Building</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill one-v-one" style="width: 90%"></div>
+                    </div>
+                    <div class="progress-percentage">90% - Master Individual Skills First</div>
+                </div>
+                
+                <div class="progress-item">
+                    <div class="progress-label three-v-three">Decision Development</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill three-v-three" style="width: 75%"></div>
+                    </div>
+                    <div class="progress-percentage">75% - Learn Help Defense Recognition</div>
+                </div>
+                
+                <div class="progress-item">
+                    <div class="progress-label five-v-five">System Integration</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill five-v-five" style="width: 85%"></div>
+                    </div>
+                    <div class="progress-percentage">85% - Execute Complex Team Concepts</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="insights-section">
+            <div class="section-title">Key Development Insights</div>
+            <div class="insight-grid">
+                <div class="insight-card">
+                    <div class="insight-title">Sequential Foundation</div>
+                    <div class="insight-text">
+                        Players must master individual skills in 1v1 before progressing. Ball handling and shooting mechanics provide the foundation for all advanced concepts.
+                    </div>
+                </div>
+                
+                <div class="insight-card">
+                    <div class="insight-title">Decision-Making Bridge</div>
+                    <div class="insight-text">
+                        3v3 basketball bridges individual skills and team play. Players learn to read help defense while maintaining individual skills in a simplified environment.
+                    </div>
+                </div>
+                
+                <div class="insight-card">
+                    <div class="insight-title">System Complexity</div>
+                    <div class="insight-text">
+                        5v5 basketball requires full court awareness and team system integration. Players must sacrifice individual touches for team success.
+                    </div>
+                </div>
+                
+                <div class="insight-card">
+                    <div class="insight-title">Skill Transfer</div>
+                    <div class="insight-text">
+                        Each format builds upon the previous: 1v1 skills enable 3v3 decision-making, which enables 5v5 system execution.
+                    </div>
+                </div>
+                
+                <div class="insight-card">
+                    <div class="insight-title">Court Vision Development</div>
+                    <div class="insight-text">
+                        Court vision jumps from 30% in 1v1 to 85% in 3v3 to 95% in 5v5, showing the progression from individual to team awareness.
+                    </div>
+                </div>
+                
+                <div class="insight-card">
+                    <div class="insight-title">Balanced Development</div>
+                    <div class="insight-text">
+                        Modern players need exposure to all three formats. Skipping steps creates skill gaps that limit long-term potential.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Chart.js configuration
+        Chart.defaults.color = '#ffffff';
+        Chart.defaults.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+        
+        // Skill Radar Chart
+        const skillRadarCtx = document.getElementById('skillRadarChart').getContext('2d');
+        new Chart(skillRadarCtx, {
+            type: 'radar',
+            data: {
+                labels: ['Ball Handling', 'Shooting', 'Court Vision', 'Decision Making', 'Team Play'],
+                datasets: [{
+                    label: '1v1 Development',
+                    data: [95, 90, 30, 60, 20],
+                    backgroundColor: 'rgba(255, 107, 107, 0.2)',
+                    borderColor: '#ff6b6b',
+                    borderWidth: 2
+                }, {
+                    label: '3v3 Development',
+                    data: [70, 80, 85, 90, 70],
+                    backgroundColor: 'rgba(255, 165, 0, 0.2)',
+                    borderColor: '#ffa500',
+                    borderWidth: 2
+                }, {
+                    label: '5v5 Development',
+                    data: [60, 65, 95, 85, 95],
+                    backgroundColor: 'rgba(78, 205, 196, 0.2)',
+                    borderColor: '#4ecdc4',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            color: '#ffffff'
+                        }
+                    }
+                },
+                scales: {
+                    r: {
+                        angleLines: {
+                            color: 'rgba(255, 255, 255, 0.3)'
+                        },
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.3)'
+                        },
+                        pointLabels: {
+                            color: '#ffffff'
+                        },
+                        ticks: {
+                            color: '#ffffff',
+                            backdropColor: 'transparent'
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Progression Line Chart
+        const progressionCtx = document.getElementById('progressionChart').getContext('2d');
+        new Chart(progressionCtx, {
+            type: 'line',
+            data: {
+                labels: ['Individual Skills', 'Help Defense Reads', 'Court Awareness', 'System Execution', 'Leadership'],
+                datasets: [{
+                    label: '1v1 → 3v3 → 5v5 Progression',
+                    data: [90, 45, 30, 20, 15],
+                    backgroundColor: 'rgba(255, 107, 107, 0.2)',
+                    borderColor: '#ff6b6b',
+                    borderWidth: 3,
+                    fill: false
+                }, {
+                    label: '3v3 Integration',
+                    data: [70, 85, 70, 50, 40],
+                    backgroundColor: 'rgba(255, 165, 0, 0.2)',
+                    borderColor: '#ffa500',
+                    borderWidth: 3,
+                    fill: false
+                }, {
+                    label: '5v5 Mastery',
+                    data: [60, 80, 95, 90, 85],
+                    backgroundColor: 'rgba(78, 205, 196, 0.2)',
+                    borderColor: '#4ecdc4',
+                    borderWidth: 3,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            color: '#ffffff'
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            color: '#ffffff'
+                        },
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.3)'
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: '#ffffff'
+                        },
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.3)'
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Animate progress bars on load
+        window.addEventListener('load', function() {
+            const progressFills = document.querySelectorAll('.progress-fill');
+            progressFills.forEach(fill => {
+                const width = fill.style.width;
+                fill.style.width = '0%';
+                setTimeout(() => {
+                    fill.style.width = width;
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>
