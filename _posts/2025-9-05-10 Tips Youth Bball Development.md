@@ -154,32 +154,6 @@ Elite players process these if/then statements in milliseconds because they've b
 
 The framework isn't just about basketball skills. It's about building decision-making speed and accuracy that transfers to any complex, dynamic environment.
 
-## Implementing the Framework
-
-### For Coaches:
-- Start practices with 1v1 to reinforce foundation reads
-- Use 3v3 to teach help defense recognition and quick decision-making
-- Progress to 5v5 only after players demonstrate mastery of simpler reads
-
-### For Players:
-- Master each decision tree before progressing
-- Practice reading defenders like debugging code - identify the problem, execute the solution
-- Understand that basketball IQ is built sequentially, not randomly
-
-### For Parents:
-- Don't rush players into complex team basketball before they've mastered individual skills
-- Seek coaches who understand progressive development
-- Value decision-making development as much as athletic ability
-
-## BTE Color Grid Integration
-
-Our proprietary BTE Color Grid system enhances development at all phases by teaching players court positioning through color recognition. Each square represents a specific court location, enabling players to:
-
-- Identify their position instantly
-- Make faster decisions based on location
-- Develop spatial awareness through visual learning
-
-[BTE Complete Color Grid](https://rashadwest.github.io/2021/02/16/Analytics_Culture.html)
 
 ##10 Tips for Youth Development: Seamless Progression Through the Framework
 
@@ -222,6 +196,23 @@ Youth players fear making mistakes. Celebrate "good tries" and learning moments.
 Don't practice 5v5 concepts if kids play 3v3 games. Many youth leagues use modified rules - align your training with their actual game experience for better transfer.
 
 This framework can be applied at any level, from youth development to professional training. The key is respecting the progression and ensuring mastery at each phase before advancing to the next level of complexity.
+
+## Implementing the Framework
+
+### For Coaches:
+- Start practices with 1v1 to reinforce foundation reads
+- Use 3v3 to teach help defense recognition and quick decision-making
+- Progress to 5v5 only after players demonstrate mastery of simpler reads
+
+### For Players:
+- Master each decision tree before progressing
+- Practice reading defenders like debugging code - identify the problem, execute the solution
+- Understand that basketball IQ is built sequentially, not randomly
+
+### For Parents:
+- Don't rush players into complex team basketball before they've mastered individual skills
+- Seek coaches who understand progressive development
+- Value decision-making development as much as athletic ability
 
 ## Conclusion
 
