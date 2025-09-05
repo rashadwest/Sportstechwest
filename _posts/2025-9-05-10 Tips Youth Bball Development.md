@@ -124,7 +124,7 @@ The data shows clear skill transitions:
 
 Explore our comprehensive Player Development data visualization that shows the complete framework with interactive charts, detailed metrics, and progression tracking:
 
-**[View Interactive Player Development Data Visualization](Player_Development_data_viz.html)**
+**[View Interactive Player Development Data Visualization]([https://sportstechwest.com/Player_Development_data_viz.html])**
 
 This interactive dashboard includes:
 - **Skill Development Radar Charts** showing the progression across all formats
