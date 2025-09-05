@@ -124,7 +124,9 @@ The data shows clear skill transitions:
 
 Explore our comprehensive Player Development data visualization that shows the complete framework with interactive charts, detailed metrics, and progression tracking:
 
-**[View Interactive Player Development Data Visualization]([https://sportstechwest.com/Player_Development_data_viz.html])**
+**[View Interactive Player Development Data Visualization](https://sportstechwest.com/Player_Development_data_viz.html)**
+
+*Click the link above to explore the interactive basketball development framework with detailed charts, metrics, and progression data.*
 
 This interactive dashboard includes:
 - **Skill Development Radar Charts** showing the progression across all formats
@@ -177,7 +179,7 @@ Our proprietary BTE Color Grid system enhances development at all phases by teac
 - Make faster decisions based on location
 - Develop spatial awareness through visual learning
 
-![BTE Complete Color Grid]([https://rashadwest.github.io/2021/02/16/Analytics_Culture.html])
+![BTE Complete Color Grid](https://rashadwest.github.io/2021/02/16/Analytics_Culture.html)
 
 10 Tips for Youth Development: Seamless Progression Through the Framework
 1. Start with Footwork Before Adding Decision-Making
