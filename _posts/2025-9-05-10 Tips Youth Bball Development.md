@@ -184,9 +184,9 @@ Our proprietary BTE Color Grid system enhances development at all phases by teac
 Youth players need solid athletic foundation. Master triple threat position, pivot footwork, and basic stance before introducing decision trees. Bad habits formed early become harder to break later.
 
 2. Use Age-Appropriate Time Limits
-Ages 8-10: 5-second 1v1 possessions
-Ages 11-13: 3-second 1v1, 20-second 3v3
-Ages 14+: Game-speed timing with decision pressure
+Ages 8-10: 5-8 second 1v1 possessions (adjust depending on skill level)
+Ages 11-13: 3-5 second 1v1, 20-second 3v3 (adjust depending on skill level)
+Ages 14+: Game-speed timing with decision pressure in different formats (adjust depending on skill level)
 
 3. Make Reads Verbal First, Physical Second
 Young players learn by talking through decisions. Have them call out "I can blow by" or "Help is coming" before executing. This builds the mental map before muscle memory.
@@ -207,7 +207,7 @@ Record practice scrimmages on tablets/phones. Show players their decision points
 Keep it age-appropriate: "If open lane, drive. If help comes, pass." Complex terminology confuses young players. Build vocabulary gradually as they master concepts.
 
 8. Respect Attention Spans in Practice Design
-Ages 8-10: 3-5 minute drill segments
+Ages 8-10: 3-5 minute drill segments 
 Ages 11-13: 5-8 minute segments
 Ages 14+: 10-15 minute focused work
 Switch between formats frequently to maintain engagement while building different skills.
