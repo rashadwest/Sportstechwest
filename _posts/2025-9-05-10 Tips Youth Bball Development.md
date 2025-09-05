@@ -185,18 +185,6 @@ The framework isn't just about basketball skills. It's about building decision-m
 
 ---
 
-## BTE Color Grid Integration
-
-Our proprietary BTE Color Grid system enhances development at all phases by teaching players court positioning through color recognition. Each square represents a specific court location, enabling players to:
-
-- Identify their position instantly
-- Make faster decisions based on location
-- Develop spatial awareness through visual learning
-
-**BTE Complete Color Grid**
-
----
-
 ## 10 Tips for Youth Development: Seamless Progression Through the Framework
 
 ### 1. Start with Footwork Before Adding Decision-Making
