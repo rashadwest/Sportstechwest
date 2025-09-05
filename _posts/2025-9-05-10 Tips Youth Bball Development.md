@@ -179,7 +179,7 @@ Our proprietary BTE Color Grid system enhances development at all phases by teac
 - Make faster decisions based on location
 - Develop spatial awareness through visual learning
 
-![BTE Complete Color Grid](https://sportstechwest.com/2021/02/16/Analytics_Culture.html)
+[BTE Complete Color Grid](https://sportstechwest.com/2021/02/16/Analytics_Culture.html)
 
 10 Tips for Youth Development: Seamless Progression Through the Framework
 1. Start with Footwork Before Adding Decision-Making
