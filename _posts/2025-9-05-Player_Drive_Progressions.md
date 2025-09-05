@@ -1,4 +1,19 @@
-# Player Development Build-Up: The Basketball Development Framework
+---
+layout: post
+title: "Player Drive Progressions"
+description: "How players use 1v1 to get to 3v3 to get to 5v5"
+thumbnail: "assets/images/thumbnails/10_Tips_Youth_Bball_Development.png"
+badge_color: "text-bg-primary"
+trending: true
+simple_nav: true
+date: 2025-9-05
+tags: sports
+categories: [Insights]
+author: "Rashad West"
+---
+
+
+# Player Drive Progressions: The Basketball Mental Development Framework
 
 Basketball players make split-second decisions that determine success or failure. But how do we teach players to process information and react correctly in milliseconds? The answer lies in understanding basketball as a progression of if/then statements, developed through three distinct formats.
 
