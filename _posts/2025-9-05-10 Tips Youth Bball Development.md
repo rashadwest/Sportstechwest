@@ -13,7 +13,7 @@ author: "Rashad West"
 ---
 
 
-# From Individual Skills to Team Basketball: A Progressive Framework
+# From Individual Skills to Team Basketball: A Progressive Framework (10 Tips Bonus at bottom ;))
 
 Basketball players make split-second decisions that determine success or failure. But how do we teach players to process information and react correctly in milliseconds? The answer lies in understanding basketball as a progression of if/then statements, developed through three distinct formats.
 
@@ -181,7 +181,8 @@ Our proprietary BTE Color Grid system enhances development at all phases by teac
 
 [BTE Complete Color Grid](https://rashadwest.github.io/2021/02/16/Analytics_Culture.html)
 
-10 Tips for Youth Development: Seamless Progression Through the Framework
+##10 Tips for Youth Development: Seamless Progression Through the Framework
+
 1. Start with Footwork Before Adding Decision-Making
 Youth players need solid athletic foundation. Master triple threat position, pivot footwork, and basic stance before introducing decision trees. Bad habits formed early become harder to break later.
 
