@@ -124,7 +124,7 @@ The data shows clear skill transitions:
 
 Explore our comprehensive Player Development data visualization that shows the complete framework with interactive charts, detailed metrics, and progression tracking:
 
-**[View Interactive Player Development Data Visualization](https://sportstechwest.com/Player_Development_data_viz.html)**
+[View Interactive Player Development Data Visualization](https://sportstechwest.com/Player_Development_data_viz.html)
 
 *Click the link above to explore the interactive basketball development framework with detailed charts, metrics, and progression data.*
 
