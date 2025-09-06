@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "10 Tips Youth Bball Development"
+title: "10 Tips for Youth Bball Development"
 description: "From Individual Skills to Team Basketball: A Progressive Framework"
 thumbnail: "assets/images/thumbnails/10_Tips_Youth_Bball_Development.png"
 badge_color: "text-bg-primary"
@@ -11,9 +11,6 @@ tags: sports
 categories: [Insights]
 author: "Rashad West"
 ---
-
-
-# 10 Tips Youth Bball Development
 
 **05 Sep 2025**  
 **By Rashad West**
