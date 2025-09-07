@@ -47,23 +47,29 @@ The mastery phase focuses on [**full-court awareness**](https://www.basketball-r
 The progression isn't arbitrary. Each format emphasizes different skill sets that build upon each other:
 
 ### Ball Handling Progression
-- **1v1**: 95% emphasis - Foundation skill development
-- **3v3**: 70% emphasis - Maintaining individual dominance
-- **5v5**: 60% emphasis - Team-oriented ball movement
+* **1v1**: 95% emphasis - Foundation skill development
+* **3v3**: 70% emphasis - Maintaining individual dominance
+* **5v5**: 60% emphasis - Team-oriented ball movement
 
 ### Court Vision Development
-- **1v1**: 30% emphasis - Individual focus
-- **3v3**: 85% emphasis - Help defense recognition
-- **5v5**: 95% emphasis - Full-court awareness
+* **1v1**: 30% emphasis - Individual focus
+* **3v3**: 85% emphasis - Help defense recognition
+* **5v5**: 95% emphasis - Full-court awareness
 
 ### Team Play Integration
-- **1v1**: 20% emphasis - Individual success
-- **3v3**: 70% emphasis - Basic team concepts
-- **5v5**: 95% emphasis - Complex team systems
+* **1v1**: 20% emphasis - Individual success
+* **3v3**: 70% emphasis - Basic team concepts
+* **5v5**: 95% emphasis - Complex team systems
 
 ## Interactive Development Framework
 
-<iframe src="/Player_Development_data_viz.html" width="100%" height="800" frameborder="0" style="border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);"></iframe>
+![BTE Complete Color Grid](https://sportstechwest.com/assets/images/BTE_Color_Grid.png)
+
+*The BTE Color Grid shows the comprehensive basketball development framework with court zones and skill progression mapping.*
+
+**[View Interactive Player Development Data Visualization](https://sportstechwest.com/Player_Development_data_viz.html)**
+
+*Click the link above to explore the interactive basketball development framework with detailed charts, metrics, and progression data.*
 
 ## Why This Progression Works
 
@@ -115,10 +121,10 @@ The middle phase is often overlooked, but it's crucial for:
 Modern basketball requires players who can excel in all three formats. The [**positionless basketball**](https://www.nba.com/news/positionless-basketball-evolution) evolution means players must be versatile enough to handle individual matchups while contributing to team success.
 
 The data shows that players who follow this structured development approach are better prepared for:
-- **Professional Competition**: Higher levels require all three skill sets
-- **Adaptability**: Ability to adjust to different game situations
-- **Leadership**: Understanding of both individual and team concepts
-- **Long-term Success**: Sustainable development over career
+* **Professional Competition**: Higher levels require all three skill sets
+* **Adaptability**: Ability to adjust to different game situations
+* **Leadership**: Understanding of both individual and team concepts
+* **Long-term Success**: Sustainable development over career
 
 ## Key Takeaways
 
