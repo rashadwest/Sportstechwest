@@ -1,4 +1,4 @@
----
+[---
 layout: post
 title: "Basketball Meets Logic: Why the Corner 3 is the NBA's Most Efficient Decision Tree"
 description: "How the corner 3 shot represents the smartest decision-making in basketball, with data-driven insights on efficiency, teamwork, and systematic thinking that applies beyond the court"
@@ -133,4 +133,4 @@ The data is clear: teams that master this systematic approach don't just compete
 
 ---
 
-**Keywords:** Corner 3, NBA Analytics, Basketball Strategy, Decision Making, Teamwork, Basketball Efficiency, Basketball Data, Steve Kerr, Boston Celtics, Golden State Warriors, Basketball Fundamentals, Systematic Thinking
+**Keywords:** Corner 3, NBA Analytics, Basketball Strategy, Decision Making, Teamwork, Basketball Efficiency, Basketball Data, Steve Kerr, Boston Celtics, Golden State Warriors, Basketball Fundamentals, Systematic Thinking](https://sportstechwest.com/blog/10-Championship-Basketball-is-Systematic-Thinking/)
