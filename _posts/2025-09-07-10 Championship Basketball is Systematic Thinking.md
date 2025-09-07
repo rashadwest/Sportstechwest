@@ -2,7 +2,7 @@
 layout: post
 title: "Basketball Meets Logic: Why the Corner 3 is the NBA's Most Efficient Decision Tree"
 description: "How the corner 3 shot represents the smartest decision-making in basketball, with data-driven insights on efficiency, teamwork, and systematic thinking that applies beyond the court"
-thumbnail: "assets/images/thumbnails/NEWEST_Basketball Efficiency_ The Corner 3.jpg"
+thumbnail: "assets/images/thumbnails/corner_3_decision_tree.png"
 badge_color: "text-bg-primary"
 trending: true
 simple_nav: true
@@ -18,6 +18,8 @@ I've been digging into [**NBA data**](https://www.nba.com/stats) and here's what
 
 The [**Corner 3**](https://www.basketball-reference.com/about/glossary.html) isn't just another shot. It's the smartest decision in basketball.
 
+---
+
 ## The Corner 3 Decision Tree
 
 ### Step 1: Primary Check
@@ -29,6 +31,8 @@ The [**Corner 3**](https://www.basketball-reference.com/about/glossary.html) isn
 
 ### Step 3: Execute
 * When the condition is right → Take the highest-value shot. Deviate only when you must
+
+---
 
 ## The Hockey Assist = Setup Logic
 
@@ -43,6 +47,8 @@ In plain English: It's the action that sets someone else up to win.
 * **Without setup**: 32.1%
 * **That's a 28% boost** just from preparation
 
+---
+
 ## Why This Logic Wins
 
 ### Efficiency:
@@ -56,6 +62,8 @@ In plain English: It's the action that sets someone else up to win.
 * **3 passes** → 39.8%
 * **4+ passes** → 43.1%
 
+---
+
 ## Proof from Champions
 
 ### Boston Celtics (2024 Champs):
@@ -68,6 +76,8 @@ In plain English: It's the action that sets someone else up to win.
 * 300+ passes a night
 * **Result**: 4 titles
 
+---
+
 ## Core Principles
 
 * **Highest Value First**: Always look for the most efficient shot
@@ -76,13 +86,25 @@ In plain English: It's the action that sets someone else up to win.
 * **Patience Matters**: Average 18.7 seconds before a corner 3
 * **Repeat the System**: Consistency creates scalability
 
+---
+
 ## The Framework in Action
 
 1. **Is the best option available?** → Take it
 2. **Can I create it?** → Setup play (hockey assist)
 3. **No option yet?** → Keep the ball moving
 
+---
+
 Championship teams average 10+ corner 3s a game using this framework.
+
+## Interactive Corner 3 Analytics
+
+**[View Interactive Corner 3 Analytics Dashboard](https://sportstechwest.com/Corner_3_Analytics_Dashboard.html)**
+
+*Click the link above to explore the interactive corner 3 efficiency data, decision tree flow, and team performance metrics.*
+
+---
 
 ## Bottom Line
 
@@ -90,6 +112,8 @@ Whether in basketball, business, or leadership:
 
 * **Corner 3 logic is the model** → highest value, team-driven, prep-focused, repeatable, data-backed
 * **Teams that master it don't just compete. They win consistently.**
+
+---
 
 ## Big Picture
 
