@@ -1,4 +1,4 @@
-[---
+---
 layout: post
 title: "Basketball Meets Logic: Why the Corner 3 is the NBA's Most Efficient Decision Tree"
 description: "How the corner 3 shot represents the smartest decision-making in basketball, with data-driven insights on efficiency, teamwork, and systematic thinking that applies beyond the court"
