@@ -30,7 +30,7 @@ The [**Corner 3**](https://www.basketball-reference.com/about/glossary.html) isn
 * If no look → Keep the ball moving
 
 ### Step 3: Execute
-* When the condition is right → Take the highest-value shot (layup if available (1.20 PPP)→ corner 3 if available (1.16 PPP) → Top of the Key 3 Pointer → etc. Deviate when you have other options that make sense for your situation or personnel.
+* When the condition is right → Take the highest-value shot (layup if available (1.20 PPP)→ corner 3 if available (1.14 PPP) → Top of the Key 3 Pointer → etc. Deviate when you have other options that make sense for your situation or personnel.
 
 ---
 
