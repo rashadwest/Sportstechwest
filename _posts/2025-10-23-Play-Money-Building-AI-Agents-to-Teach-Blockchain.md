@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Building AI Agents to Teach Blockchain: The Future of Education Meets Automation"
+title: "Play Money: The Future of Education Meets Automation"
 description: "How I'm using n8n to build AI agents that democratize blockchain education through automated, personalized learning systems"
 thumbnail: "assets/images/blog-img/ai-blockchain-education-thumb.png"
 badge_color: "text-bg-primary"
