@@ -6,9 +6,9 @@ thumbnail: "assets/images/blog-img/ai-blockchain-education-thumb.png"
 badge_color: "text-bg-primary"
 trending: true
 simple_nav: true
-date: 2025-10-23
-tags: blockchain, AI, education, automation
-categories: [Insights, Technology]
+date: 2024-10-23
+tags: blockchain
+categories: [Insights]
 author: "Rashad West"
 ---
 
