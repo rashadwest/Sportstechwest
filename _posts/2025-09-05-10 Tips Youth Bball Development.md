@@ -109,21 +109,6 @@ ELSE THEN execute within offensive structure
 
 ---
 
-## The Development Data Format
-
-| Format | Ball Handling | Court Vision | Decision Speed | Team Integration |
-|--------|---------------|--------------|----------------|------------------|
-| 1v1    | 95%          | 30%          | Basic          | 20%              |
-| 3v3    | 70%          | 85%          | Intermediate   | 70%              |
-| 5v5    | 60%          | 95%          | Advanced       | 95%              |
-
-The data shows clear skill transitions:
-- Ball handling emphasis decreases as team concepts increase
-- Court vision jumps dramatically from 1v1 to 3v3
-- Team integration requires mastery of previous phases
-
----
-
 ## Interactive Data Visualization
 
 Explore our comprehensive Player Development data visualization that shows the complete framework with interactive charts, detailed metrics, and progression tracking:
