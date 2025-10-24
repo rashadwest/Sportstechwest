@@ -6,7 +6,7 @@ thumbnail: "assets/images/blog-img/ai-blockchain-education-thumb.png"
 badge_color: "text-bg-primary"
 trending: true
 simple_nav: true
-date: 2024-10-24
+date: 2025-10-24
 tags: [blockchain, AI, education, automation, gaming, playtoearn]
 categories: [Insights, Technology, Gaming]
 author: "Rashad West"
