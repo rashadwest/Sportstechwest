@@ -7,7 +7,7 @@ badge_color: "text-bg-primary"
 trending: true
 simple_nav: true
 date: 2024-10-23
-tags: blockchain, AI, education, automation, gaming, playtoearn
+tags: [blockchain, AI, education, automation, gaming, playtoearn]
 categories: [Insights, Technology, Gaming]
 author: "Rashad West"
 ---
