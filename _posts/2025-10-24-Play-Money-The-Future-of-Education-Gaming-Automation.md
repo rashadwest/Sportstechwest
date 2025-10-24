@@ -1,3 +1,4 @@
+---
 layout: post
 title: "Play Money: The Future of Education, Gaming & Automation"
 description: "How I'm using n8n to build AI agents that merge blockchain education, play-to-earn gaming, and automation into a unified learning experience"
@@ -12,8 +13,7 @@ author: "Rashad West"
 ---
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/n8n-blockchain-education-header.png" alt="AI Blockchain Education with n8n" class="img-fluid rounded shadow-lg">
-</div>
+  <img src="/assets/images/blog-img/play-to-earn-sports.png" alt="Play-to-Earn Sports Blockchain" class="img-fluid rounded shadow-sm">
 
 ### Building AI Agents to Teach Blockchain: The Future of Education, Gaming & Automation
 <br>
@@ -63,7 +63,8 @@ That is the play to learn model I'm building toward.
 <br>
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/play-to-earn-sports.png" alt="Play-to-Earn Sports Blockchain" class="img-fluid rounded shadow-sm">
+  <img src="/assets/images/blog-img/n8n-blockchain-education-header.png" alt="AI Blockchain Education with n8n" class="img-fluid rounded shadow-lg">
+</div>
   <p class="text-muted small mt-2"><em>Play-to-Earn: Merging blockchain education, sports analytics, and gaming economies</em></p>
 </div>
 
