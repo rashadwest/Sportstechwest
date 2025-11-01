@@ -116,11 +116,15 @@ That's when I realized this isn't just about automating a process. It's about *t
 Each line of code was like building a muscle. I wasn't just setting up automation, I was *learning how intelligence moves through a system.*  
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/gmail-approval-1.png" alt="Gmail approval email interface showing AI draft and approval options">
+  <img src="/assets/images/blog-img/gmail-consultation-new.png" alt="Gmail approval email showing paid consultation opportunity">
 </div>
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/gmail-approval-2.png" alt="Gmail approval step showing workflow in action">
+  <img src="/assets/images/blog-img/gmail-consultation-2.png" alt="Gmail approval interface showing AI draft response">
+</div>
+
+<div class="text-center my-4">
+  <img src="/assets/images/blog-img/gmail-consultation-3.png" alt="Gmail approval step showing workflow in action">
 </div>
 
 ---
