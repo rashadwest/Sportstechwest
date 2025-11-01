@@ -129,7 +129,28 @@ Each line of code was like building a muscle. I wasn't just setting up automatio
 
 ---
 
-## Real use cases I’m running
+## Real-time visibility: Slack notifications
+
+Every time my automation processes an email, I get a notification in Slack. It's like having a dashboard that shows me exactly what happened, when it happened, and how the AI handled it.
+
+The notification tells me everything I need to know:
+- Who the email was from and what it was about
+- The priority score and confidence level
+- Whether it was auto-sent or waiting for my approval
+- A preview of the AI-generated response
+- The exact timestamp of when everything happened
+
+This visibility is crucial. I'm not just automating my inbox. I'm building a system that teaches me how AI makes decisions. Each notification is a learning moment. I can see patterns in how the AI classifies emails, how it scores urgency, and how it structures responses.
+
+The best part? It's all happening locally. These notifications don't go through any third-party service. They flow directly from my n8n workflow to my Slack workspace, giving me real-time insight into my automation without compromising privacy or control.
+
+<div class="text-center my-4">
+  <img src="/assets/images/blog-img/slack-email-notification.png" alt="Slack notification showing email automation details and AI response preview">
+</div>
+
+---
+
+## Real use cases I'm running
 
 1. **Partnership responses**  
    - Incoming: “Interested in exploring a partnership?”  
