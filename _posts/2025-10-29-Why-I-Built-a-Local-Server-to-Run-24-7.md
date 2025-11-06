@@ -24,7 +24,7 @@ That's what led me to create a local server that runs nonstop. This wasn't about
 
 Before, my automations only worked when my laptop was on.
 
-If I wasn't connected, everything stopped — blogs, emails, workflows, images.
+If I weren't connected, everything stopped — blogs, emails, workflows, images.
 
 Now, everything runs automatically:
 
@@ -47,10 +47,6 @@ Here's what's live 24/7:
 Everything runs locally, not in the cloud. It's private, fast, and completely under my control.
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/24-7-server-architecture.png" alt="24/7 Server Architecture Diagram" class="img-fluid">
-</div>
-
-<div class="text-center my-4">
   <img src="/assets/images/blog-img/24-7-automation-workflows.png" alt="24/7 Automation Workflows" class="img-fluid">
 </div>
 
@@ -60,7 +56,7 @@ Everything runs locally, not in the cloud. It's private, fast, and completely un
 
 **Real control**
 
-I know what's happening behind the scenes. Every service, every log, every process — all visible and managed directly.
+I know what's happening behind the scenes. Every service, every log, every process is visible and managed directly.
 
 **Privacy by design**
 
@@ -71,6 +67,10 @@ My automations run on my network, not someone else's. My data stays where it bel
 I'm not paying for servers that sit idle. My Mac was already running — now it's working for me 24/7.
 
 This isn't about being anti-cloud. It's about truly understanding and owning the systems that run my business.
+
+<div class="text-center my-4">
+  <img src="/assets/images/blog-img/24-7-server-comparison.png" alt="Before and After: Cloud vs Local 24/7" class="img-fluid">
+</div>
 
 ---
 
@@ -85,6 +85,10 @@ My Mac runs Docker around the clock. Each service runs in its own container.
 Everything starts automatically when the machine boots. If a container crashes, it restarts. A UPS keeps things stable during power dips.
 
 The setup is lightweight, reliable, and doesn't need babysitting.
+
+<div class="text-center my-4">
+  <img src="/assets/images/blog-img/24-7-server-architecture.png" alt="24/7 Server Architecture Diagram" class="img-fluid">
+</div>
 
 ---
 
@@ -101,10 +105,6 @@ This setup gives me two huge advantages:
 **Focus:** I spend time on the things that move the business forward
 
 Automation isn't just about saving time. It's about freeing your focus so you can make better decisions.
-
-<div class="text-center my-4">
-  <img src="/assets/images/blog-img/24-7-server-comparison.png" alt="Before and After: Cloud vs Local 24/7" class="img-fluid">
-</div>
 
 ---
 
@@ -123,6 +123,6 @@ And it runs whether I'm there or not.
 That's the point.
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/24-7-server-hero.png" alt="24/7 Server Hero Image" class="img-fluid">
+  <img src="/assets/images/blog-img/the-bottom-line-new.jpg" alt="The Bottom Line - 24/7 Server" class="img-fluid">
 </div>
 
