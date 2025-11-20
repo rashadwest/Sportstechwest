@@ -196,13 +196,13 @@ I evolve even faster.
 
 Results are where everything becomes real.
 
-- Ninety nine point nine percent automation reliability on MCP and n8n systems
+- Ninety nine percent automation reliability on MCP and n8n systems
 - Forty percent reduction in development time using Claude based automated maintenance
-- Over one hundred thousand dollars raised through blockchain and gamification programs
+- Over one hundred thousand dollars raised for BTE analytics product and programs
 - Trained more than two hundred athletes with technology integrated systems
 - Built sports performance programs used at multiple facilities
-- Achieved a twenty five percent VC meeting conversion rate at LvlUp Ventures
-- Scaled partnerships with Microsoft, Meta, NBA and NFL Alumni, and Techstars
+- Achieved moving from VC Scout to Senior VC Scout within one month
+- Scaled partnerships with Microsoft, Meta, NBA team, and NFL Alumni
 
 These results speak for themselves.
 
