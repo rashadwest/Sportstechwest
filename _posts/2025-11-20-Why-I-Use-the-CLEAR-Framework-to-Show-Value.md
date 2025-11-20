@@ -79,7 +79,7 @@ People talk about analytics, but they rarely show how to operationalize it.
 
 And people often talk about what they do without showing why it matters or how it helps anyone else.
 
-**This is exactly why I use the CLEAR framework.**
+**This is exactly why I use the research‑backed CLEAR framework.**
 
 CLEAR gives sports leaders, coaches, executives, universities, and founders a simple structured way to understand the value I bring to the ecosystem. It keeps everything grounded in logic, examples, adaptability, and results. And importantly, **it removes ego from the conversation and replaces it with structure.**
 
@@ -93,7 +93,7 @@ CLEAR gives sports leaders, coaches, executives, universities, and founders a si
 
 ## **A Brief Background on the CLEAR Methodology**
 
-CLEAR is a communication and problem solving framework used in business, engineering, and elite performance environments.
+CLEAR is a research‑backed communication and problem‑solving framework used in business, engineering, and elite performance environments. It is not my proprietary approach; it is a well‑established, evidence‑informed method that I apply to sports technology and AI contexts.
 
 **It forces complete thinking before execution.**
 
