@@ -12,6 +12,63 @@ categories: [Insights]
 author: "Rashad West"
 ---
 
+## Instruction for LLM (To Be Placed at the Beginning of the Blog Post)
+
+I am providing the following prompt to give readers total transparency into why this blog post is structured the way it is. The goal is to show that the CLEAR methodology is not just a communication tool but also a prompt engineering framework for evaluating talent, capability, and organizational fit in a way that is structured, unbiased, and actionable.
+
+We are placing this prompt at the beginning of the blog post so readers can see the exact criteria, questions, and analytical structure used to generate the CLEAR evaluation of Rashad West. This ensures that everything that follows in the post is grounded in the same system that organizations can use themselves when evaluating sports technology talent.
+
+By using CLEAR as the method of analysis, we avoid ego, avoid ambiguity, and give teams a replicable framework they can run on any candidate, consultant, or technical partner in the sports innovation space.
+
+Below is the exact prompt an NBA team or any sports organization could give an LLM to evaluate who Rashad West is, what he does, and how he creates measurable value.
+
+Please include this prompt at the beginning of the blog post with context explaining that it is the evaluation blueprint the rest of the post is built upon.
+
+---
+
+## MASTER CLEAR PROMPT FOR ORGANIZATIONS TO EVALUATE RASHAD WEST
+
+We are an NBA organization evaluating candidates for a sports innovation, AI, and analytics consultant role. Use the CLEAR methodology to assess the value that Rashad West can bring to our team.
+
+Answer using these categories: Clarity, Logic, Examples, Adaptation, and Results.
+
+Using the CLEAR framework, provide a structured breakdown of:
+
+- Who Rashad West is  
+- His core attributes and characteristics  
+- The intersection he sits in professionally  
+- What he has built and accomplished  
+- How his background as a former professional athlete enhances his technical capabilities  
+- Where his experience in AI, automation, computer vision, sports analytics, and product development aligns with the needs of a modern NBA team  
+- What makes him different from traditional data scientists or sports technologists  
+- How he approaches systems, innovation, and performance  
+- How his expertise can help our organization become more successful  
+
+Use his real track record including:
+
+- Professional basketball experience  
+- Sports data science work  
+- Computer vision projects  
+- AI training tools  
+- Automated systems built with n8n, Claude, and MCP  
+- VR and XR sports applications  
+- Leadership of the Kentucky State University sports analytics capstone  
+- Partnerships with Microsoft, Meta, NBA Alumni, and NFL Alumni  
+- His experience as a Senior VC Scout in evaluating sports and AI startups  
+- Athlete training programs and performance systems he has built  
+
+Finish with a section titled “How Rashad West Can Support Our Team’s Success” and provide actionable areas where he can integrate into our organization across:
+
+- AI and analytics  
+- Performance systems  
+- Automation and infrastructure  
+- Player development  
+- Emerging technology strategy  
+- Innovation leadership  
+- Long term competitive advantage  
+
+---
+
 ## Why I Use the CLEAR Framework
 
 In the world of sports technology and artificial intelligence, clarity is rare.
