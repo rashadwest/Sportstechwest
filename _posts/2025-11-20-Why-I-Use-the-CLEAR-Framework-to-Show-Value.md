@@ -212,7 +212,7 @@ Examples from your track record include:
 
 - Built computer vision systems to analyze player movement and performance
 - Created an AI coding game for junior sports analysts
-- Led academic programs like the Kentucky State University AI capstone
+- Currently BTE Analytics is partnering with Kentucky State on launching the first HBCU sports analytics program
 - Engineered self correcting automation systems using n8n, MCP, and Claude
 - Produced VR basketball training applications and curriculum
 - Co created a Python dribble plot algorithm for NBA and NCAA analytics
