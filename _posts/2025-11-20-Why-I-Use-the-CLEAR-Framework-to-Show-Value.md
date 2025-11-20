@@ -12,25 +12,25 @@ categories: [Insights]
 author: "Rashad West"
 ---
 
-## Instruction for LLM (To Be Placed at the Beginning of the Blog Post)
+## **Instruction for LLM (Evaluation Blueprint)**
 
-I am providing the following prompt to give readers total transparency into why this blog post is structured the way it is. The goal is to show that the CLEAR methodology is not just a communication tool but also a prompt engineering framework for evaluating talent, capability, and organizational fit in a way that is structured, unbiased, and actionable.
+I am providing the following prompt to give readers total transparency into why this blog post is structured the way it is. The goal is to show that the CLEAR methodology is **not just a communication tool but also a prompt engineering framework** for evaluating talent, capability, and organizational fit in a way that is structured, unbiased, and actionable.
 
 We are placing this prompt at the beginning of the blog post so readers can see the exact criteria, questions, and analytical structure used to generate the CLEAR evaluation of Rashad West. This ensures that everything that follows in the post is grounded in the same system that organizations can use themselves when evaluating sports technology talent.
 
-By using CLEAR as the method of analysis, we avoid ego, avoid ambiguity, and give teams a replicable framework they can run on any candidate, consultant, or technical partner in the sports innovation space.
+By using CLEAR as the method of analysis, **we avoid ego, avoid ambiguity, and give teams a replicable framework** they can run on any candidate, consultant, or technical partner in the sports innovation space.
 
 Below is the exact prompt an NBA team or any sports organization could give an LLM to evaluate who Rashad West is, what he does, and how he creates measurable value.
 
-Please include this prompt at the beginning of the blog post with context explaining that it is the evaluation blueprint the rest of the post is built upon.
+Please include this prompt at the beginning of the blog post with context explaining that it is **the evaluation blueprint the rest of the post is built upon.**
 
 ---
 
-## MASTER CLEAR PROMPT FOR ORGANIZATIONS TO EVALUATE RASHAD WEST
+## **MASTER CLEAR PROMPT FOR ORGANIZATIONS TO EVALUATE RASHAD WEST**
 
 We are an NBA organization evaluating candidates for a sports innovation, AI, and analytics consultant role. Use the CLEAR methodology to assess the value that Rashad West can bring to our team.
 
-Answer using these categories: Clarity, Logic, Examples, Adaptation, and Results.
+Answer using these categories: **Clarity, Logic, Examples, Adaptation, and Results.**
 
 Using the CLEAR framework, provide a structured breakdown of:
 
@@ -69,9 +69,9 @@ Finish with a section titled “How Rashad West Can Support Our Team’s Success
 
 ---
 
-## Why I Use the CLEAR Framework
+## **Why I Use the CLEAR Framework**
 
-In the world of sports technology and artificial intelligence, clarity is rare.
+**In the world of sports technology and artificial intelligence, clarity is rare.**
 
 People talk about AI, but they rarely explain how to apply it.
 
@@ -79,9 +79,9 @@ People talk about analytics, but they rarely show how to operationalize it.
 
 And people often talk about what they do without showing why it matters or how it helps anyone else.
 
-This is exactly why I use the CLEAR framework.
+**This is exactly why I use the CLEAR framework.**
 
-CLEAR gives sports leaders, coaches, executives, universities, and founders a simple structured way to understand the value I bring to the ecosystem. It keeps everything grounded in logic, examples, adaptability, and results. And importantly, it removes ego from the conversation and replaces it with structure.
+CLEAR gives sports leaders, coaches, executives, universities, and founders a simple structured way to understand the value I bring to the ecosystem. It keeps everything grounded in logic, examples, adaptability, and results. And importantly, **it removes ego from the conversation and replaces it with structure.**
 
 <div class="text-center my-4">
   <img src="/assets/images/blog-img/clear-intro-sports-ai.png" alt="Sports Technology and AI Intersection" class="img-fluid">
@@ -89,13 +89,13 @@ CLEAR gives sports leaders, coaches, executives, universities, and founders a si
 
 ---
 
-## A Brief Background on the CLEAR Methodology
+## **A Brief Background on the CLEAR Methodology**
 
 CLEAR is a communication and problem solving framework used in business, engineering, and elite performance environments.
 
-It forces complete thinking before execution.
+**It forces complete thinking before execution.**
 
-It ensures everyone understands the objective, the context, the constraints, and the desired outcome.
+**It ensures everyone understands the objective, the context, the constraints, and the desired outcome.**
 
 CLEAR stands for:
 
@@ -127,11 +127,11 @@ CLEAR works because it:
 - Reduces unnecessary back and forth
 - Ensures consistent high quality results
 
-It is not just a framework.
+**It is not just a framework.**
 
-It is a lens.
+**It is a lens.**
 
-And a tool that allows the sports ecosystem to understand and evaluate the value I bring through a structured, unbiased process.
+And a **tool that allows the sports ecosystem to understand and evaluate the value I bring** through a structured, unbiased process.
 
 <div class="text-center my-4">
   <img src="/assets/images/blog-img/clear-methodology-breakdown.jpg" alt="CLEAR Framework Methodology Breakdown" class="img-fluid">
@@ -141,9 +141,9 @@ And a tool that allows the sports ecosystem to understand and evaluate the value
 
 ## Using CLEAR to Understand the Value Rashad West Brings to Sports Technology and AI
 
-### C - Clarity: What I do and why it matters
+### **C - Clarity: What I do and why it matters**
 
-Clarity begins with understanding that my work sits at the intersection of sports performance, AI engineering, product innovation, and automation architecture.
+Clarity begins with understanding that my work sits at the **intersection of sports performance, AI engineering, product innovation, and automation architecture.**
 
 My background is uniquely positioned for this:
 
@@ -156,17 +156,17 @@ My background is uniquely positioned for this:
 
 But my understanding of elite competition runs deeper than just my own experience.
 
-Growing up, I competed alongside seven cousins in my age group who all went Division 1 in sports. We had four basketball players, one football player, one track athlete, and one lacrosse player. That competitive environment shaped how I understand performance, development, and what it takes to reach the highest levels.
+Growing up, I competed alongside **seven cousins in my age group who all went Division 1 in sports** — four basketball, one football, one track, and one lacrosse. **That competitive environment shaped how I understand performance, development, and what it takes to reach the highest levels.**
 
-I understand athletes because I was one, and because I competed with and against athletes who reached the highest levels across multiple sports.
+**I understand athletes because I was one**, and because I competed with and against athletes who reached the highest levels across multiple sports.
 
-I understand systems because I build them.
+**I understand systems because I build them.**
 
-I understand organizations because I have worked with them.
+**I understand organizations because I have worked with them.**
 
 Clarity here is simple.
 
-I bridge the gap between AI capability and sports performance reality.
+**I bridge the gap between AI capability and sports performance reality.**
 
 <div class="text-center my-4">
   <img src="/assets/images/blog-img/clear-clarity-section.jpg" alt="Clarity: Intersection of Sports Performance and AI Engineering" class="img-fluid">
@@ -174,9 +174,9 @@ I bridge the gap between AI capability and sports performance reality.
 
 ---
 
-### L - Logic: Why my skillset creates value in this market
+### **L - Logic: Why my skillset creates value in this market**
 
-Logic means looking at the reasoning behind why my experiences matter.
+Logic means **looking at the reasoning behind why my experiences matter.**
 
 - Sports teams need custom AI workflows, not generic tools
 - Universities need applied AI experts who can teach and build
@@ -194,7 +194,7 @@ My resume shows this logical alignment:
 
 The logic is straightforward.
 
-Every environment I have worked in is aligned with the AI transformation happening in sports today.
+**Every environment I have worked in is aligned with the AI transformation happening in sports today.**
 
 <div class="text-center my-4">
   <img src="/assets/images/blog-img/clear-logic-section.jpg" alt="Logic: Market Needs Aligned with Skillset" class="img-fluid">
@@ -202,9 +202,9 @@ Every environment I have worked in is aligned with the AI transformation happeni
 
 ---
 
-### E - Examples: Where I have demonstrated real capability
+### **E - Examples: Where I have demonstrated real capability**
 
-Your value becomes unquestionable when you show real examples, not theories.
+**Your value becomes unquestionable when you show real examples, not theories.**
 
 Examples from your track record include:
 
@@ -228,9 +228,9 @@ They are product, engineering, education, and performance wins across multiple e
 
 ---
 
-### A - Adaptation: How I adjust and evolve in changing environments
+### **A - Adaptation: How I adjust and evolve in changing environments**
 
-Adaptation is one of my strongest advantages.
+**Adaptation is one of my strongest advantages.**
 
 - Transitioned from pro basketball to data science
 - Shifted from VR development to AI engineering
@@ -241,7 +241,7 @@ Adaptation is one of my strongest advantages.
 
 Adaptation matters in AI and sports because conditions change fast.
 
-I evolve even faster.
+**I evolve even faster.**
 
 <div class="text-center my-4">
   <img src="/assets/images/blog-img/clear-adaptation-section.jpg" alt="Adaptation: Evolution and Career Transformation" class="img-fluid">
@@ -249,9 +249,9 @@ I evolve even faster.
 
 ---
 
-### R - Results: What measurable outcomes I consistently deliver
+### **R - Results: What measurable outcomes I consistently deliver**
 
-Results are where everything becomes real.
+**Results are where everything becomes real.**
 
 - Ninety nine percent automation reliability on MCP and n8n systems
 - Forty percent reduction in development time using Claude based automated maintenance
@@ -261,9 +261,9 @@ Results are where everything becomes real.
 - Achieved moving from VC Scout to Senior VC Scout within one month
 - Scaled partnerships with Microsoft, Meta, NBA team, and NFL Alumni
 
-These results speak for themselves.
+**These results speak for themselves.**
 
-They show impact, not intention.
+**They show impact, not intention.**
 
 <div class="text-center my-4">
   <img src="/assets/images/blog-img/clear-results-section.jpg" alt="Results: Measurable Outcomes and Impact" class="img-fluid">
@@ -271,33 +271,33 @@ They show impact, not intention.
 
 ---
 
-## Why CLEAR Shows I Am the Right Partner for Sports Technology Solutions
+## **Why CLEAR Shows I Am the Right Partner for Sports Technology Solutions**
 
-When you use CLEAR to evaluate my background, the conclusion becomes obvious.
+When you use CLEAR to evaluate my background, **the conclusion becomes obvious.**
 
-Clarity shows the intersection I sit in.
+**Clarity** shows the intersection I sit in.
 
-Logic explains why my skillset is needed today.
+**Logic** explains why my skillset is needed today.
 
-Examples demonstrate my actual work.
+**Examples** demonstrate my actual work.
 
-Adaptation proves I evolve with the industry.
+**Adaptation** proves I evolve with the industry.
 
-Results show measurable impact.
+**Results** show measurable impact.
 
 And here is the key.
 
-This same CLEAR process can be used as an AI prompt engineering tool to evaluate any sports technology need.
+**This same CLEAR process can be used as an AI prompt engineering tool to evaluate any sports technology need.**
 
 When teams, schools, or companies run CLEAR on their challenges, it becomes clear where I fit in and how I can help.
 
-This is not about ego.
+**This is not about ego.**
 
-It is about structure.
+**It is about structure.**
 
-It is about clarity.
+**It is about clarity.**
 
-It is about giving the sports ecosystem a way to understand how AI can create real value.
+It is about **giving the sports ecosystem a way to understand how AI can create real value.**
 
 <div class="text-center my-4">
   <img src="/assets/images/blog-img/clear-conclusion-partnership.jpg" alt="Partnership: CLEAR Framework for Sports Technology Solutions" class="img-fluid">
