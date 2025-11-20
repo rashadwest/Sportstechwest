@@ -52,7 +52,7 @@ Use his real track record including:
 - AI training tools  
 - Automated systems built with n8n, Claude, and MCP  
 - VR and XR sports applications  
-- Leadership of the Kentucky State University sports analytics capstone  
+- Partnered with Kentucky State for their Sports Analytics program launching summer 2026  
 - Partnerships with Microsoft, Meta, NBA Alumni, and NFL Alumni  
 - His experience as a Senior VC Scout in evaluating sports and AI startups  
 - Athlete training programs and performance systems he has built  
@@ -153,7 +153,7 @@ My background is uniquely positioned for this:
 - Sports data scientist with 15 years in sport tech
 - Builder of computer vision sports analytics systems
 - Creator of AI powered training tools and coding games
-- Leader of the Kentucky State University sports analytics capstone project
+- Partnered with Kentucky State for their Sports Analytics program launching summer 2026
 - Partnered with Microsoft, Meta, NBA and NFL Alumni groups, and Techstars
 
 But my understanding of elite competition runs deeper than just my own experience.
@@ -212,7 +212,7 @@ Examples from your track record include:
 
 - Built computer vision systems to analyze player movement and performance
 - Created an AI coding game for junior sports analysts
-- Currently BTE Analytics is partnering with Kentucky State on launching the first HBCU sports analytics program
+- Partnered with Kentucky State for their Sports Analytics program launching summer 2026
 - Engineered self correcting automation systems using n8n, MCP, and Claude
 - Produced VR basketball training applications and curriculum
 - Co created a Python dribble plot algorithm for NBA and NCAA analytics
