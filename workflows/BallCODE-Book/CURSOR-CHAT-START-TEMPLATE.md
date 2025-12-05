@@ -8,6 +8,15 @@
 
 ### Quick Status Check (2 minutes)
 
+**0. What is today's date and time?**
+- Date: _______________
+- Time: _______________
+
+**0.5. What was completed yesterday?**
+- Completed tasks: _______________
+- Progress made: _______________
+- Any blockers or unfinished items: _______________
+
 **1. What ONE system/process am I focusing on in this chat?**
 - Answer: _______________
 

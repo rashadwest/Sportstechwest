@@ -20,11 +20,16 @@
 ## 🚨 PRE-WORK: Answer These Questions First
 
 **0. What is today's date and time?**
-- Date: _______________Nov 14th, 2025
-- Time: _______________8:15
+- Date: _______________
+- Time: _______________
+
+**0.5. What was completed yesterday?**
+- Completed tasks: _______________
+- Progress made: _______________
+- Any blockers or unfinished items: _______________
 
 **1. What ONE system/process am I focusing on in this chat?**
-- Answer: I want to get the digital books onto the site
+- Answer: I want to really get to where the system is running where the book ties into the curriculum and the curriculum ties into the game in a seamless way. You have to let me know where your understanding lies
 
 **2. Is this within my Deep Work window?**
 - [ ] YES — Proceed
@@ -42,32 +47,32 @@
 - [ ] Review/Planning
 
 **5. What am I delegating to AI in this chat?**
-- Task: I want you to implement the books
-- Goal: Put the books on the site
-- Success Metric: Having the book with the excercise after the book is done
+- Task: _______________
+- Goal: _______________
+- Success Metric: _______________
 - Escalation: If AI confidence < 80% or unclear → I review
 
 **6. What is my energy level? (1-10)**
-- Level: 6/10
-- Appropriate for this work? [X] YES [ ] NO
+- Level: _______________ /10
+- Appropriate for this work? [ ] YES [ ] NO
 
 **7. What distractions have I eliminated?**
-- [X] Phone silent 
-- [X] Email closed
-- [X] Notifications off
-- [X] Tabs limited
+- [ ] Phone silent 
+- [ ] Email closed
+- [ ] Notifications off
+- [ ] Tabs limited
 
 ---
 
 ## 🎯 SESSION INTENT
 
-"I am focusing on [adding excercises and recording books] in this session. This is [creative book creating and implementation] work. I am delegating [the adding of the books to the website and it is going to show what each student is going to do] to AI with clear goals: [Getting books on the site and having them with lessons within the game]. Success will be measured by [how good the books can integrate with excercises within the game]. If AI confidence < 80%, I will review. My energy is [6/10], which is [APPROPRIATE] for this work."
+"I am focusing on [ONE DOMINO] in this session. This is [CONTEXT TYPE] work. I am delegating [TASK] to AI with clear goals: [GOAL]. Success will be measured by [METRIC]. If AI confidence < 80%, I will review. My energy is [X/10], which is [APPROPRIATE/INAPPROPRIATE] for this work."
 
 ---
 
 ## 📋 WORK REQUEST
 
-[I want you to update the bottom of the ballcode.co site and make it where individuals can access the books that I have created. When the access the books they get to read them and then it takes them to the game where they have to complete excercises.]
+[Your work request here]
 ```
 
 ---
