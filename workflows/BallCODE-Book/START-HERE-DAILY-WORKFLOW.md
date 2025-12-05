@@ -6,10 +6,13 @@
 
 ## ⚡ Quick Start (30 seconds)
 
-1. **Review `OVERALL-GOAL-TRACKING.md`** - Check overall goal status and how today's work connects
+1. **AI automatically checks:**
+   - `DATE-TIME-TRACKER.md` - For current date/time
+   - Previous day's `DAILY-WORKFLOW-[DATE].md` - For what was completed yesterday
+   - `OVERALL-GOAL-TRACKING.md` - For overall goal status
 2. **Copy the template below**
 3. **Paste into your new Cursor chat**
-4. **Answer the questions**
+4. **Answer the questions** (yesterday's completion will be pre-filled from the system)
 5. **Then start your work**
 
 ---
@@ -24,6 +27,7 @@
 - Time: _______________
 
 **0.5. What was completed yesterday?**
+*(AI will automatically pull this from your previous day's `DAILY-WORKFLOW-[DATE].md` file)*
 - Completed tasks: _______________
 - Progress made: _______________
 - Any blockers or unfinished items: _______________
@@ -79,11 +83,22 @@
 
 ## 📁 Full System Files
 
+- **`DATE-TIME-TRACKER.md`** — 📅 **DATE SYSTEM** - Tracks current date/time (AI checks this automatically)
+- **`DAILY-WORKFLOW-[DATE].md`** — 📋 **DAILY LOGS** - Date-specific workflow files (AI pulls yesterday's completion from these)
 - **`OVERALL-GOAL-TRACKING.md`** — 🎯 **START HERE** - Master goal tracking document (review before each session)
 - **`CURSOR-CHAT-START-TEMPLATE.md`** — Full template with all questions
 - **`DAILY-WORKFLOW-TEMPLATE.md`** — Complete daily workflow checklist
 - **`PRE-WORK-QUESTIONNAIRE.md`** — Detailed questionnaire
 - **`WORKFLOW-IMPLEMENTATION-GUIDE.md`** — How to use the system
+
+## 🔄 How the System Works
+
+**When you say "top of the morning":**
+1. AI checks `DATE-TIME-TRACKER.md` for current date
+2. AI finds yesterday's `DAILY-WORKFLOW-[DATE].md` file
+3. AI pulls the "COMPLETE PREVIOUS DAY REVIEW" section
+4. AI pre-fills question 0.5 with yesterday's completion info
+5. You review and confirm, then proceed with today's work
 
 ---
 
