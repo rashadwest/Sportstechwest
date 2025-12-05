@@ -1,0 +1,239 @@
+<!-- Story Types Section - Add to Bottom of Homepage -->
+<!-- This section shows the 3 different story types that feed into the game -->
+
+<section class="story-types-section">
+    <div class="container">
+        <h2>Choose Your Learning Adventure</h2>
+        <p class="section-subtitle">Pick the story style that matches how you learn best. All paths lead to the same coding skills!</p>
+        
+        <div class="story-types-grid">
+            <!-- Story Type 1: Love Basketball -->
+            <div class="story-type-card">
+                <div class="story-type-icon">🏀</div>
+                <h3>Love Basketball</h3>
+                <p class="story-type-description">Energetic, action-packed videos with real game footage, play breakdowns, and basketball excitement.</p>
+                <ul class="story-type-features">
+                    <li>Game highlights and plays</li>
+                    <li>Court diagrams and action</li>
+                    <li>Basketball terminology</li>
+                    <li>Fast-paced learning</li>
+                </ul>
+                <p class="story-type-audience"><strong>Perfect for:</strong> Students who play or watch basketball, love the action and excitement of the game.</p>
+                <a href="/episodes?style=basketball" class="story-type-button">Start Learning →</a>
+            </div>
+            
+            <!-- Story Type 2: Studies Basketball -->
+            <div class="story-type-card">
+                <div class="story-type-icon">📊</div>
+                <h3>Studies Basketball</h3>
+                <p class="story-type-description">Analytical, data-driven videos with statistics, charts, and deep analysis of basketball concepts.</p>
+                <ul class="story-type-features">
+                    <li>Statistics and data analysis</li>
+                    <li>Charts and graphs</li>
+                    <li>Technical breakdowns</li>
+                    <li>Logical, methodical learning</li>
+                </ul>
+                <p class="story-type-audience"><strong>Perfect for:</strong> Students who love numbers, statistics, and understanding the "why" behind the game.</p>
+                <a href="/episodes?style=analytical" class="story-type-button">Start Learning →</a>
+            </div>
+            
+            <!-- Story Type 3: Interested in Stories -->
+            <div class="story-type-card">
+                <div class="story-type-icon">📖</div>
+                <h3>Interested in Stories</h3>
+                <p class="story-type-description">Narrative-driven videos with characters, adventure, and storytelling that brings coding to life.</p>
+                <ul class="story-type-features">
+                    <li>Character-driven adventures</li>
+                    <li>Story narratives and plot</li>
+                    <li>Nova and the crew</li>
+                    <li>Imaginative, engaging learning</li>
+                </ul>
+                <p class="story-type-audience"><strong>Perfect for:</strong> Students who love stories, characters, and learning through narrative adventures.</p>
+                <a href="/episodes?style=story" class="story-type-button">Start Learning →</a>
+            </div>
+        </div>
+        
+        <!-- Start Now Button -->
+        <div class="start-now-section">
+            <a href="/episodes" class="start-now-button">Start Now</a>
+            <p class="start-now-subtitle">Begin your coding journey through basketball</p>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Story Types Section Styles */
+.story-types-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 60px 20px;
+    margin-top: 40px;
+}
+
+.story-types-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.story-types-section h2 {
+    text-align: center;
+    color: #667eea;
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.story-types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.story-type-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.story-type-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.story-type-icon {
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.story-type-card h3 {
+    color: #667eea;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.story-type-description {
+    color: #666;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.story-type-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.story-type-features li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+    color: #555;
+}
+
+.story-type-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #667eea;
+    font-weight: bold;
+}
+
+.story-type-audience {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: auto;
+    font-size: 0.95em;
+    color: #555;
+}
+
+.story-type-audience strong {
+    color: #667eea;
+}
+
+.story-type-button {
+    display: block;
+    text-align: center;
+    background: #667eea;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.story-type-button:hover {
+    background: #764ba2;
+    transform: translateY(-2px);
+}
+
+/* Start Now Section */
+.start-now-section {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 40px;
+    border-top: 2px solid #e9ecef;
+}
+
+.start-now-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px 50px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.5em;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.start-now-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.start-now-subtitle {
+    margin-top: 15px;
+    color: #666;
+    font-size: 1.1em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .story-types-section h2 {
+        font-size: 2em;
+    }
+    
+    .story-types-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .start-now-button {
+        font-size: 1.2em;
+        padding: 15px 40px;
+    }
+}
+</style>
+
+
+

@@ -1,0 +1,26 @@
+# API Keys
+config.json
+.env
+*.key
+
+# Output directories
+output/
+*.log
+
+# Unity
+UnityProject/
+*.meta
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+
+
+

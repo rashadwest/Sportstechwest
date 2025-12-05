@@ -1,0 +1,401 @@
+{
+  "episodeNumber": 1,
+  "title": "The Tip-off Trial",
+  "subtitle": "Learn how robots think—through the game you love",
+  
+  "educationalConcepts": {
+    "codingConcept": {
+      "name": "State",
+      "description": "State (start/live/dead/outcome)",
+      "keyPoints": [
+        "States track what's happening in a program",
+        "Only one state can be active at a time",
+        "States transition based on events",
+        "State management is fundamental to programming"
+      ],
+      "codeExample": "if (state == LIVE) {\n    play();\n} else if (state == DEAD) {\n    wait();\n}",
+      "blockCodingExample": {
+        "blocks": [
+          {
+            "type": "start",
+            "description": "Begin the sequence",
+            "color": "green"
+          },
+          {
+            "type": "dribble",
+            "clock": 0.5,
+            "action": "wait for tip-off",
+            "description": "Wait for game to start",
+            "color": "blue"
+          },
+          {
+            "type": "dribble",
+            "clock": 1.0,
+            "action": "play basketball",
+            "description": "Active gameplay",
+            "color": "blue"
+          },
+          {
+            "type": "dribble",
+            "clock": 0.3,
+            "action": "stop",
+            "description": "Play stopped",
+            "color": "red"
+          },
+          {
+            "type": "bucket",
+            "description": "Shoot/complete sequence",
+            "color": "orange"
+          }
+        ],
+        "description": "Snap these blocks together: START → DRIBBLE blocks (with clocks) → BUCKET to create a move sequence"
+      },
+      "visualType": "state_diagram",
+      "difficulty": "beginner"
+    },
+    "mathConcept": {
+      "name": "Possession Statistics",
+      "description": "Possession count, turnovers (basic stats)",
+      "keyPoints": [
+        "Counting possessions",
+        "Calculating turnover rate",
+        "Basic statistics tracking",
+        "Understanding percentages"
+      ],
+      "mathExample": "Turnover Rate = (Turnovers / Possessions) × 100\nExample: (2 turnovers / 3 possessions) × 100 = 66.7%",
+      "visualType": "statistics_chart",
+      "difficulty": "beginner"
+    },
+    "aiConcept": {
+      "name": "Vision Cues & State Detection",
+      "description": "Vision cue detects state shifts; player confirms",
+      "keyPoints": [
+        "AI can detect patterns (vision cues)",
+        "Human confirmation required for accuracy",
+        "Confidence scores indicate AI certainty",
+        "Human-AI collaboration improves results"
+      ],
+      "aiExample": "AI detects: 'State shift detected (confidence: 95%)'\nPlayer confirms: 'Yes, state is DEAD. Confirmed.'",
+      "visualType": "ai_interface",
+      "difficulty": "beginner"
+    }
+  },
+  
+  "learningObjectives": [
+    "Identify the four states of possession (START, LIVE, DEAD, OUTCOME)",
+    "Track state changes in basketball scenarios",
+    "Understand state transitions and the rules that govern them",
+    "Apply state concepts to edge cases and real-world situations",
+    "Connect coding concepts to basketball gameplay",
+    "Use AI assistance effectively with human confirmation",
+    "Calculate basic statistics (possession count, turnover rate)",
+    "Understand confidence scores and AI certainty"
+  ],
+  
+  "monsterName": "Shadow Press Scouts",
+  "gameMode": "Training",
+  "hasFinalExercise": true,
+  
+  "spreads": [
+    {
+      "spreadNumber": 1,
+      "leftPage": {
+        "text": "The center circle of Data Court glowed with a soft blue light, pulsing like a heartbeat. Nova bounced on the balls of her feet, her eyes scanning the court. She could see it all—the lines of code that made up every play, the state of every possession, the flow of data like a river of information.\n\n\"Remember,\" Coach Circuit's voice crackled through their earpieces, \"the tip-off is where it all begins. One state becomes another. Start. Live. Dead. Outcome. That's the sequence. Don't let it glitch.\"",
+        "imagePrompt": "Children's book cover illustration: 'Episode 1: The Tip-off Trial' title prominently displayed in bold modern font at top, subtitle 'Learn how robots think—through the game you love' below title. Background shows basketball court with glowing blue tech elements, digital grid lines, code patterns visible. Main character Nova (tech-savvy point guard, blue and white gear, earpiece visible) in center foreground, basketball in hand. Shadow Press Scouts (dark shadowy figures) visible in background creating tension. Color scheme: vibrant blue (#0066FF) and orange (#FF6600) with tech accents. Style: Modern children's book illustration, educational focus on coding and AI concepts, vibrant colors, clean lines, expressive characters, age-appropriate for grades 3-8, adventure/comic book aesthetic, professional children's book cover quality, 16:9 aspect ratio",
+        "imageStyle": "cover",
+        "educationalHighlight": {
+          "concept": "coding",
+          "highlight": "State concept introduction - code-like visualization of game states"
+        }
+      },
+      "rightPage": {
+        "text": "",
+        "imagePrompt": "Character reference panel: Five diverse basketball characters arranged horizontally, each with label: 1. NOVA (Point Guard) - Tech-savvy, confident, blue and white gear, earpiece visible, sees court like code. 2. ATLAS (Wing) - Tall, long arms, green and white gear, precise movements. 3. PIXEL (Guard) - Sharpshooter, calculating, orange and white gear, shooting sleeve, pattern-spotter. 4. ANCHOR (Big) - Gentle giant, massive frame, red and white gear, protective. 5. COACH CIRCUIT (Mentor) - Tech-enhanced, supportive, blue and gray gear, translates basketball to code. All characters in consistent art style, vibrant colors, expressive faces, age-appropriate for grades 3-8. Character names and positions labeled below each. Style: Modern children's book illustration, character reference sheet style, vibrant colors, clean lines, diverse characters, adventure style, professional quality, 16:9 aspect ratio",
+        "imageStyle": "character_panel",
+        "educationalHighlight": {
+          "concept": "general",
+          "highlight": "Character introduction"
+        }
+      },
+      "audio": {
+        "text": "The center circle of Data Court glowed with a soft blue light, pulsing like a heartbeat. Nova bounced on the balls of her feet, her eyes scanning the court. She could see it all—the lines of code that made up every play, the state of every possession, the flow of data like a river of information. Remember, Coach Circuit's voice crackled through their earpieces, the tip-off is where it all begins. One state becomes another. Start. Live. Dead. Outcome. That's the sequence. Don't let it glitch.",
+        "voice": "narrator",
+        "speed": 1.0,
+        "emphasis": ["state", "code", "program", "Start", "Live", "Dead", "Outcome"]
+      },
+      "hasExercise": false
+    },
+    {
+      "spreadNumber": 2,
+      "leftPage": {
+        "text": "Nova nodded, her fingers twitching as if typing on an invisible keyboard. Beside her, Atlas stretched his long arms, his movements precise and calculated. Pixel adjusted his shooting sleeve, already calculating angles and percentages. And Anchor, the gentle giant, stood ready at the center circle, his massive frame a wall of protection.\n\n\"Here we go,\" Nova whispered, and the ball launched into the air.\n\nChaos erupted.",
+        "imagePrompt": "Educational diagram illustration: Top-down view of basketball court, center circle prominently featured and glowing with soft blue pulsing light. Transition lanes clearly marked (left lane, right lane, middle lane) with arrows. Half-court line and three-point arc visible. Subtle tech elements: digital grid lines, code-like patterns, blue tech accents on traditional wood/tan court colors. Five character silhouettes positioned: Nova at center circle, Atlas left lane, Pixel right lane, Anchor trailing, Coach Circuit on sideline. Style: Modern children's book illustration, clean educational diagram style, vibrant colors (blue tech accents on tan court), kid-friendly, professional quality, 16:9 aspect ratio",
+        "imageStyle": "diagram",
+        "educationalHighlight": {
+          "concept": "coding",
+          "highlight": "Court layout as code structure - lanes as variables"
+        }
+      },
+      "rightPage": {
+        "text": "",
+        "imagePrompt": "Educational flowchart diagram with glitch effect: Four state boxes arranged in flow: START (yellow/gold box with tip-off icon), LIVE (green box with basketball icon), DEAD (red box with stop icon), OUTCOME (blue box with scoreboard icon). Arrows showing transitions between states. Visual glitch effect: states flickering, digital broken screen effect, unstable appearance, code error aesthetic. Text labels: 'START → LIVE → DEAD → OUTCOME' with flickering animation effect suggested. Tech/code aesthetic with digital elements. Style: Modern children's book illustration, educational diagram style, vibrant colors (yellow, green, red, blue), glitch effect but kid-friendly (not scary), clean lines, professional quality, 16:9 aspect ratio",
+        "imageStyle": "educational",
+        "educationalHighlight": {
+          "concept": "coding",
+          "highlight": "State diagram - core coding concept visualization"
+        }
+      },
+      "audio": {
+        "text": "Nova nodded, her fingers twitching as if typing on an invisible keyboard. Beside her, Atlas stretched his long arms, his movements precise and calculated. Pixel adjusted his shooting sleeve, already calculating angles and percentages. And Anchor, the gentle giant, stood ready at the center circle, his massive frame a wall of protection. Here we go, Nova whispered, and the ball launched into the air. Chaos erupted.",
+        "voice": "narrator",
+        "speed": 1.0,
+        "emphasis": ["code", "calculating", "percentages"]
+      },
+      "hasExercise": false
+    },
+    {
+      "spreadNumber": 3,
+      "leftPage": {
+        "text": "The ball bounced off Anchor's fingertips, but before Nova could react, it was gone—stolen by an opponent who moved like a shadow. The court seemed to glitch, the state of possession flickering between their team and the other side like a broken screen.\n\n\"What just happened?\" Pixel called out, his voice tight with confusion.",
+        "imagePrompt": "Basketball court scene: Three to five Shadow Press Scouts (dark shadowy humanoid figures) appearing at edges of court, creating chaos. Scouts are lean, athletic silhouettes, dark colors (black, dark gray, dark purple) with subtle blue tech accents. Code fragments visible in their shadows. Minimal facial features (glowing eyes suggested). Menacing but kid-friendly (cool video game enemy aesthetic, not scary). Basketball court in background. Nova and team visible in foreground reacting to the threat. Style: Modern children's book illustration, vibrant colors, clean lines, expressive characters, age-appropriate for grades 3-8, adventure/comic book aesthetic, dark but not frightening, professional quality, 16:9 aspect ratio",
+        "imageStyle": "action",
+        "educationalHighlight": {
+          "concept": "coding",
+          "highlight": "State errors and debugging concepts"
+        }
+      },
+      "rightPage": {
+        "text": "",
+        "imagePrompt": "Basketball court scene: Nova (tech-savvy point guard, blue and white gear, earpiece visible) in center, looking at AI interface overlay. HUD display showing: 'State shift detected' message, current state 'DEAD' highlighted in red box, previous state 'LIVE (opponent)' in smaller text, probability display '70% LIVE (us), 30% LIVE (opponent)', confidence score '95%', vision cue indicators. Modern tech interface aesthetic (heads-up display), clean and readable, not overly complex. Basketball court visible in background. Nova's expression: focused, confirming state. Style: Modern children's book illustration, vibrant colors, clean lines, expressive characters, age-appropriate for grades 3-8, tech interface but kid-friendly, professional quality, 16:9 aspect ratio",
+        "imageStyle": "tech_interface",
+        "educationalHighlight": {
+          "concept": "ai",
+          "highlight": "AI vision cues, confidence scores, human-AI collaboration"
+        }
+      },
+      "audio": {
+        "text": "The ball bounced off Anchor's fingertips, but before Nova could react, it was gone—stolen by an opponent who moved like a shadow. The court seemed to glitch, the state of possession flickering between their team and the other side like a broken screen. What just happened? Pixel called out, his voice tight with confusion.",
+        "voice": "narrator",
+        "speed": 1.0,
+        "emphasis": ["state", "glitch", "error"]
+      },
+      "hasExercise": false
+    },
+    {
+      "spreadNumber": 4,
+      "leftPage": {
+        "text": "Nova's eyes widened. She could see it—the state had changed too fast. START had become LIVE, but then something went wrong. The possession state was flickering, unstable, like code that hadn't been properly debugged.\n\n\"State error!\" she shouted. \"The possession changed, but the system didn't register it correctly!\"",
+        "imagePrompt": "Educational basketball play diagram: Top-down or side view showing controlled outlet pass sequence. Anchor (big, red and white gear) grabbing rebound at bottom, throwing outlet pass (arrow showing trajectory) to Nova (point guard, blue and white gear) in middle. Three transition lanes filled: Atlas (wing, green and white gear) sprinting left lane (arrow), Pixel (guard, orange and white gear) filling right lane (arrow), Anchor trailing (arrow). State transition marked: 'DEAD → LIVE (us)'. Shadow Press Scouts closing in (dark figures in background). Clean educational diagram style with arrows and labels. Style: Modern children's book illustration, educational diagram style, vibrant colors, clean lines, clear labels, kid-friendly, professional quality, 16:9 aspect ratio",
+        "imageStyle": "diagram",
+        "educationalHighlight": {
+          "concept": "coding",
+          "highlight": "State transitions in action"
+        }
+      },
+      "rightPage": {
+        "text": "",
+        "imagePrompt": "Three-panel sequential illustration showing three linked basketball actions, all maintaining LIVE state: Panel 1 (Left): Controlled outlet - Anchor passing to Nova, state indicator showing 'LIVE' in green, checkmark visible. Panel 2 (Middle): Fill lanes - Three players (Atlas left, Pixel right, Anchor trailing) in lanes, state indicator showing 'LIVE' in green, checkmark visible. Panel 3 (Right): Safe entry - Ball at top of key with Nova, state indicator showing 'LIVE' in green, checkmark visible, success celebration (Nova smiling, team success). Shadow Press Scouts retreating in background (defeated). State maintained throughout all three actions. Style: Modern children's book illustration, sequential panel layout, vibrant colors, clean lines, expressive characters, age-appropriate for grades 3-8, adventure/comic book aesthetic, professional quality, 16:9 aspect ratio",
+        "imageStyle": "sequential",
+        "educationalHighlight": {
+          "concept": "coding",
+          "highlight": "Maintaining state across multiple actions - core programming concept"
+        }
+      },
+      "audio": {
+        "text": "Nova's eyes widened. She could see it—the state had changed too fast. START had become LIVE, but then something went wrong. The possession state was flickering, unstable, like code that hadn't been properly debugged. State error! she shouted. The possession changed, but the system didn't register it correctly!",
+        "voice": "narrator",
+        "speed": 1.0,
+        "emphasis": ["state", "error", "debugged", "code"]
+      },
+      "hasExercise": false
+    },
+    {
+      "spreadNumber": 5,
+      "leftPage": {
+        "text": "Nova's mind raced. She had to track it. She had to count.\n\n\"Three possessions,\" she called back. \"Two turnovers. One successful—wait, no. That one ended in a shot, but it missed. So... three possessions, two turnovers, zero points.\"\n\nThe math was simple, but the problem was clear. Their turnover rate was too high.",
+        "imagePrompt": "Clean educational flowchart diagram: Four state boxes in color-coded flow: START (yellow/gold box, 'Tip-off begins' text, tip-off icon), LIVE (green box, 'Ball in play' text, basketball icon), DEAD (red box, 'Play stopped' text, stop icon), OUTCOME (blue box, 'Play ended' text, scoreboard icon). Arrows showing all transitions: START→LIVE, LIVE→DEAD, DEAD→LIVE, LIVE→OUTCOME, OUTCOME→START. Simple basketball icons in each box. Clear labels and examples. Clean, educational design. Style: Modern children's book illustration, educational diagram style, vibrant colors (yellow, green, red, blue), clean lines, kid-friendly, professional quality, 16:9 aspect ratio",
+        "imageStyle": "educational",
+        "educationalHighlight": {
+          "concept": "math",
+          "highlight": "Statistics calculation - possession count, turnover rate"
+        }
+      },
+      "rightPage": {
+        "text": "",
+        "imagePrompt": "Math visualization chart: Statistics display showing '3 possessions, 2 turnovers, 0 points' with calculation: 'Turnover Rate = (2 / 3) × 100 = 66.7%'. Bar chart or pie chart showing possession breakdown. Clean, educational math visualization, kid-friendly design, vibrant colors, clear labels. Style: Modern children's book illustration, educational math chart style, vibrant colors, clean lines, kid-friendly, professional quality, 16:9 aspect ratio",
+        "imageStyle": "math_chart",
+        "educationalHighlight": {
+          "concept": "math",
+          "highlight": "Basic statistics and percentage calculations"
+        }
+      },
+      "audio": {
+        "text": "Nova's mind raced. She had to track it. She had to count. Three possessions, she called back. Two turnovers. One successful—wait, no. That one ended in a shot, but it missed. So... three possessions, two turnovers, zero points. The math was simple, but the problem was clear. Their turnover rate was too high.",
+        "voice": "narrator",
+        "speed": 1.0,
+        "emphasis": ["count", "three", "two", "turnover rate", "math"]
+      },
+      "hasExercise": false
+    },
+    {
+      "spreadNumber": 6,
+      "leftPage": {
+        "text": "\"Arc!\" Nova called out to their AI assistant. \"Can you detect the state shifts?\"\n\nA soft chime sounded in her earpiece. \"State shift detected,\" Arc's calm voice said. \"Current state: DEAD. Previous state: LIVE (opponent). Probability of next state: 70% LIVE (us), 30% LIVE (opponent).\"\n\nNova's eyes widened. \"Wait, you can see it?\"",
+        "imagePrompt": "Basketball court scene: Nova (tech-savvy point guard, blue and white gear, earpiece visible) in center, looking at AI interface overlay. HUD display showing: 'State shift detected' message, current state 'DEAD' highlighted in red box, previous state 'LIVE (opponent)' in smaller text, probability display '70% LIVE (us), 30% LIVE (opponent)', confidence score '95%', vision cue indicators. Modern tech interface aesthetic (heads-up display), clean and readable, not overly complex. Basketball court visible in background. Nova's expression: focused, confirming state. Style: Modern children's book illustration, vibrant colors, clean lines, expressive characters, age-appropriate for grades 3-8, tech interface but kid-friendly, professional quality, 16:9 aspect ratio",
+        "imageStyle": "tech_interface",
+        "educationalHighlight": {
+          "concept": "ai",
+          "highlight": "AI state detection, probability calculations, confidence scores"
+        }
+      },
+      "rightPage": {
+        "text": "",
+        "imagePrompt": "AI collaboration diagram: Shows human (Nova) and AI (Arc) working together. Left side: AI detects 'State shift detected (confidence: 95%)'. Right side: Human confirms 'Yes, state is DEAD. Confirmed.' Center: Collaboration result 'State confirmed, tracking.' Visual showing the human-AI collaboration process. Style: Modern children's book illustration, educational diagram style, vibrant colors, clean lines, kid-friendly, professional quality, 16:9 aspect ratio",
+        "imageStyle": "ai_collaboration",
+        "educationalHighlight": {
+          "concept": "ai",
+          "highlight": "Human-AI collaboration, confirmation required"
+        }
+      },
+      "audio": {
+        "text": "Arc! Nova called out to their AI assistant. Can you detect the state shifts? A soft chime sounded in her earpiece. State shift detected, Arc's calm voice said. Current state: DEAD. Previous state: LIVE opponent. Probability of next state: 70% LIVE us, 30% LIVE opponent. Nova's eyes widened. Wait, you can see it?",
+        "voice": "narrator",
+        "speed": 1.0,
+        "emphasis": ["AI", "detect", "state shift", "probability", "confidence"]
+      },
+      "hasExercise": false
+    },
+    {
+      "spreadNumber": 7,
+      "leftPage": {
+        "text": "\"Vision cue detected,\" Arc confirmed. \"The Shadow Press Scouts create state instability. I can track the shifts, but you must confirm. Is the current state correct?\"\n\nNova looked at the court. The ball was on the ground, rolling slowly. No one had possession. The state was DEAD.\n\n\"Yes,\" she said. \"State is DEAD. Confirmed.\"",
+        "imagePrompt": "Basketball court scene showing controlled outlet pass sequence. Anchor (big, red and white gear) grabbing rebound, throwing outlet pass to Nova (point guard, blue and white gear). Three transition lanes filled: Atlas (wing, green and white gear) sprinting left lane, Pixel (guard, orange and white gear) filling right lane, Anchor trailing. State transition marked: 'DEAD → LIVE (us)'. Shadow Press Scouts closing in. Clean educational diagram style. Style: Modern children's book illustration, educational diagram style, vibrant colors, clean lines, clear labels, kid-friendly, professional quality, 16:9 aspect ratio",
+        "imageStyle": "diagram",
+        "educationalHighlight": {
+          "concept": "coding",
+          "highlight": "State transition control"
+        }
+      },
+      "rightPage": {
+        "text": "",
+        "imagePrompt": "Three-panel sequential illustration showing three linked basketball actions maintaining LIVE state: Panel 1: Controlled outlet (state LIVE), Panel 2: Fill lanes (state LIVE), Panel 3: Safe entry (state LIVE). State maintained throughout. Success celebration. Style: Modern children's book illustration, sequential panel layout, vibrant colors, clean lines, expressive characters, age-appropriate for grades 3-8, professional quality, 16:9 aspect ratio",
+        "imageStyle": "sequential",
+        "educationalHighlight": {
+          "concept": "coding",
+          "highlight": "State maintenance across multiple actions"
+        }
+      },
+      "audio": {
+        "text": "Vision cue detected, Arc confirmed. The Shadow Press Scouts create state instability. I can track the shifts, but you must confirm. Is the current state correct? Nova looked at the court. The ball was on the ground, rolling slowly. No one had possession. The state was DEAD. Yes, she said. State is DEAD. Confirmed.",
+        "voice": "narrator",
+        "speed": 1.0,
+        "emphasis": ["vision cue", "confirm", "state", "DEAD"]
+      },
+      "hasExercise": false
+    },
+    {
+      "spreadNumber": 8,
+      "leftPage": {
+        "text": "The ball came off the rim, and Anchor grabbed it with both hands. The state was DEAD—the shot had missed, the play was over. But Nova was already moving, already thinking ahead.\n\n\"State: DEAD,\" she called out. \"Next state: LIVE. We control this transition!\"\n\nAnchor's outlet pass was perfect—a controlled, precise throw that found Nova's hands exactly where she needed it. The state changed: DEAD → LIVE (us).",
+        "imagePrompt": "Clean instructional illustration: Large scannable QR code centered (black and white, square format). Short URL text below: 'ballcode.co/play?mode=blockcoding&episode=1'. 'Try It Yourself!' heading above QR code in bold font. Instruction text: 'Scan the QR code or click the link' and 'Snap blocks together to create moves!' and 'No login required for first play'. Below QR code: Visual block coding example showing connected blocks in sequence: 'START' block (green) at top, connected down to 'DRIBBLE 1' block (blue, showing 'Clock: 0.5s, Action: Move'), connected down to 'DRIBBLE 2' block (blue, showing 'Clock: 1.0s, Action: Pass'), connected down to 'BUCKET' block (orange) at bottom. Blocks shown in Scratch-style visual block coding format with snap-together connectors, clock values visible on dribble blocks. Basketball and tech aesthetic (subtle court background, blue tech accents). Style: Modern children's book illustration, clean modern design, vibrant colors (green START, blue DRIBBLE, orange BUCKET), clear call-to-action, kid-friendly, professional quality, 16:9 aspect ratio",
+        "imageStyle": "instructional",
+        "educationalHighlight": {
+          "concept": "general",
+          "highlight": "Game integration"
+        }
+      },
+      "rightPage": {
+        "text": "",
+        "imagePrompt": "Success celebration scene: Nova and team celebrating, state maintained successfully. Shadow Press Scouts retreating. 'State maintained across three linked actions' message displayed. Victory moment. Style: Modern children's book illustration, vibrant colors, clean lines, expressive characters, age-appropriate for grades 3-8, adventure/comic book aesthetic, professional quality, 16:9 aspect ratio",
+        "imageStyle": "celebration",
+        "educationalHighlight": {
+          "concept": "coding",
+          "highlight": "Success through proper state management"
+        }
+      },
+      "audio": {
+        "text": "The ball came off the rim, and Anchor grabbed it with both hands. The state was DEAD—the shot had missed, the play was over. But Nova was already moving, already thinking ahead. State: DEAD, she called out. Next state: LIVE. We control this transition! Anchor's outlet pass was perfect—a controlled, precise throw that found Nova's hands exactly where she needed it. The state changed: DEAD to LIVE us.",
+        "voice": "narrator",
+        "speed": 1.0,
+        "emphasis": ["state", "DEAD", "LIVE", "transition", "control"]
+      },
+      "hasExercise": true,
+      "exerciseName": "state_tracker",
+      "exerciseType": "blockcoding",
+      "blockCodingPreview": {
+        "description": "Snap blocks together to create a move sequence: START → DRIBBLE blocks (with clocks) → BUCKET",
+        "availableBlocks": [
+          "START (begin sequence)",
+          "DRIBBLE 1 (Clock: 0.5s, Action: Wait for tip-off)",
+          "DRIBBLE 2 (Clock: 1.0s, Action: Play basketball)",
+          "DRIBBLE 3 (Clock: 0.3s, Action: Stop)",
+          "BUCKET (shoot/complete)"
+        ],
+        "challenge": "Create a sequence: START → DRIBBLE blocks with proper clock timing → BUCKET. Each dribble has a clock that controls timing."
+      }
+    }
+  ],
+  
+  "skillPitStop": {
+    "title": "Understanding State in Code",
+    "content": "Think of state like a light switch. A light switch can be in one of two states: ON or OFF. It can't be both at the same time, and it can only change from one state to the other when you flip the switch.\n\nIn basketball, and in code, we use states to track what's happening. Just like a light switch, the game can only be in one state at a time, and it changes when something specific happens.\n\nThe Four States of Possession:\n1. START - When the play begins (tip-off)\n2. LIVE - When the ball is in play\n3. DEAD - When play stops\n4. OUTCOME - When the play ends with a result",
+    "codeExamples": [
+      {
+        "language": "pseudocode",
+        "code": "if state == START:\n    wait for tip-off\nelif state == LIVE:\n    play basketball\nelif state == DEAD:\n    wait for play to resume\nelif state == OUTCOME:\n    record result",
+        "explanation": "This code shows how programs check the current state and take different actions based on it."
+      }
+    ],
+    "mathExamples": [
+      {
+        "type": "calculation",
+        "example": "Turnover Rate = (Turnovers / Possessions) × 100\n\nExample from story:\nTurnovers = 2\nPossessions = 3\nTurnover Rate = (2 / 3) × 100 = 66.7%",
+        "explanation": "This shows how we calculate percentages using basic division and multiplication."
+      }
+    ],
+    "aiExamples": [
+      {
+        "type": "detection",
+        "example": "AI detects: 'State shift detected (confidence: 95%)'\nPlayer confirms: 'Yes, state is DEAD. Confirmed.'\nResult: 'State confirmed, tracking.'",
+        "explanation": "AI can detect patterns, but humans should always confirm important decisions. The confidence score (95%) tells us how certain the AI is."
+      }
+    ]
+  },
+  
+  "exercises": [
+    {
+      "exerciseNumber": 1,
+      "type": "coding",
+      "title": "Label States in a Play",
+      "instructions": "Read the basketball scenario and label each state change. Write START, LIVE, DEAD, or OUTCOME next to each step.",
+      "duration": 60,
+      "codingFocus": "State identification",
+      "mathFocus": "Counting",
+      "aiFocus": null,
+      "difficulty": "beginner"
+    },
+    {
+      "exerciseNumber": 2,
+      "type": "coding",
+      "title": "Write State Transitions",
+      "instructions": "Draw arrows to show how states can transition. Then create your own basketball play and label the states.",
+      "duration": 90,
+      "codingFocus": "State transitions",
+      "mathFocus": "Pattern recognition",
+      "aiFocus": null,
+      "difficulty": "intermediate"
+    },
+    {
+      "exerciseNumber": 3,
+      "type": "ai",
+      "title": "AI State Detection",
+      "instructions": "Read the edge case scenario. Use AI to detect the state, then confirm if the AI is correct. What's the confidence score?",
+      "duration": 90,
+      "codingFocus": "State management",
+      "mathFocus": "Probability (confidence scores)",
+      "aiFocus": "Vision cues, human-AI collaboration",
+      "difficulty": "advanced"
+    }
+  ]
+}
+

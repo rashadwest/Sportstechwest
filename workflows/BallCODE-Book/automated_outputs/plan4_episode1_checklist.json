@@ -1,0 +1,116 @@
+{
+  "episode": 1,
+  "current_completion": 45,
+  "target_completion": 100,
+  "remaining_tasks": [
+    {
+      "task_id": "visual_assets",
+      "task": "Create visual assets",
+      "priority": "HIGH",
+      "blocking": ["Phase 2", "Phase 3", "Website updates", "Production PDFs"],
+      "status": "in_progress",
+      "subtasks": [
+        "Generate Court Map visual (priority 1)",
+        "Generate Shadow Press Scouts visual (priority 2)",
+        "Generate State Diagram visual (priority 3)",
+        "Integrate visuals into Episode 1 document",
+        "Create print-ready versions (300 DPI)",
+        "Create digital-optimized versions"
+      ],
+      "automated": true,
+      "automation_file": "plan2_visual_prompts.json",
+      "estimated_time": "2-4 hours (with API) or 1-2 days (manual)"
+    },
+    {
+      "task_id": "visual_integration",
+      "task": "Integrate visuals into Episode 1 document",
+      "priority": "HIGH",
+      "blocking": ["Production PDFs"],
+      "status": "pending",
+      "subtasks": [
+        "Add visuals to integrated document",
+        "Verify layout and spacing",
+        "Ensure print-ready quality",
+        "Test digital version"
+      ],
+      "estimated_time": "2-3 hours"
+    },
+    {
+      "task_id": "unity_integration",
+      "task": "Implement Unity integration",
+      "priority": "MEDIUM",
+      "blocking": ["Phase 2", "Story Mode"],
+      "status": "pending",
+      "subtasks": [
+        "Implement Training Mode exercise for Episode 1",
+        "Create QR code/short URL",
+        "Test flow: Story → QR code → Game → Return",
+        "Verify no-login first play works",
+        "End-to-end flow testing"
+      ],
+      "requires": "Unity project access",
+      "estimated_time": "1-2 weeks"
+    },
+    {
+      "task_id": "beta_testing",
+      "task": "Launch beta testing",
+      "priority": "MEDIUM",
+      "blocking": ["Phase 3"],
+      "status": "pending",
+      "subtasks": [
+        "Recruit 3-5 beta testers (educators)",
+        "Send beta testing packages",
+        "Set feedback deadline (1-2 weeks)",
+        "Collect and analyze feedback",
+        "Prioritize revisions"
+      ],
+      "estimated_time": "1-2 weeks"
+    },
+    {
+      "task_id": "production_assets",
+      "task": "Create production assets",
+      "priority": "HIGH",
+      "blocking": ["Pilot school package"],
+      "status": "pending",
+      "subtasks": [
+        "Create story PDF (print-ready)",
+        "Create story PDF (digital-optimized)",
+        "Generate QR codes",
+        "Finalize all production materials"
+      ],
+      "estimated_time": "1-2 days"
+    },
+    {
+      "task_id": "final_polish",
+      "task": "Final polish and review",
+      "priority": "LOW",
+      "blocking": ["Production assets"],
+      "status": "pending",
+      "subtasks": [
+        "Final polish of story content",
+        "Polish Skill Pit-Stop language",
+        "Test exercises with target age group",
+        "Audio narration script (if applicable)"
+      ],
+      "estimated_time": "2-3 days"
+    }
+  ],
+  "completion_path": [
+    "1. Generate visuals (automated - Plan 2) - HIGH PRIORITY",
+    "2. Integrate visuals into document - HIGH PRIORITY",
+    "3. Create production PDFs - HIGH PRIORITY",
+    "4. Launch beta testing - MEDIUM PRIORITY",
+    "5. Implement Unity integration - MEDIUM PRIORITY",
+    "6. Final polish - LOW PRIORITY"
+  ],
+  "critical_path": [
+    "visual_assets",
+    "visual_integration",
+    "production_assets"
+  ],
+  "estimated_time_to_completion": "2-3 weeks (with visuals as blocker)"
+}
+
+
+
+

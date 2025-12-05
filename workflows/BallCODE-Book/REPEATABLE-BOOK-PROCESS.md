@@ -20,6 +20,22 @@
 **Output:** Complete story (1,200-1,800 words)  
 **Format:** Plain text document ready for formatting
 
+**AIMCODE Workflow:** This process integrates AIMCODE methodology for story creation. See `AIMCODE-STORY-CREATION-BML.md` for full workflow.
+
+---
+
+## Pre-Writing: AIMCODE CLEAR Framework
+
+**Before starting to write, complete CLEAR framework:**
+
+- [ ] **Clarity**: Story objectives, learning goals, basketball framework defined
+- [ ] **Logic**: How this builds on previous books, systematic progression planned
+- [ ] **Examples**: Previous successful stories reviewed, case studies consulted
+- [ ] **Adaptation**: Constraints identified, flexibility needs assessed
+- [ ] **Results**: Success metrics defined, measurement points identified
+
+**For detailed CLEAR:** See `AIMCODE-METHODOLOGY.md` Phase 1
+
 ---
 
 ## Step-by-Step Process
@@ -33,6 +49,8 @@
 - `WRITING-OUTLINE-ALL-3-BOOKS.md` - Full outline for each book
 - `WRITING-GUIDE-BOOK-1.md` - Detailed writing guide (use as template)
 - `WRITING-OUTLINE-SIMPLE.md` - Simple format reference
+- `AIMCODE-STORY-CREATION-CHECKLIST.md` - AIMCODE checklist for story creation
+- `AIMCODE-STORY-CREATION-BML.md` - Full AIMCODE story workflow
 
 ---
 
@@ -122,11 +140,32 @@
 - [ ] Basketball success demonstrates mastery ✅
 - [ ] Engaging and adventurous (70% story, 30% skill) ✅
 
+**AIMCODE Validation:**
+- [ ] CLEAR framework applied (objectives, logic, examples, adaptation, results)
+- [ ] Alpha Evolve layers complete (basketball → concepts → learning → game)
+- [ ] Expert principles applied (Zhang, Resnick, Reggio, Hassabis, Jobs)
+- [ ] Game integration points identified
+- [ ] Metrics setup planned
+
+**For Full Checklist:** See `AIMCODE-STORY-CREATION-CHECKLIST.md`
+
 ---
 
-### Step 7: Save and Mark Complete
+### Step 7: Metrics Setup (BML Integration)
+**After story is complete, set up metrics tracking:**
+- [ ] Story→game transition points identified
+- [ ] Metrics hooks planned for integration
+- [ ] Success criteria defined for measurement
+- [ ] Hypothesis documented for BML cycle
+
+**For Metrics Details:** See `AIMCODE-METRICS-DASHBOARD.md` and `Story-Game-Integration-Metrics.md`
+
+---
+
+### Step 8: Save and Mark Complete
 - [ ] Save file: `Book-[Number]-[Title]-DRAFT.md`
 - [ ] Mark Task 1 complete for this book
+- [ ] Document learnings for next book (BML cycle)
 - [ ] Move to Task 2
 
 ---

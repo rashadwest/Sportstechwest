@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BallCODE Books - Dribble Level {LEVEL}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .book-info {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .video-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        video {
+            width: 100%;
+            border-radius: 8px;
+            background: #000;
+        }
+        
+        .paywall-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .pricing-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .pricing-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .pricing-card:hover {
+            border-color: #667eea;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.2);
+        }
+        
+        .pricing-card.selected {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+        
+        .price {
+            font-size: 32px;
+            font-weight: bold;
+            color: #667eea;
+            margin: 10px 0;
+        }
+        
+        .purchase-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+        
+        .purchase-btn:hover {
+            background: #5568d3;
+        }
+        
+        .bundle-badge {
+            background: #ff6b6b;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>BallCODE: Dribble Level {LEVEL} - {DRIBBLE_NAME}</h1>
+            <div class="book-info">
+                <p>Learn {CODING_CONCEPT}, {MATH_CONCEPT}, and {AI_CONCEPT} through basketball!</p>
+                <p>Perfect for grades 3-8 | Triangle Science & Math Academy | NC Science & Math</p>
+            </div>
+        </header>
+        
+        <div class="video-container">
+            <video id="book-video" controls poster="thumbnail.jpg">
+                <source src="video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <div class="paywall-section" id="paywall">
+            <h2>Unlock Full Access</h2>
+            <p>Purchase this book to access the complete story and exercises</p>
+            
+            <div class="pricing-options">
+                <div class="pricing-card" onclick="selectOption('single')">
+                    <h3>Single Book</h3>
+                    <div class="price">$9.99</div>
+                    <p>Access to this book only</p>
+                    <button class="purchase-btn" onclick="purchaseBook('single')">
+                        Purchase This Book
+                    </button>
+                </div>
+                
+                <div class="pricing-card" onclick="selectOption('bundle')">
+                    <span class="bundle-badge">BEST VALUE</span>
+                    <h3>All 7 Books Bundle</h3>
+                    <div class="price">$49.99</div>
+                    <p>Save $20! Access all 7 dribble-level books</p>
+                    <button class="purchase-btn" onclick="purchaseBook('bundle')">
+                        Purchase All Books
+                    </button>
+                </div>
+            </div>
+            
+            <a href="/books.html" class="back-link">← Back to All Books</a>
+        </div>
+    </div>
+    
+    <script>
+        // Check if book is already purchased
+        function checkPurchaseStatus() {
+            const bookId = getBookIdFromURL();
+            const purchased = localStorage.getItem(`book-${bookId}-purchased`);
+            const bundlePurchased = localStorage.getItem('bundle-purchased');
+            
+            if (purchased === 'true' || bundlePurchased === 'true') {
+                // Hide paywall, show video
+                document.getElementById('paywall').style.display = 'none';
+                document.getElementById('book-video').removeAttribute('controls');
+                // Video is already visible and playable
+            }
+        }
+        
+        function getBookIdFromURL() {
+            const path = window.location.pathname;
+            const match = path.match(/book-(\d+)/);
+            return match ? match[1] : '1';
+        }
+        
+        function selectOption(option) {
+            document.querySelectorAll('.pricing-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            event.currentTarget.classList.add('selected');
+        }
+        
+        async function purchaseBook(type) {
+            const bookId = getBookIdFromURL();
+            
+            if (type === 'single') {
+                // Process single book purchase
+                await processPayment({
+                    type: 'single',
+                    bookId: bookId,
+                    amount: 9.99,
+                    description: `BallCODE Book ${bookId} - Dribble Level ${bookId}`
+                });
+            } else {
+                // Process bundle purchase
+                await processPayment({
+                    type: 'bundle',
+                    amount: 49.99,
+                    description: 'BallCODE Complete Bundle - All 7 Books'
+                });
+            }
+        }
+        
+        async function processPayment(paymentData) {
+            // This will be integrated with Stripe/PayPal
+            // For now, simulate payment success
+            
+            try {
+                // TODO: Replace with actual Stripe/PayPal integration
+                const response = await fetch('/api/process-payment', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(paymentData)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    // Save purchase status
+                    if (paymentData.type === 'single') {
+                        localStorage.setItem(`book-${paymentData.bookId}-purchased`, 'true');
+                    } else {
+                        localStorage.setItem('bundle-purchased', 'true');
+                        // Mark all books as purchased
+                        for (let i = 1; i <= 7; i++) {
+                            localStorage.setItem(`book-${i}-purchased`, 'true');
+                        }
+                    }
+                    
+                    // Hide paywall, show video
+                    document.getElementById('paywall').style.display = 'none';
+                    alert('Purchase successful! Enjoy your book!');
+                } else {
+                    alert('Payment failed. Please try again.');
+                }
+            } catch (error) {
+                console.error('Payment error:', error);
+                alert('Payment error. Please try again.');
+            }
+        }
+        
+        // Check purchase status on page load
+        checkPurchaseStatus();
+    </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,33 @@
+name: AIMCODE Story-First Score Check
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate Story-First score or override
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.pull_request?.body || "";
+            const scoreMatch = body.match(/Story-First Score:\s*\[?(\d(?:\.\d)?)\]?/i);
+            const overrideMatch = body.match(/Override:\s*\[?(true|false)\]?/i);
+            const hasStoryChecks = /Story-First \(if applicable\)/i.test(body);
+            if (!hasStoryChecks) {
+              core.info("Story-First section not present; skipping.");
+              return;
+            }
+            if (!scoreMatch) {
+              core.setFailed("Story-First Score missing (0–5).");
+              return;
+            }
+            const score = parseFloat(scoreMatch[1]);
+            const override = overrideMatch ? overrideMatch[1].toLowerCase() === "true" : false;
+            if (score < 4 && !override) {
+              core.setFailed("Story-First Score < 4. Set Override: true with rationale to proceed.");
+            } else {
+              core.info("Story-First score check passed.");
+            }
+
+

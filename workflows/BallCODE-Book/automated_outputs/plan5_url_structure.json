@@ -1,0 +1,104 @@
+{
+  "episode": 1,
+  "url_structure": {
+    "story_mode": {
+      "base_url": "https://ballcode.co/story",
+      "parameters": {
+        "episode": {
+          "required": true,
+          "type": "integer",
+          "description": "Episode number (1-12)",
+          "example": "episode=1"
+        },
+        "source": {
+          "required": false,
+          "type": "string",
+          "description": "Source tracking (e.g., 'book', 'website')",
+          "example": "source=book"
+        }
+      },
+      "full_example": "https://ballcode.co/story?episode=1",
+      "full_example_with_tracking": "https://ballcode.co/story?episode=1&source=book",
+      "description": "Links to Unity story mode for specified episode"
+    },
+    "game_mode": {
+      "base_url": "https://ballcode.co/play",
+      "parameters": {
+        "mode": {
+          "required": true,
+          "type": "string",
+          "description": "Game mode type",
+          "options": ["training", "prediction", "math", "block-coding", "ai"],
+          "example": "mode=training"
+        },
+        "episode": {
+          "required": true,
+          "type": "integer",
+          "description": "Episode number (1-12)",
+          "example": "episode=1"
+        },
+        "source": {
+          "required": false,
+          "type": "string",
+          "description": "Source tracking",
+          "example": "source=book"
+        }
+      },
+      "full_example": "https://ballcode.co/play?mode=training&episode=1",
+      "full_example_with_tracking": "https://ballcode.co/play?mode=training&episode=1&source=book",
+      "description": "Links to game mode exercise for specified episode"
+    },
+    "episode_page": {
+      "base_url": "https://ballcode.co",
+      "path": "/episode{number}",
+      "parameters": {},
+      "full_example": "https://ballcode.co/episode1",
+      "description": "Simple web page version of episode (no parameters needed)"
+    }
+  },
+  "episode_mapping": {
+    "1": {
+      "story_mode_url": "https://ballcode.co/story?episode=1",
+      "game_mode_url": "https://ballcode.co/play?mode=training&episode=1",
+      "episode_page_url": "https://ballcode.co/episode1",
+      "game_mode_type": "training",
+      "description": "Episode 1: The Tip-off Trial - State Management"
+    }
+  },
+  "future_episodes": {
+    "2": {
+      "game_mode_type": "prediction",
+      "description": "Episode 2: The If/Then Fork - Conditionals"
+    },
+    "3": {
+      "game_mode_type": "math",
+      "description": "Episode 3: Loop of the Rotating Guardians - Loops"
+    }
+  },
+  "url_patterns": {
+    "story_mode_pattern": "https://ballcode.co/story?episode={episode_number}",
+    "game_mode_pattern": "https://ballcode.co/play?mode={mode_type}&episode={episode_number}",
+    "episode_page_pattern": "https://ballcode.co/episode{episode_number}"
+  },
+  "tracking_parameters": {
+    "source": {
+      "description": "Track where user came from",
+      "values": ["book", "website", "email", "social"],
+      "example": "&source=book"
+    },
+    "campaign": {
+      "description": "Track marketing campaigns",
+      "example": "&campaign=pilot_school_2025"
+    }
+  },
+  "implementation_notes": {
+    "url_encoding": "Use standard URL encoding for parameters",
+    "case_sensitivity": "URLs are case-sensitive, use lowercase",
+    "parameter_order": "Parameter order doesn't matter",
+    "optional_parameters": "Source and campaign parameters are optional"
+  }
+}
+
+
+
+

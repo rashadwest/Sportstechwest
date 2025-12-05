@@ -1,0 +1,31 @@
+{
+  "image_api_key": "your-stability-api-key-here",
+  "voice_api_key": "your-elevenlabs-api-key-here",
+  "unity_project_path": "UnityProject",
+  "image_provider": "stability",
+  "voice_provider": "elevenlabs",
+  
+  "image_settings": {
+    "width": 1024,
+    "height": 768,
+    "cfg_scale": 7,
+    "steps": 30
+  },
+  
+  "voice_settings": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "default_speed": 1.0
+  },
+  
+  "voice_map": {
+    "narrator": "voice_id_narrator",
+    "nova": "voice_id_nova",
+    "coach": "voice_id_coach",
+    "arc": "voice_id_ai_assistant"
+  }
+}
+
+
+
+

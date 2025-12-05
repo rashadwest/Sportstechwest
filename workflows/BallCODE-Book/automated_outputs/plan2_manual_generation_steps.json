@@ -1,0 +1,71 @@
+[
+  {
+    "asset": "Court Map (Center Circle)",
+    "prompt": "Basketball court diagram showing center circle, transition lanes, and half-court line. Stylized with subtle tech/digital elements - grid lines, code-like patterns, blue accents. Clean, modern, kid-friendly illustration. Top-down view.",
+    "specs": {
+      "format": "Vector (SVG) or high-res raster (PNG)",
+      "dimensions": "1200x800px minimum (digital), 300 DPI (print)",
+      "style": "Clean, modern, kid-friendly",
+      "color_scheme": "Traditional court colors (wood/tan) with blue accents"
+    },
+    "tools": [
+      "Glif",
+      "Midjourney",
+      "DALL-E",
+      "Stability AI"
+    ],
+    "steps": [
+      "1. Copy the Glif prompt for Court Map (Center Circle)",
+      "2. Open your preferred image generation tool",
+      "3. Paste the prompt",
+      "4. Set dimensions: 1200x800px minimum (digital), 300 DPI (print)",
+      "5. Generate and save as court_map.png"
+    ]
+  },
+  {
+    "asset": "Shadow Press Scouts (Monster Art)",
+    "prompt": "Shadowy basketball players, dark shifting figures with tech/code elements visible in their shadows. Menacing but kid-friendly villains. Multiple figures (3-5) creating chaos on a basketball court. Dark colors (black, dark gray, dark purple) with subtle blue tech accents. Athletic, lean silhouettes. Cool video game enemy aesthetic, not scary.",
+    "specs": {
+      "format": "Vector (SVG) or high-res raster (PNG)",
+      "dimensions": "1200x1200px minimum (digital), 300 DPI (print)",
+      "style": "Dark, shadowy, but kid-friendly",
+      "transparency": "May need transparent background for overlays"
+    },
+    "tools": [
+      "Glif",
+      "Midjourney",
+      "DALL-E",
+      "Stability AI"
+    ],
+    "steps": [
+      "1. Copy the Glif prompt for Shadow Press Scouts (Monster Art)",
+      "2. Open your preferred image generation tool",
+      "3. Paste the prompt",
+      "4. Set dimensions: 1200x1200px minimum (digital), 300 DPI (print)",
+      "5. Generate and save as shadow_press_scouts.png"
+    ]
+  },
+  {
+    "asset": "State Diagram (Code Visualization)",
+    "prompt": "Flowchart diagram showing four basketball states: START, LIVE, DEAD, OUTCOME. Color-coded boxes with basketball icons. Arrows showing state transitions. Clean, educational, kid-friendly design. Modern flowchart aesthetic with basketball theme.",
+    "specs": {
+      "format": "Vector (SVG) preferred for scalability",
+      "dimensions": "1000x800px minimum (digital), 300 DPI (print)",
+      "style": "Clean, modern, educational",
+      "text": "Clear, readable labels"
+    },
+    "tools": [
+      "Glif",
+      "Midjourney",
+      "DALL-E",
+      "Stability AI"
+    ],
+    "steps": [
+      "1. Copy the Glif prompt for State Diagram (Code Visualization)",
+      "2. Open your preferred image generation tool",
+      "3. Paste the prompt",
+      "4. Set dimensions: 1000x800px minimum (digital), 300 DPI (print)",
+      "5. Generate and save as state_diagram.png"
+    ]
+  }
+]

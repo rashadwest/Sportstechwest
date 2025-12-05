@@ -1,0 +1,33 @@
+BALLCODE Website Header - Clean Nighttime Version
+==================================================
+
+COPY THIS ENTIRE PROMPT INTO YOUR IMAGE GENERATOR:
+
+---
+
+A clean futuristic basketball court at night, outdoor court with visible stars in the dark sky above. 4-5 diverse young children (ages 8-12) playing basketball in blue t-shirts and shorts, some dribbling glowing neon blue basketballs. Dark basketball court surface with subtle glowing neon blue lines marking boundaries and key. Two basketball hoops with glowing blue outlines on left and right sides, softly illuminated.
+
+Nighttime atmosphere with clear starry sky visible in background. Minimal purposeful holographic elements: one or two subtle holographic displays floating above the court showing geometric patterns or data visualizations in neon blue and orange. A single glowing basketball trajectory line or movement path in neon blue. Very clean composition, not cluttered.
+
+Color palette: Deep dark blue night sky (#0A0E27) with visible stars, black court surface (#000000), bright neon blue (#00D4FF, #0099FF) for court lines and holograms, vibrant orange (#FF6B35) accents on holographic elements, pure white (#FFFFFF) for stars and highlights. Minimal color usage, clean and purposeful.
+
+NO TEXT, NO WORDS, NO LABELS - completely text-free image. Focus on the basketball action and subtle futuristic elements.
+
+Style: Clean, minimal, futuristic, nighttime, starry sky, subtle holographic elements, purposeful design, not overloaded, family-friendly, dynamic composition, depth with foreground (children/court) and background (starry sky), soft glowing elements, cinematic nighttime lighting, 16:9 aspect ratio, website header, 4K resolution, professional quality, clean aesthetic.
+
+---
+
+NEGATIVE PROMPT (add this if your generator supports it):
+text, words, labels, cluttered, busy, overloaded, too many elements, daytime, bright background, circuit boards, multiple screens, excessive holograms, blurry, low quality, distorted, watermark, dark and gloomy, scary, violent, inappropriate content, cartoon style, anime style, hand-drawn
+
+---
+
+MIDJOURNEY PARAMETERS:
+--ar 16:9 --style raw --v 6 --stylize 500
+
+---
+
+STABLE DIFFUSION PARAMETERS:
+Steps: 30-50, CFG Scale: 7-9, Sampler: DPM++ 2M Karras
+Negative prompt: text, words, labels, cluttered, busy, overloaded, blurry, low quality, distorted, watermark
+

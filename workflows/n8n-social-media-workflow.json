@@ -1,0 +1,111 @@
+{
+  "name": "Social Media Post Generator",
+  "nodes": [
+    {
+      "parameters": {
+        "databaseId": "={{ $env.NOTION_DATABASE_ID }}",
+        "filter": {
+          "property": "Status",
+          "select": {
+            "equals": "Published"
+          }
+        }
+      },
+      "id": "notion-trigger",
+      "name": "Watch for Published Posts",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "pageId": "={{ $json.page_id }}"
+      },
+      "id": "get-published-post",
+      "name": "Get Published Post",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract key points and generate social posts\nconst post = $input.item.json;\nconst content = post.content || '';\nconst title = post.title || '';\nconst url = `https://sportstechwest.com/blog/${post.slug || ''}`;\n\n// Extract key quotes/insights (first 3-4 sentences or bullet points)\nconst sentences = content.split(/[.!?]+/).filter(s => s.trim().length > 20);\nconst keyPoints = sentences.slice(0, 3).map(s => s.trim());\n\n// Generate Twitter post (280 chars max)\nconst twitterPost = `${title}\n\n${keyPoints[0]}\n\nRead more: ${url}`.substring(0, 280);\n\n// Generate LinkedIn post (up to 3000 chars)\nconst linkedInPost = `${title}\n\n${keyPoints.join(' ')}\n\n${content.substring(0, 2000)}...\n\nRead the full post: ${url}`.substring(0, 3000);\n\n// Generate Instagram post (up to 2200 chars)\nconst instagramPost = `${title}\n\n${keyPoints.join('\\n\\n')}\n\n#SportsTech #Basketball #AI #Innovation\n\nLink in bio 👆`;\n\nreturn {\n  json: {\n    twitter: twitterPost,\n    linkedin: linkedInPost,\n    instagram: instagramPost,\n    url: url,\n    thumbnail: post.thumbnail || '',\n    title: title\n  }\n};"
+      },
+      "id": "generate-social-posts",
+      "name": "Generate Social Posts",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "resource": "create",
+        "additionalFields": {
+          "status": "draft"
+        },
+        "text": "={{ $json.twitter }}",
+        "options": {}
+      },
+      "id": "create-twitter-draft",
+      "name": "Create Twitter Draft",
+      "type": "n8n-nodes-base.twitter",
+      "typeVersion": 1,
+      "position": [850, 200],
+      "credentials": {
+        "twitterOAuth1Api": {
+          "id": "twitter-credentials",
+          "name": "Twitter OAuth1 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "text": "={{ $json.linkedin }}",
+        "visibility": "PUBLIC",
+        "options": {
+          "contentCategory": "ARTICLE",
+          "shareUrl": "={{ $json.url }}"
+        }
+      },
+      "id": "create-linkedin-post",
+      "name": "Create LinkedIn Draft",
+      "type": "n8n-nodes-base.linkedIn",
+      "typeVersion": 1,
+      "position": [850, 300],
+      "credentials": {
+        "linkedInOAuth2Api": {
+          "id": "linkedin-credentials",
+          "name": "LinkedIn OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "message": "New social media posts generated for: {{ $json.title }}\n\nReview and approve before publishing:\n\nTwitter:\n{{ $json.twitter }}\n\nLinkedIn:\n{{ $json.linkedin.substring(0, 200) }}...\n\nInstagram:\n{{ $json.instagram.substring(0, 200) }}..."
+      },
+      "id": "approval-notification",
+      "name": "Send Approval Request",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [1050, 300]
+    }
+  ],
+  "connections": {
+    "Watch for Published Posts": {
+      "main": [[{"node": "Get Published Post"}]]
+    },
+    "Get Published Post": {
+      "main": [[{"node": "Generate Social Posts"}]]
+    },
+    "Generate Social Posts": {
+      "main": [[{"node": "Create Twitter Draft"}, {"node": "Create LinkedIn Draft"}, {"node": "Send Approval Request"}]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
+
+

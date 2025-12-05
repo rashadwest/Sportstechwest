@@ -1,0 +1,117 @@
+{
+  "episode": 1,
+  "episode_title": "The Tip-off Trial",
+  "visual_assets": [
+    {
+      "asset_id": "court_map",
+      "name": "Court Map (Center Circle)",
+      "priority": 1,
+      "description": "Basketball court diagram focused on the center circle area, showing the tip-off position and transition lanes. Stylized to match the 'Data Court' theme with subtle tech/code elements.",
+      "glif_prompt": "Basketball court diagram showing center circle, transition lanes, and half-court line. Stylized with subtle tech/digital elements - grid lines, code-like patterns, blue accents. Clean, modern, kid-friendly illustration. Top-down view.",
+      "technical_specs": {
+        "format": "Vector (SVG) or high-res raster (PNG)",
+        "dimensions": "1200x800px minimum (digital), 300 DPI (print)",
+        "style": "Clean, modern, kid-friendly",
+        "color_scheme": "Traditional court colors (wood/tan) with blue accents"
+      },
+      "key_elements": [
+        "Full basketball court outline",
+        "Center circle prominently featured",
+        "Transition lanes marked (left lane, right lane, middle)",
+        "Half-court line clearly visible",
+        "Three-point arc visible",
+        "Subtle grid lines, code-like patterns, digital aesthetic"
+      ]
+    },
+    {
+      "asset_id": "shadow_press_scouts",
+      "name": "Shadow Press Scouts (Monster Art)",
+      "priority": 2,
+      "description": "Dark, shifting, shadowy figures that create chaos and force turnovers. Menacing but not scary (age-appropriate for grades 3-8).",
+      "glif_prompt": "Shadowy basketball players, dark shifting figures with tech/code elements visible in their shadows. Menacing but kid-friendly villains. Multiple figures (3-5) creating chaos on a basketball court. Dark colors (black, dark gray, dark purple) with subtle blue tech accents. Athletic, lean silhouettes. Cool video game enemy aesthetic, not scary.",
+      "technical_specs": {
+        "format": "Vector (SVG) or high-res raster (PNG)",
+        "dimensions": "1200x1200px minimum (digital), 300 DPI (print)",
+        "style": "Dark, shadowy, but kid-friendly",
+        "transparency": "May need transparent background for overlays"
+      },
+      "key_elements": [
+        "Dark, shadowy humanoid figures",
+        "Shifting, blurry appearance (suggesting movement/chaos)",
+        "Multiple figures (3-5 Scouts shown)",
+        "Basketball-related elements",
+        "Tech/code aesthetic (code fragments visible in shadows)",
+        "Menacing but not terrifying"
+      ],
+      "character_design": {
+        "height": "Slightly taller than average players",
+        "silhouette": "Lean, athletic, shadowy",
+        "features": "Minimal facial features (maybe glowing eyes), shadowy form",
+        "movement": "Should suggest speed and chaos",
+        "color": "Primarily dark (blacks, dark grays, dark purples) with subtle blue/tech accents"
+      }
+    },
+    {
+      "asset_id": "state_diagram",
+      "name": "State Diagram (Code Visualization)",
+      "priority": 3,
+      "description": "Visual diagram showing the four states (START, LIVE, DEAD, OUTCOME) and how they transition. Flowchart or state machine diagram, kid-friendly and basketball-themed.",
+      "glif_prompt": "Flowchart diagram showing four basketball states: START, LIVE, DEAD, OUTCOME. Color-coded boxes with basketball icons. Arrows showing state transitions. Clean, educational, kid-friendly design. Modern flowchart aesthetic with basketball theme.",
+      "technical_specs": {
+        "format": "Vector (SVG) preferred for scalability",
+        "dimensions": "1000x800px minimum (digital), 300 DPI (print)",
+        "style": "Clean, modern, educational",
+        "text": "Clear, readable labels"
+      },
+      "key_elements": [
+        "Four boxes/circles representing states: START, LIVE, DEAD, OUTCOME",
+        "Arrows showing state transitions",
+        "Basketball-themed icons in each state box",
+        "Clear labels for each state",
+        "Color coding: START (Yellow/Gold), LIVE (Green), DEAD (Red), OUTCOME (Blue)"
+      ],
+      "state_transitions": [
+        "START → LIVE",
+        "LIVE → DEAD",
+        "DEAD → LIVE",
+        "LIVE → OUTCOME",
+        "DEAD → OUTCOME",
+        "OUTCOME → START (for next possession)"
+      ]
+    }
+  ],
+  "style_guide": {
+    "theme": "Basketball + Technology/Code",
+    "tone": "Modern, clean, kid-friendly",
+    "color_palette": {
+      "primary": "Basketball court colors (wood/tan, orange)",
+      "tech_accents": "Blue, cyan, electric blue",
+      "shadows_villains": "Dark grays, dark purples, black",
+      "states": {
+        "START": "Yellow/Gold",
+        "LIVE": "Green",
+        "DEAD": "Red",
+        "OUTCOME": "Blue"
+      }
+    },
+    "art_style": [
+      "Clean lines",
+      "Modern, digital aesthetic",
+      "Not overly realistic (stylized)",
+      "Engaging for grades 3-8",
+      "Consistent across all assets"
+    ]
+  },
+  "generation_instructions": {
+    "tools": ["Glif", "Midjourney", "DALL-E", "Stability AI"],
+    "method": "Use provided Glif prompts with any AI image generation tool",
+    "api_integration": "Can use educational_pipeline.py script if API keys available",
+    "manual_generation": "Copy prompts to preferred tool and generate"
+  },
+  "status": "ready_for_generation",
+  "completion_percentage": 50
+}
+
+
+
+

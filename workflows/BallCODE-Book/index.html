@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BallCODE - Teaching STEM Through Basketball</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        /* Navigation */
+        .nav {
+            background: rgba(255,255,255,0.95);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav a:hover {
+            color: #764ba2;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .hero .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .hero .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Books Section */
+        .books-section {
+            background: white;
+            padding: 80px 20px;
+            margin-top: 0;
+        }
+        
+        .books-section h2 {
+            text-align: center;
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        .books-section .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .book-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .book-thumbnail {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .book-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .book-thumbnail::before {
+            content: "📚";
+            font-size: 4em;
+            opacity: 0.3;
+        }
+        
+        .book-thumbnail.has-image::before {
+            display: none;
+        }
+        
+        .book-thumbnail .play-icon {
+            position: absolute;
+            font-size: 3em;
+            color: white;
+            opacity: 0.9;
+            z-index: 2;
+            background: rgba(0,0,0,0.3);
+            border-radius: 50%;
+            padding: 10px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .book-thumbnail .lock-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5em;
+            background: rgba(0,0,0,0.5);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        
+        .password-notice {
+            color: #667eea;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .book-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .book-content h3 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        .book-content p {
+            color: #666;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .book-button {
+            display: block;
+            text-align: center;
+            background: #667eea;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+            margin-top: auto;
+        }
+        
+        .book-button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+        
+        /* Curriculum Books Section */
+        .curriculum-section {
+            background: white;
+            padding: 80px 20px;
+        }
+        
+        .curriculum-section h2 {
+            text-align: center;
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        .curriculum-section .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .curriculum-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid transparent;
+        }
+        
+        .curriculum-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+        
+        .curriculum-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .curriculum-header .book-number {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+        
+        .curriculum-header h3 {
+            font-size: 1.8em;
+            margin: 0;
+            color: white;
+        }
+        
+        .curriculum-header .dribble-name {
+            font-size: 1em;
+            opacity: 0.95;
+            margin-top: 5px;
+        }
+        
+        .curriculum-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .curriculum-content .concept-tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin: 5px 5px 5px 0;
+        }
+        
+        .curriculum-content .description {
+            color: #666;
+            margin: 15px 0;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+        
+        .curriculum-content .learning-points {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .curriculum-content .learning-points strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .curriculum-content .learning-points ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #666;
+        }
+        
+        .curriculum-content .learning-points li {
+            margin: 5px 0;
+        }
+        
+        .curriculum-button {
+            display: block;
+            text-align: center;
+            background: #667eea;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+        
+        .curriculum-button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+        
+        .curriculum-button .button-text {
+            display: block;
+        }
+        
+        .curriculum-button .button-subtext {
+            font-size: 0.85em;
+            opacity: 0.9;
+            margin-top: 3px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: rgba(255,255,255,0.95);
+            padding: 40px 20px;
+            text-align: center;
+            color: #666;
+            margin-top: 0;
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+        }
+        
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            color: #764ba2;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2em;
+            }
+            
+            .curriculum-section h2,
+            .books-section h2 {
+                font-size: 2em;
+            }
+            
+            .curriculum-grid,
+            .books-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .curriculum-header h3 {
+                font-size: 1.5em;
+            }
+            
+            .curriculum-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/episodes">Episodes</a></li>
+                <li><a href="/teachers">For Teachers</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>BallCODE</h1>
+            <p class="subtitle">Teaching STEM Through Basketball</p>
+            <a href="/episodes" class="cta-button">Start Learning</a>
+        </div>
+    </section>
+    
+    <!-- Curriculum Books Section -->
+    <section class="curriculum-section">
+        <div class="container">
+            <h2>BallCODE Curriculum Books</h2>
+            <p class="section-subtitle">Learn AI, Math, and Coding through basketball stories. Each book teaches foundational concepts through Nova's adventures on the court.</p>
+            
+            <div class="curriculum-grid">
+                <!-- Book 1: Pound Dribble -->
+                <div class="curriculum-card">
+                    <div class="curriculum-header">
+                        <div class="book-number">BOOK 1</div>
+                        <h3>The Foundation</h3>
+                        <div class="dribble-name">Pound Dribble</div>
+                    </div>
+                    <div class="curriculum-content">
+                        <div>
+                            <span class="concept-tag">Sequences</span>
+                            <span class="concept-tag">Basic Blocks</span>
+                            <span class="concept-tag">Patterns</span>
+                        </div>
+                        <p class="description">
+                            Nova faces a full-court press that seems impossible to break. Every attempt to advance fails until she realizes the foundation of all dribbling starts with a simple, powerful pound—and discovers that coding, like basketball, begins with the basics.
+                        </p>
+                        <div class="learning-points">
+                            <strong>You'll Learn:</strong>
+                            <ul>
+                                <li>Basic sequences and patterns</li>
+                                <li>Foundation blocks in coding</li>
+                                <li>How simple blocks create movement</li>
+                                <li>Counting and basic arithmetic</li>
+                            </ul>
+                        </div>
+                        <a href="/play?mode=curriculum&tutorial=1" class="curriculum-button">
+                            <span class="button-text">Play Curriculum Tutorial 1</span>
+                            <span class="button-subtext">Practice in the game →</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Book 2: Crossover Dribble -->
+                <div class="curriculum-card">
+                    <div class="curriculum-header">
+                        <div class="book-number">BOOK 2</div>
+                        <h3>The Decision</h3>
+                        <div class="dribble-name">Crossover Dribble</div>
+                    </div>
+                    <div class="curriculum-content">
+                        <div>
+                            <span class="concept-tag">If/Then Logic</span>
+                            <span class="concept-tag">Conditionals</span>
+                            <span class="concept-tag">Decision Trees</span>
+                        </div>
+                        <p class="description">
+                            Nova faces a defender who reads every move. She can't get past because the defender predicts her direction. She learns that the crossover—changing direction based on what the defense shows—is like coding's "if/then" logic: if the defense goes left, then crossover right.
+                        </p>
+                        <div class="learning-points">
+                            <strong>You'll Learn:</strong>
+                            <ul>
+                                <li>If/then conditional logic</li>
+                                <li>Making decisions in code</li>
+                                <li>Reading and reacting to conditions</li>
+                                <li>Probability and decision making</li>
+                            </ul>
+                        </div>
+                        <a href="/play?mode=curriculum&tutorial=2" class="curriculum-button">
+                            <span class="button-text">Play Curriculum Tutorial 2</span>
+                            <span class="button-subtext">Practice in the game →</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Book 3: In & Out Dribble -->
+                <div class="curriculum-card">
+                    <div class="curriculum-header">
+                        <div class="book-number">BOOK 3</div>
+                        <h3>The Pattern</h3>
+                        <div class="dribble-name">In & Out Dribble</div>
+                    </div>
+                    <div class="curriculum-content">
+                        <div>
+                            <span class="concept-tag">Loops</span>
+                            <span class="concept-tag">Repetition</span>
+                            <span class="concept-tag">Pattern Breaking</span>
+                        </div>
+                        <p class="description">
+                            Nova faces a defender who reacts to every fake. She tries simple fakes, but the defender doesn't fall for them. She learns that the in & out dribble—a fake one way, then back the other—is like a loop: repeat the pattern, then break it at the perfect moment.
+                        </p>
+                        <div class="learning-points">
+                            <strong>You'll Learn:</strong>
+                            <ul>
+                                <li>Loop structures and repetition</li>
+                                <li>Creating and breaking patterns</li>
+                                <li>When to repeat and when to change</li>
+                                <li>Sequence patterns in code</li>
+                            </ul>
+                        </div>
+                        <a href="/play?mode=curriculum&tutorial=3" class="curriculum-button">
+                            <span class="button-text">Play Curriculum Tutorial 3</span>
+                            <span class="button-subtext">Practice in the game →</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Books Section (Bottom of Page) -->
+    <section class="books-section">
+        <div class="container">
+            <h2>BallCODE Books</h2>
+            <p class="section-subtitle">Learn AI, Math, and Coding through basketball stories. Watch our interactive video books and then practice what you've learned in the game!</p>
+            
+            <div class="books-grid">
+                <!-- Book 1: The Foundation Block -->
+                <div class="book-card">
+                    <div class="book-thumbnail has-image">
+                        <img src="/images/book1-title-page.jpg" alt="Book 1: The Foundation Block" style="width: 100%; height: 100%; object-fit: cover;">
+                        <span class="play-icon">▶</span>
+                        <span class="status-badge" style="position: absolute; top: 10px; right: 10px; background: #34C759; color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.85em; font-weight: bold; z-index: 3;">Available</span>
+                    </div>
+                    <div class="book-content">
+                        <h3>Book 1: The Foundation Block</h3>
+                        <p>Learn sequences and basic blocks through Nova's adventure breaking the press. Discover why fundamentals matter in basketball and how to code the most simple sequences.</p>
+                        <p style="color: #667eea; font-weight: bold; margin: 10px 0;">$5</p>
+                        <a href="https://9768426137106.gumroad.com/l/gxgzv" target="_blank" class="book-button">Buy Book 1 →</a>
+                        <p style="font-size: 0.85em; color: #999; margin-top: 10px;">After purchase, practice in the game: Ballcode mode → Curriculum → Play → #1</p>
+                    </div>
+                </div>
+                
+                <!-- Book 2: The Code of Flow (Coming Soon) -->
+                <div class="book-card">
+                    <div class="book-thumbnail">
+                        <span class="play-icon">▶</span>
+                        <span class="status-badge" style="position: absolute; top: 10px; right: 10px; background: #FF9500; color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.85em; font-weight: bold;">Coming Soon</span>
+                    </div>
+                    <div class="book-content">
+                        <h3>Book 2: The Code of Flow</h3>
+                        <p>Learn if/then logic through Nova's one-on-one challenge. Discover how to make smart decisions based on what you see—just like coding uses conditional logic.</p>
+                        <p style="color: #667eea; font-weight: bold; margin: 10px 0;">$5</p>
+                        <a href="#" class="book-button" style="opacity: 0.6; cursor: not-allowed;">Coming Soon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p><strong>BallCODE</strong> - Teaching STEM Through Basketball</p>
+            <p>For questions or support, visit <a href="https://ballcode.co">ballcode.co</a> or contact your teacher</p>
+        </div>
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,100 @@
+{
+  "levels": [
+    {
+      "levelId": "book1_foundation_block",
+      "levelName": "Foundation Block Exercise",
+      "description": "Practice creating sequences with Block 1 (Pound Dribble). Learn that coding starts with simple, repeatable blocks.",
+      "gameMode": "blockcoding",
+      "episodeNumber": 0,
+      "codingConcept": "basic_blocks_sequences",
+      "videoPath": "",
+      "videoConfig": {
+        "autoPlay": true,
+        "loop": false,
+        "playbackSpeed": 1.0,
+        "allowSeeking": true,
+        "startTime": 0.0,
+        "endTime": -1.0,
+        "pausePoints": [],
+        "analysisPoints": []
+      },
+      "strategy": {
+        "strategyName": "Foundation Block Sequence",
+        "strategyType": "offensive",
+        "description": "Use Block 1 (Pound Dribble) repeatedly to create a sequence. START → Block 1 → Block 1 → Block 1 → ADVANCE.",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "action": "Start with Block 1 (Pound Dribble)",
+            "codeEquivalent": "START → BLOCK_1_POUND",
+            "timing": 0.0,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 2,
+            "action": "Repeat Block 1",
+            "codeEquivalent": "BLOCK_1_POUND",
+            "timing": 0.5,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 3,
+            "action": "Repeat Block 1 again",
+            "codeEquivalent": "BLOCK_1_POUND",
+            "timing": 1.0,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 4,
+            "action": "Advance forward",
+            "codeEquivalent": "ADVANCE",
+            "timing": 1.5,
+            "playerPositions": []
+          }
+        ],
+        "keyConcepts": ["basic_blocks", "sequences", "repetition"],
+        "basketballConcepts": ["pound_dribble", "foundation_move"],
+        "diagramPath": "",
+        "showCourtDiagram": false
+      },
+      "learningObjectives": [
+        "Understand that coding starts with simple, repeatable blocks",
+        "Practice creating sequences by repeating foundation blocks",
+        "Learn that Block 1 (Pound) can be repeated to create sequences",
+        "Build code blocks to represent basketball actions"
+      ],
+      "successCriteria": [
+        "Correctly drag Block 1 (Pound) at least 3 times",
+        "Create a sequence: START → Block 1 → Block 1 → Block 1 → ADVANCE",
+        "Complete exercise with 70% or higher score",
+        "Demonstrate understanding through interactive practice"
+      ],
+      "difficultyLevel": 1,
+      "prerequisiteLevels": [],
+      "isUnlocked": true,
+      "exercise": {
+        "exerciseType": "BlockCoding",
+        "blockCoding": {
+          "availableBlocks": ["START", "BLOCK_1_POUND", "ADVANCE", "REPEAT"],
+          "requiredBlocks": ["BLOCK_1_POUND"],
+          "targetCode": "START → BLOCK_1_POUND → BLOCK_1_POUND → BLOCK_1_POUND → ADVANCE",
+          "allowCustomBlocks": false
+        },
+        "scoring": {
+          "maxScore": 100,
+          "passingScore": 70,
+          "showScoreDuringExercise": false,
+          "allowRetry": true,
+          "maxAttempts": 3
+        }
+      },
+      "author": "BallCODE Book Integration",
+      "createdDate": "2025-11-26",
+      "tags": ["book1", "foundation", "basic_blocks", "sequences", "pound_dribble"]
+    }
+  ],
+  "version": "1.0",
+  "lastUpdated": "2025-11-26"
+}
+
+

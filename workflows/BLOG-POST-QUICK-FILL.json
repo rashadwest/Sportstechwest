@@ -1,0 +1,38 @@
+{
+  "title": "Your Blog Post Title Here",
+  "description": "SEO-friendly description (150-160 characters) - leave blank for AI to generate",
+  "tags": ["tag1", "tag2", "tag3"],
+  "category": "Insights",
+  "notes": "Your initial thoughts, outline, or draft content here. AI will expand this into a complete blog post.",
+  "desiredDate": "2025-MM-DD",
+  "images": [
+    {
+      "type": "thumbnail",
+      "description": "What should the thumbnail show?",
+      "prompt": "Detailed image generation prompt for Glif",
+      "location": "featured"
+    },
+    {
+      "type": "content",
+      "description": "What should this image show?",
+      "prompt": "Detailed image generation prompt",
+      "location": "After '[Section Name]'",
+      "filename": ""
+    }
+  ],
+  "socialMedia": {
+    "twitter": "",
+    "linkedin": "",
+    "instagram": ""
+  },
+  "settings": {
+    "badge_color": "text-bg-primary",
+    "trending": false,
+    "simple_nav": true
+  },
+  "status": "Draft"
+}
+
+
+
+

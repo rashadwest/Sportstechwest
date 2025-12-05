@@ -1,0 +1,115 @@
+{
+  "name": "Blog Post Publishing Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "databaseId": "={{ $env.NOTION_DATABASE_ID }}",
+        "filter": {
+          "property": "Status",
+          "select": {
+            "equals": "Ready to Publish"
+          }
+        }
+      },
+      "id": "notion-trigger",
+      "name": "Watch Notion for Ready Posts",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "pageId": "={{ $json.page_id }}"
+      },
+      "id": "get-notion-page",
+      "name": "Get Full Page Content",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Convert Notion content to Jekyll markdown\nconst content = $input.item.json;\n\n// Extract front matter\nconst frontMatter = `---\nlayout: post\ntitle: \"${content.title}\"\ndescription: \"${content.description}\"\nthumbnail: \"${content.thumbnail}\"\nbadge_color: \"${content.badge_color}\"\ntrending: ${content.trending}\nsimple_nav: ${content.simple_nav}\ndate: ${content.date}\ntags: [${content.tags.join(', ')}]\ncategories: [${content.categories.join(', ')}]\nauthor: \"${content.author}\"\n---\n\n`;\n\n// Extract body content\nconst bodyContent = content.content || '';\n\n// Combine\nconst markdown = frontMatter + bodyContent;\n\nreturn {\n  json: {\n    markdown: markdown,\n    filename: `${content.date}-${content.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.md`,\n    images: content.images || []\n  }\n};"
+      },
+      "id": "format-markdown",
+      "name": "Format as Jekyll Markdown",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "={{ $json.filename }}",
+        "fileContent": "={{ $json.markdown }}",
+        "options": {}
+      },
+      "id": "write-to-posts",
+      "name": "Write to _posts/",
+      "type": "n8n-nodes-base.fs",
+      "typeVersion": 1,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "options": {
+          "download": true
+        }
+      },
+      "id": "download-image",
+      "name": "Download Image from Glif",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [850, 450]
+    },
+    {
+      "parameters": {
+        "operation": "copy",
+        "source": "={{ $json.filePath }}",
+        "destination": "/assets/images/blog-img/{{ $json.filename }}"
+      },
+      "id": "move-image",
+      "name": "Move Image to blog-img/",
+      "type": "n8n-nodes-base.fs",
+      "typeVersion": 1,
+      "position": [1050, 450]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "pageId": "={{ $('Watch Notion for Ready Posts').item.json.page_id }}",
+        "updateFields": {
+          "Status": {
+            "select": "Published"
+          }
+        }
+      },
+      "id": "update-notion-status",
+      "name": "Update Notion Status",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 1,
+      "position": [1050, 300]
+    }
+  ],
+  "connections": {
+    "Watch Notion for Ready Posts": {
+      "main": [[{"node": "Get Full Page Content"}]]
+    },
+    "Get Full Page Content": {
+      "main": [[{"node": "Format as Jekyll Markdown"}]]
+    },
+    "Format as Jekyll Markdown": {
+      "main": [[{"node": "Write to _posts/"}]]
+    },
+    "Write to _posts/": {
+      "main": [[{"node": "Update Notion Status"}]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
+
+

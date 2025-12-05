@@ -1,0 +1,22 @@
+# BallCODE-Book Python Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core dependencies (required for most scripts)
+opencv-python>=4.8.0  # Video processing and frame extraction (extract_frames.py, analyze_frames.py)
+numpy>=1.24.0  # Array operations (analyze_frames.py)
+
+# API dependencies (required for API-based scripts)
+requests>=2.31.0  # HTTP requests (educational_pipeline.py, plan2_visual_generator.py)
+
+# Optional dependencies (install if needed for specific scripts)
+# For analyze_game_screenshots.py - choose one:
+# openai>=1.0.0  # OpenAI GPT-4 Vision API (optional - install if using OpenAI)
+# anthropic>=0.18.0  # Anthropic Claude Vision API (optional - install if using Anthropic)
+
+# QR Code generation (plan5_qrcode_generator.py)
+qrcode[pil]>=7.4.0  # QR code generation with PIL image support
+
+# Note: Standard library imports (os, json, pathlib, typing, argparse, base64, datetime, re, sys)
+# are included in Python and don't need to be installed
+
+

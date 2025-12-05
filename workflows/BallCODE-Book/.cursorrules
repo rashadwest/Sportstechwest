@@ -1,0 +1,885 @@
+# BallCODE Book Project Development Standards
+
+**PROJECT IDENTIFIER:** `BALLCODE-BOOK-2025-RULES-v2.0`  
+**Project:** BallCODE Book - AI + Math Storytelling Through Basketball  
+**Repository:** BallCODE-Book  
+**Last Updated:** December 2025  
+**Unique ID:** BCB-RULES-2025-12-AIMCODE-WORKFLOW
+
+---
+
+## Golden Principles
+
+1. **Clarity over Cleverness**: Code should be readable and maintainable. Future you (and collaborators) should understand it immediately.
+2. **Complete Before Moving On**: Always fully complete the code in any TODO situation. Finish all of one task before moving on to the next.
+3. **Security by Default**: Never commit secrets, validate inputs, handle errors gracefully.
+4. **Tests as Requirements**: Critical functionality requires tests. Tests document expected behavior.
+5. **Documentation is Code**: Features aren't complete without documentation.
+
+## Task Completion Rules
+
+### ✅ CRITICAL: Complete TODOs and Finish Tasks
+
+- **NEVER leave TODO comments in code** - Always fully implement the functionality
+- **NEVER start a new task until the current one is 100% complete**
+- **Complete means**: Code written, tested (if applicable), documented, and verified working
+- If a task requires multiple steps, complete ALL steps before moving to the next task
+- If you encounter a TODO, treat it as a blocker - resolve it immediately
+
+### ❌ WRONG: Leaving TODOs
+```python
+def process_video():
+    # TODO: Add error handling
+    # TODO: Implement frame extraction
+    pass
+```
+
+### ✅ CORRECT: Complete Implementation
+```python
+def process_video(video_path: str) -> List[np.ndarray]:
+    """Extract frames from video file.
+    
+    Args:
+        video_path: Path to video file
+        
+    Returns:
+        List of frame arrays
+        
+    Raises:
+        FileNotFoundError: If video file doesn't exist
+        ValueError: If video format is unsupported
+    """
+    if not os.path.exists(video_path):
+        raise FileNotFoundError(f"Video not found: {video_path}")
+    
+    frames = []
+    cap = cv2.VideoCapture(video_path)
+    
+    try:
+        while True:
+            ret, frame = cap.read()
+            if not ret:
+                break
+            frames.append(frame)
+    finally:
+        cap.release()
+    
+    return frames
+```
+
+## Tooling Baseline
+
+### Languages & Frameworks
+- **Python**: 3.8+ (for video analysis scripts)
+- **C#**: Unity 2021.3+ (for Unity scripts)
+- **Markdown**: For documentation and story content
+- **Jekyll**: For blog/documentation site (if applicable)
+
+### Key Dependencies
+- **OpenCV** (cv2): Video processing and frame extraction
+- **NumPy**: Array operations
+- **Unity**: Game engine for BallCODE game integration
+
+## Project Structure
+
+### File Organization
+
+```
+BallCODE-Book/
+├── Unity-Scripts/          # C# Unity scripts (PascalCase.cs)
+├── video_frames/           # Extracted video frames
+├── My Books/               # Book content and screenshots
+├── BallCODE Strategy Game/ # Game assets and documents
+├── *.py                    # Python analysis scripts (snake_case.py)
+├── *.md                    # Documentation and story content
+└── .cursorrules            # This file
+```
+
+### Naming Conventions
+
+- **Python files**: `snake_case.py` (e.g., `analyze_frames.py`, `extract_frames.py`)
+- **C# Unity scripts**: `PascalCase.cs` (e.g., `GameModeManager.cs`, `StoryData.cs`)
+- **Markdown files**: `PascalCase-With-Hyphens.md` (e.g., `Story-Chapter-Breakdowns.md`)
+- **Directories**: `PascalCase-With-Hyphens/` or `snake_case/`
+
+## Python Patterns
+
+### ✅ CORRECT: Error Handling
+```python
+import cv2
+import os
+from typing import List, Optional
+import numpy as np
+
+def extract_frames(video_path: str, output_dir: str) -> List[str]:
+    """Extract frames from video with proper error handling."""
+    if not os.path.exists(video_path):
+        raise FileNotFoundError(f"Video not found: {video_path}")
+    
+    os.makedirs(output_dir, exist_ok=True)
+    
+    cap = cv2.VideoCapture(video_path)
+    if not cap.isOpened():
+        raise ValueError(f"Cannot open video: {video_path}")
+    
+    frame_paths = []
+    frame_count = 0
+    
+    try:
+        while True:
+            ret, frame = cap.read()
+            if not ret:
+                break
+            
+            frame_path = os.path.join(output_dir, f"frame_{frame_count:04d}.png")
+            cv2.imwrite(frame_path, frame)
+            frame_paths.append(frame_path)
+            frame_count += 1
+    finally:
+        cap.release()
+    
+    return frame_paths
+```
+
+### ❌ WRONG: Missing Error Handling
+```python
+def extract_frames(video_path, output_dir):
+    cap = cv2.VideoCapture(video_path)  # No error checking
+    frame_count = 0
+    while True:
+        ret, frame = cap.read()
+        if not ret:
+            break
+        cv2.imwrite(f"{output_dir}/frame_{frame_count}.png", frame)
+        frame_count += 1
+    # No cleanup, no error handling
+```
+
+### ✅ CORRECT: Type Hints
+```python
+from typing import List, Dict, Optional, Tuple
+
+def analyze_frame(frame: np.ndarray) -> Dict[str, float]:
+    """Analyze frame and return metrics."""
+    height, width = frame.shape[:2]
+    return {
+        "width": float(width),
+        "height": float(height),
+        "aspect_ratio": width / height
+    }
+```
+
+## Unity C# Patterns
+
+### ✅ CORRECT: Unity Script Structure
+```csharp
+using UnityEngine;
+using System.Collections.Generic;
+
+public class StoryModeManager : MonoBehaviour
+{
+    [SerializeField] private StoryData storyData;
+    [SerializeField] private int currentEpisode = 1;
+    
+    private void Start()
+    {
+        if (storyData == null)
+        {
+            Debug.LogError("StoryData is not assigned!");
+            return;
+        }
+        
+        InitializeStoryMode();
+    }
+    
+    private void InitializeStoryMode()
+    {
+        // Complete implementation here
+    }
+}
+```
+
+### ❌ WRONG: Incomplete Implementation
+```csharp
+public class StoryModeManager : MonoBehaviour
+{
+    // TODO: Add story data reference
+    // TODO: Implement initialization
+    // TODO: Handle episode loading
+}
+```
+
+## Markdown Documentation Standards
+
+### Story Content Format
+- Use proper heading hierarchy (`#`, `##`, `###`)
+- Separate sections with horizontal rules (`---`)
+- Use code blocks for technical content
+- Include front matter for Jekyll posts (if applicable)
+
+### ✅ CORRECT: Story Documentation
+```markdown
+## Episode 1: The Tip-off Trial
+
+### Premise
+Win first advantage by managing possession state from tip through transition.
+
+### Story Beats
+- Act I: Meet the crew; tip-off chaos
+- Act II: Shadow Press Scouts force turnovers
+- Act III: Controlled outlet → fill lanes
+
+---
+```
+
+## Error Handling & Async Patterns
+
+### Python Async Operations
+- Always use try/except for file operations
+- Always use try/except for video processing
+- Always use try/except for network operations (if any)
+- Release resources in finally blocks
+
+### ✅ CORRECT: Resource Management
+```python
+def process_video_safe(video_path: str):
+    cap = None
+    try:
+        cap = cv2.VideoCapture(video_path)
+        if not cap.isOpened():
+            raise ValueError("Cannot open video")
+        # Process video
+    except Exception as e:
+        print(f"Error processing video: {e}")
+        raise
+    finally:
+        if cap is not None:
+            cap.release()
+```
+
+## Security Baseline
+
+- **Never commit secrets**: Use environment variables or config files (excluded from git)
+- **Validate inputs**: Check file paths, video formats, user inputs
+- **Handle errors gracefully**: Don't expose internal errors to users
+- **File operations**: Check file existence, permissions, and handle errors
+
+## Documentation Requirements
+
+### Code Documentation
+- All public functions require docstrings
+- Include parameter types and return types
+- Document exceptions that may be raised
+- Include usage examples for complex functions
+
+### ✅ CORRECT: Function Documentation
+```python
+def extract_frames(
+    video_path: str,
+    output_dir: str,
+    frame_interval: int = 1
+) -> List[str]:
+    """Extract frames from video file at specified interval.
+    
+    Args:
+        video_path: Path to input video file
+        output_dir: Directory to save extracted frames
+        frame_interval: Extract every Nth frame (default: 1 = all frames)
+        
+    Returns:
+        List of paths to extracted frame files
+        
+    Raises:
+        FileNotFoundError: If video file doesn't exist
+        ValueError: If video cannot be opened or frame_interval < 1
+        
+    Example:
+        >>> frames = extract_frames("video.mp4", "output/", frame_interval=30)
+        >>> len(frames)  # Number of frames extracted
+    """
+```
+
+## AI Assistant Guidelines
+
+### Code Change Verification
+- **NEVER claim a change without implementing it**
+- Always verify changes after making them
+- Use proper tools (`search_replace`, `write`, etc.)
+- Read files after modifications to confirm changes
+
+### File Creation Rules
+- Before creating ANY file, check if it exists
+- Follow naming conventions strictly
+- Place files in correct directories according to project structure
+- Never create files in project root unless explicitly needed
+
+### Task Completion
+- **Complete one task fully before starting another**
+- If a task has multiple parts, complete ALL parts
+- Remove all TODO comments by implementing the functionality
+- Verify the implementation works before marking task complete
+
+### Code Review Before Committing
+- All code must be complete (no TODOs)
+- All functions must have proper error handling
+- All public functions must have documentation
+- All changes must be tested (manually or with tests)
+
+## AIMCODE Workflow Process (MANDATORY)
+
+**CRITICAL: Every task MUST follow this workflow in order. This is non-negotiable.**
+
+### Phase 1: CLEAR Framework (ALWAYS START HERE)
+**Purpose:** Establish clear context, objectives, and requirements before beginning any work.
+
+**AI Assistant MUST:**
+1. **Always start with CLEAR Framework** - Use CLEAR prompt at the start of EVERY task
+2. **Ask for clarification if context is unclear** - Never proceed with assumptions
+3. **Establish alignment** - Ensure understanding before moving to next phase
+
+**CLEAR Framework Definition:**
+- **C** - **Clarity**: Ensure objectives, processes, and expectations are clearly defined and communicated
+- **L** - **Logic**: Apply logical reasoning and structured thinking to develop coherent strategies
+- **E** - **Examples**: Utilize relevant examples and case studies to illustrate concepts
+- **A** - **Adaptation**: Remain flexible and adapt strategies to address challenges and changing circumstances
+- **R** - **Results**: Focus on measurable outcomes to assess success and inform future initiatives
+
+**Research Foundation:**
+The CLEAR framework is supported by peer-reviewed research:
+- **Clarity**: Clear communication significantly impacts effectiveness (BMC Health Services Research, 2023)
+- **Logic**: Logical reasoning enhances implementation and evaluation (PubMed, 2019)
+- **Examples**: Concrete examples improve comprehension and application (PMC, 2017)
+- **Adaptation**: Flexibility enhances relevance and effectiveness (Academic OUP, 2019)
+- **Results**: Measurable outcomes ensure objectives are met (Frontiers in Health Services, 2025)
+
+**Example CLEAR Prompt:**
+```
+C - Clarity: What are the clear objectives? What needs to be clearly defined?
+L - Logic: What is the logical approach? How do we structure this systematically?
+E - Examples: What examples or case studies illustrate this concept?
+A - Adaptation: How do we remain flexible? What adaptations might be needed?
+R - Results: What are the measurable outcomes? How will we assess success?
+```
+
+### Phase 2: Alpha Evolve (Hassabis - Systematic Deep Learning)
+**Purpose:** Apply systematic, layered learning approach to build deep understanding.
+
+**AI Assistant MUST:**
+1. **Follow the complete Alpha Evolve cycle** - Build concepts layer by layer
+2. **Ensure mastery before moving forward** - Each layer must be solid before next layer
+3. **Connect concepts to form systems** - Systems thinking emphasized
+4. **Prioritize deep understanding** - Deep understanding > surface knowledge
+
+**Alpha Evolve Process:**
+- Identify foundational concepts (layer 1)
+- Build systematically on previous layers
+- Ensure mastery before moving forward
+- Connect concepts to form integrated systems
+- Apply deep learning principles
+
+### Phase 3: PhD-Level Peer-Reviewed Research
+**Purpose:** Ground all work in academic rigor and evidence-based practices.
+
+**AI Assistant MUST:**
+1. **Conduct PhD-level research with citations** - Search for peer-reviewed papers
+2. **Reference leading researchers** - Identify top researchers and their methodologies
+3. **Synthesize findings** - Apply research from multiple academic sources
+4. **Document sources** - Include citations and rationale
+
+**Research Domains:**
+- Educational psychology (learning theory)
+- AI/ML education (pedagogical approaches)
+- Constructionist learning (Resnick, Papert)
+- Narrative-based learning (Zhang)
+- Child development (Reggio Emilia)
+
+### Phase 4: Expert Consultation (AIMCODE Advisory Board)
+**Purpose:** Leverage expertise from AIMCODE advisors to enhance and refine work.
+
+**AI Assistant MUST:**
+1. **Apply expert insights** - Reference AIMCODE advisory board principles:
+   - **Chao Zhang** - Story-first approach, basketball framework
+   - **Mitchel Resnick** - Constructionist activities, building focus
+   - **Reggio Emilia** - Multiple entry points, child agency
+   - **Demis Hassabis (Alpha Evolve)** - Systems thinking, deep learning
+   - **Steve Jobs** - Simplicity, beautiful design
+2. **Ask expert questions** - "What would [Expert] recommend here?"
+3. **Apply expert methodologies** - Ensure work aligns with best practices
+4. **Enhance knowledge and flow** - Use expert insights to improve project
+
+**Expert Questions to Ask:**
+- "Would Zhang start with basketball action?"
+- "Would Resnick have students build something?"
+- "Would Reggio provide multiple entry points?"
+- "Would Hassabis ensure systematic progression?"
+- "Would Jobs make it simple and beautiful?"
+
+**Workflow Enforcement:**
+- ❌ **NEVER skip CLEAR Framework** - Always start here
+- ❌ **NEVER proceed without clarification** - Ask if context is unclear
+- ❌ **NEVER skip research phase** - Always ground in peer-reviewed evidence
+- ❌ **NEVER skip expert consultation** - Always apply AIMCODE principles
+- ❌ **NEVER skip Alpha Evolve cycle** - Always build systematically
+
+**Reference:** See `AIMCODE-METHODOLOGY.md` for complete methodology details
+
+---
+
+## Project-Specific Rules
+
+### BallCODE Book Project
+- Story content follows the structure defined in `CURSOR-PROFILE-CONTEXT.md`
+- Unity scripts integrate with existing BallCODE game system
+- Python scripts for video analysis should be reusable and well-documented
+- All documentation should reference the Character & World Bible when relevant
+
+### Curriculum Ideology Consistency (MANDATORY)
+
+**CRITICAL: All game and book work MUST use the same curriculum ideology and be streamlined across all systems.**
+
+**This rule applies to:**
+- ✅ All book development (outlines, stories, production)
+- ✅ All game development (Unity scripts, exercises, integration)
+- ✅ All website development (book pages, curriculum displays, pathways)
+- ✅ All integration work (book → game → Python connections)
+- ✅ All documentation (curriculum maps, user journeys, sales materials)
+
+**Curriculum Ideology Framework:**
+The curriculum follows a **Three-Phase Learning Pathway** that MUST be consistently applied:
+
+1. **Phase 1: Sports Language (Block Coding)**
+   - Students learn concepts using basketball terminology
+   - Visual block interface (no typing required)
+   - Basketball terminology makes concepts accessible
+
+2. **Phase 2: Transition Bridge**
+   - Students see blocks → Python code connection
+   - Side-by-side comparison: Block | Python
+   - Understanding: "Blocks = Code"
+
+3. **Phase 3: Python Learning**
+   - Students write actual Python code
+   - Same concepts, different representation
+   - Real-world programming skills
+
+**Mandatory Consistency Requirements:**
+
+**For ALL Books:**
+- Every book MUST show Phase 1 → Phase 2 → Phase 3 progression
+- Every book MUST connect to specific game exercises
+- Every book MUST map to grade levels (3-5, 6-8, 9-12)
+- Every book MUST align with curriculum standards (CSTA, Common Core, NGSS)
+
+**For ALL Game Exercises:**
+- Every exercise MUST connect to a specific book
+- Every exercise MUST show block coding (Phase 1)
+- Every exercise MUST provide Python code connection (Phase 2 → Phase 3)
+- Every exercise MUST align with curriculum learning objectives
+
+**For ALL Website Pages:**
+- Every book page MUST display curriculum pathway (Phase 1 → 2 → 3)
+- Every book page MUST show game exercise connection
+- Every book page MUST indicate grade-level progression
+- Every curriculum page MUST show complete learning pathway
+
+**For ALL Integration Work:**
+- Book → Game → Python flow MUST be visible and clear
+- Curriculum connections MUST be consistent across all systems
+- Grade-level progression MUST be uniform
+- Learning objectives MUST align across books, games, and website
+
+**Reference Documents (MUST CONSULT):**
+- `ENHANCED-PYTHON-CURRICULUM-COMPLETE.md` - Complete curriculum framework
+- `Book-3-Curriculum-Integration-Map.md` - Example of curriculum mapping
+- `CURRICULUM-SHOWCASE-COMPLETE.md` - Complete integration examples
+- `PYTHON-CURRICULUM-STRUCTURE.md` - Curriculum structure overview
+
+**Before Starting ANY Game or Book Work:**
+1. **Review curriculum framework** - Understand three-phase pathway
+2. **Check existing mappings** - Ensure consistency with other books/games
+3. **Verify grade-level alignment** - Match appropriate level (3-5, 6-8, 9-12)
+4. **Confirm standards alignment** - CSTA, Common Core, NGSS
+5. **Validate integration points** - Book → Game → Python connections
+
+**AI Assistant MUST:**
+- ✅ Always reference curriculum framework when working on books/games
+- ✅ Always ensure three-phase pathway is visible
+- ✅ Always verify consistency with existing curriculum mappings
+- ✅ Always check grade-level appropriateness
+- ✅ Always validate integration connections
+- ❌ NEVER create book/game content without curriculum alignment
+- ❌ NEVER skip curriculum pathway display
+- ❌ NEVER create inconsistent learning objectives
+
+**Example of CORRECT Approach:**
+```markdown
+## Book 3: The Pattern
+
+### Curriculum Connection:
+- **Phase 1 (Blocks):** REPEAT [fake left] 3 TIMES, THEN [go right]
+- **Phase 2 (Bridge):** See blocks → Python `for` loop connection
+- **Phase 3 (Python):** Write `for i in range(3): fake_left()`
+
+### Game Exercise:
+- Exercise: "Deception Loop Challenge"
+- URL: `ballcode.co/play?book=3&exercise=deception-loop`
+- Block coding → Python code shown
+
+### Grade Levels:
+- Grades 3-5: Pattern recognition, repetition counting
+- Grades 6-8: Python `for` loops with `range()`
+- Grades 9-12: Advanced loop structures
+```
+
+**Example of WRONG Approach:**
+```markdown
+## Book 3: The Pattern
+
+### Content:
+- Story about loops
+- No curriculum connection shown ❌
+- No game exercise mapping ❌
+- No grade-level indication ❌
+```
+
+**Enforcement:**
+- This rule is MANDATORY for all game and book work
+- No exceptions - curriculum ideology must be consistent
+- All systems must use the same framework
+- All documentation must reflect curriculum alignment
+
+**Memory:** This rule ensures that every book, game exercise, website page, and integration point uses the same curriculum ideology, creating a streamlined, consistent learning experience across all systems.
+
+### Basketball Story Framework (CRITICAL)
+**Basketball stories are the FRAMEWORK, not the subject being taught.**
+
+- **Basketball = Framework/Vehicle** - The engaging narrative that makes learning accessible
+- **AI + Math + Coding = What Students Learn** - Concepts taught through basketball stories
+- **Every episode must:**
+  1. Start with basketball action/situation (not concept explanation)
+  2. Show AI/math/coding concepts emerging FROM basketball needs
+  3. Follow 3-act structure: Act I (setup/problem), Act II (struggle/learning), Act III (resolution/success)
+  4. Make basketball success the proof of concept mastery
+  5. Keep story engaging and adventurous (70% story, 30% skill inserts)
+
+**Story Writing Rules:**
+- ✅ DO: Start with basketball action, use basketball terminology naturally, show concepts solving basketball problems
+- ❌ DON'T: Start with "Today we're learning about X", explain concepts before basketball context, make basketball secondary
+
+**Reference:** `Basketball-Story-Framework-Guide.md` for complete framework approach
+**AI Concepts:** `Foundational-AI-Grade-Specific-Integration.md` tells WHAT to teach, but stories must use basketball as framework
+
+### Video Processing Scripts
+- Always validate video file paths
+- Always release video capture resources
+- Save frames with consistent naming (e.g., `frame_0001.png`)
+- Include progress indicators for long operations
+
+### Unity Integration
+- Follow Unity naming conventions (PascalCase for classes, camelCase for private fields)
+- Use [SerializeField] for inspector-visible fields
+- Check for null references before use
+- Use proper Unity lifecycle methods (Start, Update, etc.)
+
+## Code Review Checklist
+
+Before considering code complete:
+
+- [ ] No TODO comments remain
+- [ ] All functions have proper error handling
+- [ ] All public functions have documentation
+- [ ] Code follows naming conventions
+- [ ] Files are in correct directories
+- [ ] Resources are properly released (files, video captures, etc.)
+- [ ] Type hints included (Python)
+- [ ] No hardcoded paths or magic numbers
+- [ ] Code is tested and verified working
+
+## Common Mistakes to Avoid
+
+### ❌ Don't: Leave TODOs
+```python
+# TODO: Implement this later
+def incomplete_function():
+    pass
+```
+
+### ✅ Do: Complete Implementation
+```python
+def complete_function():
+    """Fully implemented with error handling and documentation."""
+    # Complete implementation here
+```
+
+### ❌ Don't: Start Multiple Tasks
+- Starting Task B before Task A is complete
+- Leaving partial implementations
+
+### ✅ Do: Finish One Task at a Time
+- Complete Task A fully (code, tests, docs)
+- Then move to Task B
+
+### ❌ Don't: Skip Error Handling
+```python
+def risky_operation():
+    file = open("data.txt")  # No error handling
+    data = file.read()
+```
+
+### ✅ Do: Handle Errors Properly
+```python
+def safe_operation():
+    try:
+        with open("data.txt", "r") as file:
+            data = file.read()
+    except FileNotFoundError:
+        print("File not found")
+        raise
+```
+
+## Memory & Performance
+
+- Use context managers (`with` statements) for file operations
+- Release video capture resources immediately after use
+- For large video processing, consider batch processing or progress indicators
+- Use appropriate data structures (lists vs sets vs dicts)
+
+## Git Standards
+
+- Use descriptive commit messages
+- Commit complete features (not partial implementations)
+- Never commit secrets or sensitive data
+- Keep commits focused (one logical change per commit)
+
+## Daily Workflow System
+
+### Pre-Work Requirements
+Before starting any work session, the user should complete the pre-work questionnaire to ensure:
+- ONE system/process focus (no multitasking)
+- Deep Work window protection
+- Context batching (≤3 switches per day)
+- Clear delegation with goals, metrics, and escalation triggers
+- Energy level assessment
+- ONE domino identification
+
+**Reference Files:**
+- `START-HERE-DAILY-WORKFLOW.md` — Quick start template for each chat session
+- `CURSOR-CHAT-START-TEMPLATE.md` — Full template with all questions
+- `DAILY-WORKFLOW-TEMPLATE.md` — Complete daily workflow checklist
+- `PRE-WORK-QUESTIONNAIRE.md` — Detailed questionnaire
+- `WORKFLOW-IMPLEMENTATION-GUIDE.md` — System usage guide
+
+**If the user starts work without completing pre-work:**
+- Gently remind them to complete the pre-work questionnaire
+- Reference `START-HERE-DAILY-WORKFLOW.md` for the quick template
+- Ensure they identify their ONE domino before proceeding
+
+## Book Writing Rules (CRITICAL)
+
+### ✅ PRESERVE USER'S ORIGINAL WRITING - NEVER CHANGE IT
+
+**CRITICAL RULE FOR ALL BOOKS:**
+- **ALWAYS preserve the user's exact original writing** - word for word, exactly as written
+- **NEVER change, modify, or rewrite the user's story text**
+- **ONLY provide grammar and spelling suggestions** (optional - user's choice to accept)
+- **NEVER add content** to the user's original writing
+- **NEVER remove content** from the user's original writing
+- **NEVER paraphrase or "improve"** the user's writing
+
+**What IS Allowed:**
+- ✅ Grammar and spelling suggestions (clearly marked as suggestions)
+- ✅ Image descriptions and character descriptions (separate sections)
+- ✅ Educational objectives and framework (separate sections)
+- ✅ Storybook creation specifications (separate sections)
+
+**What is NOT Allowed:**
+- ❌ Changing the user's story text
+- ❌ Adding to the user's story text
+- ❌ Removing from the user's story text
+- ❌ Rewriting or "improving" the user's writing
+- ❌ Adding parentheses, formatting, or structure to the user's original text
+
+**How to Identify User's Original Writing:**
+- In `WRITING-GUIDE-BOOK-1.md`: Yellow-highlighted text (`<span style="background-color: yellow;">`) is the user's original writing
+- In other documents: Look for explicit markers or ask the user to identify their original text
+- When in doubt: ASK the user which text is their original writing
+
+**Example of CORRECT Approach:**
+```markdown
+## YOUR ORIGINAL STORY TEXT (PRESERVED EXACTLY)
+
+### PAGE 1:
+[User's exact text here - no changes]
+
+### PAGE 2:
+[User's exact text here - no changes]
+
+---
+
+## GRAMMAR & SPELLING SUGGESTIONS (OPTIONAL)
+
+**Page 1 - Suggestion:**
+- Current: [user's text]
+- Suggestion: [grammar/spelling fix only]
+- **Your choice:** Keep as is or use suggestion
+```
+
+**Example of WRONG Approach:**
+```markdown
+## STORY TEXT (IMPROVED)
+
+### PAGE 1:
+[Modified/rewritten version of user's text] ❌ WRONG
+```
+
+**Memory:** This rule applies to ALL books in the BallCODE Book series. The user's original writing is sacred and must be preserved exactly as written.
+
+### Book Enhancement & Review Process (MANDATORY FORMAT)
+
+**CRITICAL: This is the EXACT format to use for every book review and enhancement process.**
+
+**Step 1: Extract Original Writing**
+- Extract user's original writing exactly as written (from yellow-highlighted text or user-identified sections)
+- Preserve word-for-word, no changes
+
+**Step 2: Create Enhancement Opportunities Document**
+- **Format:** `Book-[Number]-Enhancement-Opportunities.md`
+- **Structure:**
+  ```markdown
+  # Book [Number]: Enhancement Opportunities
+  ## Where to Add More Engagement (Keeping Your Voice)
+  
+  **Copyright © 2025 Rashad West. All Rights Reserved.**
+  
+  **Purpose:** This document shows you SPECIFIC places in your original writing where you can add more detail, action, or sensory information to make it more engaging. These are suggestions for YOU to write - keeping your authentic voice.
+  
+  ---
+  
+  ## [ACT/SCENE NAME]
+  
+  ### [Scene Title]
+  
+  **YOUR ORIGINAL:**
+  > [User's exact original text here]
+  
+  **📍 ENHANCEMENT OPPORTUNITY #[Number]:**
+  **Where:** [Exact location in text]
+  **What to add:** [Type of enhancement]
+  **Suggestion:** [What to add]
+  **Example direction:** "[Example of what could be added]"
+  
+  ---
+  ```
+- **Content:** Show user's original text, then suggest WHERE to add detail (not rewrite)
+- **Voice:** Always preserve user's voice - suggestions are for them to write
+
+**Step 3: User Enhances Writing**
+- User adds their own enhancements to the document
+- User keeps their voice and style
+- AI does NOT rewrite - user writes
+
+**Step 4: Create Spelling & Grammar Check Document**
+- **Format:** `Book-[Number]-Spelling-Grammar-Check.md`
+- **Structure:**
+  ```markdown
+  # Book [Number]: Spelling & Grammar Check
+  ## Corrections Needed (Keeping Your Voice)
+  
+  **Copyright © 2025 Rashad West. All Rights Reserved.**
+  
+  **Purpose:** This document shows you SPECIFIC spelling and grammar corrections needed in your enhanced writing. Your voice and style remain unchanged - only technical corrections.
+  
+  ---
+  
+  ## [ACT/SCENE NAME]
+  
+  ### [Scene Title]
+  
+  **YOUR TEXT:**
+  > [User's enhanced text here]
+  
+  **📍 CORRECTION #[Number]:**
+  **Where:** "[Exact phrase/location]"
+  **Current:** "[Current text]"
+  **Should be:** "[Corrected text]"
+  **Corrected text:** "[Full corrected sentence]"
+  
+  ---
+  ```
+- **Content:** Show user's text, identify errors, provide corrections
+- **Voice:** Only technical corrections - no style changes
+
+**Step 5: Summary Section**
+- List all corrections by category (Spelling, Grammar, Word Choice, Capitalization, Punctuation)
+- Remind user their voice is preserved
+
+**This format is MANDATORY for all future books. Follow this exact structure.**
+
+---
+
+### ✅ BALLCODE-BOOK PROJECT RULE: SUGGESTIONS ONLY - NO WRITING FOR USER
+
+**CRITICAL RULE FOR BALLCODE-BOOK PROJECT:**
+- **ONLY provide suggestions** for the user's writings - never write content for them
+- **NEVER create or write story content** for any books in the BallCODE-Book series
+- **NEVER create AI-generated documents** that contain written story content
+- **ONLY create suggestion documents** that point to where the user can add their own writing
+- **DELETE any AI-generated documents** that are not the user's original writings (suggestions, corrections, completions, feedback documents)
+
+**What IS Allowed:**
+- ✅ Grammar and spelling suggestions (clearly marked as suggestions)
+- ✅ Enhancement opportunity suggestions (where to add detail, what to add)
+- ✅ Flow suggestions (where transitions could be added)
+- ✅ Structure suggestions (how to organize content)
+- ✅ Educational framework suggestions (learning objectives, concepts to include)
+
+**What is NOT Allowed:**
+- ❌ Writing story content for the user
+- ❌ Creating "complete" versions of the user's story
+- ❌ Rewriting or expanding the user's original writing
+- ❌ Creating AI-generated story documents
+- ❌ Keeping AI-generated documents that aren't the user's writings
+
+**Document Management:**
+- **User's Original Writings:** Keep files that contain the user's original writings (e.g., `WRITING-GUIDE-BOOK-1.md` with yellow-highlighted text)
+- **Suggestion Documents:** Can create suggestion documents (e.g., `Book-1-Enhancement-Opportunities.md`, `Book-1-Spelling-Grammar-Check.md`)
+- **AI-Generated Content:** DELETE any documents that contain AI-written story content, completions, or rewrites (e.g., `Book-1-Complete-With-Corrections.md`, `BOOK-1-FLOW-SUGGESTIONS.md`, `Book-1-Final-Spelling-Grammar-Check.md`, `BOOK-1-REVIEW-FEEDBACK.md`)
+
+**Example of CORRECT Approach:**
+```markdown
+## YOUR ORIGINAL WRITING (PRESERVED)
+> [User's exact text here]
+
+## SUGGESTION FOR YOU TO WRITE
+**Where:** After "I threw the ball"
+**What to add:** Show her emotional reaction
+**Suggestion:** Add 1-2 sentences showing how she feels about the turnover
+**Example direction:** "You could add something like: 'My stomach dropped. I felt like I was letting the team down.'"
+```
+
+**Example of WRONG Approach:**
+```markdown
+## COMPLETE STORY (AI-GENERATED) ❌ WRONG
+[AI-written story content here] ❌ DELETE THIS
+```
+
+**Memory:** This rule applies ONLY to the BallCODE-Book project. The user writes all story content themselves. AI only provides suggestions and guidance, never writes the actual story.
+
+---
+
+## Key Takeaways
+
+1. **Complete Before Moving**: Always finish one task completely before starting another
+2. **No TODOs**: Implement functionality fully, don't leave placeholders
+3. **Error Handling**: Every file operation, video operation, and user input needs error handling
+4. **Documentation**: Code isn't complete without documentation
+5. **Verification**: Always verify changes work before considering them complete
+6. **Daily Workflow**: Complete pre-work questionnaire before starting each session
+7. **Preserve Original Writing**: NEVER change the user's story text - only grammar/spelling suggestions
+8. **BallCODE-Book Rule**: ONLY provide suggestions for user's writings - NEVER write story content for them. DELETE AI-generated story documents.
+
+---
+
+**Remember**: Code is complete when it's implemented, tested, documented, and verified working. No TODOs, no partial implementations, no moving on until the current task is 100% done. **User's original writing is preserved exactly as written. For BallCODE-Book project: ONLY provide suggestions - NEVER write story content for the user. DELETE any AI-generated story documents.**
+
+

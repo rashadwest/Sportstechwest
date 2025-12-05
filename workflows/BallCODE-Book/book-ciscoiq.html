@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BallCODE: CiscoIQ - Digital Book</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            padding: 40px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        /* Navigation */
+        .nav {
+            background: rgba(255,255,255,0.95);
+            padding: 15px 0;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav a:hover {
+            color: #764ba2;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header .subtitle {
+            color: #666;
+            font-size: 1.2em;
+        }
+        
+        /* Video Section */
+        .video-section {
+            background: #000;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-container iframe,
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .video-placeholder {
+            background: #1a1a1a;
+            padding: 60px 20px;
+            text-align: center;
+            color: #fff;
+        }
+        
+        .video-placeholder p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        .video-info {
+            background: #2a2a2a;
+            padding: 15px;
+            color: #fff;
+            text-align: center;
+        }
+        
+        /* Exercise Section */
+        .exercise-section {
+            background: #d1ecf1;
+            border-left: 4px solid #0c5460;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .exercise-section h3 {
+            color: #0c5460;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        
+        .exercise-section p {
+            color: #0c5460;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .cta-button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .cta-button.secondary {
+            background: #6c757d;
+            margin-left: 15px;
+        }
+        
+        .cta-button.secondary:hover {
+            background: #5a6268;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e9ecef;
+            color: #666;
+        }
+        
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            color: #764ba2;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .cta-button.secondary {
+                margin-left: 0;
+                margin-top: 15px;
+                display: block;
+            }
+        }
+    </style>
+    <script src="/book-access.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/books">All Books</a></li>
+                <li><a href="/episodes">Episodes</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Header -->
+        <div class="header">
+            <h1>BallCODE: CiscoIQ</h1>
+            <p class="subtitle">Watch the video book and then practice in the game!</p>
+        </div>
+        
+        <!-- Protected Content (hidden until access granted) -->
+        <div id="protected-content">
+        <!-- Video Section -->
+        <div class="video-section">
+            <div class="video-container">
+                <!-- Video Embed - Replace VIDEO_URL with your actual video URL -->
+                <!-- YouTube Example:
+                <iframe 
+                    src="https://www.youtube.com/embed/VIDEO_ID" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+                -->
+                
+                <!-- Vimeo Example:
+                <iframe 
+                    src="https://player.vimeo.com/video/VIDEO_ID" 
+                    frameborder="0" 
+                    allow="autoplay; fullscreen; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+                -->
+                
+                <!-- Direct Video File Example:
+                <video controls width="100%" height="100%">
+                    <source src="path/to/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                -->
+                
+                <!-- Placeholder until video is added -->
+                <div class="video-placeholder">
+                    <p>📹 Video Book Coming Soon</p>
+                    <p style="font-size: 0.9em; color: #999;">Video will be embedded here when ready</p>
+                    <p style="font-size: 0.85em; color: #777; margin-top: 10px;">Replace this section with your video embed code</p>
+                </div>
+            </div>
+            <div class="video-info">
+                <p><strong>BallCODE: CiscoIQ</strong> | Duration: TBD</p>
+            </div>
+        </div>
+        
+        <!-- Exercise Section -->
+        <div class="exercise-section">
+            <h3>Ready to Practice?</h3>
+            <p>Now that you've watched the book, test your skills in the game exercises!</p>
+            <a href="/play?mode=mathlete&episode=1&level=state-tracker&source=book" class="cta-button">Play Exercises →</a>
+            <a href="/books" class="cta-button secondary">View All Books</a>
+        </div>
+        </div>
+        <!-- End Protected Content -->
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>BallCODE</strong> - Teaching STEM Through Basketball</p>
+            <p>BallCODE: CiscoIQ Digital Book</p>
+            <p>For questions or support, visit <a href="https://ballcode.co">ballcode.co</a> or contact your teacher</p>
+        </div>
+    </div>
+</body>
+</html>
+

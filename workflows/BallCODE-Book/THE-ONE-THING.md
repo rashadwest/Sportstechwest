@@ -2,6 +2,8 @@
 
 > **Mantra:** "Delegate to AI + Protect focus + Automate the rest = Flow. Move one domino a day."
 
+> **📊 Overall Goal Tracking:** See `OVERALL-GOAL-TRACKING.md` for master goal status and how today's domino connects to the bigger picture.
+
 Sunday November 16, 2025 - 12:00PM (noon) - 1 hour of deep work
 
 ---

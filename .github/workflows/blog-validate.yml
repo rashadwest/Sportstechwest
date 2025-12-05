@@ -1,0 +1,73 @@
+name: Validate Blog Posts
+
+on:
+  pull_request:
+    paths:
+      - '_posts/**'
+      - 'assets/images/blog-img/**'
+  push:
+    branches: [main]
+    paths:
+      - '_posts/**'
+      - 'assets/images/blog-img/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate new posts
+        run: |
+          # Get changed post files
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep '^_posts/.*\.md$' || true)
+          else
+            CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD | grep '^_posts/.*\.md$' || true)
+          fi
+          
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "No post files changed, skipping validation"
+            exit 0
+          fi
+          
+          # Validate each changed post
+          for file in $CHANGED_FILES; do
+            echo "Validating: $file"
+            node scripts/validate-post.js "$file" || exit 1
+          done
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
+        with:
+          ruby-version: '3.1'
+          bundler-cache: true
+          cache-version: 0
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+        continue-on-error: false
+
+      - name: Check for build errors
+        if: failure()
+        run: |
+          echo "❌ Jekyll build failed. Check the output above for errors."
+          exit 1
+
+
+
+
+
+

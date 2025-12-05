@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BallCODE - Episode 1: The Tip-off Trial</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            padding: 40px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        /* Navigation */
+        .nav {
+            background: rgba(255,255,255,0.95);
+            padding: 15px 0;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav a:hover {
+            color: #764ba2;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header .subtitle {
+            color: #666;
+            font-size: 1.2em;
+        }
+        
+        .episode-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .episode-info-item {
+            text-align: center;
+        }
+        
+        .episode-info-item strong {
+            display: block;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        /* Video/Audio Player Section */
+        .recording-section {
+            background: #000;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-container iframe,
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .recording-placeholder {
+            background: #1a1a1a;
+            padding: 60px 20px;
+            text-align: center;
+            color: #fff;
+        }
+        
+        .recording-placeholder p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        .recording-info {
+            background: #2a2a2a;
+            padding: 15px;
+            color: #fff;
+            text-align: center;
+        }
+        
+        /* Content Sections */
+        .content-section {
+            margin-bottom: 40px;
+        }
+        
+        .content-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .content-section h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .content-section p {
+            margin-bottom: 15px;
+        }
+        
+        /* Career Connections Section */
+        .career-connections {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-left: 5px solid #667eea;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 8px;
+        }
+        
+        .career-connections h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .career-connections h2::before {
+            content: "💼";
+            font-size: 1.5em;
+        }
+        
+        .career-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .career-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .career-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .career-card h3 {
+            color: #667eea;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        .career-card p {
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+        
+        .career-card strong {
+            color: #764ba2;
+        }
+        
+        .career-activity {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 2px solid #667eea;
+        }
+        
+        .career-activity h3 {
+            color: #667eea;
+            margin-top: 0;
+        }
+        
+        .activity-steps {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+        
+        .activity-steps li {
+            counter-increment: step-counter;
+            margin-bottom: 15px;
+            padding-left: 40px;
+            position: relative;
+        }
+        
+        .activity-steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        /* Skill Pit-Stop */
+        .skill-pit-stop {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        
+        .skill-pit-stop h3 {
+            color: #856404;
+            margin-top: 0;
+        }
+        
+        /* Exercises */
+        .exercises {
+            background: #d1ecf1;
+            border-left: 4px solid #0c5460;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        
+        .exercises h3 {
+            color: #0c5460;
+            margin-top: 0;
+        }
+        
+        /* Teacher Resources */
+        .teacher-resources {
+            background: #e7f3ff;
+            border-left: 4px solid #0066cc;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        
+        .teacher-resources h3 {
+            color: #0066cc;
+            margin-top: 0;
+        }
+        
+        .resource-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        /* Buttons */
+        .cta-button {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 10px 10px 10px 0;
+            transition: background 0.3s, transform 0.2s;
+        }
+        
+        .cta-button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+        
+        .cta-button.secondary {
+            background: #6c757d;
+        }
+        
+        .cta-button.secondary:hover {
+            background: #5a6268;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e9ecef;
+            color: #666;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .episode-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .career-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/episodes">All Episodes</a></li>
+                <li><a href="/teachers">For Teachers</a></li>
+                <li><a href="/careers">Career Connections</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Header -->
+        <div class="header">
+            <h1>BallCODE</h1>
+            <p class="subtitle">STEM Learning Through Basketball</p>
+        </div>
+        
+        <!-- Episode Info -->
+        <div class="episode-info">
+            <div class="episode-info-item">
+                <strong>Episode</strong>
+                <span>Episode 1: The Tip-off Trial</span>
+            </div>
+            <div class="episode-info-item">
+                <strong>Target Audience</strong>
+                <span>Grades 3-8</span>
+            </div>
+            <div class="episode-info-item">
+                <strong>Duration</strong>
+                <span>15-25 minutes</span>
+            </div>
+            <div class="episode-info-item">
+                <strong>Learning Focus</strong>
+                <span>State Management</span>
+            </div>
+        </div>
+        
+        <!-- Recording Section -->
+        <div class="recording-section">
+            <!-- Video Embed - Replace with your actual video URL when ready -->
+            <div class="video-container">
+                <!-- YouTube Embed Example (replace VIDEO_ID with your video ID) -->
+                <!--
+                <iframe 
+                    src="https://www.youtube.com/embed/VIDEO_ID" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+                -->
+                
+                <!-- Placeholder until recording is ready -->
+                <div class="recording-placeholder">
+                    <p>📹 Episode Recording Coming Soon</p>
+                    <p style="font-size: 0.9em; color: #999;">Video will be embedded here when recording is complete</p>
+                </div>
+            </div>
+            <div class="recording-info">
+                <p><strong>Episode 1 Recording</strong> | Duration: TBD | <a href="#" style="color: #fff;">View Transcript</a> (coming soon)</p>
+            </div>
+        </div>
+        
+        <!-- Skill Pit-Stop -->
+        <div class="skill-pit-stop">
+            <h3>Skill Pit-Stop: Understanding State in Code</h3>
+            
+            <p><strong>What is State?</strong></p>
+            <p>Think of state like a light switch. A light switch can be in one of two states: ON or OFF. It can't be both at the same time, and it can only change from one state to the other when you flip the switch.</p>
+            
+            <p>In basketball, and in code, we use states to track what's happening. Just like a light switch, the game can only be in one state at a time, and it changes when something specific happens.</p>
+            
+            <p><strong>The Four States of Possession:</strong></p>
+            <ol>
+                <li><strong>START</strong> - When the play begins (tip-off)</li>
+                <li><strong>LIVE</strong> - When the ball is in play</li>
+                <li><strong>DEAD</strong> - When play stops</li>
+                <li><strong>OUTCOME</strong> - When the play ends with a result</li>
+            </ol>
+            
+            <p><strong>Why Does State Matter?</strong></p>
+            <p>Just like Nova learned, tracking state helps you understand what's happening and what you can do next. If you know the state is LIVE and you have the ball, you know you can dribble, pass, or shoot. If the state is DEAD, you know the play has stopped and you need to wait for the next state change.</p>
+        </div>
+        
+        <!-- Career Connections Section (NEW - IBM SkillsBuild Integration) -->
+        <div class="career-connections">
+            <h2>Career Connections</h2>
+            <p><em>Integrated with <a href="https://skillsbuild.org/secondary-educators/teacher-toolkit" target="_blank" style="color: #667eea;">IBM SkillsBuild Teacher Toolkit</a></em></p>
+            <p><strong>State management</strong> is a fundamental coding concept used across many technology careers. Understanding how programs track and change states is essential for software development.</p>
+            
+            <div class="career-list">
+                <!-- Career Card 1 -->
+                <div class="career-card">
+                    <h3>Software Engineer / Developer</h3>
+                    <p><strong>What they do:</strong> Build web applications, mobile apps, and software systems</p>
+                    <p><strong>How they use state:</strong> Track user sessions, manage application data, handle form states</p>
+                    <p><strong>Real example:</strong> When you log into a website, the app tracks your "logged in" state</p>
+                    <p><strong>Education:</strong> Bachelor's in Computer Science or related field, coding bootcamp, or self-taught</p>
+                </div>
+                
+                <!-- Career Card 2 -->
+                <div class="career-card">
+                    <h3>Game Developer</h3>
+                    <p><strong>What they do:</strong> Create video games for consoles, computers, and mobile devices</p>
+                    <p><strong>How they use state:</strong> Track player health, game level, score, inventory, character status</p>
+                    <p><strong>Real example:</strong> In a video game, the character can be in states like "idle," "running," "jumping," or "attacking"</p>
+                    <p><strong>Education:</strong> Bachelor's in Game Development, Computer Science, or related field</p>
+                </div>
+                
+                <!-- Career Card 3 -->
+                <div class="career-card">
+                    <h3>Frontend Developer</h3>
+                    <p><strong>What they do:</strong> Build the user interface and user experience for websites and apps</p>
+                    <p><strong>How they use state:</strong> Manage UI states (dropdowns open/closed, forms filled/unfilled, buttons active/inactive)</p>
+                    <p><strong>Real example:</strong> A shopping cart that tracks items added/removed, quantities, and checkout status</p>
+                    <p><strong>Education:</strong> Bachelor's in Computer Science, coding bootcamp, or self-taught with portfolio</p>
+                </div>
+                
+                <!-- Career Card 4 -->
+                <div class="career-card">
+                    <h3>Systems Analyst</h3>
+                    <p><strong>What they do:</strong> Analyze and design computer systems for organizations</p>
+                    <p><strong>How they use state:</strong> Model system states and transitions, design workflows</p>
+                    <p><strong>Real example:</strong> Designing a ticket system that tracks tickets from "open" → "in progress" → "resolved"</p>
+                    <p><strong>Education:</strong> Bachelor's in Information Systems, Computer Science, or Business with tech focus</p>
+                </div>
+                
+                <!-- Career Card 5 -->
+                <div class="career-card">
+                    <h3>Quality Assurance (QA) Tester</h3>
+                    <p><strong>What they do:</strong> Test software to find bugs and ensure quality</p>
+                    <p><strong>How they use state:</strong> Test state transitions, verify edge cases, ensure states work correctly</p>
+                    <p><strong>Real example:</strong> Testing that a login system correctly transitions from "logged out" → "logging in" → "logged in"</p>
+                    <p><strong>Education:</strong> Associate's or Bachelor's in Computer Science, QA certification programs</p>
+                </div>
+            </div>
+            
+            <!-- Career Connection Activity -->
+            <div class="career-activity">
+                <h3>Career Connection Activity (15-20 minutes)</h3>
+                <p><strong>Objective:</strong> Connect Episode 1's state management concept to real-world tech careers.</p>
+                
+                <ol class="activity-steps">
+                    <li>
+                        <strong>Career Selection (3 minutes)</strong><br>
+                        Students choose one career from the list above (or teacher assigns). Each student/group gets a different career.
+                    </li>
+                    <li>
+                        <strong>Research (8-10 minutes)</strong><br>
+                        Research: "How does [career] use state management?" Find one specific real-world example. Identify 2-3 skills needed for this career. Note education/training requirements.
+                    </li>
+                    <li>
+                        <strong>Share Findings (5-7 minutes)</strong><br>
+                        Each student/group presents findings (1-2 minutes each). Class discusses: "What similarities did you notice across careers?" Teacher highlights: "State management is used in many different tech jobs!"
+                    </li>
+                </ol>
+                
+                <h4>Discussion Questions:</h4>
+                <ul>
+                    <li>"Can you think of a video game that uses state management? What states does it track?"</li>
+                    <li>"How might a mobile app developer use states in an app you use?"</li>
+                    <li>"What happens if a program loses track of its state? (Hint: Think about when a website 'forgets' you're logged in)"</li>
+                    <li>"Which career interests you most? Why?"</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Exercises -->
+        <div class="exercises">
+            <h3>Try the Exercises!</h3>
+            <p>Complete the exercises to practice what you've learned about states. Download the exercise worksheets from your teacher or access them through the teacher guide.</p>
+            <a href="#" class="cta-button">Download Exercises (PDF)</a>
+            <a href="#" class="cta-button secondary">Try Online Exercises</a>
+        </div>
+        
+        <!-- Teacher Resources -->
+        <div class="teacher-resources">
+            <h3>Teacher Resources</h3>
+            <p>Access complete teacher guides, answer keys, and additional resources for this episode.</p>
+            <div class="resource-links">
+                <a href="#" class="cta-button">Teacher Guide</a>
+                <a href="#" class="cta-button secondary">Answer Key</a>
+                <a href="#" class="cta-button secondary">Career Connections PDF</a>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>BallCODE</strong> - Teaching STEM Through Basketball</p>
+            <p>Episode 1: The Tip-off Trial</p>
+            <p>For questions or support, contact your teacher or visit <a href="https://ballcode.co">ballcode.co</a></p>
+            <p style="margin-top: 10px; font-size: 0.9em; color: #999;">
+                Career Connections integrated with <a href="https://skillsbuild.org/secondary-educators/teacher-toolkit" target="_blank" style="color: #667eea;">IBM SkillsBuild Teacher Toolkit</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

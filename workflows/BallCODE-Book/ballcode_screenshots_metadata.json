@@ -1,0 +1,705 @@
+{
+  "total_images": 46,
+  "categories": {
+    "UI_Navigation": [
+      "BallCODE section.png",
+      "Leaderboard (says coming soon).png",
+      "Main Menu.png",
+      "Settings section.png",
+      "Skins section.png"
+    ],
+    "Chess_Player_Select": [
+      "Chess Chose Player.png",
+      "Chess_Pick_Player.png",
+      "Chess_Switch_Player.png",
+      "Chess_choose_Player.png"
+    ],
+    "Chess_Gameplay": [
+      "Chess_GamePlay_3.png",
+      "Chess_Gameplay.png",
+      "Chess_Gameplay_2.png",
+      "Chess_Play.png"
+    ],
+    "Coding_Mode_Select": [
+      "Coding mode.png"
+    ],
+    "Coding_Gameplay": [
+      "Coding_Gameplay_1.png",
+      "Coding_Gameplay_2.png",
+      "Coding_Gameplay_3.png"
+    ],
+    "Freeplay_Mode_Select": [
+      "Freeplay mode.png"
+    ],
+    "Freeplay_Gameplay": [
+      "Freeplay_Gameplay_1.png",
+      "Freeplay_Gameplay_2.png",
+      "Freeplay_Gameplay_3.png"
+    ],
+    "Mathlete_Mode_Select": [
+      "Mathlete mode.png"
+    ],
+    "Mathlete_Gameplay": [
+      "Mathlete_Gameplay_1.png",
+      "Mathlete_Gameplay_2.png",
+      "Mathlete_Gameplay_3.png",
+      "Mathlete_Gameplay_4.png",
+      "Mathlete_Gameplay_5.png"
+    ],
+    "Tutorial_Mode_Select": [
+      "Tutorial mode start.png",
+      "Tutorial mode.png"
+    ],
+    "Tutorial_Level_1": [
+      "Tutorial_1.png"
+    ],
+    "Tutorial_Level_10": [
+      "Tutorial_10.png"
+    ],
+    "Tutorial_Level_11": [
+      "Tutorial_11.png"
+    ],
+    "Tutorial_Level_12": [
+      "Tutorial_12.png"
+    ],
+    "Tutorial_Level_13": [
+      "Tutorial_13.png"
+    ],
+    "Tutorial_Level_14": [
+      "Tutorial_14.png"
+    ],
+    "Tutorial_Level_15": [
+      "Tutorial_15.png"
+    ],
+    "Tutorial_Level_16": [
+      "Tutorial_16.png"
+    ],
+    "Tutorial_Level_17": [
+      "Tutorial_17.png"
+    ],
+    "Tutorial_Level_2": [
+      "Tutorial_2.png"
+    ],
+    "Tutorial_Level_3": [
+      "Tutorial_3.png"
+    ],
+    "Tutorial_Level_4": [
+      "Tutorial_4.png"
+    ],
+    "Tutorial_Level_5": [
+      "Tutorial_5.png"
+    ],
+    "Tutorial_Level_6": [
+      "Tutorial_6.png"
+    ],
+    "Tutorial_Level_7": [
+      "Tutorial_7.png"
+    ],
+    "Tutorial_Level_8": [
+      "Tutorial_8.png"
+    ],
+    "Tutorial_Level_9": [
+      "Tutorial_9.png"
+    ]
+  },
+  "images": [
+    {
+      "filename": "BallCODE section.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/BallCODE section.png",
+      "file_size_mb": 1.75,
+      "dimensions": {
+        "width": 1916,
+        "height": 1198
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "UI_Navigation",
+      "aspect_ratio": 1.6
+    },
+    {
+      "filename": "Chess Chose Player.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Chess Chose Player.png",
+      "file_size_mb": 1.85,
+      "dimensions": {
+        "width": 1922,
+        "height": 1198
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Chess_Player_Select",
+      "aspect_ratio": 1.6
+    },
+    {
+      "filename": "Chess_GamePlay_3.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Chess_GamePlay_3.png",
+      "file_size_mb": 1.8,
+      "dimensions": {
+        "width": 1900,
+        "height": 1196
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Chess_Gameplay",
+      "aspect_ratio": 1.59
+    },
+    {
+      "filename": "Chess_Gameplay.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Chess_Gameplay.png",
+      "file_size_mb": 1.82,
+      "dimensions": {
+        "width": 1904,
+        "height": 1222
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Chess_Gameplay",
+      "aspect_ratio": 1.56
+    },
+    {
+      "filename": "Chess_Gameplay_2.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Chess_Gameplay_2.png",
+      "file_size_mb": 1.82,
+      "dimensions": {
+        "width": 1906,
+        "height": 1182
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Chess_Gameplay",
+      "aspect_ratio": 1.61
+    },
+    {
+      "filename": "Chess_Pick_Player.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Chess_Pick_Player.png",
+      "file_size_mb": 1.46,
+      "dimensions": {
+        "width": 1920,
+        "height": 1194
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Chess_Player_Select",
+      "aspect_ratio": 1.61
+    },
+    {
+      "filename": "Chess_Play.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Chess_Play.png",
+      "file_size_mb": 1.7,
+      "dimensions": {
+        "width": 1914,
+        "height": 1198
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Chess_Gameplay",
+      "aspect_ratio": 1.6
+    },
+    {
+      "filename": "Chess_Switch_Player.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Chess_Switch_Player.png",
+      "file_size_mb": 1.18,
+      "dimensions": {
+        "width": 1918,
+        "height": 1202
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Chess_Player_Select",
+      "aspect_ratio": 1.6
+    },
+    {
+      "filename": "Chess_choose_Player.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Chess_choose_Player.png",
+      "file_size_mb": 1.85,
+      "dimensions": {
+        "width": 1928,
+        "height": 1198
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Chess_Player_Select",
+      "aspect_ratio": 1.61
+    },
+    {
+      "filename": "Coding mode.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Coding mode.png",
+      "file_size_mb": 1.36,
+      "dimensions": {
+        "width": 1916,
+        "height": 1206
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Coding_Mode_Select",
+      "aspect_ratio": 1.59
+    },
+    {
+      "filename": "Coding_Gameplay_1.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Coding_Gameplay_1.png",
+      "file_size_mb": 1.48,
+      "dimensions": {
+        "width": 1790,
+        "height": 1210
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Coding_Gameplay",
+      "aspect_ratio": 1.48
+    },
+    {
+      "filename": "Coding_Gameplay_2.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Coding_Gameplay_2.png",
+      "file_size_mb": 1.77,
+      "dimensions": {
+        "width": 1882,
+        "height": 1182
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Coding_Gameplay",
+      "aspect_ratio": 1.59
+    },
+    {
+      "filename": "Coding_Gameplay_3.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Coding_Gameplay_3.png",
+      "file_size_mb": 1.74,
+      "dimensions": {
+        "width": 1906,
+        "height": 1276
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Coding_Gameplay",
+      "aspect_ratio": 1.49
+    },
+    {
+      "filename": "Freeplay mode.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Freeplay mode.png",
+      "file_size_mb": 1.73,
+      "dimensions": {
+        "width": 1918,
+        "height": 1194
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Freeplay_Mode_Select",
+      "aspect_ratio": 1.61
+    },
+    {
+      "filename": "Freeplay_Gameplay_1.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Freeplay_Gameplay_1.png",
+      "file_size_mb": 1.74,
+      "dimensions": {
+        "width": 2160,
+        "height": 1352
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Freeplay_Gameplay",
+      "aspect_ratio": 1.6
+    },
+    {
+      "filename": "Freeplay_Gameplay_2.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Freeplay_Gameplay_2.png",
+      "file_size_mb": 1.88,
+      "dimensions": {
+        "width": 1922,
+        "height": 1184
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Freeplay_Gameplay",
+      "aspect_ratio": 1.62
+    },
+    {
+      "filename": "Freeplay_Gameplay_3.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Freeplay_Gameplay_3.png",
+      "file_size_mb": 3.62,
+      "dimensions": {
+        "width": 2880,
+        "height": 1800
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Freeplay_Gameplay",
+      "aspect_ratio": 1.6
+    },
+    {
+      "filename": "Leaderboard (says coming soon).png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Leaderboard (says coming soon).png",
+      "file_size_mb": 1.39,
+      "dimensions": {
+        "width": 1916,
+        "height": 1204
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "UI_Navigation",
+      "aspect_ratio": 1.59
+    },
+    {
+      "filename": "Main Menu.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Main Menu.png",
+      "file_size_mb": 1.78,
+      "dimensions": {
+        "width": 1922,
+        "height": 1202
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "UI_Navigation",
+      "aspect_ratio": 1.6
+    },
+    {
+      "filename": "Mathlete mode.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Mathlete mode.png",
+      "file_size_mb": 1.58,
+      "dimensions": {
+        "width": 1914,
+        "height": 1196
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Mathlete_Mode_Select",
+      "aspect_ratio": 1.6
+    },
+    {
+      "filename": "Mathlete_Gameplay_1.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Mathlete_Gameplay_1.png",
+      "file_size_mb": 1.93,
+      "dimensions": {
+        "width": 1930,
+        "height": 1186
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Mathlete_Gameplay",
+      "aspect_ratio": 1.63
+    },
+    {
+      "filename": "Mathlete_Gameplay_2.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Mathlete_Gameplay_2.png",
+      "file_size_mb": 3.6,
+      "dimensions": {
+        "width": 2880,
+        "height": 1800
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Mathlete_Gameplay",
+      "aspect_ratio": 1.6
+    },
+    {
+      "filename": "Mathlete_Gameplay_3.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Mathlete_Gameplay_3.png",
+      "file_size_mb": 1.95,
+      "dimensions": {
+        "width": 1920,
+        "height": 1176
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Mathlete_Gameplay",
+      "aspect_ratio": 1.63
+    },
+    {
+      "filename": "Mathlete_Gameplay_4.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Mathlete_Gameplay_4.png",
+      "file_size_mb": 1.71,
+      "dimensions": {
+        "width": 1918,
+        "height": 1264
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Mathlete_Gameplay",
+      "aspect_ratio": 1.52
+    },
+    {
+      "filename": "Mathlete_Gameplay_5.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Mathlete_Gameplay_5.png",
+      "file_size_mb": 1.25,
+      "dimensions": {
+        "width": 1930,
+        "height": 1252
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Mathlete_Gameplay",
+      "aspect_ratio": 1.54
+    },
+    {
+      "filename": "Settings section.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Settings section.png",
+      "file_size_mb": 1.3,
+      "dimensions": {
+        "width": 1918,
+        "height": 1194
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "UI_Navigation",
+      "aspect_ratio": 1.61
+    },
+    {
+      "filename": "Skins section.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Skins section.png",
+      "file_size_mb": 1.53,
+      "dimensions": {
+        "width": 1912,
+        "height": 1200
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "UI_Navigation",
+      "aspect_ratio": 1.59
+    },
+    {
+      "filename": "Tutorial mode start.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Tutorial mode start.png",
+      "file_size_mb": 1.93,
+      "dimensions": {
+        "width": 1920,
+        "height": 1210
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Tutorial_Mode_Select",
+      "aspect_ratio": 1.59
+    },
+    {
+      "filename": "Tutorial mode.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Tutorial mode.png",
+      "file_size_mb": 1.93,
+      "dimensions": {
+        "width": 1920,
+        "height": 1202
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Tutorial_Mode_Select",
+      "aspect_ratio": 1.6
+    },
+    {
+      "filename": "Tutorial_1.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Tutorial_1.png",
+      "file_size_mb": 1.92,
+      "dimensions": {
+        "width": 1914,
+        "height": 1190
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Tutorial_Level_1",
+      "aspect_ratio": 1.61
+    },
+    {
+      "filename": "Tutorial_10.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Tutorial_10.png",
+      "file_size_mb": 1.95,
+      "dimensions": {
+        "width": 1914,
+        "height": 1194
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Tutorial_Level_10",
+      "aspect_ratio": 1.6
+    },
+    {
+      "filename": "Tutorial_11.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Tutorial_11.png",
+      "file_size_mb": 1.87,
+      "dimensions": {
+        "width": 1900,
+        "height": 1186
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Tutorial_Level_11",
+      "aspect_ratio": 1.6
+    },
+    {
+      "filename": "Tutorial_12.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Tutorial_12.png",
+      "file_size_mb": 3.53,
+      "dimensions": {
+        "width": 2880,
+        "height": 1800
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Tutorial_Level_12",
+      "aspect_ratio": 1.6
+    },
+    {
+      "filename": "Tutorial_13.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Tutorial_13.png",
+      "file_size_mb": 3.55,
+      "dimensions": {
+        "width": 2880,
+        "height": 1800
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Tutorial_Level_13",
+      "aspect_ratio": 1.6
+    },
+    {
+      "filename": "Tutorial_14.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Tutorial_14.png",
+      "file_size_mb": 3.5,
+      "dimensions": {
+        "width": 2880,
+        "height": 1800
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Tutorial_Level_14",
+      "aspect_ratio": 1.6
+    },
+    {
+      "filename": "Tutorial_15.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Tutorial_15.png",
+      "file_size_mb": 3.53,
+      "dimensions": {
+        "width": 2880,
+        "height": 1800
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Tutorial_Level_15",
+      "aspect_ratio": 1.6
+    },
+    {
+      "filename": "Tutorial_16.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Tutorial_16.png",
+      "file_size_mb": 3.59,
+      "dimensions": {
+        "width": 2880,
+        "height": 1800
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Tutorial_Level_16",
+      "aspect_ratio": 1.6
+    },
+    {
+      "filename": "Tutorial_17.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Tutorial_17.png",
+      "file_size_mb": 3.23,
+      "dimensions": {
+        "width": 2880,
+        "height": 1800
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Tutorial_Level_17",
+      "aspect_ratio": 1.6
+    },
+    {
+      "filename": "Tutorial_2.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Tutorial_2.png",
+      "file_size_mb": 1.93,
+      "dimensions": {
+        "width": 1920,
+        "height": 1198
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Tutorial_Level_2",
+      "aspect_ratio": 1.6
+    },
+    {
+      "filename": "Tutorial_3.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Tutorial_3.png",
+      "file_size_mb": 1.93,
+      "dimensions": {
+        "width": 1918,
+        "height": 1196
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Tutorial_Level_3",
+      "aspect_ratio": 1.6
+    },
+    {
+      "filename": "Tutorial_4.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Tutorial_4.png",
+      "file_size_mb": 2.84,
+      "dimensions": {
+        "width": 1960,
+        "height": 1192
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Tutorial_Level_4",
+      "aspect_ratio": 1.64
+    },
+    {
+      "filename": "Tutorial_5.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Tutorial_5.png",
+      "file_size_mb": 1.92,
+      "dimensions": {
+        "width": 1910,
+        "height": 1202
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Tutorial_Level_5",
+      "aspect_ratio": 1.59
+    },
+    {
+      "filename": "Tutorial_6.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Tutorial_6.png",
+      "file_size_mb": 1.93,
+      "dimensions": {
+        "width": 1916,
+        "height": 1200
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Tutorial_Level_6",
+      "aspect_ratio": 1.6
+    },
+    {
+      "filename": "Tutorial_7.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Tutorial_7.png",
+      "file_size_mb": 1.9,
+      "dimensions": {
+        "width": 1906,
+        "height": 1174
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Tutorial_Level_7",
+      "aspect_ratio": 1.62
+    },
+    {
+      "filename": "Tutorial_8.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Tutorial_8.png",
+      "file_size_mb": 3.68,
+      "dimensions": {
+        "width": 2880,
+        "height": 1800
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Tutorial_Level_8",
+      "aspect_ratio": 1.6
+    },
+    {
+      "filename": "Tutorial_9.png",
+      "path": "/Users/rashadwest/Desktop/BallCODE screenshots/Tutorial_9.png",
+      "file_size_mb": 1.95,
+      "dimensions": {
+        "width": 1918,
+        "height": 1192
+      },
+      "format": "PNG",
+      "mode": "RGBA",
+      "category": "Tutorial_Level_9",
+      "aspect_ratio": 1.61
+    }
+  ]
+}

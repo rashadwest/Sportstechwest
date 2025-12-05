@@ -1,0 +1,100 @@
+{
+  "levels": [
+    {
+      "levelId": "book2_decision_crossover",
+      "levelName": "Decision Crossover Exercise",
+      "description": "Practice if/then conditionals with Block 2 (Crossover Dribble). Learn that coding uses if/then to make decisions.",
+      "gameMode": "blockcoding",
+      "episodeNumber": 1,
+      "codingConcept": "if_then_conditionals",
+      "videoPath": "",
+      "videoConfig": {
+        "autoPlay": true,
+        "loop": false,
+        "playbackSpeed": 1.0,
+        "allowSeeking": true,
+        "startTime": 0.0,
+        "endTime": -1.0,
+        "pausePoints": [],
+        "analysisPoints": []
+      },
+      "strategy": {
+        "strategyName": "Decision Crossover Sequence",
+        "strategyType": "offensive",
+        "description": "Use if/then logic with Block 2 (Crossover). IF [defender left] THEN [Block 2 right] ELSE [Block 2 left].",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "action": "Read the defense",
+            "codeEquivalent": "IF [defender left]",
+            "timing": 0.0,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 2,
+            "action": "If defender goes left, crossover right",
+            "codeEquivalent": "THEN [BLOCK_2_CROSSOVER right]",
+            "timing": 0.5,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 3,
+            "action": "Otherwise, crossover left",
+            "codeEquivalent": "ELSE [BLOCK_2_CROSSOVER left]",
+            "timing": 1.0,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 4,
+            "action": "Advance forward",
+            "codeEquivalent": "ADVANCE",
+            "timing": 1.5,
+            "playerPositions": []
+          }
+        ],
+        "keyConcepts": ["if_then", "conditionals", "decision_making"],
+        "basketballConcepts": ["crossover_dribble", "reading_defense"],
+        "diagramPath": "",
+        "showCourtDiagram": false
+      },
+      "learningObjectives": [
+        "Understand that coding uses if/then to make decisions",
+        "Practice creating conditional sequences",
+        "Learn that Block 2 (Crossover) requires reading conditions",
+        "Build code blocks to represent basketball decision-making"
+      ],
+      "successCriteria": [
+        "Correctly use IF/THEN blocks",
+        "Create conditional sequence with Block 2",
+        "Complete exercise with 70% or higher score",
+        "Demonstrate understanding through interactive practice"
+      ],
+      "difficultyLevel": 2,
+      "prerequisiteLevels": ["book1_foundation_block"],
+      "isUnlocked": true,
+      "exercise": {
+        "exerciseType": "BlockCoding",
+        "blockCoding": {
+          "availableBlocks": ["START", "IF", "THEN", "ELSE", "BLOCK_2_CROSSOVER", "ADVANCE"],
+          "requiredBlocks": ["IF", "THEN", "BLOCK_2_CROSSOVER"],
+          "targetCode": "START → IF [defender left] THEN [BLOCK_2_CROSSOVER right] ELSE [BLOCK_2_CROSSOVER left] → ADVANCE",
+          "allowCustomBlocks": false
+        },
+        "scoring": {
+          "maxScore": 100,
+          "passingScore": 70,
+          "showScoreDuringExercise": false,
+          "allowRetry": true,
+          "maxAttempts": 3
+        }
+      },
+      "author": "BallCODE Book Integration",
+      "createdDate": "2025-11-26",
+      "tags": ["book2", "conditionals", "if_then", "crossover_dribble", "decision_making"]
+    }
+  ],
+  "version": "1.0",
+  "lastUpdated": "2025-11-26"
+}
+
+

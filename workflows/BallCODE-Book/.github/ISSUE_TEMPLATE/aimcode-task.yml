@@ -1,0 +1,95 @@
+name: AIMCODE Task
+description: Use complexity-based AIMCODE workflow with CLEAR + BML
+title: "[AIMCODE] <short title>"
+labels: ["aimcode"]
+assignees: []
+body:
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: Complexity Level
+      description: Select complexity based on scope and risk
+      options:
+        - Simple (Lightweight AIMCODE)
+        - Medium (Hybrid AIMCODE)
+        - Complex (Full AIMCODE)
+    validations:
+      required: true
+  - type: checkboxes
+    id: decision_tree
+    attributes:
+      label: Decision Tree
+      description: Choose what this task is about
+      options:
+        - label: Educational content creation (stories, episodes, curricula)
+        - label: Pedagogical decision (learning objectives, sequencing, assessment)
+        - label: Content planning (outlines, structure)
+        - label: Technical/admin (code, config, formatting)
+  - type: markdown
+    attributes:
+      value: "If 'Educational' or 'Pedagogical' → Full AIMCODE. If 'Content planning' → Lightweight or Hybrid. Technical/admin → Skip AIMCODE unless it impacts learners."
+  - type: textarea
+    id: clear_clarity
+    attributes:
+      label: C - Clarity
+      description: Objectives, constraints, audience, done criteria
+      placeholder: "What exactly needs to be done and for whom?"
+    validations:
+      required: true
+  - type: textarea
+    id: clear_logic
+    attributes:
+      label: L - Logic
+      description: Steps and structure; dependencies
+  - type: textarea
+    id: clear_examples
+    attributes:
+      label: E - Examples
+      description: Reference examples/cases to follow
+  - type: textarea
+    id: clear_adaptation
+    attributes:
+      label: A - Adaptation
+      description: Risks, constraints, adjustments
+  - type: textarea
+    id: clear_results
+    attributes:
+      label: R - Results
+      description: Success criteria and measures
+  - type: textarea
+    id: bml_build
+    attributes:
+      label: BML - Build
+      description: What will be built in this task?
+      placeholder: "Artifact(s) to produce"
+  - type: textarea
+    id: bml_measure
+    attributes:
+      label: BML - Measure
+      description: What will you measure and how?
+      placeholder: "Process metrics, story-first checklist score, exercise telemetry, etc."
+  - type: textarea
+    id: bml_learn
+    attributes:
+      label: BML - Learn
+      description: What decision or change will be made based on measurements?
+  - type: checkboxes
+    id: story_first
+    attributes:
+      label: Story-First Applicability
+      description: If this touches story/learning artifacts, check all that apply
+      options:
+        - label: Starts with basketball action
+        - label: 3-act structure followed
+        - label: Concepts emerge from basketball needs
+        - label: Basketball success proves learning
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: Verifiable outcomes for completion
+    validations:
+      required: true
+
+
+

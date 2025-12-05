@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>BallCODE Game</title>
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build.json", {onProgress: UnityProgress});
+    </script>
+  </head>
+  <body>
+    <div id="unityContainer" style="width: 100vw; height: 100vh;"></div>
+    
+    <!-- Book Integration JavaScript Bridge -->
+    <!-- This function is called by Unity's Application.ExternalCall -->
+    <script>
+      // Book Integration JavaScript Bridge
+      // This function is called by Unity's Application.ExternalCall
+      
+      function SendExerciseComplete(bookNumber, success, score) {
+          console.log(`Exercise complete: Book ${bookNumber}, Success: ${success}, Score: ${score}`);
+          
+          // Send message to parent window (if in iframe)
+          if (window.parent && window.parent !== window) {
+              window.parent.postMessage({
+                  type: 'exerciseComplete',
+                  book: bookNumber,
+                  success: success === 1,
+                  score: score
+              }, '*');
+          }
+          
+          // Also try URL redirect as fallback
+          var returnUrl = localStorage.getItem('bookReturnUrl') || `/books/book${bookNumber}`;
+          var redirectUrl = `${returnUrl}?exercise=complete&success=${success}&score=${score}`;
+          
+          // Redirect after short delay to allow message to be sent
+          setTimeout(function() {
+              if (window.parent && window.parent !== window) {
+                  // If in iframe, try to redirect parent
+                  window.parent.location.href = redirectUrl;
+              } else {
+                  // If not in iframe, redirect current window
+                  window.location.href = redirectUrl;
+              }
+          }, 2000);
+      }
+      
+      // Store return URL when game loads (called from Unity)
+      function SetBookReturnUrl(returnUrl) {
+          localStorage.setItem('bookReturnUrl', returnUrl);
+          console.log(`Book return URL set: ${returnUrl}`);
+      }
+      
+      // Make functions globally available
+      window.SendExerciseComplete = SendExerciseComplete;
+      window.SetBookReturnUrl = SetBookReturnUrl;
+      
+      // Unity Progress Handler (if needed)
+      function UnityProgress(unityInstance, progress) {
+          if (!unityInstance.Module)
+              return;
+          if (!unityInstance.logo) {
+              unityInstance.logo = document.createElement("div");
+              unityInstance.logo.className = "logo " + unityInstance.Module.splashScreenStyle;
+              unityInstance.container.appendChild(unityInstance.logo);
+          }
+          if (!unityInstance.progress) {
+              unityInstance.progress = document.createElement("div");
+              unityInstance.progress.className = "progress " + unityInstance.Module.splashScreenStyle;
+              unityInstance.progress.empty = document.createElement("div");
+              unityInstance.progress.empty.className = "empty";
+              unityInstance.progress.appendChild(unityInstance.progress.empty);
+              unityInstance.progress.full = document.createElement("div");
+              unityInstance.progress.full.className = "full";
+              unityInstance.progress.appendChild(unityInstance.progress.full);
+              unityInstance.container.appendChild(unityInstance.progress);
+          }
+          unityInstance.progress.full.style.width = (100 * progress) + "%";
+          unityInstance.progress.empty.style.width = (100 * (1 - progress)) + "%";
+          if (progress == 1)
+              unityInstance.logo.style.display = unityInstance.progress.style.display = "none";
+      }
+    </script>
+  </body>
+</html>
+
+

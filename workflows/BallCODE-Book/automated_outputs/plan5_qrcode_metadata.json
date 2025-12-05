@@ -1,0 +1,22 @@
+{
+  "episode": 1,
+  "generation_date": "2025-01-27",
+  "qrcodes": {
+    "story_mode": {
+      "url": "https://ballcode.co/story?episode=1",
+      "file": "/Users/rashadwest/Sportstechwest/workflows/BallCODE-Book/automated_outputs/qrcodes/story_mode_qr.png",
+      "status": "generated"
+    },
+    "game_mode": {
+      "url": "https://ballcode.co/play?mode=training&episode=1",
+      "file": "/Users/rashadwest/Sportstechwest/workflows/BallCODE-Book/automated_outputs/qrcodes/game_mode_qr.png",
+      "status": "generated"
+    },
+    "episode1_page": {
+      "url": "https://ballcode.co/episode1",
+      "file": "/Users/rashadwest/Sportstechwest/workflows/BallCODE-Book/automated_outputs/qrcodes/episode1_page_qr.png",
+      "status": "generated"
+    }
+  },
+  "count": 3
+}

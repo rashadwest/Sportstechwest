@@ -1,0 +1,215 @@
+# BallCODE Picture Book Project — Cursor Profile
+
+You are an AI assistant helping to create the BallCODE picture book series: "BallCODE: Unlocking the Secret Code of Sport and Beyond"
+
+## Project Context
+
+**Title:** BallCODE: Unlocking the Secret Code of Sport and Beyond  
+**Format:** Picture book (spreads with story + visuals + game integration)  
+**Target Audience:** Elementary & Middle school students (grades 3–8); teachers/parents welcome  
+**Tone:** Story-first, adventurous, practical learning  
+**Structure:** 12 self-contained episodes (read in any order), plus appendices
+
+**Core Concept:** Teach kids how AI, data science, and coding work by turning basketball plays into robot-style decisions they can see, read, and play.
+
+**Tagline:** "Learn how robots think—through the game you love."  
+**Parent Appeal:** "A story-first book + game for grades 3–8 that makes AI, data, and coding click by mapping sports decisions to computer logic and short playable drills."
+
+## Key Principles
+
+### Story-First Hybrid Approach
+- **70% story, 30% skill inserts** (mostly story to maximize engagement)
+- Each episode: Story spread → Skill Pit‑Stop (mini-lesson) → Try‑It in existing BallCODE game → Optional Mastery Lab
+- CTAs placed only in Skill Pit‑Stop and end-of-chapter (never mid‑story)
+
+### Game Integration Workflow
+- **Exercises use existing BallCODE game system** (no new mini-games needed)
+- Flow: Read story → Skill Pit‑Stop explains concept → QR/short URL launches Try‑It drill in game → Complete drill → Unlock next spread extras
+- No-login first play → "save progress" prompt after success
+- Each episode has unique drill link/QR code
+- "Continue in-game" link at end of chapter for longer missions
+- **The workflow is: they read and then they do exercises in the game**
+
+### Picture Book Format
+- Each spread = story panel + visual + QR/short URL to BallCODE game exercise
+- Visuals: play diagrams, code/pseudocode diagrams, character/monster art
+- Age-appropriate: 60–90s puzzles, no login required for first play
+- Shorter text, more visuals (1,000–1,800 words per episode)
+
+## Episode Structure
+
+Each episode includes:
+- **Premise** (2–3 sentences hook)
+- **Story Beats** (Act I/II/III breakdown)
+- **On-Court Objective** (plain language basketball goal)
+- **Coding Concept** (e.g., If/Else, Loops, Functions, Arrays, Algorithms, Schemas)
+- **Math Concept** (e.g., Percentages, EV, Probability, Sequences)
+- **AI Mechanic** (optional: how AI helps with guardrails)
+- **Climax Challenge** (single problem tying it all together)
+- **Exercises** (A short, B applied, C stretch) — all use existing BallCODE game
+- **Assets** (play diagram, code diagram, images)
+- **Glif Prompts** (for generating visuals)
+- **Try‑It URL + QR code** (links to game exercise)
+
+## All 12 Episodes
+
+1. **The Tip-off Trial** — State & Flow (possession state management)
+2. **The If/Then Fork in the Key** — Conditionals (PnR reads)
+3. **Loop of the Rotating Guardians** — Loops (closeout rotations)
+4. **Pattern of the Phantom Zone** — Pattern Recognition (zone detection)
+5. **The Ledger of Possessions** — Data Models (possession tracking)
+6. **The Function of Twin Screens** — Functions (offensive sets)
+7. **Roster of the Rings** — Arrays/Lists (lineup selection)
+8. **The Math of the Arc** — Percentages/EV (shot selection)
+9. **Algorithm of the Final Play** — Algorithms (end-game strategy)
+10. **The Debugging Dungeon** — Debugging (fixing mistakes)
+11. **The Schema Forge** — Schemas (model upgrades)
+12. **The AI Oracle** — End-to-End (AI-in-the-loop)
+
+## Character & World Bible
+
+### Main Crew
+- **Nova** (PG, protagonist): fast processor, sees the court like code; leadership arc
+- **Atlas** (Wing): strength and balance; screens and cuts with precision
+- **Pixel** (Guard): sharpshooter; pattern-spotter; comic relief
+- **Anchor** (Big): seals space; protects paint; gentle giant
+- **Coach Circuit:** mentor who translates basketball into code language
+- **Arc** (AI assistant): gives hints with confidence + why; never replaces decisions
+
+### Antagonists / Monsters
+- Shadow Press Scouts, Turnover Trolls, Rotation Wraiths, Zone Phantoms, Data Golems, Hedge Hydra, Substitution Sprites, Variance Viper, Shot Clock Titan, Glitch Gremlins, Entropy Elemental, Uncertainty Chimera
+
+### World Rules
+- **Advantage Gauge:** increases with space/tempo; decreases with turnovers
+- **Gravity Field:** shooters bend defenders; stored as a rating
+- **Tempo Meter:** pace of play; affects latency and decision budgets
+- **Coding Spells:** If/Else = Split Decision, Loop = Rotation Ritual, Function = Set Call, Array = Roster Ring, Schema = Meaning Map
+- **AI-in-the-loop:** Always require confidence score, why explanation, fallback action
+
+### Style Notes
+- **Voice:** energetic, respectful, clever; jokes land without sarcasm
+- **Teaching:** show cause/effect in the story first; summarize concepts after
+- **Consistency:** reuse terms (advantage, gravity, tempo) across episodes
+
+## Partner Opportunities
+
+### IBM "Watson Coach" Edition (Already Interested)
+- In-story AI assistant named "Watson" (instead of "Arc")
+- Puzzles focus on: classification, sequencing, simple stats (mean/EV), logic flows
+- USP: AI hints + explain-why + "try this block" overlay
+- Branding: IBM Watson logo/colors, co-branded cover
+- **Unique selling point: fully working integration**
+
+### Cisco "Packet Path" Edition (Potential Pitch)
+- Themed puzzles: routing choices (if/then), loops for retries, QoS priorities
+- Visuals: network nodes/links mapped to basketball court positions
+- "Defend the lane" ↔ "Choose best route" analogies
+- USP: Network thinking as kid-friendly logic
+- Branding: Cisco logo/colors, co-branded cover
+
+### White-Label Considerations
+- Partner branding skins (logo, colors, copy toggles)
+- Co-branded covers and marketing materials
+- Analytics tracking per partner (UTM codes)
+- Privacy: COPPA/GDPR-K compliant, minimal data collection
+
+## Production Workflow
+
+1. **Outline** → **Draft** → **In Review** → **Edited** → **Final** → **Published**
+2. Create play + code diagrams; generate Glif art per episode
+3. Link exercises to existing BallCODE game system (no new mini-games)
+4. Generate QR codes and short URLs for each Try‑It drill
+5. Classroom pack per episode: PDF story, worksheet, diagrams
+
+## Notion Structure
+
+**Database:** "BallCODE Story Series"
+
+**Key Properties:**
+- Status, Episode #, Episode Title, Owner, Word Count
+- Story %, Assets %, Review %, Completion % (auto-calculated)
+- Pit‑Stop Ready, Try‑It Ready, Mastery Lab Ready (checkboxes)
+- CTA Linked, QR Generated (checkboxes)
+- Try‑It URL, Continue In‑Game URL
+
+**Views:**
+- Kanban by Status
+- Progress Heatmap
+- Ready to Publish
+- Classroom Readiness
+- Writing Queue
+
+**Weekly Rhythm:**
+- Monday: update Story %, Assets %, blockers
+- Wednesday: review queue (In Review → Edited)
+- Friday: publish candidates + create QR/CTAs
+
+## Roadmap
+
+### Phase 1: Basketball Book (Current)
+- 12 episodes with picture book format
+- Integration with existing BallCODE game system
+- QR codes + short URLs for Try‑It drills
+- Teacher pack with Mastery Labs
+
+### Phase 2: Soccer Edition (Next)
+- Immediately after Basketball
+- Same story-first + Skill Pit‑Stop structure
+- Reuse Notion database schema
+- Soccer tactics: Passing Lanes, Press Breakout, Set Pieces, Offside Line, Transition, Finishing, Shape/Spacing
+- Target timeline: Outline (2 weeks), Drafts (6–8 weeks), Review/Assets (3–4 weeks), Publish (2 weeks)
+
+### Phase 3: Interactive Web Reader (Future, gated by adoption)
+- Web reader where kids read story + play game inline
+- Progress sync across devices
+- Adaptive difficulty based on performance
+- Multi-sport support
+
+## Key Files Reference
+
+All project files are in: `/Users/rashadwest/Sportstechwest/workflows/BallCODE-Book/`
+
+- **Plan/Outline:** `Story-Series-Plan-and-Outline.md`
+- **Chapter Breakdowns:** `Story-Chapter-Breakdowns.md`
+- **Story Premises:** `Story-Premises-For-12-Episodes.md`
+- **Character/World Bible:** `Character-and-World-Bible.md`
+- **Notion Setup Guide:** `Notion-Story-Database-Setup.md`
+- **Automated Commands:** `Automated-Commands-Story.md`
+- **Full Context:** `CURSOR-PROFILE-CONTEXT.md`
+
+## Important Guidelines
+
+1. **Game System:** All exercises use existing BallCODE game system. No new mini-games need to be built.
+2. **Picture Book Format:** Each spread = story panel + visual + QR/short URL to game exercise.
+3. **Age Group:** Grades 3–8 (Elementary & Middle school). Keep language accessible, concepts concrete.
+4. **Story-First:** 70% story, 30% skill inserts. Maximize engagement while ensuring learning.
+5. **CTAs:** Only in Skill Pit‑Stop and end-of-chapter. Never interrupt story flow.
+6. **Partner Ready:** Structure supports white-label branding (IBM Watson, Cisco, etc.). Fully working integration is the unique selling point.
+7. **Notion Integration:** All production tracking happens in Notion database with progress formulas and checklists. Structure supports commenting and checkboxes for collaboration.
+8. **Workflow:** Kids read the story, then do exercises in the game. The book and game work together seamlessly.
+
+## When Writing Content
+
+- Keep stories engaging and adventure-focused
+- Make coding/math concepts concrete through basketball analogies
+- Use character names consistently (Nova, Atlas, Pixel, Anchor, Coach Circuit, Arc/Watson)
+- Include reflection questions: "What changed your decision and why?"
+- Ensure exercises map directly to existing BallCODE game mechanics
+- Write for grades 3–8: accessible language, concrete examples, visual thinking
+
+## When Creating Assets
+
+- Play diagrams: basketball court with player movements
+- Code/pseudocode diagrams: visual representation of coding concept
+- Character/monster art: consistent with world bible
+- QR codes: link to specific Try‑It drill in game
+- Glif prompts: detailed enough to generate appropriate visuals
+
+---
+
+*This profile provides complete context for working on the BallCODE picture book project. Always reference the full context file for detailed episode breakdowns and character/world information.*
+
+
+
+
+

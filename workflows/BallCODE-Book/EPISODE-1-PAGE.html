@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BallCODE - Episode 1: The Tip-off Trial</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        /* Navigation */
+        .main-nav {
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #007AFF;
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-menu a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .nav-menu a:hover {
+            color: #007AFF;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            border-radius: 2px;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* Header */
+        .episode-header {
+            background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .episode-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .episode-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        .episode-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* Main Content */
+        .episode-content {
+            background: white;
+            margin: 2rem auto;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .story-section {
+            padding: 2rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .story-section:last-of-type {
+            border-bottom: none;
+        }
+        
+        .story-section h2 {
+            color: #007AFF;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .story-text p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        .story-text strong {
+            color: #007AFF;
+        }
+        
+        /* Skill Pit-Stop */
+        .skill-pit-stop {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 2rem;
+            margin: 2rem;
+            border-radius: 4px;
+        }
+        
+        .skill-pit-stop h2 {
+            color: #856404;
+            margin-top: 0;
+            border-bottom: 2px solid #ffc107;
+        }
+        
+        .skill-pit-stop h3 {
+            color: #856404;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skill-pit-stop ol {
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .skill-pit-stop li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Exercises */
+        .exercises {
+            background: #d1ecf1;
+            border-left: 4px solid #0c5460;
+            padding: 2rem;
+            margin: 2rem;
+            border-radius: 4px;
+        }
+        
+        .exercises h2 {
+            color: #0c5460;
+            margin-top: 0;
+            border-bottom: 2px solid #0c5460;
+        }
+        
+        .exercises h3 {
+            color: #0c5460;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .exercises ol {
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .exercises li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: #007AFF;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: #0056CC;
+        }
+        
+        /* Footer */
+        .episode-footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .episode-footer a {
+            color: #007AFF;
+            text-decoration: none;
+        }
+        
+        .episode-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .episode-header h1 {
+                font-size: 2rem;
+            }
+            
+            .episode-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .story-section {
+                padding: 1.5rem;
+            }
+            
+            .skill-pit-stop,
+            .exercises {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="/" class="logo">BallCODE</a>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/episodes">Episodes</a></li>
+                <li><a href="/teachers">For Teachers</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Episode Header -->
+    <header class="episode-header">
+        <div class="container">
+            <h1>Episode 1: The Tip-off Trial</h1>
+            <p class="episode-subtitle">STEM Learning Through Basketball</p>
+            <div class="episode-meta">
+                <span class="meta-item">Target: Grades 3-8</span>
+                <span class="meta-item">Duration: 15-20 minutes</span>
+                <span class="meta-item">Focus: Understanding State in Code</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="episode-content">
+        <div class="container">
+            
+            <!-- Story Section: Act I -->
+            <section class="story-section act-i">
+                <h2>Act I: Meet the Crew; Tip-off Chaos; Possession Changes Feel Like Glitches</h2>
+                <div class="story-text">
+                    <p>The center circle of Data Court glowed with a soft blue light, pulsing like a heartbeat. Nova bounced on the balls of her feet, her eyes scanning the court. She could see it all—the lines of code that made up every play, the state of every possession, the flow of data like a river of information.</p>
+                    
+                    <p>"Remember," Coach Circuit's voice crackled through their earpieces, "the tip-off is where it all begins. One state becomes another. Start. Live. Dead. Outcome. That's the sequence. Don't let it glitch."</p>
+                    
+                    <p>Nova nodded, her fingers twitching as if typing on an invisible keyboard. Beside her, Atlas stretched his long arms, his movements precise and calculated. Pixel adjusted his shooting sleeve, already calculating angles and percentages. And Anchor, the gentle giant, stood ready at the center circle, his massive frame a wall of protection.</p>
+                    
+                    <p>"Here we go," Nova whispered, and the ball launched into the air.</p>
+                    
+                    <p>Chaos erupted.</p>
+                    
+                    <p>The ball bounced off Anchor's fingertips, but before Nova could react, it was gone—stolen by an opponent who moved like a shadow. The court seemed to glitch, the state of possession flickering between their team and the other side like a broken screen.</p>
+                    
+                    <p>"What just happened?" Pixel called out, his voice tight with confusion.</p>
+                    
+                    <p>Nova's eyes widened. She could see it—the state had changed too fast. START had become LIVE, but then something went wrong. The possession state was flickering, unstable, like code that hadn't been properly debugged.</p>
+                    
+                    <p>"State error!" she shouted. "The possession changed, but the system didn't register it correctly!"</p>
+                    
+                    <p>The ball bounced between players, each touch creating a new state change. START → LIVE → DEAD → START again. It was happening too fast, too chaotically. Nova's head spun trying to track it all.</p>
+                    
+                    <p>Coach Circuit's voice cut through the noise. "Nova! What's the current state?"</p>
+                    
+                    <p>Nova blinked, trying to focus. "I... I don't know! It's changing too fast. It's like a glitch!"</p>
+                    
+                    <p>"That's exactly what the Shadow Press Scouts want," Coach Circuit said grimly. "They feed on confusion. They make state changes feel like errors. But you can track it. You have to track it."</p>
+                    
+                    <p>Nova took a deep breath. She closed her eyes for just a second, then opened them again. This time, she saw it clearly—the state of the game, written in code that only she could read.</p>
+                    
+                    <p><strong>START:</strong> The tip-off begins.<br>
+                    <strong>LIVE:</strong> The ball is in play.<br>
+                    <strong>DEAD:</strong> Possession changes.<br>
+                    <strong>OUTCOME:</strong> The play ends.</p>
+                    
+                    <p>Right now, they were stuck in a loop. The state kept changing before they could react. But Nova knew—if she could track the state correctly, if she could see when it changed from LIVE to DEAD, they could control the next transition.</p>
+                    
+                    <p>"Team!" she called out. "Watch the state! When it changes from LIVE to DEAD, that's our signal. That's when we reset. That's when we take control!"</p>
+                    
+                    <p>The crew nodded, their eyes now focused on the same thing Nova saw—the invisible code that governed every moment of the game.</p>
+                </div>
+            </section>
+
+            <!-- Story Section: Act II -->
+            <section class="story-section act-ii">
+                <h2>Act II: Shadow Press Scouts Force Turnovers; Nova Tracks States</h2>
+                <div class="story-text">
+                    <p>The shadows moved.</p>
+                    
+                    <p>They appeared at the edges of the court first—dark, shifting shapes that seemed to blur the lines between players and code. The Shadow Press Scouts. Nova had heard stories about them, but seeing them in action was something else entirely.</p>
+                    
+                    <p>"They're forcing state changes," Atlas called out, his voice urgent. "Every time we get the ball, they're there. They're making us turn it over!"</p>
+                    
+                    <p>Nova watched as Pixel tried to bring the ball up the court. The state was LIVE—they had possession. But then a Shadow Press Scout materialized in front of him, and Pixel's pass went wild. The state flickered: LIVE → DEAD → LIVE (opponent) → DEAD again.</p>
+                    
+                    <p>"Turnover!" Coach Circuit's voice was sharp. "That's two. How many possessions have we had?"</p>
+                    
+                    <p>Nova's mind raced. She had to track it. She had to count.</p>
+                    
+                    <p>"Three possessions," she called back. "Two turnovers. One successful—wait, no. That one ended in a shot, but it missed. So... three possessions, two turnovers, zero points."</p>
+                    
+                    <p>The math was simple, but the problem was clear. Their turnover rate was too high. Every time the state changed from LIVE to DEAD in their favor, the Shadow Press Scouts were there, forcing another change. They were losing control.</p>
+                    
+                    <p>"Arc!" Nova called out to their AI assistant. "Can you detect the state shifts?"</p>
+                    
+                    <p>A soft chime sounded in her earpiece. "State shift detected," Arc's calm voice said. "Current state: DEAD. Previous state: LIVE (opponent). Probability of next state: 70% LIVE (us), 30% LIVE (opponent)."</p>
+                    
+                    <p>Nova's eyes widened. "Wait, you can see it?"</p>
+                    
+                    <p>"Vision cue detected," Arc confirmed. "The Shadow Press Scouts create state instability. I can track the shifts, but you must confirm. Is the current state correct?"</p>
+                    
+                    <p>Nova looked at the court. The ball was on the ground, rolling slowly. No one had possession. The state was DEAD.</p>
+                    
+                    <p>"Yes," she said. "State is DEAD. Confirmed."</p>
+                    
+                    <p>"State confirmed," Arc said. "Tracking. Next state change incoming in 3... 2... 1..."</p>
+                    
+                    <p>The ball was picked up by an opponent. The state changed: DEAD → LIVE (opponent).</p>
+                    
+                    <p>"State shift: DEAD to LIVE (opponent)," Arc reported. "Confidence: 95%."</p>
+                    
+                    <p>Nova nodded. She was starting to see the pattern. The Shadow Press Scouts weren't just creating chaos—they were exploiting the moments when the state was unstable, when the transition from one state to another wasn't being tracked correctly.</p>
+                    
+                    <p>"Team!" Nova called out. "We need to track every state change. Every single one. When the state is LIVE, we control it. When it's DEAD, we reset. When it's OUTCOME, we learn. But we can't let the Shadow Press Scouts control the transitions!"</p>
+                    
+                    <p>Atlas nodded. "So we track the states, and we control the transitions. That's how we beat them?"</p>
+                    
+                    <p>"Exactly," Nova said. "The state isn't the problem—it's losing track of the state. If we know what state we're in, we can control what happens next."</p>
+                    
+                    <p>She looked at the scoreboard. They were down, but not out. The possession count was clear: 3 possessions, 2 turnovers. The math was simple. The solution was clear.</p>
+                    
+                    <p>"Next possession," Nova said, her voice steady. "We track the state. We control the transition. We don't let them force a turnover."</p>
+                    
+                    <p>The Shadow Press Scouts shifted, sensing her determination. But Nova was ready. She could see the code now, clear as day. And she knew—if she could track the state correctly, they could win.</p>
+                </div>
+            </section>
+
+            <!-- Story Section: Act III -->
+            <section class="story-section act-iii">
+                <h2>Act III: Controlled Outlet → Fill Lanes → Safe Entry to Set</h2>
+                <div class="story-text">
+                    <p>The ball came off the rim, and Anchor grabbed it with both hands. The state was DEAD—the shot had missed, the play was over. But Nova was already moving, already thinking ahead.</p>
+                    
+                    <p>"State: DEAD," she called out. "Next state: LIVE. We control this transition!"</p>
+                    
+                    <p>Anchor's outlet pass was perfect—a controlled, precise throw that found Nova's hands exactly where she needed it. The state changed: DEAD → LIVE (us).</p>
+                    
+                    <p>"State shift confirmed," Arc's voice said. "DEAD to LIVE (us). Confidence: 100%."</p>
+                    
+                    <p>Nova caught the ball and immediately looked up the court. The Shadow Press Scouts were closing in, but she could see the lanes. She could see the path.</p>
+                    
+                    <p>"Fill the lanes!" she shouted. "Atlas, left lane! Pixel, right lane! Anchor, trail!"</p>
+                    
+                    <p>The crew moved like clockwork. Atlas sprinted down the left side, his long strides eating up the court. Pixel filled the right lane, his eyes already calculating the angle. Anchor followed behind, providing support.</p>
+                    
+                    <p>Nova dribbled up the middle, her eyes tracking the state. LIVE. They had possession. They controlled the state. But the Shadow Press Scouts were closing in, trying to force another state change.</p>
+                    
+                    <p>"Arc, detect any state shifts," Nova called out.</p>
+                    
+                    <p>"State stable," Arc reported. "Current: LIVE (us). No imminent state change detected. Confidence: 85%."</p>
+                    
+                    <p>Nova nodded. The state was stable. Now she had to maintain it. Three actions. Three linked actions that would keep the state in their control.</p>
+                    
+                    <p>Action one: Controlled outlet. Check. The state was LIVE.</p>
+                    
+                    <p>Action two: Fill the lanes. Atlas was in position. Pixel was in position. Anchor was trailing. Check. The state was still LIVE.</p>
+                    
+                    <p>Action three: Safe entry to set. This was the critical moment. If she could get the ball into their half-court offense without a turnover, they'd maintain the state. They'd control the possession.</p>
+                    
+                    <p>Nova crossed half-court, the Shadow Press Scouts closing in. She could feel them—the pressure, the chaos they created. But she kept her focus on the state.</p>
+                    
+                    <p><strong>LIVE.</strong> They had possession.<br>
+                    <strong>LIVE.</strong> The ball was in play.<br>
+                    <strong>LIVE.</strong> They controlled the state.</p>
+                    
+                    <p>She passed to Atlas on the wing. The state remained LIVE. Atlas passed to Pixel in the corner. The state remained LIVE. Pixel passed back to Nova at the top of the key. The state remained LIVE.</p>
+                    
+                    <p>Three actions. Three linked actions. State maintained.</p>
+                    
+                    <p>"State maintained across three linked actions," Arc confirmed. "Current state: LIVE (us). Transition to half-court offense successful. No turnover."</p>
+                    
+                    <p>Nova smiled. They'd done it. They'd maintained the state. They'd controlled the transition. The Shadow Press Scouts retreated, their chaos no longer effective.</p>
+                    
+                    <p>"Excellent work, team," Coach Circuit's voice came through. "You tracked the state. You controlled the transitions. You maintained possession through three linked actions. That's how you win the tip-off trial."</p>
+                    
+                    <p>Nova looked at the scoreboard. They still had work to do, but they'd learned something important. The state wasn't just a concept—it was a tool. If you could track it, if you could control it, you could win.</p>
+                    
+                    <p>"State: LIVE," she said to herself. "We control this. We control the game."</p>
+                    
+                    <p>And for the first time that day, she believed it.</p>
+                </div>
+            </section>
+
+            <!-- Skill Pit-Stop -->
+            <section class="skill-pit-stop">
+                <h2>Skill Pit-Stop: Understanding State in Code</h2>
+                <div class="skill-content">
+                    <h3>What is State?</h3>
+                    <p>Think of state like a light switch. A light switch can be in one of two states: ON or OFF. It can't be both at the same time, and it can only change from one state to the other when you flip the switch.</p>
+                    
+                    <p>In basketball, and in code, we use states to track what's happening. Just like a light switch, the game can only be in one state at a time, and it changes when something specific happens.</p>
+                    
+                    <h3>The Four States of Possession</h3>
+                    <p>In Episode 1, Nova learned to track four different states:</p>
+                    <ol>
+                        <li><strong>START</strong> - When the play begins (tip-off)</li>
+                        <li><strong>LIVE</strong> - When the ball is in play</li>
+                        <li><strong>DEAD</strong> - When play stops</li>
+                        <li><strong>OUTCOME</strong> - When the play ends with a result</li>
+                    </ol>
+                    
+                    <h3>Why Does State Matter?</h3>
+                    <p>Just like Nova learned, tracking state helps you understand what's happening and what you can do next. If you know the state is LIVE and you have the ball, you know you can dribble, pass, or shoot. If the state is DEAD, you know the play has stopped and you need to wait for the next state change.</p>
+                    
+                    <p>In code, programs use states all the time:</p>
+                    <ul>
+                        <li>A video game character might be in IDLE, WALKING, RUNNING, or JUMPING state</li>
+                        <li>A phone app might be in LOADING, READY, or ERROR state</li>
+                        <li>A robot might be in WAITING, MOVING, or STOPPED state</li>
+                    </ul>
+                    
+                    <p>By tracking state, you can control what happens next!</p>
+                </div>
+            </section>
+
+            <!-- Exercises -->
+            <section class="exercises">
+                <h2>Try the Exercises!</h2>
+                <div class="exercise-content">
+                    <h3>Exercise A: Label States in a Play (60 seconds)</h3>
+                    <p>Read the basketball scenario and label each state change. Write START, LIVE, DEAD, or OUTCOME.</p>
+                    <ol>
+                        <li>The referee throws the ball up for the tip-off. State: _______</li>
+                        <li>Your teammate jumps and catches the ball. State: _______</li>
+                        <li>Your teammate starts dribbling up the court. State: _______</li>
+                        <li>The ball bounces out of bounds. The referee blows the whistle. State: _______</li>
+                        <li>The other team inbounds the ball. State: _______</li>
+                        <li>They make a basket and score 2 points. State: _______</li>
+                    </ol>
+                    
+                    <h3>Exercise B: Write State Transitions (90 seconds)</h3>
+                    <p>Draw arrows showing how states can transition:</p>
+                    <ul>
+                        <li>How START becomes LIVE</li>
+                        <li>How LIVE becomes DEAD</li>
+                        <li>How DEAD becomes LIVE again</li>
+                        <li>How LIVE becomes OUTCOME</li>
+                    </ul>
+                    
+                    <h3>Exercise C: Handle an Edge Case (90 seconds)</h3>
+                    <p>During a game, two players grab the ball at the same time. The referee stops play and calls a "jump ball."</p>
+                    <p><strong>Question 1:</strong> What state is the game in right now?</p>
+                    <ul>
+                        <li>A) START</li>
+                        <li>B) LIVE</li>
+                        <li>C) DEAD</li>
+                        <li>D) OUTCOME</li>
+                    </ul>
+                    <p><strong>Question 2:</strong> After the jump ball, what state does it become?</p>
+                    <ul>
+                        <li>A) START</li>
+                        <li>B) LIVE</li>
+                        <li>C) DEAD</li>
+                        <li>D) OUTCOME</li>
+                    </ul>
+                    <p><strong>Question 3:</strong> If the jump ball results in your team getting the ball, what state is it now?</p>
+                    <ul>
+                        <li>A) START</li>
+                        <li>B) LIVE (us)</li>
+                        <li>C) LIVE (opponent)</li>
+                        <li>D) DEAD</li>
+                    </ul>
+                    
+                    <p><em>Answer keys and full teacher guide available separately.</em></p>
+                </div>
+                <a href="/teachers/episode-1-exercises.pdf" class="cta-button">Download Exercises (PDF)</a>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="episode-footer">
+        <div class="container">
+            <p><strong>BallCODE</strong> - Teaching STEM Through Basketball</p>
+            <p>Episode 1: The Tip-off Trial</p>
+            <p>For questions or support, <a href="/contact">contact us</a> or visit <a href="/teachers">For Teachers</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle (simple implementation)
+        document.querySelector('.mobile-menu-toggle')?.addEventListener('click', function() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>
+
+
+
