@@ -1,0 +1,362 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "The Foundation Block",
+      "slug": "the-foundation-block",
+      "status": "complete",
+      "concepts": {
+        "python": "Sequences",
+        "pythonSyntax": "Sequential code execution",
+        "aiConcept": "Step-by-step reasoning",
+        "mathConcept": "Order of operations"
+      },
+      "basketball": {
+        "skill": "Pound Dribble",
+        "level": 1,
+        "context": "Breaking the press with foundation blocks"
+      },
+      "curriculum": {
+        "gradeLevels": ["3-5", "6-8", "9-12"],
+        "standards": {
+          "csta": ["1B-AP-10", "1B-AP-11"],
+          "commonCore": ["MP.2", "MP.7"],
+          "ngss": ["ETS1-2"]
+        },
+        "phases": {
+          "phase1": {
+            "name": "Sports Language (Block Coding)",
+            "description": "Learn sequences using basketball terminology. Visual block interface: START → BLOCK_1_POUND → BLOCK_1_POUND → ADVANCE",
+            "example": "START → BLOCK_1_POUND → BLOCK_1_POUND → BLOCK_1_POUND → ADVANCE",
+            "learningObjective": "Students understand that code is step-by-step instructions"
+          },
+          "phase2": {
+            "name": "Transition Bridge",
+            "description": "See how sports language maps to code concepts. Side-by-side view: Block sequence | Python code",
+            "example": "Block: START → BLOCK_1_POUND\nCode: start()\npound_dribble()\nadvance()",
+            "learningObjective": "Students understand that blocks = code"
+          },
+          "phase3": {
+            "name": "Python Learning",
+            "description": "Write Python code for sequences. Create step-by-step programs",
+            "example": "def break_press():\n    start()\n    pound_dribble()\n    pound_dribble()\n    pound_dribble()\n    advance()",
+            "learningObjective": "Students can write Python sequences"
+          }
+        },
+        "learningObjectives": [
+          "Understand that code is step-by-step instructions",
+          "Create sequences using visual blocks",
+          "See connection between blocks and Python code",
+          "Write basic Python sequences"
+        ],
+        "assessment": {
+          "formative": [
+            "Story comprehension checks",
+            "Block coding exercises",
+            "Concept understanding questions"
+          ],
+          "summative": [
+            "Game exercise completion",
+            "Python code writing",
+            "Project portfolios"
+          ]
+        }
+      },
+      "game": {
+        "exerciseName": "Foundation Block Challenge",
+        "exerciseId": "book1_foundation_block",
+        "url": "ballcode.co/play?book=1&exercise=foundation-block&source=book",
+        "mode": "Block Coding",
+        "successCriteria": [
+          "Complete 3 successful sequences",
+          "Use foundation blocks correctly",
+          "Break the press using sequences"
+        ],
+        "returnFlow": {
+          "onComplete": "Return to Book 1 page with success status",
+          "unlocks": ["Python practice section"]
+        }
+      },
+      "website": {
+        "card": {
+          "title": "The Foundation Block",
+          "description": "Learn sequences through breaking the press with foundation blocks",
+          "thumbnail": "/assets/images/book1-title-page.png",
+          "badge": "Available"
+        },
+        "page": {
+          "path": "/books/book1",
+          "showCurriculumPathway": true,
+          "showLearningObjectives": true,
+          "showExerciseButton": true
+        }
+      },
+      "content": {
+        "storyFile": "Book-1-FINAL-READY.md",
+        "video": {
+          "full": "/Desktop/BallCODE BOOKS/BallCODE BOOK 1/THE FOUNDATION BLOCK.mov",
+          "intro": "/Desktop/BallCODE BOOKS/BallCODE BOOK 1/The Foundation Block_Intro.mov"
+        },
+        "gumroad": {
+          "url": "https://9768426137106.gumroad.com/l/gxgzv",
+          "price": 5,
+          "available": true
+        }
+      },
+      "progression": {
+        "prerequisites": [],
+        "nextBook": 2,
+        "nextBookReason": "After mastering sequences, students learn conditionals (if/then decisions) which build on sequential thinking",
+        "conceptProgression": "Sequences → Conditionals (decision-making builds on step-by-step thinking)"
+      }
+    },
+    {
+      "id": 2,
+      "title": "The Code of Flow",
+      "slug": "the-code-of-flow",
+      "status": "in-progress",
+      "concepts": {
+        "python": "Conditionals",
+        "pythonSyntax": "if defender_goes_left: crossover_right()",
+        "aiConcept": "Decision-making and branching logic",
+        "mathConcept": "Conditional statements"
+      },
+      "basketball": {
+        "skill": "Crossover Dribble",
+        "level": 2,
+        "context": "Creating space with conditional decisions"
+      },
+      "curriculum": {
+        "gradeLevels": ["3-5", "6-8", "9-12"],
+        "standards": {
+          "csta": ["1B-AP-12", "1B-AP-13"],
+          "commonCore": ["MP.2", "MP.7"],
+          "ngss": ["ETS1-2"]
+        },
+        "phases": {
+          "phase1": {
+            "name": "Sports Language (Block Coding)",
+            "description": "Learn conditionals using basketball terminology. Visual block interface: IF [defender goes left] THEN [crossover right]",
+            "example": "IF [defender goes left] THEN [crossover right] ELSE [go straight]",
+            "learningObjective": "Students understand that conditionals make decisions"
+          },
+          "phase2": {
+            "name": "Transition Bridge",
+            "description": "See how conditional blocks map to Python code. Side-by-side view: Block conditional | Python if statement",
+            "example": "Block: IF [defender goes left] THEN [crossover right]\nCode: if defender_goes_left:\n    crossover_right()",
+            "learningObjective": "Students understand that conditional blocks = Python if statements"
+          },
+          "phase3": {
+            "name": "Python Learning",
+            "description": "Write Python if statements. Create decision-making programs",
+            "example": "if defender_goes_left:\n    crossover_right()\nelse:\n    go_straight()",
+            "learningObjective": "Students can write Python conditionals"
+          }
+        },
+        "learningObjectives": [
+          "Understand that conditionals make decisions",
+          "Create conditional patterns using blocks",
+          "See connection between blocks and Python if statements",
+          "Write Python if/else statements"
+        ],
+        "assessment": {
+          "formative": [
+            "Story comprehension checks",
+            "Block coding exercises",
+            "Conditional pattern recognition"
+          ],
+          "summative": [
+            "Game exercise completion",
+            "Python conditional writing",
+            "Decision-making projects"
+          ]
+        }
+      },
+      "game": {
+        "exerciseName": "Flow Decision Challenge",
+        "exerciseId": "book2_flow_decision",
+        "url": "ballcode.co/play?book=2&exercise=flow-decision&source=book",
+        "mode": "Block Coding",
+        "successCriteria": [
+          "Complete 3 successful conditional decisions",
+          "Use if/then blocks correctly",
+          "Create space using conditionals"
+        ],
+        "returnFlow": {
+          "onComplete": "Return to Book 2 page with success status",
+          "unlocks": ["Python practice section"]
+        }
+      },
+      "website": {
+        "card": {
+          "title": "The Code of Flow",
+          "description": "Learn conditionals through creating space with crossover dribbles",
+          "thumbnail": "/assets/images/book2-title-page.png",
+          "badge": "Coming Soon"
+        },
+        "page": {
+          "path": "/books/book2",
+          "showCurriculumPathway": true,
+          "showLearningObjectives": true,
+          "showExerciseButton": true
+        }
+      },
+      "content": {
+        "storyFile": null,
+        "video": {
+          "full": null,
+          "intro": "/Desktop/BallCODE BOOKS/BallCODE BOOK 2/THE CODE OF FLOW_intro.mov"
+        },
+        "gumroad": {
+          "url": null,
+          "price": 5,
+          "available": false
+        }
+      },
+      "progression": {
+        "prerequisites": [1],
+        "nextBook": 3,
+        "nextBookReason": "After mastering conditionals, students learn loops (repetition) which combine sequences and conditionals",
+        "conceptProgression": "Conditionals → Loops (repetition builds on decision-making)"
+      }
+    },
+    {
+      "id": 3,
+      "title": "The Pattern",
+      "slug": "the-pattern",
+      "status": "in-progress",
+      "concepts": {
+        "python": "Loops",
+        "pythonSyntax": "for i in range(3): fake_left()",
+        "aiConcept": "Pattern Recognition and Loop Detection",
+        "mathConcept": "Repetition and patterns"
+      },
+      "basketball": {
+        "skill": "In & Out Dribble",
+        "level": 3,
+        "context": "Creating patterns and breaking them at the right moment"
+      },
+      "curriculum": {
+        "gradeLevels": ["3-5", "6-8", "9-12"],
+        "standards": {
+          "csta": ["1B-AP-11", "1B-AP-12", "1B-AP-15", "2-AP-13"],
+          "commonCore": ["MP.2", "MP.7", "MP.8"],
+          "ngss": ["ETS1-2"]
+        },
+        "phases": {
+          "phase1": {
+            "name": "Sports Language (Block Coding)",
+            "description": "Learn loops using basketball terminology. Visual block interface: REPEAT [fake left] 3 TIMES, THEN [go right]",
+            "example": "REPEAT [Block 3: Fake Left] 3 TIMES\nTHEN [Block 3: Go Right]",
+            "learningObjective": "Students understand that loops repeat patterns"
+          },
+          "phase2": {
+            "name": "Transition Bridge",
+            "description": "See how loop blocks map to Python code. Side-by-side view: Block loop | Python for loop",
+            "example": "Block: REPEAT [fake left] 3 TIMES\nCode: for i in range(3):\n    fake_left()",
+            "learningObjective": "Students understand that loop blocks = Python for loops"
+          },
+          "phase3": {
+            "name": "Python Learning",
+            "description": "Write Python for loops. Use range() to control repetitions. Create loop patterns in code",
+            "example": "for i in range(3):\n    fake_left()\n    print(f'Fake {i+1}')\n\ngo_right()\nprint('Pattern broken!')",
+            "learningObjective": "Students can write Python for loops with range()"
+          }
+        },
+        "learningObjectives": [
+          "Understand that loops repeat patterns",
+          "Create loop patterns using blocks",
+          "See connection between blocks and Python for loops",
+          "Write Python for loops with range()"
+        ],
+        "assessment": {
+          "formative": [
+            "Story comprehension checks",
+            "Block coding exercises",
+            "Pattern recognition activities"
+          ],
+          "summative": [
+            "Game exercise completion",
+            "Python loop writing",
+            "Pattern creation projects"
+          ]
+        }
+      },
+      "game": {
+        "exerciseName": "Deception Loop Challenge",
+        "exerciseId": "book3_deception_loop",
+        "url": "ballcode.co/play?book=3&exercise=deception-loop&source=book",
+        "mode": "Mathlete",
+        "successCriteria": [
+          "Complete 3 successful loop patterns",
+          "Break pattern at right moment",
+          "Get past defender using loop"
+        ],
+        "returnFlow": {
+          "onComplete": "Return to Book 3 page with success status",
+          "unlocks": ["Python practice section", "Data integration concepts"]
+        }
+      },
+      "website": {
+        "card": {
+          "title": "The Pattern",
+          "description": "Learn loops through creating and breaking patterns with in & out dribbles",
+          "thumbnail": "/assets/images/book3-title-page.png",
+          "badge": "Coming Soon"
+        },
+        "page": {
+          "path": "/books/book3",
+          "showCurriculumPathway": true,
+          "showLearningObjectives": true,
+          "showExerciseButton": true
+        }
+      },
+      "content": {
+        "storyFile": null,
+        "video": {
+          "full": null,
+          "intro": null
+        },
+        "gumroad": {
+          "url": null,
+          "price": 5,
+          "available": false
+        }
+      },
+      "progression": {
+        "prerequisites": [1, 2],
+        "nextBook": 4,
+        "nextBookReason": "After mastering loops, students learn functions (combining sequences, conditionals, and loops)",
+        "conceptProgression": "Loops → Functions (combining concepts into reusable blocks)"
+      }
+    }
+  ],
+  "curriculum": {
+    "pathway": [1, 2, 3, 4, 5, 6, 7],
+    "phases": {
+      "phase1": "Sports Language (Block Coding) - Students learn concepts using basketball terminology and visual blocks",
+      "phase2": "Transition Bridge - Students see blocks → Python code connection",
+      "phase3": "Python Learning - Students write actual Python code"
+    },
+    "gradeLevels": {
+      "3-5": {
+        "focus": "Pattern recognition and repetition counting",
+        "pythonExposure": "See Python code examples, understand concepts, not required to write"
+      },
+      "6-8": {
+        "focus": "Loop concepts + Python syntax introduction",
+        "pythonExposure": "Write basic for loops, understand range() syntax"
+      },
+      "9-12": {
+        "focus": "Full Python loop programming",
+        "pythonExposure": "Full Python loop mastery, advanced loop structures"
+      }
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2025-12-05T11:30:00Z",
+    "updatedBy": "AIMCODE Unified Schema System"
+  }
+}
+

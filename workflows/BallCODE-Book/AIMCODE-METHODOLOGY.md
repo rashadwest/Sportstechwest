@@ -74,18 +74,23 @@ R - Results: What are the measurable outcomes? How will we assess success?
 ### Phase 3: PhD-Level Peer-Reviewed Research
 **Purpose:** Ground all work in academic rigor and evidence-based practices.
 
-**Process:**
-1. Research current peer-reviewed literature in relevant fields
-2. Identify leading researchers and their methodologies
-3. Synthesize findings from multiple academic sources
-4. Apply research-backed principles to project
-5. Ensure academic credibility and rigor
+**CRITICAL REQUIREMENT:** ⚠️ **NO WORK PROCEEDS WITHOUT PhD-LEVEL CITATIONS**
 
-**Implementation:**
-- Search for peer-reviewed papers in relevant domains
-- Reference methodologies from top researchers
-- Apply evidence-based practices
-- Document research sources and rationale
+**Mandatory Process:**
+1. **MUST** research current peer-reviewed literature in relevant fields
+2. **MUST** identify leading researchers and their methodologies
+3. **MUST** find and cite PhD-level peer-reviewed sources
+4. **MUST** synthesize findings from multiple academic sources
+5. **MUST** apply research-backed principles to project
+6. **MUST** ensure academic credibility and rigor
+
+**Implementation Rules:**
+- ❌ **DO NOT proceed** with any work until PhD-level citations are found
+- ✅ **MUST search** for peer-reviewed papers in relevant domains
+- ✅ **MUST reference** methodologies from top researchers
+- ✅ **MUST cite** specific papers, authors, and findings
+- ✅ **MUST document** research sources and rationale
+- ✅ **MUST apply** evidence-based practices
 
 **Research Domains:**
 - Educational psychology (learning theory)
@@ -93,6 +98,12 @@ R - Results: What are the measurable outcomes? How will we assess success?
 - Constructionist learning (Resnick, Papert)
 - Narrative-based learning (Zhang)
 - Child development (Reggio Emilia)
+
+**Citation Requirements:**
+- Must be peer-reviewed academic sources
+- Must be from reputable journals/conferences
+- Must include author names, publication year, journal/conference
+- Must be PhD-level research (not blog posts, articles, or non-peer-reviewed sources)
 
 ### Phase 4: Expert Consultation (AIMCODE Advisory Board + Domain Experts)
 **Purpose:** Leverage expertise from AIMCODE advisors and domain specialists to enhance and refine work.
@@ -625,15 +636,19 @@ R - Results: What are the measurable outcomes? How will we assess success?
 
 ### Step 3: PhD-Level Peer-Reviewed Research
 **AI Assistant will:**
-- Research current peer-reviewed literature
-- Identify leading researchers and methodologies
-- Synthesize findings from academic sources
-- Apply evidence-based practices
+- **MUST** research current peer-reviewed literature BEFORE proceeding
+- **MUST** identify leading researchers and methodologies
+- **MUST** find and cite PhD-level peer-reviewed sources
+- **MUST** synthesize findings from academic sources
+- **MUST** apply evidence-based practices
+- **WILL NOT** proceed with work until citations are found
 
 **You should:**
+- Verify that citations are provided before work begins
 - Review research sources if needed
 - Verify academic credibility
 - Ensure evidence-based approach
+- **STOP** work if citations are not provided
 
 ### Step 4: Expert Consultation (AIMCODE Advisory Board)
 **AI Assistant will:**

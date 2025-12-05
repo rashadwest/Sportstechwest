@@ -11,3 +11,17 @@
 [0;34m[2025-12-05 11:37:16][0m Step 6: Checking remote repository connection...
 [0;32m[SUCCESS][0m Remote configured: https://github.com/rashadwest/Sportstechwest.git
 [0;34m[2025-12-05 11:37:16][0m Step 7: Staging all changes (including images)...
+[0;32m[SUCCESS][0m Staged 9 files for commit
+[0;34m[2025-12-05 11:37:16][0m Step 8: Creating commit...
+[0;32m[SUCCESS][0m Commit created successfully
+[0;34m[2025-12-05 11:37:16][0m Commit hash: 3876ff4
+[0;34m[2025-12-05 11:37:16][0m Step 10: Pushing to GitHub...
+remote: 
+remote: GitHub found 1 vulnerability on rashadwest/Sportstechwest's default branch (1 low). To find out more, visit:        
+remote:      https://github.com/rashadwest/Sportstechwest/security/dependabot/1        
+remote: 
+To https://github.com/rashadwest/Sportstechwest.git
+   31703db..3876ff4  main -> main
+[0;32m[SUCCESS][0m Successfully pushed to GitHub
+[0;34m[2025-12-05 11:37:17][0m Step 11: Verifying push...
+[0;32m[SUCCESS][0m Push verified: Local and remote commits match

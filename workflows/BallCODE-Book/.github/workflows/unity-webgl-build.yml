@@ -1,0 +1,80 @@
+name: Unity WebGL Build and Deploy
+
+on:
+  workflow_dispatch:  # Manual trigger
+  repository_dispatch:  # Triggered by n8n
+    types: [unity-build]
+  push:
+    branches: [ main ]
+    paths:
+      - 'Unity-Scripts/**'
+      - 'Assets/**'
+      - 'ProjectSettings/**'
+      - '.github/workflows/unity-webgl-build.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        
+    - name: Cache Unity Library
+      uses: actions/cache@v3
+      with:
+        path: Library
+        key: Library-${{ runner.os }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+        restore-keys: |
+          Library-${{ runner.os }}-
+          
+    - name: Setup Unity
+      uses: game-ci/unity-setup@v1
+      with:
+        unityVersion: 2021.3.15f1
+        
+    - name: Build Unity WebGL
+      uses: game-ci/unity-builder@v4
+      env:
+        UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+      with:
+        targetPlatform: WebGL
+        buildName: BallCODE-WebGL
+        buildsPath: Builds/WebGL
+        buildMethod: Custom
+        customBuildPath: Assets/Editor/BuildScript.cs
+        
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: webgl-build
+        path: Builds/WebGL
+        retention-days: 7
+        
+    - name: Deploy to Netlify
+      uses: nwtgck/actions-netlify@v2.0
+      with:
+        publish-dir: './Builds/WebGL'
+        production-deploy: true
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        deploy-message: "Deploy from GitHub Actions - ${{ github.event.head_commit.message || 'Automated build' }}"
+        enable-pull-request-comment: false
+        enable-commit-comment: false
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      continue-on-error: false
+      
+    - name: Notify completion
+      if: always()
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const status = '${{ job.status }}' === 'success' ? '✅ Success' : '❌ Failed';
+          const message = `Unity WebGL Build ${status}\n\nSite: https://${{ secrets.NETLIFY_SITE_NAME || 'ballcode-game' }}.netlify.app\nCommit: ${{ github.sha }}\nTriggered by: ${{ github.event_name }}`;
+          
+          console.log(message);
+

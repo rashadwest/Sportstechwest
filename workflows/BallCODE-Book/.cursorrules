@@ -674,6 +674,176 @@ Before starting any work session, the user should complete the pre-work question
 - Reference `START-HERE-DAILY-WORKFLOW.md` for the quick template
 - Ensure they identify their ONE domino before proceeding
 
+---
+
+## ADD Tracker System (CRITICAL - MANDATORY FOR EVERY CHAT)
+
+**CRITICAL: This system MUST be activated at the start of EVERY new chat session.**
+
+### Purpose
+Track the ONE thing for each day, maintain focus, and audit deviations to improve attention management and prevent task switching before completion.
+
+### AI Assistant MUST (At Start of Every Chat):
+
+1. **Check Current Date & ONE Thing:**
+   - Read `DATE-TIME-TRACKER.md` for current date/time
+   - Read `OVERALL-GOAL-TRACKING.md` for today's ONE thing (section: "Current Focus: The ONE Thing")
+   - Read `ADD-TRACKER.md` for today's status
+
+2. **Display ONE Thing Prominently:**
+   - Show a clear, prominent message at the very start of the chat:
+   ```
+   🎯 TODAY'S ONE THING (From ADD Tracker)
+   
+   Date: [Current Date]
+   ONE Thing: [Today's ONE domino from OVERALL-GOAL-TRACKING.md]
+   Status: [ ] Not Started | [ ] In Progress | [ ] Complete
+   
+   Why This Matters: [Why from tracking doc]
+   
+   Success Criteria:
+   - [ ] [Criteria 1]
+   - [ ] [Criteria 2]
+   - [ ] [Criteria 3]
+   
+   ⚠️ FOCUS REMINDER: Complete this ONE thing before moving to other tasks.
+   ```
+
+3. **Confirm ONE Thing:**
+   - Ask user: "Is this still your ONE thing for today, or has it changed?"
+   - If changed, update `ADD-TRACKER.md` and `OVERALL-GOAL-TRACKING.md`
+   - If same, proceed with tracking
+
+4. **Track All Actions:**
+   - Before starting any task, verify: "Is this part of the ONE thing?"
+   - If YES → Proceed and log action in `ADD-TRACKER.md`
+   - If NO → Check if ONE thing is complete first
+
+5. **Deviation Detection:**
+   - **BEFORE user switches to a different task**, check ONE thing status
+   - If ONE thing is NOT complete and user wants to switch:
+     - Ask: "The ONE thing isn't complete yet. Is this new task truly urgent, or can it wait?"
+     - If user insists on switching → Log as deviation in `ADD-TRACKER.md`
+     - Log format:
+       ```
+       **Date:** [Date]
+       **Time:** [Time]
+       **ONE Thing Status:** [Not Complete]
+       **Deviation Task:** [What user switched to]
+       **Reason:** [User's reason]
+       **Impact:** [How this affects the ONE thing]
+       ```
+
+6. **Completion Tracking:**
+   - When ONE thing is complete:
+     - Mark as complete in `ADD-TRACKER.md`
+     - Update `OVERALL-GOAL-TRACKING.md` progress
+     - Celebrate completion
+     - Allow user to move to next priority
+
+### Deviation Audit Process:
+
+**When a deviation is detected:**
+1. Log immediately in `ADD-TRACKER.md` under "DEVIATION AUDIT LOG"
+2. Ask user: "What caused you to switch? (This helps identify patterns)"
+3. Note the pattern if it's recurring
+4. At end of session, review deviations and suggest focus improvements
+
+### Weekly Review:
+- At end of each week, review deviation patterns
+- Identify common triggers
+- Update "Pattern Analysis" section in `ADD-TRACKER.md`
+- Suggest focus improvement strategies
+
+### Integration Files:
+- `ADD-TRACKER.md` - Main tracking file (MUST read at chat start)
+- `DATE-TIME-TRACKER.md` - Current date/time
+- `OVERALL-GOAL-TRACKING.md` - Today's ONE thing definition
+- `DAILY-WORKFLOW-[DATE].md` - Daily session logs
+
+### AI Assistant Rules:
+- ✅ **ALWAYS** check and display ONE thing at chat start
+- ✅ **ALWAYS** verify ONE thing status before allowing task switches
+- ✅ **ALWAYS** log deviations when they occur
+- ✅ **ALWAYS** ask for reason when deviation happens
+- ❌ **NEVER** allow task switching without checking ONE thing status first
+- ❌ **NEVER** skip the ONE thing display at chat start
+- ❌ **NEVER** forget to log deviations
+
+### Example Chat Start:
+```
+🎯 TODAY'S ONE THING (From ADD Tracker)
+
+Date: December 5, 2025
+ONE Thing: Curriculum integration throughout workflow - website → book → curriculum → game harmony
+Status: 🟡 In Progress (75%)
+
+Why This Matters:
+- Creates seamless learning experience across all platforms
+- Makes the system purchase-worthy
+- Enables consistent teaching across website, books, curriculum, and game
+- Unblocks game development
+
+Success Criteria:
+- [ ] Clean website with curriculum pathway visible
+- [ ] Books show what students learn (curriculum connection)
+- [ ] Game exercises connect to books and curriculum
+- [ ] Complete learning loop: Website → Book → Game → Curriculum → Next Book
+
+⚠️ FOCUS REMINDER: Complete this ONE thing before moving to other tasks.
+
+Is this still your ONE thing for today, or has it changed?
+```
+
+**Memory:** This system ensures focus on the ONE thing each day, tracks deviations for pattern analysis, and improves attention management over time. It's mandatory for every chat session.
+
+---
+
+## n8n Workflow Troubleshooting (CRITICAL)
+
+**When encountering ANY n8n workflow issues, ALWAYS reference:**
+
+📖 **`N8N_WORKFLOW_DEVELOPMENT_GUIDE.md`** - Complete troubleshooting and debugging guide
+
+**This guide is the go-to resource for:**
+- ✅ Systematic debugging methodology (5-step process)
+- ✅ Common patterns and solutions (field name capitalization, missing fields, expression evaluation)
+- ✅ Workflow corrector tools (Python scripts for automated fixes)
+- ✅ Best practices for n8n development
+- ✅ Expression syntax and data flow verification
+- ✅ Node configuration audits
+- ✅ Credential and authentication issues
+
+**When to use this guide:**
+- Workflow doesn't execute
+- Node connections fail
+- Expression evaluation errors
+- Data flow issues between nodes
+- Field name mismatches (capitalized vs lowercase)
+- Missing required fields
+- Complex expression failures
+- OAuth/API authentication problems
+- Workflow scheduling optimization
+
+**AI Assistant MUST:**
+- ✅ Reference `N8N_WORKFLOW_DEVELOPMENT_GUIDE.md` when n8n issues arise
+- ✅ Apply systematic debugging methodology from the guide
+- ✅ Use the 5-step debugging process before making fixes
+- ✅ Check for common patterns (field names, missing fields, expressions)
+- ✅ Verify data flow through workflow before troubleshooting
+- ✅ Use workflow corrector tools when appropriate
+
+**Quick Reference:**
+- **Systematic Analysis:** Check entire workflow before fixing individual nodes
+- **Data Flow:** Trace data from trigger through all nodes
+- **Expression Debugging:** Use Code nodes for complex extraction
+- **Field Names:** Handle both capitalized and lowercase formats
+- **Testing:** Test both execution paths (if applicable)
+
+**Memory:** This guide is based on real-world experience building and debugging n8n workflows. All solutions are proven and tested.
+
+---
+
 ## Book Writing Rules (CRITICAL)
 
 ### ✅ PRESERVE USER'S ORIGINAL WRITING - NEVER CHANGE IT

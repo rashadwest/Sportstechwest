@@ -1,0 +1,476 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BallCODE Unified Curriculum Data Schema",
+  "description": "Single source of truth for Website, Book, Curriculum, and Game integration",
+  "version": "1.0.0",
+  "copyright": "© 2025 Rashad West. All Rights Reserved.",
+  "created": "2025-12-05",
+  "purpose": "Enable automated synchronization across all 4 systems (Website, Book, Curriculum, Game)",
+  
+  "type": "object",
+  "properties": {
+    "books": {
+      "type": "array",
+      "description": "Array of all books in the curriculum",
+      "items": {
+        "$ref": "#/definitions/book"
+      }
+    },
+    "curriculum": {
+      "$ref": "#/definitions/curriculum"
+    },
+    "metadata": {
+      "$ref": "#/definitions/metadata"
+    }
+  },
+  "required": ["books", "curriculum", "metadata"],
+  
+  "definitions": {
+    "book": {
+      "type": "object",
+      "description": "Complete book data structure",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Unique book identifier (1, 2, 3, etc.)"
+        },
+        "title": {
+          "type": "string",
+          "description": "Book title"
+        },
+        "slug": {
+          "type": "string",
+          "description": "URL-friendly identifier (e.g., 'the-foundation-block')"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["complete", "in-progress", "planned"],
+          "description": "Book completion status"
+        },
+        "concepts": {
+          "$ref": "#/definitions/concepts"
+        },
+        "basketball": {
+          "$ref": "#/definitions/basketball"
+        },
+        "curriculum": {
+          "$ref": "#/definitions/book-curriculum"
+        },
+        "game": {
+          "$ref": "#/definitions/game-integration"
+        },
+        "website": {
+          "$ref": "#/definitions/website-display"
+        },
+        "content": {
+          "$ref": "#/definitions/content"
+        },
+        "progression": {
+          "$ref": "#/definitions/progression"
+        }
+      },
+      "required": ["id", "title", "slug", "status", "concepts", "basketball", "curriculum", "game", "website"]
+    },
+    
+    "concepts": {
+      "type": "object",
+      "description": "Python and AI concepts taught in this book",
+      "properties": {
+        "python": {
+          "type": "string",
+          "description": "Primary Python concept (e.g., 'Sequences', 'Conditionals', 'Loops')"
+        },
+        "pythonSyntax": {
+          "type": "string",
+          "description": "Python syntax example (e.g., 'for i in range(3):')"
+        },
+        "aiConcept": {
+          "type": "string",
+          "description": "AI concept introduced (e.g., 'Pattern Recognition')"
+        },
+        "mathConcept": {
+          "type": "string",
+          "description": "Math concept integrated (optional)"
+        }
+      },
+      "required": ["python", "pythonSyntax"]
+    },
+    
+    "basketball": {
+      "type": "object",
+      "description": "Basketball skill and context",
+      "properties": {
+        "skill": {
+          "type": "string",
+          "description": "Basketball skill (e.g., 'Pound Dribble', 'Crossover Dribble', 'In & Out Dribble')"
+        },
+        "level": {
+          "type": "integer",
+          "description": "Dribble level (1-7)"
+        },
+        "context": {
+          "type": "string",
+          "description": "Basketball situation/context (e.g., 'Breaking the press', 'Creating space')"
+        }
+      },
+      "required": ["skill", "level"]
+    },
+    
+    "book-curriculum": {
+      "type": "object",
+      "description": "Curriculum integration for this book",
+      "properties": {
+        "gradeLevels": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["3-5", "6-8", "9-12"]
+          },
+          "description": "Target grade levels"
+        },
+        "standards": {
+          "$ref": "#/definitions/standards"
+        },
+        "phases": {
+          "$ref": "#/definitions/phases"
+        },
+        "learningObjectives": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Learning objectives for this book"
+        },
+        "assessment": {
+          "$ref": "#/definitions/assessment"
+        }
+      },
+      "required": ["gradeLevels", "phases", "learningObjectives"]
+    },
+    
+    "phases": {
+      "type": "object",
+      "description": "Three-phase learning pathway",
+      "properties": {
+        "phase1": {
+          "$ref": "#/definitions/phase-detail"
+        },
+        "phase2": {
+          "$ref": "#/definitions/phase-detail"
+        },
+        "phase3": {
+          "$ref": "#/definitions/phase-detail"
+        }
+      },
+      "required": ["phase1", "phase2", "phase3"]
+    },
+    
+    "phase-detail": {
+      "type": "object",
+      "description": "Details for a single phase",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Phase name (e.g., 'Sports Language (Block Coding)')"
+        },
+        "description": {
+          "type": "string",
+          "description": "What students do in this phase"
+        },
+        "example": {
+          "type": "string",
+          "description": "Example code or block pattern"
+        },
+        "learningObjective": {
+          "type": "string",
+          "description": "Learning objective for this phase"
+        }
+      },
+      "required": ["name", "description"]
+    },
+    
+    "standards": {
+      "type": "object",
+      "description": "Curriculum standards alignment",
+      "properties": {
+        "csta": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "CSTA K-12 Computer Science Standards"
+        },
+        "commonCore": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Common Core Mathematics Standards"
+        },
+        "ngss": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Next Generation Science Standards"
+        }
+      }
+    },
+    
+    "game-integration": {
+      "type": "object",
+      "description": "Game exercise integration",
+      "properties": {
+        "exerciseName": {
+          "type": "string",
+          "description": "Exercise name (e.g., 'Foundation Block Challenge', 'Deception Loop Challenge')"
+        },
+        "exerciseId": {
+          "type": "string",
+          "description": "Unique exercise identifier (e.g., 'book1_foundation_block', 'book3_deception_loop')"
+        },
+        "url": {
+          "type": "string",
+          "description": "Game URL with parameters (e.g., 'ballcode.co/play?book=1&exercise=foundation-block&source=book')"
+        },
+        "mode": {
+          "type": "string",
+          "enum": ["Block Coding", "Mathlete", "Story Mode"],
+          "description": "Unity game mode"
+        },
+        "successCriteria": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Success criteria for exercise completion"
+        },
+        "returnFlow": {
+          "type": "object",
+          "properties": {
+            "onComplete": {
+              "type": "string",
+              "description": "What happens on completion (e.g., 'Return to Book 1 page with success status')"
+            },
+            "unlocks": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "What unlocks after completion (e.g., 'Python practice section')"
+            }
+          }
+        }
+      },
+      "required": ["exerciseName", "exerciseId", "url", "mode"]
+    },
+    
+    "website-display": {
+      "type": "object",
+      "description": "Website display information",
+      "properties": {
+        "card": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "description": "Display title (may differ from book title)"
+            },
+            "description": {
+              "type": "string",
+              "description": "Short description for book card"
+            },
+            "thumbnail": {
+              "type": "string",
+              "description": "Thumbnail image URL"
+            },
+            "badge": {
+              "type": "string",
+              "description": "Badge text (e.g., 'Available', 'Coming Soon')"
+            }
+          }
+        },
+        "page": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "description": "Website path (e.g., '/books/book1')"
+            },
+            "showCurriculumPathway": {
+              "type": "boolean",
+              "description": "Show curriculum pathway on page"
+            },
+            "showLearningObjectives": {
+              "type": "boolean",
+              "description": "Show learning objectives section"
+            },
+            "showExerciseButton": {
+              "type": "boolean",
+              "description": "Show 'Try the Exercise' button"
+            }
+          }
+        }
+      }
+    },
+    
+    "content": {
+      "type": "object",
+      "description": "Book content files and resources",
+      "properties": {
+        "storyFile": {
+          "type": "string",
+          "description": "Path to story content file"
+        },
+        "video": {
+          "type": "object",
+          "properties": {
+            "full": {
+              "type": "string",
+              "description": "Full video URL or path"
+            },
+            "intro": {
+              "type": "string",
+              "description": "Intro video URL or path"
+            }
+          }
+        },
+        "gumroad": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string",
+              "description": "Gumroad product URL"
+            },
+            "price": {
+              "type": "number",
+              "description": "Price in USD"
+            },
+            "available": {
+              "type": "boolean",
+              "description": "Is product available for purchase"
+            }
+          }
+        }
+      }
+    },
+    
+    "progression": {
+      "type": "object",
+      "description": "Learning progression and next book recommendation",
+      "properties": {
+        "prerequisites": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "description": "Book IDs that should be completed first"
+        },
+        "nextBook": {
+          "type": "integer",
+          "description": "Recommended next book ID"
+        },
+        "nextBookReason": {
+          "type": "string",
+          "description": "Why this book comes next (curriculum rationale)"
+        },
+        "conceptProgression": {
+          "type": "string",
+          "description": "How this book builds on previous concepts"
+        }
+      }
+    },
+    
+    "assessment": {
+      "type": "object",
+      "description": "Assessment framework",
+      "properties": {
+        "formative": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Formative assessment activities"
+        },
+        "summative": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Summative assessment activities"
+        }
+      }
+    },
+    
+    "curriculum": {
+      "type": "object",
+      "description": "Overall curriculum structure",
+      "properties": {
+        "pathway": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "description": "Recommended book sequence (book IDs)"
+        },
+        "phases": {
+          "type": "object",
+          "description": "Three-phase pathway definition",
+          "properties": {
+            "phase1": {
+              "type": "string",
+              "description": "Phase 1 name and description"
+            },
+            "phase2": {
+              "type": "string",
+              "description": "Phase 2 name and description"
+            },
+            "phase3": {
+              "type": "string",
+              "description": "Phase 3 name and description"
+            }
+          }
+        },
+        "gradeLevels": {
+          "type": "object",
+          "description": "Grade-level adaptations",
+          "properties": {
+            "3-5": {
+              "type": "object",
+              "description": "Elementary school adaptations"
+            },
+            "6-8": {
+              "type": "object",
+              "description": "Middle school adaptations"
+            },
+            "9-12": {
+              "type": "object",
+              "description": "High school adaptations"
+            }
+          }
+        }
+      }
+    },
+    
+    "metadata": {
+      "type": "object",
+      "description": "Schema metadata",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Schema version"
+        },
+        "lastUpdated": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update timestamp"
+        },
+        "updatedBy": {
+          "type": "string",
+          "description": "Who/what updated the schema"
+        }
+      }
+    }
+  }
+}
+

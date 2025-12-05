@@ -8,8 +8,9 @@
 
 1. **AI automatically checks:**
    - `DATE-TIME-TRACKER.md` - For current date/time
+   - `ADD-TRACKER.md` - For today's ONE thing and focus status (MANDATORY - shown at chat start)
+   - `OVERALL-GOAL-TRACKING.md` - For overall goal status and ONE thing definition
    - Previous day's `DAILY-WORKFLOW-[DATE].md` - For what was completed yesterday
-   - `OVERALL-GOAL-TRACKING.md` - For overall goal status
 2. **Copy the template below**
 3. **Paste into your new Cursor chat**
 4. **Answer the questions** (yesterday's completion will be pre-filled from the system)
@@ -84,8 +85,9 @@
 ## 📁 Full System Files
 
 - **`DATE-TIME-TRACKER.md`** — 📅 **DATE SYSTEM** - Tracks current date/time (AI checks this automatically)
-- **`DAILY-WORKFLOW-[DATE].md`** — 📋 **DAILY LOGS** - Date-specific workflow files (AI pulls yesterday's completion from these)
+- **`ADD-TRACKER.md`** — 🎯 **FOCUS TRACKER** - Today's ONE thing, deviation audit, focus tracking (AI displays at chat start - MANDATORY)
 - **`OVERALL-GOAL-TRACKING.md`** — 🎯 **START HERE** - Master goal tracking document (review before each session)
+- **`DAILY-WORKFLOW-[DATE].md`** — 📋 **DAILY LOGS** - Date-specific workflow files (AI pulls yesterday's completion from these)
 - **`CURSOR-CHAT-START-TEMPLATE.md`** — Full template with all questions
 - **`DAILY-WORKFLOW-TEMPLATE.md`** — Complete daily workflow checklist
 - **`PRE-WORK-QUESTIONNAIRE.md`** — Detailed questionnaire
@@ -93,12 +95,15 @@
 
 ## 🔄 How the System Works
 
-**When you say "top of the morning":**
+**When you start a new chat session:**
 1. AI checks `DATE-TIME-TRACKER.md` for current date
-2. AI finds yesterday's `DAILY-WORKFLOW-[DATE].md` file
-3. AI pulls the "COMPLETE PREVIOUS DAY REVIEW" section
-4. AI pre-fills question 0.5 with yesterday's completion info
-5. You review and confirm, then proceed with today's work
+2. AI checks `ADD-TRACKER.md` and `OVERALL-GOAL-TRACKING.md` for today's ONE thing
+3. AI displays the ONE thing prominently at chat start (MANDATORY)
+4. AI finds yesterday's `DAILY-WORKFLOW-[DATE].md` file
+5. AI pulls the "COMPLETE PREVIOUS DAY REVIEW" section
+6. AI pre-fills question 0.5 with yesterday's completion info
+7. You review and confirm, then proceed with today's work
+8. AI tracks all actions against the ONE thing and logs deviations if you switch tasks before completion
 
 ---
 
