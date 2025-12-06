@@ -1,228 +1,363 @@
-# Phase 1: Netlify Site Setup Guide
-## One-Time Manual Setup to Establish Netlify Site
+# Phase 1: Netlify Setup Guide
+## Complete Setup for Netlify Site and WebGL Deployment
 
 **Copyright © 2025 Rashad West. All Rights Reserved.**
 
-**Purpose:** Create Netlify site manually to get credentials for automation  
+**Date:** December 5, 2025  
+**Purpose:** Set up Netlify account, get WebGL build, deploy to Netlify, and configure credentials  
 **Time:** 15-20 minutes  
-**Status:** Manual steps required
+**Status:** Ready to follow
 
 ---
 
-## Step 1.1: Clone Unity Repository (If Not Already)
+## 🎯 What You're Setting Up
 
-**Location:** Your local machine or Raspberry Pi
+**Netlify** = Website hosting service (where your Unity WebGL game will live)  
+**WebGL Build** = Unity game built for web browsers  
+**GitHub Actions** = Automated build system (builds WebGL in the cloud - **EASIEST OPTION!**)
 
-```bash
-# Clone the Unity repository
-git clone https://github.com/rashadwest/BTEBallCODE.git
-cd BTEBallCODE
-```
-
-**Checkpoint:** Repository cloned locally
-
----
-
-## Step 1.2: Build Unity Project to WebGL (Manual First Time)
-
-**Purpose:** Create WebGL build files for deployment
-
-### Option A: Build in Unity Editor
-
-1. **Open Unity Project:**
-   - Open Unity Hub
-   - Open the BTEBallCODE project
-
-2. **Configure Build Settings:**
-   - File → Build Settings
-   - Select **WebGL** platform
-   - Click "Switch Platform" (if needed)
-
-3. **Player Settings:**
-   - Click "Player Settings"
-   - Configure:
-     - **Company Name:** Your company
-     - **Product Name:** BallCODE Game
-     - **WebGL Settings:**
-       - Compression: **Gzip** (recommended)
-       - Data Caching: **Enabled**
-       - Memory Size: **256MB** (or adjust if needed)
-
-4. **Build:**
-   - Click "Build"
-   - Choose folder: `Builds/WebGL/` (create if doesn't exist)
-   - Wait for build (5-10 minutes depending on project size)
-
-**Checkpoint:** WebGL build created in `Builds/WebGL/` folder
-
-### Option B: Use Automated Build Script
-
-If you have Unity CLI available:
-
-```bash
-cd /path/to/BTEBallCODE
-/path/to/automate-unity-build.sh /path/to/BTEBallCODE
-```
-
-**Checkpoint:** Build folder contains:
-- `index.html`
-- `Build/` folder (with .wasm, .js, .data files)
-- Other WebGL files
+**Goal:** 
+1. Create Netlify account
+2. Get WebGL build (using GitHub Actions - no local Unity WebGL module needed!)
+3. Deploy to Netlify
+4. Get credentials for automation
+5. Add credentials to GitHub Secrets
 
 ---
 
-## Step 1.3: Deploy to Netlify Manually
+## 📋 STEP 1: Create Netlify Account (5 minutes)
 
-**Purpose:** Create Netlify site and get credentials
+### Option A: Sign Up with Email (Recommended)
 
-1. **Go to Netlify:**
-   - Open: https://app.netlify.com
-   - Sign in to your account
+1. **Go to Netlify:** https://app.netlify.com/signup
+2. **Choose "Sign up with email"**
+3. **Enter your information:**
+   - Email: [Your email address]
+   - Password: [Create a strong password]
+   - Full name: Rashad West
+4. **Click "Sign up"**
+5. **Check your email** for verification link
+6. **Click verification link** in email
+7. **You're in!** You'll see the Netlify dashboard
 
-2. **Create New Site:**
-   - Click "Add new site" (top right)
-   - Select "Deploy manually"
+### Option B: Sign Up with GitHub (If you have GitHub account)
 
-3. **Upload Build Files:**
-   - Drag and drop the `Builds/WebGL/` folder
-   - OR click "Browse to upload" and select the folder
-   - Wait for upload to complete
+1. **Go to Netlify:** https://app.netlify.com/signup
+2. **Click "Sign up with GitHub"**
+3. **Authorize Netlify** to access your GitHub
+4. **You're in!** Netlify will automatically connect to your GitHub
 
-4. **Site Created:**
-   - Netlify will create a site with a random name
-   - Example: `random-name-12345.netlify.app`
-   - Note the site URL
-
-**Checkpoint:** Netlify site created and accessible
-
----
-
-## Step 1.4: Get Netlify Credentials
-
-### Get Site ID
-
-1. **In Netlify Dashboard:**
-   - Click on your newly created site
-   - Click "Site settings" (gear icon or in top menu)
-
-2. **Navigate to General:**
-   - Click "General" in left sidebar
-   - Scroll to "Site details" section
-
-3. **Copy Site ID:**
-   - Find "Site ID" (long alphanumeric string)
-   - Example: `a1b2c3d4-e5f6-7890-abcd-ef1234567890`
-   - Copy this value
-
-**Checkpoint:** Site ID copied
-
-### Generate Access Token
-
-1. **Go to User Settings:**
-   - Click your profile/account (bottom left: "R Rashad West")
-   - OR go directly to: https://app.netlify.com/user/applications
-
-2. **Create New Token:**
-   - Click "New access token"
-   - Name: "Unity Automation" (or any descriptive name)
-   - Click "Generate token"
-
-3. **Copy Token:**
-   - **IMPORTANT:** Copy the token immediately
-   - You won't be able to see it again
-   - Save it securely
-
-**Checkpoint:** Access token generated and saved
-
-### Note Site Name/URL
-
-- Site URL: `https://your-site-name.netlify.app`
-- Site Name: The name Netlify assigned (or you can rename it)
-
-**Checkpoint:** Site information noted
+**✅ Checkpoint:** You have a Netlify account and are logged in
 
 ---
 
-## Step 1.5: Add Credentials to GitHub Secrets
+## 📋 STEP 2: Get WebGL Build - **OPTION 1: GitHub Actions (EASIEST!)** ⭐
 
-**Purpose:** Store Netlify credentials securely for GitHub Actions
+**Best for:** No local Unity WebGL module needed, automated builds
+
+If you see "No WebGL module loaded" in Unity Build Settings, this is the **easiest solution**!
+
+### Why GitHub Actions?
+
+- ✅ **No local WebGL module needed** - Builds in the cloud
+- ✅ **Automated** - Just push code or click a button
+- ✅ **Already configured** - You have the workflow file ready
+- ✅ **Auto-deploys** - Can deploy directly to Netlify
+
+### Step 2.1: Verify Unity Project is on GitHub
+
+1. **Check if your Unity project is on GitHub:**
+   - Repository should be: `rashadwest/BTEBallCODE` (or your Unity repo)
+   - If not on GitHub, push it there first
+
+2. **Verify workflow file exists:**
+   - Go to: `https://github.com/rashadwest/BTEBallCODE` (or your repo)
+   - Navigate to: `.github/workflows/` folder
+   - Look for: `unity-webgl-build.yml`
+   - **If missing:** See `PHASE-2-GITHUB-ACTIONS-SETUP.md` to create it
+
+### Step 2.2: Configure GitHub Secrets (Required for Build)
+
+**Before building, you need these secrets in GitHub:**
 
 1. **Go to GitHub Repository:**
-   - Navigate to: https://github.com/rashadwest/BTEBallCODE
-   - Click "Settings" tab
+   - Navigate to: `https://github.com/rashadwest/BTEBallCODE` (or your repo)
+   - Click **Settings** → **Secrets and variables** → **Actions**
 
-2. **Navigate to Secrets:**
-   - Left sidebar: "Secrets and variables" → "Actions"
-   - Click "Secrets" tab (not "Variables")
+2. **Add Required Secrets:**
 
-3. **Add NETLIFY_AUTH_TOKEN:**
-   - Click "New repository secret"
-   - Name: `NETLIFY_AUTH_TOKEN`
-   - Value: (paste your Netlify access token from Step 1.4)
-   - Click "Add secret"
+   **a. UNITY_LICENSE (if using Unity Pro):**
+   - Click **"New repository secret"**
+   - Name: `UNITY_LICENSE`
+   - Value: Your Unity license (get from Unity account if needed)
+   - Click **"Add secret"**
+   - **Note:** If using Unity Personal (free), you may not need this
 
-4. **Add NETLIFY_SITE_ID:**
-   - Click "New repository secret" again
-   - Name: `NETLIFY_SITE_ID`
-   - Value: (paste your Site ID from Step 1.4)
-   - Click "Add secret"
+   **b. NETLIFY_AUTH_TOKEN:**
+   - We'll get this in Step 4 (after Netlify site is created)
+   - For now, skip this - we'll come back to it
 
-5. **Add NETLIFY_SITE_NAME (Optional):**
-   - Click "New repository secret" again
-   - Name: `NETLIFY_SITE_NAME`
-   - Value: (your site name, e.g., `ballcode-game`)
-   - Click "Add secret"
+   **c. NETLIFY_SITE_ID:**
+   - We'll get this in Step 4 (after Netlify site is created)
+   - For now, skip this - we'll come back to it
 
-**Checkpoint:** All Netlify credentials added to GitHub Secrets
+**✅ Checkpoint:** GitHub repository ready, workflow file exists (or will be created in Phase 2)
 
----
+### Step 2.3: Build WebGL Using GitHub Actions
 
-## Verification Checklist
+**Option A: Manual Trigger (Easiest for First Build)**
 
-- [ ] Unity repository cloned locally
-- [ ] WebGL build created successfully
-- [ ] Build folder contains `index.html` and `Build/` folder
-- [ ] Netlify site created and accessible
-- [ ] Site ID copied
-- [ ] Access token generated and saved
-- [ ] Site name/URL noted
-- [ ] `NETLIFY_AUTH_TOKEN` added to GitHub Secrets
-- [ ] `NETLIFY_SITE_ID` added to GitHub Secrets
-- [ ] `NETLIFY_SITE_NAME` added to GitHub Secrets (optional)
+1. **Go to GitHub Repository:**
+   - Navigate to: `https://github.com/rashadwest/BTEBallCODE` (or your repo)
+   - Click **Actions** tab
 
----
+2. **Select Workflow:**
+   - Click **"Unity WebGL Build and Deploy"** workflow (on left sidebar)
 
-## Next Steps
+3. **Run Workflow:**
+   - Click **"Run workflow"** button (top right)
+   - Select branch: `main` (or your default branch)
+   - Click green **"Run workflow"** button
 
-Once Phase 1 is complete:
-- ✅ Proceed to Phase 2: GitHub Actions Workflow Setup
-- ✅ Then Phase 3: n8n Workflow Build
+4. **Wait for Build:**
+   - Build takes **10-15 minutes**
+   - Watch progress in the Actions tab
+   - You'll see steps: Checkout → Setup Unity → Build → Upload artifacts
 
----
+5. **Download Build:**
+   - When build completes, scroll down to **"Artifacts"** section
+   - Click **"webgl-build"** to download
+   - Extract the zip file
+   - You now have `Builds/WebGL/` folder with your WebGL build!
 
-## Troubleshooting
+**Option B: Push to Trigger (For Future Builds)**
 
-### Build Fails
-- Check Unity version compatibility
-- Verify WebGL build target is selected
-- Check Unity console for errors
+- Just push code to `main` branch
+- GitHub Actions will automatically build
+- No manual trigger needed
 
-### Netlify Upload Fails
-- Verify build folder structure is correct
-- Check file sizes (Netlify has limits)
-- Try uploading individual files if folder is too large
-
-### Can't Find Site ID
-- Make sure you're in Site settings → General
-- Scroll down to "Site details" section
-- Site ID is a long string, not the site name
-
-### Token Not Working
-- Verify token was copied correctly
-- Check token hasn't expired
-- Generate a new token if needed
+**✅ Checkpoint:** You have a WebGL build (either downloaded from GitHub Actions or built locally)
 
 ---
 
-**Copyright © 2025 Rashad West. All Rights Reserved.**
+## 📋 STEP 2 ALTERNATIVE: Get WebGL Build - Other Options
 
+### Option 2: Install WebGL Module Locally
+
+**If you prefer to build locally:**
+
+1. **In Unity Build Settings:**
+   - Click **"Install with Unity Hub"** button
+   - Unity Hub will open
+   - Click **"Install"** next to WebGL module
+   - Wait for download (~500MB-1GB)
+   - Restart Unity Editor
+
+2. **Build WebGL:**
+   - File → Build Settings
+   - Select WebGL platform
+   - Click **"Build"**
+   - Choose output: `Builds/WebGL/`
+   - Wait for build to complete
+
+**Time:** ~15-30 minutes (download + build)
+
+### Option 3: Get Build from Developer
+
+**If someone else has the build:**
+
+1. **Request WebGL build:**
+   - Ask developer to zip `Builds/WebGL/` folder
+   - See `EMAIL-TO-DEVELOPER-TEMPLATE.md` for email template
+
+2. **Receive and extract:**
+   - Download zip file
+   - Extract to your project folder
+   - You now have `Builds/WebGL/` folder
+
+**✅ Checkpoint:** You have a WebGL build folder ready
+
+---
+
+## 📋 STEP 3: Deploy to Netlify (5 minutes)
+
+### Step 3.1: Prepare Build Folder
+
+**Ensure you have:**
+- `Builds/WebGL/` folder with:
+  - `index.html`
+  - `Build/` folder (with .wasm, .js, .data files)
+  - `StreamingAssets/` folder (if used)
+
+### Step 3.2: Deploy via Netlify Dashboard (Easiest)
+
+1. **Go to Netlify Dashboard:**
+   - https://app.netlify.com
+   - Make sure you're logged in
+
+2. **Add New Site:**
+   - Click **"Add new site"** button
+   - Choose **"Deploy manually"**
+
+3. **Upload Build:**
+   - Drag and drop your `Builds/WebGL/` folder
+   - OR click **"Browse to upload"** and select the folder
+   - Wait for upload (~1-2 minutes)
+
+4. **Site is Live!**
+   - Netlify will show you the site URL
+   - Example: `https://random-name-12345.netlify.app`
+   - You can change the site name in Settings
+
+**✅ Checkpoint:** Your WebGL game is deployed and live on Netlify!
+
+### Step 3.3: (Optional) Add JavaScript Bridge
+
+**If you need book integration:**
+
+1. **Open:** `Builds/WebGL/index.html`
+2. **Add JavaScript bridge** (before `</body>` tag)
+3. **See:** `UNITY-WEBGL-BUILD-GUIDE.md` Step 4 for bridge code
+4. **Redeploy** to Netlify (drag and drop again)
+
+---
+
+## 📋 STEP 4: Get Netlify Credentials (5 minutes)
+
+**These are needed for GitHub Actions automation**
+
+### Step 4.1: Get Netlify Site ID
+
+1. **Go to Netlify Dashboard:**
+   - https://app.netlify.com
+   - Click on your site
+
+2. **Find Site ID:**
+   - Go to **Settings** → **General**
+   - Scroll to **"Site details"** section
+   - Copy **"Site ID"** (looks like: `abc123-def456-ghi789`)
+   - **Save this** - you'll need it for GitHub Secrets
+
+### Step 4.2: Get Netlify Auth Token
+
+1. **Go to Netlify Dashboard:**
+   - Click your profile icon (top right)
+   - Click **"User settings"**
+
+2. **Generate Access Token:**
+   - Go to **"Applications"** tab
+   - Scroll to **"Personal access tokens"** section
+   - Click **"New access token"**
+   - **Description:** "GitHub Actions Unity Build"
+   - Click **"Generate token"**
+   - **⚠️ IMPORTANT:** Copy the token immediately (you won't see it again!)
+   - **Save this** - you'll need it for GitHub Secrets
+
+**✅ Checkpoint:** You have:
+- Netlify Site ID
+- Netlify Auth Token
+
+---
+
+## 📋 STEP 5: Add Credentials to GitHub Secrets (5 minutes)
+
+**This enables GitHub Actions to deploy automatically**
+
+### Step 5.1: Go to GitHub Secrets
+
+1. **Go to GitHub Repository:**
+   - Navigate to: `https://github.com/rashadwest/BTEBallCODE` (or your repo)
+   - Click **Settings** → **Secrets and variables** → **Actions**
+
+### Step 5.2: Add Netlify Secrets
+
+**Add NETLIFY_AUTH_TOKEN:**
+1. Click **"New repository secret"**
+2. **Name:** `NETLIFY_AUTH_TOKEN`
+3. **Value:** Paste your Netlify Auth Token (from Step 4.2)
+4. Click **"Add secret"**
+
+**Add NETLIFY_SITE_ID:**
+1. Click **"New repository secret"**
+2. **Name:** `NETLIFY_SITE_ID`
+3. **Value:** Paste your Netlify Site ID (from Step 4.1)
+4. Click **"Add secret"**
+
+**Add NETLIFY_SITE_NAME (Optional):**
+1. Click **"New repository secret"**
+2. **Name:** `NETLIFY_SITE_NAME`
+3. **Value:** Your Netlify site name (e.g., `ballcode-game`)
+4. Click **"Add secret"**
+
+**✅ Checkpoint:** All GitHub Secrets configured
+
+---
+
+## ✅ PHASE 1 COMPLETE!
+
+**You now have:**
+- ✅ Netlify account created
+- ✅ WebGL build (via GitHub Actions - easiest!)
+- ✅ Game deployed to Netlify
+- ✅ Netlify credentials saved
+- ✅ GitHub Secrets configured
+
+**Next Steps:**
+- **Phase 2:** Verify GitHub Actions workflow (see `PHASE-2-GITHUB-ACTIONS-SETUP.md`)
+- **Phase 3:** Set up n8n automation (see `PHASE-3-N8N-WORKFLOW-BUILD.md`)
+
+---
+
+## 🐛 TROUBLESHOOTING
+
+### "No WebGL module loaded" in Unity
+
+**Solution:** Use **Option 1 (GitHub Actions)** from Step 2 - no local module needed!
+
+### GitHub Actions build fails
+
+**Check:**
+- Unity version in workflow matches your project
+- `UNITY_LICENSE` secret is set (if using Pro)
+- Build script path is correct
+
+### Netlify deployment fails
+
+**Check:**
+- `Builds/WebGL/` folder has `index.html`
+- `Build/` folder exists with .wasm files
+- File size isn't too large (Netlify free tier has limits)
+
+### Can't find Netlify credentials
+
+**Site ID:**
+- Settings → General → Site details → Site ID
+
+**Auth Token:**
+- User settings → Applications → Personal access tokens → Generate new
+
+---
+
+## 📚 RELATED DOCUMENTATION
+
+- **GitHub Actions Setup:** `PHASE-2-GITHUB-ACTIONS-SETUP.md`
+- **WebGL Build Guide:** `UNITY-WEBGL-BUILD-GUIDE.md`
+- **WebGL Options:** `WEBGL-OPTIONS-WITHOUT-MODULE.md`
+- **Netlify Status:** `NETLIFY-WEBGL-STATUS-REPORT.md`
+
+---
+
+## 🎯 QUICK REFERENCE
+
+**Netlify Signup:** https://app.netlify.com/signup  
+**GitHub Actions:** Repository → Actions tab → Run workflow  
+**Netlify Site ID:** Settings → General → Site details  
+**Netlify Auth Token:** User settings → Applications → Personal access tokens  
+**GitHub Secrets:** Repository → Settings → Secrets and variables → Actions
+
+---
+
+**Status:** ✅ Ready to follow  
+**Time:** 15-20 minutes  
+**Difficulty:** Easy (mostly clicking buttons)  
+**Next:** Phase 2 - GitHub Actions Setup

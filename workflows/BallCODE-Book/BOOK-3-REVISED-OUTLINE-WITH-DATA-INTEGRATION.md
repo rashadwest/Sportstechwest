@@ -574,3 +574,4 @@ Book 3 revised outline is complete when:
 
 **Copyright © 2025 Rashad West. All Rights Reserved.**
 
+

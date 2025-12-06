@@ -332,3 +332,4 @@ Me: "Done!"
 
 **My Take:** Current workflow works great! MCP would be nice-to-have, not need-to-have. Focus on building WebGL and deploying first. We can revisit MCP if you find yourself making Unity changes daily.
 
+
