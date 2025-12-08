@@ -1037,6 +1037,34 @@ Is this still your ONE thing for today, or has it changed?
 
 ---
 
+## Website Development Rules (AIMCODE Website Framework)
+
+### When Working on Website Files
+
+**For ALL website-related work (BallCode/ directory), use the AIMCODE Website Framework:**
+
+1. **Reference:** See `AIMCODE-WEBSITE-FRAMEWORK.md` for complete framework
+2. **Apply CLEAR Framework:** Clarity, Logic, Examples, Adaptation, Results
+3. **Layer-by-Layer Verification:** Local → Git → GitHub → Hosting → Live
+4. **Use Common Problems & Solutions:** Check framework for documented solutions
+5. **Verify Each Step:** Never assume deployment worked - verify systematically
+
+**Key Principles:**
+- ✅ Always verify repository configuration before pushing
+- ✅ Use absolute paths (`/assets/`) not relative paths for Netlify
+- ✅ Verify deployment after every change
+- ✅ Check each layer of deployment pipeline
+- ✅ Document new problems and solutions in framework
+
+**Quick Decision Tree:**
+- Simple change (typo, color)? → Lightweight verification
+- Complex change (new feature, deployment)? → Full AIMCODE Website Framework
+- Problem/Issue? → Use framework's problem-solving section
+
+**See:** `AIMCODE-WEBSITE-FRAMEWORK.md` for complete methodology
+
+---
+
 ## Key Takeaways
 
 1. **Complete Before Moving**: Always finish one task completely before starting another
@@ -1047,6 +1075,7 @@ Is this still your ONE thing for today, or has it changed?
 6. **Daily Workflow**: Complete pre-work questionnaire before starting each session
 7. **Preserve Original Writing**: NEVER change the user's story text - only grammar/spelling suggestions
 8. **BallCODE-Book Rule**: ONLY provide suggestions for user's writings - NEVER write story content for them. DELETE AI-generated story documents.
+9. **Website Development**: Use AIMCODE Website Framework for all website-related work (see above)
 
 ---
 
