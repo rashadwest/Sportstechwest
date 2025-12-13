@@ -1,0 +1,85 @@
+{
+  "last_updated": "2025-12-13 14:17:11",
+  "overall_status": "All Systems Operational",
+  "overall_status_class": "success",
+  "build_status": {
+    "github_status": "Error",
+    "github_class": "error",
+    "github_last_build": "-",
+    "netlify_status": "Error",
+    "netlify_class": "error",
+    "netlify_last_deploy": "-",
+    "build_health": "Healthy",
+    "build_health_class": "success",
+    "missed_builds": 0,
+    "expected_builds": 4
+  },
+  "integration_status": {
+    "website": "Active",
+    "book": "Active",
+    "curriculum": "Active",
+    "game": "Warning"
+  },
+  "content_completeness": {
+    "status": "Yellow",
+    "status_class": "warning",
+    "message": "Content mostly ready; some integration gaps remain",
+    "books_total": 2,
+    "books_complete": 2,
+    "missing_levels": [
+      "The Code of Flow: book2_flow_decision"
+    ],
+    "missing_thumbnails": [],
+    "missing_pages": [],
+    "issues": [
+      "Missing level JSON: 1"
+    ]
+  },
+  "school_readiness": {
+    "status": "Green",
+    "status_class": "success",
+    "message": "Pilot package files present; ready for school review",
+    "blockers": [],
+    "recommended_next_steps": [
+      "Send pilot package to the school contact",
+      "Schedule a 15-minute onboarding call",
+      "Collect feedback after first classroom run"
+    ]
+  },
+  "game_improvements": [
+    {
+      "title": "Story Integration",
+      "description": "Better connection between stories and gameplay"
+    },
+    {
+      "title": "Building Activities",
+      "description": "Enhanced hands-on creation and building"
+    },
+    {
+      "title": "Multiple Modes",
+      "description": "More entry points for different learning styles"
+    }
+  ],
+  "current_focus": {
+    "title": "Current Focus",
+    "description": "Tracked in ADD-TRACKER.md"
+  },
+  "recent_activity": [
+    {
+      "title": "Dashboard Updated",
+      "time": "2025-12-13T14:17:11.554069",
+      "type": "update"
+    }
+  ],
+  "n8n_status": {
+    "last_execution": "2025-12-13T14:17:11.554077",
+    "status": "Active",
+    "status_class": "success",
+    "trigger_type": "Scheduled"
+  },
+  "success_metrics": {
+    "build_success_24h": "100.0%",
+    "deploy_success_24h": "100.0%",
+    "system_uptime": "99.9%"
+  }
+}

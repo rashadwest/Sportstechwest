@@ -92,16 +92,18 @@ BallCODE has evolved from a **book-only product** to an **integrated educational
 
 ### 2. **Institutional Licensing** (Primary Revenue Stream)
 
-**Pricing Tiers:**
+**Canonical offer ladder:** See `documents/OFFER-LADDER-SCHOOL-FIRST.md`.
 
-| Tier | Price | Includes | Target |
-|------|-------|----------|--------|
-| **Pilot Program** | FREE | Episode 1 + support | Schools (3-6 months) |
-| **Single Episode License** | $499.99 | 1 episode + game access | Individual schools |
-| **Full Series License** | $2,999.99 | All 12 episodes + game | Districts/Large schools |
-| **Annual Subscription** | $1,999.99/year | All episodes + updates | Ongoing partnerships |
+**Pricing Tiers (school-first):**
 
-**What's Included:**
+| Tier | Price Anchor | Includes | Target |
+|------|-------------:|----------|--------|
+| **Pilot (time-boxed)** | $0 (or $250 supported) | Episode/Book 1 module + onboarding + light support | First-fit schools (2–4 weeks) |
+| **Classroom Annual** | $1,499/year | 1 teacher / ~35 students + curriculum-aligned access | Single classroom / club |
+| **School/Site Annual** | $4,999/year | Whole building + rollout kit + reporting | Principal purchase |
+| **District** | Custom (starts ~$15k/year) | Multi-school rollout + district reporting | District partnerships |
+
+**What's Included (varies by tier):**
 - Story Mode access (Unity-based or web)
 - Game Mode exercises (all modes)
 - Physical book copies (optional)

@@ -1,10 +1,12 @@
-# Pricing Strategy Analysis: $5 Per Book
-## Is $5 the Right Price for Non-School Customers?
+# Pricing Strategy Analysis: Consumer ($5/book) vs School-First Licensing
+## $5 is a consumer entry point — schools buy licenses
 
 **Copyright © 2025 Rashad West. All Rights Reserved.**
 
-**Question:** Is $5 per book good for people outside of schools?  
-**Context:** Educational video books (basketball + coding), Gumroad platform, general public audience
+**Question:** Is $5 per book good for people outside of schools, and what is the school-first pricing model?  
+**Context:** BallCODE is positioned school-first (pilot → annual license), with optional parent/home continuation.
+
+**School-first offer ladder (source of truth):** `documents/OFFER-LADDER-SCHOOL-FIRST.md`
 
 ---
 
@@ -261,5 +263,18 @@
 ---
 
 **Bottom Line:** $5 is good for accessibility and building audience. Add a bundle at $12 to increase revenue. Consider free intros to maximize reach. You can always test and adjust!
+
+---
+
+## School-first licensing (recommended primary model)
+
+Schools rarely want to buy individual $5 items as the core procurement model. The procurement-friendly structure is:
+
+- **Pilot (time-boxed):** low/no cost → proof + testimonials
+- **Classroom annual license:** 1 teacher / ~35 students
+- **School/site annual license:** whole building
+- **District license:** custom
+
+**Recommended anchors and inclusions:** `documents/OFFER-LADDER-SCHOOL-FIRST.md`
 
 

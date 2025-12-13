@@ -9,9 +9,12 @@ Copyright © 2025 Rashad West. All Rights Reserved.
 import os
 import sys
 import re
+import json
+import argparse
 import shutil
 import subprocess
 from pathlib import Path
+from typing import List
 
 # Colors for terminal output
 class Colors:
@@ -32,6 +35,46 @@ def print_error(message):
 
 def print_warning(message):
     print(f"{Colors.YELLOW}⚠{Colors.NC} {message}")
+
+def _resolve_optional_path(path_value, base_dir: Path) -> str:
+    """Resolve a possibly-relative path string against base_dir."""
+    if not path_value:
+        return ""
+    p = Path(path_value)
+    if p.is_absolute():
+        return str(p)
+    return str((base_dir / p).resolve())
+
+def load_book_packet(packet_path: str) -> dict:
+    """Load a book packet JSON file."""
+    if not packet_path:
+        raise ValueError("packet_path is required")
+    p = Path(packet_path)
+    if not p.exists():
+        raise FileNotFoundError(f"Book packet not found: {p}")
+    with open(p, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    if not isinstance(data, dict):
+        raise ValueError("Book packet JSON must be an object")
+    return data
+
+def parse_args(argv: List[str]) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Automate adding a new BallCODE book to the website."
+    )
+    parser.add_argument(
+        "--packet",
+        help="Path to BOOK-PACKET JSON (see documents/BOOK-PACKET-TEMPLATE.json).",
+    )
+
+    # Back-compat positional arguments
+    parser.add_argument("book_number", nargs="?", help="Book number (e.g. 2)")
+    parser.add_argument("book_title", nargs="?", help="Book title (e.g. 'The Code of Flow')")
+    parser.add_argument("description", nargs="?", help="Short description")
+    parser.add_argument("gumroad_url", nargs="?", help="Purchase URL (Gumroad or other)")
+    parser.add_argument("thumbnail_path", nargs="?", help="Optional thumbnail path")
+    parser.add_argument("price", nargs="?", help="Optional price (default: 5)")
+    return parser.parse_args(argv)
 
 def update_index_html(book_number, book_title, description, gumroad_url, price, thumbnail_name):
     """Update index.html with new book card"""
@@ -174,20 +217,45 @@ def main():
     """Main function"""
     print(f"{Colors.BLUE}=== BallCODE Book Upload Automation ==={Colors.NC}\n")
     
-    # Parse arguments
-    if len(sys.argv) < 5:
-        print_error("Missing required parameters")
-        print("Usage: python3 automate-book-upload.py <book-number> <book-title> <description> <gumroad-url> [thumbnail-path] [price]")
-        print("\nExample:")
-        print('python3 automate-book-upload.py 2 "The Code of Flow" "Learn if/then logic" "https://gumroad.com/l/xyz" "./book2.png" 5')
-        sys.exit(1)
-    
-    book_number = sys.argv[1]
-    book_title = sys.argv[2]
-    description = sys.argv[3]
-    gumroad_url = sys.argv[4]
-    thumbnail_path = sys.argv[5] if len(sys.argv) > 5 else None
-    price = sys.argv[6] if len(sys.argv) > 6 else "5"
+    args = parse_args(sys.argv[1:])
+    script_dir = Path(__file__).parent
+
+    if args.packet:
+        try:
+            packet = load_book_packet(args.packet)
+        except Exception as e:
+            print_error(str(e))
+            sys.exit(1)
+
+        book = packet.get("book", {}) if isinstance(packet.get("book"), dict) else {}
+        commerce = packet.get("commerce", {}) if isinstance(packet.get("commerce"), dict) else {}
+        consumer = commerce.get("consumer", {}) if isinstance(commerce.get("consumer"), dict) else {}
+        assets = packet.get("assets", {}) if isinstance(packet.get("assets"), dict) else {}
+
+        book_number = str(book.get("book_number", "")).strip()
+        book_title = str(book.get("title", "")).strip()
+        description = str(book.get("description", "")).strip()
+        gumroad_url = str(consumer.get("purchase_url", "")).strip()
+        thumbnail_path = _resolve_optional_path(assets.get("thumbnail_path", ""), script_dir)
+        price = str(consumer.get("price_usd", "5")).strip() or "5"
+    else:
+        # Parse arguments (legacy mode)
+        if not all([args.book_number, args.book_title, args.description, args.gumroad_url]):
+            print_error("Missing required parameters")
+            print("Usage:")
+            print("  python3 automate-book-upload.py --packet documents/BOOK-PACKET-TEMPLATE.json")
+            print("  OR")
+            print("  python3 automate-book-upload.py <book-number> <book-title> <description> <gumroad-url> [thumbnail-path] [price]")
+            print("\nExample:")
+            print('  python3 automate-book-upload.py 2 "The Code of Flow" "Learn if/then logic" "https://gumroad.com/l/xyz" "./book2.png" 5')
+            sys.exit(1)
+
+        book_number = args.book_number
+        book_title = args.book_title
+        description = args.description
+        gumroad_url = args.gumroad_url
+        thumbnail_path = args.thumbnail_path
+        price = args.price if args.price else "5"
     
     print_info(f"Book Number: {book_number}")
     print_info(f"Book Title: {book_title}")
@@ -207,7 +275,6 @@ def main():
     print()
     
     # Step 3: Git operations
-    script_dir = Path(__file__).parent
     website_dir = script_dir / "BallCode"
     
     print_info("Step 3: Git operations...")

@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BallCODE Book Packet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["packet_version", "book", "commerce"],
+  "properties": {
+    "packet_version": {"type": "string", "minLength": 1},
+    "created_at": {"type": "string", "minLength": 1},
+    "book": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["book_number", "title", "description", "grade_bands"],
+      "properties": {
+        "book_number": {"type": "integer", "minimum": 1},
+        "title": {"type": "string", "minLength": 1},
+        "description": {"type": "string", "minLength": 1},
+        "grade_bands": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "enum": ["3-5", "6-8", "9-12"]}
+        },
+        "curriculum": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "phase_path": {
+              "type": "array",
+              "minItems": 1,
+              "items": {"type": "string", "enum": ["blocks", "bridge", "python"]}
+            },
+            "primary_concepts": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "standards_tags": {
+              "type": "array",
+              "items": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    "commerce": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["channel_priority"],
+      "properties": {
+        "channel_priority": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "enum": ["schools", "parents", "libraries"]}
+        },
+        "school": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "pilot_cta": {"type": "string"},
+            "sales_contact_email": {"type": "string"},
+            "offer_ladder_ref": {"type": "string"}
+          }
+        },
+        "consumer": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["enabled"],
+          "properties": {
+            "enabled": {"type": "boolean"},
+            "price_usd": {"type": "number", "minimum": 0},
+            "purchase_url": {"type": "string"}
+          }
+        }
+      }
+    },
+    "assets": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "thumbnail_path": {"type": "string"},
+        "video_path": {"type": "string"}
+      }
+    },
+    "website": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "index_card_badge": {"type": "string"},
+        "cta_label": {"type": "string"}
+      }
+    },
+    "game": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "launch_url": {"type": "string"},
+        "levels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["level_id"],
+            "properties": {
+              "level_id": {"type": "string"},
+              "mode": {"type": "string"},
+              "duration_seconds": {"type": "integer", "minimum": 1}
+            }
+          }
+        }
+      }
+    }
+  }
+}
