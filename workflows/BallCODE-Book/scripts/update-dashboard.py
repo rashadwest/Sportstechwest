@@ -13,6 +13,7 @@ import requests
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional
 from pathlib import Path
+import subprocess
 
 # Add project root to path
 project_root = Path(__file__).parent.parent
@@ -392,6 +393,89 @@ def get_n8n_status() -> Dict:
         'trigger_type': 'Scheduled'
     }
 
+def get_openai_spend_status() -> Dict:
+    """Telemetry: today's OpenAI spend against guardrails."""
+    warn = float(os.getenv("OPENAI_DAILY_WARN_USD", "3"))
+    cap = float(os.getenv("OPENAI_DAILY_CAP_USD", "5"))
+
+    script = project_root / "scripts" / "check-openai-credits.py"
+    if not script.exists():
+        return {
+            "status": "Unknown",
+            "status_class": "warning",
+            "message": "OpenAI spend script missing",
+            "today_usd": None,
+            "warn_usd": warn,
+            "cap_usd": cap,
+        }
+
+    # Call spend-only mode; do not fail dashboard if it can't fetch.
+    try:
+        proc = subprocess.run(
+            ["python3", str(script), "--spend-only", "--warn", str(warn), "--cap", str(cap)],
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        out = proc.stdout or ""
+        # Parse: look for "Today: $X.YY"
+        today = None
+        for line in out.splitlines():
+            line = line.strip()
+            if line.startswith("Today: $"):
+                try:
+                    today = float(line.replace("Today: $", "").strip())
+                except Exception:
+                    today = None
+                break
+
+        if today is None:
+            return {
+                "status": "Unknown",
+                "status_class": "warning",
+                "message": "Could not parse spend (check OpenAI usage dashboard)",
+                "today_usd": None,
+                "warn_usd": warn,
+                "cap_usd": cap,
+            }
+
+        if today >= cap:
+            return {
+                "status": "Over Cap",
+                "status_class": "error",
+                "message": "Daily spend cap exceeded",
+                "today_usd": today,
+                "warn_usd": warn,
+                "cap_usd": cap,
+            }
+        if today >= warn:
+            return {
+                "status": "Over Warn",
+                "status_class": "warning",
+                "message": "Daily spend warning threshold exceeded",
+                "today_usd": today,
+                "warn_usd": warn,
+                "cap_usd": cap,
+            }
+
+        return {
+            "status": "OK",
+            "status_class": "success",
+            "message": "Daily spend within budget",
+            "today_usd": today,
+            "warn_usd": warn,
+            "cap_usd": cap,
+        }
+    except Exception as e:
+        return {
+            "status": "Unknown",
+            "status_class": "warning",
+            "message": f"Spend check failed: {e}",
+            "today_usd": None,
+            "warn_usd": warn,
+            "cap_usd": cap,
+        }
+
 def get_success_metrics() -> Dict:
     """Calculate success metrics."""
     build_status = get_build_status()
@@ -577,6 +661,7 @@ def generate_dashboard_data() -> Dict:
         'overall_status_class': overall_class,
         'build_status': build_status,
         'integration_status': get_integration_status(),
+        'openai_spend': get_openai_spend_status(),
         'content_completeness': get_content_completeness(),
         'school_readiness': get_school_readiness_report(),
         'game_improvements': get_game_improvements(),
@@ -723,6 +808,15 @@ def update_markdown_dashboard(data: Dict):
 - **Status:** {data['n8n_status']['status']}
 - **Trigger Type:** {data['n8n_status']['trigger_type']}
 - **Execution Time:** {data['last_updated']}
+
+---
+
+## 💸 OPENAI SPEND (Daily Guardrails)
+
+- **Status:** {data['openai_spend']['status']} ({data['openai_spend']['message']})
+- **Today:** {data['openai_spend']['today_usd'] if data['openai_spend']['today_usd'] is not None else 'Unknown'} USD
+- **Warn threshold:** {data['openai_spend']['warn_usd']} USD
+- **Cap threshold:** {data['openai_spend']['cap_usd']} USD
 
 ---
 

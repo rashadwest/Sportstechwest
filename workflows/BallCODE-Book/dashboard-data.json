@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-12-13 14:17:11",
+  "last_updated": "2025-12-13 14:48:39",
   "overall_status": "All Systems Operational",
   "overall_status_class": "success",
   "build_status": {
@@ -19,6 +19,14 @@
     "book": "Active",
     "curriculum": "Active",
     "game": "Warning"
+  },
+  "openai_spend": {
+    "status": "Unknown",
+    "status_class": "warning",
+    "message": "Could not parse spend (check OpenAI usage dashboard)",
+    "today_usd": null,
+    "warn_usd": 3.0,
+    "cap_usd": 5.0
   },
   "content_completeness": {
     "status": "Yellow",
@@ -67,12 +75,12 @@
   "recent_activity": [
     {
       "title": "Dashboard Updated",
-      "time": "2025-12-13T14:17:11.554069",
+      "time": "2025-12-13T14:48:39.895145",
       "type": "update"
     }
   ],
   "n8n_status": {
-    "last_execution": "2025-12-13T14:17:11.554077",
+    "last_execution": "2025-12-13T14:48:39.895171",
     "status": "Active",
     "status_class": "success",
     "trigger_type": "Scheduled"

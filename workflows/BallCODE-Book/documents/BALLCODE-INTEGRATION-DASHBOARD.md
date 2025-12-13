@@ -3,7 +3,7 @@
 
 **Copyright © 2025 Rashad West. All Rights Reserved.**
 
-**Last Updated:** 2025-12-13 14:17:11  
+**Last Updated:** 2025-12-13 14:48:39  
 **Update Frequency:** Every 6 hours (or manually via script)
 
 ---
@@ -54,18 +54,18 @@
 
 ### Website System
 - **Status:** Active
-- **Last Update:** 2025-12-13 14:17:11
+- **Last Update:** 2025-12-13 14:48:39
 - **Hosting:** Netlify
 - **URL:** Active
 
 ### Book System
 - **Status:** Active
 - **Books Complete:** Active
-- **Last Book Update:** 2025-12-13 14:17:11
+- **Last Book Update:** 2025-12-13 14:48:39
 
 ### Curriculum System
 - **Status:** Active
-- **Last Update:** 2025-12-13 14:17:11
+- **Last Update:** 2025-12-13 14:48:39
 - **Integration:** Active
 
 ### Game System
@@ -103,17 +103,26 @@
 ## 📈 RECENT ACTIVITY
 
 ### Last 24 Hours
-- **Dashboard Updated** - 2025-12-13T14:17:11.554069
+- **Dashboard Updated** - 2025-12-13T14:48:39.895145
 
 ---
 
 ## 🔄 n8n WORKFLOW STATUS
 
 ### Workflow Execution
-- **Last Execution:** 2025-12-13T14:17:11.554077
+- **Last Execution:** 2025-12-13T14:48:39.895171
 - **Status:** Active
 - **Trigger Type:** Scheduled
-- **Execution Time:** 2025-12-13 14:17:11
+- **Execution Time:** 2025-12-13 14:48:39
+
+---
+
+## 💸 OPENAI SPEND (Daily Guardrails)
+
+- **Status:** Unknown (Could not parse spend (check OpenAI usage dashboard))
+- **Today:** Unknown USD
+- **Warn threshold:** 3.0 USD
+- **Cap threshold:** 5.0 USD
 
 ---
 
@@ -152,4 +161,4 @@ python3 scripts/serve-dashboard.py
 ---
 
 **Dashboard Version:** 1.0  
-**Last Manual Update:** 2025-12-13 14:17:11
+**Last Manual Update:** 2025-12-13 14:48:39
