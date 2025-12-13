@@ -18,20 +18,46 @@ echo -e "${BLUE}🚀 n8n Terminal Editing Setup${NC}"
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 
-# Check if .n8n-env exists
-if [ ! -f .n8n-env ]; then
-    echo -e "${YELLOW}⚠️  .n8n-env file not found. Creating template...${NC}"
-    cat > .n8n-env << 'EOF'
-# n8n Terminal Editing Configuration
+# Profile selection: keep Mac(localhost) and Pi(IP) completely separate
+# Usage:
+#   ./setup-n8n-terminal.sh local
+#   ./setup-n8n-terminal.sh pi
+PROFILE="${1:-local}"
+if [ "${PROFILE}" != "local" ] && [ "${PROFILE}" != "pi" ]; then
+    echo -e "${RED}❌ Invalid profile: ${PROFILE}${NC}"
+    echo "Use: ./setup-n8n-terminal.sh local | pi"
+    exit 1
+fi
+
+# Create profile templates (tracked defaults, but safe/no secrets)
+if [ ! -f .n8n-env.local ]; then
+    cat > .n8n-env.local << 'EOF'
+# n8n Terminal Editing Configuration (Mac / Local)
 export N8N_URL="http://localhost:5678"
+export N8N_API_KEY=""
+export WORKFLOW_FILE="n8n-unity-automation-workflow.json"
+export WORKFLOW_ID=""
+EOF
+    echo -e "${GREEN}✅ Created .n8n-env.local template${NC}"
+fi
+
+if [ ! -f .n8n-env.pi ]; then
+    cat > .n8n-env.pi << 'EOF'
+# n8n Terminal Editing Configuration (Raspberry Pi / LAN)
+export N8N_URL="http://192.168.1.226:5678"
+# Pi is usually accessed over HTTP on LAN; disable secure cookie to avoid the warning banner.
 export N8N_SECURE_COOKIE="false"
 export N8N_API_KEY=""
 export WORKFLOW_FILE="n8n-unity-automation-workflow.json"
 export WORKFLOW_ID=""
 EOF
-    echo -e "${GREEN}✅ Created .n8n-env template${NC}"
-    echo ""
+    echo -e "${GREEN}✅ Created .n8n-env.pi template${NC}"
 fi
+
+# Materialize the selected profile into .n8n-env (local-only file; ignored by git)
+cp ".n8n-env.${PROFILE}" .n8n-env
+echo -e "${GREEN}✅ Activated profile: ${PROFILE} (wrote .n8n-env)${NC}"
+echo ""
 
 # Check n8n CLI
 echo -e "${YELLOW}🔍 Checking n8n CLI...${NC}"
@@ -78,6 +104,7 @@ if [ -f .n8n-env ]; then
     echo -e "${GREEN}✅ Loaded .n8n-env${NC}"
     echo ""
     echo "Current configuration:"
+    echo "  Profile: ${PROFILE}"
     echo "  N8N_URL: ${N8N_URL:-not set}"
     echo "  N8N_API_KEY: ${N8N_API_KEY:+set (hidden)}${N8N_API_KEY:-not set}"
     echo "  WORKFLOW_FILE: ${WORKFLOW_FILE:-not set}"
@@ -108,6 +135,10 @@ echo "1. Configure .n8n-env:"
 echo "   ${YELLOW}nano .n8n-env${NC}"
 echo "   - Set N8N_URL to your n8n instance"
 echo "   - Set N8N_API_KEY (optional, get from n8n UI → Settings → API)"
+echo ""
+echo "Profile shortcuts:"
+echo "  ${YELLOW}./setup-n8n-terminal.sh local${NC}  # Mac = localhost"
+echo "  ${YELLOW}./setup-n8n-terminal.sh pi${NC}     # Pi  = IP address"
 echo ""
 echo "2. Source the environment:"
 echo "   ${YELLOW}source .n8n-env${NC}"

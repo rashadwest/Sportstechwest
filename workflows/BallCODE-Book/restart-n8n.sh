@@ -4,9 +4,6 @@
 
 echo "🔄 Restarting n8n..."
 
-# Fix for "secure cookie / insecure URL / Safari" warning when running over HTTP (common on Pi/LAN)
-export N8N_SECURE_COOKIE="${N8N_SECURE_COOKIE:-false}"
-
 # Check if n8n is running
 if curl -s http://localhost:5678/healthz > /dev/null 2>&1; then
     echo "✅ n8n is running locally"

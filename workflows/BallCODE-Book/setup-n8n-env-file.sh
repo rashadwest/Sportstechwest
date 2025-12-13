@@ -80,10 +80,6 @@ cat >> "$ENV_FILE" << EOF
 UNITY_REPO_URL=https://github.com/rashadwest/BallCode.git
 UNITY_PROJECT_PATH=/Users/rashadwest/BTEBallCODE
 WORKFLOW_PATH=/Users/rashadwest/Sportstechwest/workflows/BallCODE-Book
-
-# n8n cookie configuration
-# Disables secure cookies to avoid the "secure cookie" warning when accessing n8n over HTTP/Safari.
-N8N_SECURE_COOKIE=false
 EOF
 
 echo -e "${GREEN}✅ Added environment variables to .env${NC}"
@@ -94,7 +90,6 @@ echo -e "${BLUE}📋 Variables added:${NC}"
 echo "  UNITY_REPO_URL=https://github.com/rashadwest/BallCode.git"
 echo "  UNITY_PROJECT_PATH=/Users/rashadwest/BTEBallCODE"
 echo "  WORKFLOW_PATH=/Users/rashadwest/Sportstechwest/workflows/BallCODE-Book"
-echo "  N8N_SECURE_COOKIE=false"
 echo ""
 
 # Show .env file location

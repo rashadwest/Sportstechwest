@@ -2,6 +2,9 @@
 config.json
 .env
 *.key
+.n8n-env
+.n8n-env.local
+.n8n-env.pi
 
 # Output directories
 output/
