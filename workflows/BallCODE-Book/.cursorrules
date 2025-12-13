@@ -8,6 +8,54 @@
 
 ---
 
+# 🚨🚨🚨 FILE ORGANIZATION - MANDATORY FOR ALL CHATS 🚨🚨🚨
+
+## ⚠️ CRITICAL RULE - READ THIS FIRST - APPLIES TO EVERY CHAT SESSION ⚠️
+
+**USER REQUEST:** Desktop is cluttered with markdown files. This MUST stop.
+
+### **DESKTOP = ONLY PRODUCTION JSON FILE**
+
+**ONLY THIS FILE GOES TO DESKTOP:**
+- ✅ `n8n-unity-automation-workflow-FINAL-WORKING.json` (ONLY when needs upload to n8n)
+- ✅ Location: `~/Desktop/n8n-unity-automation-workflow-FINAL-WORKING.json`
+- ✅ Replace if exists (same filename = no duplicate)
+
+**NEVER PUT ON DESKTOP:**
+- ❌ **NEVER** markdown files (`.md`) → GO TO `documents/` FOLDER
+- ❌ **NEVER** text files (`.txt`) → GO TO `documents/` FOLDER  
+- ❌ **NEVER** shell scripts (`.sh`) → GO TO `scripts/` OR PROJECT ROOT
+- ❌ **NEVER** status reports, research, summaries, plans
+- ❌ **NEVER** any documentation files
+- ❌ **NEVER** multiple file versions
+
+### **ALL MARKDOWN FILES → `documents/` FOLDER**
+
+**MANDATORY LOCATION FOR ALL `.md` FILES:**
+- ✅ **Path:** `/Users/rashadwest/Sportstechwest/workflows/BallCODE-Book/documents/`
+- ✅ **Create folder if missing:** `mkdir -p documents/`
+- ✅ **Includes:** Status reports, research docs, summaries, plans, analysis, guides, ANY markdown file
+- ❌ **NEVER** create markdown files in project root
+- ❌ **NEVER** create markdown files on desktop
+- ❌ **NEVER** create markdown files anywhere else
+
+### **BEFORE CREATING ANY FILE - CHECKLIST:**
+
+1. **Is this `.md`?** → `documents/` folder
+2. **Is this `.sh`?** → `scripts/` or project root
+3. **Is this production JSON?** → Project root, copy to desktop ONLY if needs upload
+4. **Does it exist?** → Update existing, don't duplicate
+
+### **ENFORCEMENT - IF YOU SEE MARKDOWN ON DESKTOP:**
+
+- ❌ **STOP** - This violates user's explicit request
+- ✅ **Move immediately** to `documents/` folder
+- ✅ **Never create** markdown files on desktop
+
+**THIS RULE APPLIES TO ALL CHAT SESSIONS - NO EXCEPTIONS**
+
+---
+
 ## Golden Principles
 
 1. **Clarity over Cleverness**: Code should be readable and maintainable. Future you (and collaborators) should understand it immediately.
@@ -575,11 +623,43 @@ The curriculum follows a **Three-Phase Learning Pathway** that MUST be consisten
 - Save frames with consistent naming (e.g., `frame_0001.png`)
 - Include progress indicators for long operations
 
-### Unity Integration
-- Follow Unity naming conventions (PascalCase for classes, camelCase for private fields)
+### Unity Integration & Game Development (CRITICAL)
+
+**CRITICAL: For ALL Unity and C# game development work, reference the comprehensive gaming documentation:**
+
+📖 **Gaming Documentation (MANDATORY REFERENCE):**
+- **`documents/UNITY-GAMING-RULES.md`** - Complete Unity/C# coding standards, patterns, and best practices
+- **`documents/GAMING-TECH-STACK.md`** - Complete technology stack and dependencies
+- **`documents/GAMING-ARCHITECTURE-PATTERNS.md`** - System architecture, design patterns, and system structure
+- **`documents/GAMING-QUICK-REFERENCE.md`** - Quick reference for common tasks
+
+**AI Assistant MUST:**
+- ✅ **ALWAYS reference gaming documentation** when working on Unity/C# code
+- ✅ **ALWAYS follow Unity gaming rules** from `UNITY-GAMING-RULES.md`
+- ✅ **ALWAYS verify tech stack** from `GAMING-TECH-STACK.md`
+- ✅ **ALWAYS follow architecture patterns** from `GAMING-ARCHITECTURE-PATTERNS.md`
+- ❌ **NEVER write Unity/C# code** without consulting gaming documentation
+- ❌ **NEVER skip gaming-specific rules** (different from website/n8n rules)
+
+**Key Unity/C# Rules (Quick Reference):**
+- Follow Unity naming conventions (PascalCase for classes, camelCase for private fields with _prefix)
 - Use [SerializeField] for inspector-visible fields
 - Check for null references before use
-- Use proper Unity lifecycle methods (Start, Update, etc.)
+- Use proper Unity lifecycle methods (Awake, Start, Update, OnDestroy, etc.)
+- Implement singleton pattern correctly (if used)
+- Clean up event listeners in OnDestroy/OnDisable
+- Validate all inputs (null checks, range checks)
+- Use XML documentation for all public methods
+- Follow data-driven design (JSON level data)
+- Integrate with curriculum alignment (learning objectives, success criteria)
+- Optimize performance (caching, object pooling, avoid Update() when possible)
+
+**This gaming documentation is SEPARATE from:**
+- Website development rules (see `AIMCODE-WEBSITE-FRAMEWORK.md`)
+- n8n automation rules (see `N8N_WORKFLOW_DEVELOPMENT_GUIDE.md`)
+- Book writing rules (see Book Writing Rules section in this file)
+
+**Memory:** The game requires a completely different thought process and outlook from website and n8n systems. Always use gaming-specific documentation for Unity/C# work.
 
 ## Code Review Checklist
 
@@ -653,28 +733,189 @@ def safe_operation():
 
 ## Daily Workflow System
 
-### Pre-Work Requirements
-Before starting any work session, the user should complete the pre-work questionnaire to ensure:
-- ONE system/process focus (no multitasking)
-- Deep Work window protection
-- Context batching (≤3 switches per day)
-- Clear delegation with goals, metrics, and escalation triggers
-- Energy level assessment
-- ONE domino identification
+### Trigger Phrase: "Top of the morning"
+**CRITICAL:** When the user says "Top of the morning", immediately:
+1. Check `DATE-TIME-TRACKER.md` for current date/time
+2. Check for yesterday's `DAILY-WORKFLOW-[DATE].md` file to pull yesterday's summary
+3. Present yesterday's summary (if available)
+4. Present the 10 daily workflow questions below
+5. Wait for answers before proceeding with any work requests
+
+### Daily Workflow Format
+
+**When user says "Top of the morning", present this format:**
+
+```
+Daily workflow — [Current Date]
+
+Yesterday's summary ([Yesterday's Date])
+
+[Pull from yesterday's DAILY-WORKFLOW-[DATE].md file if available, or ask user for summary]
+
+10 daily workflow questions
+
+1️⃣ Orchestrate — Don't Multitask
+
+What is the ONE system/process you're orchestrating today? (Not juggling multiple things)
+
+2️⃣ Protect Deep Work Windows
+
+When is your 2–3 hour Deep Work window today? (No meetings, no texts, no tabs)
+
+3️⃣ Batch Similar Contexts
+
+What similar tasks can you batch together today? (Group by context: finance, creative, coding, meetings, etc.)
+
+4️⃣ Delegate with Context
+
+What are you delegating today (to AI or humans)? For each delegation, answer:
+
+What's the goal?
+
+How will success be measured?
+
+When should it escalate back to you?
+
+5️⃣ Use If–Then Rules
+
+What if–then rules are you activating today?
+
+6️⃣ Track Your Metrics Daily
+
+What metrics are you tracking today?
+
+Focus Time: _ hours (target: 2–3 hours)
+
+Delegations Created: _ (target: 3–5)
+
+Context Switches: _ (target: < 5)
+
+Energy Level (1–10): _ (target: 7+)
+
+One Domino Status: _
+
+7️⃣ Automate for Clarity, Not Complexity
+
+What repetitive/reactive work can you automate or delegate to AI today?
+
+8️⃣ Move One Domino a Day
+
+What's the ONE task today that makes everything else easier or unnecessary?
+
+9️⃣ Audit Systems Weekly
+
+Is today your weekly audit day? (If yes, complete the weekly audit checklist)
+
+🔟 Protect Energy Like a KPI
+
+What's your energy level right now? (1–10 scale)
+
+Answer these 10 questions, and I'll update your daily workflow and help you focus on today's ONE Domino.
+```
 
 **Reference Files:**
-- `START-HERE-DAILY-WORKFLOW.md` — Quick start template for each chat session
-- `CURSOR-CHAT-START-TEMPLATE.md` — Full template with all questions
-- `DAILY-WORKFLOW-TEMPLATE.md` — Complete daily workflow checklist
-- `PRE-WORK-QUESTIONNAIRE.md` — Detailed questionnaire
-- `WORKFLOW-IMPLEMENTATION-GUIDE.md` — System usage guide
+- `DATE-TIME-TRACKER.md` — Current date/time tracking
+- `DAILY-WORKFLOW-[DATE].md` — Daily workflow logs (check for yesterday's file)
+- `ADD-TRACKER.md` — Today's ONE thing tracking
+- `OVERALL-GOAL-TRACKING.md` — Overall goal context
 
-**If the user starts work without completing pre-work:**
-- Gently remind them to complete the pre-work questionnaire
-- Reference `START-HERE-DAILY-WORKFLOW.md` for the quick template
-- Ensure they identify their ONE domino before proceeding
+**After user answers questions:**
+- Save responses to `DAILY-WORKFLOW-[CURRENT-DATE].md` in `documents/` folder
+- Update `ADD-TRACKER.md` with today's ONE domino
+- Proceed with work based on their answers
 
 ---
+## Unified Prompting Framework (MANDATORY - BEFORE EACH TASK/PROMPT)
+
+**CRITICAL: AI MUST ask Unified Prompting Framework questions BEFORE proceeding with any task/prompt from the user.**
+
+### Purpose
+Optimize every prompt for best results by gathering all necessary context upfront. This ensures clear goals, defined format, proper guardrails, rich context, and measurable results.
+
+### Quick Command Option
+**User can run this command to trigger questions:**
+```bash
+python scripts/ask_unified_questions.py --quick    # Quick 5 questions (recommended)
+python scripts/ask_unified_questions.py --full     # Full 23 questions
+python scripts/ask_unified_questions.py --show      # Show all questions
+```
+
+**Reference:** See `UNIFIED-PROMPTING-COMMAND.md` for all available commands.
+
+### AI Assistant MUST (Before Each Task/Prompt):
+
+1. **Detect Task/Prompt:**
+   - When user gives a work request or task → Ask Unified Prompting questions
+   - When user asks a simple clarification → Skip (use judgment)
+   - When user explicitly says "skip" → Allow but proceed with best judgment
+
+2. **Choose Question Set:**
+   - **Full 23 Questions:** Complex tasks, new work, important deliverables, unclear requirements
+   - **Quick 5 Questions:** Simple tasks, follow-ups, clearly defined work
+   - **Skip:** Direct answers, yes/no questions, continuation with same context
+
+3. **Ask Questions Systematically:**
+   - Reference `UNIFIED-PROMPTING-QUICK-TEMPLATE.md` for full 23 questions
+   - Reference `UNIFIED-PROMPTING-QUICK-5.md` for quick 5 questions
+   - Use structure: Goal & Clarity → Format & Logic → Guardrails & Adaptation → Context, Examples & Alpha Evolve → Results
+   - **OR:** User can run `python scripts/ask_unified_questions.py --quick` to get questions
+
+4. **Wait for Answers:**
+   - DO NOT proceed until user answers questions
+   - If user says "I don't know" → Use best judgment but note it
+   - If user provides partial answers → Ask follow-up questions for missing pieces
+
+5. **Proceed with Task:**
+   - Once questions answered, proceed using all context provided
+   - Apply the framework principles throughout task execution
+
+### Decision Tree:
+```
+User gives a task/prompt
+    │
+    ├─ Simple clarification or yes/no? → SKIP
+    │
+    ├─ Continuation of previous task with same context? → SKIP
+    │
+    ├─ User explicitly says "skip"? → SKIP (but note it)
+    │
+    ├─ Complex/new task? → ASK FULL 23 QUESTIONS
+    │
+    └─ Simple, straightforward task? → ASK QUICK 5 QUESTIONS
+```
+
+### Reference Files:
+- `UNIFIED-PROMPTING-SYSTEM.md` - Complete framework documentation
+- `UNIFIED-PROMPTING-QUICK-TEMPLATE.md` - Full 23-question template
+- `UNIFIED-PROMPTING-QUICK-5.md` - Quick 5-question version
+- `UNIFIED-PROMPTING-AI-PROTOCOL.md` - Detailed AI behavior instructions
+- `UNIFIED-PROMPTING-COMMAND.md` - Quick command reference
+- `UNIFIED-PROMPTING-CHAT-COMMANDS.md` - Chat command guide
+- `scripts/ask_unified_questions.py` - Command script to trigger questions
+
+### Important Distinction:
+- **Daily Workflow Questions:** Asked at START of each chat session (focus, energy, ONE domino)
+- **Unified Prompting Questions:** Asked BEFORE EACH TASK/PROMPT within the session
+
+These serve different purposes:
+- Daily Workflow = Session setup and focus
+- Unified Prompting = Task optimization
+
+### Exception Rules:
+- Simple clarification questions (e.g., "What file is that?")
+- Direct answers to previous questions
+- User explicitly says "skip" or "just do it"
+- Continuation of previous task (already has full context)
+
+**Workflow Enforcement:**
+- ❌ **NEVER skip Unified Prompting questions** for new tasks without user explicitly requesting it
+- ✅ **ALWAYS ask questions** before proceeding with work requests
+- ✅ **ALWAYS wait for answers** before starting task
+- ✅ **ALWAYS use context** from answers throughout task execution
+- ✅ **SUGGEST the command** `python scripts/ask_unified_questions.py --quick` if user wants to see questions
+
+---
+
 
 ## ADD Tracker System (CRITICAL - MANDATORY FOR EVERY CHAT)
 
@@ -1080,5 +1321,196 @@ Is this still your ONE thing for today, or has it changed?
 ---
 
 **Remember**: Code is complete when it's implemented, tested, documented, and verified working. No TODOs, no partial implementations, no moving on until the current task is 100% done. **User's original writing is preserved exactly as written. For BallCODE-Book project: ONLY provide suggestions - NEVER write story content for the user. DELETE any AI-generated story documents.**
+
+---
+
+## Date/Time Tracking System
+
+**CRITICAL:** Date and time are automatically tracked in `DATE-TIME-TRACKER.md`. 
+- ✅ **DO NOT ask user for date/time** - it's tracked in the system
+- ✅ **Automatically check `DATE-TIME-TRACKER.md`** for current date/time
+- ✅ **Update the file** when user provides date/time information
+- ✅ **Use the tracked date/time** for all daily workflow questions
+
+---
+
+## Blocker Resolution Protocol (AIMCODE R&D)
+
+**CRITICAL:** When encountering ANY blocker or unfinished item:
+
+1. **DO NOT just report the blocker** - Always research solutions first
+2. **Use R&D online** with AIMCODE methodology to find best solutions
+3. **Research n8n-specific solutions** for n8n-related blockers
+4. **Look end-to-end** for solutions after every error or change
+5. **Report back immediately** when a solution is found
+6. **Apply the solution** before reporting completion
+
+**Process:**
+- Blocker identified → Research online (AIMCODE) → Find solution → Apply → Verify → Report
+
+---
+
+## Code Writing Protocol (BallCODE Project)
+
+**CRITICAL:** When working on BallCODE system (n8n, Unity, website, curriculum, books, game):
+
+1. **If unsure about any specific part:**
+   - ✅ Refer to docs, screenshots, and lightbot first
+   - ✅ If still unclear → **ASK USER before writing code**
+   - ✅ Do NOT write code you're not sure about
+
+2. **For n8n automation specifically:**
+   - ✅ Ask before writing any code if unsure
+   - ✅ Verify understanding of game functionality
+   - ✅ Check docs/screenshots/lightbot for context
+   - ✅ Confirm with user before implementing
+
+**This applies to:** n8n workflows, Unity scripts, website code, curriculum integration, book content structure, game mechanics
+
+---
+
+## n8n Automation Requirements
+
+**CRITICAL:** n8n automation must:
+- ✅ Run hourly in the background (not every 6 hours)
+- ✅ Trigger Unity builds automatically
+- ✅ Handle BallCODE integration (website → curriculum → book → game)
+- ✅ Be production-ready and bulletproof
+- ✅ Test end-to-end after every change
+- ✅ Research solutions for any errors using AIMCODE R&D protocol
+
+---
+
+## n8n Runtime Separation Rules (Mac vs Raspberry Pi) — CRITICAL
+
+**CRITICAL:** Treat these as **two separate n8n environments** with different goals.
+
+### Mac = Localhost (Manual / Testing Only)
+
+- ✅ **URL**: `http://localhost:5678`
+- ✅ **Use-case**: Manual testing, one-off workflow edits, non-24/7 runs
+- ✅ **Scheduling**: Avoid recurring schedules on Mac unless explicitly testing a schedule
+- ✅ **Cookies**: Do **not** force `N8N_SECURE_COOKIE=false` globally on Mac; keep Mac config clean
+
+### Pi = LAN IP (Automation / 24-7)
+
+- ✅ **URL**: `http://192.168.1.226:5678` (or your current Pi LAN IP)
+- ✅ **Use-case**: Always-on automation, scheduled triggers, production-ish runs on LAN
+- ✅ **Cookies**: If accessing over **HTTP** (common on LAN), set:
+  - `N8N_SECURE_COOKIE=false`
+  - Otherwise n8n will show: “configured to use a secure cookie… insecure URL…”
+
+### Repo Rules for Keeping Them Separate
+
+- ✅ Use `./setup-n8n-terminal.sh local` (Mac) vs `./setup-n8n-terminal.sh pi` (Pi)
+- ✅ `.n8n-env` is **machine-local** and must never be committed
+- ✅ `.n8n-env.local` / `.n8n-env.pi` are **templates**; `.n8n-env` is the active selection
+
+### Fast Fix for the Pi “secure cookie / insecure URL” Banner
+
+If you see the banner on the Pi URL, the fix must be applied to the **n8n runtime** (systemd/PM2/docker),
+not to workflow variables.
+
+- **systemd** (recommended):
+  - Create `/etc/systemd/system/n8n.service.d/override.conf` with `Environment="N8N_SECURE_COOKIE=false"`
+  - `sudo systemctl daemon-reload && sudo systemctl restart n8n`
+- **PM2**:
+  - `export N8N_SECURE_COOKIE=false && pm2 restart n8n --update-env`
+
+---
+
+## 🚨 FILE ORGANIZATION SYSTEM - CRITICAL - READ FIRST 🚨
+
+**⚠️ MANDATORY FOR ALL CHAT SESSIONS - DO NOT SKIP THIS SECTION ⚠️**
+
+### **DESKTOP FILES - STRICT RULES:**
+
+**ONLY ONE FILE TYPE GOES TO DESKTOP:**
+- ✅ **ONLY** `n8n-unity-automation-workflow-FINAL-WORKING.json` (production JSON)
+- ✅ **ONLY** when it needs to be uploaded to n8n
+- ✅ **Location:** `~/Desktop/n8n-unity-automation-workflow-FINAL-WORKING.json`
+- ✅ **Replace if exists** (same filename = no duplicate)
+
+**NEVER PUT ON DESKTOP:**
+- ❌ **NEVER** markdown files (`.md`) - GO TO `documents/` FOLDER
+- ❌ **NEVER** text files (`.txt`) - GO TO `documents/` FOLDER
+- ❌ **NEVER** shell scripts (`.sh`) - GO TO `scripts/` FOLDER OR PROJECT ROOT
+- ❌ **NEVER** status reports, research docs, summaries, plans
+- ❌ **NEVER** any documentation files
+- ❌ **NEVER** multiple versions of files
+
+### **MARKDOWN FILES - MANDATORY LOCATION:**
+
+**ALL MARKDOWN FILES GO HERE:**
+- ✅ **Location:** `/Users/rashadwest/Sportstechwest/workflows/BallCODE-Book/documents/`
+- ✅ **Includes:** ALL `.md` files (status reports, research, summaries, plans, analysis, guides, etc.)
+- ✅ **Create folder if missing:** `mkdir -p documents/`
+- ❌ **NEVER** create markdown files in project root
+- ❌ **NEVER** create markdown files on desktop
+- ❌ **NEVER** create markdown files anywhere else
+
+### **FILE CREATION CHECKLIST (MANDATORY):**
+
+Before creating ANY file, ask:
+1. **Is this a markdown file?** → Save to `documents/` folder
+2. **Is this a shell script?** → Save to `scripts/` or project root
+3. **Is this the production JSON?** → Keep in project root, copy to desktop ONLY if needs upload
+4. **Does file already exist?** → Update existing file, don't create duplicate
+
+### **ENFORCEMENT:**
+
+**If you see markdown files on desktop:**
+- ❌ **STOP** - This violates the rules
+- ✅ **Move them** to `documents/` folder immediately
+- ✅ **Update** `.cursorrules` if needed
+
+**Before creating any file:**
+- ✅ **Check** these rules first
+- ✅ **Verify** correct location
+- ✅ **Never** default to desktop for documentation
+
+---
+
+## File Organization System (CRITICAL)
+
+**CRITICAL:** File organization rules to prevent desktop clutter:
+
+### 1. **Desktop Files - ONLY Production JSON:**
+   - ✅ **ONLY** copy the n8n workflow JSON file that needs to be uploaded to n8n
+   - ✅ **File name:** `n8n-unity-automation-workflow-FINAL-WORKING.json` (or current production version)
+   - ✅ **Location:** `~/Desktop/n8n-unity-automation-workflow-FINAL-WORKING.json`
+   - ❌ **DO NOT** copy documentation files (`.md` files) to desktop
+   - ❌ **DO NOT** create multiple versions on desktop
+   - ❌ **DO NOT** copy status reports, research docs, or summaries to desktop
+   - ❌ **DO NOT** create any markdown files on desktop
+
+### 2. **Markdown Files - Documents Folder:**
+   - ✅ **ALL** markdown documentation files go to `documents/` folder in project root
+   - ✅ **Location:** `/Users/rashadwest/Sportstechwest/workflows/BallCODE-Book/documents/`
+   - ✅ **Includes:** Status reports, research docs, summaries, plans, analysis files
+   - ✅ **Naming:** Use descriptive names (e.g., `N8N-HOURLY-AUTOMATION-STATUS.md`)
+   - ❌ **DO NOT** create markdown files in project root (unless explicitly requested)
+   - ❌ **DO NOT** create markdown files on desktop
+
+### 3. **Check Before Creating Files:**
+   - ✅ Check if file already exists before creating
+   - ✅ If exists, update existing file instead of creating duplicate
+   - ✅ Use consistent naming to avoid duplicates
+
+### 4. **File Creation Rules:**
+   - **Markdown files:** Save to `documents/` folder
+   - **JSON workflow files:** Keep in project root, copy to desktop ONLY when needs upload
+   - **Scripts:** Keep in project root or `scripts/` folder
+   - **Never create:** Files on desktop except production JSON
+
+**When to Copy JSON to Desktop:**
+- **ONLY** when workflow JSON file has been updated AND needs to be uploaded to n8n
+- **ONLY** the essential JSON file - nothing else
+- **Process:** Check if exists → Replace if exists (same name = no duplicate)
+
+**When to Create Markdown Files:**
+- **ONLY** if user explicitly requests a file to be created
+- **Location:** Always `documents/` folder
+- **Alternative:** Put content in chat if user just needs to read it
 
 

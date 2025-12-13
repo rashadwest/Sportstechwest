@@ -27,6 +27,23 @@ if ! ssh -o ConnectTimeout=5 "${PI_HOST}" "echo 'Connected'" > /dev/null 2>&1; t
   echo "  1. Raspberry Pi is on and accessible"
   echo "  2. SSH is enabled on Pi"
   echo "  3. You can SSH manually: ssh ${PI_HOST}"
+  echo ""
+  echo -e "${YELLOW}⚡ FASTEST FIX (run these commands ON THE PI):${NC}"
+  echo ""
+  echo "Option A) systemd (most common):"
+  echo "  sudo mkdir -p /etc/systemd/system/n8n.service.d"
+  echo "  sudo tee /etc/systemd/system/n8n.service.d/override.conf >/dev/null <<'EOF'"
+  echo "  [Service]"
+  echo "  Environment=\"N8N_SECURE_COOKIE=false\""
+  echo "  EOF"
+  echo "  sudo systemctl daemon-reload"
+  echo "  sudo systemctl restart n8n"
+  echo ""
+  echo "Option B) PM2:"
+  echo "  export N8N_SECURE_COOKIE=false"
+  echo "  pm2 restart n8n --update-env"
+  echo ""
+  echo "Then reload the Pi URL in Brave."
   exit 1
 fi
 

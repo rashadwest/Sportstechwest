@@ -1,1 +1,9 @@
 _site
+
+# n8n per-machine configs (Mac vs Pi)
+.n8n-env
+.n8n-env.*
+
+# Common secrets
+.env
+*.key
