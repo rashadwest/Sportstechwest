@@ -1,0 +1,482 @@
+{
+  "name": "Screenshot-to-Fix Automation - Visual Debugging & Auto-Repair",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "screenshot-fix",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "screenshot-webhook",
+      "name": "Screenshot Upload Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "webhookId": "screenshot-fix-webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normalize screenshot input\nconst body = $input.item.json.body || {};\nconst files = $input.item.json.files || {};\n\n// Extract screenshot (could be file upload or URL)\nconst screenshot = files.screenshot || body.screenshotUrl || body.screenshot;\nconst context = body.context || 'Unknown error';\nconst source = body.source || 'manual_upload';\n\nreturn {\n  json: {\n    screenshot: screenshot,\n    screenshotUrl: typeof screenshot === 'string' ? screenshot : null,\n    screenshotFile: typeof screenshot === 'object' ? screenshot : null,\n    context: context,\n    source: source,\n    timestamp: new Date().toISOString(),\n    requestId: `fix-${Date.now()}`\n  }\n};"
+      },
+      "id": "normalize-screenshot",
+      "name": "Normalize Screenshot Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "operation": "create",
+        "model": "gpt-4o",
+        "options": {
+          "temperature": 0.1,
+          "maxTokens": 2000
+        },
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are an expert error diagnosis system. Analyze screenshots of errors and provide structured diagnosis."
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Analyze this error screenshot and provide structured diagnosis:\n\nContext: {{ $json.context }}\n\nIdentify:\n1. Error type (n8n_workflow, unity_build, deployment, web_error, other)\n2. Exact error message\n3. Affected system/component\n4. Likely cause\n5. Files/components that need fixing\n6. Severity (low, medium, high, critical)\n\nReturn JSON only:\n{\n  \"errorType\": \"string\",\n  \"errorMessage\": \"string\",\n  \"affectedSystem\": \"string\",\n  \"likelyCause\": \"string\",\n  \"filesToFix\": [\"array\", \"of\", \"files\"],\n  \"severity\": \"low|medium|high|critical\",\n  \"canAutoFix\": true/false,\n  \"fixComplexity\": \"simple|moderate|complex\"\n}"
+                },
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": "={{ $json.screenshotUrl || 'data:image/png;base64,' + $json.screenshotFile?.data }}"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "id": "vision-analysis",
+      "name": "Vision Analysis (GPT-4 Vision)",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [650, 300],
+      "credentials": {
+        "openAiApi": {
+          "id": "openai-credentials",
+          "name": "OpenAI API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse vision analysis response\nconst visionResponse = $input.item.json.choices?.[0]?.message?.content || '{}';\nlet diagnosis;\n\ntry {\n  // Extract JSON from response (might be wrapped in markdown)\n  const jsonMatch = visionResponse.match(/\\{[\\s\\S]*\\}/);\n  diagnosis = JSON.parse(jsonMatch ? jsonMatch[0] : visionResponse);\n} catch (e) {\n  diagnosis = {\n    errorType: 'unknown',\n    errorMessage: 'Failed to parse diagnosis',\n    severity: 'high',\n    canAutoFix: false\n  };\n}\n\n// Merge with original input\nreturn {\n  json: {\n    ...$('Normalize Screenshot Input').item.json,\n    diagnosis: diagnosis\n  }\n};"
+      },
+      "id": "parse-diagnosis",
+      "name": "Parse Diagnosis",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.diagnosis.canAutoFix }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-can-fix",
+      "name": "Can Auto-Fix?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [1050, 300]
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "operation": "create",
+        "model": "gpt-4",
+        "options": {
+          "temperature": 0.2,
+          "maxTokens": 3000
+        },
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are an expert code fix generator. Generate precise, validated fixes for errors."
+            },
+            {
+              "role": "user",
+              "content": "Generate fix for this error:\n\nError Type: {{ $json.diagnosis.errorType }}\nError Message: {{ $json.diagnosis.errorMessage }}\nAffected System: {{ $json.diagnosis.affectedSystem }}\nLikely Cause: {{ $json.diagnosis.likelyCause }}\nFiles to Fix: {{ JSON.stringify($json.diagnosis.filesToFix) }}\n\nGenerate the exact fix needed. For n8n workflow errors, provide corrected JSON node configuration. For code errors, provide corrected code.\n\nReturn JSON:\n{\n  \"fixType\": \"workflow_json|code_file|config_file\",\n  \"filePath\": \"path/to/file\",\n  \"originalCode\": \"...\",\n  \"fixedCode\": \"...\",\n  \"explanation\": \"Why this fix works\",\n  \"validation\": \"How to verify the fix\"\n}"
+            }
+          ]
+        }
+      },
+      "id": "generate-fix",
+      "name": "Generate Fix (GPT-4)",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [1250, 200],
+      "credentials": {
+        "openAiApi": {
+          "id": "openai-credentials",
+          "name": "OpenAI API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse fix generation response\nconst fixResponse = $input.item.json.choices?.[0]?.message?.content || '{}';\nlet fix;\n\ntry {\n  const jsonMatch = fixResponse.match(/\\{[\\s\\S]*\\}/);\n  fix = JSON.parse(jsonMatch ? jsonMatch[0] : fixResponse);\n} catch (e) {\n  fix = {\n    fixType: 'unknown',\n    error: 'Failed to parse fix'\n  };\n}\n\n// Merge with diagnosis\nreturn {\n  json: {\n    ...$('Parse Diagnosis').item.json,\n    fix: fix\n  }\n};"
+      },
+      "id": "parse-fix",
+      "name": "Parse Fix",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1450, 200]
+    },
+    {
+      "parameters": {
+        "command": "python3",
+        "arguments": "{{ $env.WORKFLOW_PATH }}/screenshot_fix_processor.py \"{{ $json.fix.filePath }}\" '{{ JSON.stringify($json.fix) }}' \"{{ $json.requestId }}\"",
+        "options": {}
+      },
+      "id": "apply-fix",
+      "name": "Apply Fix (Update Files)",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1650, 200]
+    },
+    {
+      "parameters": {
+        "command": "git",
+        "arguments": "-C {{ $env.WORKFLOW_PATH }} add -A && git -C {{ $env.WORKFLOW_PATH }} commit -m \"Auto-fix: {{ $json.diagnosis.errorMessage }} (Request: {{ $json.requestId }})\" && git -C {{ $env.WORKFLOW_PATH }} push origin main",
+        "options": {}
+      },
+      "id": "commit-push",
+      "name": "Commit & Push Fix",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1850, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.github.com/repos/{{ $env.GITHUB_REPO_OWNER }}/{{ $env.GITHUB_REPO_NAME }}/actions/workflows/{{ $env.GITHUB_WORKFLOW_FILE }}/dispatches",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/vnd.github.v3+json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "ref",
+              "value": "main"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "trigger-build",
+      "name": "Trigger Build (GitHub Actions)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [2050, 200],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "github-actions-token",
+          "name": "GitHub Actions Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "command": "sleep",
+        "arguments": "300",
+        "options": {}
+      },
+      "id": "wait-build",
+      "name": "Wait for Build (5 min)",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [2250, 200]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://{{ $env.NETLIFY_SITE_NAME || 'ballcode-game' }}.netlify.app",
+        "options": {}
+      },
+      "id": "verify-deployment",
+      "name": "Verify Deployment",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [2450, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Compile completion report\nconst diagnosis = $('Parse Diagnosis').item.json.diagnosis;\nconst fix = $('Parse Fix').item.json.fix;\nconst verification = $input.item.json;\n\nconst success = verification.statusCode === 200;\n\nreturn {\n  json: {\n    requestId: $('Normalize Screenshot Input').item.json.requestId,\n    success: success,\n    errorType: diagnosis.errorType,\n    errorMessage: diagnosis.errorMessage,\n    fixApplied: fix.fixType,\n    fileFixed: fix.filePath,\n    siteUrl: `https://${process.env.NETLIFY_SITE_NAME || 'ballcode-game'}.netlify.app`,\n    timestamp: new Date().toISOString(),\n    message: success ? \n      `✅ Auto-fix successful! Error resolved and deployed.` : \n      `⚠️ Fix applied but verification failed. Check manually.`\n  }\n};"
+      },
+      "id": "compile-report",
+      "name": "Compile Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2650, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.WEBHOOK_NOTIFICATION_URL || '' }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "status",
+              "value": "={{ $json.success ? 'success' : 'warning' }}"
+            },
+            {
+              "name": "message",
+              "value": "={{ $json.message }}"
+            },
+            {
+              "name": "requestId",
+              "value": "={{ $json.requestId }}"
+            },
+            {
+              "name": "siteUrl",
+              "value": "={{ $json.siteUrl }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "send-notification",
+      "name": "Send Notification",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [2850, 200]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}"
+      },
+      "id": "webhook-response",
+      "name": "Webhook Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [3050, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Handle cases where auto-fix is not possible\nconst diagnosis = $('Parse Diagnosis').item.json.diagnosis;\n\nreturn {\n  json: {\n    requestId: $('Normalize Screenshot Input').item.json.requestId,\n    success: false,\n    errorType: diagnosis.errorType,\n    errorMessage: diagnosis.errorMessage,\n    reason: 'Auto-fix not possible - requires manual intervention',\n    recommendation: diagnosis.likelyCause,\n    filesToFix: diagnosis.filesToFix,\n    timestamp: new Date().toISOString(),\n    message: `⚠️ Error identified but cannot be auto-fixed. Manual intervention required.`\n  }\n};"
+      },
+      "id": "manual-fix-required",
+      "name": "Manual Fix Required",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1250, 400]
+    }
+  ],
+  "connections": {
+    "Screenshot Upload Webhook": {
+      "main": [
+        [
+          {
+            "node": "Normalize Screenshot Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Screenshot Input": {
+      "main": [
+        [
+          {
+            "node": "Vision Analysis (GPT-4 Vision)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Vision Analysis (GPT-4 Vision)": {
+      "main": [
+        [
+          {
+            "node": "Parse Diagnosis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Diagnosis": {
+      "main": [
+        [
+          {
+            "node": "Can Auto-Fix?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Can Auto-Fix?": {
+      "main": [
+        [
+          {
+            "node": "Generate Fix (GPT-4)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Manual Fix Required",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Fix (GPT-4)": {
+      "main": [
+        [
+          {
+            "node": "Parse Fix",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Fix": {
+      "main": [
+        [
+          {
+            "node": "Apply Fix (Update Files)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apply Fix (Update Files)": {
+      "main": [
+        [
+          {
+            "node": "Commit & Push Fix",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Commit & Push Fix": {
+      "main": [
+        [
+          {
+            "node": "Trigger Build (GitHub Actions)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger Build (GitHub Actions)": {
+      "main": [
+        [
+          {
+            "node": "Wait for Build (5 min)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait for Build (5 min)": {
+      "main": [
+        [
+          {
+            "node": "Verify Deployment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verify Deployment": {
+      "main": [
+        [
+          {
+            "node": "Compile Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compile Report": {
+      "main": [
+        [
+          {
+            "node": "Send Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Notification": {
+      "main": [
+        [
+          {
+            "node": "Webhook Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Manual Fix Required": {
+      "main": [
+        [
+          {
+            "node": "Webhook Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-12-06T00:00:00.000Z",
+  "versionId": "1"
+}
+
+
