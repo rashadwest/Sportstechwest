@@ -21,7 +21,7 @@
       "strategy": {
         "strategyName": "Foundation Block Sequence",
         "strategyType": "offensive",
-        "description": "Use Block 1 (Pound Dribble) repeatedly to create a sequence. START → Block 1 → Block 1 → Block 1 → ADVANCE.",
+        "description": "Use Block 1 (Pound Dribble) repeatedly to create a sequence. START → Block 1 (S) → Block 1 (S) → Block 1 (S) → BUCKET [LAYUP].",
         "steps": [
           {
             "stepNumber": 1,
@@ -46,8 +46,8 @@
           },
           {
             "stepNumber": 4,
-            "action": "Advance forward",
-            "codeEquivalent": "ADVANCE",
+            "action": "Score with bucket (layup)",
+            "codeEquivalent": "BUCKET [LAYUP]",
             "timing": 1.5,
             "playerPositions": []
           }
@@ -65,7 +65,7 @@
       ],
       "successCriteria": [
         "Correctly drag Block 1 (Pound) at least 3 times",
-        "Create a sequence: START → Block 1 → Block 1 → Block 1 → ADVANCE",
+        "Create a sequence: START → Block 1 (S) → Block 1 (S) → Block 1 (S) → BUCKET [LAYUP]",
         "Complete exercise with 70% or higher score",
         "Demonstrate understanding through interactive practice"
       ],
