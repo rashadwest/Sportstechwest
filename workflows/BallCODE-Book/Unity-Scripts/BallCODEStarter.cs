@@ -108,9 +108,18 @@ public class BallCODEStarter : MonoBehaviour
     
     /// <summary>
     /// Load book exercise based on book number and exercise identifier
+    /// Protected by feature flag for reversible MVP push
     /// </summary>
     void LoadBookExercise(int bookNumber, string exercise, string source, string returnUrl)
     {
+        // Feature flag check - can be disabled instantly for rollback
+        if (bookNumber == 1 && !FeatureFlags.Book1MVPEnabled)
+        {
+            Debug.LogWarning("[BallCODEStarter] Book 1 MVP is disabled via feature flag. Exercise not loaded.");
+            // Optionally show message to user or redirect
+            return;
+        }
+        
         // Validate book number
         if (bookNumber < 1 || bookNumber > 3)
         {
