@@ -63,6 +63,45 @@
         "Learn that Block 3 (In & Out) requires pattern creation and breaking",
         "Build code blocks to represent basketball pattern creation"
       ],
+      "curriculum": {
+        "gradeLevels": ["3-5", "6-8", "9-12"],
+        "standards": {
+          "csta": ["1B-AP-12", "2-AP-13", "2-AP-17"],
+          "commonCore": ["MP.2", "MP.7"],
+          "ngss": ["ETS1-2"]
+        },
+        "phases": {
+          "phase1": {
+            "name": "Sports Language (Block Coding)",
+            "description": "Learn loops using basketball terminology. Visual block interface: LOOP [Block 3 fake] REPEAT 3, THEN [Block 3 real]",
+            "example": "LOOP [BLOCK_3_IN_OUT fake] REPEAT 3, THEN [BLOCK_3_IN_OUT real]",
+            "learningObjective": "Students understand that loops repeat patterns"
+          },
+          "phase2": {
+            "name": "Transition Bridge",
+            "description": "See how loop blocks map to Python code. Side-by-side view: Block loop | Python for loop",
+            "example": "Block: LOOP [BLOCK_3_IN_OUT fake] REPEAT 3\nCode: for i in range(3):\n    fake_left()\n    go_right()",
+            "learningObjective": "Students understand that loop blocks = Python for loops"
+          },
+          "phase3": {
+            "name": "Python Learning",
+            "description": "Write Python for loops. Create pattern repetition programs",
+            "example": "for i in range(3):\n    fake_left()\n    go_right()\n# Break pattern\ngo_right()",
+            "learningObjective": "Students can write Python loops"
+          }
+        },
+        "concepts": {
+          "python": "Loops",
+          "pythonSyntax": "for i in range(3): fake_left()",
+          "aiConcept": "Pattern recognition and repetition",
+          "mathConcept": "Pattern sequences"
+        },
+        "basketball": {
+          "skill": "In & Out Dribble",
+          "level": 3,
+          "context": "Creating and breaking patterns with deception"
+        }
+      },
       "successCriteria": [
         "Correctly use LOOP blocks",
         "Create loop sequence with Block 3",

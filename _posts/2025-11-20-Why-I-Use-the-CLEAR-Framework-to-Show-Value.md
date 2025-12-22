@@ -48,10 +48,10 @@ Use his real track record including:
 
 - Professional basketball experience  
 - Sports data science work  
-- Computer vision projects  
-- AI training tools  
+- Early stage computer vision based sports analytics workflows focused on data automation and insight generation  
+- Currently testing a sports themed coding game to improve engagement and technical literacy through sport  
 - Automated systems built with n8n, Claude, and MCP  
-- VR and XR sports applications  
+- Early stage VR and AR powered training prototypes designed for athlete learning and testing  
 - We are partnering with a University for Sports Analytics (Announcement coming soon)  
 - Partnerships with Microsoft, Meta, NBA Alumni, and NFL Alumni  
 - His experience as a Senior VC Scout in evaluating sports and AI startups  
@@ -150,9 +150,11 @@ Clarity begins with understanding that my work sits at the **intersection of spo
 My background is uniquely positioned for this:
 
 - Former professional basketball player with global experience
-- Sports data scientist with 15 years in sport tech
-- Builder of computer vision sports analytics systems
-- Creator of AI powered training tools and coding games
+- Sports data scientist with over a decade working at the intersection of sports and technology
+- Builder of early stage computer vision based sports analytics workflows focused on data automation and insight generation
+- Builder of early stage VR and AR powered training prototypes designed for athlete learning and testing
+- Currently testing a sports themed coding game to improve engagement and technical literacy through sport
+- Led BTE Analytics through early innovation pilots with NBA teams, focused on learning, iteration, and applied value
 - We are partnering with a University for Sports Analytics (Announcement coming soon)
 - Partnered with Microsoft, Meta, NBA and NFL Alumni groups, and Techstars
 
@@ -210,11 +212,12 @@ The logic is straightforward.
 
 Examples from your track record include:
 
-- Built computer vision systems to analyze player movement and performance
-- Created an AI coding game for junior sports analysts
+- Built early stage computer vision based sports analytics workflows focused on data automation and insight generation
+- Built early stage VR and AR powered training prototypes designed for athlete learning and testing
+- Currently testing a sports themed coding game to improve engagement and technical literacy through sport
+- Led BTE Analytics through early innovation pilots with NBA teams, focused on learning, iteration, and applied value
 - We are partnering with a University for Sports Analytics (Announcement coming soon)
 - Engineered self correcting automation systems using n8n, MCP, and Claude
-- Produced VR basketball training applications and curriculum
 - Co created a Python dribble plot algorithm for NBA and NCAA analytics
 - Developed AI powered tools for measurable athlete development
 - Trained over two hundred athletes using integrated technology systems
