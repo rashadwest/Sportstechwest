@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Signup CTA Component - BallCODE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #00061a;
+            color: #fafafa;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1260px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .school-cta-section {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.15) 0%, rgba(12, 114, 179, 0.15) 100%);
+            border-radius: 16px;
+            padding: 48px 32px;
+            margin: 64px 0;
+            border: 2px solid rgba(255, 107, 53, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .decorative-circle-1 {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .decorative-circle-2 {
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 150px;
+            height: 150px;
+            background: rgba(12, 114, 179, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .cta-title {
+            color: #FF6B35;
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .cta-subtitle {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .benefit-card {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            padding: 28px;
+            border-left: 4px solid;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .benefit-card.orange {
+            border-left-color: #FF6B35;
+        }
+
+        .benefit-card.orange:hover {
+            box-shadow: 0 8px 24px rgba(255, 107, 53, 0.3);
+        }
+
+        .benefit-card.blue {
+            border-left-color: #0C72B3;
+        }
+
+        .benefit-card.blue:hover {
+            box-shadow: 0 8px 24px rgba(12, 114, 179, 0.3);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .benefit-title {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .benefit-card.orange .benefit-title {
+            color: #FF6B35;
+        }
+
+        .benefit-card.blue .benefit-title {
+            color: #0C72B3;
+        }
+
+        .benefit-list {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .benefit-list li {
+            margin-bottom: 8px;
+        }
+
+        .benefit-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .key-benefits-banner {
+            background: rgba(255, 107, 53, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+            border: 1px solid rgba(255, 107, 53, 0.4);
+        }
+
+        .key-benefits-title {
+            color: #FF6B35;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .key-benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            text-align: center;
+        }
+
+        .key-benefit-item {
+            /* No specific styles needed */
+        }
+
+        .key-benefit-icon {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .key-benefit-text {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .cta-button-container {
+            text-align: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF6B35 0%, #0C72B3 100%);
+            color: white;
+            padding: 18px 48px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 16px rgba(255, 107, 53, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(255, 107, 53, 0.6);
+        }
+
+        .cta-note {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            margin-top: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .cta-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-button {
+                padding: 16px 32px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="school-cta-section">
+            <!-- Decorative elements -->
+            <div class="decorative-circle-1"></div>
+            <div class="decorative-circle-2"></div>
+            
+            <div class="cta-content">
+                <!-- Header -->
+                <div class="cta-header">
+                    <h2 class="cta-title">🏫 Sign Up for BallCODE in Your School</h2>
+                    <p class="cta-subtitle">
+                        Get immediate access to our complete integrated curriculum package—everything you need to start teaching coding through basketball this week.
+                    </p>
+                </div>
+
+                <!-- What You Receive Grid -->
+                <div class="benefits-grid">
+                    
+                    <!-- Professional Development Plan -->
+                    <div class="benefit-card orange">
+                        <div class="benefit-icon">📚</div>
+                        <h3 class="benefit-title">Complete Professional Development Plan</h3>
+                        <ul class="benefit-list">
+                            <li>✅ Self-service onboarding guide</li>
+                            <li>✅ Step-by-step implementation instructions</li>
+                            <li>✅ No training required—ready to use immediately</li>
+                            <li>✅ Support resources and contact information</li>
+                            <li>✅ Flexible implementation options</li>
+                        </ul>
+                    </div>
+
+                    <!-- Complete Curriculum -->
+                    <div class="benefit-card blue">
+                        <div class="benefit-icon">🎓</div>
+                        <h3 class="benefit-title">Full Integrated Curriculum</h3>
+                        <ul class="benefit-list">
+                            <li>✅ Complete lesson plans (45-90 minutes)</li>
+                            <li>✅ Learning objectives aligned to standards</li>
+                            <li>✅ Answer keys for all exercises</li>
+                            <li>✅ Assessment rubrics and tools</li>
+                            <li>✅ CSTA, Common Core, and NGSS aligned</li>
+                        </ul>
+                    </div>
+
+                    <!-- Books & Stories -->
+                    <div class="benefit-card orange">
+                        <div class="benefit-icon">📖</div>
+                        <h3 class="benefit-title">Interactive Books & Stories</h3>
+                        <ul class="benefit-list">
+                            <li>✅ Episode 1: The Tip-off Trial (complete story)</li>
+                            <li>✅ Basketball framework integration</li>
+                            <li>✅ Coding concepts embedded in narrative</li>
+                            <li>✅ Skill Pit-Stop educational sections</li>
+                            <li>✅ Ready-to-use immediately</li>
+                        </ul>
+                    </div>
+
+                    <!-- Games & Interactive Exercises -->
+                    <div class="benefit-card blue">
+                        <div class="benefit-icon">🎮</div>
+                        <h3 class="benefit-title">Interactive Games & Exercises</h3>
+                        <ul class="benefit-list">
+                            <li>✅ Password-based game access (no account needed)</li>
+                            <li>✅ Three ready-to-use exercises (A, B, C)</li>
+                            <li>✅ Interactive coding challenges</li>
+                            <li>✅ Integrated with story content</li>
+                            <li>✅ Immediate access after signup</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- Key Benefits Banner -->
+                <div class="key-benefits-banner">
+                    <h3 class="key-benefits-title">🎯 Everything is Integrated to Help Kids Learn Coding Through Sport</h3>
+                    <div class="key-benefits-grid">
+                        <div class="key-benefit-item">
+                            <div class="key-benefit-icon">⚡</div>
+                            <p class="key-benefit-text">Delivered Within 24 Hours</p>
+                        </div>
+                        <div class="key-benefit-item">
+                            <div class="key-benefit-icon">🚀</div>
+                            <p class="key-benefit-text">Start Using This Week</p>
+                        </div>
+                        <div class="key-benefit-item">
+                            <div class="key-benefit-icon">📋</div>
+                            <p class="key-benefit-text">No Training Required</p>
+                        </div>
+                        <div class="key-benefit-item">
+                            <div class="key-benefit-icon">💬</div>
+                            <p class="key-benefit-text">24-Hour Support Response</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="cta-button-container">
+                    <a href="#contact" class="cta-button">Sign Up for Your School →</a>
+                    <p class="cta-note">
+                        Free pilot program • Complete package • Ready to use immediately
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,453 @@
+{
+  "name": "Screenshot-to-Fix Automation - Visual Debugging & Auto-Repair",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "screenshot-fix",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "screenshot-webhook",
+      "name": "Screenshot Upload Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "webhookId": "screenshot-fix-webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normalize screenshot input\n// Webhook data comes directly in $input.item.json, not in .body\nconst input = $input.item.json;\nconst body = input.body || input; // Try .body first, fallback to direct input\nconst files = input.files || {};\n\n// Extract screenshot (could be file upload or URL)\nconst screenshot = files.screenshot || body.screenshotUrl || body.screenshot || input.screenshotUrl || input.screenshot;\nconst context = body.context || input.context || 'Unknown error';\nconst source = body.source || input.source || 'manual_upload';\n\n// If screenshot is a URL, use it directly. If it's a file, we'll need to encode it\nlet screenshotUrl = null;\nlet screenshotBase64 = null;\n\nif (typeof screenshot === 'string') {\n  // It's a URL\n  screenshotUrl = screenshot;\n} else if (screenshot && screenshot.data) {\n  // It's a file with data\n  screenshotBase64 = screenshot.data;\n} else if (screenshot && screenshot.binary) {\n  // It's a binary file\n  screenshotBase64 = screenshot.binary.data;\n}\n\nreturn {\n  json: {\n    screenshot: screenshot,\n    screenshotUrl: screenshotUrl,\n    screenshotBase64: screenshotBase64,\n    screenshotFile: typeof screenshot === 'object' ? screenshot : null,\n    context: context,\n    source: source,\n    timestamp: new Date().toISOString(),\n    requestId: `fix-${Date.now()}`\n  }\n};"
+      },
+      "id": "normalize-screenshot",
+      "name": "Normalize Screenshot Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Prepare image URL for OpenAI Vision API\n// OpenAI Vision API accepts either:\n// 1. Public URL (https://...)\n// 2. Base64 encoded image (data:image/png;base64,...)\n\nconst input = $input.item.json;\nlet imageUrl = input.screenshotUrl;\n\n// If we have a URL, use it directly\nif (imageUrl && imageUrl.startsWith('http')) {\n  return {\n    json: {\n      ...input,\n      imageUrlForAPI: imageUrl\n    }\n  };\n}\n\n// If we have base64 data, format it properly\nif (input.screenshotBase64) {\n  // Remove data URL prefix if present\n  let base64Data = input.screenshotBase64;\n  if (base64Data.includes(',')) {\n    base64Data = base64Data.split(',')[1];\n  }\n  imageUrl = `data:image/png;base64,${base64Data}`;\n} else if (input.screenshotFile && input.screenshotFile.data) {\n  let base64Data = input.screenshotFile.data;\n  if (base64Data.includes(',')) {\n    base64Data = base64Data.split(',')[1];\n  }\n  imageUrl = `data:image/png;base64,${base64Data}`;\n} else {\n  // Fallback: try to use screenshotUrl even if not http\n  imageUrl = input.screenshotUrl || 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=='; // 1x1 transparent PNG\n}\n\nreturn {\n  json: {\n    ...input,\n    imageUrlForAPI: imageUrl\n  }\n};"
+      },
+      "id": "prepare-image",
+      "name": "Prepare Image for API",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "sendBody": true,
+        "bodyContentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({\n  model: 'gpt-4o',\n  temperature: 0.1,\n  max_tokens: 2000,\n  messages: [\n    {\n      role: 'system',\n      content: 'You are an expert error diagnosis system. Analyze screenshots of errors and provide structured diagnosis.'\n    },\n    {\n      role: 'user',\n      content: [\n        {\n          type: 'text',\n          text: `Analyze this error screenshot and provide structured diagnosis:\\n\\nContext: ${$json.context}\\n\\nIdentify:\\n1. Error type (n8n_workflow, unity_build, deployment, web_error, other)\\n2. Exact error message\\n3. Affected system/component\\n4. Likely cause\\n5. Files/components that need fixing\\n6. Severity (low, medium, high, critical)\\n\\nReturn JSON only:\\n{\\n  \\\"errorType\\\": \\\"string\\\",\\n  \\\"errorMessage\\\": \\\"string\\\",\\n  \\\"affectedSystem\\\": \\\"string\\\",\\n  \\\"likelyCause\\\": \\\"string\\\",\\n  \\\"filesToFix\\\": [\\\"array\\\", \\\"of\\\", \\\"files\\\"],\\n  \\\"severity\\\": \\\"low|medium|high|critical\\\",\\n  \\\"canAutoFix\\\": true/false,\\n  \\\"fixComplexity\\\": \\\"simple|moderate|complex\\\"\\n}`\n        },\n        {\n          type: 'image_url',\n          image_url: {\n            url: $json.imageUrlForAPI\n          }\n        }\n      ]\n    }\n  ]\n}) }}",
+        "options": {
+          "headers": {
+            "Content-Type": "application/json"
+          }
+        }
+      },
+      "id": "vision-analysis",
+      "name": "Vision Analysis (HTTP Request)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [850, 300],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "openai-api-key",
+          "name": "OpenAI API Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse vision analysis response from HTTP Request\nconst httpResponse = $input.item.json;\n\n// OpenAI API returns the response in a specific format\nlet visionResponse = '';\nlet diagnosis = {};\n\ntry {\n  // Extract the message content from OpenAI response\n  if (httpResponse.choices && httpResponse.choices[0] && httpResponse.choices[0].message) {\n    visionResponse = httpResponse.choices[0].message.content || '{}';\n  } else if (typeof httpResponse === 'string') {\n    visionResponse = httpResponse;\n  } else {\n    visionResponse = JSON.stringify(httpResponse);\n  }\n  \n  // Extract JSON from response (might be wrapped in markdown code blocks)\n  const jsonMatch = visionResponse.match(/\\{[\\s\\S]*\\}/);\n  if (jsonMatch) {\n    diagnosis = JSON.parse(jsonMatch[0]);\n  } else {\n    diagnosis = JSON.parse(visionResponse);\n  }\n} catch (e) {\n  // If parsing fails, create a default diagnosis\n  diagnosis = {\n    errorType: 'unknown',\n    errorMessage: 'Failed to parse diagnosis: ' + (e.message || 'Unknown error'),\n    affectedSystem: 'unknown',\n    likelyCause: 'API response parsing failed',\n    filesToFix: [],\n    severity: 'high',\n    canAutoFix: false,\n    fixComplexity: 'complex',\n    rawResponse: visionResponse\n  };\n}\n\n// Merge with original input\nreturn {\n  json: {\n    ...$('Normalize Screenshot Input').item.json,\n    diagnosis: diagnosis,\n    visionResponse: visionResponse\n  }\n};"
+      },
+      "id": "parse-diagnosis",
+      "name": "Parse Diagnosis",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1050, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.diagnosis.canAutoFix }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-can-fix",
+      "name": "Can Auto-Fix?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [1250, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "sendBody": true,
+        "bodyContentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({\n  model: 'gpt-4',\n  temperature: 0.2,\n  max_tokens: 3000,\n  messages: [\n    {\n      role: 'system',\n      content: 'You are an expert code fix generator. Generate precise, validated fixes for errors.'\n    },\n    {\n      role: 'user',\n      content: `Generate fix for this error:\\n\\nError Type: ${$json.diagnosis.errorType}\\nError Message: ${$json.diagnosis.errorMessage}\\nAffected System: ${$json.diagnosis.affectedSystem}\\nLikely Cause: ${$json.diagnosis.likelyCause}\\nFiles to Fix: ${JSON.stringify($json.diagnosis.filesToFix)}\\n\\nGenerate the exact fix needed. For n8n workflow errors, provide corrected JSON node configuration. For code errors, provide corrected code.\\n\\nReturn JSON:\\n{\\n  \\\"fixType\\\": \\\"workflow_json|code_file|config_file\\\",\\n  \\\"filePath\\\": \\\"path/to/file\\\",\\n  \\\"originalCode\\\": \\\"...\\\",\\n  \\\"fixedCode\\\": \\\"...\\\",\\n  \\\"explanation\\\": \\\"Why this fix works\\\",\\n  \\\"validation\\\": \\\"How to verify the fix\\\"\\n}`\n    }\n  ]\n}) }}",
+        "options": {
+          "headers": {
+            "Content-Type": "application/json"
+          }
+        }
+      },
+      "id": "generate-fix",
+      "name": "Generate Fix (HTTP Request)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1450, 200],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "openai-api-key",
+          "name": "OpenAI API Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse fix generation response from HTTP Request\nconst httpResponse = $input.item.json;\n\n// Extract the message content from OpenAI response\nlet fixResponse = '';\nlet fix = {};\n\ntry {\n  // Extract the message content from OpenAI response\n  if (httpResponse.choices && httpResponse.choices[0] && httpResponse.choices[0].message) {\n    fixResponse = httpResponse.choices[0].message.content || '{}';\n  } else if (typeof httpResponse === 'string') {\n    fixResponse = httpResponse;\n  } else {\n    fixResponse = JSON.stringify(httpResponse);\n  }\n  \n  // Extract JSON from response (might be wrapped in markdown code blocks)\n  const jsonMatch = fixResponse.match(/\\{[\\s\\S]*\\}/);\n  if (jsonMatch) {\n    fix = JSON.parse(jsonMatch[0]);\n  } else {\n    fix = JSON.parse(fixResponse);\n  }\n} catch (e) {\n  // If parsing fails, create a default fix structure\n  fix = {\n    fixType: 'unknown',\n    filePath: '',\n    originalCode: '',\n    fixedCode: '',\n    explanation: 'Failed to parse fix: ' + (e.message || 'Unknown error'),\n    validation: 'Manual verification required',\n    error: 'Failed to parse fix',\n    rawResponse: fixResponse\n  };\n}\n\n// Merge with diagnosis\nreturn {\n  json: {\n    ...$('Parse Diagnosis').item.json,\n    fix: fix\n  }\n};"
+      },
+      "id": "parse-fix",
+      "name": "Parse Fix",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1650, 200]
+    },
+    {
+      "parameters": {
+        "command": "python3",
+        "arguments": "={{ $env.WORKFLOW_PATH }}/screenshot_fix_processor.py \"{{ $json.fix.filePath }}\" '{{ JSON.stringify($json.fix) }}' \"{{ $json.requestId }}\"",
+        "options": {}
+      },
+      "id": "apply-fix",
+      "name": "Apply Fix (Update Files)",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1850, 200]
+    },
+    {
+      "parameters": {
+        "command": "git",
+        "arguments": "-C {{ $env.WORKFLOW_PATH }} add -A && git -C {{ $env.WORKFLOW_PATH }} commit -m \"Auto-fix: {{ $json.diagnosis.errorMessage }} (Request: {{ $json.requestId }})\" && git -C {{ $env.WORKFLOW_PATH }} push origin main",
+        "options": {}
+      },
+      "id": "commit-push",
+      "name": "Commit & Push Fix",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [2050, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.github.com/repos/{{ $env.GITHUB_REPO_OWNER }}/{{ $env.GITHUB_REPO_NAME }}/actions/workflows/{{ $env.GITHUB_WORKFLOW_FILE }}/dispatches",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "sendBody": true,
+        "bodyContentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ ref: 'main' }) }}",
+        "options": {
+          "headers": {
+            "Accept": "application/vnd.github.v3+json"
+          }
+        }
+      },
+      "id": "trigger-build",
+      "name": "Trigger Build (GitHub Actions)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [2250, 200],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "github-actions-token",
+          "name": "GitHub Actions Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "command": "sleep",
+        "arguments": "300",
+        "options": {}
+      },
+      "id": "wait-build",
+      "name": "Wait for Build (5 min)",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [2450, 200]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://{{ $env.NETLIFY_SITE_NAME || 'ballcode-game' }}.netlify.app",
+        "options": {}
+      },
+      "id": "verify-deployment",
+      "name": "Verify Deployment",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [2650, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Compile completion report\nconst diagnosis = $('Parse Diagnosis').item.json.diagnosis;\nconst fix = $('Parse Fix').item.json.fix;\nconst verification = $input.item.json;\n\nconst success = verification.statusCode === 200;\n\nreturn {\n  json: {\n    requestId: $('Normalize Screenshot Input').item.json.requestId,\n    success: success,\n    errorType: diagnosis.errorType,\n    errorMessage: diagnosis.errorMessage,\n    fixApplied: fix.fixType,\n    fileFixed: fix.filePath,\n    siteUrl: `https://${process.env.NETLIFY_SITE_NAME || 'ballcode-game'}.netlify.app`,\n    timestamp: new Date().toISOString(),\n    message: success ? \n      `✅ Auto-fix successful! Error resolved and deployed.` : \n      `⚠️ Fix applied but verification failed. Check manually.`\n  }\n};"
+      },
+      "id": "compile-report",
+      "name": "Compile Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2850, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.WEBHOOK_NOTIFICATION_URL || '' }}",
+        "sendBody": true,
+        "bodyContentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({\n  status: $json.success ? 'success' : 'warning',\n  message: $json.message,\n  requestId: $json.requestId,\n  siteUrl: $json.siteUrl\n}) }}",
+        "options": {}
+      },
+      "id": "send-notification",
+      "name": "Send Notification",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [3050, 200]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}"
+      },
+      "id": "webhook-response",
+      "name": "Webhook Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [3250, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Handle cases where auto-fix is not possible\nconst diagnosis = $('Parse Diagnosis').item.json.diagnosis;\n\nreturn {\n  json: {\n    requestId: $('Normalize Screenshot Input').item.json.requestId,\n    success: false,\n    errorType: diagnosis.errorType,\n    errorMessage: diagnosis.errorMessage,\n    reason: 'Auto-fix not possible - requires manual intervention',\n    recommendation: diagnosis.likelyCause,\n    filesToFix: diagnosis.filesToFix,\n    timestamp: new Date().toISOString(),\n    message: `⚠️ Error identified but cannot be auto-fixed. Manual intervention required.`\n  }\n};"
+      },
+      "id": "manual-fix-required",
+      "name": "Manual Fix Required",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1450, 400]
+    }
+  ],
+  "connections": {
+    "Screenshot Upload Webhook": {
+      "main": [
+        [
+          {
+            "node": "Normalize Screenshot Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Screenshot Input": {
+      "main": [
+        [
+          {
+            "node": "Prepare Image for API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Image for API": {
+      "main": [
+        [
+          {
+            "node": "Vision Analysis (HTTP Request)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Vision Analysis (HTTP Request)": {
+      "main": [
+        [
+          {
+            "node": "Parse Diagnosis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Diagnosis": {
+      "main": [
+        [
+          {
+            "node": "Can Auto-Fix?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Can Auto-Fix?": {
+      "main": [
+        [
+          {
+            "node": "Generate Fix (HTTP Request)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Manual Fix Required",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Fix (HTTP Request)": {
+      "main": [
+        [
+          {
+            "node": "Parse Fix",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Fix": {
+      "main": [
+        [
+          {
+            "node": "Apply Fix (Update Files)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apply Fix (Update Files)": {
+      "main": [
+        [
+          {
+            "node": "Commit & Push Fix",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Commit & Push Fix": {
+      "main": [
+        [
+          {
+            "node": "Trigger Build (GitHub Actions)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger Build (GitHub Actions)": {
+      "main": [
+        [
+          {
+            "node": "Wait for Build (5 min)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait for Build (5 min)": {
+      "main": [
+        [
+          {
+            "node": "Verify Deployment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verify Deployment": {
+      "main": [
+        [
+          {
+            "node": "Compile Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compile Report": {
+      "main": [
+        [
+          {
+            "node": "Send Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Notification": {
+      "main": [
+        [
+          {
+            "node": "Webhook Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Manual Fix Required": {
+      "main": [
+        [
+          {
+            "node": "Webhook Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/New_York"
+  },
+  "staticData": null,
+  "tags": []
+}
+

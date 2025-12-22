@@ -1,0 +1,143 @@
+{
+  "name": "BallCODE Full Integration - AI Analysis (Simplified)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "ballcode-dev",
+        "responseMode": "responseNode"
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook Trigger (Development Prompt)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "webhookId": "ballcode-dev-webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normalize input and extract development prompt\n// Webhook data comes directly in $input.item.json, not in .body\nconst input = $input.item.json;\nconst body = input.body || input; // Try .body first, fallback to direct input\n\n// Extract the development prompt\nconst prompt = body.prompt || input.prompt || body.request || input.request || body.message || input.message || 'No prompt provided';\n\n// Extract mode (quick or full unified prompting)\nconst unifiedPromptingMode = body.mode || input.mode || 'full'; // 'quick' or 'full'\n\n// Extract any additional context\nconst context = body.context || input.context || {};\n\nreturn {\n  json: {\n    prompt: prompt,\n    unifiedPromptingMode: unifiedPromptingMode,\n    context: context,\n    timestamp: new Date().toISOString(),\n    sessionId: body.sessionId || input.sessionId || `session-${Date.now()}`\n  }\n};"
+      },
+      "id": "normalize-input",
+      "name": "Normalize Input & Extract Prompt",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "operation": "create",
+        "model": "gpt-4",
+        "options": {
+          "temperature": 0.3,
+          "maxTokens": 4000
+        },
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are an expert AI development assistant using AIMCODE methodology with Demis Hassabis (Alpha Evolve) as the expert consultant. Your role is to analyze development prompts and create comprehensive action plans.\n\n**AIMCODE Methodology (Demis Hassabis - Alpha Evolve):**\n- Apply systematic, layered approach (Layer 1: Foundation → Layer 2: Application → Layer 3: Integration → Layer 4: Mastery)\n- Build concepts layer by layer with deep understanding\n- Ensure each layer is solid before moving to next\n- Connect concepts to form integrated systems\n- Apply systems thinking throughout\n\n**Integration Requirements:**\n- Every change must update: Game, Curriculum, Book content, and Website\n- Use unified curriculum schema (CURRICULUM-DATA-EXAMPLE.json) as single source of truth\n- Ensure seamless learning loop: Website → Book → Game → Curriculum → Next Book\n\n**Unified Prompting Framework:**\n- If mode is 'quick': Use 5 essential questions (Goal, Format, Context, Examples, Results)\n- If mode is 'full': Use 23 comprehensive questions (Goal & Clarity, Format & Logic, Guardrails, Context & Examples, Alpha Evolve layers, Results)\n\nAnalyze the development prompt and create a structured action plan. Note: System updates are handled automatically via JavaScript sync when schema is updated."
+            },
+            {
+              "role": "user",
+              "content": "Development Prompt: {{ $json.prompt }}\n\nUnified Prompting Mode: {{ $json.unifiedPromptingMode }}\n\nContext: {{ JSON.stringify($json.context) }}\n\nAnalyze this prompt using AIMCODE methodology (Demis Hassabis - Alpha Evolve) and create a comprehensive action plan that:\n1. Identifies which systems need updates (Game, Curriculum, Book, Website)\n2. Determines what changes are needed in each system\n3. Ensures full integration across all 4 systems\n4. Uses unified curriculum schema as source of truth\n5. Applies Alpha Evolve layered approach (Layer 1 → Layer 2 → Layer 3 → Layer 4)\n\nReturn JSON with:\n- analysis: { promptType, systemsAffected: ['game', 'curriculum', 'book', 'website'], complexity }\n- actionPlan: { layers: [{ layer: 1, name: 'Foundation', tasks: [] }, { layer: 2, name: 'Application', tasks: [] }, { layer: 3, name: 'Integration', tasks: [] }, { layer: 4, name: 'Mastery', tasks: [] }] }\n- integrationPoints: { game: {}, curriculum: {}, book: {}, website: {} }\n- schemaUpdates: { whatToUpdate: string, howToUpdate: string }\n- unifiedPromptingQuestions: { mode: 'quick'|'full', questions: [], answers: [] }\n- successCriteria: []\n\nFormat as valid JSON only."
+            }
+          ]
+        }
+      },
+      "id": "ai-analyze-prompt",
+      "name": "AI Analyze Prompt (AIMCODE + Demis Hassabis)",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1.1,
+      "position": [650, 300],
+      "credentials": {
+        "openAiApi": {
+          "id": "openai-credentials",
+          "name": "OpenAI API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse AI response and extract comprehensive action plan\nconst aiResponse = $input.item.json.choices?.[0]?.message?.content || '{}';\nlet actionPlan;\n\ntry {\n  // Extract JSON from AI response (might be wrapped in markdown)\n  const jsonMatch = aiResponse.match(/\\{[\\s\\S]*\\}/);\n  actionPlan = JSON.parse(jsonMatch ? jsonMatch[0] : aiResponse);\n} catch (e) {\n  // Fallback if parsing fails\n  actionPlan = {\n    analysis: {\n      promptType: 'unknown',\n      systemsAffected: ['game', 'curriculum', 'book', 'website'],\n      complexity: 'medium'\n    },\n    actionPlan: {\n      layers: [\n        { layer: 1, name: 'Foundation', tasks: ['Parse prompt', 'Identify systems'] },\n        { layer: 2, name: 'Application', tasks: ['Apply changes'] },\n        { layer: 3, name: 'Integration', tasks: ['Integrate systems'] },\n        { layer: 4, name: 'Mastery', tasks: ['Verify integration'] }\n      ]\n    },\n    integrationPoints: { game: {}, curriculum: {}, book: {}, website: {} },\n    schemaUpdates: { whatToUpdate: 'Update CURRICULUM-DATA-EXAMPLE.json', howToUpdate: 'Use Python script or manual update' },\n    unifiedPromptingQuestions: { mode: 'full', questions: [], answers: [] },\n    successCriteria: ['All systems updated', 'Integration verified']\n  };\n}\n\n// Compile response with action plan\nconst response = {\n  status: 'success',\n  timestamp: new Date().toISOString(),\n  sessionId: $('Normalize Input & Extract Prompt').item.json.sessionId,\n  prompt: $('Normalize Input & Extract Prompt').item.json.prompt,\n  actionPlan: actionPlan,\n  nextSteps: [\n    'Review action plan',\n    'Update CURRICULUM-DATA-EXAMPLE.json using Python script or manual edit',\n    'JavaScript will automatically sync all systems when schema updates',\n    'Verify integration across all systems'\n  ]\n};\n\nreturn {\n  json: response\n};"
+      },
+      "id": "parse-action-plan",
+      "name": "Parse Action Plan & Compile Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}"
+      },
+      "id": "webhook-response",
+      "name": "Webhook Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1050, 300]
+    }
+  ],
+  "connections": {
+    "Webhook Trigger (Development Prompt)": {
+      "main": [
+        [
+          {
+            "node": "Normalize Input & Extract Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Input & Extract Prompt": {
+      "main": [
+        [
+          {
+            "node": "AI Analyze Prompt (AIMCODE + Demis Hassabis)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Analyze Prompt (AIMCODE + Demis Hassabis)": {
+      "main": [
+        [
+          {
+            "node": "Parse Action Plan & Compile Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Action Plan & Compile Response": {
+      "main": [
+        [
+          {
+            "node": "Webhook Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-12-14T22:00:00.000Z",
+  "createdAt": "2025-12-14T22:00:00.000Z",
+  "id": "ballcode-full-integration-simplified",
+  "active": false,
+  "isArchived": false,
+  "versionId": "1"
+}
+

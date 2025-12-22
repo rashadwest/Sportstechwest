@@ -75,6 +75,8 @@
     },
     {
       "parameters": {
+        "resource": "chat",
+        "operation": "create",
         "model": "gpt-4",
         "options": {
           "temperature": 0.3,
@@ -88,7 +90,7 @@
             },
             {
               "role": "user",
-              "content": "Analyze this Unity development request and create a JSON action plan:\n\nRequest: {{ $json.request }}\n\nReturn JSON with:\n- needsUnityEdits: boolean (does this require Unity Editor changes?)\n- unityEdits: array of {file: string, action: string, changes: string}\n- needsBuild: boolean\n- needsDeploy: boolean\n- estimatedTime: string\n- priority: string (low/medium/high)\n\nFormat as valid JSON only."
+              "content": "Analyze this Unity development request and create a JSON action plan:\n\nRequest: {{ $json.request || 'No request provided' }}\n\nReturn JSON with:\n- needsUnityEdits: boolean (does this require Unity Editor changes?)\n- unityEdits: array of {file: string, action: string, changes: string}\n- needsBuild: boolean\n- needsDeploy: boolean\n- estimatedTime: string\n- priority: string (low/medium/high)\n\nFormat as valid JSON only."
             }
           ]
         }
@@ -120,7 +122,7 @@
         "conditions": {
           "boolean": [
             {
-              "value1": "={{ $json.shouldProceed }}",
+              "value1": "={{ $json.shouldProceed || false }}",
               "value2": true
             }
           ]

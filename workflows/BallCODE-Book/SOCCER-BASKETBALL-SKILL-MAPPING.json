@@ -1,0 +1,55 @@
+{
+  "basketball_to_soccer": {
+    "1": {
+      "basketball": "Pound Dribble",
+      "soccer": "Basic Dribble",
+      "description": "Forward movement with ball control",
+      "movement": "forward",
+      "clock": 0.5
+    },
+    "2": {
+      "basketball": "Crossover Dribble",
+      "soccer": "Cut Dribble",
+      "description": "Quick change of direction (left or right)",
+      "movement": "left_right",
+      "clock": 0.8
+    },
+    "3": {
+      "basketball": "In & Out Dribble",
+      "soccer": "In & Out",
+      "description": "Feint move - fake one direction, go the other",
+      "movement": "multi_directional",
+      "clock": 1.0
+    },
+    "4": {
+      "basketball": "Between the Legs Dribble",
+      "soccer": "Step Over",
+      "description": "Step over the ball to fake direction",
+      "movement": "complex_directional",
+      "clock": 1.2
+    },
+    "5": {
+      "basketball": "Behind the Back Dribble",
+      "soccer": "Cruyff Turn",
+      "description": "Turn with ball behind standing leg",
+      "movement": "rapid_change",
+      "clock": 1.5
+    },
+    "6": {
+      "basketball": "Half Spin Dribble",
+      "soccer": "Half Turn",
+      "description": "180-degree turn with the ball",
+      "movement": "rotational_180",
+      "clock": 1.6
+    },
+    "7": {
+      "basketball": "Spin Dribble",
+      "soccer": "Full Turn",
+      "description": "360-degree turn with the ball",
+      "movement": "rotational_360",
+      "clock": 1.8
+    }
+  },
+  "note": "Same number system (1-7) - different skill names",
+  "reusability": "~90% code reuse possible"
+}

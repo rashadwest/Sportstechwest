@@ -1,0 +1,98 @@
+{
+  "levels": [
+    {
+      "levelId": "book1_math_1_3",
+      "levelName": "Add the Moves",
+      "description": "Add point values of moves together. Practice addition by combining different dribble move values.",
+      "gameMode": "math",
+      "episodeNumber": 0,
+      "codingConcept": "basic_blocks_sequences",
+      "videoPath": "",
+      "videoConfig": {
+        "autoPlay": true,
+        "loop": false,
+        "playbackSpeed": 1.0,
+        "allowSeeking": true,
+        "startTime": 0.0,
+        "endTime": -1.0,
+        "pausePoints": [],
+        "analysisPoints": []
+      },
+      "strategy": {
+        "strategyName": "Add the Moves Sequence",
+        "strategyType": "offensive",
+        "description": "Add point values: Pound (3) + Crossover (5) + Pound (3) = ? Learn to add move values together.",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "action": "Pound move = 3 points",
+            "codeEquivalent": "MOVE_1 = 3",
+            "timing": 0.0,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 2,
+            "action": "Crossover move = 5 points",
+            "codeEquivalent": "MOVE_2 = 5",
+            "timing": 0.5,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 3,
+            "action": "Add moves together",
+            "codeEquivalent": "TOTAL = MOVE_1 + MOVE_2",
+            "timing": 1.0,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 4,
+            "action": "Add another pound",
+            "codeEquivalent": "TOTAL = TOTAL + MOVE_1",
+            "timing": 1.5,
+            "playerPositions": []
+          }
+        ],
+        "keyConcepts": ["addition", "move_values", "combining_points"],
+        "basketballConcepts": ["pound_dribble", "crossover_dribble", "move_scoring"],
+        "diagramPath": "",
+        "showCourtDiagram": false
+      },
+      "learningObjectives": [
+        "Practice addition with move values",
+        "Understand that moves have point values",
+        "Learn to add sequences of moves",
+        "Connect addition to code sequences"
+      ],
+      "successCriteria": [
+        "Correctly add move values together",
+        "Solve addition problems about sequences",
+        "Complete exercise with 70% or higher score",
+        "Demonstrate understanding through math practice"
+      ],
+      "difficultyLevel": 1,
+      "prerequisiteLevels": ["book1_math_foundation", "book1_math_1_2"],
+      "isUnlocked": false,
+      "exercise": {
+        "exerciseType": "Math",
+        "math": {
+          "mathConcept": "addition_sequences",
+          "numberOfProblems": 7,
+          "showVisualAids": true
+        },
+        "scoring": {
+          "maxScore": 100,
+          "passingScore": 70,
+          "showScoreDuringExercise": false,
+          "allowRetry": true,
+          "maxAttempts": 3
+        }
+      },
+      "author": "BallCODE Book Integration",
+      "createdDate": "2025-12-11",
+      "tags": ["book1", "math", "addition", "move_values", "sequences", "pound_dribble", "crossover_dribble"]
+    }
+  ],
+  "version": "1.0",
+  "lastUpdated": "2025-12-11"
+}
+

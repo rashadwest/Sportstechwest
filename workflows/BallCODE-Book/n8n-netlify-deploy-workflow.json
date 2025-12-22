@@ -1,0 +1,88 @@
+{
+  "name": "Netlify Auto-Deploy - Website Updates",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "deploy-netlify",
+        "responseMode": "responseNode"
+      },
+      "id": "webhook-trigger",
+      "name": "Deploy Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "netlify-deploy-webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse deployment request\nconst input = $input.item.json;\nconst body = input.body || {};\n\nconst deploy = {\n  commitMessage: body.commitMessage || body.message || `Deploy to Netlify: ${new Date().toISOString()}`,\n  files: body.files || [],\n  source: body.source || 'webhook',\n  timestamp: new Date().toISOString()\n};\n\nreturn {\n  json: {\n    ...deploy,\n    ready: true\n  }\n};"
+      },
+      "id": "parse-request",
+      "name": "Parse Request",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "command": "cd /Users/rashadwest/Sportstechwest/workflows/BallCODE-Book/BallCode && git add -A && git commit -m \"{{ $json.commitMessage }}\" && git push origin main",
+        "options": {}
+      },
+      "id": "git-push",
+      "name": "Git Push to GitHub",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.NETLIFY_BUILD_HOOK || 'https://api.netlify.com/build_hooks/YOUR_HOOK_ID' }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "trigger-netlify",
+      "name": "Trigger Netlify Build",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { success: true, message: 'Deployment triggered', commitMessage: $('Parse Request').item.json.commitMessage, netlifyResponse: $json, timestamp: new Date().toISOString() } }}"
+      },
+      "id": "respond",
+      "name": "Respond",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1120, 300]
+    }
+  ],
+  "connections": {
+    "Deploy Webhook": {
+      "main": [[{"node": "Parse Request", "type": "main", "index": 0}]]
+    },
+    "Parse Request": {
+      "main": [[{"node": "Git Push to GitHub", "type": "main", "index": 0}]]
+    },
+    "Git Push to GitHub": {
+      "main": [[{"node": "Trigger Netlify Build", "type": "main", "index": 0}]]
+    },
+    "Trigger Netlify Build": {
+      "main": [[{"node": "Respond", "type": "main", "index": 0}]]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-12-20T00:00:00.000Z",
+  "versionId": "1"
+}
+

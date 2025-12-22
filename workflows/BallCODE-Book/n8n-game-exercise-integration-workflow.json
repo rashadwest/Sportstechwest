@@ -1,0 +1,312 @@
+{
+  "name": "BallCODE Game Exercise Integration Workflow (Python Hybrid)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "game-exercise-integration",
+        "responseMode": "responseNode"
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook Trigger (Exercise Integration)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "webhookId": "game-exercise-integration-webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normalize input and extract exercise data\nconst input = $input.item.json;\nconst body = input.body || {};\n\n// Extract exercise information\nconst exerciseType = body.exerciseType || body.type || 'new'; // 'new', 'update', 'link'\nconst exerciseData = body.exerciseData || body.exercise || {};\nconst levelFile = body.levelFile || null;\nconst exerciseConfig = body.exerciseConfig || {};\n\n// Extract exercise metadata\nconst exerciseId = exerciseData.exerciseId || exerciseData.id || null;\nconst bookId = exerciseData.bookId || body.bookId || null;\nconst difficulty = exerciseData.difficulty || 'beginner';\nconst concept = exerciseData.concept || exerciseData.pythonConcept || null;\nconst mode = exerciseData.mode || 'story';\nconst description = exerciseData.description || '';\n\nreturn {\n  json: {\n    exerciseType: exerciseType,\n    exerciseId: exerciseId,\n    bookId: bookId,\n    difficulty: difficulty,\n    concept: concept,\n    mode: mode,\n    description: description,\n    levelFile: levelFile,\n    exerciseConfig: exerciseConfig,\n    exerciseData: exerciseData,\n    timestamp: new Date().toISOString(),\n    sessionId: body.sessionId || `exercise-integration-${Date.now()}`\n  }\n};"
+      },
+      "id": "normalize-input",
+      "name": "Normalize Input & Extract Exercise Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract exercise metadata and validate\nconst exerciseId = $json.exerciseId;\nconst bookId = $json.bookId;\nconst concept = $json.concept;\nconst exerciseType = $json.exerciseType;\n\n// Validate required fields\nif (!exerciseId) {\n  return {\n    json: {\n      ...$json,\n      valid: false,\n      error: 'Exercise ID is required',\n      proceed: false\n    }\n  };\n}\n\nif (!bookId && exerciseType !== 'link') {\n  return {\n    json: {\n      ...$json,\n      valid: false,\n      error: 'Book ID is required for new/update operations',\n      proceed: false\n    }\n  };\n}\n\n// Prepare exercise entry for schema\nconst exerciseEntry = {\n  exerciseId: exerciseId,\n  bookId: bookId,\n  difficulty: $json.difficulty,\n  concept: concept,\n  mode: $json.mode,\n  description: $json.description,\n  url: $json.exerciseConfig.url || `ballcode.co/play?book=${bookId}&exercise=${exerciseId}`,\n  successCriteria: $json.exerciseConfig.successCriteria || [],\n  updatedAt: new Date().toISOString()\n};\n\nreturn {\n  json: {\n    ...$json,\n    exerciseEntry: exerciseEntry,\n    valid: true,\n    proceed: true,\n    validationMessage: 'Exercise data is valid'\n  }\n};"
+      },
+      "id": "extract-metadata",
+      "name": "Extract Exercise Metadata & Validate",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.proceed }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-validation",
+      "name": "Exercise Valid?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "command": "={{ `python3 ${$env.WORKFLOW_PATH}/scripts/n8n-update-schema.py --type exercise --book-id ${$json.bookId} --data '${JSON.stringify($json.exerciseEntry)}'` }}"
+      },
+      "id": "execute-python-integrate",
+      "name": "Execute Python: Integrate Exercise (HYBRID)",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1050, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse Python integration output\nconst input = $input.item.json;\nconst pythonOutput = input.stdout || input.stderr || JSON.stringify(input);\n\nlet schemaResult;\ntry {\n  schemaResult = typeof pythonOutput === 'string' ? JSON.parse(pythonOutput.trim()) : pythonOutput;\n} catch (e) {\n  schemaResult = {\n    status: 'error',\n    message: `Failed to parse Python output: ${e.message}`,\n    raw_output: pythonOutput\n  };\n}\n\n// Get exercise entry from previous node\nconst exerciseEntry = $('Extract Exercise Metadata & Validate').item.json.exerciseEntry;\n\n// Prepare exercise data for downstream nodes\nconst exerciseData = {\n  exerciseId: exerciseEntry.exerciseId,\n  bookId: exerciseEntry.bookId,\n  url: exerciseEntry.url,\n  mode: exerciseEntry.mode,\n  difficulty: exerciseEntry.difficulty,\n  concept: exerciseEntry.concept,\n  description: exerciseEntry.description\n};\n\nreturn {\n  json: {\n    ...$('Extract Exercise Metadata & Validate').item.json,\n    schemaUpdateResult: schemaResult,\n    exerciseData: exerciseData,\n    schemaPath: `${$env.WORKFLOW_PATH}/CURRICULUM-DATA-EXAMPLE.json`,\n    readyForIntegration: schemaResult.status === 'success'\n  }\n};"
+      },
+      "id": "parse-integration-result",
+      "name": "Parse Integration Result (HYBRID)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1250, 200]
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "operation": "create",
+        "model": "gpt-4",
+        "options": {
+          "temperature": 0.2,
+          "maxTokens": 3000
+        },
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are a curriculum design expert. Update the curriculum schema with new exercise information, ensuring exercises align with learning objectives and curriculum standards."
+            },
+            {
+              "role": "user",
+              "content": "Exercise Entry: {{ JSON.stringify($json.exerciseEntry) }}\n\nExercise Data: {{ JSON.stringify($json.exerciseData) }}\n\nSchema Update Status: {{ $json.schemaUpdateResult?.status || 'unknown' }}\n\nUpdate curriculum schema:\n1. Add exercise to curriculum progression paths\n2. Update learning objectives if needed\n3. Update curriculum standards alignment\n4. Update assessment criteria\n5. Ensure exercise fits curriculum progression\n\nReturn JSON with:\n- curriculumUpdates: { progressionPaths: [], learningObjectives: [], standards: [] }\n- exerciseIntegration: { exerciseId, bookId, curriculumConnection: {} }\n\nFormat as valid JSON only."
+            }
+          ]
+        }
+      },
+      "id": "update-curriculum",
+      "name": "Update Curriculum Schema (AI)",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1.1,
+      "position": [1050, 400],
+      "credentials": {
+        "openAiApi": {
+          "id": "openai-credentials",
+          "name": "OpenAI API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "operation": "create",
+        "model": "gpt-4",
+        "options": {
+          "temperature": 0.2,
+          "maxTokens": 3000
+        },
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are a web developer. Generate website updates to add exercise button/link to book pages and update exercise listings."
+            },
+            {
+              "role": "user",
+              "content": "Exercise Entry: {{ JSON.stringify($json.exerciseEntry) }}\n\nExercise Data: {{ JSON.stringify($json.exerciseData) }}\n\nUpdate website:\n1. Add exercise button to book page\n2. Update exercise listing page\n3. Add exercise to book's exercise section\n4. Update return flow (game → book)\n5. Test exercise accessibility\n\nReturn JSON with:\n- htmlFiles: [{ path: string, content: string }]\n- exerciseButton: { html: string, css: string, js: string }\n- exerciseLink: { text: string, url: string, description: string }\n- returnFlow: { returnUrl: string, enabled: true }\n\nFormat as valid JSON only."
+            }
+          ]
+        }
+      },
+      "id": "update-website",
+      "name": "Update Website with Exercise Link (AI)",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1.1,
+      "position": [1250, 400],
+      "credentials": {
+        "openAiApi": {
+          "id": "openai-credentials",
+          "name": "OpenAI API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Test integration and verify all connections\nconst exerciseData = $('Parse Integration Result (HYBRID)').item.json.exerciseData;\nconst curriculumUpdates = $('Update Curriculum Schema (AI)').item?.json?.choices?.[0]?.message?.content || null;\nconst websiteUpdates = $('Update Website with Exercise Link (AI)').item?.json?.choices?.[0]?.message?.content || null;\n\n// Parse updates\nlet parsedCurriculum = null;\nlet parsedWebsite = null;\n\nif (curriculumUpdates) {\n  try {\n    const jsonMatch = curriculumUpdates.match(/\\{[\\s\\S]*\\}/);\n    parsedCurriculum = JSON.parse(jsonMatch ? jsonMatch[0] : curriculumUpdates);\n  } catch (e) {}\n}\n\nif (websiteUpdates) {\n  try {\n    const jsonMatch = websiteUpdates.match(/\\{[\\s\\S]*\\}/);\n    parsedWebsite = JSON.parse(jsonMatch ? jsonMatch[0] : websiteUpdates);\n  } catch (e) {}\n}\n\n// Test integration points\nconst integrationTests = {\n  exerciseUrl: {\n    status: exerciseData.url ? 'configured' : 'missing',\n    url: exerciseData.url || ''\n  },\n  returnFlow: {\n    status: parsedWebsite?.returnFlow?.enabled ? 'configured' : 'pending',\n    returnUrl: parsedWebsite?.returnFlow?.returnUrl || `ballcode.co/books/${exerciseData.bookId}`\n  },\n  bookLink: {\n    status: exerciseData.bookId ? 'linked' : 'missing',\n    bookId: exerciseData.bookId\n  },\n  curriculumConnection: {\n    status: parsedCurriculum ? 'updated' : 'pending',\n    hasProgressionPath: !!(parsedCurriculum?.curriculumUpdates?.progressionPaths?.length)\n  }\n};\n\nconst allTestsPassed = \n  integrationTests.exerciseUrl.status === 'configured' &&\n  integrationTests.returnFlow.status === 'configured' &&\n  integrationTests.bookLink.status === 'linked' &&\n  integrationTests.curriculumConnection.status === 'updated';\n\nreturn {\n  json: {\n    ...$('Parse Integration Result (HYBRID)').item.json,\n    curriculumUpdates: parsedCurriculum,\n    websiteUpdates: parsedWebsite,\n    integrationTests: integrationTests,\n    allTestsPassed: allTestsPassed\n  }\n};"
+      },
+      "id": "test-integration",
+      "name": "Test Integration & Verify Connections",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1450, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Compile completion report\nconst exerciseData = $('Test Integration & Verify Connections').item.json.exerciseData;\nconst integrationTests = $('Test Integration & Verify Connections').item.json.integrationTests;\nconst allTestsPassed = $('Test Integration & Verify Connections').item.json.allTestsPassed;\nconst curriculumUpdates = $('Test Integration & Verify Connections').item.json.curriculumUpdates;\nconst websiteUpdates = $('Test Integration & Verify Connections').item.json.websiteUpdates;\n\nconst completionReport = {\n  status: allTestsPassed ? 'success' : 'partial',\n  timestamp: new Date().toISOString(),\n  exerciseId: exerciseData.exerciseId,\n  bookId: exerciseData.bookId,\n  integrationStatus: {\n    exerciseLinkedToBook: integrationTests.bookLink.status === 'linked',\n    curriculumUpdated: integrationTests.curriculumConnection.status === 'updated',\n    websiteUpdated: !!websiteUpdates,\n    returnFlowConfigured: integrationTests.returnFlow.status === 'configured',\n    allTestsPassed: allTestsPassed\n  },\n  testResults: integrationTests,\n  updates: {\n    curriculum: curriculumUpdates,\n    website: websiteUpdates\n  },\n  nextSteps: [\n    'Review generated website files',\n    'Deploy website updates',\n    'Verify exercise accessibility',\n    'Test return flow (game → book)',\n    'Verify curriculum integration'\n  ]\n};\n\nreturn {\n  json: completionReport\n};"
+      },
+      "id": "compile-report",
+      "name": "Compile Integration Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1650, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}"
+      },
+      "id": "webhook-response",
+      "name": "Webhook Response (Integration Report)",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1850, 300]
+    }
+  ],
+  "connections": {
+    "Webhook Trigger (Exercise Integration)": {
+      "main": [
+        [
+          {
+            "node": "Normalize Input & Extract Exercise Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Input & Extract Exercise Data": {
+      "main": [
+        [
+          {
+            "node": "Extract Exercise Metadata & Validate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Exercise Metadata & Validate": {
+      "main": [
+        [
+          {
+            "node": "Exercise Valid?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Exercise Valid?": {
+      "main": [
+        [
+          {
+            "node": "Execute Python: Integrate Exercise (HYBRID)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Update Curriculum Schema (AI)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Webhook Response (Integration Report)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Python: Integrate Exercise (HYBRID)": {
+      "main": [
+        [
+          {
+            "node": "Parse Integration Result (HYBRID)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Integration Result (HYBRID)": {
+      "main": [
+        [
+          {
+            "node": "Update Website with Exercise Link (AI)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Curriculum Schema (AI)": {
+      "main": [
+        [
+          {
+            "node": "Test Integration & Verify Connections",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Website with Exercise Link (AI)": {
+      "main": [
+        [
+          {
+            "node": "Test Integration & Verify Connections",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Test Integration & Verify Connections": {
+      "main": [
+        [
+          {
+            "node": "Compile Integration Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compile Integration Report": {
+      "main": [
+        [
+          {
+            "node": "Webhook Response (Integration Report)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-12-14T22:00:00.000Z",
+  "createdAt": "2025-12-14T22:00:00.000Z",
+  "id": "game-exercise-integration-workflow",
+  "active": false,
+  "isArchived": false,
+  "versionId": "1"
+}
+

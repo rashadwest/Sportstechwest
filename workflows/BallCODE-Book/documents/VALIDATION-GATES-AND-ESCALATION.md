@@ -131,3 +131,4 @@
 ## Automation hook
 - Use `scripts/validate-release.py` as the robot’s pre-flight check.
 - n8n should run validation before any deploy step.
+

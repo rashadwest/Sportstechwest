@@ -13,6 +13,7 @@ public class GameModeManager : MonoBehaviour
     public PredictionModeManager predictionMode;
     public MathModeManager mathMode;
     public BlockCodingManager blockCodingMode;
+    public PythonCodingManager pythonCodingMode;
     
     [Header("Metrics Collection")]
     public MetricsCollector metricsCollector;
@@ -66,6 +67,10 @@ public class GameModeManager : MonoBehaviour
             case "blockcoding":
                 LoadBlockCodingMode(episode, codingConcept, monster);
                 break;
+            case "python":
+            case "pythoncoding":
+                LoadPythonCodingMode(episode, codingConcept, monster);
+                break;
             default:
                 Debug.LogWarning($"Unknown game mode: {mode}");
                 break;
@@ -107,6 +112,10 @@ public class GameModeManager : MonoBehaviour
                 break;
             case "blockcoding":
                 LoadBlockCodingModeFromLevel(level);
+                break;
+            case "python":
+            case "pythoncoding":
+                LoadPythonCodingModeFromLevel(level);
                 break;
             case "freeplay":
                 LoadFreeplayModeFromLevel(level);
@@ -308,6 +317,53 @@ public class GameModeManager : MonoBehaviour
         blockCodingMode.StartBlockCoding(config);
     }
     
+    /// <summary>
+    /// Load Python coding mode from level data
+    /// </summary>
+    void LoadPythonCodingModeFromLevel(LevelData level)
+    {
+        if (pythonCodingMode == null)
+        {
+            Debug.LogError("PythonCodingManager not assigned!");
+            return;
+        }
+        
+        // Convert LevelData to PythonExerciseData
+        PythonExerciseData exercise = new PythonExerciseData
+        {
+            exerciseId = level.levelId,
+            title = level.levelName,
+            description = level.description,
+            storyContext = level.storyContext,
+            codingConcept = level.codingConcept,
+            difficultyLevel = level.difficultyLevel
+        };
+        
+        pythonCodingMode.LoadExercise(exercise);
+    }
+    
+    void LoadPythonCodingMode(int episode, string concept, string monster)
+    {
+        if (pythonCodingMode == null)
+        {
+            Debug.LogError("PythonCodingManager not assigned!");
+            return;
+        }
+        
+        // Create Python exercise from episode context
+        PythonExerciseData exercise = new PythonExerciseData
+        {
+            exerciseId = $"python_episode_{episode}",
+            title = $"Python Exercise - Episode {episode}",
+            description = $"Practice Python coding with {concept}",
+            storyContext = $"From Episode {episode}: {monster}",
+            codingConcept = concept,
+            difficultyLevel = episode
+        };
+        
+        pythonCodingMode.LoadExercise(exercise);
+    }
+    
     string GetTrainingFocus(int episode)
     {
         return episode switch
@@ -446,6 +502,14 @@ public class MathModeConfig
 
 [System.Serializable]
 public class BlockCodingConfig
+{
+    public int episode;
+    public string codingConcept;
+    public string monster;
+}
+
+[System.Serializable]
+public class PythonCodingConfig
 {
     public int episode;
     public string codingConcept;

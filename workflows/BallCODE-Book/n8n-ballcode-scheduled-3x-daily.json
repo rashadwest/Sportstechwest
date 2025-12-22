@@ -1,0 +1,348 @@
+{
+  "name": "BallCODE Scheduled Integration - 3x Daily with 75/25 Validation",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 8
+            }
+          ]
+        }
+      },
+      "id": "schedule-trigger-3x",
+      "name": "Schedule Trigger (3x Daily: 8am, 4pm, Midnight)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "ballcode-dev",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook Trigger (Manual/API)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 500],
+      "webhookId": "ballcode-dev-webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Merge triggers and load implementation plan\nconst input = $input.item.json;\nconst body = input.body || {};\n\n// Detect trigger type\nlet triggerType = 'scheduled';\nif (body.prompt || body.request) {\n  triggerType = 'webhook';\n}\n\n// Load implementation plan (DAY-1-23-QUESTIONS-ANSWERED.md)\nconst workflowPath = $env.WORKFLOW_PATH || process.env.WORKFLOW_PATH || '/Users/rashadwest/Sportstechwest/workflows/BallCODE-Book';\nconst planPath = `${workflowPath}/DAY-1-23-QUESTIONS-ANSWERED.md`;\n\n// Extract prompt from webhook or use plan for scheduled\nconst prompt = body.prompt || body.request || 'Review Day 1 implementation plan and execute next tasks from DAY-1-23-QUESTIONS-ANSWERED.md';\n\n// Extract any user notes/context\nconst userNotes = body.notes || body.context || '';\n\nreturn {\n  json: {\n    prompt: prompt,\n    triggerType: triggerType,\n    userNotes: userNotes,\n    planPath: planPath,\n    timestamp: new Date().toISOString(),\n    sessionId: body.sessionId || `session-${Date.now()}`\n  }\n};"
+      },
+      "id": "load-implementation-plan",
+      "name": "Load Implementation Plan & User Context",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 400]
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "operation": "create",
+        "model": "gpt-4",
+        "options": {
+          "temperature": 0.3,
+          "maxTokens": 4000
+        },
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are an expert AI development assistant using AIMCODE methodology. Your role is to:\n1. Read the implementation plan (DAY-1-23-QUESTIONS-ANSWERED.md)\n2. Accumulate information from user notes and the plan\n3. Determine what tasks to execute next\n4. Evaluate each task using 75/25 pros/cons analysis\n5. Only proceed if pros outweigh cons by 75% or more\n\n**CRITICAL RULE:** If pros/cons analysis is NOT 75/25 or better, you MUST ask the user and STOP execution until approved.\n\n**AIMCODE Methodology:**\n- Apply systematic, layered approach\n- Use unified curriculum schema as source of truth\n- Ensure full integration across all 4 systems\n\n**75/25 Rule:**\n- Pros must be 75% or higher\n- Cons must be 25% or lower\n- If not 75/25, return evaluation with question for user\n- Do NOT proceed without user approval if not 75/25"
+            },
+            {
+              "role": "user",
+              "content": "Implementation Plan Context:\n- Plan File: {{ $json.planPath }}\n- User Notes: {{ $json.userNotes }}\n- Prompt: {{ $json.prompt }}\n\nTask:\n1. Read DAY-1-23-QUESTIONS-ANSWERED.md (implementation plan)\n2. Accumulate information from user notes and plan\n3. Determine next tasks to execute\n4. For EACH task, perform 75/25 pros/cons analysis:\n   - List all pros with impact (HIGH/MEDIUM/LOW)\n   - List all cons with impact (HIGH/MEDIUM/LOW)\n   - Calculate pros percentage\n   - Calculate cons percentage\n   - If pros >= 75% AND cons <= 25%: APPROVE\n   - If NOT 75/25: RETURN EVALUATION AND ASK USER\n\nReturn JSON with:\n- tasksToExecute: [{ task: string, prosCons: { pros: [{ item: string, impact: string }], cons: [{ item: string, impact: string }], prosPercentage: number, consPercentage: number, approved: boolean, needsUserApproval: boolean } }]\n- accumulatedContext: { fromPlan: string, fromUserNotes: string, nextSteps: [] }\n- evaluation: { overallApproved: boolean, needsUserApproval: boolean, questionForUser: string }\n\n**CRITICAL:** If any task is NOT 75/25, set needsUserApproval: true and provide questionForUser. DO NOT proceed without approval.\n\nFormat as valid JSON only."
+            }
+          ]
+        }
+      },
+      "id": "ai-evaluate-tasks",
+      "name": "AI Evaluate Tasks (75/25 Pros/Cons)",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1.1,
+      "position": [650, 400],
+      "credentials": {
+        "openAiApi": {
+          "id": "openai-credentials",
+          "name": "OpenAI API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse AI evaluation and check 75/25 rule\nconst aiResponse = $input.item.json.choices?.[0]?.message?.content || '{}';\nlet evaluation;\n\ntry {\n  const jsonMatch = aiResponse.match(/\\{[\\s\\S]*\\}/);\n  evaluation = JSON.parse(jsonMatch ? jsonMatch[0] : aiResponse);\n} catch (e) {\n  evaluation = {\n    tasksToExecute: [],\n    accumulatedContext: {},\n    evaluation: {\n      overallApproved: false,\n      needsUserApproval: true,\n      questionForUser: 'Error parsing evaluation. Please review manually.'\n    }\n  };\n}\n\n// Check if 75/25 rule is met\nconst needsApproval = evaluation.evaluation?.needsUserApproval || false;\nconst overallApproved = evaluation.evaluation?.overallApproved || false;\n\n// Get tasks that are approved (75/25 or better)\nconst approvedTasks = evaluation.tasksToExecute?.filter(t => t.prosCons?.approved === true) || [];\nconst pendingTasks = evaluation.tasksToExecute?.filter(t => t.prosCons?.needsUserApproval === true) || [];\n\nreturn {\n  json: {\n    ...$('Load Implementation Plan & User Context').item.json,\n    evaluation: evaluation,\n    needsUserApproval: needsApproval,\n    overallApproved: overallApproved,\n    approvedTasks: approvedTasks,\n    pendingTasks: pendingTasks,\n    questionForUser: evaluation.evaluation?.questionForUser || null\n  }\n};"
+      },
+      "id": "parse-evaluation",
+      "name": "Parse Evaluation & Check 75/25",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [850, 400]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.needsUserApproval }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-user-approval",
+      "name": "Needs User Approval? (Not 75/25)",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [1050, 400]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { status: 'needs_approval', message: 'Task evaluation does not meet 75/25 pros/cons threshold. User approval required.', question: $json.questionForUser, evaluation: $json.evaluation, timestamp: new Date().toISOString() } }}",
+        "options": {}
+      },
+      "id": "ask-user-approval",
+      "name": "Ask User for Approval (STOP)",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1250, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Execute approved tasks only\nconst approvedTasks = $json.approvedTasks || [];\nconst evaluation = $json.evaluation || {};\n\n// Prepare execution plan for approved tasks\nconst executionPlan = {\n  timestamp: new Date().toISOString(),\n  sessionId: $json.sessionId,\n  approvedTasks: approvedTasks.map(t => ({\n    task: t.task,\n    prosCons: t.prosCons,\n    executionSteps: []\n  })),\n  accumulatedContext: evaluation.accumulatedContext || {},\n  readyToExecute: true\n};\n\nreturn {\n  json: {\n    ...$json,\n    executionPlan: executionPlan\n  }\n};"
+      },
+      "id": "prepare-execution",
+      "name": "Prepare Execution Plan (Approved Tasks Only)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1250, 500]
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "operation": "create",
+        "model": "gpt-4",
+        "options": {
+          "temperature": 0.2,
+          "maxTokens": 4000
+        },
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are an expert developer implementing BallCODE Day 1 tasks. Execute approved tasks from the implementation plan, ensuring full integration across all 4 systems (Website, Book, Curriculum, Game). Use unified curriculum schema as source of truth."
+            },
+            {
+              "role": "user",
+              "content": "Execute these approved tasks:\n{{ JSON.stringify($json.executionPlan.approvedTasks) }}\n\nAccumulated Context:\n{{ JSON.stringify($json.executionPlan.accumulatedContext) }}\n\nImplementation Plan: DAY-1-23-QUESTIONS-ANSWERED.md\n\nFor each approved task:\n1. Create necessary files\n2. Update schema if needed\n3. Ensure integration across all systems\n4. Follow implementation plan structure\n\nReturn JSON with:\n- filesCreated: [{ path: string, content: string }]\n- filesUpdated: [{ path: string, changes: string }]\n- integrationPoints: { game: {}, curriculum: {}, book: {}, website: {} }\n- executionStatus: { completed: boolean, tasksCompleted: [], nextSteps: [] }\n\nFormat as valid JSON only."
+            }
+          ]
+        }
+      },
+      "id": "execute-tasks",
+      "name": "Execute Approved Tasks (AI)",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1.1,
+      "position": [1450, 500],
+      "credentials": {
+        "openAiApi": {
+          "id": "openai-credentials",
+          "name": "OpenAI API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse execution results and prepare file operations\nconst aiResponse = $input.item.json.choices?.[0]?.message?.content || '{}';\nlet executionResults;\n\ntry {\n  const jsonMatch = aiResponse.match(/\\{[\\s\\S]*\\}/);\n  executionResults = JSON.parse(jsonMatch ? jsonMatch[0] : aiResponse);\n} catch (e) {\n  executionResults = {\n    filesCreated: [],\n    filesUpdated: [],\n    integrationPoints: {},\n    executionStatus: { completed: false }\n  };\n}\n\n// Prepare for file writing\nconst workflowPath = $env.WORKFLOW_PATH || process.env.WORKFLOW_PATH || '/Users/rashadwest/Sportstechwest/workflows/BallCODE-Book';\n\nreturn {\n  json: {\n    ...$('Prepare Execution Plan (Approved Tasks Only)').item.json,\n    executionResults: executionResults,\n    workflowPath: workflowPath,\n    readyToWriteFiles: true\n  }\n};"
+      },
+      "id": "parse-execution-results",
+      "name": "Parse Execution Results",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1650, 500]
+    },
+    {
+      "parameters": {
+        "command": "bash",
+        "arguments": "-c 'cd \"{{ $json.workflowPath }}\" && echo \"{{ JSON.stringify($json.executionResults) }}\" > execution-results-{{ $json.sessionId }}.json'",
+        "options": {}
+      },
+      "id": "save-execution-results",
+      "name": "Save Execution Results",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1850, 500]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Finalize and create completion report\nconst executionResults = $json.executionResults || {};\nconst executionPlan = $json.executionPlan || {};\n\nconst report = {\n  status: 'success',\n  timestamp: new Date().toISOString(),\n  sessionId: $json.sessionId,\n  triggerType: $json.triggerType,\n  tasksExecuted: executionPlan.approvedTasks?.length || 0,\n  tasksPending: $json.pendingTasks?.length || 0,\n  filesCreated: executionResults.filesCreated?.length || 0,\n  filesUpdated: executionResults.filesUpdated?.length || 0,\n  executionStatus: executionResults.executionStatus || {},\n  nextScheduledRun: 'Next run in 8 hours',\n  needsUserApproval: $json.pendingTasks?.length > 0,\n  userApprovalQuestion: $json.questionForUser || null\n};\n\nreturn { json: report };"
+      },
+      "id": "finalize-report",
+      "name": "Finalize Execution Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2050, 500]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {}
+      },
+      "id": "webhook-response",
+      "name": "Webhook Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [2250, 500]
+    }
+  ],
+  "connections": {
+    "Schedule Trigger (3x Daily: 8am, 4pm, Midnight)": {
+      "main": [
+        [
+          {
+            "node": "Load Implementation Plan & User Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Trigger (Manual/API)": {
+      "main": [
+        [
+          {
+            "node": "Load Implementation Plan & User Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load Implementation Plan & User Context": {
+      "main": [
+        [
+          {
+            "node": "AI Evaluate Tasks (75/25 Pros/Cons)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Evaluate Tasks (75/25 Pros/Cons)": {
+      "main": [
+        [
+          {
+            "node": "Parse Evaluation & Check 75/25",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Evaluation & Check 75/25": {
+      "main": [
+        [
+          {
+            "node": "Needs User Approval? (Not 75/25)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Needs User Approval? (Not 75/25)": {
+      "main": [
+        [
+          {
+            "node": "Ask User for Approval (STOP)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Execution Plan (Approved Tasks Only)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Execution Plan (Approved Tasks Only)": {
+      "main": [
+        [
+          {
+            "node": "Execute Approved Tasks (AI)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Approved Tasks (AI)": {
+      "main": [
+        [
+          {
+            "node": "Parse Execution Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Execution Results": {
+      "main": [
+        [
+          {
+            "node": "Save Execution Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Execution Results": {
+      "main": [
+        [
+          {
+            "node": "Finalize Execution Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Finalize Execution Report": {
+      "main": [
+        [
+          {
+            "node": "Webhook Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-12-10T18:00:00.000Z",
+  "versionId": "1"
+}
+
+

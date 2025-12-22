@@ -1,0 +1,13 @@
+[Unit]
+Description=BallCODE Email System
+After=network.target
+
+[Service]
+Type=simple
+User=rashadwest
+WorkingDirectory=/Users/rashadwest/Sportstechwest/workflows/BallCODE-Book/email_system
+ExecStart=/Library/Developer/CommandLineTools/usr/bin/python3 /Users/rashadwest/Sportstechwest/workflows/BallCODE-Book/email_system/main.py start
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

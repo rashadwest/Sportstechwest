@@ -1,0 +1,267 @@
+{
+  "name": "BallCODE Book Content Update Workflow (Python Hybrid)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "book-content-update",
+        "responseMode": "responseNode"
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook Trigger (Book Update)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "webhookId": "book-content-update-webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normalize input and extract book update data\nconst input = $input.item.json;\nconst body = input.body || {};\n\n// Extract book update information\nconst bookId = body.bookId || body.id || null;\nconst bookContent = body.content || body.bookContent || {};\nconst updateType = body.updateType || body.type || 'modify'; // 'new', 'modify', 'publish'\nconst bookMetadata = body.metadata || {};\n\nreturn {\n  json: {\n    bookId: bookId,\n    bookContent: bookContent,\n    updateType: updateType,\n    bookMetadata: bookMetadata,\n    timestamp: new Date().toISOString(),\n    sessionId: body.sessionId || `book-update-${Date.now()}`\n  }\n};"
+      },
+      "id": "normalize-input",
+      "name": "Normalize Input & Extract Book Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Validate book content structure\nconst bookContent = $json.bookContent;\nconst bookId = $json.bookId;\nconst updateType = $json.updateType;\n\n// Required fields validation\nconst requiredFields = ['title', 'slug', 'concepts', 'basketball', 'curriculum'];\nconst missingFields = [];\n\n// Check if book content has required structure\nif (!bookContent || typeof bookContent !== 'object') {\n  return {\n    json: {\n      ...$json,\n      valid: false,\n      error: 'Book content is missing or invalid',\n      proceed: false\n    }\n  };\n}\n\n// Validate required fields\nfor (const field of requiredFields) {\n  if (!bookContent[field]) {\n    missingFields.push(field);\n  }\n}\n\nif (missingFields.length > 0) {\n  return {\n    json: {\n      ...$json,\n      valid: false,\n      error: `Missing required fields: ${missingFields.join(', ')}`,\n      missingFields: missingFields,\n      proceed: false\n    }\n  };\n}\n\n// Validate book ID\nif (!bookId && updateType !== 'new') {\n  return {\n    json: {\n      ...$json,\n      valid: false,\n      error: 'Book ID is required for modify/publish operations',\n      proceed: false\n    }\n  };\n}\n\nreturn {\n  json: {\n    ...$json,\n    valid: true,\n    proceed: true,\n    validationMessage: 'Book content structure is valid'\n  }\n};"
+      },
+      "id": "validate-content",
+      "name": "Validate Book Content Structure",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.proceed }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-validation",
+      "name": "Content Valid?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "command": "={{ `python3 ${$env.WORKFLOW_PATH}/scripts/n8n-update-schema.py --type book --id ${$json.bookId || ($json.updateType === 'new' ? '1' : '1')} --data '${JSON.stringify($json.bookContent)}'` }}"
+      },
+      "id": "execute-python-schema-update",
+      "name": "Execute Python: Update Schema (HYBRID)",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1050, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse Python schema update output\nconst input = $input.item.json;\nconst pythonOutput = input.stdout || input.stderr || JSON.stringify(input);\n\nlet schemaResult;\ntry {\n  schemaResult = typeof pythonOutput === 'string' ? JSON.parse(pythonOutput.trim()) : pythonOutput;\n} catch (e) {\n  schemaResult = {\n    status: 'error',\n    message: `Failed to parse Python output: ${e.message}`,\n    raw_output: pythonOutput\n  };\n}\n\n// Extract book data from input\nconst bookContent = $('Normalize Input & Extract Book Data').item.json.bookContent;\nconst bookId = $('Normalize Input & Extract Book Data').item.json.bookId || 1;\nconst updateType = $('Normalize Input & Extract Book Data').item.json.updateType;\n\n// Prepare book entry for downstream nodes\nconst bookEntry = {\n  id: bookId,\n  title: bookContent.title,\n  slug: bookContent.slug,\n  status: updateType === 'publish' ? 'complete' : 'in-progress',\n  concepts: bookContent.concepts || {},\n  basketball: bookContent.basketball || {},\n  curriculum: bookContent.curriculum || {}\n};\n\nreturn {\n  json: {\n    ...$('Validate Book Content Structure').item.json,\n    schemaUpdateResult: schemaResult,\n    bookEntry: bookEntry,\n    schemaPath: `${$env.WORKFLOW_PATH}/CURRICULUM-DATA-EXAMPLE.json`,\n    readyForWebsiteUpdate: schemaResult.status === 'success'\n  }\n};"
+      },
+      "id": "parse-schema-update",
+      "name": "Parse Schema Update Result (HYBRID)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1250, 200]
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "operation": "create",
+        "model": "gpt-4",
+        "options": {
+          "temperature": 0.2,
+          "maxTokens": 3000
+        },
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are a web developer. Generate HTML/CSS/JavaScript updates for BallCODE website book pages. Ensure book pages display curriculum information, exercise links, and learning objectives correctly."
+            },
+            {
+              "role": "user",
+              "content": "Book Entry: {{ JSON.stringify($json.bookEntry) }}\n\nCurriculum Schema: {{ JSON.stringify($json.curriculumSchema) }}\n\nUpdate Type: {{ $('Normalize Input & Extract Book Data').item.json.updateType }}\n\nGenerate website updates:\n1. Book page HTML (if new book or major update)\n2. Book card HTML for homepage\n3. Update book navigation\n4. Add exercise button/link integration\n5. Display curriculum pathway\n\nReturn JSON with:\n- htmlFiles: [{ path: string, content: string }]\n- bookCard: { html: string, css: string }\n- exerciseLinks: [{ text: string, url: string, description: string }]\n- curriculumDisplay: { learningObjectives: [], phases: [], standards: [] }\n\nFormat as valid JSON only."
+            }
+          ]
+        }
+      },
+      "id": "generate-website-updates",
+      "name": "Generate Website Updates (AI)",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1.1,
+      "position": [1250, 200],
+      "credentials": {
+        "openAiApi": {
+          "id": "openai-credentials",
+          "name": "OpenAI API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Update game exercise links based on book content\nconst bookEntry = $('Parse Schema Update Result (HYBRID)').item.json.bookEntry;\nconst bookContent = $('Normalize Input & Extract Book Data').item.json.bookContent;\n\n// Extract exercise information from book content\nconst exercises = bookContent.exercises || [];\nconst gameLinks = [];\n\nfor (const exercise of exercises) {\n  gameLinks.push({\n    exerciseId: exercise.id || `exercise-${bookEntry.id}-${exercises.indexOf(exercise)}`,\n    bookId: bookEntry.id,\n    url: exercise.url || `ballcode.co/play?book=${bookEntry.id}&exercise=${exercise.id}`,\n    mode: exercise.mode || 'story',\n    description: exercise.description || '',\n    difficulty: exercise.difficulty || 'beginner'\n  });\n}\n\n// Prepare game configuration update\nconst gameConfig = {\n  bookId: bookEntry.id,\n  exercises: gameLinks,\n  returnFlow: {\n    enabled: true,\n    returnUrl: `ballcode.co/books/${bookEntry.slug}`\n  },\n  updatedAt: new Date().toISOString()\n};\n\nreturn {\n  json: {\n    ...$('Parse Schema Update Result (HYBRID)').item.json,\n    gameLinks: gameLinks,\n    gameConfig: gameConfig,\n    readyForNotification: true\n  }\n};"
+      },
+      "id": "update-game-links",
+      "name": "Update Game Exercise Links",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1050, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Merge all updates and prepare completion notification\nconst websiteUpdates = $('Generate Website Updates (AI)').item?.json?.choices?.[0]?.message?.content || null;\nconst gameConfig = $('Update Game Exercise Links').item.json.gameConfig;\nconst schemaResult = $('Parse Schema Update Result (HYBRID)').item.json.schemaUpdateResult;\nconst bookEntry = $('Parse Schema Update Result (HYBRID)').item.json.bookEntry;\n\n// Parse website updates\nlet parsedWebsite = null;\nif (websiteUpdates) {\n  try {\n    const jsonMatch = websiteUpdates.match(/\\{[\\s\\S]*\\}/);\n    parsedWebsite = JSON.parse(jsonMatch ? jsonMatch[0] : websiteUpdates);\n  } catch (e) {}\n}\n\n// Compile completion report\nconst completionReport = {\n  status: 'success',\n  timestamp: new Date().toISOString(),\n  bookId: bookEntry.id,\n  bookTitle: bookEntry.title,\n  updateType: $('Normalize Input & Extract Book Data').item.json.updateType,\n  updates: {\n    curriculumSchema: 'Updated',\n    website: parsedWebsite ? 'Generated' : 'Skipped',\n    gameLinks: 'Updated'\n  },\n  filesUpdated: {\n    curriculumSchema: $('Parse Schema Update Result (HYBRID)').item.json.schemaPath,\n    websiteFiles: parsedWebsite?.htmlFiles || [],\n    gameConfig: gameConfig\n  },\n  nextSteps: [\n    'Review generated website files',\n    'Deploy website updates',\n    'Verify game exercise links',\n    'Test book page integration'\n  ]\n};\n\nreturn {\n  json: {\n    ...$('Update Game Exercise Links').item.json,\n    websiteUpdates: parsedWebsite,\n    completionReport: completionReport,\n    readyForNotification: true\n  }\n};"
+      },
+      "id": "merge-updates",
+      "name": "Merge All Updates",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1450, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json.completionReport }}"
+      },
+      "id": "webhook-response",
+      "name": "Webhook Response (Completion Notification)",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1650, 300]
+    }
+  ],
+  "connections": {
+    "Webhook Trigger (Book Update)": {
+      "main": [
+        [
+          {
+            "node": "Normalize Input & Extract Book Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Input & Extract Book Data": {
+      "main": [
+        [
+          {
+            "node": "Validate Book Content Structure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Book Content Structure": {
+      "main": [
+        [
+          {
+            "node": "Content Valid?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Content Valid?": {
+      "main": [
+        [
+          {
+            "node": "Execute Python: Update Schema (HYBRID)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Update Game Exercise Links",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Webhook Response (Completion Notification)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Python: Update Schema (HYBRID)": {
+      "main": [
+        [
+          {
+            "node": "Parse Schema Update Result (HYBRID)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Schema Update Result (HYBRID)": {
+      "main": [
+        [
+          {
+            "node": "Generate Website Updates (AI)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Website Updates (AI)": {
+      "main": [
+        [
+          {
+            "node": "Merge All Updates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Game Exercise Links": {
+      "main": [
+        [
+          {
+            "node": "Merge All Updates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge All Updates": {
+      "main": [
+        [
+          {
+            "node": "Webhook Response (Completion Notification)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-12-14T22:00:00.000Z",
+  "createdAt": "2025-12-14T22:00:00.000Z",
+  "id": "book-content-update-workflow",
+  "active": false,
+  "isArchived": false,
+  "versionId": "1"
+}
+

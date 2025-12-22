@@ -1,0 +1,101 @@
+{
+  "levels": [
+    {
+      "levelId": "book4_advanced_sequences",
+      "levelName": "Advanced Sequence Exercise",
+      "description": "Practice combining multiple blocks into complex sequences. Learn that coding combines simple blocks to create complex actions.",
+      "gameMode": "blockcoding",
+      "episodeNumber": 3,
+      "codingConcept": "complex_sequences",
+      "videoPath": "",
+      "videoConfig": {
+        "autoPlay": true,
+        "loop": false,
+        "playbackSpeed": 1.0,
+        "allowSeeking": true,
+        "startTime": 0.0,
+        "endTime": -1.0,
+        "pausePoints": [],
+        "analysisPoints": []
+      },
+      "strategy": {
+        "strategyName": "Advanced Sequence Combination",
+        "strategyType": "offensive",
+        "description": "Combine blocks: START → Block 1 → Block 2 → Block 3 → ADVANCE. Create complex sequences from simple blocks.",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "action": "Start with Block 1",
+            "codeEquivalent": "START → BLOCK_1_POUND",
+            "timing": 0.0,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 2,
+            "action": "Add Block 2",
+            "codeEquivalent": "BLOCK_2_CROSSOVER",
+            "timing": 0.5,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 3,
+            "action": "Add Block 3",
+            "codeEquivalent": "BLOCK_3_IN_OUT",
+            "timing": 1.0,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 4,
+            "action": "Advance forward",
+            "codeEquivalent": "ADVANCE",
+            "timing": 1.5,
+            "playerPositions": []
+          }
+        ],
+        "keyConcepts": ["complex_sequences", "block_combination", "advanced_coding"],
+        "basketballConcepts": ["combination_moves", "advanced_dribbling"],
+        "diagramPath": "",
+        "showCourtDiagram": false
+      },
+      "learningObjectives": [
+        "Understand that coding combines simple blocks into complex sequences",
+        "Practice combining Block 1, 2, and 3",
+        "Learn that complex code is built from simple blocks",
+        "Build advanced sequences from foundation blocks"
+      ],
+      "successCriteria": [
+        "Correctly combine multiple blocks",
+        "Create complex sequence with all three blocks",
+        "Complete exercise with 70% or higher score",
+        "Demonstrate understanding through interactive practice"
+      ],
+      "difficultyLevel": 4,
+      "prerequisiteLevels": ["book1_foundation_block", "book2_decision_crossover", "book3_pattern_loop"],
+      "isUnlocked": true,
+      "exercise": {
+        "exerciseType": "BlockCoding",
+        "blockCoding": {
+          "availableBlocks": ["START", "BLOCK_1_POUND", "BLOCK_2_CROSSOVER", "BLOCK_3_IN_OUT", "IF", "THEN", "LOOP", "REPEAT", "ADVANCE"],
+          "requiredBlocks": ["BLOCK_1_POUND", "BLOCK_2_CROSSOVER", "BLOCK_3_IN_OUT"],
+          "targetCode": "START → BLOCK_1_POUND → BLOCK_2_CROSSOVER → BLOCK_3_IN_OUT → ADVANCE",
+          "allowCustomBlocks": false
+        },
+        "scoring": {
+          "maxScore": 100,
+          "passingScore": 70,
+          "showScoreDuringExercise": false,
+          "allowRetry": true,
+          "maxAttempts": 3
+        }
+      },
+      "author": "BallCODE Book Integration",
+      "createdDate": "2025-12-05",
+      "tags": ["book4", "advanced", "complex_sequences", "block_combination"]
+    }
+  ],
+  "version": "1.0",
+  "lastUpdated": "2025-12-05"
+}
+
+
+

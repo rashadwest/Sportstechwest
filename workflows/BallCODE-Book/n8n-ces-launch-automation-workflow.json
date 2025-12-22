@@ -1,0 +1,204 @@
+{
+  "name": "CES Launch Automation - Scale to 100+ Schools",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 9 7 1 *"
+            }
+          ]
+        }
+      },
+      "id": "ces-trigger",
+      "name": "CES Launch Trigger (Jan 7)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Load all school contacts from database\nconst fs = require('fs');\nconst path = require('path');\n\nconst dbPath = path.join(__dirname, '../documents/school-contacts-database.json');\nlet schoolDb = {};\n\ntry {\n  schoolDb = JSON.parse(fs.readFileSync(dbPath, 'utf8'));\n} catch (e) {\n  console.error('Error loading school database:', e);\n}\n\n// Get all schools (contacted and not contacted)\nconst allSchools = schoolDb.schools || [];\n\nreturn allSchools.map(school => ({\n  json: school\n}));"
+      },
+      "id": "load-all-schools",
+      "name": "Load All School Contacts",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Personalize CES launch email with @Seth Godin messaging\nconst school = $input.item.json;\nconst templates = require('../documents/promotion-content/email-templates.json');\n\nconst template = templates.ces_launch_announcement;\n\n// Personalize message\nconst personalizedBody = template.body_template\n  .replace(/{school_name}/g, school.name)\n  .replace(/{contact_name}/g, school.contact_name || 'Team')\n  .replace(/{email}/g, 'info@ballcode.co')\n  .replace(/{phone}/g, '');\n\nreturn {\n  json: {\n    ...school,\n    email_subject: template.subject,\n    email_body: personalizedBody,\n    email_preheader: template.preheader,\n    cta_text: template.cta,\n    cta_link: template.cta_link,\n    template_type: 'ces_launch_announcement'\n  }\n};"
+      },
+      "id": "personalize-ces-email",
+      "name": "Personalize CES Email (@AIMCODE)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "mailchimpApi",
+        "operation": "sendCampaign",
+        "campaignType": "regular",
+        "subject": "BallCODE Launches at CES 2026",
+        "listId": "={{ $env.MAILCHIMP_LIST_ID }}",
+        "options": {
+          "preheader": "10 pilot programs already running. Be next."
+        }
+      },
+      "id": "send-ces-campaign",
+      "name": "Send CES Campaign (@Launch)",
+      "type": "n8n-nodes-base.mailchimp",
+      "typeVersion": 1,
+      "position": [850, 300],
+      "credentials": {
+        "mailchimpApi": {
+          "id": "mailchimp-credentials",
+          "name": "Mailchimp API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "hubspotApi",
+        "resource": "deal",
+        "operation": "update",
+        "dealId": "={{ $json.hubspot_deal_id }}",
+        "properties": {
+          "dealstage": "CES Launch",
+          "ballcode_status": "ces_launch_contacted"
+        }
+      },
+      "id": "update-hubspot-ces",
+      "name": "Update HubSpot to CES Stage (@Launch)",
+      "type": "n8n-nodes-base.hubspot",
+      "typeVersion": 1,
+      "position": [1050, 300],
+      "credentials": {
+        "hubspotApi": {
+          "id": "hubspot-credentials",
+          "name": "HubSpot API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "bufferApi",
+        "operation": "createPost",
+        "text": "🎉 BallCODE launches at CES 2026! 🏀💻\n\n10 pilot programs already running.\n\nFirst sports-based coding education platform.\n\nJoin 100+ schools using BallCODE.\n\n#CES2026 #EdTech #STEM #CodingEducation\n\nLearn more: https://ballcode.co",
+        "profileIds": [],
+        "options": {}
+      },
+      "id": "post-buffer",
+      "name": "Post to Social Media (@Launch)",
+      "type": "n8n-nodes-base.buffer",
+      "typeVersion": 1,
+      "position": [1250, 300],
+      "credentials": {
+        "bufferApi": {
+          "id": "buffer-credentials",
+          "name": "Buffer API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Generate CES launch report\nconst fs = require('fs');\nconst path = require('path');\n\nconst report = {\n  date: new Date().toISOString(),\n  event: 'CES Launch 2026',\n  schools_contacted: $input.all().length,\n  campaign_sent: true,\n  social_media_posted: true,\n  next_steps: [\n    'Monitor email responses',\n    'Track sign-ups',\n    'Schedule discovery calls',\n    'Convert to pilot programs'\n  ]\n};\n\nconst reportPath = path.join(__dirname, '../documents/ces-launch-report.json');\nfs.writeFileSync(reportPath, JSON.stringify(report, null, 2));\n\nreturn { json: report };"
+      },
+      "id": "generate-report",
+      "name": "Generate CES Report (@Garvis)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1450, 300]
+    }
+  ],
+  "connections": {
+    "CES Launch Trigger (Jan 7)": {
+      "main": [
+        [
+          {
+            "node": "Load All School Contacts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load All School Contacts": {
+      "main": [
+        [
+          {
+            "node": "Personalize CES Email (@AIMCODE)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Personalize CES Email (@AIMCODE)": {
+      "main": [
+        [
+          {
+            "node": "Send CES Campaign (@Launch)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send CES Campaign (@Launch)": {
+      "main": [
+        [
+          {
+            "node": "Update HubSpot to CES Stage (@Launch)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Post to Social Media (@Launch)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update HubSpot to CES Stage (@Launch)": {
+      "main": [
+        [
+          {
+            "node": "Generate CES Report (@Garvis)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post to Social Media (@Launch)": {
+      "main": [
+        [
+          {
+            "node": "Generate CES Report (@Garvis)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-12-21T00:00:00.000Z",
+  "versionId": "1"
+}
+

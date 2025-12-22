@@ -1,161 +1,79 @@
-# 🎯 THE ONE THING - Today's Focus
+# 🎯 TODAY'S ONE THING - December 17, 2025
 
-**Date:** Sunday, November 16th
-**Time Started:** 12pm (noon) - 1 hour of deep work
-**Energy Level:** 7 / 10
+**Last Updated:** Morning
 
 ---
 
 ## 🎯 THE ONE DOMINO
 
-**What is the ONE task today that makes everything else easier or unnecessary?**
+**Focus:** Complete system to 95% - Visual assets + Launch review + System completions
 
-```
-Task: Creating and Recording the books
-```
+**Status:** 🟡 PENDING (Ready to start)
 
-**Why this domino?** (How does completing this make everything else easier?)
-
-```
-It makes this easier 
-_______________
-_______________
-```
-
-**What happens if I DON'T complete this today?**
-
-```
-_______________
-_______________
-_______________
-```
-
-**What happens if I DO complete this today?**
-
-```
-_______________
-_______________
-_______________
-```
+**Description:**
+Reach 95% system completion by generating visual assets (2-3 hours), reviewing launch materials (30 min), and completing remaining system components - curriculum (85%→95%), game (75%→95%), measurement (60%→95%). This will bring overall system from 90% to 95% completion.
 
 ---
 
 ## ✅ SUCCESS CRITERIA
 
-**How will I know this is complete?**
+**By end of today:**
+- [ ] **Visual Assets Generated:** 3 assets created (Court Map, Shadow Press Scouts, State Diagram)
+- [ ] **Launch Materials Reviewed:** Demo script, one-pager, announcement templates customized
+- [ ] **Curriculum System:** 85% → 95% (tracking system enhancement, standards alignment)
+- [ ] **Game System:** 75% → 95% (final score tracking, progress measurement)
+- [ ] **Measurement System:** 60% → 95% (real data collection started, dashboard refined)
+- [ ] **Unity Build Orchestrator:** Activated in n8n UI
 
-- [ ] _______________
-- [ ] _______________
-- [ ] _______________
-
-**What does "done" look like?**
-
-```
-_______________
-_______________
-```
+**Victory Condition:**
+System reaches 95% completion. All critical visual assets generated. Launch materials ready. Remaining systems completed. Ready for promotion period.
 
 ---
 
-## ⏱️ TIME & ENERGY
+## 🚨 CRITICAL RULES (Save to Memory)
 
-**Estimated Time:** _______________ hours/minutes
+### 1. Date/Time System
+- **DO NOT ASK** for date/time again
+- Current: **2025-12-17 Morning EST**
 
-**Energy Required:** 
-- [ ] Low (1-3) - Can do when tired
-- [ ] Medium (4-6) - Need moderate focus
-- [ ] High (7-10) - Need peak energy (do in Deep Work window)
+### 2. Command Execution Rule (CRITICAL)
+- **When user mentions a command (like `--morning`, `--quick`, `--full`), EXECUTE IT IMMEDIATELY**
+- Do not ask for permission or research first - just execute
+- This is standard behavior expected in all projects
 
-**Best Time to Do This:**
-- [ ] Morning (high energy)
-- [ ] Afternoon (medium energy)
-- [ ] Evening (low energy tasks only)
+### 3. Blocker Resolution Protocol
+For ANY blocker:
+1. Research best practice (AIMCODE)
+2. Implement smallest safe fix
+3. Verify end-to-end
+4. Only then consider shipping
 
----
-
-## 🚫 WHAT I'M NOT DOING TODAY
-
-**To focus on THE ONE THING, I'm intentionally NOT doing:**
-
-- [ ] _______________
-- [ ] _______________
-- [ ] _______________
-
-**If–Then Rule:**
-- [ ] If a new urgent task appears → then I delegate it or schedule it for later (don't interrupt THE ONE THING)
-- [ ] If I finish THE ONE THING early → then I can tackle other tasks
+### 4. End-to-End Testing Protocol
+After every change:
+- Verify the loop: Book link → Return handling → Unlocking behavior
 
 ---
 
-## 📊 PROGRESS TRACKING
+## 📋 TODAY'S FOCUS
 
-**Status:** 
-- [ ] Not Started
-- [ ] In Progress
-- [ ] Blocked (reason: _______________)
-- [ ] Completed ✅
+**ONE System/Process:** Complete system to 95% completion
 
-**Time Spent:** _______________ hours/minutes
+**Context:** Creative/Content (visual assets) + Technical/Development (system completions) + Review/Planning (launch materials)
 
-**Notes:**
-```
-_______________
-_______________
-_______________
-```
+**Energy Level:** (use session)
 
 ---
 
-## 🎉 COMPLETION CHECK
+## 🎯 DELEGATION TO AI
 
-**When THE ONE THING is done, I will:**
-
-- [ ] Celebrate the win (even if small)
-- [ ] Note what I learned
-- [ ] Identify tomorrow's ONE THING
-- [ ] Update project status/tracking
-
-**Completion Time:** _______________
-
-**Reflection:**
-```
-What worked well: _______________
-What was challenging: _______________
-What I learned: _______________
-```
+**Tasks:**
+- Generate visual assets (using prompts from documents/visual-assets/)
+- Review and customize launch materials
+- Complete curriculum system enhancements
+- Complete game system enhancements
+- Complete measurement system enhancements
+- Activate Unity Build Orchestrator in n8n
 
 ---
 
-## 🔄 TOMORROW'S ONE THING (Preview)
-
-**What's the next domino?**
-
-```
-Task: _______________
-Why: _______________
-```
-
----
-
-**Mantra:** *"Move one domino a day. Everything else compounds."*
-
----
-
-## 📝 Quick Reference: The ONE Thing Test
-
-Before starting any task, ask:
-
-1. **Does this make everything else easier?** ✅ / ❌
-2. **Does this unblock other work?** ✅ / ❌
-3. **Is this the highest leverage task?** ✅ / ❌
-4. **Will completing this create momentum?** ✅ / ❌
-
-**If 3+ YES → This is THE ONE THING**  
-**If < 3 YES → This might not be THE ONE THING**
-
----
-
-**Version:** 1.0  
-**Last Updated:** 2025-01-20  
-**Use:** Daily - Fill this out at the start of each work day
-
+**Mantra:** *"Complete to 95%. Visual assets first. Systems next. Launch ready."*

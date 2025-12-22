@@ -199,6 +199,26 @@ print("Pattern broken!")
 
 ---
 
+## 🧩 EMBEDDED MICRO-EXERCISES (IN-BOOK) + DRILL MAPPING
+
+**Purpose:** Book 3 includes short in-book micro-exercises to reinforce loops before/after the game drill.
+
+### Micro-exercise IDs (stable tracking units)
+- Book micro-exercise IDs: `B3-A{act}-S{scene}-E{num}`
+- Game drill IDs: `G-B3-A{act}-S{scene}-D{num}` (implemented as optional `step=1..7` within `exercise=deception-loop`)
+
+| Micro ID | Phase 1 (Blocks) | Phase 2 (Bridge) | Phase 3 (Python) | Game Drill |
+|---|---|---|---|---|
+| `B3-A1-S1-E1` | Identify what repeats | Match repeat → `range(3)` meaning | Read: “repeat 3 times” | `G-B3-A1-S1-D1` (`step=1`) |
+| `B3-A1-S1-E2` | Count repeats | Connect count → loop count | Read loop count | `G-B3-A1-S1-D2` (`step=2`) |
+| `B3-A2-S1-E1` | Fill missing block in loop | Compare blocks ↔ `for i in range(3)` | Preview loop structure | `G-B3-A2-S1-D1` (`step=3`) |
+| `B3-A2-S1-E2` | “How many runs?” | `range(3)` → 3 runs | Trace loop | `G-B3-A2-S1-D2` (`step=4`) |
+| `B3-A2-S1-E3` | Fix repeat count in blocks | Show mismatch count | Fix `range(2)` → `range(3)` | `G-B3-A2-S1-D3` (`step=5`) |
+| `B3-A3-S1-E1` | Choose best pattern | Explain why repetition matters | Connect to strategy | `G-B3-A3-S1-D1` (`step=6`) |
+| `B3-A3-S1-E2` | Change repeat count | Change `n` in both views | `range(4)` / repeat 4 | `G-B3-A3-S1-D2` (`step=7`) |
+
+---
+
 ## 📊 ASSESSMENT FRAMEWORK
 
 ### Formative Assessment (During Learning)
@@ -350,5 +370,7 @@ Sequences → Conditionals → Loops → Functions → Data Structures → Advan
 **Status:** Ready for Website Display & Sales Materials  
 **Last Updated:** December 4, 2025  
 **Integration:** Complete pathway mapped
+
+
 
 

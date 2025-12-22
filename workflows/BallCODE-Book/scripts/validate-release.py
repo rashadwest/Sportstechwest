@@ -338,6 +338,28 @@ def _check_netlify_latest_deploy() -> Tuple[bool, str]:
 
 def check_build_deploy_health() -> List[CheckResult]:
     # If we cannot check due to missing credentials, WARN (do not block automation by default).
+    gh_missing = [
+        k
+        for k in ["GITHUB_TOKEN", "GITHUB_REPO_OWNER", "GITHUB_REPO_NAME", "GITHUB_WORKFLOW_FILE"]
+        if not os.getenv(k, "").strip()
+    ]
+    nf_missing = [k for k in ["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"] if not os.getenv(k, "").strip()]
+
+    if gh_missing or nf_missing:
+        parts: List[str] = []
+        if gh_missing:
+            parts.append(f"GitHub check skipped (missing: {', '.join(gh_missing)})")
+        if nf_missing:
+            parts.append(f"Netlify check skipped (missing: {', '.join(nf_missing)})")
+        return [
+            CheckResult(
+                name="BuildDeploy",
+                ok=True,
+                severity="WARN",
+                message=" | ".join(parts),
+            )
+        ]
+
     try:
         gh_ok, gh_msg = _check_github_latest_run()
     except Exception as e:

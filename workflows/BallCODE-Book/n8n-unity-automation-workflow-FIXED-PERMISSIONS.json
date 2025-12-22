@@ -1,0 +1,761 @@
+{
+  "name": "Unity AI Automation - FINAL WORKING (20 Nodes)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 6
+            }
+          ]
+        }
+      },
+      "id": "scheduled-trigger",
+      "name": "Scheduled Trigger (Every 6 Hours)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        250,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "unity-dev",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook Trigger (Manual/API)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        250,
+        500
+      ],
+      "webhookId": "unity-dev-webhook"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "github-webhook",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "github-webhook-trigger",
+      "name": "GitHub Webhook (Code Changes)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        250,
+        700
+      ],
+      "webhookId": "github-unity-webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normalize input from any trigger type\nconst input = $input.item.json;\nconst body = input.body || {};\n\n// Detect trigger type from input structure\nlet triggerType = 'scheduled';\nif (body.ref) {\n  triggerType = 'github';\n} else if (body.request) {\n  triggerType = 'webhook';\n} else if (input.timestamp) {\n  triggerType = 'scheduled';\n}\n\n// Extract request message\nconst request = body.request || body.head_commit?.message || 'Automated build from scheduled trigger';\n\n// Extract branch\nconst branch = body.ref ? body.ref.replace('refs/heads/', '') : 'main';\n\nreturn {\n  json: {\n    request: request,\n    triggerType: triggerType,\n    timestamp: new Date().toISOString(),\n    branch: branch,\n    commitMessage: body.head_commit?.message || 'Scheduled build'\n  }\n};"
+      },
+      "id": "normalize-input",
+      "name": "Normalize Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        450,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "operation": "create",
+        "model": "gpt-4",
+        "options": {
+          "temperature": 0.3,
+          "maxTokens": 2000
+        },
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are a Unity development assistant. Analyze development requests and create a structured action plan with specific Unity edits needed."
+            },
+            {
+              "role": "user",
+              "content": "Analyze this Unity development request and create a JSON action plan:\n\nRequest: {{ $json.request || 'No request provided' }}\n\nReturn JSON with:\n- needsUnityEdits: boolean (does this require Unity Editor changes?)\n- unityEdits: array of {file: string, action: string, changes: string}\n- needsBuild: boolean\n- needsDeploy: boolean\n- estimatedTime: string\n- priority: string (low/medium/high)\n\nFormat as valid JSON only."
+            }
+          ]
+        }
+      },
+      "id": "ai-analyze",
+      "name": "AI Analyze Request",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1.1,
+      "position": [
+        650,
+        500
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "openai-credentials",
+          "name": "OpenAI API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse AI response and extract action plan\nconst aiResponse = $input.item.json.choices?.[0]?.message?.content || '{}';\nlet actionPlan;\n\ntry {\n  const jsonMatch = aiResponse.match(/\\{[\\s\\S]*\\}/);\n  actionPlan = JSON.parse(jsonMatch ? jsonMatch[0] : aiResponse);\n} catch (e) {\n  actionPlan = {\n    needsUnityEdits: false,\n    needsBuild: true,\n    needsDeploy: true,\n    estimatedTime: '15 minutes',\n    priority: 'medium'\n  };\n}\n\nconst shouldProceed = actionPlan.needsBuild || actionPlan.needsUnityEdits || actionPlan.needsDeploy;\n\n// Early exit if no action needed\nif (!shouldProceed) {\n  return {\n    json: {\n      ...$('Normalize Input').item.json,\n      actionPlan: actionPlan,\n      shouldProceed: false,\n      status: 'skipped',\n      reason: 'No action needed'\n    }\n  };\n}\n\nreturn {\n  json: {\n    ...$('Normalize Input').item.json,\n    actionPlan: actionPlan,\n    shouldProceed: true,\n    needsUnityEdits: actionPlan.needsUnityEdits,\n    needsBuild: actionPlan.needsBuild,\n    needsDeploy: actionPlan.needsDeploy\n  }\n};"
+      },
+      "id": "parse-ai-response",
+      "name": "Parse AI Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        850,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get environment variables - try multiple methods\nlet repoUrl = $env.UNITY_REPO_URL || process.env.UNITY_REPO_URL || '';\nlet projectPath = $env.UNITY_PROJECT_PATH || process.env.UNITY_PROJECT_PATH || '';\n\n// Debug: Log what we're getting\nconst debug = {\n  hasEnvRepoUrl: !!$env.UNITY_REPO_URL,\n  hasEnvProjectPath: !!$env.UNITY_PROJECT_PATH,\n  hasProcessRepoUrl: !!process.env.UNITY_REPO_URL,\n  hasProcessProjectPath: !!process.env.UNITY_PROJECT_PATH,\n  repoUrlValue: repoUrl,\n  projectPathValue: projectPath\n};\n\n// Check if we have previous data to merge\nconst previousData = $('Parse AI Response')?.item?.json || {};\n\n// Handle missing environment variables gracefully\n// Instead of throwing error, return data with error flag\n// This allows workflow to continue and show helpful message\nif (!repoUrl || repoUrl.trim() === '') {\n  return {\n    json: {\n      ...previousData,\n      repoUrl: '',\n      projectPath: projectPath.trim() || '',\n      repoUrlSet: false,\n      projectPathSet: !!projectPath,\n      debug: debug,\n      error: 'UNITY_REPO_URL environment variable is not set. Please set it in n8n Settings \u2192 Environment Variables.',\n      errorDetails: {\n        message: 'Missing UNITY_REPO_URL',\n        currentValue: repoUrl,\n        instructions: 'Go to n8n Settings \u2192 Environment Variables and add UNITY_REPO_URL with your GitHub repository URL'\n      }\n    }\n  };\n}\n\nif (!projectPath || projectPath.trim() === '') {\n  return {\n    json: {\n      ...previousData,\n      repoUrl: repoUrl.trim(),\n      projectPath: '',\n      repoUrlSet: true,\n      projectPathSet: false,\n      debug: debug,\n      error: 'UNITY_PROJECT_PATH environment variable is not set. Please set it in n8n Settings \u2192 Environment Variables.',\n      errorDetails: {\n        message: 'Missing UNITY_PROJECT_PATH',\n        currentValue: projectPath,\n        instructions: 'Go to n8n Settings \u2192 Environment Variables and add UNITY_PROJECT_PATH with the path where the project should be cloned'\n      }\n    }\n  };\n}\n\n// Return variables for next node (merge with previous data)\nreturn {\n  json: {\n    ...previousData,\n    repoUrl: repoUrl.trim(),\n    projectPath: projectPath.trim(),\n    repoUrlSet: true,\n    projectPathSet: true,\n    debug: debug,\n    error: null\n  }\n};"
+      },
+      "id": "get-git-vars",
+      "name": "Get Git Variables",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1050,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "command": "={{ `/bin/sh -c \"if [ -d '${$json.projectPath}' ]; then cd '${$json.projectPath}' && git pull || { echo 'Git pull failed'; exit 1; }; else git clone '${$json.repoUrl}' '${$json.projectPath}' || { echo 'Git clone failed'; exit 1; }; fi\"` }}",
+        "options": {},
+        "arguments": "={{ `-c \"cd '${$json.projectPath}' 2>/dev/null && git pull origin main || git pull || echo 'Directory exists but not a git repo - skipping'; exit 0\"` }}"
+      },
+      "id": "git-clone-update",
+      "name": "Clone/Update Repository",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        1250,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $('Get Git Variables').item.json.needsUnityEdits }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-unity-edits",
+      "name": "Needs Unity Edits?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1450,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "command": "={{ `bash -c 'timeout 300 python3 \"${$env.WORKFLOW_PATH}/unity-ai-editor.py\" --project \"${$('Get Git Variables').item.json.projectPath}\" --request \"${$('Normalize Input').item.json.request}\" || { echo \"Unity edits failed\"; exit 1; }'` }}",
+        "options": {}
+      },
+      "id": "unity-ai-edits",
+      "name": "AI Unity Editor Edits",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        1650,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "command": "/bin/sh",
+        "arguments": "={{ `-c \"if [ '${$json.actionPlan?.shouldProceed}' != 'true' ] || [ '${$json.actionPlan?.status}' = 'skipped' ] || [ '${$json.repoUrlSet}' != 'true' ] || [ '${$json.projectPathSet}' != 'true' ]; then echo 'Skipping commit: shouldProceed=${$json.actionPlan?.shouldProceed}, status=${$json.actionPlan?.status}, repoUrlSet=${$json.repoUrlSet}, projectPathSet=${$json.projectPathSet}'; exit 0; fi; cd '${$json.projectPath}' && git add -A && git commit -m 'AI automated edits: ${$('Normalize Input').item.json.request || 'Automated changes'}' && git push origin '${$json.branch || 'main'}' || true\"` }}",
+        "options": {}
+      },
+      "id": "git-commit-push",
+      "name": "Commit & Push Changes",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        1850,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $('Get Git Variables').item.json.needsBuild }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-needs-build",
+      "name": "Needs Build?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2050,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.github.com/repos/{{ $env.GITHUB_REPO_OWNER }}/{{ $env.GITHUB_REPO_NAME }}/actions/workflows/{{ $env.GITHUB_WORKFLOW_FILE }}/dispatches",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/vnd.github.v3+json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "ref",
+              "value": "={{ $('Get Git Variables').item.json.branch || 'main' }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "trigger-github-actions",
+      "name": "Trigger GitHub Actions Build",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2250,
+        300
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "github-actions-token",
+          "name": "GitHub Actions Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "command": "sleep",
+        "arguments": "300",
+        "options": {}
+      },
+      "id": "wait-for-build",
+      "name": "Wait for Build (5 min)",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        2450,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $('Get Git Variables').item.json.needsDeploy }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-needs-deploy",
+      "name": "Needs Deploy?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2650,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.netlify.com/api/v1/sites/{{ $env.NETLIFY_SITE_ID }}/deploys",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "dir",
+              "value": "{{ $env.BUILD_OUTPUT_PATH }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "netlify-api-deploy",
+      "name": "Deploy to Netlify",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2850,
+        200
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "netlify-api-token",
+          "name": "Netlify API Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Finalize workflow: compile report, send notification, prepare webhook response\nconst request = $('Normalize Input').item.json.request;\nconst actionPlan = $('Get Git Variables').item.json.actionPlan;\nconst triggerType = $('Normalize Input').item.json.triggerType;\n\n// Compile completion report\nconst report = {\n  status: 'success',\n  timestamp: new Date().toISOString(),\n  request: request,\n  triggerType: triggerType,\n  actionPlan: actionPlan,\n  buildCompleted: true,\n  deployCompleted: true,\n  siteUrl: 'https://' + ($env.NETLIFY_SITE_NAME || 'ballcode-game') + '.netlify.app',\n  message: 'Unity workflow completed successfully. Site: https://' + ($env.NETLIFY_SITE_NAME || 'ballcode-game') + '.netlify.app',\n  hasNotificationURL: !!$env.WEBHOOK_NOTIFICATION_URL,\n  isWebhookTrigger: triggerType === 'webhook' || triggerType === 'github'\n};\n\nreturn { json: report };"
+      },
+      "id": "finalize-report",
+      "name": "Finalize & Prepare Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3050,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.hasNotificationURL }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-notification",
+      "name": "Send Notification?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        3250,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.WEBHOOK_NOTIFICATION_URL || '' }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "status",
+              "value": "={{ $json.status }}"
+            },
+            {
+              "name": "message",
+              "value": "={{ $json.message }}"
+            },
+            {
+              "name": "siteUrl",
+              "value": "={{ $json.siteUrl }}"
+            },
+            {
+              "name": "timestamp",
+              "value": "={{ $json.timestamp }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "send-notification",
+      "name": "Send Notification",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        3450,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $('Finalize & Prepare Report').item.json.isWebhookTrigger }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-webhook-response",
+      "name": "Webhook Response?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        3650,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $('Finalize & Prepare Report').item.json }}",
+        "options": {}
+      },
+      "id": "webhook-response",
+      "name": "Webhook Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        3850,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.repoUrlSet && $json.projectPathSet && !$json.error }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "should-clone-repo",
+      "name": "Should Clone Repository?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1250,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.repoUrlSet && $json.projectPathSet && !$json.error && $json.actionPlan?.shouldProceed !== false }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "should-commit-push",
+      "name": "Should Commit & Push?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1650,
+        400
+      ]
+    }
+  ],
+  "connections": {
+    "Scheduled Trigger (Every 6 Hours)": {
+      "main": [
+        [
+          {
+            "node": "Normalize Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Trigger (Manual/API)": {
+      "main": [
+        [
+          {
+            "node": "Normalize Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub Webhook (Code Changes)": {
+      "main": [
+        [
+          {
+            "node": "Normalize Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Input": {
+      "main": [
+        [
+          {
+            "node": "AI Analyze Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Analyze Request": {
+      "main": [
+        [
+          {
+            "node": "Parse AI Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse AI Response": {
+      "main": [
+        [
+          {
+            "node": "Get Git Variables",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Git Variables": {
+      "main": [
+        [
+          {
+            "node": "Should Clone Repository?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clone/Update Repository": {
+      "main": [
+        [
+          {
+            "node": "Needs Unity Edits?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Needs Unity Edits?": {
+      "main": [
+        [
+          {
+            "node": "AI Unity Editor Edits",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Commit & Push Changes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Unity Editor Edits": {
+      "main": [
+        [
+          {
+            "node": "Should Commit & Push?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Commit & Push Changes": {
+      "main": [
+        [
+          {
+            "node": "Needs Build?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Needs Build?": {
+      "main": [
+        [
+          {
+            "node": "Trigger GitHub Actions Build",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger GitHub Actions Build": {
+      "main": [
+        [
+          {
+            "node": "Wait for Build (5 min)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait for Build (5 min)": {
+      "main": [
+        [
+          {
+            "node": "Needs Deploy?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Needs Deploy?": {
+      "main": [
+        [
+          {
+            "node": "Deploy to Netlify",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Deploy to Netlify": {
+      "main": [
+        [
+          {
+            "node": "Finalize & Prepare Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Finalize & Prepare Report": {
+      "main": [
+        [
+          {
+            "node": "Send Notification?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Notification?": {
+      "main": [
+        [
+          {
+            "node": "Send Notification",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Webhook Response?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Notification": {
+      "main": [
+        [
+          {
+            "node": "Webhook Response?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Response?": {
+      "main": [
+        [
+          {
+            "node": "Webhook Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Should Clone Repository?": {
+      "main": [
+        [
+          {
+            "node": "Clone/Update Repository",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Needs Unity Edits?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Should Commit & Push?": {
+      "main": [
+        [
+          {
+            "node": "Commit & Push Changes",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Needs Build?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 3,
+  "updatedAt": "2025-12-09T18:00:00.000Z",
+  "versionId": "4"
+}

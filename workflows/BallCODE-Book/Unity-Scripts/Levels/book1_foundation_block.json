@@ -21,7 +21,7 @@
       "strategy": {
         "strategyName": "Foundation Block Sequence",
         "strategyType": "offensive",
-        "description": "Use Block 1 (Pound Dribble) repeatedly to create a sequence. START → Block 1 (S) → Block 1 (S) → Block 1 (S) → BUCKET [LAYUP].",
+        "description": "Use Block 1 (Pound Dribble) repeatedly to create a sequence. START → Block 1 → Block 1 → Block 1 → ADVANCE.",
         "steps": [
           {
             "stepNumber": 1,
@@ -46,8 +46,8 @@
           },
           {
             "stepNumber": 4,
-            "action": "Score with bucket (layup)",
-            "codeEquivalent": "BUCKET [LAYUP]",
+            "action": "Advance forward",
+            "codeEquivalent": "ADVANCE",
             "timing": 1.5,
             "playerPositions": []
           }
@@ -63,9 +63,48 @@
         "Learn that Block 1 (Pound) can be repeated to create sequences",
         "Build code blocks to represent basketball actions"
       ],
+      "curriculum": {
+        "gradeLevels": ["3-5", "6-8", "9-12"],
+        "standards": {
+          "csta": ["1B-AP-10", "1B-AP-11"],
+          "commonCore": ["MP.2", "MP.7"],
+          "ngss": ["ETS1-2"]
+        },
+        "phases": {
+          "phase1": {
+            "name": "Sports Language (Block Coding)",
+            "description": "Learn sequences using basketball terminology. Visual block interface: START → BLOCK_1_POUND → BLOCK_1_POUND → ADVANCE",
+            "example": "START → BLOCK_1_POUND → BLOCK_1_POUND → BLOCK_1_POUND → ADVANCE",
+            "learningObjective": "Students understand that code is step-by-step instructions"
+          },
+          "phase2": {
+            "name": "Transition Bridge",
+            "description": "See how sports language maps to code concepts. Side-by-side view: Block sequence | Python code",
+            "example": "Block: START → BLOCK_1_POUND\nCode: start()\npound_dribble()\nadvance()",
+            "learningObjective": "Students understand that blocks = code"
+          },
+          "phase3": {
+            "name": "Python Learning",
+            "description": "Write Python code for sequences. Create step-by-step programs",
+            "example": "def break_press():\n    start()\n    pound_dribble()\n    pound_dribble()\n    pound_dribble()\n    advance()",
+            "learningObjective": "Students can write Python sequences"
+          }
+        },
+        "concepts": {
+          "python": "Sequences",
+          "pythonSyntax": "Sequential code execution",
+          "aiConcept": "Step-by-step reasoning",
+          "mathConcept": "Order of operations"
+        },
+        "basketball": {
+          "skill": "Pound Dribble",
+          "level": 1,
+          "context": "Breaking the press with foundation blocks"
+        }
+      },
       "successCriteria": [
         "Correctly drag Block 1 (Pound) at least 3 times",
-        "Create a sequence: START → Block 1 (S) → Block 1 (S) → Block 1 (S) → BUCKET [LAYUP]",
+        "Create a sequence: START → Block 1 → Block 1 → Block 1 → ADVANCE",
         "Complete exercise with 70% or higher score",
         "Demonstrate understanding through interactive practice"
       ],

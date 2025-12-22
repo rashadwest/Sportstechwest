@@ -1,0 +1,110 @@
+{
+  "levels": [
+    {
+      "levelId": "book1_blockcoding_level1",
+      "levelName": "Foundation Block: Basic Sequence",
+      "description": "Learn basic block sequences using pound dribble",
+      "gameMode": "blockcoding",
+      "episodeNumber": 0,
+      "codingConcept": "sequences",
+      
+      "strategy": {
+        "strategyName": "Basic Pound Sequence",
+        "strategyType": "offensive",
+        "description": "Simple sequence: Start → Pound Dribble → Advance",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "action": "Nova starts at top of key",
+            "codeEquivalent": "START",
+            "timing": 0.0,
+            "playerPositions": [
+              {
+                "x": 47.0,
+                "y": 40.0,
+                "playerId": "Nova",
+                "dribbleType": 0,
+                "dribbleDirection": "none",
+                "isNormalized": false
+              }
+            ]
+          },
+          {
+            "stepNumber": 2,
+            "action": "Nova performs Pound Dribble forward",
+            "codeEquivalent": "BLOCK_1_POUND",
+            "timing": 0.5,
+            "playerPositions": [
+              {
+                "x": 47.0,
+                "y": 35.0,
+                "playerId": "Nova",
+                "dribbleType": 1,
+                "dribbleDirection": "forward",
+                "isNormalized": false
+              }
+            ]
+          },
+          {
+            "stepNumber": 3,
+            "action": "Nova advances toward basket",
+            "codeEquivalent": "ADVANCE",
+            "timing": 1.0,
+            "playerPositions": [
+              {
+                "x": 47.0,
+                "y": 30.0,
+                "playerId": "Nova",
+                "dribbleType": 0,
+                "dribbleDirection": "forward",
+                "isNormalized": false
+              }
+            ]
+          }
+        ],
+        "keyConcepts": ["sequences", "basic_blocks", "pound_dribble"],
+        "basketballConcepts": ["breaking_press", "ball_handling"]
+      },
+      
+      "exercise": {
+        "exerciseType": "BlockCoding",
+        "blockCoding": {
+          "availableBlocks": ["START", "BLOCK_1_POUND", "ADVANCE"],
+          "requiredBlocks": ["BLOCK_1_POUND"],
+          "targetCode": "START → BLOCK_1_POUND → ADVANCE",
+          "allowCustomBlocks": false
+        },
+        "scoring": {
+          "maxScore": 100,
+          "passingScore": 70,
+          "showScoreDuringExercise": false,
+          "allowRetry": true,
+          "maxAttempts": 3
+        }
+      },
+      
+      "learningObjectives": [
+        "Understand that code is step-by-step instructions",
+        "Practice creating basic block sequences",
+        "Connect basketball moves to code blocks"
+      ],
+      
+      "successCriteria": [
+        "Complete sequence correctly",
+        "Use required blocks in correct order",
+        "Execute sequence successfully"
+      ],
+      
+      "difficultyLevel": 1,
+      "prerequisiteLevels": [],
+      "isUnlocked": true,
+      
+      "author": "BallCODE Team",
+      "createdDate": "2025-12-11",
+      "tags": ["book1", "blockcoding", "sequences", "beginner"]
+    }
+  ],
+  "version": "1.0",
+  "lastUpdated": "2025-12-11"
+}
+

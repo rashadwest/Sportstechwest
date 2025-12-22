@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book {{BOOK_NUMBER}}: {{BOOK_TITLE}} - BallCODE</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .book-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .book-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .book-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .book-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+        }
+        .book-content {
+            margin-bottom: 3rem;
+        }
+        .exercise-section {
+            background: #f5f5f5;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        .try-exercise-button {
+            background: #0C72B3;
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 1rem 0;
+        }
+        .try-exercise-button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="book-container">
+        <div class="book-header">
+            <h1 class="book-title">Book {{BOOK_NUMBER}}: {{BOOK_TITLE}}</h1>
+            <p class="book-subtitle">Learning through Basketball</p>
+        </div>
+
+        <div class="book-content">
+            <h2>About This Book</h2>
+            <p>[Story description goes here]</p>
+
+            <h2>Watch the Story</h2>
+            <video class="book-video" controls>
+                <source src="../assets/videos/book{{BOOK_NUMBER}}.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <div class="exercise-section">
+                <h2>🎮 Try the Exercise</h2>
+                <p>Practice what you learned in the story!</p>
+                <a href="/play?book={{BOOK_ID}}&exercise={{BOOK_SLUG}}&source=book" 
+                   class="try-exercise-button" 
+                   id="try-exercise-button">
+                    Play Exercise
+                </a>
+            </div>
+
+            <div id="what-you-learned-section" style="display: none;">
+                <h2>✅ What You Learned</h2>
+                <p>Great job completing the exercise!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="book-integration.js"></script>
+    <script src="../js/measurement-tracking.js"></script>
+</body>
+</html>

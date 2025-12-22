@@ -1,0 +1,23 @@
+{
+  "court_map": {
+    "filename": "episode1-court-map-v1.png",
+    "size": "1920x1080px",
+    "format": "PNG",
+    "prompt": "Create a basketball court diagram showing the center circle area. The court should be clean and professional, with the center circle prominently displayed. Integrate subtle tech elements like circuit patterns or code symbols around the circle perimeter. Style: Modern, clean, educational illustration. Colors: Orange (#eb6123) and blue (#0C72B3) as primary colors. Background: Light gray or white. Format: High resolution, suitable for print and web.",
+    "use_case": "Book 1 page, website, curriculum materials"
+  },
+  "shadow_press_scouts": {
+    "filename": "episode1-shadow-press-scouts-v1.png",
+    "size": "1024x1024px",
+    "format": "PNG with transparent background",
+    "prompt": "Design a basketball character representing the Shadow Press Scouts team. The character should be dynamic and athletic, wearing a basketball uniform with team colors. Pose: Defensive stance, ready to press. Style: Modern, engaging, suitable for children's book. Colors: Dark blue/navy for team colors, with orange accents. Expression: Determined, focused. Background: Simple gradient or court background. Format: High resolution character illustration.",
+    "use_case": "Book 1 page, character introduction, game assets"
+  },
+  "state_diagram": {
+    "filename": "episode1-state-diagram-v1.png",
+    "size": "1920x1080px",
+    "format": "PNG",
+    "prompt": "Create a visual representation of basketball possession state transitions. Show 4 states: START, LIVE, DEAD, OUTCOME. Use arrows to show transitions between states. Style: Clean flowchart or diagram. Colors: Orange (#eb6123) and blue (#0C72B3). Make it educational and easy to understand. Format: High resolution, suitable for print and web.",
+    "use_case": "Book 1 page, Episode 1 Preview, Skill Pit-Stop section"
+  }
+}

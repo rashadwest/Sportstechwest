@@ -1,0 +1,62 @@
+{
+  "students": {
+    "test_student_1": {
+      "books_completed": [
+        {
+          "book_id": "book1",
+          "completed_at": "2025-12-17T13:11:28.057888"
+        }
+      ],
+      "games_completed": [
+        {
+          "level_id": "level_math_1",
+          "completed_at": "2025-12-17T13:11:28.058123",
+          "score": 85.0,
+          "attempts": 2
+        }
+      ],
+      "curriculum_mastered": [
+        {
+          "concept_id": "concept_variables",
+          "mastery_level": 0.9,
+          "mastered_at": "2025-12-17T13:11:28.058581"
+        }
+      ],
+      "total_time_spent": 0,
+      "first_seen": "2025-12-17T13:11:28.057877",
+      "last_active": "2025-12-17T13:11:28.058579"
+    }
+  },
+  "books": {
+    "book1": {
+      "total_completions": 1,
+      "unique_students": [
+        "test_student_1"
+      ],
+      "avg_completion_time": 0,
+      "completion_rate": 0.0
+    }
+  },
+  "games": {
+    "level_math_1": {
+      "total_completions": 1,
+      "unique_students": [
+        "test_student_1"
+      ],
+      "avg_score": 85.0,
+      "avg_attempts": 2.0,
+      "completion_rate": 0.0
+    }
+  },
+  "curriculum": {
+    "concept_variables": {
+      "total_mastered": 1,
+      "unique_students": [
+        "test_student_1"
+      ],
+      "avg_mastery_level": 0.9,
+      "mastery_rate": 0.0
+    }
+  },
+  "last_updated": "2025-12-17T13:11:28.058585"
+}

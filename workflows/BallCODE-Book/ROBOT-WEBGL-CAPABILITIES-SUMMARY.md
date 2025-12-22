@@ -69,3 +69,6 @@ The script will guide you through everything and tell you what's missing!
 - `automate-webgl-build.sh` - Main automation script
 - `WEBGL-AUTOMATION-CAPABILITIES.md` - Full documentation
 - `ROBOT-WEBGL-CAPABILITIES-SUMMARY.md` - This file
+
+
+

@@ -30,6 +30,7 @@ Grades **3–8** (recommended bands: **3–5** and **6–8** so teachers can dif
 ### Call to action
 - **Request a Pilot** (recommended primary CTA)
 - **Schedule a 15-minute discovery call**
+- **Be part of our CES 2026 launch** (January 7-10) - Limited spots available
 
 ### Purchasing (simple)
 See: `documents/OFFER-LADDER-SCHOOL-FIRST.md`
@@ -40,7 +41,15 @@ See: `documents/OFFER-LADDER-SCHOOL-FIRST.md`
 ## Pilot Outline (2–4 weeks)
 
 ### Goal
-Prove engagement + ease-of-implementation and produce a simple “School Readiness” summary for leadership.
+Prove engagement + ease-of-implementation and produce a simple "School Readiness" summary for leadership. **Be part of our CES 2026 launch story.**
+
+### CES Launch Connection
+- **10 pilot programs** will be featured in our CES 2026 launch (January 7-10)
+- Early adopter schools get:
+  - Featured in launch announcements
+  - Case study opportunity
+  - Priority support
+  - Recognition in media coverage
 
 ### Week-by-week
 - **Week 0 (setup):** teacher quick-start (30–60 min), access links/codes, confirm schedule
@@ -141,3 +150,4 @@ Thank you,
 For an example school email, see:
 - `Pilot-School-Email-Template.md`
 - `Pilot-Program-Proposal.md`
+

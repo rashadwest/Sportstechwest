@@ -1,0 +1,470 @@
+{
+  "name": "AIMCODE (Demis) - Unity Build Orchestrator (n8n → GitHub Actions → Netlify)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "cronExpression": "0 * * * *"
+        }
+      },
+      "id": "scheduled-trigger",
+      "name": "Scheduled Trigger (Hourly)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        220,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "unity-build",
+        "responseMode": "responseNode"
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook Trigger (Manual/API)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        220,
+        420
+      ],
+      "webhookId": "unity-build-webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "// AIMCODE / Demis framing:\n// Layer 1 (Foundation): normalize inputs + guardrails\nconst input = $input.item.json;\nconst body = input.body || {};\n\nlet triggerType = 'scheduled';\nif (body && (body.request || body.message || body.prompt)) triggerType = 'webhook';\n\nconst request = (body.request || body.message || body.prompt || 'Scheduled build').toString();\nconst branch = (body.branch || (body.ref ? String(body.ref).replace('refs/heads/', '') : 'main')).toString();\n\nreturn {\n  json: {\n    request,\n    triggerType,\n    branch,\n    timestamp: new Date().toISOString(),\n  }\n};"
+      },
+      "id": "normalize-input",
+      "name": "Normalize Input (AIMCODE L1)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        460,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// AIMCODE / Demis: Layer 1 (Foundation) - idempotency + overlap prevention\n// Use workflow static data as a lightweight lock with TTL.\n// Note: static data is only available for real executions (not manual test runs).\n\nconst MAX_LOCK_SECONDS = 55 * 60; // 55 min (fits hourly schedule)\nconst nowMs = Date.now();\n\nlet staticData;\ntry {\n  staticData = $getWorkflowStaticData('global');\n} catch (e) {\n  // If staticData isn't available (e.g. manual test), proceed without lock.\n  return {\n    json: {\n      ...$json,\n      lock: { enabled: false, reason: 'staticData unavailable (manual test?)' },\n      proceed: true,\n    }\n  };\n}\n\nconst lockUntilMs = Number(staticData.lockUntilMs || 0);\nconst lockOwner = String(staticData.lockOwner || '');\n\nif (lockUntilMs && nowMs < lockUntilMs) {\n  return {\n    json: {\n      ...$json,\n      lock: { enabled: true, acquired: false, lockUntilMs, lockOwner },\n      proceed: false,\n      skipReason: `Locked until ${new Date(lockUntilMs).toISOString()} (owner=${lockOwner})`,\n    }\n  };\n}\n\nconst owner = `${$json.triggerType}:${$json.branch}:${$json.timestamp}`;\nstaticData.lockUntilMs = nowMs + MAX_LOCK_SECONDS * 1000;\nstaticData.lockOwner = owner;\nstaticData.lastAttemptAt = new Date(nowMs).toISOString();\n\nreturn {\n  json: {\n    ...$json,\n    lock: { enabled: true, acquired: true, lockUntilMs: staticData.lockUntilMs, lockOwner: owner },\n    proceed: true,\n  }\n};"
+      },
+      "id": "acquire-lock",
+      "name": "Acquire Lock (AIMCODE L1)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        690,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.proceed }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "if-proceed",
+      "name": "Proceed?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        920,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.github.com/repos/{{ $env.GITHUB_REPO_OWNER }}/{{ $env.GITHUB_REPO_NAME }}/dispatches",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/vnd.github.v3+json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyContentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "={\"event_type\":\"unity-build\",\"client_payload\":{\"request\":$json.request,\"triggerType\":$json.triggerType,\"branch\":$json.branch,\"timestamp\":$json.timestamp}}"
+      },
+      "id": "dispatch-build",
+      "name": "Dispatch GitHub Build (AIMCODE L2)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1160,
+        240
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "github-actions-token",
+          "name": "GitHub Actions Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 3,
+        "unit": "minutes"
+      },
+      "id": "wait",
+      "name": "Wait (3 min)",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        1380,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/{{ $env.GITHUB_REPO_OWNER }}/{{ $env.GITHUB_REPO_NAME }}/actions/workflows/{{ $env.GITHUB_WORKFLOW_FILE }}/runs?per_page=1",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/vnd.github.v3+json"
+            }
+          ]
+        }
+      },
+      "id": "check-github-run",
+      "name": "Check Latest GitHub Run (AIMCODE L3)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1600,
+        240
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "github-actions-token",
+          "name": "GitHub Actions Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://api.netlify.com/api/v1/sites/{{ $env.NETLIFY_SITE_ID }}/deploys?per_page=1",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true
+      },
+      "id": "check-netlify",
+      "name": "Check Latest Netlify Deploy (AIMCODE L3)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1820,
+        240
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "netlify-api-token",
+          "name": "Netlify API Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// AIMCODE / Demis: Layer 4 (Mastery) - compile report, release lock\nlet staticData;\ntry {\n  staticData = $getWorkflowStaticData('global');\n} catch (e) {\n  staticData = null;\n}\n\n// Parse GitHub run\nlet gh = { ok: null, status: 'unknown', conclusion: 'unknown', url: '' };\ntry {\n  const runs = $items('Check Latest GitHub Run (AIMCODE L3)')[0].json.workflow_runs || [];\n  const latest = runs[0] || {};\n  gh.status = latest.status || 'unknown';\n  gh.conclusion = latest.conclusion || 'unknown';\n  gh.url = latest.html_url || '';\n  gh.ok = (gh.status === 'completed' && gh.conclusion === 'success');\n} catch (e) {\n  gh = { ok: null, status: 'unavailable', conclusion: 'unavailable', url: '' };\n}\n\n// Parse Netlify deploy\nlet nf = { ok: null, state: 'unknown', deployUrl: '' };\ntry {\n  const deploys = $items('Check Latest Netlify Deploy (AIMCODE L3)')[0].json;\n  const latest = Array.isArray(deploys) ? (deploys[0] || {}) : {};\n  nf.state = latest.state || 'unknown';\n  nf.deployUrl = latest.deploy_url || '';\n  nf.ok = (nf.state === 'ready' || nf.state === 'published');\n} catch (e) {\n  nf = { ok: null, state: 'unavailable', deployUrl: '' };\n}\n\n// Release lock (best-effort)\nif (staticData && $json.lock?.enabled && $json.lock?.acquired) {\n  staticData.lockUntilMs = 0;\n  staticData.lockOwner = '';\n  staticData.lastDispatchAt = $json.timestamp;\n  staticData.lastDispatchTrigger = $json.triggerType;\n}\n\nconst siteUrl = 'https://' + ($env.NETLIFY_SITE_NAME || 'ballcode-game') + '.netlify.app';\nconst ok = (gh.ok !== false) && (nf.ok !== false);\n\nreturn {\n  json: {\n    status: ok ? 'ok' : 'warn',\n    request: $json.request,\n    triggerType: $json.triggerType,\n    branch: $json.branch,\n    timestamp: $json.timestamp,\n    github: gh,\n    netlify: nf,\n    siteUrl,\n    message: ok\n      ? `Build dispatched and verified. Site: ${siteUrl}`\n      : `Build dispatched; verification indicates issues. GH: ${gh.status}/${gh.conclusion} NF: ${nf.state} Site: ${siteUrl}`,\n    hasNotificationURL: !!$env.WEBHOOK_NOTIFICATION_URL,\n    isWebhookTrigger: $json.triggerType === 'webhook',\n  }\n};"
+      },
+      "id": "finalize",
+      "name": "Finalize Report + Release Lock (AIMCODE L4)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2040,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.hasNotificationURL }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "if-notify",
+      "name": "Send Notification?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2260,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.WEBHOOK_NOTIFICATION_URL || '' }}",
+        "sendBody": true,
+        "bodyContentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json) }}"
+      },
+      "id": "send-notification",
+      "name": "Send Notification",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2480,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.isWebhookTrigger }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "if-respond",
+      "name": "Webhook Response?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2480,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}"
+      },
+      "id": "webhook-response",
+      "name": "Webhook Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        2700,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Skipped branch: lock held or proceed=false\nlet staticData;\ntry {\n  staticData = $getWorkflowStaticData('global');\n} catch (e) {\n  staticData = null;\n}\n\nconst report = {\n  status: 'skipped',\n  timestamp: $json.timestamp,\n  triggerType: $json.triggerType,\n  branch: $json.branch,\n  request: $json.request,\n  reason: $json.skipReason || 'proceed=false'\n};\n\n// Do not release an active lock we didn't acquire\nif (staticData) {\n  staticData.lastSkipAt = $json.timestamp;\n  staticData.lastSkipReason = report.reason;\n}\n\nreturn { json: report };"
+      },
+      "id": "skipped-report",
+      "name": "Skipped Report (Lock Held)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1160,
+        420
+      ]
+    }
+  ],
+  "connections": {
+    "Scheduled Trigger (Hourly)": {
+      "main": [
+        [
+          {
+            "node": "Normalize Input (AIMCODE L1)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Trigger (Manual/API)": {
+      "main": [
+        [
+          {
+            "node": "Normalize Input (AIMCODE L1)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Input (AIMCODE L1)": {
+      "main": [
+        [
+          {
+            "node": "Acquire Lock (AIMCODE L1)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Acquire Lock (AIMCODE L1)": {
+      "main": [
+        [
+          {
+            "node": "Proceed?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Proceed?": {
+      "main": [
+        [
+          {
+            "node": "Dispatch GitHub Build (AIMCODE L2)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Skipped Report (Lock Held)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dispatch GitHub Build (AIMCODE L2)": {
+      "main": [
+        [
+          {
+            "node": "Wait (3 min)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait (3 min)": {
+      "main": [
+        [
+          {
+            "node": "Check Latest GitHub Run (AIMCODE L3)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Latest GitHub Run (AIMCODE L3)": {
+      "main": [
+        [
+          {
+            "node": "Check Latest Netlify Deploy (AIMCODE L3)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Latest Netlify Deploy (AIMCODE L3)": {
+      "main": [
+        [
+          {
+            "node": "Finalize Report + Release Lock (AIMCODE L4)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Finalize Report + Release Lock (AIMCODE L4)": {
+      "main": [
+        [
+          {
+            "node": "Send Notification?",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Webhook Response?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Notification?": {
+      "main": [
+        [
+          {
+            "node": "Send Notification",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Webhook Response?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Notification": {
+      "main": [
+        [
+          {
+            "node": "Webhook Response?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Response?": {
+      "main": [
+        [
+          {
+            "node": "Webhook Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Skipped Report (Lock Held)": {
+      "main": [
+        [
+          {
+            "node": "Webhook Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/New_York"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2025-12-14T00:00:00.000Z",
+  "versionId": "1"
+}
+
+

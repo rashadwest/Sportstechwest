@@ -1,0 +1,130 @@
+{
+  "name": "LEGACY Import-Safe - Unity Build Orchestrator (Schedule/Webhook → GitHub Dispatch)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 1
+            }
+          ]
+        }
+      },
+      "id": "scheduled-trigger",
+      "name": "Scheduled Trigger (Hourly)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "unity-build-legacy",
+        "responseMode": "onReceived"
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook Trigger (Manual/API)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        240,
+        420
+      ],
+      "webhookId": "unity-build-legacy-webhook"
+    },
+    {
+      "parameters": {
+        "functionCode": "// Minimal, legacy-friendly normalization (no Code node).\n// Note: in older n8n, webhook body is on items[0].json.body.\nconst item = items[0] || { json: {} };\nconst body = (item.json && item.json.body) ? item.json.body : (item.json || {});\n\nconst request = String(body.request || body.message || 'Scheduled build');\nconst branch = String(body.branch || 'main');\n\nreturn [\n  {\n    json: {\n      request,\n      branch,\n      timestamp: new Date().toISOString()\n    }\n  }\n];"
+      },
+      "id": "normalize",
+      "name": "Normalize Input (Function)",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        500,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "command": "/bin/sh",
+        "arguments": "=-c \"set -e; : \\\"${GITHUB_REPO_OWNER:?Missing GITHUB_REPO_OWNER}\\\"; : \\\"${GITHUB_REPO_NAME:?Missing GITHUB_REPO_NAME}\\\"; : \\\"${GITHUB_DISPATCH_TOKEN:?Missing GITHUB_DISPATCH_TOKEN}\\\"; EVENT=unity-build; URL=\\\"https://api.github.com/repos/${GITHUB_REPO_OWNER}/${GITHUB_REPO_NAME}/dispatches\\\"; PAYLOAD=\\\"{\\\\\\\"event_type\\\\\\\":\\\\\\\"$EVENT\\\\\\\",\\\\\\\"client_payload\\\\\\\":{\\\\\\\"timestamp\\\\\\\":\\\\\\\"$TIMESTAMP\\\\\\\",\\\\\\\"branch\\\\\\\":\\\\\\\"$BRANCH\\\\\\\"}}\\\"; curl -sS -X POST -H \\\"Authorization: token ${GITHUB_DISPATCH_TOKEN}\\\" -H \\\"Accept: application/vnd.github.v3+json\\\" -H \\\"Content-Type: application/json\\\" --data \\\"$PAYLOAD\\\" \\\"$URL\\\" >/dev/null; echo \\\"dispatched\\\"\"",
+        "environment": {
+          "variables": [
+            {
+              "name": "TIMESTAMP",
+              "value": "={{ $json.timestamp }}"
+            },
+            {
+              "name": "BRANCH",
+              "value": "={{ $json.branch }}"
+            }
+          ]
+        }
+      },
+      "id": "dispatch",
+      "name": "Dispatch Build (curl)",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        760,
+        340
+      ]
+    }
+  ],
+  "connections": {
+    "Scheduled Trigger (Hourly)": {
+      "main": [
+        [
+          {
+            "node": "Normalize Input (Function)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Trigger (Manual/API)": {
+      "main": [
+        [
+          {
+            "node": "Normalize Input (Function)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Input (Function)": {
+      "main": [
+        [
+          {
+            "node": "Dispatch Build (curl)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/New_York"
+  },
+  "staticData": null,
+  "tags": [
+    "legacy",
+    "import-safe"
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2025-12-14T00:00:00.000Z",
+  "versionId": "1"
+}
+
+

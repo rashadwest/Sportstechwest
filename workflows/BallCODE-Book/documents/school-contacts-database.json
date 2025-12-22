@@ -1,0 +1,95 @@
+{
+  "metadata": {
+    "created": "2025-12-21",
+    "purpose": "Target school database for pilot program acquisition",
+    "target_count": 100,
+    "criteria": [
+      "Grades 3-8",
+      "STEM focus",
+      "Coding/computer science interest",
+      "Basketball programs"
+    ],
+    "ces_launch_date": "2026-01-07"
+  },
+  "schools": [
+    {
+      "id": "school_001",
+      "name": "Triangle Science & Math Academy",
+      "district": "Triangle Area",
+      "state": "NC",
+      "contact_name": "",
+      "contact_title": "Principal/STEM Coordinator",
+      "email": "",
+      "phone": "",
+      "grades": "3-8",
+      "student_count": "",
+      "stem_programs": ["Science", "Math", "Technology"],
+      "basketball_programs": true,
+      "priority": "high",
+      "status": "not_contacted",
+      "date_contacted": null,
+      "response_status": null,
+      "call_scheduled": null,
+      "pilot_committed": false,
+      "notes": "Target school mentioned in previous plans"
+    },
+    {
+      "id": "school_002",
+      "name": "NC Science & Math",
+      "district": "State-wide",
+      "state": "NC",
+      "contact_name": "",
+      "contact_title": "Principal/STEM Coordinator",
+      "email": "",
+      "phone": "",
+      "grades": "6-12",
+      "student_count": "",
+      "stem_programs": ["Advanced Science", "Math", "Computer Science"],
+      "basketball_programs": true,
+      "priority": "high",
+      "status": "not_contacted",
+      "date_contacted": null,
+      "response_status": null,
+      "call_scheduled": null,
+      "pilot_committed": false,
+      "notes": "Target school mentioned in previous plans"
+    }
+  ],
+  "outreach_templates": {
+    "warm_contact": {
+      "subject": "Quick question about STEM programs at {school_name}",
+      "template_file": "email-templates.json"
+    },
+    "cold_outreach": {
+      "subject": "Free Pilot Program: BallCODE - STEM Learning Through Basketball",
+      "template_file": "email-templates.json"
+    },
+    "follow_up_3_day": {
+      "subject": "Following up: BallCODE Pilot Program for {school_name}",
+      "days_after_initial": 3,
+      "template_file": "email-templates.json"
+    },
+    "follow_up_7_day": {
+      "subject": "Still interested? BallCODE Pilot Program",
+      "days_after_initial": 7,
+      "template_file": "email-templates.json"
+    },
+    "ces_launch": {
+      "subject": "BallCODE Launches at CES 2026 - Be Part of It",
+      "template_file": "email-templates.json"
+    }
+  },
+  "tracking_fields": [
+    "id",
+    "name",
+    "status",
+    "date_contacted",
+    "response_status",
+    "call_scheduled",
+    "pilot_committed",
+    "date_committed",
+    "onboarding_status",
+    "notes"
+  ]
+}
+

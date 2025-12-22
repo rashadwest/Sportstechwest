@@ -1,0 +1,162 @@
+{
+  "name": "Unity Game - 3 Timed Pushes Today",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "cronExpression": "30 10 * * *"
+        }
+      },
+      "id": "push-1-1030am",
+      "name": "Push 1: 10:30 AM",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [250, 200]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "cronExpression": "0 13 * * *"
+        }
+      },
+      "id": "push-2-1pm",
+      "name": "Push 2: 1:00 PM",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [250, 350]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "cronExpression": "0 17 * * *"
+        }
+      },
+      "id": "push-3-5pm",
+      "name": "Push 3: 5:00 PM",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [250, 500]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Determine which push this is and create commit message\nconst triggerName = $input.item.json.name || '';\nlet pushNumber = 1;\nlet pushTime = '10:30 AM';\n\nif (triggerName.includes('1030') || triggerName.includes('10:30')) {\n  pushNumber = 1;\n  pushTime = '10:30 AM';\n} else if (triggerName.includes('1pm') || triggerName.includes('1:00 PM')) {\n  pushNumber = 2;\n  pushTime = '1:00 PM';\n} else if (triggerName.includes('5pm') || triggerName.includes('5:00 PM')) {\n  pushNumber = 3;\n  pushTime = '5:00 PM';\n}\n\nreturn {\n  json: {\n    pushNumber: pushNumber,\n    pushTime: pushTime,\n    commitMessage: `Automated build - Push ${pushNumber} at ${pushTime}`,\n    timestamp: new Date().toISOString()\n  }\n};"
+      },
+      "id": "prepare-push",
+      "name": "Prepare Push Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 350]
+    },
+    {
+      "parameters": {
+        "command": "={{ `/bin/sh` }}",
+        "arguments": "={{ `-c \"cd '${$env.UNITY_PROJECT_PATH || '/Users/rashadwest/BTEBallCODE'}' && git pull origin main || true\"` }}",
+        "options": {}
+      },
+      "id": "git-pull",
+      "name": "Git Pull Latest",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [650, 350]
+    },
+    {
+      "parameters": {
+        "command": "={{ `/bin/sh` }}",
+        "arguments": "={{ `-c \"cd '${$env.UNITY_PROJECT_PATH || '/Users/rashadwest/BTEBallCODE'}' && git add . && git commit -m '${$('Prepare Push Data').item.json.commitMessage}' && git push origin main || true\"` }}",
+        "options": {}
+      },
+      "id": "git-commit-push",
+      "name": "Git Commit & Push",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [850, 350]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Create completion report\nconst pushData = $('Prepare Push Data').item.json;\nconst report = {\n  status: 'success',\n  pushNumber: pushData.pushNumber,\n  pushTime: pushData.pushTime,\n  timestamp: new Date().toISOString(),\n  message: `Push ${pushData.pushNumber} completed - GitHub Actions build triggered`,\n  nextPush: pushData.pushNumber < 3 ? `Push ${pushData.pushNumber + 1} scheduled` : 'All 3 pushes complete for today'\n};\n\nreturn { json: report };"
+      },
+      "id": "completion-report",
+      "name": "Completion Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1050, 350]
+    }
+  ],
+  "connections": {
+    "Push 1: 10:30 AM": {
+      "main": [
+        [
+          {
+            "node": "Prepare Push Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Push 2: 1:00 PM": {
+      "main": [
+        [
+          {
+            "node": "Prepare Push Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Push 3: 5:00 PM": {
+      "main": [
+        [
+          {
+            "node": "Prepare Push Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Push Data": {
+      "main": [
+        [
+          {
+            "node": "Git Pull Latest",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Git Pull Latest": {
+      "main": [
+        [
+          {
+            "node": "Git Commit & Push",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Git Commit & Push": {
+      "main": [
+        [
+          {
+            "node": "Completion Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 3,
+  "updatedAt": "2025-12-11T08:00:00.000Z",
+  "versionId": "1"
+}

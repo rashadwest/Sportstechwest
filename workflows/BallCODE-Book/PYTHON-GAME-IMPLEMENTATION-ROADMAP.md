@@ -428,3 +428,6 @@ public void LoadPythonMode(int bookNumber, string concept, string exerciseId)
 ---
 
 **Copyright © 2025 Rashad West. All Rights Reserved.**
+
+
+

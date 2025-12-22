@@ -1,0 +1,23 @@
+{
+  "linkedin_story_post": {
+    "platform": "LinkedIn",
+    "type": "Long-form post",
+    "template": "From NBA Courts to Classrooms\n\nAfter years on NBA courts and in data science labs, I'm building something I wish existed when I was learning: BallCODE.\n\n[Your story: Former professional basketball player \u2192 Data scientist \u2192 Educator]\n\nWhy BallCODE?\n- Coding through basketball\n- Stories that teach\n- Games that engage\n- A system that works\n\nComing January 14, 2026.\n\n10 schools by New Year's. Let's go.\n\n#BallCODE #CodingEducation #BasketballLearning #EdTech",
+    "length": "Long (500-1000 words)",
+    "best_time": "Tuesday-Thursday, 8-10 AM"
+  },
+  "twitter_thread": {
+    "platform": "Twitter/X",
+    "type": "Thread",
+    "template": "Thread: What if coding felt like basketball? \ud83e\uddf5\n\n1/ That's BallCODE.\n\nStories that make concepts click.\nGames that make practice fun.\nA system that actually works.\n\n2/ Coming January 14, 2026.\n\n10 schools by New Year's. Let's go.\n\n#BallCODE #CodingEducation",
+    "length": "Thread (5-10 tweets)",
+    "best_time": "Monday-Friday, 9-11 AM or 1-3 PM"
+  },
+  "system_preview": {
+    "platform": "All",
+    "type": "Visual post",
+    "template": "What if coding felt like basketball?\n\nThat's BallCODE.\n\n[Image/Gif of system]\n\nStories \u2192 Games \u2192 Understanding\n\nLike Duolingo, but for coding through basketball.\n\nSee how it works \u2192 ballcode.co/preview\n\n#BallCODE #CodingEducation",
+    "length": "Short (100-200 words)",
+    "visual_required": true
+  }
+}

@@ -1,4 +1,9 @@
-<!-- 0ca49b8e-91a1-4716-9dc6-6407ff10bcde e3768788-2e2e-4b8e-b6c8-982534ea490d -->
+---
+name: Notion Blog Workflow Setup & Execution Plan
+overview: ""
+todos: []
+---
+
 # Notion Blog Workflow Setup & Execution Plan
 
 ## Phase 1: Notion Setup (Start Today)
@@ -367,4 +372,4 @@ The Notion database structure allows you to:
 - Maintain consistency across all content (blog posts + book)
 - Review and edit using the same workflow patterns
 
-See Phase 7 above for complete setup instructions. 
+See Phase 7 above for complete setup instructions.

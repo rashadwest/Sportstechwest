@@ -1,0 +1,26 @@
+BALLCODE LOGO - QUICK REFERENCE
+================================
+
+FILE LOCATION:
+  email_system/assets/images/ballcode-logo.png
+
+WEBSITE URL:
+  https://ballcode.co/assets/images/ballcode-logo.png
+
+DESCRIPTION:
+  Left: Basketball semi-circle (orange, dark blue, light blue segments)
+  Right: "BALL" above "CODE" with code symbols (=> >> - • and > = > - •)
+
+COLORS:
+  Dark Blue: #1a3d5c
+  Light Blue: #4a90e2
+  Orange: #ff6b35
+
+SIZE (Email):
+  120x60px recommended
+
+MEMORY DOCS:
+  - documents/BALLCODE-LOGO-MEMORY.md (complete reference)
+  - email_system/assets/images/BALLCODE-LOGO-SAVED.md (details)
+
+

@@ -9,7 +9,9 @@
 
 ### 1. Game UI Structure
 - What does the main game screen look like?
+It looks like a basketball court with a court grid over it. It has a an error where the block code shows up to the right top corder and an area where the code generated shows up below that. It also in the left corner it has a magnify glass that inables you to see the video play and the other shows the old dribble tree system that we need to update to the newest one that has the 7 dribbles
 - Are there menus, buttons, or navigation elements?
+Yes there is a House that takes you to the menue, reverse that takes you back, delete that enables you to delete, 
 - Is there a coding interface visible? (blocks, text editor, visual programming?)
 
 ### 2. Coding Element (BallCODE_Addy)
@@ -51,5 +53,6 @@ You can:
 1. Open `video_frames/` folder and review key frames
 2. Describe what you see in the game
 3. Or I can create an HTML viewer to review frames together
+
 
 

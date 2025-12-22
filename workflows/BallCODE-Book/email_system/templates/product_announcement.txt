@@ -1,0 +1,19 @@
+Subject: New BallCODE Product: {{ product_name }}
+
+Hi {{ name }},
+
+We're excited to announce our new product: {{ product_name }}!
+
+{{ description }}
+
+Key features:
+{{ features }}
+
+Learn more: {{ link }}
+
+Best regards,
+R.L West
+CEO, BallCODE
+ballcode.co
+
+

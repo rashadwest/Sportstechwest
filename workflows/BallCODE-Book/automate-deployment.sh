@@ -16,6 +16,7 @@ NC='\033[0m'
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 WEBSITE_DIR="$SCRIPT_DIR/BallCode"
+DEPLOY_REMOTE="${BALLCODE_DEPLOY_REMOTE:-origin}"
 
 echo -e "${BLUE}=== Automated Deployment ===${NC}\n"
 
@@ -51,15 +52,22 @@ echo -e "${BLUE}Committing changes...${NC}"
 git commit -m "$COMMIT_MSG"
 
 # Check remote
-if ! git remote | grep -q origin; then
-    echo -e "${YELLOW}⚠${NC} No remote 'origin' configured"
-    echo "Add remote: git remote add origin <your-repo-url>"
+if ! git remote | grep -q "^${DEPLOY_REMOTE}$"; then
+    echo -e "${YELLOW}⚠${NC} No remote '${DEPLOY_REMOTE}' configured"
+    echo "Add remote: git remote add ${DEPLOY_REMOTE} <your-repo-url>"
     exit 0
 fi
 
 # Push
 echo -e "${BLUE}Pushing to GitHub...${NC}"
-if git push origin main 2>&1; then
+REMOTE_URL="$(git remote get-url "$DEPLOY_REMOTE" 2>/dev/null || echo "")"
+if echo "$REMOTE_URL" | grep -q "CourtXLabs/BallCODE-Website"; then
+    echo -e "${RED}Error: remote '${DEPLOY_REMOTE}' points to CourtXLabs/BallCODE-Website (known broken/404).${NC}"
+    echo "Fix: git remote set-url ${DEPLOY_REMOTE} https://github.com/JuddCMelvin/BallCode.git (or your correct repo)"
+    exit 1
+fi
+
+if git push "$DEPLOY_REMOTE" main 2>&1; then
     echo -e "${GREEN}✓${NC} Successfully pushed to GitHub"
     echo ""
     echo -e "${BLUE}Deployment Status:${NC}"

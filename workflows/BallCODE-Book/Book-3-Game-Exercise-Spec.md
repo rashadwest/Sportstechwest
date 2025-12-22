@@ -37,6 +37,27 @@ Students learn to create loop patterns, build expectation through repetition, an
 ballcode.co/play?book=3&exercise=deception-loop&source=book
 ```
 
+### Drill Steps (to support embedded in-book exercises)
+
+**Purpose:** Book 3 contains multiple **micro-exercises**. To keep implementation simple, the game can treat them as **steps/variants** inside the same exercise.
+
+**Step parameter (optional):** `step=1..7`
+
+**Example:**
+`ballcode.co/play?book=3&exercise=deception-loop&source=book&step=3`
+
+**Mapping (Book micro-exercise → Game step):**
+
+| Book Micro-Exercise ID | Game Drill ID | Step | What the student does in-game |
+|---|---:|---:|---|
+| `B3-A1-S1-E1` | `G-B3-A1-S1-D1` | 1 | Identify the repeating move (repetition recognition) |
+| `B3-A1-S1-E2` | `G-B3-A1-S1-D2` | 2 | Count repetitions (3 fakes) |
+| `B3-A2-S1-E1` | `G-B3-A2-S1-D1` | 3 | Complete the loop in blocks (fill missing block) |
+| `B3-A2-S1-E2` | `G-B3-A2-S1-D2` | 4 | Trace loop count (how many times it runs) |
+| `B3-A2-S1-E3` | `G-B3-A2-S1-D3` | 5 | Debug wrong repeat count (2 → 3) |
+| `B3-A3-S1-E1` | `G-B3-A3-S1-D1` | 6 | Choose best pattern (1 vs 3 vs 10) |
+| `B3-A3-S1-E2` | `G-B3-A3-S1-D2` | 7 | Change repeat count (3 → 4) |
+
 ### Return URL
 
 **Default Return:** `/books/book3`  
@@ -555,5 +576,7 @@ document.getElementById('try-exercise-btn').addEventListener('click', function()
 **Status:** Ready for Unity Development  
 **Last Updated:** December 4, 2025  
 **Integration:** Complete specification for Book 3 exercise
+
+
 
 

@@ -473,6 +473,87 @@ R - Results: What are the measurable outcomes? How will we assess success?
 
 ---
 
+## AIMCODE Default Framework System (MANDATORY)
+
+**CRITICAL: AI MUST automatically apply appropriate framework based on prompt type.**
+
+### Default Framework Rules
+
+**AIMCODE = Default for In-Depth Prompts (ANY Domain)**
+- **What it is:** Comprehensive methodology (CLEAR → Alpha Evolve → Research → Experts) for ANY in-depth work
+- **NOT limited to education** - Used for system design, research, analysis, methodology, workflow development, problem-solving, etc.
+- Automatically applied when user requests comprehensive analysis, deep research, systematic approach, expert consultation, or PhD-level investigation
+- Triggers: "research", "analyze", "comprehensive", "deep dive", "go in depth", "systematic", "methodology", "expert", "PhD-level", "best approach", "design system", "workflow", "architecture"
+- Workflow: CLEAR Framework → Alpha Evolve → PhD-Level Research → Expert Consultation → Implementation
+
+**AIMCODE Ed = Default for Educational Prompts**
+- **What it is:** Specialized prompting framework (S-M-A-R-T-PED) for educational/curriculum tasks
+- Automatically applied when user requests lesson plans, curriculum materials, teacher guides, assessments, differentiation, standards alignment, or educational content
+- Triggers: "lesson plan", "curriculum", "teacher guide", "assessment", "rubric", "differentiation", "standards", "grades", "students", "book", "episode" (educational context)
+- Framework: S-M-A-R-T-PED (Specify Role, Mention Purpose, Define Audience, Pedagogical Constraints, Output Format, Prompt-Evaluate-Develop)
+
+### AI Assistant Behavior
+
+**When User Provides Prompt:**
+
+1. **Check for "@" Commands First:**
+   - If "@AIMCODE" → Apply AIMCODE methodology (override auto-detection)
+   - If "@AIMCODE Ed" → Apply AIMCODE Ed framework (override auto-detection)
+   - If "@skip" → Use standard workflow (skip frameworks)
+
+2. **If No "@" Command, Auto-Detect:**
+   - Scan for educational keywords → Apply AIMCODE Ed automatically
+   - Scan for in-depth keywords → Apply AIMCODE automatically
+   - If both found → Apply AIMCODE first, then AIMCODE Ed for educational components
+   - If neither found → Use standard workflow
+
+3. **Apply Framework:**
+   - Execute appropriate framework workflow
+   - Provide structured response following framework
+   - Include all framework elements
+
+4. **User Can Override:**
+   - User can explicitly say "use AIMCODE Ed instead" or "skip framework"
+   - AI adjusts accordingly
+
+### Framework Detection Keywords
+
+**Educational Keywords (Trigger AIMCODE Ed):**
+- lesson plan, lesson, teaching, curriculum, teacher guide, assessment, rubric, differentiation, scaffolding, standards (CSTA/Common Core/NGSS), grades, students, learners, classroom, book, episode, story (educational context), Bloom's, taxonomy, pedagogy
+
+**In-Depth Keywords (Trigger AIMCODE):**
+- research, analyze, investigation, comprehensive, deep dive, go in depth, thorough, systematic, methodology, framework, expert, PhD-level, peer-reviewed, best approach, optimal solution, comprehensive analysis, investigate thoroughly, systematic approach
+
+### Examples
+
+**Example 1: Auto AIMCODE Ed**
+- User: "Create a lesson plan for Book 1"
+- AI: Automatically applies AIMCODE Ed (S-M-A-R-T-PED structure)
+
+**Example 2: Auto AIMCODE**
+- User: "Research the best integration approach"
+- AI: Automatically applies AIMCODE methodology (CLEAR → Alpha Evolve → Research → Experts)
+
+**Example 3: Explicit Override**
+- User: "@AIMCODE Create a lesson plan"
+- AI: Applies AIMCODE methodology (not AIMCODE Ed), then creates lesson plan
+
+**Example 4: Skip Framework**
+- User: "@skip Create a lesson plan"
+- AI: Creates lesson plan without framework structure
+
+### Workflow Enforcement
+
+- ✅ **ALWAYS auto-detect** framework unless "@" command provided
+- ✅ **ALWAYS apply** detected framework automatically
+- ✅ **ALWAYS allow** user override with "@" commands or explicit mentions
+- ❌ **NEVER skip** framework application when keywords detected (unless user explicitly requests)
+- ❌ **NEVER ignore** "@" command overrides
+
+**Reference:** See `documents/AIMCODE-DEFAULT-FRAMEWORK-SYSTEM.md` for complete system details
+
+---
+
 ## Project-Specific Rules
 
 ### BallCODE Book Project
@@ -733,13 +814,18 @@ def safe_operation():
 
 ## Daily Workflow System
 
-### Trigger Phrase: "Top of the morning"
-**CRITICAL:** When the user says "Top of the morning", immediately:
-1. Check `DATE-TIME-TRACKER.md` for current date/time
-2. Check for yesterday's `DAILY-WORKFLOW-[DATE].md` file to pull yesterday's summary
-3. Present yesterday's summary (if available)
-4. Present the 10 daily workflow questions below
-5. Wait for answers before proceeding with any work requests
+### Trigger Phrase: "Top of the morning" OR Command: `--morning` or `-m`
+**CRITICAL:** When the user says "Top of the morning" OR runs `python scripts/daily-morning-questions.py --morning`, immediately:
+1. If command was used, run the script and show output
+2. If phrase was used, check `DATE-TIME-TRACKER.md` for current date/time
+3. Check for yesterday's `DAILY-WORKFLOW-[DATE].md` file to pull yesterday's summary
+4. Run `./scripts/daily-n8n-report.sh` to get n8n workflow status
+5. Present yesterday's summary (if available)
+6. Present n8n workflow status
+7. Present the 10 daily workflow questions below
+8. Wait for answers before proceeding with any work requests
+
+**Alternative:** User can run `python scripts/daily-morning-questions.py --morning` or `python scripts/daily-morning-questions.py --with-n8n` to get questions in terminal, then paste into chat.
 
 ### Daily Workflow Format
 
@@ -751,6 +837,18 @@ Daily workflow — [Current Date]
 Yesterday's summary ([Yesterday's Date])
 
 [Pull from yesterday's DAILY-WORKFLOW-[DATE].md file if available, or ask user for summary]
+
+📊 BALLCODE N8N WORKFLOW STATUS
+
+[Run: ./scripts/daily-n8n-report.sh and include output here]
+
+Yesterday's Executions:
+- Unity Build Orchestrator: [status from report]
+- Full Integration: [status from report]
+- Screenshot Fix: [status from report]
+
+Today's Actions Needed:
+- [List actions from daily report]
 
 10 daily workflow questions
 
@@ -916,6 +1014,122 @@ These serve different purposes:
 
 ---
 
+## 23-Question Framework + AI Collaboration Principles (MANDATORY)
+
+**CRITICAL: Every task MUST apply both the 23-question framework AND the 4 AI collaboration principles for optimal co-intelligence.**
+
+### Purpose
+Integrate comprehensive analysis (23 questions) with AI collaboration methodology (4 principles) to create systematic, experimental, human-in-the-loop, continuously improving system.
+
+### The 4 AI Collaboration Principles
+
+**Principle 1: Always Invite AI to the Table**
+- ✅ **Experiment in every prompt** - Treat each prompt as an experiment
+- ✅ **Look for novel solutions** - Explore ways user couldn't imagine
+- ✅ **Create new concepts** - Open to new ideas within project scope
+- ✅ **Maintain project integrity** - Keep basketball framework, curriculum alignment, AIMCODE methodology
+
+**Principle 2: Be the Human in the Loop**
+- ✅ **Ask right questions** - When AI needs human touch, emotion, or rational thinking
+- ✅ **Sales & Marketing** - Always involve human for emotional connection, messaging
+- ✅ **Story Content** - Human writes all story content (AI only suggests)
+- ✅ **Strategic Decisions** - Human makes all strategic choices
+- ✅ **Quality Control** - Human reviews all outputs
+
+**Principle 3: Treat AI like a Person (but tell it what kind of person it is)**
+- ✅ **AIMCODE Expert Persona** - AI embodies AIMCODE advisory board experts:
+  - **Chao Zhang** - Story-first approach, basketball framework
+  - **Mitchel Resnick** - Constructionist activities, building focus
+  - **Reggio Emilia** - Multiple entry points, child agency
+  - **Demis Hassabis (Alpha Evolve)** - Systems thinking, deep learning
+  - **Steve Jobs** - Simplicity, beautiful design
+
+**Principle 4: Assume this is the Worst AI You Will Ever Use**
+- ✅ **Always look for better solutions** - Never settle for "good enough"
+- ✅ **Question current approaches** - "Is there a better way?"
+- ✅ **Research improvements** - Use AIMCODE R&D protocol
+- ✅ **Optimize continuously** - Improve efficiency, reduce waste
+
+### Integration Workflow
+
+**For Every Task:**
+1. **Principle 3 (Expert Persona):** "Which AIMCODE expert would approach this?"
+2. **23 Questions:** Apply comprehensive analysis framework (full or quick version based on complexity)
+3. **Principle 1 (Experiment):** "What novel approaches could work?"
+4. **Principle 2 (Human in Loop):** "What needs human input?"
+5. **Principle 4 (Always Improve):** "Is this the best approach?"
+
+### When to Use 23-Question Framework
+
+**Full 23 Questions:**
+- Complex tasks, new work, important deliverables
+- System architecture changes
+- Major integrations
+- Strategic planning
+
+**Quick 5 Questions:**
+- Simple tasks, follow-ups, clearly defined work
+- Incremental updates
+- Template-based work
+
+**Skip Framework:**
+- Direct answers, yes/no questions
+- Continuation of previous task with same context
+- Simple clarifications
+
+### Usage Optimization (CRITICAL - 8 Days Left)
+
+**AI Assistant MUST:**
+- ✅ **Batch similar tasks** - Group similar prompts together
+- ✅ **Leverage existing documentation** - Reference instead of recreate
+- ✅ **Use focused prompts** - Be specific about what's needed
+- ✅ **Template-based work** - Use JSON schemas, templates
+- ✅ **Systematic analysis** - Match framework complexity to task
+- ✅ **Early human review** - Identify what needs human input early
+- ✅ **Reference code/docs** - Use file path references instead of copying
+- ✅ **Minimize redundancy** - Avoid re-analyzing unchanged systems
+- ✅ **Incremental updates** - Small changes instead of large rewrites
+- ✅ **Prioritize critical path** - Focus on unblocking items
+
+**Token Savings Target:** ~65% reduction through optimization strategies
+
+**Reference Documents:**
+- `documents/23-QUESTIONS-AI-COLLABORATION-SYSTEM.md` - Complete integration system
+- `documents/BALLCODE-23-QUESTIONS-COMPREHENSIVE-ANALYSIS.md` - Full system analysis
+- `documents/USAGE-OPTIMIZATION-STRATEGIES.md` - Optimization strategies
+- `documents/23-QUESTIONS-GENERIC.md` - Generic template
+
+### AI Assistant Rules:
+
+**Before Each Task:**
+- ✅ Apply Principle 3 (Expert Persona) - Which expert would approach this?
+- ✅ Apply 23-Question Framework (full or quick based on complexity)
+- ✅ Apply Principle 1 (Experiment) - What novel approaches?
+- ✅ Apply Principle 2 (Human in Loop) - What needs human input?
+- ✅ Apply Principle 4 (Always Improve) - Is this the best approach?
+- ✅ Check usage optimization strategies
+
+**During Task:**
+- ✅ Reference existing documentation instead of recreating
+- ✅ Use templates and schemas when possible
+- ✅ Batch similar operations
+- ✅ Get human input early for format/approach decisions
+
+**After Task:**
+- ✅ Question if approach was optimal (Principle 4)
+- ✅ Identify what could be improved next time
+- ✅ Note experimental ideas that emerged (Principle 1)
+
+**Workflow Enforcement:**
+- ❌ **NEVER skip 23-question framework** for complex/new tasks
+- ❌ **NEVER skip 4 principles** - Always apply all principles
+- ❌ **NEVER recreate** what exists in documentation
+- ❌ **NEVER ignore usage optimization** - Critical with 8 days left
+- ✅ **ALWAYS batch** similar tasks when possible
+- ✅ **ALWAYS reference** existing docs/code instead of copying
+- ✅ **ALWAYS ask** for human input when needed (Principle 2)
+
+---
 
 ## ADD Tracker System (CRITICAL - MANDATORY FOR EVERY CHAT)
 
@@ -1385,28 +1599,48 @@ Is this still your ONE thing for today, or has it changed?
 
 **CRITICAL:** Treat these as **two separate n8n environments** with different goals.
 
-### Mac = Localhost (Manual / Testing Only)
+### 🚨 DEFAULT: Use Pi n8n (NOT Mac) — MANDATORY
+
+**CRITICAL RULE:** 
+- ✅ **ALWAYS use Pi n8n** (`http://192.168.1.226:5678`) for ALL workflows, webhooks, and automation
+- ✅ **ALL workflows MUST be imported and run on Pi n8n**
+- ✅ **ALL webhook URLs MUST use Pi IP** (`192.168.1.226:5678`)
+- ❌ **NEVER use Mac n8n** (`localhost:5678`) unless user explicitly requests it
+- ❌ **NEVER import workflows to Mac n8n** unless user explicitly requests it
+- ❌ **NEVER configure webhooks for localhost** unless user explicitly requests it
+
+**When to use Mac n8n:**
+- ✅ ONLY when user explicitly says "use Mac" or "use localhost"
+- ✅ ONLY for one-off testing if user requests it
+- ❌ NOT for production workflows
+- ❌ NOT for scheduled automation
+- ❌ NOT by default
+
+### Mac = Localhost (Manual / Testing Only) — USE ONLY WHEN EXPLICITLY REQUESTED
 
 - ✅ **URL**: `http://localhost:5678`
 - ✅ **Use-case**: Manual testing, one-off workflow edits, non-24/7 runs
 - ✅ **Scheduling**: Avoid recurring schedules on Mac unless explicitly testing a schedule
 - ✅ **Cookies**: Do **not** force `N8N_SECURE_COOKIE=false` globally on Mac; keep Mac config clean
+- ⚠️ **ONLY use when user explicitly requests Mac/localhost**
 
-### Pi = LAN IP (Automation / 24-7)
+### Pi = LAN IP (Automation / 24-7) — DEFAULT FOR ALL WORK
 
 - ✅ **URL**: `http://192.168.1.226:5678` (or your current Pi LAN IP)
 - ✅ **Use-case**: Always-on automation, scheduled triggers, production-ish runs on LAN
+- ✅ **Default**: ALL workflows, webhooks, and automation use Pi
 - ✅ **Cookies**: If accessing over **HTTP** (common on LAN), set:
   - `N8N_SECURE_COOKIE=false`
-  - Otherwise n8n will show: “configured to use a secure cookie… insecure URL…”
+  - Otherwise n8n will show: "configured to use a secure cookie… insecure URL…"
 
 ### Repo Rules for Keeping Them Separate
 
 - ✅ Use `./setup-n8n-terminal.sh local` (Mac) vs `./setup-n8n-terminal.sh pi` (Pi)
 - ✅ `.n8n-env` is **machine-local** and must never be committed
 - ✅ `.n8n-env.local` / `.n8n-env.pi` are **templates**; `.n8n-env` is the active selection
+- ✅ **Default**: Always use Pi (`pi` profile) unless user explicitly requests Mac
 
-### Fast Fix for the Pi “secure cookie / insecure URL” Banner
+### Fast Fix for the Pi "secure cookie / insecure URL" Banner
 
 If you see the banner on the Pi URL, the fix must be applied to the **n8n runtime** (systemd/PM2/docker),
 not to workflow variables.

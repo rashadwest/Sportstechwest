@@ -1,0 +1,113 @@
+{
+  "levels": [
+    {
+      "levelId": "book1_coding_1_3",
+      "levelName": "Long Sequences Exercise",
+      "description": "Create longer sequences with multiple dribbles. Practice building extended code sequences with 5+ moves to master sequence building.",
+      "gameMode": "blockcoding",
+      "episodeNumber": 0,
+      "codingConcept": "basic_blocks_sequences",
+      "videoPath": "",
+      "videoConfig": {
+        "autoPlay": true,
+        "loop": false,
+        "playbackSpeed": 1.0,
+        "allowSeeking": true,
+        "startTime": 0.0,
+        "endTime": -1.0,
+        "pausePoints": [],
+        "analysisPoints": []
+      },
+      "strategy": {
+        "strategyName": "Long Sequence Pattern",
+        "strategyType": "offensive",
+        "description": "Build a long sequence: Pound → Crossover → Pound → Crossover → Pound → Advance. Create extended sequences to break through tough defense.",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "action": "Start with Block 1 (Pound)",
+            "codeEquivalent": "START → BLOCK_1_POUND",
+            "timing": 0.0,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 2,
+            "action": "Use Block 2 (Crossover)",
+            "codeEquivalent": "BLOCK_2_CROSSOVER",
+            "timing": 0.5,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 3,
+            "action": "Repeat Block 1 (Pound)",
+            "codeEquivalent": "BLOCK_1_POUND",
+            "timing": 1.0,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 4,
+            "action": "Repeat Block 2 (Crossover)",
+            "codeEquivalent": "BLOCK_2_CROSSOVER",
+            "timing": 1.5,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 5,
+            "action": "Final Block 1 (Pound)",
+            "codeEquivalent": "BLOCK_1_POUND",
+            "timing": 2.0,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 6,
+            "action": "Advance forward",
+            "codeEquivalent": "ADVANCE",
+            "timing": 2.5,
+            "playerPositions": []
+          }
+        ],
+        "keyConcepts": ["long_sequences", "extended_patterns", "sequence_building"],
+        "basketballConcepts": ["pound_dribble", "crossover_dribble", "extended_sequences"],
+        "diagramPath": "",
+        "showCourtDiagram": false
+      },
+      "learningObjectives": [
+        "Understand how to build longer sequences",
+        "Practice creating extended code patterns",
+        "Learn that sequences can be as long as needed",
+        "Master sequence building with multiple blocks"
+      ],
+      "successCriteria": [
+        "Create sequence with 5+ moves",
+        "Correctly combine Block 1 and Block 2 in pattern",
+        "Complete exercise with 70% or higher score",
+        "Demonstrate mastery of sequence building"
+      ],
+      "difficultyLevel": 1,
+      "prerequisiteLevels": ["book1_foundation_block", "book1_coding_1_2"],
+      "isUnlocked": false,
+      "exercise": {
+        "exerciseType": "BlockCoding",
+        "blockCoding": {
+          "availableBlocks": ["START", "BLOCK_1_POUND", "BLOCK_2_CROSSOVER", "ADVANCE", "REPEAT"],
+          "requiredBlocks": ["BLOCK_1_POUND", "BLOCK_2_CROSSOVER"],
+          "targetCode": "START → BLOCK_1_POUND → BLOCK_2_CROSSOVER → BLOCK_1_POUND → BLOCK_2_CROSSOVER → BLOCK_1_POUND → ADVANCE",
+          "allowCustomBlocks": false
+        },
+        "scoring": {
+          "maxScore": 100,
+          "passingScore": 70,
+          "showScoreDuringExercise": false,
+          "allowRetry": true,
+          "maxAttempts": 3
+        }
+      },
+      "author": "BallCODE Book Integration",
+      "createdDate": "2025-12-11",
+      "tags": ["book1", "long_sequences", "extended_patterns", "sequence_mastery", "pound_dribble", "crossover_dribble"]
+    }
+  ],
+  "version": "1.0",
+  "lastUpdated": "2025-12-11"
+}
+

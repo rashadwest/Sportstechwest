@@ -1,0 +1,93 @@
+{
+  "levels": [
+    {
+      "levelId": "book2_math_decision",
+      "levelName": "Decision Math Exercise",
+      "description": "Practice if/then logic with math. Learn that coding uses math to make decisions, just like basketball uses math to read the defense.",
+      "gameMode": "math",
+      "episodeNumber": 1,
+      "codingConcept": "if_then_conditionals",
+      "videoPath": "",
+      "videoConfig": {
+        "autoPlay": true,
+        "loop": false,
+        "playbackSpeed": 1.0,
+        "allowSeeking": true,
+        "startTime": 0.0,
+        "endTime": -1.0,
+        "pausePoints": [],
+        "analysisPoints": []
+      },
+      "strategy": {
+        "strategyName": "Decision Math Sequence",
+        "strategyType": "offensive",
+        "description": "Use math to make decisions: IF [distance < 5] THEN [crossover], IF [distance >= 5] THEN [advance].",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "action": "Measure distance to defender",
+            "codeEquivalent": "DISTANCE = measure()",
+            "timing": 0.0,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 2,
+            "action": "If distance is less than 5, crossover",
+            "codeEquivalent": "IF DISTANCE < 5 THEN CROSSOVER",
+            "timing": 0.5,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 3,
+            "action": "If distance is 5 or more, advance",
+            "codeEquivalent": "IF DISTANCE >= 5 THEN ADVANCE",
+            "timing": 1.0,
+            "playerPositions": []
+          }
+        ],
+        "keyConcepts": ["if_then", "comparison", "decision_making"],
+        "basketballConcepts": ["crossover_dribble", "reading_defense", "distance_measurement"],
+        "diagramPath": "",
+        "showCourtDiagram": false
+      },
+      "learningObjectives": [
+        "Understand that coding uses math to make decisions",
+        "Practice comparing numbers: <, >, =",
+        "Learn that IF/THEN uses math comparisons",
+        "Connect math comparisons to code decisions"
+      ],
+      "successCriteria": [
+        "Correctly solve comparison problems",
+        "Use math to make if/then decisions",
+        "Complete exercise with 70% or higher score",
+        "Demonstrate understanding through math practice"
+      ],
+      "difficultyLevel": 2,
+      "prerequisiteLevels": ["book1_math_foundation"],
+      "isUnlocked": true,
+      "exercise": {
+        "exerciseType": "Math",
+        "math": {
+          "mathConcept": "comparison_conditionals",
+          "numberOfProblems": 5,
+          "showVisualAids": true
+        },
+        "scoring": {
+          "maxScore": 100,
+          "passingScore": 70,
+          "showScoreDuringExercise": false,
+          "allowRetry": true,
+          "maxAttempts": 3
+        }
+      },
+      "author": "BallCODE Book Integration",
+      "createdDate": "2025-12-05",
+      "tags": ["book2", "math", "conditionals", "comparison", "decision_making"]
+    }
+  ],
+  "version": "1.0",
+  "lastUpdated": "2025-12-05"
+}
+
+
+

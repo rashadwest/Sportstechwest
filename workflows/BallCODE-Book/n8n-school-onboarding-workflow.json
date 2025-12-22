@@ -1,0 +1,127 @@
+{
+  "name": "Garvis School Onboarding - Automated",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "school-onboarding",
+        "responseMode": "responseNode"
+      },
+      "id": "webhook-trigger",
+      "name": "School Onboarding Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "school-onboarding-webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Garvis: Parse school signup data\nconst input = $input.item.json;\nconst body = input.body || {};\n\nconst schoolData = {\n  schoolName: body.school_name || body.schoolName || '',\n  contactName: body.contact_name || body.contactName || '',\n  email: body.email || '',\n  phone: body.phone || '',\n  district: body.district || '',\n  gradeLevels: body.grade_levels || body.gradeLevels || [],\n  studentCount: body.student_count || body.studentCount || 0,\n  source: body.source || 'webhook',\n  timestamp: new Date().toISOString()\n};\n\n// Validate required fields\nconst required = ['schoolName', 'email', 'contactName'];\nconst missing = required.filter(field => !schoolData[field]);\n\nif (missing.length > 0) {\n  return {\n    json: {\n      status: 'error',\n      error: `Missing required fields: ${missing.join(', ')}`,\n      schoolData\n    }\n  };\n}\n\n// Generate unique credentials\nconst credentials = {\n  accessCode: `BC-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).substr(2, 4).toUpperCase()}`,\n  password: Math.random().toString(36).substr(2, 12),\n  expiresAt: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000).toISOString() // 90 days\n};\n\nreturn {\n  json: {\n    status: 'valid',\n    schoolData,\n    credentials,\n    jobId: body.job_id || `onboard-${Date.now()}`\n  }\n};"
+      },
+      "id": "validate-signup",
+      "name": "Validate Signup & Generate Credentials",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.status }}",
+              "value2": "valid"
+            }
+          ]
+        }
+      },
+      "id": "if-valid",
+      "name": "Valid Signup?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Garvis: Generate onboarding package\nconst schoolData = $json.schoolData;\nconst credentials = $json.credentials;\n\n// Package contents\nconst package = {\n  episode1Story: {\n    title: \"Episode 1: The Foundation Block\",\n    format: \"PDF/Markdown\",\n    content: \"Complete story content (to be generated)\",\n    ready: true\n  },\n  teacherGuide: {\n    title: \"Complete Teacher Guide\",\n    format: \"PDF/Markdown\",\n    content: \"Full lesson plan with answer keys\",\n    ready: true\n  },\n  onboardingGuide: {\n    title: \"Self-Service Onboarding Guide\",\n    format: \"PDF/Markdown\",\n    content: \"Step-by-step getting started instructions\",\n    ready: true\n  },\n  accessCredentials: {\n    accessCode: credentials.accessCode,\n    password: credentials.password,\n    expiresAt: credentials.expiresAt,\n    gameUrl: `https://ballcode.co/game?access=${credentials.accessCode}`\n  },\n  supportResources: {\n    email: \"support@ballcode.co\",\n    phone: \"(Contact info)\",\n    faq: \"https://ballcode.co/faq\"\n  }\n};\n\nreturn {\n  json: {\n    ...$json,\n    package,\n    packageGenerated: true\n  }\n};"
+      },
+      "id": "generate-package",
+      "name": "Generate Onboarding Package",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 200]
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"to\": \"{{ $json.schoolData.email }}\",\n  \"subject\": \"Welcome to BallCODE - Your Onboarding Package\",\n  \"body\": \"Dear {{ $json.schoolData.contactName }},\\n\\nWelcome to BallCODE! We're excited to have {{ $json.schoolData.schoolName }} join our pilot program.\\n\\nYour complete onboarding package is ready:\\n\\n1. Episode 1: The Foundation Block - Complete story\\n2. Complete Teacher Guide - Full lesson plan with answer keys\\n3. Self-Service Onboarding Guide - Step-by-step instructions\\n4. Access Credentials:\\n   - Access Code: {{ $json.credentials.accessCode }}\\n   - Password: {{ $json.credentials.password }}\\n   - Game URL: {{ $json.package.accessCredentials.gameUrl }}\\n\\nGetting Started:\\n1. Review the Teacher Guide\\n2. Access the game using your credentials\\n3. Follow the Onboarding Guide\\n\\nSupport:\\n- Email: support@ballcode.co\\n- FAQ: https://ballcode.co/faq\\n\\nWe're here to help!\\n\\nBest regards,\\nThe BallCODE Team\"\n}",
+        "options": {
+          "timeout": 30000
+        },
+        "url": "={{ $env.EMAIL_SERVICE_URL || 'http://localhost:2525/send' }}"
+      },
+      "id": "send-welcome-email",
+      "name": "Send Welcome Email",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1120, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Garvis: Track school onboarding progress\nconst schoolData = $json.schoolData;\nconst credentials = $json.credentials;\nconst emailSent = $json.emailSent || false;\n\n// Create tracking record\nconst trackingRecord = {\n  schoolId: `school-${Date.now()}`,\n  schoolName: schoolData.schoolName,\n  email: schoolData.email,\n  contactName: schoolData.contactName,\n  accessCode: credentials.accessCode,\n  status: 'onboarded',\n  onboardedAt: new Date().toISOString(),\n  emailSent,\n  followUpScheduled: true,\n  followUpDates: {\n    day3: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toISOString(),\n    day7: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),\n    day14: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString(),\n    day30: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString()\n  }\n};\n\nreturn {\n  json: {\n    ...$json,\n    trackingRecord,\n    status: 'completed',\n    message: `School ${schoolData.schoolName} successfully onboarded`\n  }\n};"
+      },
+      "id": "track-progress",
+      "name": "Track Onboarding Progress",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1340, 200]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}"
+      },
+      "id": "respond",
+      "name": "Respond with Results",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1560, 200]
+    }
+  ],
+  "connections": {
+    "School Onboarding Webhook": {
+      "main": [[{"node": "Validate Signup & Generate Credentials", "type": "main", "index": 0}]]
+    },
+    "Validate Signup & Generate Credentials": {
+      "main": [[{"node": "Valid Signup?", "type": "main", "index": 0}]]
+    },
+    "Valid Signup?": {
+      "main": [
+        [{"node": "Generate Onboarding Package", "type": "main", "index": 0}],
+        [{"node": "Respond with Results", "type": "main", "index": 0}]
+      ]
+    },
+    "Generate Onboarding Package": {
+      "main": [[{"node": "Send Welcome Email", "type": "main", "index": 0}]]
+    },
+    "Send Welcome Email": {
+      "main": [[{"node": "Track Onboarding Progress", "type": "main", "index": 0}]]
+    },
+    "Track Onboarding Progress": {
+      "main": [[{"node": "Respond with Results", "type": "main", "index": 0}]]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-12-17T00:00:00.000Z",
+  "versionId": "1"
+}
+

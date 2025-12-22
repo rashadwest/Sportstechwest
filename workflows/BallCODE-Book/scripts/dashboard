@@ -1,0 +1,41 @@
+#!/bin/bash
+# BallCODE Dashboard - Quick Access Command
+# Usage: dashboard [view|update|serve]
+
+cd /Users/rashadwest/Sportstechwest/workflows/BallCODE-Book
+
+case "$1" in
+  view|v)
+    # View markdown dashboard
+    cat documents/BALLCODE-INTEGRATION-DASHBOARD.md
+    ;;
+  update|u)
+    # Update dashboard
+    python3 scripts/update-dashboard.py
+    ;;
+  serve|s)
+    # Serve HTML dashboard
+    echo "🚀 Starting BallCODE Dashboard Server..."
+    echo "   Open: http://localhost:8000/dashboard.html"
+    echo "   Press Ctrl+C to stop"
+    echo ""
+    python3 scripts/serve-dashboard.py
+    ;;
+  *)
+    echo "🏀 BallCODE Integration Dashboard"
+    echo ""
+    echo "Usage: dashboard [command]"
+    echo ""
+    echo "Commands:"
+    echo "  view, v     - View markdown dashboard"
+    echo "  update, u   - Update dashboard data"
+    echo "  serve, s    - Start HTML dashboard server (localhost:8000)"
+    echo ""
+    echo "Quick Access:"
+    echo "  dashboard view    - Quick markdown view"
+    echo "  dashboard serve   - Start web dashboard"
+    echo "  dashboard update  - Refresh data"
+    ;;
+esac
+
+

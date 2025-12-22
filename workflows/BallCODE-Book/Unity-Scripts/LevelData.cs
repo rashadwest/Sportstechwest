@@ -115,6 +115,40 @@ public class StrategyData
 }
 
 /// <summary>
+/// Player position on the court with dribble information
+/// Court coordinates: X (0-94 feet, left to right), Y (0-50 feet, bottom to top)
+/// Origin (0,0) is bottom-left corner of court
+/// </summary>
+[System.Serializable]
+public class PlayerPosition
+{
+    public float x;                            // Court X coordinate (0-94 feet, or normalized 0-1)
+    public float y;                            // Court Y coordinate (0-50 feet, or normalized 0-1)
+    public string playerId;                    // Player identifier (e.g., "Nova", "Atlas", "Pixel", "Anchor")
+    public int dribbleType;                    // Dribble number (1-7): 1=Pound, 2=Crossover, 3=In&Out, 4=BetweenLegs, 5=BehindBack, 6=HalfSpin, 7=Spin
+    public string dribbleDirection;            // Direction: "left", "right", "forward", "backward", "none", or combination
+    public bool isNormalized = false;           // If true, x and y are 0-1 range; if false, they are feet (0-94, 0-50)
+    
+    public PlayerPosition()
+    {
+        playerId = "";
+        dribbleType = 0;
+        dribbleDirection = "none";
+        isNormalized = false;
+    }
+    
+    public PlayerPosition(float x, float y, string playerId, int dribbleType, string dribbleDirection, bool normalized = false)
+    {
+        this.x = x;
+        this.y = y;
+        this.playerId = playerId;
+        this.dribbleType = dribbleType;
+        this.dribbleDirection = dribbleDirection;
+        this.isNormalized = normalized;
+    }
+}
+
+/// <summary>
 /// Individual step in a basketball strategy
 /// </summary>
 [System.Serializable]
@@ -124,7 +158,16 @@ public class StrategyStep
     public string action;                       // Action description (e.g., "Point guard receives ball")
     public string codeEquivalent;               // Equivalent code/block representation
     public float timing;                        // When this step occurs (seconds)
-    public string[] playerPositions;            // Key player positions
+    public List<PlayerPosition> playerPositions; // Key player positions with x,y coordinates and dribble data
+    
+    // Legacy support: Keep old string[] field for backward compatibility
+    [System.Obsolete("Use playerPositions instead. This field is kept for backward compatibility.")]
+    public string[] playerPositionsLegacy;
+    
+    public StrategyStep()
+    {
+        playerPositions = new List<PlayerPosition>();
+    }
 }
 
 /// <summary>

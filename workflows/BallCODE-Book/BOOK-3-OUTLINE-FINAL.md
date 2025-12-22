@@ -130,6 +130,91 @@
 
 ---
 
+## 🧩 EMBEDDED MICRO-EXERCISES (IN-BOOK) + 🎮 GAME DRILL LINKS
+
+**Purpose:** Put quick “do it now” coding checks *inside* the story so Book 3 flows: **Story → Micro Exercise → Game Drill → Back to Story**.
+
+### Standard Exercise Block (repeat this format)
+- **StoryBeat:** What just happened in the story (1–3 paragraphs)
+- **SkillSpotlight:** One concept (loops / repetition / breaking pattern)
+- **MicroExercise_InBook:** 30–120 second activity
+- **GameDrill_Link:** The matching drill in the game
+- **ReflectionPrompt:** One short question
+
+### ID conventions (stable + reusable across books)
+- **Book micro-exercise ID:** `B3-A{act}-S{scene}-E{num}` (example: `B3-A2-S1-E2`)
+- **Game drill ID:** `G-B3-A{act}-S{scene}-D{num}` (example: `G-B3-A2-S1-D1`)
+
+### Base Game URL (Book 3 exercise)
+- `ballcode.co/play?book=3&exercise=deception-loop&source=book`
+- **Note:** For now, all drills route to the same Book 3 exercise and can be implemented as **steps/variants** inside it (e.g., `&step=1`).
+
+---
+
+### ACT I Embedded Micro-Exercises (Scene 1)
+
+#### B3-A1-S1-E1 — “What repeats?”
+- **SkillSpotlight:** Repetition creates expectation
+- **MicroExercise_InBook (Student prompt):** In Nova’s pattern, which move repeats 3 times?
+- **Expected answer (teacher-facing):** `Fake left`
+- **GameDrill_Link:** `G-B3-A1-S1-D1` → `ballcode.co/play?book=3&exercise=deception-loop&source=book&step=1`
+- **ReflectionPrompt:** What does the defender start to *expect* after repetition?
+
+#### B3-A1-S1-E2 — “Count the repeats”
+- **SkillSpotlight:** Counting repetitions
+- **MicroExercise_InBook (Student prompt):** If Nova repeats a fake 3 times, how many fakes happened?
+- **Expected answer (teacher-facing):** `3`
+- **GameDrill_Link:** `G-B3-A1-S1-D2` → `ballcode.co/play?book=3&exercise=deception-loop&source=book&step=2`
+- **ReflectionPrompt:** Why is “3 times” different from “1 time” for deception?
+
+---
+
+### ACT II Embedded Micro-Exercises (Scene 1)
+
+#### B3-A2-S1-E1 — “Complete the loop (Blocks)”
+- **SkillSpotlight:** Loop structure (block coding)
+- **MicroExercise_InBook (Student prompt):** Fill the blank: `REPEAT [ ____ ] 3 TIMES, THEN [go right]`
+- **Expected answer (teacher-facing):** `fake left`
+- **GameDrill_Link:** `G-B3-A2-S1-D1` → `ballcode.co/play?book=3&exercise=deception-loop&source=book&step=3`
+- **ReflectionPrompt:** What’s the “break” move after the loop?
+
+#### B3-A2-S1-E2 — “Trace the loop (Python preview)”
+- **SkillSpotlight:** A `for` loop repeats actions
+- **MicroExercise_InBook (Student prompt):** How many times does `fake_left()` run?
+  - `for i in range(3): fake_left()`
+- **Expected answer (teacher-facing):** `3`
+- **GameDrill_Link:** `G-B3-A2-S1-D2` → `ballcode.co/play?book=3&exercise=deception-loop&source=book&step=4`
+- **ReflectionPrompt:** What does `range(3)` mean in plain language?
+
+#### B3-A2-S1-E3 — “Spot the bug”
+- **SkillSpotlight:** Debugging repetition counts
+- **MicroExercise_InBook (Student prompt):** The story needs 3 fakes, but the code uses `range(2)`. What should it be?
+  - `for i in range(2): fake_left()`
+- **Expected answer (teacher-facing):** Change to `range(3)`
+- **GameDrill_Link:** `G-B3-A2-S1-D3` → `ballcode.co/play?book=3&exercise=deception-loop&source=book&step=5`
+- **ReflectionPrompt:** What happens if the loop repeats too few times?
+
+---
+
+### ACT III Embedded Micro-Exercises (Scene 1)
+
+#### B3-A3-S1-E1 — “Choose the best pattern”
+- **SkillSpotlight:** Picking the repetition count that builds expectation
+- **MicroExercise_InBook (Student prompt):** Which pattern best matches Book 3?
+  - A) Fake once then go right
+  - B) Fake 3 times then go right
+  - C) Fake 10 times then go right
+- **Expected answer (teacher-facing):** `B`
+- **GameDrill_Link:** `G-B3-A3-S1-D1` → `ballcode.co/play?book=3&exercise=deception-loop&source=book&step=6`
+- **ReflectionPrompt:** Why does the “3 times” pattern work in the climax?
+
+#### B3-A3-S1-E2 — “Change the number”
+- **SkillSpotlight:** Parameterizing loops (changing the repeat count)
+- **MicroExercise_InBook (Student prompt):** Update the loop to repeat 4 times (blocks or Python).
+- **Expected answer (teacher-facing):** `repeatCount = 4` / `range(4)`
+- **GameDrill_Link:** `G-B3-A3-S1-D2` → `ballcode.co/play?book=3&exercise=deception-loop&source=book&step=7`
+- **ReflectionPrompt:** When might 4 repeats be better than 3?
+
 ## 👥 CHARACTERS
 
 ### NOVA (Main Character)
@@ -357,5 +442,7 @@ Book 3 outline is complete when:
 **Status:** ✅ Ready for Writing Tomorrow  
 **Priority:** High (needed for IBM presentation)  
 **Next:** User writes Book 3 story using this outline
+
+
 
 

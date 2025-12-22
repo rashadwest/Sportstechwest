@@ -1,0 +1,108 @@
+{
+  "levels": [
+    {
+      "levelId": "book5_nested_conditionals",
+      "levelName": "Nested Conditionals Exercise",
+      "description": "Practice nested if/then statements. Learn that coding uses nested conditionals to make complex decisions, just like basketball uses multiple reads to make plays.",
+      "gameMode": "blockcoding",
+      "episodeNumber": 4,
+      "codingConcept": "nested_conditionals",
+      "videoPath": "",
+      "videoConfig": {
+        "autoPlay": true,
+        "loop": false,
+        "playbackSpeed": 1.0,
+        "allowSeeking": true,
+        "startTime": 0.0,
+        "endTime": -1.0,
+        "pausePoints": [],
+        "analysisPoints": []
+      },
+      "strategy": {
+        "strategyName": "Nested Conditional Sequence",
+        "strategyType": "offensive",
+        "description": "Use nested if/then: IF [defender close] THEN IF [defender left] THEN [crossover right] ELSE [crossover left] ELSE [advance].",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "action": "Check if defender is close",
+            "codeEquivalent": "IF [defender close]",
+            "timing": 0.0,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 2,
+            "action": "If close, check direction",
+            "codeEquivalent": "THEN IF [defender left]",
+            "timing": 0.5,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 3,
+            "action": "If left, crossover right",
+            "codeEquivalent": "THEN [BLOCK_2_CROSSOVER right]",
+            "timing": 1.0,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 4,
+            "action": "If not left, crossover left",
+            "codeEquivalent": "ELSE [BLOCK_2_CROSSOVER left]",
+            "timing": 1.5,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 5,
+            "action": "If not close, advance",
+            "codeEquivalent": "ELSE [ADVANCE]",
+            "timing": 2.0,
+            "playerPositions": []
+          }
+        ],
+        "keyConcepts": ["nested_conditionals", "complex_decisions", "if_then_else"],
+        "basketballConcepts": ["reading_defense", "multiple_reads", "complex_decisions"],
+        "diagramPath": "",
+        "showCourtDiagram": false
+      },
+      "learningObjectives": [
+        "Understand that coding uses nested if/then for complex decisions",
+        "Practice creating nested conditional sequences",
+        "Learn that complex decisions require multiple conditionals",
+        "Build nested conditionals from simple if/then blocks"
+      ],
+      "successCriteria": [
+        "Correctly use nested IF/THEN/ELSE blocks",
+        "Create nested conditional sequence",
+        "Complete exercise with 70% or higher score",
+        "Demonstrate understanding through interactive practice"
+      ],
+      "difficultyLevel": 4,
+      "prerequisiteLevels": ["book2_decision_crossover", "book3_pattern_loop"],
+      "isUnlocked": true,
+      "exercise": {
+        "exerciseType": "BlockCoding",
+        "blockCoding": {
+          "availableBlocks": ["START", "IF", "THEN", "ELSE", "BLOCK_2_CROSSOVER", "ADVANCE"],
+          "requiredBlocks": ["IF", "THEN", "ELSE"],
+          "targetCode": "START → IF [defender close] THEN IF [defender left] THEN [BLOCK_2_CROSSOVER right] ELSE [BLOCK_2_CROSSOVER left] ELSE [ADVANCE]",
+          "allowCustomBlocks": false
+        },
+        "scoring": {
+          "maxScore": 100,
+          "passingScore": 70,
+          "showScoreDuringExercise": false,
+          "allowRetry": true,
+          "maxAttempts": 3
+        }
+      },
+      "author": "BallCODE Book Integration",
+      "createdDate": "2025-12-05",
+      "tags": ["book5", "nested_conditionals", "complex_decisions", "if_then_else"]
+    }
+  ],
+  "version": "1.0",
+  "lastUpdated": "2025-12-05"
+}
+
+
+

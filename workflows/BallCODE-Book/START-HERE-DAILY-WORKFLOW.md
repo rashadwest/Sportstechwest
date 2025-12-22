@@ -2,6 +2,8 @@
 
 **Use this before EVERY work session in Cursor.**
 
+**Note:** After completing daily workflow questions, the AI will ask Unified Prompting Framework questions before each task/prompt to optimize results. These are separate systems serving different purposes.
+
 ---
 
 ## ⚡ Quick Start (30 seconds)

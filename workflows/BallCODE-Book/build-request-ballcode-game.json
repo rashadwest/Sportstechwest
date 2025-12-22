@@ -1,0 +1,32 @@
+{
+  "request": "Build BallCode game with organized level structure and standardized UI/UX. Ensure all levels follow consistent naming, structure, and UI patterns. Prepare for proper build and deployment.",
+  "triggerType": "webhook",
+  "timestamp": "2025-12-11T21:55:00.000Z",
+  "branch": "main",
+  "actionPlan": {
+    "needsUnityEdits": true,
+    "needsBuild": true,
+    "needsDeploy": true,
+    "unityEdits": [
+      {
+        "file": "Assets/StreamingAssets/Levels/",
+        "action": "organize",
+        "changes": "Ensure all level JSON files follow standard naming convention: book{M}_mode{MODE}_level{N}.json and use consistent structure"
+      },
+      {
+        "file": "Assets/Scripts/UI/",
+        "action": "standardize",
+        "changes": "Ensure all UI elements follow consistent layout, colors, and interaction patterns across all game modes"
+      },
+      {
+        "file": "Assets/Scripts/LevelData.cs",
+        "action": "verify",
+        "changes": "Verify LevelData structure supports all required fields for organized level creation"
+      }
+    ],
+    "estimatedTime": "25 minutes",
+    "priority": "high",
+    "notes": "This build will organize the game structure for consistent level development and UI/UX standards. All future levels will follow the standardized process outlined in BALLCODE-STREAMLINED-DEVELOPMENT-PLAN.md"
+  }
+}
+

@@ -1,0 +1,49 @@
+{
+  "target_schools": {
+    "total": 50,
+    "criteria": [
+      "Grades 3-8",
+      "STEM focus",
+      "Coding/computer science interest",
+      "Basketball programs"
+    ],
+    "research_fields": [
+      "School name",
+      "Contact email",
+      "Contact name",
+      "Grade levels",
+      "Student count",
+      "STEM programs",
+      "Basketball programs"
+    ]
+  },
+  "outreach_templates": {
+    "initial_email": {
+      "subject": "Free Pilot Program: BallCODE for Your School",
+      "personalization_fields": [
+        "school_name",
+        "contact_name",
+        "grade_levels"
+      ],
+      "template_file": "email-templates.json"
+    },
+    "follow_up_email": {
+      "subject": "Following up: BallCODE Pilot Program",
+      "days_after_initial": 3,
+      "template_file": "email-templates.json"
+    }
+  },
+  "tracking": {
+    "spreadsheet_template": "school-outreach-tracker.csv",
+    "fields": [
+      "School Name",
+      "Contact Name",
+      "Email",
+      "Status",
+      "Date Contacted",
+      "Response",
+      "Next Action",
+      "Notes"
+    ]
+  }
+}

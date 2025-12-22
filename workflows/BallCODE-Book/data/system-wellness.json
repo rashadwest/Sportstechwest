@@ -1,0 +1,152 @@
+{
+  "timestamp": "2025-12-21T16:45:13.392741",
+  "local_system": {
+    "cpu": {
+      "usage_percent": 30.0,
+      "core_count": 8,
+      "frequency_mhz": 3204,
+      "status": "healthy",
+      "score": 70.0
+    },
+    "memory": {
+      "total_gb": 8.0,
+      "available_gb": 1.15,
+      "used_percent": 85.7,
+      "swap_total_gb": 10.0,
+      "swap_used_percent": 91.5,
+      "status": "high_usage",
+      "score": 14.299999999999997
+    },
+    "disk": {
+      "total_gb": 460.43,
+      "used_gb": 8.54,
+      "free_gb": 74.72,
+      "used_percent": 1.85,
+      "status": "healthy",
+      "score": 98.15
+    },
+    "network": {
+      "local_latency_ms": 18.86,
+      "external_latency_ms": 36.03,
+      "connectivity": "connected",
+      "status": "healthy",
+      "score": 63.96899223327637
+    },
+    "file_system": {
+      "total_files": 9231,
+      "large_files_count": 10,
+      "large_files": [
+        {
+          "path": "_n8n-nodes-1.123.5.json",
+          "size_mb": 13.89
+        },
+        {
+          "path": "BallCode/.git/objects/pack/pack-7d8bf79b4c03a61a7be29d4a169d9e37b50b66e2.pack",
+          "size_mb": 1434.8
+        },
+        {
+          "path": "BallCode/assets/Unity Assets/AllSkyFree/Epic_BlueSunset/Epic_BlueSunset_EquiRect_flat.png",
+          "size_mb": 18.57
+        },
+        {
+          "path": "BallCode/assets/Unity Assets/Nets/netphysics.blend",
+          "size_mb": 11.74
+        },
+        {
+          "path": "BallCode/assets/Unity Assets/GUI PRO Kit - Simple Casual/Scene/DemoScene.unity",
+          "size_mb": 24.89
+        },
+        {
+          "path": "BallCode/assets/Unity Assets/Robot Accessories/Jersey_BallCODE/uniformNormal.png",
+          "size_mb": 18.56
+        },
+        {
+          "path": "BallCode/assets/Unity Assets/Robot Accessories/Jersey_BallCODE/Jersey Big.obj",
+          "size_mb": 12.7
+        },
+        {
+          "path": "BallCode/assets/Unity Assets/Robot Models/RedRobot_FBX/red robot_Diffuse.png",
+          "size_mb": 15.58
+        },
+        {
+          "path": "BallCode/assets/Unity Assets/Robot Models/RedRobot_FBX/red robot_Reflection.png",
+          "size_mb": 12.7
+        },
+        {
+          "path": "BallCode/assets/Unity Assets/Robot Models/Blue Robot/11696_robot_v1_L3.obj",
+          "size_mb": 11.1
+        }
+      ],
+      "git_size_mb": 0.0,
+      "status": "healthy",
+      "score": 80
+    },
+    "cursor_performance": {
+      "cache_size_mb": 0.0,
+      "logs_size_mb": 0.0,
+      "total_size_mb": 0.0,
+      "status": "healthy",
+      "score": 100.0
+    },
+    "git_performance": {
+      "status_time_ms": 82.61,
+      "remote_time_ms": 283.07,
+      "status": "healthy",
+      "score": 82.30316638946533
+    },
+    "n8n_performance": {
+      "local": {
+        "url": "http://localhost:5678/healthz",
+        "response_time_ms": 74.18,
+        "status_code": 200,
+        "status": "healthy",
+        "score": 85.16478538513184
+      },
+      "pi": {
+        "url": "http://192.168.1.226:5678/healthz",
+        "response_time_ms": 27.13,
+        "status_code": 200,
+        "status": "healthy",
+        "score": 94.57402229309082
+      }
+    }
+  },
+  "cloud_comparison": {
+    "cloud_benchmarks": {
+      "response_time_ms": 200,
+      "latency_ms": 50,
+      "availability_percent": 99.9,
+      "scalability": "unlimited",
+      "cost_per_month": "variable"
+    },
+    "local_advantages": {
+      "zero_network_latency": true,
+      "privacy": true,
+      "no_rate_limits": true,
+      "offline_capable": true,
+      "custom_optimization": true
+    },
+    "performance_gaps": [
+      {
+        "metric": "network_latency",
+        "local": 36.03,
+        "cloud": 50,
+        "advantage": "local",
+        "improvement": "Local is faster - maintain advantage"
+      }
+    ],
+    "overall": "local_competitive"
+  },
+  "performance_gaps": [],
+  "improvement_opportunities": [
+    {
+      "category": "memory",
+      "priority": "high",
+      "title": "Optimize Memory Usage",
+      "description": "Memory usage is high. Consider clearing caches or closing unused applications.",
+      "hassabis_approach": "Deep learning: Analyze memory patterns and implement smart caching strategies.",
+      "jobs_approach": "Beautiful design: Clean, efficient memory management. No waste.",
+      "action": "Clear Cursor cache, close unused apps, implement memory-efficient patterns."
+    }
+  ]
+}

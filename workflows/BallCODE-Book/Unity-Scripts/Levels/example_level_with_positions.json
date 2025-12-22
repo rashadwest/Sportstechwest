@@ -1,0 +1,153 @@
+{
+  "levels": [
+    {
+      "levelId": "example_level_with_positions",
+      "levelName": "Example Level with Player Positions",
+      "description": "A demonstration level showing player positions and dribble sequences with x,y coordinates",
+      "gameMode": "blockcoding",
+      "episodeNumber": 0,
+      "codingConcept": "basic_blocks_sequences",
+      "videoPath": "",
+      "videoConfig": {
+        "autoPlay": true,
+        "loop": false,
+        "playbackSpeed": 1.0,
+        "allowSeeking": true,
+        "startTime": 0.0,
+        "endTime": -1.0,
+        "pausePoints": [],
+        "analysisPoints": []
+      },
+      "strategy": {
+        "strategyName": "Example Level with Player Positions",
+        "strategyType": "offensive",
+        "description": "A demonstration level showing player positions and dribble sequences with x,y coordinates",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "action": "Nova starts at top of key with ball",
+            "codeEquivalent": "START",
+            "timing": 0.0,
+            "playerPositions": [
+              {
+                "x": 47.0,
+                "y": 40.0,
+                "playerId": "Nova",
+                "dribbleType": 0,
+                "dribbleDirection": "none",
+                "isNormalized": false
+              }
+            ]
+          },
+          {
+            "stepNumber": 2,
+            "action": "Nova performs Pound Dribble (Block 1) moving forward",
+            "codeEquivalent": "BLOCK_1_POUND",
+            "timing": 0.5,
+            "playerPositions": [
+              {
+                "x": 47.0,
+                "y": 35.0,
+                "playerId": "Nova",
+                "dribbleType": 1,
+                "dribbleDirection": "forward",
+                "isNormalized": false
+              }
+            ]
+          },
+          {
+            "stepNumber": 3,
+            "action": "Nova performs Crossover (Block 2) to the right",
+            "codeEquivalent": "BLOCK_2_CROSSOVER",
+            "timing": 1.0,
+            "playerPositions": [
+              {
+                "x": 52.0,
+                "y": 35.0,
+                "playerId": "Nova",
+                "dribbleType": 2,
+                "dribbleDirection": "right",
+                "isNormalized": false
+              }
+            ]
+          },
+          {
+            "stepNumber": 4,
+            "action": "Nova performs In & Out Dribble (Block 3) - fake left, go right",
+            "codeEquivalent": "BLOCK_3_IN_OUT",
+            "timing": 1.5,
+            "playerPositions": [
+              {
+                "x": 55.0,
+                "y": 30.0,
+                "playerId": "Nova",
+                "dribbleType": 3,
+                "dribbleDirection": "right",
+                "isNormalized": false
+              }
+            ]
+          },
+          {
+            "stepNumber": 5,
+            "action": "Nova advances to basket",
+            "codeEquivalent": "ADVANCE",
+            "timing": 2.0,
+            "playerPositions": [
+              {
+                "x": 55.0,
+                "y": 10.0,
+                "playerId": "Nova",
+                "dribbleType": 0,
+                "dribbleDirection": "forward",
+                "isNormalized": false
+              }
+            ]
+          }
+        ],
+        "keyConcepts": ["basic_blocks", "sequences", "repetition"],
+        "basketballConcepts": ["pound_dribble", "crossover_dribble", "in_out_dribble"],
+        "diagramPath": "",
+        "showCourtDiagram": true
+      },
+      "learningObjectives": [
+        "Understand that coding starts with simple, repeatable blocks",
+        "Practice creating sequences by repeating foundation blocks",
+        "Learn that Block 1 (Pound) can be repeated to create sequences",
+        "Build code blocks to represent basketball actions"
+      ],
+      "successCriteria": [
+        "Correctly drag Block 1 (Pound) at least 3 times",
+        "Create a sequence: START → Block 1 → Block 2 → Block 3 → ADVANCE",
+        "Complete exercise with 70% or higher score",
+        "Demonstrate understanding through interactive practice"
+      ],
+      "difficultyLevel": 1,
+      "prerequisiteLevels": [],
+      "isUnlocked": true,
+      "exercise": {
+        "exerciseType": "BlockCoding",
+        "blockCoding": {
+          "availableBlocks": ["START", "BLOCK_1_POUND", "BLOCK_2_CROSSOVER", "BLOCK_3_IN_OUT", "ADVANCE", "REPEAT"],
+          "requiredBlocks": ["BLOCK_1_POUND", "BLOCK_2_CROSSOVER", "BLOCK_3_IN_OUT"],
+          "targetCode": "START → BLOCK_1_POUND → BLOCK_2_CROSSOVER → BLOCK_3_IN_OUT → ADVANCE",
+          "allowCustomBlocks": false
+        },
+        "scoring": {
+          "maxScore": 100,
+          "passingScore": 70,
+          "showScoreDuringExercise": false,
+          "allowRetry": true,
+          "maxAttempts": 3
+        }
+      },
+      "author": "Level Creator",
+      "createdDate": "2025-01-XX",
+      "tags": ["blockcoding", "basic_blocks_sequences", "example", "positions"]
+    }
+  ],
+  "version": "1.0",
+  "lastUpdated": "2025-01-XX"
+}
+
+
+

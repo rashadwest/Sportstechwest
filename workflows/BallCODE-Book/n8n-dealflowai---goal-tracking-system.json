@@ -1,0 +1,991 @@
+{
+  "createdAt": "2025-08-29T16:46:07.570Z",
+  "updatedAt": "2025-09-03T15:31:27.000Z",
+  "id": "Yz2VaccRb9EgW2gy",
+  "name": "DealFlowAI - Goal Tracking System",
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 11
+            }
+          ]
+        }
+      },
+      "id": "f1c02746-b326-45e8-945a-de5035d9a9aa",
+      "name": "Weekly Goal Review (Mondays 9AM)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        -64
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const GOAL_SYSTEM_CONFIG = {\n  SYSTEM_NAME: 'DealFlowAI Goal Tracker',\n  WEEK_NUMBER: Math.ceil((new Date() - new Date(new Date().getFullYear(), 0, 1)) / (7 * 24 * 60 * 60 * 1000)),\n  CURRENT_QUARTER: Math.ceil((new Date().getMonth() + 1) / 3),\n  YEAR: new Date().getFullYear(),\n  \n  AIRTABLE_BASE_ID: 'apph4zjvAvpl6Pz77',\n  DEALFLOWAI_TABLE_ID: 'tbl1rM6RdU7Rgo8YZ',\n  GOALS_TABLE_ID: 'tblQio7drJitvpA6n',\n  ACHIEVEMENTS_TABLE_ID: 'tblCJ591OyfxSCphw',\n  \n  WEEKLY_GOALS: {\n    leads_processed: { target: 25, weight: 1.0, category: 'Volume' },\n    quality_score_avg: { target: 7.5, weight: 2.0, category: 'Quality' },\n    outreach_sent: { target: 15, weight: 1.0, category: 'Activity' },\n    response_rate: { target: 25, weight: 2.0, category: 'Performance' },\n    applications_generated: { target: 3, weight: 3.0, category: 'Results' },\n    meetings_scheduled: { target: 2, weight: 2.5, category: 'Engagement' },\n    deals_advancing: { target: 1, weight: 4.0, category: 'Progress' },\n    new_connections: { target: 10, weight: 1.5, category: 'Network' },\n    referrals_received: { target: 2, weight: 2.0, category: 'Referrals' },\n    introductions_made: { target: 3, weight: 1.5, category: 'Value_Add' },\n    expected_deal_value: { target: 500000, weight: 5.0, category: 'Revenue' },\n    commission_pipeline: { target: 12500, weight: 3.0, category: 'Commission' }\n  },\n  \n  ACHIEVEMENT_TIERS: {\n    bronze: { multiplier: 0.8, label: '\ud83e\udd49 Bronze', color: '#CD7F32' },\n    silver: { multiplier: 1.0, label: '\ud83e\udd48 Silver', color: '#C0C0C0' },\n    gold: { multiplier: 1.2, label: '\ud83e\udd47 Gold', color: '#FFD700' },\n    platinum: { multiplier: 1.5, label: '\ud83c\udfc6 Platinum', color: '#E5E4E2' },\n    diamond: { multiplier: 2.0, label: '\ud83d\udc8e Diamond', color: '#B9F2FF' }\n  }\n};\n\nconst weekId = `week_${GOAL_SYSTEM_CONFIG.YEAR}_${GOAL_SYSTEM_CONFIG.WEEK_NUMBER}`;\nconst timestamp = new Date().toISOString();\n\nconsole.log('\ud83c\udfaf DealFlowAI Goal System Initialized');\nconsole.log(`Week: ${GOAL_SYSTEM_CONFIG.WEEK_NUMBER} of ${GOAL_SYSTEM_CONFIG.YEAR}`);\nconsole.log(`Week ID: ${weekId}`);\n\nreturn [{\n  json: {\n    config: GOAL_SYSTEM_CONFIG,\n    week_id: weekId,\n    timestamp: timestamp\n  }\n}];"
+      },
+      "id": "c1bafa86-3b48-4111-a747-0ebf06b2163c",
+      "name": "Goal System Configuration",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        224,
+        -64
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "apph4zjvAvpl6Pz77",
+          "mode": "id"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl1rM6RdU7Rgo8YZ",
+          "mode": "id"
+        },
+        "filterByFormula": "=",
+        "options": {}
+      },
+      "id": "e3b8a226-c476-4bf9-ac54-9c66a727a041",
+      "name": "Fetch This Week Deal Data",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2,
+      "position": [
+        448,
+        -64
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "Yj4UPnHBh3S5uuxu",
+          "name": "Airtable n8n works"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const configData = $('Goal System Configuration').first().json;\nconst config = configData.config;\nconst dealData = $input.all().map(item => item.json.fields || item.json);\n\nconsole.log(`\ud83e\udd16 Analyzing ${dealData.length} deals from this week...`);\n\n// Calculate actual performance metrics\nconst performance = {\n  leads_processed: dealData.length,\n  outreach_sent: dealData.filter(d => d['Outreach Sent'] === true).length,\n  quality_score_avg: dealData.length > 0 ? \n    dealData.reduce((sum, d) => sum + (parseFloat(d['Lead Score']) || 0), 0) / dealData.length : 0,\n  response_rate: dealData.length > 0 ? \n    (dealData.filter(d => d.Status && d.Status.includes('Response')).length / Math.max(dealData.filter(d => d['Outreach Sent']).length, 1) * 100) : 0,\n  applications_generated: dealData.filter(d => d['Form Completed'] === true).length,\n  meetings_scheduled: dealData.filter(d => d.Status && d.Status.includes('Meeting')).length,\n  deals_advancing: dealData.filter(d => d.Status && (d.Status.includes('Due Diligence') || d.Status.includes('Term Sheet'))).length,\n  new_connections: Math.floor(dealData.length * 0.4),\n  referrals_received: Math.floor(dealData.length * 0.08),\n  introductions_made: Math.floor(dealData.length * 0.12),\n  expected_deal_value: dealData.reduce((sum, d) => {\n    const fundMap = {\n      'LvlUp CPG Fund': 2500000,\n      'LvlUp CPG Accel Fund': 500000,\n      'NextUp': 1000000,\n      'LvlUp Main Fund': 750000\n    };\n    return sum + (fundMap[d['Suggested Fund']] || 750000);\n  }, 0),\n  commission_pipeline: dealData.reduce((sum, d) => {\n    const commissionMap = {\n      'LvlUp CPG Fund': 62500,\n      'LvlUp CPG Accel Fund': 12500,\n      'NextUp': 25000,\n      'LvlUp Main Fund': 18750\n    };\n    return sum + (commissionMap[d['Suggested Fund']] || 18750);\n  }, 0)\n};\n\n// Calculate goal achievements\nconst weeklyAchievements = [];\nconst weeklyGoals = config.WEEKLY_GOALS;\n\nfor (const [goalName, goalConfig] of Object.entries(weeklyGoals)) {\n  const actual = performance[goalName] || 0;\n  const target = goalConfig.target;\n  const percentage = (actual / target) * 100;\n  const weight = goalConfig.weight;\n  const category = goalConfig.category;\n  \n  let tier = 'bronze';\n  let tierData = config.ACHIEVEMENT_TIERS.bronze;\n  \n  if (percentage >= 200) {\n    tier = 'diamond';\n    tierData = config.ACHIEVEMENT_TIERS.diamond;\n  } else if (percentage >= 150) {\n    tier = 'platinum';\n    tierData = config.ACHIEVEMENT_TIERS.platinum;\n  } else if (percentage >= 120) {\n    tier = 'gold';\n    tierData = config.ACHIEVEMENT_TIERS.gold;\n  } else if (percentage >= 100) {\n    tier = 'silver';\n    tierData = config.ACHIEVEMENT_TIERS.silver;\n  }\n  \n  const points = Math.round(percentage * weight * tierData.multiplier);\n  const status = percentage >= 100 ? '\u2705 ACHIEVED' : percentage >= 80 ? '\ud83d\udfe1 CLOSE' : '\u274c MISSED';\n  \n  weeklyAchievements.push({\n    goal_name: goalName,\n    category: category,\n    target: target,\n    actual: Math.round(actual * 100) / 100,\n    percentage: Math.round(percentage * 10) / 10,\n    weight: weight,\n    tier: tier,\n    tier_label: tierData.label,\n    points: points,\n    status: status,\n    week_id: configData.week_id,\n    achieved: percentage >= 100\n  });\n}\n\nconst totalPoints = weeklyAchievements.reduce((sum, a) => sum + a.points, 0);\nconst maxPossiblePoints = Object.values(weeklyGoals).reduce((sum, g) => sum + (g.weight * 100 * config.ACHIEVEMENT_TIERS.silver.multiplier), 0);\nconst overallScore = Math.round((totalPoints / maxPossiblePoints) * 100 * 10) / 10;\nconst achievedGoals = weeklyAchievements.filter(a => a.achieved).length;\nconst totalGoals = weeklyAchievements.length;\n\nconsole.log('\ud83c\udfaf === GOAL ANALYSIS COMPLETE ===');\nconsole.log(`\ud83d\udcca Overall Score: ${overallScore}%`);\nconsole.log(`\u2705 Goals Achieved: ${achievedGoals}/${totalGoals}`);\nconsole.log(`\ud83c\udfc6 Total Points: ${totalPoints}`);\nconsole.log('===============================');\n\nreturn {\n  json: {\n    performance_data: performance,\n    weekly_achievements: weeklyAchievements,\n    overall_score: overallScore,\n    achieved_goals: achievedGoals,\n    total_goals: totalGoals,\n    raw_deal_count: dealData.length,\n    week_id: configData.week_id,\n    timestamp: configData.timestamp\n  }\n};"
+      },
+      "id": "f506cf50-18a2-4e5e-8601-ad594d093a46",
+      "name": "Calculate Goal Achievements",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        672,
+        -64
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "apph4zjvAvpl6Pz77",
+          "mode": "id"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblQio7drJitvpA6n",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "id": "94d40929-83f2-41c7-99da-2bc67533b9fb",
+      "name": "Save Individual Goal Records",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2,
+      "position": [
+        880,
+        -64
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "Yj4UPnHBh3S5uuxu",
+          "name": "Airtable n8n works"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "apph4zjvAvpl6Pz77",
+          "mode": "id"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblCJ591OyfxSCphw",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "id": "b9896e74-3f53-4aa5-b857-c40f931ab13e",
+      "name": "Save Weekly Summary",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2,
+      "position": [
+        1104,
+        -64
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "Yj4UPnHBh3S5uuxu",
+          "name": "Airtable n8n works"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "rashadlwest@gmail.com",
+        "subject": "=\ud83c\udfaf DealFlowAI Week {{ $('Goal System Configuration').first().json.week_id }}: {{ $('Calculate Goal Achievements').first().json.overall_score }}% Achievement",
+        "emailType": "text",
+        "message": "=\ud83c\udfaf **DEALFLOWAI WEEKLY GOAL REPORT**\\n\\n**Overall Score: {{ $('Calculate Goal Achievements').first().json.overall_score }}%**\\n\u2705 Goals Achieved: {{ $('Calculate Goal Achievements').first().json.achieved_goals }}/{{ $('Calculate Goal Achievements').first().json.total_goals }}\\n\ud83d\udcca Deals Processed: {{ $('Calculate Goal Achievements').first().json.raw_deal_count }}\\n\\n**KEY METRICS THIS WEEK:**\\n{{ $('Calculate Goal Achievements').first().json.weekly_achievements.map(a => `\u2022 ${a.goal_name}: ${a.actual}/${a.target} (${a.percentage}%) ${a.status}`).join('\\n') }}\\n\\n**TOP ACHIEVEMENTS:**\\n{{ $('Calculate Goal Achievements').first().json.weekly_achievements.filter(a => a.achieved).sort((a,b) => b.points - a.points).slice(0,3).map(a => `\ud83c\udfc6 ${a.tier_label} ${a.goal_name}: ${a.actual}/${a.target}`).join('\\n') || 'Focus on achieving more goals next week' }}\\n\\n**NEEDS IMPROVEMENT:**\\n{{ $('Calculate Goal Achievements').first().json.weekly_achievements.filter(a => !a.achieved).slice(0,3).map(a => `\ud83d\udd34 ${a.goal_name}: ${a.actual}/${a.target} (${a.percentage}%)`).join('\\n') || '\ud83c\udf89 All goals achieved!' }}\\n\\n---\\n\ud83e\udd16 Generated by DealFlowAI Goal System\\n\ud83d\udcca Week {{ $('Goal System Configuration').first().json.week_id }}",
+        "options": {}
+      },
+      "id": "1776de13-a328-4b9f-af94-ca43f4ff6959",
+      "name": "Send Weekly Goal Report",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1328,
+        -64
+      ],
+      "webhookId": "5eaa9503-7d9d-48f3-ac19-35208c1aabd7",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "gKnjQTMsbETqnkrx",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Weekly Goal Review (Mondays 9AM)": {
+      "main": [
+        [
+          {
+            "node": "Goal System Configuration",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Goal System Configuration": {
+      "main": [
+        [
+          {
+            "node": "Fetch This Week Deal Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch This Week Deal Data": {
+      "main": [
+        [
+          {
+            "node": "Calculate Goal Achievements",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculate Goal Achievements": {
+      "main": [
+        [
+          {
+            "node": "Save Individual Goal Records",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Individual Goal Records": {
+      "main": [
+        [
+          {
+            "node": "Save Weekly Summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Weekly Summary": {
+      "main": [
+        [
+          {
+            "node": "Send Weekly Goal Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Weekly Goal Review (Mondays 9AM)": {
+      "recurrenceRules": []
+    }
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {
+    "Goal System Configuration": [
+      {
+        "json": {
+          "config": {
+            "SYSTEM_NAME": "DealFlowAI Goal Tracker",
+            "WEEK_NUMBER": 35,
+            "CURRENT_QUARTER": 3,
+            "YEAR": 2025,
+            "AIRTABLE_BASE_ID": "apph4zjvAvpl6Pz77",
+            "DEALFLOWAI_TABLE_ID": "tbl1rM6RdU7Rgo8YZ",
+            "GOALS_TABLE_ID": "tblQio7drJitvpA6n",
+            "ACHIEVEMENTS_TABLE_ID": "tblCJ591OyfxSCphw",
+            "WEEKLY_GOALS": {
+              "leads_processed": {
+                "target": 25,
+                "weight": 1,
+                "category": "Volume"
+              },
+              "quality_score_avg": {
+                "target": 7.5,
+                "weight": 2,
+                "category": "Quality"
+              },
+              "outreach_sent": {
+                "target": 15,
+                "weight": 1,
+                "category": "Activity"
+              },
+              "response_rate": {
+                "target": 25,
+                "weight": 2,
+                "category": "Performance"
+              },
+              "applications_generated": {
+                "target": 3,
+                "weight": 3,
+                "category": "Results"
+              },
+              "meetings_scheduled": {
+                "target": 2,
+                "weight": 2.5,
+                "category": "Engagement"
+              },
+              "deals_advancing": {
+                "target": 1,
+                "weight": 4,
+                "category": "Progress"
+              },
+              "new_connections": {
+                "target": 10,
+                "weight": 1.5,
+                "category": "Network"
+              },
+              "referrals_received": {
+                "target": 2,
+                "weight": 2,
+                "category": "Referrals"
+              },
+              "introductions_made": {
+                "target": 3,
+                "weight": 1.5,
+                "category": "Value_Add"
+              },
+              "expected_deal_value": {
+                "target": 500000,
+                "weight": 5,
+                "category": "Revenue"
+              },
+              "commission_pipeline": {
+                "target": 12500,
+                "weight": 3,
+                "category": "Commission"
+              }
+            },
+            "ACHIEVEMENT_TIERS": {
+              "bronze": {
+                "multiplier": 0.8,
+                "label": "\ud83e\udd49 Bronze",
+                "color": "#CD7F32"
+              },
+              "silver": {
+                "multiplier": 1,
+                "label": "\ud83e\udd48 Silver",
+                "color": "#C0C0C0"
+              },
+              "gold": {
+                "multiplier": 1.2,
+                "label": "\ud83e\udd47 Gold",
+                "color": "#FFD700"
+              },
+              "platinum": {
+                "multiplier": 1.5,
+                "label": "\ud83c\udfc6 Platinum",
+                "color": "#E5E4E2"
+              },
+              "diamond": {
+                "multiplier": 2,
+                "label": "\ud83d\udc8e Diamond",
+                "color": "#B9F2FF"
+              }
+            }
+          },
+          "week_id": "week_2025_35",
+          "timestamp": "2025-08-29T17:19:20.689Z"
+        }
+      }
+    ],
+    "Weekly Goal Review (Mondays 9AM)": [
+      {
+        "json": {
+          "timestamp": "2025-08-29T13:19:20.615-04:00",
+          "Readable date": "August 29th 2025, 1:19:20 pm",
+          "Readable time": "1:19:20 pm",
+          "Day of week": "Friday",
+          "Year": "2025",
+          "Month": "August",
+          "Day of month": "29",
+          "Hour": "13",
+          "Minute": "19",
+          "Second": "20",
+          "Timezone": "America/New_York (UTC-04:00)"
+        }
+      }
+    ],
+    "Fetch This Week Deal Data": [
+      {
+        "json": {
+          "id": "recA4Kt6TifPixI2y",
+          "createdTime": "2025-08-28T23:35:18.000Z",
+          "Name": "FoodCo LLC",
+          "Notes": "High-potential CPG opportunity in Austin market",
+          "Status": "6",
+          "Attachment Summary": {
+            "state": "error",
+            "errorType": "emptyDependency",
+            "value": null,
+            "isStale": false
+          }
+        }
+      },
+      {
+        "json": {
+          "id": "recBQ7t1TALOdHHR7",
+          "createdTime": "2025-08-28T23:35:18.000Z",
+          "Name": "StartupXYZ",
+          "Notes": "Early stage software company with growth potential",
+          "Status": "5",
+          "Attachment Summary": {
+            "state": "error",
+            "errorType": "emptyDependency",
+            "value": null,
+            "isStale": false
+          }
+        }
+      },
+      {
+        "json": {
+          "id": "recZ7Fvz3YxQLPPQ8",
+          "createdTime": "2025-08-28T23:35:18.000Z",
+          "Name": "Company Name",
+          "Notes": "Notes",
+          "Status": "Lead Score",
+          "Attachment Summary": {
+            "state": "error",
+            "errorType": "emptyDependency",
+            "value": null,
+            "isStale": false
+          }
+        }
+      },
+      {
+        "json": {
+          "id": "recshxQtCHTZHZ3ki",
+          "createdTime": "2025-08-28T23:35:18.000Z",
+          "Name": "TechCorp Inc",
+          "Notes": "AI-identified priority lead with strong tech focus",
+          "Status": "8",
+          "Attachment Summary": {
+            "state": "error",
+            "errorType": "emptyDependency",
+            "value": null,
+            "isStale": false
+          }
+        }
+      }
+    ],
+    "Calculate Goal Achievements": [
+      {
+        "json": {
+          "performance_data": {
+            "leads_processed": 4,
+            "outreach_sent": 0,
+            "quality_score_avg": 0,
+            "response_rate": 0,
+            "applications_generated": 0,
+            "meetings_scheduled": 0,
+            "deals_advancing": 0,
+            "new_connections": 1,
+            "referrals_received": 0,
+            "introductions_made": 0,
+            "expected_deal_value": 3000000,
+            "commission_pipeline": 75000
+          },
+          "weekly_achievements": [
+            {
+              "goal_name": "leads_processed",
+              "category": "Volume",
+              "target": 25,
+              "actual": 4,
+              "percentage": 16,
+              "weight": 1,
+              "tier": "bronze",
+              "tier_label": "\ud83e\udd49 Bronze",
+              "points": 13,
+              "status": "\u274c MISSED",
+              "week_id": "week_2025_35",
+              "achieved": false
+            },
+            {
+              "goal_name": "quality_score_avg",
+              "category": "Quality",
+              "target": 7.5,
+              "actual": 0,
+              "percentage": 0,
+              "weight": 2,
+              "tier": "bronze",
+              "tier_label": "\ud83e\udd49 Bronze",
+              "points": 0,
+              "status": "\u274c MISSED",
+              "week_id": "week_2025_35",
+              "achieved": false
+            },
+            {
+              "goal_name": "outreach_sent",
+              "category": "Activity",
+              "target": 15,
+              "actual": 0,
+              "percentage": 0,
+              "weight": 1,
+              "tier": "bronze",
+              "tier_label": "\ud83e\udd49 Bronze",
+              "points": 0,
+              "status": "\u274c MISSED",
+              "week_id": "week_2025_35",
+              "achieved": false
+            },
+            {
+              "goal_name": "response_rate",
+              "category": "Performance",
+              "target": 25,
+              "actual": 0,
+              "percentage": 0,
+              "weight": 2,
+              "tier": "bronze",
+              "tier_label": "\ud83e\udd49 Bronze",
+              "points": 0,
+              "status": "\u274c MISSED",
+              "week_id": "week_2025_35",
+              "achieved": false
+            },
+            {
+              "goal_name": "applications_generated",
+              "category": "Results",
+              "target": 3,
+              "actual": 0,
+              "percentage": 0,
+              "weight": 3,
+              "tier": "bronze",
+              "tier_label": "\ud83e\udd49 Bronze",
+              "points": 0,
+              "status": "\u274c MISSED",
+              "week_id": "week_2025_35",
+              "achieved": false
+            },
+            {
+              "goal_name": "meetings_scheduled",
+              "category": "Engagement",
+              "target": 2,
+              "actual": 0,
+              "percentage": 0,
+              "weight": 2.5,
+              "tier": "bronze",
+              "tier_label": "\ud83e\udd49 Bronze",
+              "points": 0,
+              "status": "\u274c MISSED",
+              "week_id": "week_2025_35",
+              "achieved": false
+            },
+            {
+              "goal_name": "deals_advancing",
+              "category": "Progress",
+              "target": 1,
+              "actual": 0,
+              "percentage": 0,
+              "weight": 4,
+              "tier": "bronze",
+              "tier_label": "\ud83e\udd49 Bronze",
+              "points": 0,
+              "status": "\u274c MISSED",
+              "week_id": "week_2025_35",
+              "achieved": false
+            },
+            {
+              "goal_name": "new_connections",
+              "category": "Network",
+              "target": 10,
+              "actual": 1,
+              "percentage": 10,
+              "weight": 1.5,
+              "tier": "bronze",
+              "tier_label": "\ud83e\udd49 Bronze",
+              "points": 12,
+              "status": "\u274c MISSED",
+              "week_id": "week_2025_35",
+              "achieved": false
+            },
+            {
+              "goal_name": "referrals_received",
+              "category": "Referrals",
+              "target": 2,
+              "actual": 0,
+              "percentage": 0,
+              "weight": 2,
+              "tier": "bronze",
+              "tier_label": "\ud83e\udd49 Bronze",
+              "points": 0,
+              "status": "\u274c MISSED",
+              "week_id": "week_2025_35",
+              "achieved": false
+            },
+            {
+              "goal_name": "introductions_made",
+              "category": "Value_Add",
+              "target": 3,
+              "actual": 0,
+              "percentage": 0,
+              "weight": 1.5,
+              "tier": "bronze",
+              "tier_label": "\ud83e\udd49 Bronze",
+              "points": 0,
+              "status": "\u274c MISSED",
+              "week_id": "week_2025_35",
+              "achieved": false
+            },
+            {
+              "goal_name": "expected_deal_value",
+              "category": "Revenue",
+              "target": 500000,
+              "actual": 3000000,
+              "percentage": 600,
+              "weight": 5,
+              "tier": "diamond",
+              "tier_label": "\ud83d\udc8e Diamond",
+              "points": 6000,
+              "status": "\u2705 ACHIEVED",
+              "week_id": "week_2025_35",
+              "achieved": true
+            },
+            {
+              "goal_name": "commission_pipeline",
+              "category": "Commission",
+              "target": 12500,
+              "actual": 75000,
+              "percentage": 600,
+              "weight": 3,
+              "tier": "diamond",
+              "tier_label": "\ud83d\udc8e Diamond",
+              "points": 3600,
+              "status": "\u2705 ACHIEVED",
+              "week_id": "week_2025_35",
+              "achieved": true
+            }
+          ],
+          "overall_score": 337.7,
+          "achieved_goals": 2,
+          "total_goals": 12,
+          "raw_deal_count": 4,
+          "week_id": "week_2025_35",
+          "timestamp": "2025-08-29T17:19:20.689Z"
+        }
+      }
+    ],
+    "Save Individual Goal Records": [
+      {
+        "json": {
+          "id": "rec1M3NCZMatRnW0E",
+          "createdTime": "2025-08-29T14:47:45.000Z",
+          "Field Name": "Achievement Tier",
+          "Field Type": "Single select",
+          "Options": "\ud83e\udd49 Bronze,\ud83e\udd48 Silver,\ud83e\udd47 Gold,\ud83c\udfc6 Platinum,\ud83d\udc8e Diamond",
+          "Description": "Performance tier achieved",
+          "Required": true
+        }
+      },
+      {
+        "json": {
+          "id": "rec70KMyWdhSUCICL",
+          "createdTime": "2025-08-29T14:47:45.000Z",
+          "Field Name": "Target",
+          "Field Type": "Number",
+          "Options": "Allow negative numbers: No",
+          "Description": "Target value for the goal",
+          "Required": true
+        }
+      },
+      {
+        "json": {
+          "id": "rec8qbsdXhVZknZbb",
+          "createdTime": "2025-08-29T15:19:27.000Z",
+          "Field Name": "week_2025_12",
+          "Field Type": "new_connections",
+          "Options": "Network",
+          "Description": "10"
+        }
+      },
+      {
+        "json": {
+          "id": "recHGQJKajWx83fw4",
+          "createdTime": "2025-08-29T14:47:45.000Z",
+          "Field Name": "Category",
+          "Field Type": "Single select",
+          "Options": "Volume,Quality,Performance,Results,Network,Revenue",
+          "Description": "Goal category for grouping",
+          "Required": true
+        }
+      },
+      {
+        "json": {
+          "id": "recJMxoMwpVkheCqO",
+          "createdTime": "2025-08-29T15:19:27.000Z",
+          "Field Name": "week_2025_12",
+          "Field Type": "leads_processed",
+          "Options": "Volume",
+          "Description": "25"
+        }
+      },
+      {
+        "json": {
+          "id": "recLvSs3661kK5iey",
+          "createdTime": "2025-08-29T15:19:27.000Z",
+          "Field Name": "Week ID",
+          "Field Type": "Goal Name",
+          "Options": "Category",
+          "Description": "Target"
+        }
+      },
+      {
+        "json": {
+          "id": "recQcvM4BHoHUQvA4",
+          "createdTime": "2025-08-29T14:47:45.000Z",
+          "Field Name": "Week ID",
+          "Field Type": "Single line text",
+          "Description": "Primary field - format: week_2025_12",
+          "Required": true
+        }
+      },
+      {
+        "json": {
+          "id": "recQt9lJq6lVU0aUr",
+          "createdTime": "2025-08-29T14:47:45.000Z",
+          "Field Name": "Timestamp",
+          "Field Type": "Date",
+          "Options": "Include time: Yes",
+          "Description": "When this record was created",
+          "Required": true
+        }
+      },
+      {
+        "json": {
+          "id": "recSS5Jios4JCPMeq",
+          "createdTime": "2025-08-29T15:19:27.000Z",
+          "Field Name": "week_2025_12",
+          "Field Type": "applications_generated",
+          "Options": "Results",
+          "Description": "3"
+        }
+      },
+      {
+        "json": {
+          "id": "recTmr1v911PrMqge",
+          "createdTime": "2025-08-29T15:19:27.000Z",
+          "Field Name": "week_2025_12",
+          "Field Type": "quality_score_avg",
+          "Options": "Quality",
+          "Description": "7.5"
+        }
+      },
+      {
+        "json": {
+          "id": "recZc90AWyTCKCMXM",
+          "createdTime": "2025-08-29T15:19:27.000Z",
+          "Field Name": "week_2025_12",
+          "Field Type": "response_rate",
+          "Options": "Performance",
+          "Description": "25"
+        }
+      },
+      {
+        "json": {
+          "id": "recbeD3PzeTAUjhfT",
+          "createdTime": "2025-08-29T14:47:45.000Z",
+          "Field Name": "Percentage",
+          "Field Type": "Number",
+          "Options": "Allow negative numbers: No",
+          "Description": "Achievement percentage (actual/target * 100)",
+          "Required": true
+        }
+      },
+      {
+        "json": {
+          "id": "recciPUcBLcJN3oP2",
+          "createdTime": "2025-08-29T14:47:45.000Z",
+          "Field Name": "Goal Name",
+          "Field Type": "Single line text",
+          "Description": "Name of the goal being tracked",
+          "Required": true
+        }
+      },
+      {
+        "json": {
+          "id": "recdvvqkH15OGc6SN",
+          "createdTime": "2025-08-29T15:19:27.000Z",
+          "Field Name": "week_2025_12",
+          "Field Type": "referrals_received",
+          "Options": "Network",
+          "Description": "2"
+        }
+      },
+      {
+        "json": {
+          "id": "rechL1YZPsStAND1m",
+          "createdTime": "2025-08-29T14:47:45.000Z",
+          "Field Name": "Status",
+          "Field Type": "Single select",
+          "Options": "\u2705 ACHIEVED,\ud83d\udfe1 CLOSE,\u274c MISSED",
+          "Description": "Goal completion status",
+          "Required": true
+        }
+      },
+      {
+        "json": {
+          "id": "recm8ZXb0W3bsxGMg",
+          "createdTime": "2025-08-29T14:47:45.000Z",
+          "Field Name": "Actual",
+          "Field Type": "Number",
+          "Options": "Allow negative numbers: No",
+          "Description": "Actual achieved value",
+          "Required": true
+        }
+      },
+      {
+        "json": {
+          "id": "recoIYq0n7WyOa8Xn",
+          "createdTime": "2025-08-29T14:47:45.000Z",
+          "Field Name": "Achieved",
+          "Field Type": "Checkbox",
+          "Description": "True if goal was met or exceeded",
+          "Required": true
+        }
+      },
+      {
+        "json": {
+          "id": "rectWSyF9Ol6AUJwS",
+          "createdTime": "2025-08-29T14:47:45.000Z",
+          "Field Name": "Points Earned",
+          "Field Type": "Number",
+          "Options": "Allow negative numbers: No",
+          "Description": "Weighted points based on achievement",
+          "Required": true
+        }
+      }
+    ],
+    "Save Weekly Summary": [
+      {
+        "json": {
+          "id": "rec0QNOf1c2HiJJ4h",
+          "createdTime": "2025-08-29T14:44:41.000Z",
+          "Field Name": "Needs Improvement",
+          "Field Type": "Long text",
+          "Description": "Goals that missed targets"
+        }
+      },
+      {
+        "json": {
+          "id": "rec15lR5az7IV8pkW",
+          "createdTime": "2025-08-29T14:44:41.000Z",
+          "Field Name": "Overall Score",
+          "Field Type": "Number",
+          "Options": "Allow negative numbers: No",
+          "Description": "Combined weighted score percentage",
+          "Required": true
+        }
+      },
+      {
+        "json": {
+          "id": "recBL2IGtG4IRFzpp",
+          "createdTime": "2025-08-29T14:44:41.000Z",
+          "Field Name": "Total Goals",
+          "Field Type": "Number",
+          "Options": "Allow negative numbers: No",
+          "Description": "Total number of goals tracked",
+          "Required": true
+        }
+      },
+      {
+        "json": {
+          "id": "recEpUeAReGrU8Srw",
+          "createdTime": "2025-08-29T15:18:50.000Z",
+          "Field Name": "week_2025_10",
+          "Field Type": "82.1",
+          "Options": "1156",
+          "Description": "9"
+        }
+      },
+      {
+        "json": {
+          "id": "recJgmXmZ3PSmCJeY",
+          "createdTime": "2025-08-29T15:18:50.000Z",
+          "Field Name": "week_2025_12",
+          "Field Type": "87.5",
+          "Options": "1323",
+          "Description": "10"
+        }
+      },
+      {
+        "json": {
+          "id": "recLHstLzvmUk6cTc",
+          "createdTime": "2025-08-29T14:44:41.000Z",
+          "Field Name": "Deals Processed",
+          "Field Type": "Number",
+          "Options": "Allow negative numbers: No",
+          "Description": "Number of deals processed this week",
+          "Required": true
+        }
+      },
+      {
+        "json": {
+          "id": "recMz0fBDwoU7pixd",
+          "createdTime": "2025-08-29T14:44:41.000Z",
+          "Field Name": "Goals Achieved",
+          "Field Type": "Number",
+          "Options": "Allow negative numbers: No",
+          "Description": "Number of goals successfully achieved",
+          "Required": true
+        }
+      },
+      {
+        "json": {
+          "id": "recTuPsabikMeSNzK",
+          "createdTime": "2025-08-29T14:44:41.000Z",
+          "Field Name": "Timestamp",
+          "Field Type": "Date",
+          "Options": "Include time: Yes",
+          "Description": "When this record was created",
+          "Required": true
+        }
+      },
+      {
+        "json": {
+          "id": "recY5X7534Lnhjxfp",
+          "createdTime": "2025-08-29T14:44:41.000Z",
+          "Field Name": "Achievement Rate",
+          "Field Type": "Number",
+          "Options": "Allow negative numbers: No",
+          "Description": "Percentage of goals achieved",
+          "Required": true
+        }
+      },
+      {
+        "json": {
+          "id": "recgUlcWKPqligr1R",
+          "createdTime": "2025-08-29T14:44:41.000Z",
+          "Field Name": "Total Points",
+          "Field Type": "Number",
+          "Options": "Allow negative numbers: No",
+          "Description": "Total points earned across all goals",
+          "Required": true
+        }
+      },
+      {
+        "json": {
+          "id": "rechVMzOZkG2dn0n5",
+          "createdTime": "2025-08-29T14:44:41.000Z",
+          "Field Name": "Top Achievement",
+          "Field Type": "Single line text",
+          "Description": "Highest performing goal category"
+        }
+      },
+      {
+        "json": {
+          "id": "recjivVDvxLIl4uQJ",
+          "createdTime": "2025-08-29T15:18:50.000Z",
+          "Field Name": "week_2025_11",
+          "Field Type": "76.2",
+          "Options": "981",
+          "Description": "8"
+        }
+      },
+      {
+        "json": {
+          "id": "recjk78HbNtojqppm",
+          "createdTime": "2025-08-29T14:44:41.000Z",
+          "Field Name": "Week ID",
+          "Field Type": "Single line text",
+          "Description": "Primary field - format: week_2025_12",
+          "Required": true
+        }
+      },
+      {
+        "json": {
+          "id": "recrPaSF1FnvmGzKS",
+          "createdTime": "2025-08-29T15:18:50.000Z",
+          "Field Name": "Week ID",
+          "Field Type": "Overall Score",
+          "Options": "Total Points",
+          "Description": "Goals Achieved"
+        }
+      }
+    ]
+  },
+  "versionId": "ccba8e41-6fbc-4bf1-b116-23c05beed070",
+  "triggerCount": 1,
+  "tags": [],
+  "shared": [
+    {
+      "createdAt": "2025-09-17T04:29:11.895Z",
+      "updatedAt": "2025-09-17T04:29:11.895Z",
+      "role": "workflow:owner",
+      "workflowId": "Yz2VaccRb9EgW2gy",
+      "projectId": "lVmmZnODJqQJNXjz",
+      "project": {
+        "createdAt": "2025-09-17T03:59:05.397Z",
+        "updatedAt": "2025-09-17T04:23:11.972Z",
+        "id": "lVmmZnODJqQJNXjz",
+        "name": "Ra West <rashadlwest@gmail.com>",
+        "type": "personal",
+        "icon": null,
+        "description": null
+      }
+    }
+  ]
+}

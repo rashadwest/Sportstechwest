@@ -1,8 +1,8 @@
 # 📅 Today's Daily Workflow - Ready to Fill Out
 
-**Date:** _______________  
-**Time Started:** _______________  
-**Energy Level:** _______________ / 10
+**Date:** Sunday December 14, 2025  
+**Time Started:** Morning  
+**Energy Level:** 7 / 10
 
 ---
 
@@ -55,38 +55,32 @@
 
 **What is the ONE task today that makes everything else easier or unnecessary?**
 ```
-Task: Create, record, and upload 3 dribble-level books (Levels 1-3) to website with paywall
+Task: Finish BallCODE full integration end-to-end and produce proof links (build artifact + deployed URL + verification output)
 ```
 
 **Why this domino?** (How does completing this make everything else easier?)
 
 ```
-- Unblocks revenue generation (can start accepting payments)
-- Creates content for Triangle Science & Math Academy and NC Science & Math contacts
-- Establishes production workflow for remaining 3 books
-- Moves from planning to execution
-- Addresses the 0% website implementation gap
+- Converts “specs + parts” into a working system you can trust
+- Creates a repeatable baseline (rerun steps + known-good config)
+- Unblocks everything downstream because the integration path is verified
+- Makes future fixes cheaper: one verified baseline to compare against
 ```
 
 **What happens if I DON'T complete this today?**
 
 ```
-- Revenue generation stays blocked (no sellable product)
-- Can't present value to Triangle Science & Math, NC Science & Math by Tuesday
-- Production workflow not established
-- Website stays at 0%
-- Paywall system not built
+- Integration stays “almost done” and keeps draining time via rework/context switching
+- No reliable demo/deploy path for partners or schools
+- Every downstream task stays risky because the foundation is unverified
 ```
 
 **What happens if I DO complete this today?**
 
 ```
-- Can start accepting payments (revenue unblocked)
-- Have content ready for school contacts
-- Production workflow established for remaining 4 books
-- Website moves from 0% → 20%+
-- Paywall system functional
-- Ready for Tuesday value presentation
+- You have a clean green run (end-to-end) you can repeat
+- You can demo/share confidently (deployed URL + verification record)
+- Next steps become obvious and measurable (remaining gaps are isolated)
 ```
 
 ---
@@ -95,32 +89,28 @@ Task: Create, record, and upload 3 dribble-level books (Levels 1-3) to website w
 
 **How will I know this is complete?**
 
-- [ ] Book 1 (Dribble Level 1 - Pound): Written ✅ / Recorded ✅ / Uploaded ✅
-- [ ] Book 2 (Dribble Level 2 - Crossover): Written ✅ / Recorded ✅ / Uploaded ✅
-- [ ] Paywall system functional (book-by-book and bundle options)
-- [ ] Content quality high enough for Triangle Science & Math, NC Science & Math
-- [ ] Website updated with books section
+- [ ] One end-to-end run completes without manual intervention
+- [ ] Build output is generated and linkable (artifact or hosted output)
+- [ ] Deployed URL loads successfully (basic smoke test passes)
+- [ ] Verification output is saved (logs / checklist / report)
+- [ ] A short runbook exists (how to rerun + where to look when it fails)
 
 **What does "done" look like?**
 
 ```
-2 complete books on the website with:
-- High-quality browser recordings (1080p minimum, 60fps ideal)
-- Paywall protection (individual book purchase + bundle option)
-- Professional presentation
-- Content rigorous enough for advanced students
-- Clear AI/math/coding concepts integrated
+A working integration baseline with:
+- A deployed URL you can open right now
+- A saved verification record (what ran, when, what passed)
+- A repeatable “rerun in 10 minutes” checklist (runbook)
 ```
 
 ---
 
 ## ⏱️ TIME & ENERGY
 
-**Estimated Time:** 3-4 hours total
-- Story outline review: 15 minutes (3 books × 5 min)
-- Story writing: 2-3 hours (3 books × 40-60 min)
-- Recording: 45 minutes (3 books × 15 min)
-- Upload & setup: 15 minutes (AI handles)
+**Estimated Time:** 2-4 hours total
+- Deep Work: 2-3 hours (end-to-end run + fix primary blocker)
+- Wrap-up: 30-60 minutes (verification record + runbook)
 
 **Energy Required:** 
 - [ ] Low (1-3) - Can do when tired
@@ -129,7 +119,7 @@ Task: Create, record, and upload 3 dribble-level books (Levels 1-3) to website w
 
 **Best Time to Do This:**
 - [ ] Morning (high energy)
-- [X] Afternoon (medium energy) - **Your Deep Work: 12pm-1pm**
+- [X] Morning (high energy) - **Your Deep Work: 9:30am–12:00pm**
 - [ ] Evening (low energy tasks only)
 
 ---
@@ -138,19 +128,19 @@ Task: Create, record, and upload 3 dribble-level books (Levels 1-3) to website w
 
 ### 1️⃣ Orchestrate — Don't Multitask
 - [ ] **What ONE system/process am I focusing on today?**
-  - Answer: Creating, recording, and uploading 3 dribble-level books to website with paywall
+  - Answer: Finishing BallCODE full integration (end-to-end run + proof)
 - [ ] **What is the ownership structure?** (Who owns what?)
-  - Answer: I write stories, I record videos, AI handles uploads and paywall setup
+  - Answer: I set priorities + make final calls; AI handles checklists, log triage, and runbook drafting
 - [ ] **What automation is in place?**
-  - Answer: AI provides story outlines, AI handles website uploads and paywall
+  - Answer: Existing workflows/scripts + repeatable verification checklist
 - [ ] **What accountability exists?**
   - Answer: Success metrics defined, escalation triggers set
 
 ### 2️⃣ Protect Deep Work Windows
 - [ ] **When is my Deep Work window today?**
-  - Start: **12pm (noon)** End: **1pm**
+  - Start: **9:30am** End: **12:00pm**
 - [ ] **Have I blocked this time?** (Calendar, notifications off, etc.)
-  - Answer: _______________
+  - Answer: DND on + calendar block + single workspace only
 - [ ] **What distractions will I eliminate?**
   - [ ] Phone on silent/Do Not Disturb
   - [ ] Email closed
@@ -158,72 +148,72 @@ Task: Create, record, and upload 3 dribble-level books (Levels 1-3) to website w
   - [ ] Browser tabs limited to work essentials
   - [ ] Door closed/headphones on
 - [ ] **What strategy work will happen in this window?**
-  - Answer: Writing Book 1 story (30-45 min), Recording Book 1 (15 min)
+  - Answer: One clean end-to-end integration run + fix the primary blocker (only)
 
 ### 3️⃣ Batch Similar Contexts
 - [ ] **What context blocks have I planned today?**
-  - [ ] Finance Block: _______________
-  - [X] Creative/Marketing Block: **12pm-4pm** (Writing and recording books)
-  - [ ] Technical/Development Block: **After recording** (AI handles uploads)
-  - [ ] Communication Block: _______________
-  - [ ] Review/Planning Block: _______________
+  - [ ] Finance Block: None today
+  - [ ] Creative/Marketing Block: None until integration is green
+  - [X] Technical/Development Block: **9:30am–12:00pm** (integration run + fixes)
+  - [ ] Communication Block: **12:15pm–12:45pm** (batch updates/messages)
+  - [ ] Review/Planning Block: **End of day** (15 minutes)
 - [ ] **How many context switches am I planning?** (Target: ≤3)
-  - Answer: **2-3** (Writing → Recording → Review/Upload)
+  - Answer: **2-3** (Run → Fix → Verify/Document)
 
 ### 4️⃣ Delegate with Context
 - [ ] **What am I delegating today?** (To AI)
 
-  **Task 1: Create Story Outlines**
-    - Goal: Provide thought structure for Books 1-3 (Dribble Levels 1-3)
-    - Success Metric: Outlines include 3-act structure, AI/math/coding concepts, block coding connection
-    - Escalation Trigger: If outline doesn't match vision → Review and adjust
+  **Task 1: End-to-End Verification Checklist**
+    - Goal: Produce a runnable “green run” checklist for BallCODE full integration
+    - Success Metric: Checklist ends with proof links + expected outputs, no ambiguity
+    - Escalation Trigger: If steps depend on unknown secrets/credentials or missing prerequisites → escalate
 
-  **Task 2: Upload Videos to Website**
-    - Goal: Upload 3 recorded books to website
-    - Success Metric: All 3 books accessible on website, high quality playback
-    - Escalation Trigger: If upload fails → Debug and retry
+  **Task 2: Log Triage + Root-Cause Summary**
+    - Goal: If a run fails, summarize the single primary blocker + the smallest fix
+    - Success Metric: Symptom → cause → fix → verification step (1 page)
+    - Escalation Trigger: If failure repeats after one fix attempt or touches credentials/infra → escalate
 
-  **Task 3: Set Up Paywall System**
-    - Goal: Create payment system (book-by-book + bundle options)
-    - Success Metric: Users can purchase individual books or bundle, payments process correctly
-    - Escalation Trigger: If paywall doesn't work → Fix immediately
+  **Task 3: Runbook Drafting**
+    - Goal: Create a short “how to rerun / how to debug” runbook
+    - Success Metric: Someone can rerun in 10 minutes with zero tribal knowledge
+    - Escalation Trigger: If runbook can’t be written due to unclear steps → escalate
 
 ### 5️⃣ Use If–Then Rules
 - [ ] **What automated behaviors am I using today?**
-  - [X] If it's 12pm → then I enter Deep Work
+  - [X] If it's 9:30am → then I enter Deep Work
   - [X] If AI confidence < 80% → then I review
   - [ ] If task takes < 2 min → then I do it now
   - [ ] If task takes > 2 hours → then I break it down
-  - [X] If story outline doesn't match vision → then I review and adjust
-  - [X] If recording quality issues → then troubleshoot settings
+  - [X] If a failure blocks > 15 minutes → then capture logs and reduce to one smallest fix
+  - [X] If I catch myself starting a second system → then park it and return to the run
 
 ### 6️⃣ Track Your Metrics Daily
-- [ ] **Focus Time Target:** 1 hour (12pm-1pm)
-- [ ] **Delegations Created Target:** 3 (story outlines, uploads, paywall)
+- [ ] **Focus Time Target:** 2.5 hours (9:30am–12:00pm)
+- [ ] **Delegations Created Target:** 3 (checklist, triage, runbook)
 - [ ] **Context Switches Target:** ≤ 3
 
 ### 7️⃣ Automate for Clarity, Not Complexity
 - [ ] **What repetitive/reactive work am I automating?**
-  - Answer: Story outline generation, website uploads, paywall setup
+  - Answer: Verification checklist, log capture/triage, and repeatable rerun steps
 - [ ] **What am I reserving my time for?** (Creative direction, relationships, judgment)
-  - Answer: Writing stories (my voice), recording videos (my performance)
+  - Answer: Prioritization, decision-making, and acceptance of “green run” proof
 
 ### 8️⃣ Move One Domino a Day
 - [ ] **What is the ONE task today that makes everything else easier or unnecessary?**
-  - Answer: Create, record, and upload 3 dribble-level books to website with paywall
+  - Answer: Finish BallCODE full integration end-to-end with proof links + verification record
 - [ ] **Why is this the domino?** (How does it compound?)
-  - Answer: Unblocks revenue, creates content for school contacts, establishes workflow
+  - Answer: Establishes a trusted baseline so everything downstream becomes faster and safer
 - [ ] **When will I complete it?**
-  - Time: **By end of day (target: 3-4 hours)**
+  - Time: **By end of day (target: 2-4 hours)**
 
 ### 9️⃣ Audit Systems Weekly
 - [ ] **Is today an audit day?** (Weekly: Sunday)
-  - [ ] YES → Review automation and delegations
-  - [X] NO → Skip to next section
+  - [X] YES → Review automation and delegations
+  - [ ] NO → Skip to next section
 
 ### 🔟 Protect Energy Like a KPI
 - [ ] **What is my energy level right now?** (1-10)
-  - Answer: _______________ / 10
+  - Answer: 7 / 10
 - [ ] **What rest/reset do I need?**
   - [ ] Sleep quality last night: _______________
   - [ ] Exercise planned: _______________
@@ -241,30 +231,29 @@ Task: Create, record, and upload 3 dribble-level books (Levels 1-3) to website w
 - **Actual End:** _______________
 - **Focus Time Achieved:** _______________ hours
 - **What was accomplished:** 
-  - [ ] Book 1 written
-  - [ ] Book 1 recorded
-  - [ ] Book 2 written
-  - [ ] Book 2 recorded
-  - [ ] Book 3 written
-  - [ ] Book 3 recorded
+  - [ ] End-to-end run executed
+  - [ ] Primary blocker fixed (if any)
+  - [ ] Deployed URL verified
+  - [ ] Verification record saved
+  - [ ] Runbook updated
 
 ### Context Blocks Completed
 - [ ] Finance Block: _______________
-- [ ] Creative/Marketing Block: **Writing and recording 3 books**
-- [ ] Technical/Development Block: **AI handles uploads and paywall**
+- [ ] Creative/Marketing Block: _______________
+- [ ] Technical/Development Block: **Integration run + fixes**
 - [ ] Communication Block: _______________
 - [ ] Review/Planning Block: _______________
 
 ### Delegations Created
-1. **Task:** Create story outlines for Books 1-3
+1. **Task:** End-to-End Verification Checklist
    - Assigned to: AI
    - Status: _______________
 
-2. **Task:** Upload videos to website
+2. **Task:** Log triage + root-cause summary
    - Assigned to: AI
    - Status: _______________
 
-3. **Task:** Set up paywall system
+3. **Task:** Runbook drafting
    - Assigned to: AI
    - Status: _______________
 
@@ -313,16 +302,16 @@ Task: Create, record, and upload 3 dribble-level books (Levels 1-3) to website w
 ## 🎯 TOMORROW'S PREVIEW
 
 ### Tomorrow's ONE Domino
-- **Task:** Create, record, and upload 4 dribble-level books (Levels 4-7) to website
-- **Why it matters:** Completes the 7-book series, full product ready for schools
+- **Task:** Turn today’s “green run once” into “green run reliably” (retries, monitoring, and a clean runbook)
+- **Why it matters:** Removes babysitting and makes the system dependable for demos + production
 
 ### Tomorrow's Deep Work Window
 - **Time:** _______________ to _______________
-- **Focus:** Writing and recording Books 4-7
+- **Focus:** Reliability hardening + backlog pruning
 
 ### Tomorrow's Context Blocks
-- Creative/Marketing Block: Writing and recording Books 4-7
-- Technical/Development Block: AI handles uploads and paywall updates
+- Technical/Development Block: Reliability work
+- Communication Block: Stakeholder updates (batched)
 
 ---
 

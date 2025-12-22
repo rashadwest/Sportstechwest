@@ -109,3 +109,4 @@ Schools renew when they have proof of:
 - A “For Schools” section with: Pilot → Classroom → Site → District
 - A “Request a Pilot” CTA (primary)
 - Parent purchase options as secondary (post-school adoption)
+

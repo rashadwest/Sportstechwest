@@ -638,6 +638,29 @@ def get_school_readiness_report() -> Dict:
         ]
     }
 
+def get_garvis_metrics() -> Dict:
+    """Get Garvis SIAFI metrics"""
+    try:
+        import importlib.util
+        garvis_dashboard_path = project_root / 'scripts' / 'garvis-dashboard.py'
+        if garvis_dashboard_path.exists():
+            spec = importlib.util.spec_from_file_location("garvis_dashboard", garvis_dashboard_path)
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+            return module.get_garvis_metrics()
+    except Exception as e:
+        pass
+    
+    return {
+        'siafi_percentage': 0,
+        'total_jobs': 0,
+        'completed_jobs': 0,
+        'success_rate': 0,
+        'average_completion_time': 0,
+        'escalation_count': 0,
+        'schools_onboarded': 0
+    }
+
 def generate_dashboard_data() -> Dict:
     """Generate complete dashboard data."""
     now = datetime.now()
@@ -655,6 +678,9 @@ def generate_dashboard_data() -> Dict:
         overall_status = 'Issues Detected'
         overall_class = 'error'
     
+    # Get Garvis metrics
+    garvis_metrics = get_garvis_metrics()
+    
     return {
         'last_updated': now.strftime('%Y-%m-%d %H:%M:%S'),
         'overall_status': overall_status,
@@ -668,7 +694,8 @@ def generate_dashboard_data() -> Dict:
         'current_focus': get_current_focus(),
         'recent_activity': get_recent_activity(),
         'n8n_status': get_n8n_status(),
-        'success_metrics': get_success_metrics()
+        'success_metrics': get_success_metrics(),
+        'garvis_metrics': garvis_metrics
     }
 
 def update_markdown_dashboard(data: Dict):
@@ -714,6 +741,19 @@ def update_markdown_dashboard(data: Dict):
 - **Build Health:** {data['build_status']['build_health']}
 
 ---
+
+## 🤖 GARVIS SYSTEM (BallCODE Fully Integrated System)
+
+### Garvis SIAFI Metrics
+- **SIAFI Percentage:** {data['garvis_metrics']['siafi_percentage']}%
+- **Total Jobs:** {data['garvis_metrics']['total_jobs']}
+- **Completed:** {data['garvis_metrics']['completed_jobs']}
+- **Success Rate:** {data['garvis_metrics']['success_rate']}%
+- **Avg Completion Time:** {data['garvis_metrics']['average_completion_time']:.1f} minutes
+- **Escalations:** {data['garvis_metrics']['escalation_count']}
+- **Schools Onboarded:** {data['garvis_metrics']['schools_onboarded']} (target: 10 by Jan 2026)
+
+**Garvis is your autonomous AI assistant - like Iron Man's Jarvis, but for BallCODE.**
 
 ## 🎮 GAME IMPROVEMENTS
 

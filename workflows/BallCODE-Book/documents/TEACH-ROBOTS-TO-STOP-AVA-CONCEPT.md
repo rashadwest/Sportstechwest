@@ -178,7 +178,7 @@ Result: Does robot stop Ava? ✅ or ❌
 
 ---
 
-### Mode 3: "Challenge Mode" (New)
+### Mode 3: "Challenge Mode" (Book Lessons)
 **Purpose:** Test if your trained robots can stop Ava
 
 **How It Works:**
@@ -437,3 +437,4 @@ OR
 **Version:** 1.0  
 **Created:** December 14, 2025  
 **Status:** Concept Ready for Review & Development
+

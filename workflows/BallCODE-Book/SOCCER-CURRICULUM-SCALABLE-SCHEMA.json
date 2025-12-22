@@ -1,0 +1,261 @@
+{
+  "curriculum": {
+    "sport": "soccer",
+    "version": "1.0.0",
+    "status": "foundation_complete",
+    "lastUpdated": "2025-12-16",
+    "framework": "scalable_aimcode_driven"
+  },
+  "skillCategories": {
+    "dribbling": {
+      "category": "dribbling",
+      "status": "complete",
+      "skills": [
+        {
+          "number": 1,
+          "name": "Basic Dribble",
+          "description": "Forward movement with ball control",
+          "movement": "forward",
+          "clock": 0.5,
+          "difficulty": "simplest",
+          "basketballEquivalent": "Pound Dribble"
+        },
+        {
+          "number": 2,
+          "name": "Cut Dribble",
+          "description": "Quick change of direction (left or right)",
+          "movement": "left_right",
+          "clock": 0.8,
+          "difficulty": "simple",
+          "basketballEquivalent": "Crossover Dribble"
+        },
+        {
+          "number": 3,
+          "name": "In & Out",
+          "description": "Feint move - fake one direction, go the other",
+          "movement": "multi_directional",
+          "clock": 1.0,
+          "difficulty": "intermediate",
+          "basketballEquivalent": "In & Out Dribble"
+        },
+        {
+          "number": 4,
+          "name": "Step Over",
+          "description": "Step over the ball to fake direction",
+          "movement": "complex_directional",
+          "clock": 1.2,
+          "difficulty": "advanced",
+          "basketballEquivalent": "Between the Legs Dribble"
+        },
+        {
+          "number": 5,
+          "name": "Cruyff Turn",
+          "description": "Turn with ball behind standing leg",
+          "movement": "rapid_change",
+          "clock": 1.5,
+          "difficulty": "advanced",
+          "basketballEquivalent": "Behind the Back Dribble"
+        },
+        {
+          "number": 6,
+          "name": "Half Turn",
+          "description": "180-degree turn with the ball",
+          "movement": "rotational_180",
+          "clock": 1.6,
+          "difficulty": "expert",
+          "basketballEquivalent": "Half Spin Dribble"
+        },
+        {
+          "number": 7,
+          "name": "Full Turn",
+          "description": "360-degree turn with the ball",
+          "movement": "rotational_360",
+          "clock": 1.8,
+          "difficulty": "expert",
+          "basketballEquivalent": "Spin Dribble"
+        }
+      ],
+      "books": [1, 2, 3],
+      "codingConcepts": ["variables", "sequences", "loops"],
+      "mathConcepts": ["spatial_awareness", "patterns", "geometry"]
+    },
+    "passing": {
+      "category": "passing",
+      "status": "pending",
+      "note": "To be added tomorrow",
+      "structure": {
+        "extensible": true,
+        "integration": {
+          "withDribbling": true,
+          "withShooting": true,
+          "sequence": "dribble → pass → shoot"
+        },
+        "codingConcepts": ["functions", "parameters", "return_values"],
+        "mathConcepts": ["angles", "trajectory", "distance"]
+      },
+      "books": [4, 5],
+      "placeholder": "Pass types to be defined"
+    },
+    "shooting": {
+      "category": "shooting",
+      "status": "future",
+      "structure": {
+        "extensible": true,
+        "integration": {
+          "withDribbling": true,
+          "withPassing": true,
+          "sequence": "dribble → pass → shoot"
+        }
+      },
+      "books": [6, 7]
+    },
+    "defending": {
+      "category": "defending",
+      "status": "future",
+      "structure": {
+        "extensible": true,
+        "integration": {
+          "withAllSkills": true,
+          "tactical": true
+        }
+      },
+      "books": [8, 9]
+    }
+  },
+  "books": {
+    "book1": {
+      "title": "The Foundation Pass",
+      "skillCategory": "dribbling",
+      "skills": [1],
+      "codingConcept": "variables",
+      "mathConcept": "spatial_awareness",
+      "soccerContext": "Basic ball control",
+      "worldCupContext": "Learning to control the ball like a World Cup player",
+      "aimcodeAlignment": {
+        "zhang": "Story starts with player receiving ball",
+        "resnick": "Students build dribble sequences",
+        "reggio": "Multiple pathways (story, blocks, game, code)",
+        "hassabis": "Foundation layer (simplest skill first)",
+        "jobs": "Simple, clear skill introduction"
+      },
+      "learningObjectives": [
+        "Understand basic dribble (skill 1)",
+        "Learn variables (ball position, player position)",
+        "Apply spatial awareness",
+        "Control ball in forward direction"
+      ],
+      "standards": {
+        "csta": ["3-5.AP.12"],
+        "commonCore": ["3.G.1"],
+        "ngss": ["3-PS2-1"]
+      }
+    },
+    "book2": {
+      "title": "The Code of Flow",
+      "skillCategory": "dribbling",
+      "skills": [1, 2],
+      "codingConcept": "sequences",
+      "mathConcept": "patterns",
+      "soccerContext": "Dribbling through defenders",
+      "worldCupContext": "Dribbling through defenders",
+      "aimcodeAlignment": {
+        "zhang": "Story starts with dribbling challenge",
+        "resnick": "Students build skill combinations",
+        "reggio": "Visual and kinesthetic pathways",
+        "hassabis": "Builds on Book 1 foundation",
+        "jobs": "Progressive complexity"
+      },
+      "learningObjectives": [
+        "Combine skills 1 and 2",
+        "Create sequences",
+        "Recognize patterns",
+        "Apply directional changes"
+      ],
+      "standards": {
+        "csta": ["3-5.AP.13"],
+        "commonCore": ["4.OA.5"],
+        "ngss": ["4-PS3-1"]
+      }
+    },
+    "book3": {
+      "title": "The Pattern",
+      "skillCategory": "dribbling",
+      "skills": [1, 2, 3],
+      "codingConcept": "loops",
+      "mathConcept": "repeating_patterns",
+      "soccerContext": "Passing patterns and sequences",
+      "worldCupContext": "Team passing patterns",
+      "aimcodeAlignment": {
+        "zhang": "Story starts with tactical situation",
+        "resnick": "Students build looping patterns",
+        "reggio": "Multiple expression pathways",
+        "hassabis": "Adds complexity systematically",
+        "jobs": "Pattern recognition made simple"
+      },
+      "learningObjectives": [
+        "Use skills 1-3 in loops",
+        "Create repeating patterns",
+        "Understand loops in code",
+        "Apply tactical patterns"
+      ],
+      "standards": {
+        "csta": ["3-5.AP.14"],
+        "commonCore": ["5.OA.3"],
+        "ngss": ["5-ESS3-1"]
+      }
+    },
+    "book4": {
+      "title": "The Pass",
+      "skillCategory": "passing",
+      "status": "pending",
+      "note": "To be added when pass types are defined",
+      "skills": {
+        "dribbling": [1, 2, 3],
+        "passing": ["to_be_defined"],
+        "integration": "dribble → pass → dribble"
+      },
+      "codingConcept": "functions",
+      "mathConcept": "angles_trajectory",
+      "soccerContext": "Passing sequences",
+      "worldCupContext": "Team passing patterns"
+    }
+  },
+  "progression": {
+    "foundation": {
+      "books": [1, 2, 3],
+      "skillCategory": "dribbling",
+      "skills": [1, 2, 3, 4, 5, 6, 7],
+      "level": "foundation",
+      "grades": "3-8"
+    },
+    "intermediate": {
+      "books": [4, 5],
+      "skillCategory": "passing",
+      "status": "pending",
+      "level": "intermediate",
+      "grades": "6-8"
+    },
+    "advanced": {
+      "books": [6, 7, 8, 9],
+      "skillCategories": ["shooting", "defending"],
+      "status": "future",
+      "level": "advanced",
+      "grades": "9-12"
+    }
+  },
+  "scalability": {
+    "extensibleCategories": true,
+    "modularBooks": true,
+    "flexibleIntegration": true,
+    "standardsAlignment": "all_levels",
+    "frameworkReuse": "~90%"
+  },
+  "aimcodePrinciples": {
+    "zhang": "Story-first, soccer action drives concepts",
+    "resnick": "Building-focused, students create solutions",
+    "reggio": "Multiple entry points, all learners engaged",
+    "hassabis": "Systematic progression, layer-by-layer",
+    "jobs": "Simple, beautiful, intuitive design"
+  }
+}
+

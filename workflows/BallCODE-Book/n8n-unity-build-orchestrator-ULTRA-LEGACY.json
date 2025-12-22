@@ -1,0 +1,94 @@
+{
+  "name": "ULTRA LEGACY - Unity Build Dispatch Only (Import-Proof)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 1
+            }
+          ]
+        }
+      },
+      "id": "scheduled-trigger",
+      "name": "Scheduled Trigger (Hourly)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "unity-build-ultra-legacy",
+        "responseMode": "onReceived"
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook Trigger (Manual/API)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        240,
+        420
+      ],
+      "webhookId": "unity-build-ultra-legacy-webhook"
+    },
+    {
+      "parameters": {
+        "command": "/bin/sh",
+        "arguments": "-c \"set -e; : \\\"${GITHUB_REPO_OWNER:?Missing GITHUB_REPO_OWNER}\\\"; : \\\"${GITHUB_REPO_NAME:?Missing GITHUB_REPO_NAME}\\\"; : \\\"${GITHUB_DISPATCH_TOKEN:?Missing GITHUB_DISPATCH_TOKEN}\\\"; URL=\\\"https://api.github.com/repos/${GITHUB_REPO_OWNER}/${GITHUB_REPO_NAME}/dispatches\\\"; PAYLOAD='{\"event_type\":\"unity-build\"}'; curl -sS -X POST -H \\\"Authorization: token ${GITHUB_DISPATCH_TOKEN}\\\" -H \\\"Accept: application/vnd.github.v3+json\\\" -H \\\"Content-Type: application/json\\\" --data \\\"$PAYLOAD\\\" \\\"$URL\\\" >/dev/null; echo dispatched\""
+      },
+      "id": "dispatch",
+      "name": "Dispatch Build (curl, no expressions)",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        540,
+        340
+      ]
+    }
+  ],
+  "connections": {
+    "Scheduled Trigger (Hourly)": {
+      "main": [
+        [
+          {
+            "node": "Dispatch Build (curl, no expressions)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Trigger (Manual/API)": {
+      "main": [
+        [
+          {
+            "node": "Dispatch Build (curl, no expressions)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/New_York"
+  },
+  "staticData": null,
+  "tags": [
+    "legacy",
+    "import-safe"
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2025-12-14T00:00:00.000Z",
+  "versionId": "1"
+}
+
+

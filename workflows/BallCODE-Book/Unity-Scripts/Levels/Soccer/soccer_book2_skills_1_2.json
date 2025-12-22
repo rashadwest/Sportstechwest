@@ -1,0 +1,31 @@
+{
+  "levelId": "soccer_book2_skills_1_2",
+  "sport": "soccer",
+  "levelName": "Basic Dribble + Cut",
+  "bookNumber": 2,
+  "gameMode": "blockcoding",
+  "skills": [
+    {
+      "number": 1,
+      "name": "Basic Dribble",
+      "clock": 0.5
+    },
+    {
+      "number": 2,
+      "name": "Cut Dribble",
+      "clock": 0.8
+    }
+  ],
+  "successCriteria": {
+    "requiredSkills": [
+      1,
+      2
+    ],
+    "sequence": [
+      1,
+      2,
+      1
+    ],
+    "maxTime": 8.0
+  }
+}

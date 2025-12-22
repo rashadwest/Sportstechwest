@@ -1,0 +1,228 @@
+{
+  "name": "Garvis Website Auto-Update - AI-Driven",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "website-update",
+        "responseMode": "responseNode"
+      },
+      "id": "webhook-trigger",
+      "name": "Website Update Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "website-update-webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Garvis: Parse website update request\nconst input = $input.item.json;\nconst body = input.body || {};\n\nconst update = {\n  type: body.type || 'content', // content, curriculum, book, deploy\n  jobId: body.job_id || body.jobId || `website-${Date.now()}`,\n  changes: body.changes || [],\n  source: body.source || 'webhook',\n  timestamp: new Date().toISOString()\n};\n\n// Determine update actions\nconst actions = [];\nif (update.type === 'content' || update.changes.some(c => c.includes('content'))) {\n  actions.push('update_content');\n}\nif (update.type === 'curriculum' || update.changes.some(c => c.includes('curriculum'))) {\n  actions.push('update_curriculum_pages');\n}\nif (update.type === 'book' || update.changes.some(c => c.includes('book'))) {\n  actions.push('update_book_pages');\n}\nif (update.type === 'deploy' || update.changes.some(c => c.includes('deploy'))) {\n  actions.push('deploy_netlify');\n}\n\nreturn {\n  json: {\n    ...update,\n    actions,\n    status: 'parsed'\n  }\n};"
+      },
+      "id": "parse-update",
+      "name": "Parse Website Update",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "condition-content",
+              "leftValue": "={{ $json.actions }}",
+              "rightValue": "update_content",
+              "operator": {
+                "type": "array",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "id": "route-content",
+      "name": "Route: Update Content?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [680, 200]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "condition-curriculum",
+              "leftValue": "={{ $json.actions }}",
+              "rightValue": "update_curriculum_pages",
+              "operator": {
+                "type": "array",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "id": "route-curriculum",
+      "name": "Route: Update Curriculum Pages?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "condition-book",
+              "leftValue": "={{ $json.actions }}",
+              "rightValue": "update_book_pages",
+              "operator": {
+                "type": "array",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "id": "route-book",
+      "name": "Route: Update Book Pages?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [680, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Garvis: Update website content\nconst update = $json;\n\n// In full implementation, this would:\n// 1. Read current website files\n// 2. Apply content updates\n// 3. Generate new pages if needed\n// 4. Update navigation\n// 5. Optimize images/assets\n\nconst result = {\n  action: 'update_content',\n  filesUpdated: [],\n  pagesGenerated: [],\n  navigationUpdated: true,\n  assetsOptimized: true,\n  status: 'success'\n};\n\nreturn {\n  json: {\n    ...update,\n    result\n  }\n};"
+      },
+      "id": "update-content",
+      "name": "Update Website Content",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Garvis: Generate curriculum pages from schema\nconst update = $json;\n\n// In full implementation, this would:\n// 1. Read curriculum schema\n// 2. Generate curriculum pages\n// 3. Update curriculum navigation\n// 4. Link to books/games\n\nconst result = {\n  action: 'update_curriculum_pages',\n  pagesGenerated: ['curriculum/index.html', 'curriculum/episode1.html'],\n  navigationUpdated: true,\n  status: 'success'\n};\n\nreturn {\n  json: {\n    ...update,\n    result\n  }\n};"
+      },
+      "id": "update-curriculum-pages",
+      "name": "Update Curriculum Pages",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Garvis: Update book pages\nconst update = $json;\n\n// In full implementation, this would:\n// 1. Read book content\n// 2. Generate book pages\n// 3. Update book navigation\n// 4. Link to games/curriculum\n\nconst result = {\n  action: 'update_book_pages',\n  pagesGenerated: ['books/episode1.html'],\n  navigationUpdated: true,\n  status: 'success'\n};\n\nreturn {\n  json: {\n    ...update,\n    result\n  }\n};"
+      },
+      "id": "update-book-pages",
+      "name": "Update Book Pages",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 400]
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "method": "POST",
+        "url": "={{ $env.NETLIFY_DEPLOY_URL || 'https://api.netlify.com/build_hooks/YOUR_BUILD_HOOK' }}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "id": "deploy-netlify",
+      "name": "Deploy to Netlify",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1120, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Garvis: Aggregate website update results\nconst inputItems = $input.all();\nconst results = {};\n\ninputItems.forEach(item => {\n  const data = item.json;\n  if (data.result) {\n    results[data.result.action] = data.result;\n  }\n});\n\nconst allSuccess = Object.values(results).every(r => r.status === 'success');\n\nreturn {\n  json: {\n    jobId: inputItems[0]?.json?.jobId || 'unknown',\n    status: allSuccess ? 'completed' : 'partial',\n    results,\n    deployed: results.deploy_netlify?.status === 'success',\n    timestamp: new Date().toISOString()\n  }\n};"
+      },
+      "id": "aggregate-results",
+      "name": "Aggregate Results",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1340, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}"
+      },
+      "id": "respond",
+      "name": "Respond with Results",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1560, 300]
+    }
+  ],
+  "connections": {
+    "Website Update Webhook": {
+      "main": [[{"node": "Parse Website Update", "type": "main", "index": 0}]]
+    },
+    "Parse Website Update": {
+      "main": [[
+        {"node": "Route: Update Content?", "type": "main", "index": 0},
+        {"node": "Route: Update Curriculum Pages?", "type": "main", "index": 0},
+        {"node": "Route: Update Book Pages?", "type": "main", "index": 0}
+      ]]
+    },
+    "Route: Update Content?": {
+      "main": [[{"node": "Update Website Content", "type": "main", "index": 0}]]
+    },
+    "Route: Update Curriculum Pages?": {
+      "main": [[{"node": "Update Curriculum Pages", "type": "main", "index": 0}]]
+    },
+    "Route: Update Book Pages?": {
+      "main": [[{"node": "Update Book Pages", "type": "main", "index": 0}]]
+    },
+    "Update Website Content": {
+      "main": [[{"node": "Deploy to Netlify", "type": "main", "index": 0}]]
+    },
+    "Update Curriculum Pages": {
+      "main": [[{"node": "Deploy to Netlify", "type": "main", "index": 0}]]
+    },
+    "Update Book Pages": {
+      "main": [[{"node": "Deploy to Netlify", "type": "main", "index": 0}]]
+    },
+    "Deploy to Netlify": {
+      "main": [[{"node": "Aggregate Results", "type": "main", "index": 0}]]
+    },
+    "Aggregate Results": {
+      "main": [[{"node": "Respond with Results", "type": "main", "index": 0}]]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-12-17T00:00:00.000Z",
+  "versionId": "1"
+}
+

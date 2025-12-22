@@ -4,7 +4,7 @@
 
 > **📊 Overall Goal Tracking:** See `OVERALL-GOAL-TRACKING.md` for master goal status and how today's domino connects to the bigger picture.
 
-Sunday November 16, 2025 - 12:00PM (noon) - 1 hour of deep work
+Sunday December 14, 2025 - 9:30AM–12:00PM - 2.5 hours of deep work
 
 ---
 
@@ -14,25 +14,23 @@ Sunday November 16, 2025 - 12:00PM (noon) - 1 hour of deep work
 
 1. **Review Yesterday** (2 min)
    - What was completed? What carried over? Why?
-  I need you to give me what was completed right here in percentages so I make sure I figure out what it is we are doing and if it is the best thing to focus on
+  BallCODE full integration is in progress; today is about finishing the end-to-end run and capturing proof + a repeatable baseline.
    - What's my energy level? (1-10)
-   8/10
+   7/10
    _______________
 
 2. **Identify Your One Domino** (1 min)
    - What's the ONE task today that makes everything else easier?
-   I think we create the right book episodes and record them. What is the best way to record them for the best video quality. I will be recording it from my browser as I cannot download it.. 
+   Finish BallCODE full integration end-to-end and produce proof links (build artifact + deployed URL + verification output).
    _______________
    - If I complete this, what compounds?
-   We will then need to put it on the website towards the bottom. 
-   The website should make it where you go to multiple different payment options where you can pay book by book or you can pay for all the books. 
-   What do we think the best way to do this is?
+   Everything downstream becomes faster and safer because there’s a trusted baseline (rerun steps + known-good config).
    _______________
 
 3. **Protect Deep Work** (30 sec)
-   - When is my 1 hour focus window? 12pm-1pm (noon)
+   - When is my 2–3 hour focus window? 9:30am–12:00pm
    - Distractions OFF: Phone, Email, Slack, Tabs
-  Everything will be oof
+  Everything off
 
 **✅ Ready to start. Move one domino. 🚀**
 
@@ -41,7 +39,7 @@ This start will happen in two hours but I want you to get everything setup so ea
 ## 🎯 The 10 Core Principles (Quick Reference)
 
 1. **Orchestrate** — ONE system/process at a time (don't multitask)
-Focusing on the storytelling and recording the books and getting it on the site. 
+Focusing on BallCODE full integration (end-to-end run + proof + runbook).
 
 Make sure if follows the block coding element in the documents to where they are teaching the robot the moves and to shoot
 
@@ -62,16 +60,16 @@ The chess mode
 
 Figure out how to make it make sense
 
-2. **Protect Deep Work** — 1 hour uninterrupted daily (noon-1pm)
-1 hour at noon 
+2. **Protect Deep Work** — 2–3 hours uninterrupted daily
+9:30am–12:00pm
 
 3. **Batch Contexts** — Group similar work (≤3 switches/day)
 I only switch when I am trying to make sure that what you are using is correct to evolve the curriculum 
 
 4. **Delegate with Context** — Goal, metric, escalation for every task
-Lets look at this as a goal of getting these books on the site and create a paywall so that we can start accepting orders. The defensive mode does not work that well and we need to build out more modules in the coding, math modes to be able to sell that. 
-
-We can really only have it where the sales can be for the practice models. So I think we just have 7 for paid and they are just going through each level of dribble. GOing from 1 through 7 and make each story around that
+Goal: finish full integration end-to-end.
+Delegations: verification checklist, log triage, runbook drafting.
+Escalation: anything involving credentials/infra or repeated failure after one smallest fix.
 
 5. **Use If–Then Rules** — Automate behavior decisions
 If I want to learn basketball or just learn a sport it helps us learn that through a stem program. 
@@ -79,7 +77,7 @@ If I want to learn basketball or just learn a sport it helps us learn that throu
 This is the new PE class as it can carry over to being able to play on the court or field
 
 6. **Track Metrics** — Focus time, delegations, context switches
-2 hours, create delegations for what I cannot do myself, only when you need help with the simple curriculum or understanding of how to implement AI, math, or coding within the story telling element. 
+2.5 hours focus time, 3 delegations, < 5 context switches.
 
 7. **Automate for Clarity** — AI handles repetitive, you handle strategy
 Lets create automation for each thing. I just want to make it where we are only enhanceing 
@@ -87,7 +85,7 @@ Lets create automation for each thing. I just want to make it where we are only 
 In order that this is owned by me I want you to just give me the thought structure of each story and episode and how short they will be but I want to write the actual story. Give me a format doc to do the writting. 
 
 8. **Move One Domino** — ONE task that makes everything easier
-Writing, recording, and getting you to add each of the books onto the site. I think it should be 3 books done today and then 4 done tomorrow. 
+Finish BallCODE full integration end-to-end and produce proof links (build artifact + deployed URL + verification output).
 
 9. **Audit Weekly** — Review systems and improve
 Make sure I get the weekly audit every Sunday. Make sure the date/time feature is working. It is Saturday November 15th

@@ -1,0 +1,99 @@
+{
+  "levels": [
+    {
+      "levelId": "book1_coding_1_2",
+      "levelName": "Multiple Dribbles Exercise",
+      "description": "Practice using different dribbles in a sequence. Learn to combine Block 1 (Pound) and Block 2 (Crossover) to create more complex sequences.",
+      "gameMode": "blockcoding",
+      "episodeNumber": 0,
+      "codingConcept": "basic_blocks_sequences",
+      "videoPath": "",
+      "videoConfig": {
+        "autoPlay": true,
+        "loop": false,
+        "playbackSpeed": 1.0,
+        "allowSeeking": true,
+        "startTime": 0.0,
+        "endTime": -1.0,
+        "pausePoints": [],
+        "analysisPoints": []
+      },
+      "strategy": {
+        "strategyName": "Multiple Dribbles Sequence",
+        "strategyType": "offensive",
+        "description": "Combine different dribbles: Pound → Crossover → Pound → Advance. Use Block 1 and Block 2 together to break through defense.",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "action": "Start with Block 1 (Pound Dribble)",
+            "codeEquivalent": "START → BLOCK_1_POUND",
+            "timing": 0.0,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 2,
+            "action": "Use Block 2 (Crossover Dribble)",
+            "codeEquivalent": "BLOCK_2_CROSSOVER",
+            "timing": 0.5,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 3,
+            "action": "Repeat Block 1 (Pound)",
+            "codeEquivalent": "BLOCK_1_POUND",
+            "timing": 1.0,
+            "playerPositions": []
+          },
+          {
+            "stepNumber": 4,
+            "action": "Advance forward",
+            "codeEquivalent": "ADVANCE",
+            "timing": 1.5,
+            "playerPositions": []
+          }
+        ],
+        "keyConcepts": ["multiple_blocks", "sequences", "combining_moves"],
+        "basketballConcepts": ["pound_dribble", "crossover_dribble", "move_combination"],
+        "diagramPath": "",
+        "showCourtDiagram": false
+      },
+      "learningObjectives": [
+        "Understand how to combine different dribble blocks",
+        "Practice creating sequences with multiple block types",
+        "Learn that Block 1 (Pound) and Block 2 (Crossover) can be combined",
+        "Build more complex code sequences"
+      ],
+      "successCriteria": [
+        "Correctly use both Block 1 and Block 2 in sequence",
+        "Create sequence: START → Block 1 → Block 2 → Block 1 → ADVANCE",
+        "Complete exercise with 70% or higher score",
+        "Demonstrate understanding of combining different blocks"
+      ],
+      "difficultyLevel": 1,
+      "prerequisiteLevels": ["book1_foundation_block"],
+      "isUnlocked": false,
+      "exercise": {
+        "exerciseType": "BlockCoding",
+        "blockCoding": {
+          "availableBlocks": ["START", "BLOCK_1_POUND", "BLOCK_2_CROSSOVER", "ADVANCE", "REPEAT"],
+          "requiredBlocks": ["BLOCK_1_POUND", "BLOCK_2_CROSSOVER"],
+          "targetCode": "START → BLOCK_1_POUND → BLOCK_2_CROSSOVER → BLOCK_1_POUND → ADVANCE",
+          "allowCustomBlocks": false
+        },
+        "scoring": {
+          "maxScore": 100,
+          "passingScore": 70,
+          "showScoreDuringExercise": false,
+          "allowRetry": true,
+          "maxAttempts": 3
+        }
+      },
+      "author": "BallCODE Book Integration",
+      "createdDate": "2025-12-11",
+      "tags": ["book1", "multiple_dribbles", "block_combination", "sequences", "pound_dribble", "crossover_dribble"]
+    }
+  ],
+  "version": "1.0",
+  "lastUpdated": "2025-12-11"
+}
+

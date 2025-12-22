@@ -1,160 +1,105 @@
-# Quick Action Checklist - BallCODE Project
+# Quick Action Checklist - December 18, 2025
 
-**Start Here:** Your immediate action items, organized by priority
-
----
-
-## 🚨 THIS WEEK (Critical - 5-9 hours)
-
-### Day 1: Visual Assets (2-4 hours) ⭐ START HERE
-- [ ] Review `Episode-1-Visual-Briefs.md`
-- [ ] Generate Court Map visual (30-60 min)
-- [ ] Generate Shadow Press Scouts visual (30-60 min)
-- [ ] Generate State Diagram visual (30-60 min)
-- [ ] Save files with correct names
-- [ ] Verify quality (kid-friendly, proper dimensions)
-
-**Why First:** Blocks everything else. Unblocks 5+ tasks.
+**Status:** Credentials created, needs verification and fixes
 
 ---
 
-### Day 2: PDFs (1-2 hours)
-- [ ] Open `Episode-1-Integrated-Document.md`
-- [ ] Insert visual assets into spreads
-- [ ] Create print-ready PDF
-- [ ] Create digital-optimized PDF
-- [ ] Create teacher guide PDF
-- [ ] Create exercise worksheets PDF
+## ✅ DONE TODAY
 
-**Depends on:** Visual assets complete
+- [x] Created GitHub credential (`github-actions-token`)
+- [x] Created Netlify credential (`netlify-api-token`)
+- [x] Tested Unity Build webhook (working, but locked)
+- [x] Reviewed Garvis Orchestrator nodes
+- [x] Created test scripts and documentation
 
 ---
 
-### Day 3: Website Page (1-2 hours)
-- [ ] Use `Episode-Page-Template-Enhanced.html`
-- [ ] Add Episode 1 content
-- [ ] Insert visual assets
-- [ ] Add navigation links
-- [ ] Test on mobile
-- [ ] Deploy to ballcode.co
+## ⚠️ NEEDS FIXING (Priority Order)
 
-**Depends on:** Visual assets complete
+### **1. Fix Garvis Orchestrator Nodes** (5 min)
+- [ ] Open Garvis Orchestrator workflow in n8n
+- [ ] For each "Execute" node (5 nodes):
+  - [ ] Change Method: **GET → POST**
+  - [ ] Save
+- [ ] Test webhook
 
----
-
-### Day 4: Website Critical Items (1 hour)
-- [ ] Update contact information
-- [ ] Fix sign-up button
-- [ ] Add Episode 1 quick access button
-- [ ] Create basic navigation menu
-- [ ] Test all links
-
-**Can do anytime:** Not blocked by visuals
+**Nodes to fix:**
+- Execute: Book Content Update
+- Execute: Curriculum Sync
+- Execute: Unity Build
+- Execute: Website Update
+- Execute: Sales/Onboarding
 
 ---
 
-## 📅 NEXT WEEK (High Priority - 8-11 hours)
-
-### Assessment Rubrics (3-4 hours)
-- [ ] Create AI Literacy rubric (grades 3-5)
-- [ ] Create AI Literacy rubric (grades 6-8)
-- [ ] Create Math Literacy rubric (grades 3-5)
-- [ ] Create Math Literacy rubric (grades 6-8)
-- [ ] Create Coding Literacy rubric (grades 3-5)
-- [ ] Create Coding Literacy rubric (grades 6-8)
-- [ ] Add to Episode 1 Teacher Guide
-
-**Reference:** `Literacy-Integration-Strategy.md`
-
----
-
-### Episode 1 Final Polish (2-3 hours)
-- [ ] Final language polish on story
-- [ ] Polish Skill Pit-Stop content
-- [ ] Review and refine exercises
-- [ ] Consistency check
-- [ ] Final proofread
+### **2. Verify Credentials Work** (10 min)
+- [ ] Wait for workflow lock to clear (or check n8n UI)
+- [ ] Run test: `./test-unity-build-workflow.sh`
+- [ ] Check n8n execution for errors
+- [ ] If credential errors:
+  - [ ] Verify credential Name/ID is exactly:
+    - `github-actions-token`
+    - `netlify-api-token`
+  - [ ] Check Header Name is `Authorization`
+  - [ ] Check Header Value has correct token format:
+    - GitHub: `token YOUR_PAT`
+    - Netlify: `Bearer YOUR_TOKEN`
 
 ---
 
-### Pilot Program Outreach (3-4 hours)
-- [ ] Review `Pilot-Program-Proposal.md`
-- [ ] Identify 5-10 target schools
-- [ ] Personalize email templates
-- [ ] Send outreach emails
-- [ ] Track in `Outreach-Tracking.md`
-- [ ] Schedule follow-ups
+### **3. Verify Environment Variables** (5 min)
+- [ ] Check if all required vars are set:
+  - `GITHUB_REPO_OWNER`
+  - `GITHUB_REPO_NAME`
+  - `GITHUB_WORKFLOW_FILE`
+  - `NETLIFY_SITE_ID` (can be placeholder)
+- [ ] If missing, run: `python scripts/robot-hardcode-env-vars.py`
 
 ---
 
-## 📆 THIS MONTH (Medium Priority)
-
-### Week 3
-- [ ] Game Integration (if Unity access) - 4-8 hours
-- [ ] IBM Presentation Deck (if needed) - 2-3 hours
-- [ ] Beta Testing Recruitment - 2-3 hours
-
-### Week 4
-- [ ] Website Updates Phase 2 - 2-3 hours
-- [ ] Begin Episode 2 Development - 4-6 hours
-- [ ] Professional Development Materials - 2-3 hours
+### **4. Test End-to-End Flow** (15 min)
+- [ ] Test Garvis Orchestrator webhook
+- [ ] Verify it calls Unity Build workflow
+- [ ] Verify GitHub Actions triggers
+- [ ] Verify Netlify deployment
+- [ ] Check all credentials work
 
 ---
 
-## 🎯 THE ONE THING
+## 🧪 TEST COMMANDS
 
-**Generate Episode 1 Visual Assets (2-4 hours)**
+**Test Unity Build:**
+```bash
+cd /Users/rashadwest/Sportstechwest/workflows/BallCODE-Book
+./test-unity-build-workflow.sh
+```
 
-**Impact:**
-- Episode 1: 45% → 85%+ complete
-- Project: 35% → 50%+ complete
-- Unblocks 5+ downstream tasks
+**Check Status:**
+```bash
+./check-workflow-status.sh
+```
 
-**After This:**
-- PDFs (1-2 hours)
-- Website page (1-2 hours)
-- Website updates (1 hour)
-- **Total: 5-9 hours to unblock everything**
-
----
-
-## 📋 Quick Reference
-
-**Strategy:** `Literacy-Integration-Strategy.md`  
-**Research:** `Research-Sources/`  
-**Visual Briefs:** `Episode-1-Visual-Briefs.md`  
-**Full Next Steps:** `NEXT-STEPS-COMPREHENSIVE.md`  
-**Progress:** `PLANS-PROGRESS-SUMMARY.md`
+**Manual Test:**
+```bash
+curl -X POST http://192.168.1.226:5678/webhook/unity-build \
+  -H "Content-Type: application/json" \
+  -d '{"request": "Test", "branch": "main"}'
+```
 
 ---
 
-## ✅ Weekly Goals
+## 📊 CURRENT STATUS
 
-### Week 1
-- [ ] Visual assets complete
-- [ ] PDFs created
-- [ ] Website page live
-- [ ] Website critical items updated
+| Task | Status | Time |
+|------|--------|------|
+| Credentials Created | ✅ Done | - |
+| Garvis Nodes Fix | ⚠️ Needs Fix | 5 min |
+| Credential Verification | ⚠️ Pending | 10 min |
+| Env Var Check | ⚠️ Pending | 5 min |
+| End-to-End Test | ❌ Not Done | 15 min |
 
-### Week 2
-- [ ] Assessment rubrics created
-- [ ] Episode 1 polished
-- [ ] 5-10 schools contacted
-- [ ] At least 1 response received
-
-### Week 3
-- [ ] Game integration (if access)
-- [ ] IBM presentation (if needed)
-- [ ] Beta testers recruited
-
-### Week 4
-- [ ] Website Phase 2 complete
-- [ ] Episode 2 started
-- [ ] Professional development materials ready
+**Total Remaining:** ~35 minutes
 
 ---
 
-**Remember:** Complete one task fully before moving to the next. Visual assets first!
-
-
-
+**Next: Fix Garvis nodes (GET→POST), then verify credentials!** ✅

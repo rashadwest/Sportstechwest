@@ -19,7 +19,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Normalize screenshot input\nconst body = $input.item.json.body || {};\nconst files = $input.item.json.files || {};\n\n// Extract screenshot (could be file upload or URL)\nconst screenshot = files.screenshot || body.screenshotUrl || body.screenshot;\nconst context = body.context || 'Unknown error';\nconst source = body.source || 'manual_upload';\n\nreturn {\n  json: {\n    screenshot: screenshot,\n    screenshotUrl: typeof screenshot === 'string' ? screenshot : null,\n    screenshotFile: typeof screenshot === 'object' ? screenshot : null,\n    context: context,\n    source: source,\n    timestamp: new Date().toISOString(),\n    requestId: `fix-${Date.now()}`\n  }\n};"
+        "jsCode": "// Normalize screenshot input\n// Webhook data comes directly in $input.item.json, not in .body\nconst input = $input.item.json;\nconst body = input.body || input; // Try .body first, fallback to direct input\nconst files = input.files || {};\n\n// Extract screenshot (could be file upload or URL)\nconst screenshot = files.screenshot || body.screenshotUrl || body.screenshot || input.screenshotUrl || input.screenshot;\nconst context = body.context || input.context || 'Unknown error';\nconst source = body.source || input.source || 'manual_upload';\n\nreturn {\n  json: {\n    screenshot: screenshot,\n    screenshotUrl: typeof screenshot === 'string' ? screenshot : null,\n    screenshotFile: typeof screenshot === 'object' ? screenshot : null,\n    context: context,\n    source: source,\n    timestamp: new Date().toISOString(),\n    requestId: `fix-${Date.now()}`\n  }\n};"
       },
       "id": "normalize-screenshot",
       "name": "Normalize Screenshot Input",

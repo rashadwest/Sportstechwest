@@ -58,16 +58,54 @@
         "showCourtDiagram": false
       },
       "learningObjectives": [
-        "Understand that coding uses if/then to make decisions",
-        "Practice creating conditional sequences",
-        "Learn that Block 2 (Crossover) requires reading conditions",
-        "Build code blocks to represent basketball decision-making"
+        "Understand that conditionals make decisions",
+        "Create conditional patterns using blocks",
+        "See connection between blocks and Python if statements",
+        "Write Python if/else statements"
       ],
+      "curriculum": {
+        "gradeLevels": ["3-5", "6-8", "9-12"],
+        "standards": {
+          "csta": ["1B-AP-12", "1B-AP-13"],
+          "commonCore": ["MP.2", "MP.7"],
+          "ngss": ["ETS1-2"]
+        },
+        "phases": {
+          "phase1": {
+            "name": "Sports Language (Block Coding)",
+            "description": "Learn conditionals using basketball terminology. Visual block interface: IF [defender goes left] THEN [crossover right]",
+            "example": "IF [defender goes left] THEN [crossover right] ELSE [go straight]",
+            "learningObjective": "Students understand that conditionals make decisions"
+          },
+          "phase2": {
+            "name": "Transition Bridge",
+            "description": "See how conditional blocks map to Python code. Side-by-side view: Block conditional | Python if statement",
+            "example": "Block: IF [defender goes left] THEN [crossover right]\nCode: if defender_goes_left:\n    crossover_right()",
+            "learningObjective": "Students understand that conditional blocks = Python if statements"
+          },
+          "phase3": {
+            "name": "Python Learning",
+            "description": "Write Python if statements. Create decision-making programs",
+            "example": "if defender_goes_left:\n    crossover_right()\nelse:\n    go_straight()",
+            "learningObjective": "Students can write Python conditionals"
+          }
+        },
+        "concepts": {
+          "python": "Conditionals",
+          "pythonSyntax": "if defender_goes_left: crossover_right()",
+          "aiConcept": "Decision-making and branching logic",
+          "mathConcept": "Conditional statements"
+        },
+        "basketball": {
+          "skill": "Crossover Dribble",
+          "level": 2,
+          "context": "Creating space with conditional decisions"
+        }
+      },
       "successCriteria": [
-        "Correctly use IF/THEN blocks",
-        "Create conditional sequence with Block 2",
-        "Complete exercise with 70% or higher score",
-        "Demonstrate understanding through interactive practice"
+        "Complete 3 successful conditional decisions",
+        "Use if/then blocks correctly",
+        "Create space using conditionals"
       ],
       "difficultyLevel": 2,
       "prerequisiteLevels": ["book1_foundation_block"],

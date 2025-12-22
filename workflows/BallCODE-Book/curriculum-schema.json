@@ -1,0 +1,268 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "The Foundation Block",
+      "slug": "the-foundation-block",
+      "status": "complete",
+      "concepts": {
+        "python": "Sequences",
+        "pythonSyntax": "Sequential code execution",
+        "aiConcept": "Step-by-step reasoning",
+        "mathConcept": "Order of operations"
+      },
+      "basketball": {
+        "skill": "Pound Dribble",
+        "level": 1,
+        "context": "Breaking the press with foundation blocks"
+      },
+      "curriculum": {
+        "gradeLevels": ["3-5", "6-8", "9-12"],
+        "standards": {
+          "csta": ["1B-AP-10", "1B-AP-11"],
+          "commonCore": ["MP.2", "MP.7"],
+          "ngss": ["ETS1-2"]
+        },
+        "phases": {
+          "phase1": {
+            "name": "Sports Language (Block Coding)",
+            "description": "Learn sequences using basketball terminology. Visual block interface: START → BLOCK_1_POUND → BLOCK_1_POUND → ADVANCE",
+            "example": "START → BLOCK_1_POUND → BLOCK_1_POUND → BLOCK_1_POUND → ADVANCE",
+            "learningObjective": "Students understand that code is step-by-step instructions"
+          },
+          "phase2": {
+            "name": "Transition Bridge",
+            "description": "See how sports language maps to code concepts. Side-by-side view: Block sequence | Python code",
+            "example": "Block: START → BLOCK_1_POUND\nCode: start()\npound_dribble()\nadvance()",
+            "learningObjective": "Students understand that blocks = code"
+          },
+          "phase3": {
+            "name": "Python Learning",
+            "description": "Write Python code for sequences. Create step-by-step programs",
+            "example": "def break_press():\n    start()\n    pound_dribble()\n    pound_dribble()\n    pound_dribble()\n    advance()",
+            "learningObjective": "Students can write Python sequences"
+          }
+        },
+        "learningObjectives": [
+          "Understand that code is step-by-step instructions",
+          "Create sequences using visual blocks",
+          "See connection between blocks and Python code",
+          "Write basic Python sequences"
+        ]
+      },
+      "game": {
+        "exerciseName": "Foundation Block Challenge",
+        "exerciseId": "book1_foundation_block",
+        "url": "ballcode.co/play?book=1&exercise=foundation-block&source=book",
+        "mode": "Block Coding",
+        "successCriteria": [
+          "Complete 3 successful sequences",
+          "Use foundation blocks correctly",
+          "Break the press using sequences"
+        ],
+        "returnFlow": {
+          "onComplete": "Return to Book 1 page with success status",
+          "unlocks": ["Python practice section"]
+        }
+      },
+      "website": {
+        "card": {
+          "title": "The Foundation Block",
+          "description": "Learn sequences through breaking the press with foundation blocks",
+          "thumbnail": "/assets/images/book1-title-page.png",
+          "badge": "Available"
+        },
+        "page": {
+          "path": "/books/book1",
+          "showCurriculumPathway": true,
+          "showLearningObjectives": true,
+          "showExerciseButton": true
+        }
+      }
+    },
+    {
+      "id": 2,
+      "title": "The Code of Flow",
+      "slug": "the-code-of-flow",
+      "status": "complete",
+      "concepts": {
+        "python": "Conditionals",
+        "pythonSyntax": "if defender_goes_left: crossover_right()",
+        "aiConcept": "Decision-making and branching logic",
+        "mathConcept": "Conditional statements"
+      },
+      "basketball": {
+        "skill": "Crossover Dribble",
+        "level": 2,
+        "context": "Creating space with conditional decisions"
+      },
+      "curriculum": {
+        "gradeLevels": ["3-5", "6-8", "9-12"],
+        "standards": {
+          "csta": ["1B-AP-12", "1B-AP-13"],
+          "commonCore": ["MP.2", "MP.7"],
+          "ngss": ["ETS1-2"]
+        },
+        "phases": {
+          "phase1": {
+            "name": "Sports Language (Block Coding)",
+            "description": "Learn conditionals using basketball terminology. Visual block interface: IF [defender goes left] THEN [crossover right]",
+            "example": "IF [defender goes left] THEN [crossover right] ELSE [go straight]",
+            "learningObjective": "Students understand that conditionals make decisions"
+          },
+          "phase2": {
+            "name": "Transition Bridge",
+            "description": "See how conditional blocks map to Python code. Side-by-side view: Block conditional | Python if statement",
+            "example": "Block: IF [defender goes left] THEN [crossover right]\nCode: if defender_goes_left:\n    crossover_right()",
+            "learningObjective": "Students understand that conditional blocks = Python if statements"
+          },
+          "phase3": {
+            "name": "Python Learning",
+            "description": "Write Python if statements. Create decision-making programs",
+            "example": "if defender_goes_left:\n    crossover_right()\nelse:\n    go_straight()",
+            "learningObjective": "Students can write Python conditionals"
+          }
+        },
+        "learningObjectives": [
+          "Understand that conditionals make decisions",
+          "Create conditional patterns using blocks",
+          "See connection between blocks and Python if statements",
+          "Write Python if/else statements"
+        ]
+      },
+      "game": {
+        "exerciseName": "Flow Decision Challenge",
+        "exerciseId": "book2_flow_decision",
+        "url": "ballcode.co/play?book=2&exercise=flow-decision&source=book",
+        "mode": "Block Coding",
+        "successCriteria": [
+          "Complete 3 successful conditional decisions",
+          "Use if/then blocks correctly",
+          "Create space using conditionals"
+        ],
+        "returnFlow": {
+          "onComplete": "Return to Book 2 page with success status",
+          "unlocks": ["Python practice section"]
+        }
+      },
+      "website": {
+        "card": {
+          "title": "The Code of Flow",
+          "description": "Learn conditionals through creating space with crossover dribbles",
+          "thumbnail": "/assets/images/book2-title-page.png",
+          "badge": "Available"
+        },
+        "page": {
+          "path": "/books/book2",
+          "showCurriculumPathway": true,
+          "showLearningObjectives": true,
+          "showExerciseButton": true
+        }
+      }
+    }
+  ],
+  "levels": [
+    {
+      "levelId": "tutorial",
+      "levelName": "Tutorial Level",
+      "levelType": "tutorial",
+      "bookId": 1,
+      "description": "Full tutorial that goes through each dribble. Should add tutorials for each type of shot, pivot, etc.",
+      "curriculumConcept": "Sequences",
+      "gameMode": "blockcoding",
+      "url": "ballcode.co/play?level=tutorial&source=book",
+      "roadmap": {
+        "enhancement": "Add tutorials for each type of shot, pivot, etc.",
+        "priority": "medium"
+      }
+    },
+    {
+      "levelId": "math_level_1",
+      "levelName": "Math Level 1",
+      "levelType": "math",
+      "bookId": 1,
+      "description": "One math level. Need multiple different math levels developed with the same format",
+      "curriculumConcept": "Order of operations",
+      "gameMode": "math",
+      "url": "ballcode.co/play?level=math_level_1&source=book",
+      "roadmap": {
+        "enhancement": "Develop multiple different math levels with the same format",
+        "priority": "high"
+      }
+    },
+    {
+      "levelId": "chess_level_1",
+      "levelName": "Chess Level 1",
+      "levelType": "chess",
+      "bookId": 1,
+      "description": "One chess level. System is made to be like chess where you can play against someone and compete. Need to think about making it where two people on different computers can play against each other",
+      "curriculumConcept": "Strategic thinking",
+      "gameMode": "chess",
+      "url": "ballcode.co/play?level=chess_level_1&source=book",
+      "roadmap": {
+        "enhancement": "Make it so two people on different computers can play against each other",
+        "priority": "high"
+      }
+    },
+    {
+      "levelId": "book1_foundation_block",
+      "levelName": "Foundation Block Exercise",
+      "levelType": "coding",
+      "bookId": 1,
+      "description": "One coding level. Need multiple different coding levels developed with the same format",
+      "curriculumConcept": "Sequences",
+      "gameMode": "blockcoding",
+      "url": "ballcode.co/play?book=1&exercise=foundation-block&source=book",
+      "roadmap": {
+        "enhancement": "Develop multiple different coding levels with the same format",
+        "priority": "high"
+      }
+    },
+    {
+      "levelId": "python_level_1",
+      "levelName": "Python Coding Game - Ideation",
+      "levelType": "python",
+      "bookId": 1,
+      "description": "Python coding game mode - simple approach with 1-2 levels for ideation. Students write actual Python code using basketball terminology.",
+      "curriculumConcept": "Python Sequences",
+      "gameMode": "python",
+      "url": "ballcode.co/play?level=python_level_1&source=book",
+      "roadmap": {
+        "enhancement": "Create 1-2 Python levels for ideation, test concept, then expand if successful",
+        "priority": "medium",
+        "approach": "Simple - ideation phase",
+        "timeline": "2 weeks for ideation, then evaluate"
+      }
+    }
+  ],
+  "curriculum": {
+    "pathway": [1, 2],
+    "phases": {
+      "phase1": "Sports Language (Block Coding) - Students learn concepts using basketball terminology and visual blocks",
+      "phase2": "Transition Bridge - Students see blocks → Python code connection",
+      "phase3": "Python Learning - Students write actual Python code"
+    },
+    "gradeLevels": {
+      "3-5": {
+        "focus": "Pattern recognition and repetition counting",
+        "pythonExposure": "See Python code examples, understand concepts, not required to write"
+      },
+      "6-8": {
+        "focus": "Loop concepts + Python syntax introduction",
+        "pythonExposure": "Write basic for loops, understand range() syntax"
+      },
+      "9-12": {
+        "focus": "Full Python loop programming",
+        "pythonExposure": "Full Python loop mastery, advanced loop structures"
+      }
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2025-12-10T18:00:00Z",
+    "updatedBy": "Day 1 Implementation - Schema Foundation",
+    "status": "active"
+  }
+}
+
+

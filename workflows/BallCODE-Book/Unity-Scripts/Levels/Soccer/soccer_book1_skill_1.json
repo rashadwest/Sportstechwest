@@ -1,0 +1,22 @@
+{
+  "levelId": "soccer_book1_skill_1",
+  "sport": "soccer",
+  "levelName": "Basic Dribble",
+  "bookNumber": 1,
+  "gameMode": "blockcoding",
+  "skills": [
+    {
+      "number": 1,
+      "name": "Basic Dribble",
+      "basketballEquivalent": "Pound Dribble",
+      "clock": 0.5,
+      "movement": "forward"
+    }
+  ],
+  "successCriteria": {
+    "requiredSkills": [
+      1
+    ],
+    "maxTime": 5.0
+  }
+}

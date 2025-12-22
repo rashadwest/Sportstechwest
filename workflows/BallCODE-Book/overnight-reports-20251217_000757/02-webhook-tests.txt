@@ -1,0 +1,8 @@
+[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+[0;34m🧪 Test All n8n Webhooks[0m
+[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+[1;33mWhich n8n instance?[0m
+1) Pi (192.168.1.226:5678) [DEFAULT - Production]
+2) Local (localhost:5678) [Mac - Testing Only]
+Choice [1-2] (default: 1): 

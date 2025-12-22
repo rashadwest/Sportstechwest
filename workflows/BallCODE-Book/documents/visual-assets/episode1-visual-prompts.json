@@ -1,0 +1,43 @@
+{
+  "generated": "2025-12-12T13:04:24.452663",
+  "episode": "Episode 1: The Tip-off Trial",
+  "assets": {
+    "court_map": {
+      "name": "Court Map Visual",
+      "description": "Basketball court center circle with tech elements integrated",
+      "prompt": "Create a basketball court diagram showing the center circle area. \nThe court should be clean and professional, with the center circle prominently displayed. \nIntegrate subtle tech elements like circuit patterns or code symbols around the circle perimeter. \nStyle: Modern, clean, educational illustration. Colors: Orange (#eb6123) and blue (#0C72B3) as primary colors. \nBackground: Light gray or white. Format: High resolution, suitable for print and web.",
+      "use_case": "Episode 1 storybook, website, curriculum materials",
+      "dimensions": "1920x1080px (16:9 ratio)",
+      "format": "PNG with transparent background option"
+    },
+    "shadow_press_scouts": {
+      "name": "Shadow Press Scouts Character Art",
+      "description": "Character design for the Shadow Press Scouts team",
+      "prompt": "Design a basketball character representing the Shadow Press Scouts team. \nThe character should be dynamic and athletic, wearing a basketball uniform with team colors. \nPose: Defensive stance, ready to press. Style: Modern, engaging, suitable for children's book. \nColors: Dark blue/navy for team colors, with orange accents. Expression: Determined, focused. \nBackground: Simple gradient or court background. Format: High resolution character illustration.",
+      "use_case": "Episode 1 storybook, character introduction, game assets",
+      "dimensions": "1024x1024px (square format)",
+      "format": "PNG with transparent background"
+    },
+    "state_diagram": {
+      "name": "State Diagram Visualization",
+      "description": "Visual representation of possession state transitions",
+      "prompt": "Create an educational diagram showing basketball possession states and transitions. \nShow three main states: 'Our Ball', 'Their Ball', 'Neutral' as connected nodes. \nUse arrows to show transitions between states. Style: Clean, diagrammatic, educational. \nColors: Use orange (#eb6123) for 'Our Ball', blue (#0C72B3) for 'Their Ball', gray for 'Neutral'. \nInclude basketball icons or symbols in each state. Format: Vector-style illustration, scalable.",
+      "use_case": "Episode 1 educational content, curriculum materials, teacher guides",
+      "dimensions": "1200x800px (3:2 ratio)",
+      "format": "PNG or SVG (preferred)"
+    }
+  },
+  "generation_instructions": {
+    "method": "Use AI image generation (DALL-E, Midjourney, or Stable Diffusion)",
+    "steps": [
+      "1. Use the provided prompt for each asset",
+      "2. Generate multiple variations (3-5 per asset)",
+      "3. Select best version based on style consistency",
+      "4. Save in high resolution (minimum 1920px width)",
+      "5. Optimize for web (compress if needed)",
+      "6. Save to BallCode/assets/images/ directory"
+    ],
+    "naming_convention": "episode1-[asset-name]-[version].png",
+    "example": "episode1-court-map-v1.png"
+  }
+}

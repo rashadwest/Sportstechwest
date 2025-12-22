@@ -30,9 +30,12 @@ if [ "${PROFILE}" != "local" ] && [ "${PROFILE}" != "pi" ]; then
 fi
 
 # Create profile templates (tracked defaults, but safe/no secrets)
+# DEFAULT: Pi n8n (production) - Mac only when explicitly requested
 if [ ! -f .n8n-env.local ]; then
     cat > .n8n-env.local << 'EOF'
 # n8n Terminal Editing Configuration (Mac / Local)
+# ⚠️ USE ONLY WHEN EXPLICITLY REQUESTED - Default is Pi n8n
+# Mac Native n8n: http://localhost:5678 (node process)
 export N8N_URL="http://localhost:5678"
 export N8N_API_KEY=""
 export WORKFLOW_FILE="n8n-unity-automation-workflow.json"
@@ -44,6 +47,7 @@ fi
 if [ ! -f .n8n-env.pi ]; then
     cat > .n8n-env.pi << 'EOF'
 # n8n Terminal Editing Configuration (Raspberry Pi / LAN)
+# ✅ DEFAULT: All workflows use Pi n8n for production
 export N8N_URL="http://192.168.1.226:5678"
 # Pi is usually accessed over HTTP on LAN; disable secure cookie to avoid the warning banner.
 export N8N_SECURE_COOKIE="false"

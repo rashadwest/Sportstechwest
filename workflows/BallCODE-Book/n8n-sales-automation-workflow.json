@@ -1,0 +1,194 @@
+{
+  "name": "Garvis Sales Automation - AI-Driven",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "sales-automation",
+        "responseMode": "responseNode"
+      },
+      "id": "webhook-trigger",
+      "name": "Sales Automation Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "sales-automation-webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Garvis: Parse sales/email request\nconst input = $input.item.json;\nconst body = input.body || {};\n\nconst request = {\n  type: body.type || body.action || 'inquiry', // inquiry, followup, proposal, onboarding\n  leadId: body.lead_id || body.leadId || `lead-${Date.now()}`,\n  email: body.email || '',\n  name: body.name || '',\n  company: body.company || body.schoolName || '',\n  message: body.message || body.inquiry || '',\n  source: body.source || 'webhook',\n  timestamp: new Date().toISOString()\n};\n\n// Determine action type\nlet actionType = 'auto_respond';\nif (request.type === 'followup') actionType = 'follow_up';\nelse if (request.type === 'proposal') actionType = 'generate_proposal';\nelse if (request.type === 'onboarding') actionType = 'onboard_school';\n\nreturn {\n  json: {\n    ...request,\n    actionType,\n    status: 'parsed'\n  }\n};"
+      },
+      "id": "parse-request",
+      "name": "Parse Sales Request",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.actionType }}",
+              "value2": "auto_respond"
+            }
+          ]
+        }
+      },
+      "id": "route-auto-respond",
+      "name": "Route: Auto Respond?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [680, 200]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.actionType }}",
+              "value2": "follow_up"
+            }
+          ]
+        }
+      },
+      "id": "route-followup",
+      "name": "Route: Follow Up?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.actionType }}",
+              "value2": "generate_proposal"
+            }
+          ]
+        }
+      },
+      "id": "route-proposal",
+      "name": "Route: Generate Proposal?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [680, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Garvis: Auto-respond to inquiry\nconst request = $json;\n\nconst response = {\n  to: request.email,\n  subject: \"Thank you for your interest in BallCODE\",\n  body: `Dear ${request.name || 'Educator'},\\n\\nThank you for your interest in BallCODE! We're excited to share how we teach coding through basketball.\\n\\n${request.message ? `Regarding your inquiry: ${request.message}\\n\\n` : ''}We'd love to schedule a brief call to discuss how BallCODE can benefit your students.\\n\\nNext Steps:\\n1. Reply to this email to schedule a demo\\n2. Or visit: https://ballcode.co/demo\\n\\nBest regards,\\nThe BallCODE Team`,\n  template: 'inquiry_response'\n};\n\nreturn {\n  json: {\n    ...request,\n    response,\n    action: 'auto_respond'\n  }\n};"
+      },
+      "id": "auto-respond",
+      "name": "Auto-Respond to Inquiry",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Garvis: Generate follow-up sequence\nconst request = $json;\nconst daysSince = request.days_since || 7;\n\nlet followUp = {};\nif (daysSince === 3) {\n  followUp = {\n    subject: \"Getting Started with BallCODE\",\n    body: `Hi ${request.name},\\n\\nJust checking in - have you had a chance to review the BallCODE materials?\\n\\nWe're here to help you get started!\\n\\nBest,\\nBallCODE Team`\n  };\n} else if (daysSince === 7) {\n  followUp = {\n    subject: \"How's BallCODE working for you?\",\n    body: `Hi ${request.name},\\n\\nHow are things going with BallCODE? Any questions or feedback?\\n\\nWe'd love to hear from you!\\n\\nBest,\\nBallCODE Team`\n  };\n} else if (daysSince === 14) {\n  followUp = {\n    subject: \"Need help with BallCODE?\",\n    body: `Hi ${request.name},\\n\\nWe're here to support you! If you need any help or have questions, just reply to this email.\\n\\nBest,\\nBallCODE Team`\n  };\n} else if (daysSince === 30) {\n  followUp = {\n    subject: \"Pilot Feedback Request\",\n    body: `Hi ${request.name},\\n\\nWe'd love to hear about your experience with BallCODE so far. Your feedback helps us improve!\\n\\nBest,\\nBallCODE Team`\n  };\n}\n\nreturn {\n  json: {\n    ...request,\n    followUp: {\n      ...followUp,\n      to: request.email,\n      daysSince\n    },\n    action: 'follow_up'\n  }\n};"
+      },
+      "id": "generate-followup",
+      "name": "Generate Follow-Up",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Garvis: Generate proposal\nconst request = $json;\n\nconst proposal = {\n  to: request.email,\n  subject: `BallCODE Proposal for ${request.company || request.schoolName}`,\n  body: `Dear ${request.name},\\n\\nThank you for your interest in BallCODE! Here's a customized proposal for ${request.company || 'your school'}.\\n\\n**Pilot Program (FREE - 3-6 months)**\\n- Episode 1: The Foundation Block\\n- Complete Teacher Guide\\n- Ongoing Support\\n\\n**After Pilot:**\\n- Single Episode License: $499.99\\n- Full Series License: $2,999.99\\n- Annual Subscription: $1,999.99/year\\n\\n**Special Offer:**\\n20% discount for pilot schools!\\n\\nLet's schedule a call to discuss.\\n\\nBest regards,\\nBallCODE Team`,\n  attachments: []\n};\n\nreturn {\n  json: {\n    ...request,\n    proposal,\n    action: 'generate_proposal'\n  }\n};"
+      },
+      "id": "generate-proposal",
+      "name": "Generate Proposal",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 400]
+    },
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"to\": \"{{ $json.response?.to || $json.followUp?.to || $json.proposal?.to }}\",\n  \"subject\": \"{{ $json.response?.subject || $json.followUp?.subject || $json.proposal?.subject }}\",\n  \"body\": \"{{ $json.response?.body || $json.followUp?.body || $json.proposal?.body }}\"\n}",
+        "options": {
+          "timeout": 30000
+        },
+        "url": "={{ $env.EMAIL_SERVICE_URL || 'http://localhost:2525/send' }}"
+      },
+      "id": "send-email",
+      "name": "Send Email",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1120, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Garvis: Track lead in pipeline\nconst request = $json;\nconst emailSent = $json.emailSent || true;\n\nconst leadRecord = {\n  leadId: request.leadId,\n  email: request.email,\n  name: request.name,\n  company: request.company,\n  status: request.actionType === 'auto_respond' ? 'new' : \n           request.actionType === 'follow_up' ? 'engaged' : 'proposal_sent',\n  lastContact: new Date().toISOString(),\n  actionTaken: request.action,\n  emailSent,\n  nextFollowUp: request.actionType === 'auto_respond' ? \n    new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toISOString() : null\n};\n\nreturn {\n  json: {\n    ...request,\n    leadRecord,\n    status: 'completed',\n    message: `${request.action} completed for ${request.email}`\n  }\n};"
+      },
+      "id": "track-lead",
+      "name": "Track Lead in Pipeline",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1340, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}"
+      },
+      "id": "respond",
+      "name": "Respond with Results",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1560, 300]
+    }
+  ],
+  "connections": {
+    "Sales Automation Webhook": {
+      "main": [[{"node": "Parse Sales Request", "type": "main", "index": 0}]]
+    },
+    "Parse Sales Request": {
+      "main": [[
+        {"node": "Route: Auto Respond?", "type": "main", "index": 0},
+        {"node": "Route: Follow Up?", "type": "main", "index": 0},
+        {"node": "Route: Generate Proposal?", "type": "main", "index": 0}
+      ]]
+    },
+    "Route: Auto Respond?": {
+      "main": [[{"node": "Auto-Respond to Inquiry", "type": "main", "index": 0}]]
+    },
+    "Route: Follow Up?": {
+      "main": [[{"node": "Generate Follow-Up", "type": "main", "index": 0}]]
+    },
+    "Route: Generate Proposal?": {
+      "main": [[{"node": "Generate Proposal", "type": "main", "index": 0}]]
+    },
+    "Auto-Respond to Inquiry": {
+      "main": [[{"node": "Send Email", "type": "main", "index": 0}]]
+    },
+    "Generate Follow-Up": {
+      "main": [[{"node": "Send Email", "type": "main", "index": 0}]]
+    },
+    "Generate Proposal": {
+      "main": [[{"node": "Send Email", "type": "main", "index": 0}]]
+    },
+    "Send Email": {
+      "main": [[{"node": "Track Lead in Pipeline", "type": "main", "index": 0}]]
+    },
+    "Track Lead in Pipeline": {
+      "main": [[{"node": "Respond with Results", "type": "main", "index": 0}]]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-12-17T00:00:00.000Z",
+  "versionId": "1"
+}
+

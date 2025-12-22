@@ -1,0 +1,338 @@
+{
+  "day_1": {
+    "day": 1,
+    "date": "December 31, 2025",
+    "content_type": "coming_soon_launch",
+    "title": "Coming Soon Launch",
+    "theme": "Story Launch - From NBA Courts to Classrooms",
+    "channels": [
+      "LinkedIn",
+      "Twitter/X",
+      "Email"
+    ],
+    "content": {
+      "headline": "",
+      "body": "",
+      "call_to_action": "",
+      "hashtags": [
+        "#BallCODE",
+        "#CodingEducation",
+        "#BasketballLearning"
+      ]
+    },
+    "visual_needed": false,
+    "status": "draft"
+  },
+  "day_2": {
+    "day": 2,
+    "date": "January 01, 2026",
+    "content_type": "story_tease",
+    "title": "Story Tease - Day 2",
+    "theme": "Your Journey & Vision",
+    "channels": [
+      "LinkedIn",
+      "Twitter/X",
+      "Email"
+    ],
+    "content": {
+      "headline": "",
+      "body": "",
+      "call_to_action": "",
+      "hashtags": [
+        "#BallCODE",
+        "#CodingEducation",
+        "#BasketballLearning"
+      ]
+    },
+    "visual_needed": false,
+    "status": "draft"
+  },
+  "day_3": {
+    "day": 3,
+    "date": "January 02, 2026",
+    "content_type": "story_tease",
+    "title": "Story Tease - Day 3",
+    "theme": "Your Journey & Vision",
+    "channels": [
+      "LinkedIn",
+      "Twitter/X",
+      "Email"
+    ],
+    "content": {
+      "headline": "",
+      "body": "",
+      "call_to_action": "",
+      "hashtags": [
+        "#BallCODE",
+        "#CodingEducation",
+        "#BasketballLearning"
+      ]
+    },
+    "visual_needed": false,
+    "status": "draft"
+  },
+  "day_4": {
+    "day": 4,
+    "date": "January 03, 2026",
+    "content_type": "system_tease",
+    "title": "System Tease - Day 4",
+    "theme": "How BallCODE Works",
+    "channels": [
+      "LinkedIn",
+      "Twitter/X",
+      "Email"
+    ],
+    "content": {
+      "headline": "",
+      "body": "",
+      "call_to_action": "",
+      "hashtags": [
+        "#BallCODE",
+        "#CodingEducation",
+        "#BasketballLearning"
+      ]
+    },
+    "visual_needed": false,
+    "status": "draft"
+  },
+  "day_5": {
+    "day": 5,
+    "date": "January 04, 2026",
+    "content_type": "system_tease",
+    "title": "System Tease - Day 5",
+    "theme": "How BallCODE Works",
+    "channels": [
+      "LinkedIn",
+      "Twitter/X",
+      "Email"
+    ],
+    "content": {
+      "headline": "",
+      "body": "",
+      "call_to_action": "",
+      "hashtags": [
+        "#BallCODE",
+        "#CodingEducation",
+        "#BasketballLearning"
+      ]
+    },
+    "visual_needed": false,
+    "status": "draft"
+  },
+  "day_6": {
+    "day": 6,
+    "date": "January 05, 2026",
+    "content_type": "value_proposition",
+    "title": "Value Proposition - Day 6",
+    "theme": "What Schools Get",
+    "channels": [
+      "LinkedIn",
+      "Twitter/X",
+      "Email"
+    ],
+    "content": {
+      "headline": "",
+      "body": "",
+      "call_to_action": "",
+      "hashtags": [
+        "#BallCODE",
+        "#CodingEducation",
+        "#BasketballLearning"
+      ]
+    },
+    "visual_needed": false,
+    "status": "draft"
+  },
+  "day_7": {
+    "day": 7,
+    "date": "January 06, 2026",
+    "content_type": "value_proposition",
+    "title": "Value Proposition - Day 7",
+    "theme": "What Schools Get",
+    "channels": [
+      "LinkedIn",
+      "Twitter/X",
+      "Email"
+    ],
+    "content": {
+      "headline": "",
+      "body": "",
+      "call_to_action": "",
+      "hashtags": [
+        "#BallCODE",
+        "#CodingEducation",
+        "#BasketballLearning"
+      ]
+    },
+    "visual_needed": false,
+    "status": "draft"
+  },
+  "day_8": {
+    "day": 8,
+    "date": "January 07, 2026",
+    "content_type": "feature_deep_dive",
+    "title": "Feature Deep Dive - Day 8",
+    "theme": "System Features",
+    "channels": [
+      "LinkedIn",
+      "Twitter/X",
+      "Email"
+    ],
+    "content": {
+      "headline": "",
+      "body": "",
+      "call_to_action": "",
+      "hashtags": [
+        "#BallCODE",
+        "#CodingEducation",
+        "#BasketballLearning"
+      ]
+    },
+    "visual_needed": false,
+    "status": "draft"
+  },
+  "day_9": {
+    "day": 9,
+    "date": "January 08, 2026",
+    "content_type": "feature_deep_dive",
+    "title": "Feature Deep Dive - Day 9",
+    "theme": "System Features",
+    "channels": [
+      "LinkedIn",
+      "Twitter/X",
+      "Email"
+    ],
+    "content": {
+      "headline": "",
+      "body": "",
+      "call_to_action": "",
+      "hashtags": [
+        "#BallCODE",
+        "#CodingEducation",
+        "#BasketballLearning"
+      ]
+    },
+    "visual_needed": false,
+    "status": "draft"
+  },
+  "day_10": {
+    "day": 10,
+    "date": "January 09, 2026",
+    "content_type": "feature_deep_dive",
+    "title": "Feature Deep Dive - Day 10",
+    "theme": "System Features",
+    "channels": [
+      "LinkedIn",
+      "Twitter/X",
+      "Email"
+    ],
+    "content": {
+      "headline": "",
+      "body": "",
+      "call_to_action": "",
+      "hashtags": [
+        "#BallCODE",
+        "#CodingEducation",
+        "#BasketballLearning"
+      ]
+    },
+    "visual_needed": false,
+    "status": "draft"
+  },
+  "day_11": {
+    "day": 11,
+    "date": "January 10, 2026",
+    "content_type": "countdown",
+    "title": "Countdown - 3 Days Until Launch",
+    "theme": "Final Countdown",
+    "channels": [
+      "LinkedIn",
+      "Twitter/X",
+      "Email"
+    ],
+    "content": {
+      "headline": "",
+      "body": "",
+      "call_to_action": "",
+      "hashtags": [
+        "#BallCODE",
+        "#CodingEducation",
+        "#BasketballLearning"
+      ]
+    },
+    "visual_needed": false,
+    "status": "draft"
+  },
+  "day_12": {
+    "day": 12,
+    "date": "January 11, 2026",
+    "content_type": "countdown",
+    "title": "Countdown - 2 Days Until Launch",
+    "theme": "Final Countdown",
+    "channels": [
+      "LinkedIn",
+      "Twitter/X",
+      "Email"
+    ],
+    "content": {
+      "headline": "",
+      "body": "",
+      "call_to_action": "",
+      "hashtags": [
+        "#BallCODE",
+        "#CodingEducation",
+        "#BasketballLearning"
+      ]
+    },
+    "visual_needed": false,
+    "status": "draft"
+  },
+  "day_13": {
+    "day": 13,
+    "date": "January 12, 2026",
+    "content_type": "countdown",
+    "title": "Countdown - 1 Days Until Launch",
+    "theme": "Final Countdown",
+    "channels": [
+      "LinkedIn",
+      "Twitter/X",
+      "Email"
+    ],
+    "content": {
+      "headline": "",
+      "body": "",
+      "call_to_action": "",
+      "hashtags": [
+        "#BallCODE",
+        "#CodingEducation",
+        "#BasketballLearning"
+      ]
+    },
+    "visual_needed": false,
+    "status": "draft"
+  },
+  "day_14": {
+    "day": 14,
+    "date": "January 13, 2026",
+    "content_type": "launch_eve",
+    "title": "Launch Day Eve",
+    "theme": "Tomorrow We Launch",
+    "channels": [
+      "LinkedIn",
+      "Twitter/X",
+      "Email"
+    ],
+    "content": {
+      "headline": "",
+      "body": "",
+      "call_to_action": "",
+      "hashtags": [
+        "#BallCODE",
+        "#CodingEducation",
+        "#BasketballLearning"
+      ]
+    },
+    "visual_needed": false,
+    "status": "draft"
+  }
+}

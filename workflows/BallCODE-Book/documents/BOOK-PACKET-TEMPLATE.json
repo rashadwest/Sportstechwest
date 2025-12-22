@@ -26,8 +26,8 @@
     }
   },
   "assets": {
-    "thumbnail_path": "assets/book1-thumbnail.png",
-    "video_path": "assets/book1-video.mp4"
+    "thumbnail_path": "../BallCode/assets/images/video-poster.png",
+    "video_path": ""
   },
   "website": {
     "index_card_badge": "Available",
@@ -37,7 +37,7 @@
     "launch_url": "ballcode.co/play?book=1&level=1&mode=blockcoding",
     "levels": [
       {
-        "level_id": "book1_coding_1_1",
+        "level_id": "book1_coding_1_2",
         "mode": "blockcoding",
         "duration_seconds": 90
       }

@@ -12,10 +12,14 @@ on:
       - 'ProjectSettings/**'
       - '.github/workflows/unity-webgl-build.yml'
 
+concurrency:
+  group: unity-webgl-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45  # Increased for large builds
     
     steps:
     - name: Checkout repository
@@ -37,30 +41,57 @@ jobs:
         unityVersion: 2021.3.15f1
         
     - name: Build Unity WebGL
+      id: build
       uses: game-ci/unity-builder@v4
       env:
-        UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        UNITY_LICENSE: ${{ secrets.UNITY_LICENSE || '' }}
       with:
         targetPlatform: WebGL
         buildName: BallCODE-WebGL
         buildsPath: Builds/WebGL
-        buildMethod: Custom
-        customBuildPath: Assets/Editor/BuildScript.cs
+        buildMethod: Default
+      continue-on-error: false
+      
+    - name: Verify Build Output
+      id: verify-build
+      run: |
+        if [ ! -d "Builds/WebGL" ]; then
+          echo "❌ Build directory not found"
+          exit 1
+        fi
+        
+        if [ ! -f "Builds/WebGL/index.html" ]; then
+          echo "❌ index.html not found in build output"
+          exit 1
+        fi
+        
+        if [ ! -d "Builds/WebGL/Build" ]; then
+          echo "❌ Build/Build directory not found"
+          exit 1
+        fi
+        
+        # Calculate build size
+        BUILD_SIZE=$(du -sh Builds/WebGL | cut -f1)
+        echo "✅ Build verified successfully"
+        echo "📦 Build size: $BUILD_SIZE"
+        echo "build_size=$BUILD_SIZE" >> $GITHUB_OUTPUT
         
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
       with:
         name: webgl-build
         path: Builds/WebGL
-        retention-days: 7
+        retention-days: 30  # Increased retention for production
+        if-no-files-found: error
         
     - name: Deploy to Netlify
+      id: deploy
       uses: nwtgck/actions-netlify@v2.0
       with:
         publish-dir: './Builds/WebGL'
         production-deploy: true
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        deploy-message: "Deploy from GitHub Actions - ${{ github.event.head_commit.message || 'Automated build' }}"
+        deploy-message: "Deploy from GitHub Actions - ${{ github.event.client_payload.request || github.event.head_commit.message || 'Automated build' }}"
         enable-pull-request-comment: false
         enable-commit-comment: false
       env:
@@ -68,14 +99,63 @@ jobs:
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
       continue-on-error: false
       
+    - name: Verify Deployment
+      if: success()
+      run: |
+        SITE_URL="https://${{ secrets.NETLIFY_SITE_NAME || 'ballcode-game' }}.netlify.app"
+        echo "🌐 Verifying deployment..."
+        echo "Site URL: $SITE_URL"
+        
+        # Wait a moment for deployment to propagate
+        sleep 10
+        
+        # Check if site is accessible
+        HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" "$SITE_URL" || echo "000")
+        if [ "$HTTP_CODE" = "200" ] || [ "$HTTP_CODE" = "301" ] || [ "$HTTP_CODE" = "302" ]; then
+          echo "✅ Site is accessible (HTTP $HTTP_CODE)"
+        else
+          echo "⚠️ Site returned HTTP $HTTP_CODE (may still be deploying)"
+        fi
+        
+    - name: Build Summary
+      if: always()
+      run: |
+        echo "## 🎮 Unity WebGL Build Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**Status:** ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Build Size:** ${{ steps.verify-build.outputs.build_size }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Site URL:** https://${{ secrets.NETLIFY_SITE_NAME || 'ballcode-game' }}.netlify.app" >> $GITHUB_STEP_SUMMARY
+        echo "**Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Triggered by:** ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        
+        if [ "${{ job.status }}" = "success" ]; then
+          echo "✅ Build and deployment completed successfully!" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "❌ Build or deployment failed. Check logs above." >> $GITHUB_STEP_SUMMARY
+        fi
+      
     - name: Notify completion
       if: always()
       uses: actions/github-script@v7
       with:
         script: |
           const status = '${{ job.status }}' === 'success' ? '✅ Success' : '❌ Failed';
-          const message = `Unity WebGL Build ${status}\n\nSite: https://${{ secrets.NETLIFY_SITE_NAME || 'ballcode-game' }}.netlify.app\nCommit: ${{ github.sha }}\nTriggered by: ${{ github.event_name }}`;
+          const siteUrl = 'https://${{ secrets.NETLIFY_SITE_NAME || 'ballcode-game' }}.netlify.app';
+          const buildSize = '${{ steps.verify-build.outputs.build_size || 'N/A' }}';
+          const commitSha = '${{ github.sha }}'.substring(0, 7);
+          const commitMessage = '${{ github.event.client_payload.request || github.event.head_commit.message || "Automated build" }}'.split('\n')[0];
+          
+          const message = `Unity WebGL Build ${status}
+
+🌐 Site: ${siteUrl}
+📦 Build Size: ${buildSize}
+📝 Commit: ${commitSha} - ${commitMessage}
+🔧 Triggered by: ${{ github.event_name }}
+
+${status === '✅ Success' ? '✅ Ready for production!' : '❌ Check logs for errors'}`;
           
           console.log(message);
-
-
+          
+          // Optionally create a commit comment (if enabled)
+          // This is disabled by default to avoid spam

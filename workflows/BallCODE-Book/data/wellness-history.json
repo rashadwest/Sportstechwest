@@ -1,0 +1,18 @@
+[
+  {
+    "timestamp": "2025-12-21T16:45:15.439210",
+    "overall_score": 72.6745940889631,
+    "memory_used_percent": 85.7,
+    "cpu_usage_percent": 30.0,
+    "git_status_time_ms": 82.61,
+    "metrics": {
+      "cpu": 70.0,
+      "memory": 14.299999999999997,
+      "disk": 98.15,
+      "network": 63.96899223327637,
+      "file_system": 80,
+      "cursor": 100.0,
+      "git": 82.30316638946533
+    }
+  }
+]

@@ -1,0 +1,21 @@
+Subject: Welcome to BallCODE!
+
+Hi {{ name }},
+
+Welcome to BallCODE! We're excited to have you join us.
+
+At BallCODE, we teach AI + Math through Basketball - making learning fun and engaging.
+
+Here's what you can expect:
+- Interactive learning experiences
+- Basketball-based coding exercises
+- Real-world AI and math applications
+
+If you have any questions, feel free to reach out!
+
+Best regards,
+R.L West
+CEO, BallCODE
+ballcode.co
+
+

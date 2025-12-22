@@ -1,0 +1,99 @@
+Subject: Formal Data Access and Deletion Request Under GDPR/CCPA - Repository: BallCODE-Book
+
+To: legal@cursor.com
+Cc: privacy@cursor.com, support@cursor.com
+Date: [INSERT TODAY'S DATE]
+
+Dear Cursor Data, Inc. Legal and Privacy Team,
+
+I am submitting a formal request under applicable privacy laws, including the General Data Protection Regulation (GDPR) Articles 15 and 17, and the California Consumer Privacy Act (CCPA) Sections 1798.100 and 1798.105.
+
+REQUEST 1: DATA ACCESS (GDPR Article 15 / CCPA Section 1798.100)
+
+I request disclosure of all information you have regarding:
+
+1. Whether my codebase/repository was used for AI model training
+2. What specific data was collected from my repository
+3. When data was collected (specific dates)
+4. How the data was used (training, analysis, etc.)
+5. Whether data was shared with third parties
+6. What data retention policies apply
+7. Whether I consented to this usage, and if so, when and how
+8. Any other processing of my personal data or code
+
+REQUEST 2: DATA DELETION (GDPR Article 17 / CCPA Section 1798.105)
+
+I request immediate deletion of:
+
+1. All code/data collected from my repository: BallCODE-Book
+2. Any training data derived from my code
+3. Any personal data associated with my account
+4. Any data processed in violation of applicable privacy laws
+
+REPOSITORY INFORMATION:
+
+- Repository Name: BallCODE-Book
+- Repository Path: /Users/rashadwest/Sportstechwest/workflows/BallCODE-Book
+- Activity Period: September 4, 2024 - December 9, 2025
+- Total Files: 715 files
+  - Documentation: 589 files (.md)
+  - Code Files: 126 files (Python, C#, JavaScript, JSON)
+- Total Git Commits: 276 commits
+- Primary Development Period: September 2024 - December 2025
+
+LEGAL BASIS:
+
+- GDPR Article 15: Right of access to personal data
+- GDPR Article 17: Right to erasure ("right to be forgotten")
+- CCPA Section 1798.100: Right to know what personal information is collected
+- CCPA Section 1798.105: Right to delete personal information
+
+RESPONSE REQUIREMENTS:
+
+Under applicable privacy laws:
+- GDPR: You must respond within 30 days (Article 12(3))
+- CCPA: You must respond within 45 days (Section 1798.130)
+
+If you require additional time, you must inform me within the initial response period and provide a reason for the delay.
+
+If you refuse this request, you must:
+- Explain the legal basis for refusal
+- Inform me of my right to lodge a complaint with a supervisory authority
+- Provide contact details for the relevant supervisory authority
+
+IDENTIFICATION:
+
+Name: [YOUR NAME]
+Email: [YOUR EMAIL]
+Address: [YOUR ADDRESS - Required for GDPR/CCPA]
+[Optional: Phone Number]
+
+If you require additional verification of my identity, please specify what information you need.
+
+RESERVATION OF RIGHTS:
+
+I reserve all rights under applicable privacy laws, including but not limited to:
+- Right to lodge a complaint with a supervisory authority (GDPR Article 77)
+- Right to seek judicial remedy (GDPR Article 79)
+- Right to claim compensation for damages (GDPR Article 82)
+- Right to bring private action (CCPA Section 1798.150)
+- Right to seek statutory damages (CCPA)
+
+I expect a written response confirming receipt of this request within 7 business days, and a complete response to my requests within the legally required timeframe.
+
+Thank you for your prompt attention to this matter.
+
+Sincerely,
+
+[YOUR NAME]
+[YOUR EMAIL]
+[YOUR ADDRESS]
+[PHONE NUMBER - Optional]
+[Date]
+
+---
+
+P.S. This request is made in good faith to understand and exercise my data protection rights. I am open to discussing this matter and resolving it amicably.
+
+
+

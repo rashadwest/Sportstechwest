@@ -1,0 +1,186 @@
+[
+  {
+    "date": "2025-12-31",
+    "day": 1,
+    "theme": "Coming Soon Launch",
+    "content": [
+      "LinkedIn: Long-form story post",
+      "Twitter: Thread announcement",
+      "Email: Coming soon campaign"
+    ],
+    "visuals": [
+      "Your photo",
+      "BallCODE logo"
+    ],
+    "cta": "Pre-register"
+  },
+  {
+    "date": "2026-01-01",
+    "day": 2,
+    "theme": "System Tease",
+    "content": [
+      "Social: Day 2 teaser",
+      "Email: System preview"
+    ],
+    "visuals": [
+      "System screenshot"
+    ],
+    "cta": "Learn More"
+  },
+  {
+    "date": "2026-01-02",
+    "day": 3,
+    "theme": "System Tease",
+    "content": [
+      "Social: Day 3 teaser",
+      "Email: System preview"
+    ],
+    "visuals": [
+      "System screenshot"
+    ],
+    "cta": "Learn More"
+  },
+  {
+    "date": "2026-01-03",
+    "day": 4,
+    "theme": "System Tease",
+    "content": [
+      "Social: Day 4 teaser",
+      "Email: System preview"
+    ],
+    "visuals": [
+      "System screenshot"
+    ],
+    "cta": "Learn More"
+  },
+  {
+    "date": "2026-01-04",
+    "day": 5,
+    "theme": "System Tease",
+    "content": [
+      "Social: Day 5 teaser",
+      "Email: System preview"
+    ],
+    "visuals": [
+      "System screenshot"
+    ],
+    "cta": "Learn More"
+  },
+  {
+    "date": "2026-01-05",
+    "day": 6,
+    "theme": "System Tease",
+    "content": [
+      "Social: Day 6 teaser",
+      "Email: System preview"
+    ],
+    "visuals": [
+      "System screenshot"
+    ],
+    "cta": "Learn More"
+  },
+  {
+    "date": "2026-01-06",
+    "day": 7,
+    "theme": "System Tease",
+    "content": [
+      "Social: Day 7 teaser",
+      "Email: System preview"
+    ],
+    "visuals": [
+      "System screenshot"
+    ],
+    "cta": "Learn More"
+  },
+  {
+    "date": "2026-01-07",
+    "day": 8,
+    "theme": "6 Days Until Launch",
+    "content": [
+      "Social: Countdown post",
+      "Email: Pre-registration reminder"
+    ],
+    "visuals": [
+      "Countdown graphic"
+    ],
+    "cta": "Pre-Register"
+  },
+  {
+    "date": "2026-01-08",
+    "day": 9,
+    "theme": "5 Days Until Launch",
+    "content": [
+      "Social: Countdown post",
+      "Email: Pre-registration reminder"
+    ],
+    "visuals": [
+      "Countdown graphic"
+    ],
+    "cta": "Pre-Register"
+  },
+  {
+    "date": "2026-01-09",
+    "day": 10,
+    "theme": "4 Days Until Launch",
+    "content": [
+      "Social: Countdown post",
+      "Email: Pre-registration reminder"
+    ],
+    "visuals": [
+      "Countdown graphic"
+    ],
+    "cta": "Pre-Register"
+  },
+  {
+    "date": "2026-01-10",
+    "day": 11,
+    "theme": "3 Days Until Launch",
+    "content": [
+      "Social: Countdown post",
+      "Email: Pre-registration reminder"
+    ],
+    "visuals": [
+      "Countdown graphic"
+    ],
+    "cta": "Pre-Register"
+  },
+  {
+    "date": "2026-01-11",
+    "day": 12,
+    "theme": "2 Days Until Launch",
+    "content": [
+      "Social: Countdown post",
+      "Email: Pre-registration reminder"
+    ],
+    "visuals": [
+      "Countdown graphic"
+    ],
+    "cta": "Pre-Register"
+  },
+  {
+    "date": "2026-01-12",
+    "day": 13,
+    "theme": "1 Days Until Launch",
+    "content": [
+      "Social: Countdown post",
+      "Email: Pre-registration reminder"
+    ],
+    "visuals": [
+      "Countdown graphic"
+    ],
+    "cta": "Pre-Register"
+  },
+  {
+    "date": "2026-01-13",
+    "day": 14,
+    "theme": "0 Days Until Launch",
+    "content": [
+      "Social: Countdown post",
+      "Email: Pre-registration reminder"
+    ],
+    "visuals": [
+      "Countdown graphic"
+    ],
+    "cta": "Pre-Register"
+  }
+]

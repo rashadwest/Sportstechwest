@@ -1,0 +1,22 @@
+Subject: Following up on your interest in BallCODE
+
+Hi {{ name }},
+
+Thank you for your interest in BallCODE!
+
+I wanted to follow up on {{ subject }} and see if you have any questions.
+
+BallCODE offers:
+- Educational books and resources
+- Interactive coding exercises
+- Curriculum-aligned content
+- Basketball-based learning framework
+
+Would you like to schedule a call to discuss how BallCODE can help {{ company }}?
+
+Best regards,
+R.L West
+CEO, BallCODE
+ballcode.co
+
+
