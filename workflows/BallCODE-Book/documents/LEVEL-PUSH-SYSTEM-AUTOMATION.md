@@ -2,9 +2,10 @@
 
 **Copyright © 2025 Rashad West. All Rights Reserved.**
 
-**Date:** December 21, 2025  
-**Status:** ✅ Documented for Automation  
-**Purpose:** Save the level push system to memory for repetitive automation
+**Date:** December 22, 2025 (Updated)  
+**Status:** ✅ Documented for Automation - Complete with Curriculum Integration  
+**Purpose:** Save the level push system to memory for repetitive automation  
+**Last Updated:** December 22, 2025
 
 ---
 
@@ -39,28 +40,35 @@
 ### **Step 2: Modify Level Content**
 
 **What to Change (Required):**
-- `levelId`: Unique identifier (e.g., `book2_coding_level1`)
-- `levelName`: Display name (e.g., "Book 2: Crossover Decision")
+- `levelId`: Unique identifier (e.g., `book2_decision_crossover`)
+- `levelName`: Display name (e.g., "Decision Crossover Exercise")
 - `description`: What the level teaches
+- `episodeNumber`: Book number (0 = Book 1, 1 = Book 2, 2 = Book 3, etc.)
+- `codingConcept`: Concept type (e.g., `basic_blocks_sequences`, `if_then_conditionals`, `loops_repetition`)
 - `strategy.steps[]`: Dribble sequence/actions
 - `exercise.blockCoding.targetCode`: Target code sequence (or `exercise.math.mathConcept` for math)
+- `exercise.blockCoding.availableBlocks`: Blocks available for this level
+- `exercise.blockCoding.requiredBlocks`: Blocks required to complete
+- `curriculum`: **MANDATORY** - Complete curriculum section (see below)
 - `tags`: Update tags for new level
+- `prerequisiteLevels`: Add previous level IDs if needed
 
 **What to Keep (Same):**
-- `gameMode`: "blockcoding" or "math"
-- `episodeNumber`: Book number (0 = Book 1, 1 = Book 2, etc.)
-- `codingConcept`: Concept type (e.g., "basic_blocks_sequences", "conditionals", etc.)
-- `difficultyLevel`: Difficulty (1 = beginner, 2 = intermediate, etc.)
+- `gameMode`: "blockcoding" (for book levels - uses same logic as coding game)
+- `exerciseType`: "BlockCoding" (for block coding levels)
+- `difficultyLevel`: Difficulty (1 = beginner, 2 = intermediate, 3 = advanced)
 - Overall JSON structure and format
 - `videoPath`: Empty for now
 - `videoConfig`: Same structure
 - `scoring`: Same structure
+- `learningObjectives`: Structure (update content)
+- `successCriteria`: Structure (update content)
 
 **Optional Changes:**
-- `exercise.blockCoding.availableBlocks`: Add more blocks if needed
-- `learningObjectives`: Update if needed
-- `successCriteria`: Update if needed
-- `prerequisiteLevels`: Add if level requires previous completion
+- `learningObjectives`: Update content (keep structure)
+- `successCriteria`: Update content (keep structure)
+- `strategy.strategyName`: Update for new strategy
+- `strategy.strategyType`: Update if needed
 
 ---
 
@@ -162,8 +170,14 @@
 - [ ] `levelId` (unique identifier)
 - [ ] `levelName` (display name)
 - [ ] `description` (what the level teaches)
+- [ ] `episodeNumber` (book number: 0=Book1, 1=Book2, 2=Book3, etc.)
+- [ ] `codingConcept` (concept type: `basic_blocks_sequences`, `if_then_conditionals`, `loops_repetition`)
 - [ ] `strategy.steps[]` (dribble sequence)
-- [ ] `exercise.blockCoding.targetCode` (or `exercise.math.mathConcept`)
+- [ ] `exercise.blockCoding.targetCode` (target code sequence)
+- [ ] `exercise.blockCoding.availableBlocks` (blocks available)
+- [ ] `exercise.blockCoding.requiredBlocks` (blocks required)
+- [ ] `curriculum` (MANDATORY - complete curriculum section)
+- [ ] `prerequisiteLevels` (previous level IDs if needed)
 - [ ] `tags` (update tags)
 
 **Optional Changes:**
@@ -181,6 +195,94 @@
 - ✅ `videoConfig` (same structure)
 - ✅ `scoring` (same structure)
 - ✅ Overall JSON structure
+
+---
+
+## 📚 CURRICULUM INTEGRATION (MANDATORY)
+
+**CRITICAL:** Every new level MUST include a complete `curriculum` section. This is mandatory for all book levels.
+
+### **Curriculum Section Structure:**
+
+```json
+"curriculum": {
+  "gradeLevels": ["3-5", "6-8", "9-12"],
+  "standards": {
+    "csta": ["1B-AP-10", "1B-AP-11"],
+    "commonCore": ["MP.2", "MP.7"],
+    "ngss": ["ETS1-2"]
+  },
+  "phases": {
+    "phase1": {
+      "name": "Sports Language (Block Coding)",
+      "description": "Learn [concept] using basketball terminology. Visual block interface: [example]",
+      "example": "[Block code example]",
+      "learningObjective": "Students understand [concept]"
+    },
+    "phase2": {
+      "name": "Transition Bridge",
+      "description": "See how [concept] maps to Python code. Side-by-side view: Block | Python",
+      "example": "Block: [example]\nCode: [Python example]",
+      "learningObjective": "Students understand that blocks = code"
+    },
+    "phase3": {
+      "name": "Python Learning",
+      "description": "Write Python code for [concept]. Create [type] programs",
+      "example": "[Python code example]",
+      "learningObjective": "Students can write Python [concept]"
+    }
+  },
+  "concepts": {
+    "python": "[Python concept name]",
+    "pythonSyntax": "[Python syntax example]",
+    "aiConcept": "[AI concept]",
+    "mathConcept": "[Math concept]"
+  },
+  "basketball": {
+    "skill": "[Basketball skill name]",
+    "level": [skill_level_number],
+    "context": "[Context description]"
+  }
+}
+```
+
+### **What to Update in Curriculum:**
+
+**For Each New Level:**
+- [ ] `gradeLevels`: Usually `["3-5", "6-8", "9-12"]` (adjust if needed)
+- [ ] `standards.csta`: Update with relevant CSTA standards
+- [ ] `standards.commonCore`: Update with relevant Common Core standards
+- [ ] `standards.ngss`: Update with relevant NGSS standards
+- [ ] `phases.phase1`: Update description, example, learning objective
+- [ ] `phases.phase2`: Update description, example, learning objective
+- [ ] `phases.phase3`: Update description, example, learning objective
+- [ ] `concepts.python`: Update Python concept name
+- [ ] `concepts.pythonSyntax`: Update Python syntax example
+- [ ] `concepts.aiConcept`: Update AI concept
+- [ ] `concepts.mathConcept`: Update math concept
+- [ ] `basketball.skill`: Update basketball skill name
+- [ ] `basketball.level`: Update skill level number
+- [ ] `basketball.context`: Update context description
+
+### **Curriculum Examples by Book:**
+
+**Book 1 (Sequences):**
+- Python: "Sequences"
+- Python Syntax: "Sequential code execution"
+- AI Concept: "Step-by-step reasoning"
+- Basketball Skill: "Pound Dribble"
+
+**Book 2 (Conditionals):**
+- Python: "Conditionals"
+- Python Syntax: "if condition: action"
+- AI Concept: "Decision-making logic"
+- Basketball Skill: "Crossover Dribble"
+
+**Book 3 (Loops):**
+- Python: "Loops"
+- Python Syntax: "for i in range(3): action"
+- AI Concept: "Pattern recognition and repetition"
+- Basketball Skill: "In & Out Dribble"
 
 ---
 
@@ -285,8 +387,50 @@ echo "✅ Level pushed! Build will auto-trigger."
 
 ---
 
-**Version:** 1.0  
+---
+
+## ✅ COMPLETED EXAMPLES
+
+### **Book 1: Foundation Block** (`book1_foundation_block.json`)
+- ✅ Complete with curriculum
+- ✅ Uses `blockcoding` game mode
+- ✅ Concept: `basic_blocks_sequences`
+- ✅ Prerequisites: None (starting level)
+
+### **Book 2: Decision Crossover** (`book2_decision_crossover.json`)
+- ✅ Complete with curriculum
+- ✅ Uses `blockcoding` game mode
+- ✅ Concept: `if_then_conditionals`
+- ✅ Prerequisites: `["book1_foundation_block"]`
+
+### **Book 3: Pattern Loop** (`book3_pattern_loop.json`)
+- ✅ Complete with curriculum
+- ✅ Uses `blockcoding` game mode
+- ✅ Concept: `loops_repetition`
+- ✅ Prerequisites: `["book1_foundation_block", "book2_decision_crossover"]`
+
+**All three levels follow this exact process and are ready for Unity integration.**
+
+---
+
+## 🎯 QUICK COPY-PASTE TEMPLATE
+
+**To create a new level, copy this structure:**
+
+1. Copy `book1_foundation_block.json` (or most recent similar level)
+2. Update all required fields (see checklist above)
+3. **MANDATORY:** Add/update complete `curriculum` section
+4. Save as `book{N}_{concept}_{name}.json`
+5. Push to Unity repository
+6. Build auto-triggers
+
+**Time to create new level:** ~15-20 minutes (copy + modify + push)
+
+---
+
+**Version:** 2.0  
 **Created:** December 21, 2025  
+**Last Updated:** December 22, 2025  
 **Purpose:** Save level push system to memory for automation  
-**Status:** ✅ Ready for use
+**Status:** ✅ Complete - Ready for use with curriculum integration
 
