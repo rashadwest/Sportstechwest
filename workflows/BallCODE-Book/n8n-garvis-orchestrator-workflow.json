@@ -171,28 +171,28 @@
     },
     {
       "parameters": {
-        "url": "={{ $env.N8N_BASE_URL || 'http://192.168.1.226:5678' }}/webhook/book-content-update",
+        "url": "={{ $env.N8N_BASE_URL || 'http://192.168.1.226:5678' }}/webhook/ballcode-dev",
         "authentication": "none",
         "options": {
           "timeout": 300000
         }
       },
       "id": "execute-book",
-      "name": "Execute: Book Content Update",
+      "name": "Execute: Book Content Update (via Full Integration)",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [900, 200]
     },
     {
       "parameters": {
-        "url": "={{ $env.N8N_BASE_URL || 'http://192.168.1.226:5678' }}/webhook/curriculum-sync",
+        "url": "={{ $env.N8N_BASE_URL || 'http://192.168.1.226:5678' }}/webhook/ballcode-dev",
         "authentication": "none",
         "options": {
           "timeout": 300000
         }
       },
       "id": "execute-curriculum",
-      "name": "Execute: Curriculum Sync",
+      "name": "Execute: Curriculum Sync (via Full Integration)",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [900, 300]
@@ -213,28 +213,28 @@
     },
     {
       "parameters": {
-        "url": "={{ $env.N8N_BASE_URL || 'http://192.168.1.226:5678' }}/webhook/website-update",
+        "url": "={{ $env.N8N_BASE_URL || 'http://192.168.1.226:5678' }}/webhook/ballcode-dev",
         "authentication": "none",
         "options": {
           "timeout": 300000
         }
       },
       "id": "execute-website",
-      "name": "Execute: Website Update",
+      "name": "Execute: Website Update (via Full Integration)",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [900, 500]
     },
     {
       "parameters": {
-        "url": "={{ $env.N8N_BASE_URL || 'http://192.168.1.226:5678' }}/webhook/school-onboarding",
+        "url": "={{ $env.N8N_BASE_URL || 'http://192.168.1.226:5678' }}/webhook/ballcode-dev",
         "authentication": "none",
         "options": {
           "timeout": 300000
         }
       },
       "id": "execute-sales",
-      "name": "Execute: Sales/Onboarding",
+      "name": "Execute: Sales/Onboarding (via Full Integration)",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [900, 600]
