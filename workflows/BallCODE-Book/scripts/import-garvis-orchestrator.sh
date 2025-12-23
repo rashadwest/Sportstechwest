@@ -5,7 +5,9 @@
 set -e
 
 PI_N8N_URL="http://192.168.1.226:5678"
-WORKFLOW_FILE="n8n-garvis-orchestrator-workflow.json"
+SOURCE_FILE="n8n-garvis-orchestrator-workflow.json"
+CLEANED_FILE="n8n-garvis-orchestrator-workflow-API-READY.json"
+WORKFLOW_FILE="$CLEANED_FILE"
 
 # Colors
 GREEN='\033[0;32m'
@@ -29,8 +31,8 @@ if [ -z "$N8N_API_KEY" ]; then
     exit 1
 fi
 
-if [ ! -f "$WORKFLOW_FILE" ]; then
-    echo -e "${RED}❌ Workflow file not found: $WORKFLOW_FILE${NC}"
+if [ ! -f "$SOURCE_FILE" ]; then
+    echo -e "${RED}❌ Source workflow file not found: $SOURCE_FILE${NC}"
     exit 1
 fi
 
@@ -38,6 +40,21 @@ echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━�
 echo -e "${BLUE}🚀 Importing Fixed Garvis Orchestrator Workflow${NC}"
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
+
+# Step 0: Clean workflow for API
+echo -e "${BLUE}Step 0: Cleaning workflow for API import...${NC}"
+if [ -f "scripts/clean-workflow-for-api-v2.py" ]; then
+    python3 scripts/clean-workflow-for-api-v2.py "$SOURCE_FILE" "$CLEANED_FILE" 2>/dev/null
+    if [ $? -eq 0 ] && [ -f "$CLEANED_FILE" ]; then
+        echo -e "${GREEN}✅ Workflow cleaned${NC}"
+    else
+        echo -e "${YELLOW}⚠️  Clean script not available, using source file${NC}"
+        WORKFLOW_FILE="$SOURCE_FILE"
+    fi
+else
+    echo -e "${YELLOW}⚠️  Clean script not found, using source file${NC}"
+    WORKFLOW_FILE="$SOURCE_FILE"
+fi
 
 # Step 1: Find existing workflow
 echo -e "${BLUE}Step 1: Checking for existing workflow...${NC}"
