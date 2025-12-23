@@ -14,7 +14,8 @@ public class GameModeButton : ImprovedButton
         Chess,
         Coding,
         Freeplay,
-        Mathlete
+        Mathlete,
+        Book
     }
     
     void Start()
@@ -39,6 +40,21 @@ public class GameModeButton : ImprovedButton
     
     public void SelectMode()
     {
+        // Special handling for Book mode - open book menu instead of selecting
+        if (gameMode == GameMode.Book)
+        {
+            BookMenuManager bookMenu = FindObjectOfType<BookMenuManager>();
+            if (bookMenu != null)
+            {
+                bookMenu.OpenBookMenu();
+            }
+            else
+            {
+                Debug.LogWarning("[GameModeButton] Book mode selected but BookMenuManager not found!");
+            }
+            return;
+        }
+        
         // Deselect all other game mode buttons
         GameModeButton[] allModeButtons = FindObjectsOfType<GameModeButton>();
         foreach (GameModeButton btn in allModeButtons)
