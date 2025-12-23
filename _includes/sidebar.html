@@ -25,7 +25,13 @@
 <div class="sidebox widget">
   <h3 class="widget-title">Popular Posts</h3>
   <ul class="image-list">
-    {% for post in site.posts limit: "5" %}
+    {% assign hidden_slugs = site.data.hidden_posts.slugs | default: nil %}
+    {% assign shown = 0 %}
+    {% for post in site.posts %}
+    {% if shown >= 5 %}{% break %}{% endif %}
+    {% assign post_slug = post.title | slugify %}
+    {% if hidden_slugs and hidden_slugs contains post_slug %}{% continue %}{% endif %}
+    {% assign shown = shown | plus: 1 %}
     <li>
       {% if post.thumbnail %}
       <figure class="rounded"><a href="blog-post.html">

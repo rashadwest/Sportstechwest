@@ -1,0 +1,33 @@
+#!/bin/bash
+# Garvis Push - Natural Language Commands
+# Usage: ./push website | ./push game | ./push all
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+GARVIS_PUSH="$SCRIPT_DIR/garvis-push.py"
+
+case "$1" in
+    website|web|site)
+        python3 "$GARVIS_PUSH" --website
+        ;;
+    game|games|unity)
+        python3 "$GARVIS_PUSH" --game
+        ;;
+    all|everything|both)
+        python3 "$GARVIS_PUSH" --all
+        ;;
+    *)
+        echo "Usage: ./push [website|game|all]"
+        echo ""
+        echo "Commands:"
+        echo "  website  - Push website only"
+        echo "  game     - Push game levels only"
+        echo "  all      - Push everything (default)"
+        echo ""
+        echo "Examples:"
+        echo "  ./push website"
+        echo "  ./push game"
+        echo "  ./push all"
+        exit 1
+        ;;
+esac
+

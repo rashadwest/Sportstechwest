@@ -19,7 +19,10 @@
         data-autoplay-timeout="5000"
         data-responsive='{"0":{"items": "1"}, "768":{"items": "2"}, "992":{"items": "3"}}'
       >
+        {% assign hidden_slugs = site.data.hidden_posts.slugs | default: nil %}
         {% for post in site.posts limit: 7 %}
+        {% assign post_slug = post.title | slugify %}
+        {% unless hidden_slugs and hidden_slugs contains post_slug %}
         <div class="item">
           {% if post.thumbnail %}
           <figure class="overlay overlay1 rounded mb-30">
@@ -55,6 +58,7 @@
             {% endif %}
           </div>
         </div>
+        {% endunless %}
         {% endfor %}
       </div>
     </div>

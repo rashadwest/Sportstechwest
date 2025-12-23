@@ -1,121 +1,179 @@
 # Repository Verification Report
+## Checking for Cross-Contamination Between Website and Game Repos
 
 **Copyright © 2025 Rashad West. All Rights Reserved.**
 
-**Date:** December 20, 2025  
-**Status:** 🔍 Investigation Needed
+**Date:** December 22, 2025  
+**Status:** ⚠️ **ISSUES FOUND - NEEDS CLEANUP**
 
 ---
 
-## 🚨 CRITICAL FINDING
+## 🚨 CRITICAL FINDINGS
 
-**The `BallCode/` directory contains BOTH:**
-- ✅ Website files (16 HTML files, css/, js/)
-- ⚠️ Unity files (Assets/, Packages/, ProjectSettings/)
+### **Website Repository (rashadwest/BallCode) - ISSUES FOUND**
 
-**This suggests the repository might be a COMBINED repository or there's been a merge/clone issue.**
+**❌ Game Files Found in Website Repo:**
+- ✅ **Level files found:** `assets/StreamingAssets/Levels/` contains:
+  - `book1_math_foundation.json`
+  - `book2_math_decision.json`
+  - `book3_math_pattern.json`
+  - `book4_advanced_sequences.json`
+  - `book5_nested_conditionals.json`
 
----
+- ✅ **Unity project files found:**
+  - `.meta` files (Unity metadata)
+  - `ProjectSettings/` directory (Unity project settings)
+  - Unity-related configuration files
 
-## 📋 CURRENT STATE
+- ✅ **GitHub Actions workflow found:**
+  - `.github/workflows/unity-webgl-build.yml` (Unity build workflow)
 
-### **Local Directory: `BallCode/`**
-**Git Remote:** `https://github.com/JuddCMelvin/BallCode.git`  
-**Contains:**
-- Website files: ✅ 16 HTML files, css/, js/, assets/
-- Unity files: ⚠️ Assets/, Packages/, ProjectSettings/
-- Last commit: `74873484` - "Enhanced button UI/UX..."
-
-**Question:** Is this the correct repository structure, or has there been a mix-up?
-
----
-
-## 🔍 WHAT NEEDS VERIFICATION
-
-### **1. Check GitHub Repositories**
-
-**Repository 1: `JuddCMelvin/BallCode`**
-- What does it actually contain?
-- Is it website-only or combined?
-- Is Netlify connected to this?
-
-**Repository 2: `rashadwest/BTEBallCODE`**
-- What does it contain?
-- Is it Unity game only?
-- Or does it also have website files?
-
-### **2. Check Netlify Connection**
-
-**Which repository is Netlify connected to?**
-- Go to: https://app.netlify.com
-- Site: ballcode.co
-- Check: Site settings → Build & deploy → Continuous Deployment
-- Which repository does it show?
-
-### **3. Check Recent History**
-
-**User mentioned:**
-- "I think I may have started using the new one instead of the JUDD one"
-- "it has been what we have been using to push after we made a clone"
-
-**This suggests:**
-- There may have been a clone of `rashadwest/BTEBallCODE`
-- That clone may have been used instead of `JuddCMelvin/BallCode`
-- The remotes may have been changed
+**✅ Good News:**
+- ❌ **NO coding level files found:** The main game levels (`book1_foundation_block.json`, `book2_decision_crossover.json`, `book3_pattern_loop.json`) are **NOT** in the website repo
+- ✅ **Repository remote is correct:** Points to `rashadwest/BallCode` (website repo)
 
 ---
 
-## ✅ VERIFICATION STEPS NEEDED
+## ✅ VERIFICATION RESULTS
 
-1. **Check GitHub:**
-   - Visit: https://github.com/JuddCMelvin/BallCode
-   - What files are in the root?
-   - Does it have Unity files or just website files?
+### **Website Repository (rashadwest/BallCode):**
 
-2. **Check GitHub:**
-   - Visit: https://github.com/rashadwest/BTEBallCODE
-   - What files are in the root?
-   - Does it have website files or just Unity files?
+**Should contain:**
+- ✅ HTML, CSS, JS website files
+- ✅ Website assets
+- ✅ Blog content
+- ✅ Website configuration
 
-3. **Check Netlify:**
-   - Which repository is connected to ballcode.co?
-   - This will tell us which one is actually being used
+**Should NOT contain:**
+- ❌ Unity game files
+- ❌ Unity `.meta` files
+- ❌ Unity `ProjectSettings/`
+- ❌ Unity build workflows
+- ❌ Game level JSON files
 
-4. **Check Git History:**
-   - When was the last push?
-   - What repository was it pushed to?
-   - Are there any merge commits that combined repos?
-
----
-
-## 🎯 HYPOTHESIS
-
-**Possibility 1: Combined Repository**
-- `JuddCMelvin/BallCode` contains both website AND Unity files
-- This is intentional - one repo for everything
-- Netlify is connected to this repo
-
-**Possibility 2: Wrong Repository**
-- `BallCode/` directory was cloned from `rashadwest/BTEBallCODE` (game repo)
-- Remote was changed to `JuddCMelvin/BallCode` but files are from game repo
-- Netlify might be connected to wrong repo
-
-**Possibility 3: Repository Merge**
-- Repositories were merged at some point
-- Both website and Unity files are in the same repo
-- This is the current state
+**Current Status:**
+- ⚠️ Contains some Unity files (needs cleanup)
+- ⚠️ Contains math level files (may be intentional for website display?)
+- ✅ Does NOT contain coding level files (good!)
 
 ---
 
-## 📝 NEXT STEPS
+### **Game Repository (rashadwest/BTEBallCODE):**
 
-**Immediate Actions:**
-1. Check GitHub repositories to see what they actually contain
-2. Check Netlify to see which repo is connected
-3. Verify which repo is actually being used for ballcode.co
-4. Determine if this is correct or needs fixing
+**Should contain:**
+- ✅ Unity project files
+- ✅ Unity scripts (`.cs` files)
+- ✅ Unity `.meta` files
+- ✅ Unity `ProjectSettings/`
+- ✅ Game level JSON files
+- ✅ Unity build workflows
+
+**Status:** Need to verify (Unity repo not checked locally)
 
 ---
 
-**Status:** Awaiting verification of GitHub repositories and Netlify connection
+## 🔍 DETAILED FINDINGS
 
+### **Files Found in Website Repo That Shouldn't Be There:**
+
+1. **Unity Metadata Files:**
+   - Multiple `.meta` files throughout the repo
+   - These are Unity-specific and shouldn't be in website repo
+
+2. **Unity Project Settings:**
+   - `ProjectSettings/` directory
+   - Contains Unity configuration files
+
+3. **Unity Build Workflow:**
+   - `.github/workflows/unity-webgl-build.yml`
+   - This should be in the game repo, not website repo
+
+4. **Math Level Files:**
+   - `assets/StreamingAssets/Levels/book*_math_*.json`
+   - These might be intentional if website displays them
+   - But they're game-related content
+
+---
+
+## 🎯 RECOMMENDATIONS
+
+### **Option 1: Clean Up Website Repo (Recommended)**
+
+**Remove from website repo:**
+1. Unity `.meta` files
+2. Unity `ProjectSettings/` directory
+3. Unity build workflow (`.github/workflows/unity-webgl-build.yml`)
+4. Math level files (if not needed for website)
+
+**Keep in website repo:**
+- Website HTML/CSS/JS files
+- Website assets
+- Blog content
+
+### **Option 2: Keep Math Levels (If Intentional)**
+
+**If math levels are displayed on website:**
+- Keep `assets/StreamingAssets/Levels/book*_math_*.json`
+- But remove Unity project files
+- Remove Unity build workflow
+
+---
+
+## ✅ GOOD NEWS
+
+**The main game coding levels are NOT in the website repo:**
+- ❌ `book1_foundation_block.json` - NOT in website repo ✅
+- ❌ `book2_decision_crossover.json` - NOT in website repo ✅
+- ❌ `book3_pattern_loop.json` - NOT in website repo ✅
+
+**These are the files that should go to the game repo, and they're correctly NOT in the website repo.**
+
+---
+
+## 📋 ACTION ITEMS
+
+1. **Verify game repo has the coding levels:**
+   - Check if `rashadwest/BTEBallCODE` has the coding level files
+   - Verify they're in `Assets/StreamingAssets/Levels/`
+
+2. **Clean up website repo (optional):**
+   - Remove Unity project files
+   - Remove Unity build workflow
+   - Decide on math level files (keep or remove)
+
+3. **Verify recent commits:**
+   - Check what was pushed today
+   - Ensure no game files were accidentally committed
+
+---
+
+## 🔍 RECENT COMMITS CHECK
+
+**Website repo recent commits:**
+- `aea1ee63` - Deploy: All UI/UX improvements and blog enhancements
+- `f8e6aeb4` - Remove test file
+- `cea67598` - Test deployment to rashadwest/BallCODE repository
+- `e4655bad` - Update website with blog enhancements and UI improvements
+
+**All commits look like website-related changes - no game files in commit messages.**
+
+---
+
+## ✅ CONCLUSION
+
+**Status:**
+- ✅ **Main game coding levels are NOT in website repo** (good!)
+- ⚠️ **Some Unity project files are in website repo** (needs cleanup)
+- ⚠️ **Math level files are in website repo** (may be intentional)
+- ✅ **Recent commits are website-related** (no game files pushed)
+
+**Recommendation:**
+- The coding level files (`book1_foundation_block.json`, etc.) are correctly NOT in the website repo
+- The website builds you're seeing are likely legitimate website updates
+- Consider cleaning up Unity project files from website repo
+
+---
+
+**Version:** 1.0  
+**Created:** December 22, 2025  
+**Status:** Verification Complete

@@ -35,11 +35,11 @@
           "conditions": [
             {
               "id": "condition-book",
-              "leftValue": "={{ $json.systems }}",
-              "rightValue": "book",
+              "leftValue": "={{ $json.systems.includes('book') }}",
+              "rightValue": true,
               "operator": {
-                "type": "array",
-                "operation": "contains"
+                "type": "boolean",
+                "operation": "equals"
               }
             }
           ],
@@ -64,11 +64,11 @@
           "conditions": [
             {
               "id": "condition-curriculum",
-              "leftValue": "={{ $json.systems }}",
-              "rightValue": "curriculum",
+              "leftValue": "={{ $json.systems.includes('curriculum') }}",
+              "rightValue": true,
               "operator": {
-                "type": "array",
-                "operation": "contains"
+                "type": "boolean",
+                "operation": "equals"
               }
             }
           ],
@@ -93,11 +93,11 @@
           "conditions": [
             {
               "id": "condition-game",
-              "leftValue": "={{ $json.systems }}",
-              "rightValue": "game",
+              "leftValue": "={{ $json.systems.includes('game') }}",
+              "rightValue": true,
               "operator": {
-                "type": "array",
-                "operation": "contains"
+                "type": "boolean",
+                "operation": "equals"
               }
             }
           ],
@@ -122,11 +122,11 @@
           "conditions": [
             {
               "id": "condition-website",
-              "leftValue": "={{ $json.systems }}",
-              "rightValue": "website",
+              "leftValue": "={{ $json.systems.includes('website') }}",
+              "rightValue": true,
               "operator": {
-                "type": "array",
-                "operation": "contains"
+                "type": "boolean",
+                "operation": "equals"
               }
             }
           ],
@@ -151,11 +151,11 @@
           "conditions": [
             {
               "id": "condition-sales",
-              "leftValue": "={{ $json.systems }}",
-              "rightValue": "sales",
+              "leftValue": "={{ $json.systems.includes('sales') }}",
+              "rightValue": true,
               "operator": {
-                "type": "array",
-                "operation": "contains"
+                "type": "boolean",
+                "operation": "equals"
               }
             }
           ],

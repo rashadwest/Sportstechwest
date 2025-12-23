@@ -1492,6 +1492,109 @@ Is this still your ONE thing for today, or has it changed?
 
 ---
 
+## Netlify Sites - CRITICAL DISTINCTION (NEVER CONFUSE)
+
+**🚨 CRITICAL RULE: ballcode.netlify.app = GAME SITE (NOT website)**
+
+### **SITE 1: WEBSITE**
+- **Repository:** `rashadwest/BallCode`
+- **Netlify Site:** (Website site - different from game)
+- **Netlify URL:** (Website URL - NOT ballcode.netlify.app)
+- **Purpose:** BallCODE Website (ballcode.co)
+- **Content:** HTML, CSS, JS website files
+- **Build Settings:**
+  - Build command: Empty (static site)
+  - Publish directory: `.` (root)
+- **Local Path:** `/Users/rashadwest/Sportstechwest/workflows/BallCODE-Book/BallCode`
+
+### **SITE 2: GAME** ⚠️ **THIS IS ballcode.netlify.app**
+- **Repository:** `rashadwest/BTEBallCODE`
+- **Netlify Site:** `ballcode`
+- **Netlify URL:** `ballcode.netlify.app` ← **THIS IS THE GAME**
+- **Purpose:** Unity WebGL Game
+- **Content:** Unity game build files
+- **Build Settings:**
+  - Build command: Empty (builds in GitHub Actions)
+  - Publish directory: `Builds/WebGL`
+- **Local Path:** `/Users/rashadwest/Sportstechwest/workflows/BallCODE-Book/Unity-Scripts`
+
+### **AI Assistant MUST:**
+- ✅ **ALWAYS remember:** `ballcode.netlify.app` = GAME SITE
+- ✅ **ALWAYS use:** `Builds/WebGL` for game site publish directory
+- ✅ **ALWAYS use:** `.` (root) for website site publish directory
+- ✅ **ALWAYS verify:** Which site user is referring to before giving advice
+- ❌ **NEVER confuse:** Game site vs Website site
+- ❌ **NEVER assume:** ballcode.netlify.app is the website
+- ❌ **NEVER use:** Static site settings for ballcode.netlify.app
+
+**When user mentions:**
+- "ballcode.netlify.app" → **GAME SITE** → Use Unity settings (`Builds/WebGL`)
+- "The game" → **GAME SITE** → Use Unity settings
+- "Unity" → **GAME SITE** → Use Unity settings
+- "Website" → **WEBSITE SITE** → Use static site settings (`.`)
+- "BallCode repository" → **WEBSITE SITE** → Use static site settings
+
+**Reference:** `documents/BALLCODE-NETLIFY-SITES-MEMORY.md` for complete details
+
+---
+
+## Garvis Push System - One-Command Deployment (PERMANENT)
+
+**CRITICAL: Use Garvis Push for all deployments - it's the most efficient system.**
+
+### **Quick Deployment Commands:**
+
+**Natural Language Commands (Recommended):**
+```bash
+# Push website
+./push website
+# OR
+python scripts/garvis-push-command.py website
+
+# Push game
+./push game
+# OR
+python scripts/garvis-push-command.py game
+
+# Push everything
+./push all
+# OR
+python scripts/garvis-push-command.py all
+```
+
+**Direct Python Commands:**
+```bash
+# Deploy everything (website + game)
+python scripts/garvis-push.py
+
+# Deploy website only
+python scripts/garvis-push.py --website
+
+# Deploy game levels only
+python scripts/garvis-push.py --game
+
+# Custom commit message
+python scripts/garvis-push.py --all --message "Your message"
+```
+
+### **What Garvis Push Does:**
+- ✅ Automatically checks for changes
+- ✅ Commits and pushes to GitHub
+- ✅ Handles website and game deployments
+- ✅ Triggers Unity builds
+- ✅ Provides clear status and instructions
+- ✅ Works with or without local Unity repo
+
+### **AI Assistant MUST:**
+- ✅ **ALWAYS suggest** `python scripts/garvis-push.py` for deployments
+- ✅ **ALWAYS use** Garvis Push instead of manual git commands
+- ✅ **ALWAYS provide** clear output and next steps
+- ❌ **NEVER** use manual git commands when Garvis Push is available
+
+**Reference:** `documents/GARVIS-PUSH-SYSTEM-COMPLETE.md` for complete usage guide
+
+---
+
 ## Website Development Rules (AIMCODE Website Framework)
 
 ### When Working on Website Files

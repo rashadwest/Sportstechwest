@@ -437,13 +437,113 @@ class GarvisExecutionEngine:
     
     def _execute_direct(self, task: str, mapping: Dict) -> Dict:
         """Execute task directly if webhook fails"""
-        # For now, return a placeholder
-        # In full implementation, this would handle direct file operations, git commands, etc.
-        return {
-            'status': 'direct_execution',
-            'workflow': mapping['workflow'],
-            'note': 'Executed via direct method (webhook unavailable)'
-        }
+        # Import deployment module
+        try:
+            import sys
+            import importlib.util
+            from pathlib import Path
+            
+            # Load deployment module
+            module_path = Path(__file__).parent / "garvis-deployment-module.py"
+            spec = importlib.util.spec_from_file_location("garvis_deployment_module", module_path)
+            if spec and spec.loader:
+                module = importlib.util.module_from_spec(spec)
+                spec.loader.exec_module(module)
+                GarvisDeployment = module.GarvisDeployment
+                
+                deployment = GarvisDeployment()
+                task_lower = task.lower()
+                
+                # Handle website deployment
+                if 'website' in task_lower or ('deploy' in task_lower and 'game' not in task_lower):
+                    logger.info("Executing website deployment via Garvis")
+                    return deployment.deploy_website()
+                
+                # Handle game deployment
+                elif 'game' in task_lower or 'level' in task_lower or 'unity' in task_lower:
+                    logger.info("Executing game deployment via Garvis")
+                    level_files = [
+                        "book1_foundation_block.json",
+                        "book2_decision_crossover.json",
+                        "book3_pattern_loop.json"
+                    ]
+                    return deployment.deploy_game_levels(level_files)
+                
+                # Handle both
+                elif 'both' in task_lower or 'all' in task_lower:
+                    logger.info("Executing full deployment via Garvis")
+                    return deployment.deploy_all()
+                
+                else:
+                    return {
+                        'status': 'direct_execution',
+                        'workflow': mapping['workflow'],
+                        'note': 'Executed via direct method (webhook unavailable)'
+                    }
+            else:
+                raise ImportError("Could not load deployment module")
+        except ImportError as e:
+            logger.warning(f"Deployment module not available: {str(e)}")
+            # Fallback: Use git commands directly
+            return self._execute_git_deployment(task, mapping)
+        except Exception as e:
+            logger.error(f"Direct execution error: {str(e)}")
+            # Fallback: Use git commands directly
+            return self._execute_git_deployment(task, mapping)
+    
+    def _execute_git_deployment(self, task: str, mapping: Dict) -> Dict:
+        """Fallback: Execute deployment via git commands"""
+        import subprocess
+        from pathlib import Path
+        
+        task_lower = task.lower()
+        website_path = Path("/Users/rashadwest/Sportstechwest/workflows/BallCODE-Book/BallCode")
+        
+        try:
+            # Check for changes
+            result = subprocess.run(
+                ["git", "status", "--porcelain"],
+                cwd=website_path,
+                capture_output=True,
+                text=True
+            )
+            
+            if result.stdout.strip():
+                # Add, commit, push
+                subprocess.run(["git", "add", "-A"], cwd=website_path, check=True)
+                subprocess.run(
+                    ["git", "commit", "-m", "Garvis: Deploy updates"],
+                    cwd=website_path,
+                    check=True
+                )
+                push_result = subprocess.run(
+                    ["git", "push", "origin", "main"],
+                    cwd=website_path,
+                    capture_output=True,
+                    text=True
+                )
+                
+                if push_result.returncode == 0:
+                    return {
+                        'status': 'success',
+                        'method': 'git_direct',
+                        'message': 'Pushed to GitHub successfully'
+                    }
+                else:
+                    return {
+                        'status': 'error',
+                        'error': push_result.stderr
+                    }
+            else:
+                return {
+                    'status': 'skipped',
+                    'message': 'No changes to commit'
+                }
+        except Exception as e:
+            return {
+                'status': 'error',
+                'error': str(e)
+            }
     
     def _execute_integration(self, job_id: str, step: Dict) -> Dict:
         """Execute integration step"""

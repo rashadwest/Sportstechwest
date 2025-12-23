@@ -15,7 +15,14 @@
             data-autoplay-timeout="5000"
             data-responsive='{"0":{"items": "1"}, "768":{"items": "2"}, "992":{"items": "3"}}'
           >
-            {% for post in site.posts limit: 6 | where: "trending", true %}
+            {% assign hidden_slugs = site.data.hidden_posts.slugs | default: nil %}
+            {% assign trending_posts = site.posts | where: "trending", true %}
+            {% assign shown = 0 %}
+            {% for post in trending_posts %}
+            {% if shown >= 6 %}{% break %}{% endif %}
+            {% assign post_slug = post.title | slugify %}
+            {% if hidden_slugs and hidden_slugs contains post_slug %}{% continue %}{% endif %}
+            {% assign shown = shown | plus: 1 %}
             <div class="item">
               {% if post.thumbnail %}
               <figure class="overlay overlay1 rounded mb-30">
