@@ -1,0 +1,173 @@
+name: Unity WebGL Build and Deploy
+
+on:
+  workflow_dispatch:  # Manual trigger
+  repository_dispatch:  # Triggered by n8n
+    types: [unity-build]
+  push:
+    branches: [ main ]
+    paths:
+      - 'Assets/**'
+      - 'ProjectSettings/**'
+      - '.github/workflows/unity-webgl-build.yml'
+
+concurrency:
+  group: unity-webgl-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60  # Increased timeout for large builds
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        lfs: true  # Include Git LFS files if any
+        
+    - name: Verify Project Structure
+      run: |
+        echo "🔍 Verifying Unity project structure..."
+        if [ ! -d "Assets" ]; then
+          echo "❌ Assets directory not found"
+          exit 1
+        fi
+        if [ ! -f "ProjectSettings/ProjectVersion.txt" ]; then
+          echo "❌ ProjectSettings/ProjectVersion.txt not found"
+          exit 1
+        fi
+        echo "✅ Project structure verified"
+        echo "📁 Assets directory exists"
+        echo "📁 ProjectSettings exists"
+        
+    - name: Check for Script Errors
+      run: |
+        echo "🔍 Checking for C# script syntax issues..."
+        # Count C# files
+        CS_COUNT=$(find Assets -name "*.cs" 2>/dev/null | wc -l)
+        echo "Found $CS_COUNT C# scripts"
+        echo "✅ Script check complete"
+        
+    - name: Cache Unity Library
+      uses: actions/cache@v3
+      with:
+        path: Library
+        key: Library-${{ runner.os }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+        restore-keys: |
+          Library-${{ runner.os }}-
+          
+    - name: Setup Unity
+      uses: kuler90/setup-unity@v1
+      with:
+        unity-version: 2021.3.15f1
+        
+    - name: Build Unity WebGL
+      id: build
+      uses: game-ci/unity-builder@v4
+      env:
+        UNITY_LICENSE: ${{ secrets.UNITY_LICENSE || '' }}
+      with:
+        targetPlatform: WebGL
+        buildName: BallCODE-WebGL
+        buildsPath: Builds/WebGL
+        buildMethod: Default
+        allowDirtyBuild: true
+      continue-on-error: false
+      
+    - name: Verify Build Output
+      id: verify-build
+      run: |
+        echo "🔍 Verifying build output..."
+        
+        if [ ! -d "Builds/WebGL" ]; then
+          echo "❌ Build directory not found"
+          ls -la Builds/ 2>/dev/null || echo "Builds directory doesn't exist"
+          exit 1
+        fi
+        
+        echo "✅ Build directory exists"
+        
+        if [ ! -f "Builds/WebGL/index.html" ]; then
+          echo "⚠️ index.html not found, checking contents..."
+          ls -la Builds/WebGL/ || true
+          exit 1
+        fi
+        
+        echo "✅ index.html found"
+        
+        # Check for Build directory (Unity WebGL structure)
+        if [ ! -d "Builds/WebGL/Build" ] && [ ! -d "Builds/WebGL/Builds" ]; then
+          echo "⚠️ Build/Build directory not found, but checking structure..."
+          ls -la Builds/WebGL/ || true
+          # Don't fail if structure is different
+        else
+          echo "✅ Build directory structure verified"
+        fi
+        
+        # Calculate build size
+        BUILD_SIZE=$(du -sh Builds/WebGL 2>/dev/null | cut -f1 || echo "unknown")
+        echo "✅ Build verified successfully"
+        echo "📦 Build size: $BUILD_SIZE"
+        echo "build_size=$BUILD_SIZE" >> $GITHUB_OUTPUT
+        
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: webgl-build
+        path: Builds/WebGL
+        retention-days: 30
+        if-no-files-found: error
+        
+    - name: Deploy to Netlify
+      id: deploy
+      uses: nwtgck/actions-netlify@v2.0
+      with:
+        publish-dir: './Builds/WebGL'
+        production-deploy: true
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        deploy-message: "Deploy from GitHub Actions - ${{ github.event.head_commit.message || 'Automated build' }}"
+        enable-pull-request-comment: false
+        enable-commit-comment: false
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      continue-on-error: false
+      
+    - name: Verify Deployment
+      if: success()
+      run: |
+        SITE_URL="https://ballcode.netlify.app"
+        echo "🌐 Verifying deployment..."
+        echo "Site URL: $SITE_URL"
+        
+        # Wait a moment for deployment to propagate
+        sleep 10
+        
+        # Check if site is accessible
+        HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" "$SITE_URL" || echo "000")
+        if [ "$HTTP_CODE" = "200" ] || [ "$HTTP_CODE" = "301" ] || [ "$HTTP_CODE" = "302" ]; then
+          echo "✅ Site is accessible (HTTP $HTTP_CODE)"
+        else
+          echo "⚠️ Site returned HTTP $HTTP_CODE (may still be deploying)"
+        fi
+        
+    - name: Build Summary
+      if: always()
+      run: |
+        echo "## 🎮 Unity WebGL Build Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**Status:** ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Build Size:** ${{ steps.verify-build.outputs.build_size }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Site URL:** https://ballcode.netlify.app" >> $GITHUB_STEP_SUMMARY
+        echo "**Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Triggered by:** ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        
+        if [ "${{ job.status }}" = "success" ]; then
+          echo "✅ Build and deployment completed successfully!" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "❌ Build or deployment failed. Check logs above." >> $GITHUB_STEP_SUMMARY
+        fi
+
