@@ -33,6 +33,9 @@ public class BookMenuManager : MonoBehaviour
     
     void Start()
     {
+        // Auto-find UI elements if not assigned
+        AutoFindUIElements();
+        
         // Hide book menu initially
         if (bookMenuPanel != null)
         {
@@ -62,6 +65,145 @@ public class BookMenuManager : MonoBehaviour
         
         // Set book info text
         UpdateBookInfo();
+    }
+    
+    /// <summary>
+    /// Auto-find UI elements if not assigned in Inspector
+    /// </summary>
+    void AutoFindUIElements()
+    {
+        // Find BookMenuPanel
+        if (bookMenuPanel == null)
+        {
+            GameObject found = GameObject.Find("BookMenuPanel");
+            if (found != null)
+            {
+                bookMenuPanel = found;
+                Debug.Log("[BookMenuManager] Auto-found BookMenuPanel");
+            }
+        }
+        
+        // Find Main Menu Panel
+        if (mainMenuPanel == null)
+        {
+            // Try common names
+            string[] possibleNames = { "MainMenuPanel", "MainMenu", "MenuPanel", "MainMenuCanvas" };
+            foreach (string name in possibleNames)
+            {
+                GameObject found = GameObject.Find(name);
+                if (found != null)
+                {
+                    mainMenuPanel = found;
+                    Debug.Log($"[BookMenuManager] Auto-found MainMenuPanel: {name}");
+                    break;
+                }
+            }
+        }
+        
+        // Find buttons
+        if (backButton == null)
+        {
+            GameObject found = GameObject.Find("BackButton");
+            if (found != null)
+            {
+                backButton = found.GetComponent<Button>();
+                if (backButton != null)
+                {
+                    Debug.Log("[BookMenuManager] Auto-found BackButton");
+                }
+            }
+        }
+        
+        if (book1Button == null)
+        {
+            GameObject found = GameObject.Find("Book1Button");
+            if (found != null)
+            {
+                book1Button = found.GetComponent<Button>();
+                if (book1Button != null)
+                {
+                    Debug.Log("[BookMenuManager] Auto-found Book1Button");
+                }
+            }
+        }
+        
+        if (book2Button == null)
+        {
+            GameObject found = GameObject.Find("Book2Button");
+            if (found != null)
+            {
+                book2Button = found.GetComponent<Button>();
+                if (book2Button != null)
+                {
+                    Debug.Log("[BookMenuManager] Auto-found Book2Button");
+                }
+            }
+        }
+        
+        if (book3Button == null)
+        {
+            GameObject found = GameObject.Find("Book3Button");
+            if (found != null)
+            {
+                book3Button = found.GetComponent<Button>();
+                if (book3Button != null)
+                {
+                    Debug.Log("[BookMenuManager] Auto-found Book3Button");
+                }
+            }
+        }
+        
+        // Find text components
+        if (book1Title == null)
+        {
+            Transform book1Transform = book1Button?.transform.parent;
+            if (book1Transform != null)
+            {
+                Transform titleTransform = book1Transform.Find("Title");
+                if (titleTransform != null)
+                {
+                    book1Title = titleTransform.GetComponent<Text>();
+                    if (book1Title == null)
+                    {
+                        book1Title = titleTransform.GetComponent<TextMeshProUGUI>();
+                    }
+                }
+            }
+        }
+        
+        if (book2Title == null)
+        {
+            Transform book2Transform = book2Button?.transform.parent;
+            if (book2Transform != null)
+            {
+                Transform titleTransform = book2Transform.Find("Title");
+                if (titleTransform != null)
+                {
+                    book2Title = titleTransform.GetComponent<Text>();
+                    if (book2Title == null)
+                    {
+                        book2Title = titleTransform.GetComponent<TextMeshProUGUI>();
+                    }
+                }
+            }
+        }
+        
+        if (book3Title == null)
+        {
+            Transform book3Transform = book3Button?.transform.parent;
+            if (book3Transform != null)
+            {
+                Transform titleTransform = book3Transform.Find("Title");
+                if (titleTransform != null)
+                {
+                    book3Title = titleTransform.GetComponent<Text>();
+                    if (book3Title == null)
+                    {
+                        book3Title = titleTransform.GetComponent<TextMeshProUGUI>();
+                    }
+                }
+            }
+        }
     }
     
     /// <summary>
