@@ -1,0 +1,129 @@
+name: Unity WebGL Build and Deploy
+
+on:
+  workflow_dispatch:  # Manual trigger
+  repository_dispatch:  # Triggered by n8n
+    types: [unity-build]
+  push:
+    branches: [ main ]
+    paths:
+      - 'Assets/**'
+      - 'ProjectSettings/**'
+      - '.github/workflows/unity-webgl-build.yml'
+
+concurrency:
+  group: unity-webgl-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        lfs: true
+        
+    - name: Verify Project Structure
+      run: |
+        echo "🔍 Verifying Unity project structure..."
+        if [ ! -d "Assets" ]; then
+          echo "❌ Assets directory not found"
+          exit 1
+        fi
+        if [ ! -f "ProjectSettings/ProjectVersion.txt" ]; then
+          echo "❌ ProjectSettings/ProjectVersion.txt not found"
+          exit 1
+        fi
+        echo "✅ Project structure verified"
+        
+    - name: Cache Unity Library
+      uses: actions/cache@v3
+      with:
+        path: Library
+        key: Library-${{ runner.os }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+        restore-keys: |
+          Library-${{ runner.os }}-
+          
+    - name: Build Unity WebGL
+      id: build
+      uses: game-ci/unity-builder@v4
+      env:
+        UNITY_LICENSE: ${{ secrets.UNITY_LICENSE || '' }}
+      with:
+        projectPath: .
+        targetPlatform: WebGL
+        buildName: BallCODE-WebGL
+        buildsPath: Builds/WebGL
+        buildMethod: Default
+        unityVersion: 2021.3.15f1
+        allowDirtyBuild: true
+      continue-on-error: false
+      
+    - name: Verify Build Output
+      id: verify-build
+      run: |
+        echo "🔍 Verifying build output..."
+        
+        if [ ! -d "Builds/WebGL" ]; then
+          echo "❌ Build directory not found"
+          exit 1
+        fi
+        
+        if [ ! -f "Builds/WebGL/index.html" ]; then
+          echo "❌ index.html not found"
+          exit 1
+        fi
+        
+        BUILD_SIZE=$(du -sh Builds/WebGL 2>/dev/null | cut -f1 || echo "unknown")
+        echo "✅ Build verified successfully"
+        echo "📦 Build size: $BUILD_SIZE"
+        echo "build_size=$BUILD_SIZE" >> $GITHUB_OUTPUT
+        
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: webgl-build
+        path: Builds/WebGL
+        retention-days: 30
+        if-no-files-found: error
+        
+    - name: Deploy to Netlify
+      id: deploy
+      uses: nwtgck/actions-netlify@v2.0
+      with:
+        publish-dir: './Builds/WebGL'
+        production-deploy: true
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        deploy-message: "Deploy from GitHub Actions - ${{ github.event.head_commit.message || 'Automated build' }}"
+        enable-pull-request-comment: false
+        enable-commit-comment: false
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      continue-on-error: false
+      
+    - name: Verify Deployment
+      if: success()
+      run: |
+        SITE_URL="https://ballcode.netlify.app"
+        echo "🌐 Verifying deployment..."
+        sleep 10
+        HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" "$SITE_URL" || echo "000")
+        if [ "$HTTP_CODE" = "200" ] || [ "$HTTP_CODE" = "301" ] || [ "$HTTP_CODE" = "302" ]; then
+          echo "✅ Site is accessible (HTTP $HTTP_CODE)"
+        else
+          echo "⚠️ Site returned HTTP $HTTP_CODE (may still be deploying)"
+        fi
+        
+    - name: Build Summary
+      if: always()
+      run: |
+        echo "## 🎮 Unity WebGL Build Summary" >> $GITHUB_STEP_SUMMARY
+        echo "**Status:** ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Build Size:** ${{ steps.verify-build.outputs.build_size }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Site URL:** https://ballcode.netlify.app" >> $GITHUB_STEP_SUMMARY
+
