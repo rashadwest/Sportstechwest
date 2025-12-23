@@ -7,10 +7,10 @@
 
 ## The Core Principle
 
-**Basketball = Framework/Vehicle**  
-**AI + Math + Coding = What Students Learn**
+**Basketball = Language/Framework**  
+**Coding + Math + AI = What Students Learn**
 
-We are NOT teaching basketball. We are using basketball stories as an engaging framework to teach AI concepts, math concepts, and coding concepts. Then students practice these concepts in the BallCODE game.
+**CRITICAL:** Basketball is the language/framework for teaching BOTH coding AND math equally. We are NOT teaching basketball. We are using basketball as the language to teach coding concepts AND math concepts through engaging stories. Students learn coding and math THROUGH basketball, not ABOUT basketball. Then students practice these concepts in the BallCODE game.
 
 ---
 
@@ -22,10 +22,11 @@ We are NOT teaching basketball. We are using basketball stories as an engaging f
 - 3-act structure: Act I (setup), Act II (struggle), Act III (resolution)
 - 70% story, 30% skill inserts
 
-### 2. Concepts Emerge Naturally
-- AI concepts emerge FROM basketball needs (e.g., "We need to see where the ball is" → computer vision)
-- Math concepts solve basketball problems (e.g., "What's our best shot?" → expected value)
-- Coding concepts organize basketball actions (e.g., "We need to repeat this" → loops)
+### 2. Concepts Emerge Naturally (Coding AND Math)
+- **Coding concepts** emerge FROM basketball needs (e.g., "We need to repeat this move" → loops, "We need to make a decision" → conditionals)
+- **Math concepts** solve basketball problems (e.g., "What's our best shot?" → expected value, probability, statistics, "How many points per possession?" → ratios, percentages)
+- **AI concepts** enhance basketball decisions (e.g., "We need to see where the ball is" → computer vision, "What pattern does the defense use?" → pattern recognition)
+- **Basketball is the language** - students learn coding AND math concepts through basketball terminology and situations
 
 ### 3. Basketball Success = Proof of Learning
 - Characters use AI/math/coding to solve basketball problems

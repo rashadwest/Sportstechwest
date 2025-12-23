@@ -121,20 +121,22 @@ Basketball wasn't the subject.
 
 Basketball was the language.
 
+**For BOTH coding AND math.**
+
 ---
 
 ## The Solution: What I'm Building With BallCODE
 
-### Basketball Is the Vehicle. Not the Destination.
+### Basketball Is the Language. Not the Subject.
 
 BallCODE is built on a simple but non-negotiable framework:
 
-• Basketball is the vehicle
-• STEM is the outcome
+• Basketball is the language/framework
+• Coding AND Math are what students learn
 
 We are not teaching kids how to play basketball.
 
-We're using basketball to teach how systems work.
+We're using basketball as the language to teach coding concepts AND math concepts. Basketball is the framework that makes both coding and math accessible.
 
 The learning ratio matters:
 • 70% story and context
@@ -147,6 +149,7 @@ That's how humans actually learn.
 BallCODE isn't built on hunches. It's built on a synthesis of educational research and expert methodologies we call AIMCODE, a framework that combines:
 
 • **Story-first learning** (Chao Zhang): Concepts emerge from narrative, not explanation
+• **Basketball as language** (Dr. John Drazan): Basketball is the framework for teaching BOTH coding AND math equally
 • **Constructionist pedagogy** (Mitchel Resnick): Students learn by building, not by being told
 • **Multiple entry points** (Reggio Emilia): Every child has "a hundred languages" to express understanding
 • **Systematic deep learning** (Demis Hassabis): Concepts built layer by layer, ensuring mastery before moving forward
@@ -166,25 +169,37 @@ Here's how we bridge the gap between what kids know and what they need to learn:
 
 Students start by solving basketball problems using familiar language: spacing, movement, timing, decisions. They build logic without fear.
 
-They drag blocks together using basketball terminology. No typing, no syntax. Just basketball logic that maps directly to coding concepts.
+They drag blocks together using basketball terminology. No typing, no syntax. Just basketball logic that maps directly to coding concepts AND math concepts.
 
-No typing. No syntax. Just basketball logic.
+**For Coding:** Blocks like "IF defender goes left, THEN crossover right" teach conditional logic.
+
+**For Math:** Blocks like "CALCULATE best shot probability" or "COUNT points per possession" teach probability, statistics, ratios.
+
+No typing. No syntax. Just basketball logic that teaches BOTH coding AND math.
 
 **Phase 2: The Code Bridge**
 
-They see how those same blocks translate into real programming logic. Nothing is hidden. Nothing is magic.
+They see how those same blocks translate into real programming logic AND math calculations. Nothing is hidden. Nothing is magic.
 
-They see blocks and code side-by-side: the same logic, different representation.
+They see blocks and code/math side-by-side: the same logic, different representation.
 
-The connection becomes clear: blocks = code.
+**For Coding:** Blocks → Python code (e.g., `if defender_goes_left: crossover_right()`)
 
-**Phase 3: Python Mastery**
+**For Math:** Blocks → Math calculations (e.g., `best_shot_probability = calculate_expected_value()`)
 
-Now they write real Python code, not toy examples, grounded in problems they already understand. The same basketball situations they've been solving with blocks now become Python programs.
+The connection becomes clear: blocks = code AND blocks = math.
+
+**Phase 3: Python Mastery + Math Application**
+
+Now they write real Python code AND apply math concepts, not toy examples, grounded in problems they already understand. The same basketball situations they've been solving with blocks now become Python programs AND math calculations.
+
+**For Coding:** Write Python code to solve basketball problems (e.g., loops, conditionals, functions)
+
+**For Math:** Apply math concepts to basketball data (e.g., probability, statistics, expected value, ratios)
 
 This isn't edutainment.
 
-This is skill transfer.
+This is skill transfer - for BOTH coding AND math.
 
 ### Proof Lives Inside the Story
 

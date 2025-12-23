@@ -7,10 +7,10 @@
 
 ## Core Principle
 
-**Basketball = Framework**  
-**AI + Math + Coding = What Students Learn**
+**Basketball = Language/Framework**  
+**Coding + Math + AI = What Students Learn**
 
-The basketball story is the vehicle that makes learning engaging and accessible. Students don't learn ABOUT basketball—they learn AI, math, and coding THROUGH basketball stories.
+**CRITICAL:** Basketball is the language/framework for teaching BOTH coding AND math equally. The basketball story is the vehicle that makes learning engaging and accessible. Students don't learn ABOUT basketball—they learn coding, math, and AI THROUGH basketball stories. Basketball is the language students use to understand coding and math concepts.
 
 ---
 
@@ -44,10 +44,11 @@ Every episode must follow this structure to maintain engagement:
 - Basketball terminology and concepts are used naturally
 - Students understand the basketball context immediately
 
-### 2. Introduce AI/Math/Coding Through Basketball
-- AI concepts emerge from basketball needs (e.g., "We need to see where the ball is" → computer vision)
-- Math concepts solve basketball problems (e.g., "What's our best shot?" → expected value)
-- Coding concepts organize basketball actions (e.g., "We need to repeat this" → loops)
+### 2. Introduce Coding AND Math Through Basketball (Basketball is the Language)
+- **Coding concepts** emerge from basketball needs (e.g., "We need to repeat this move" → loops, "We need to make a decision" → conditionals, "We need to track state" → state management)
+- **Math concepts** solve basketball problems (e.g., "What's our best shot?" → expected value, probability, "How many points per possession?" → ratios, percentages, "What's the pattern?" → statistics, data analysis)
+- **AI concepts** enhance basketball decisions (e.g., "We need to see where the ball is" → computer vision, "What pattern does the defense use?" → pattern recognition)
+- **Basketball is the language** - students use basketball terminology to understand coding AND math concepts
 
 ### 3. Show the Connection
 - Make it clear: "This AI/math/coding concept helps us win at basketball"

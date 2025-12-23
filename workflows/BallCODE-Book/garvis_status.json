@@ -1,0 +1,27 @@
+{
+  "last_updated": "2025-12-23T18:12:59.346916",
+  "components": {
+    "website": {
+      "status": "skipped",
+      "message": "No changes to commit",
+      "error": null,
+      "last_updated": "2025-12-23T18:12:52.956887"
+    },
+    "game": {
+      "status": "success",
+      "files": [
+        "book1_foundation_block.json",
+        "book2_decision_crossover.json",
+        "book3_pattern_loop.json"
+      ],
+      "message": "Pushed 3 level files",
+      "last_updated": "2025-12-23T18:12:58.651352"
+    },
+    "unity_build": {
+      "status": "triggered",
+      "message": "Build triggered via n8n",
+      "last_updated": "2025-12-23T18:12:59.346884"
+    }
+  },
+  "overall": "partial"
+}

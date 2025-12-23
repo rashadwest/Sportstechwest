@@ -366,6 +366,7 @@ they can't help but share it?"
 **AIMCODE Advisory Board Integration:**
 - @Steve Jobs is already in AIMCODE Advisory Board
 - @Demis Hassabis is already in AIMCODE Advisory Board
+- **Dr. John Drazan** is in AIMCODE Advisory Board (Basketball as language for coding AND math)
 - @Andy Grove, @Grant Cardone, @Seth Godin complement the board
 
 ---

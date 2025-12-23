@@ -11,6 +11,7 @@
 - **Reggio Emilia Approach** - Child-led learning, project-based exploration, "hundred languages"
 - **Demis Hassabis (Alpha Evolve)** - AI systems thinking, deep learning principles
 - **Steve Jobs** - Design simplicity, user experience, "it just works"
+- **Dr. John Drazan** - Technology and education integration, coding and mathematical logic synthesis
 
 ---
 
@@ -111,6 +112,7 @@ R - Results: What are the measurable outcomes? How will we assess success?
 **Process:**
 1. Consult AIMCODE advisory board principles:
    - **Zhang** - Story-first approach, basketball framework
+   - **Drazan** - Basketball as language for coding AND math integration
    - **Resnick** - Constructionist activities, building focus
    - **Reggio** - Multiple entry points, child agency
    - **Hassabis** - Systems thinking, deep learning
@@ -127,6 +129,7 @@ R - Results: What are the measurable outcomes? How will we assess success?
 
 **Expert Questions:**
 - "Would Zhang start with basketball action?"
+- "Would Drazan ensure basketball is the language for BOTH coding AND math?"
 - "Would Resnick have students build something?"
 - "Would Reggio provide multiple entry points?"
 - "Would Hassabis ensure systematic progression?"
@@ -138,7 +141,7 @@ R - Results: What are the measurable outcomes? How will we assess success?
 
 **AIMCODE believes:**
 1. **Learning emerges from creation** (Resnick) - Students learn by making, not by being told
-2. **Basketball stories are the framework** (Zhang) - AI and math concepts emerge naturally through narrative
+2. **Basketball is the language** (Zhang + Drazan) - Basketball is the framework/vehicle for teaching BOTH coding AND math concepts. Students learn coding and math THROUGH basketball, not ABOUT basketball
 3. **Children have "a hundred languages"** (Reggio) - Multiple ways to express understanding
 4. **AI systems require deep understanding** (Hassabis) - Concepts must be built layer by layer
 5. **Design must be invisible** (Jobs) - The experience should feel natural, not forced
@@ -147,21 +150,25 @@ R - Results: What are the measurable outcomes? How will we assess success?
 
 ## The Five Pillars of AIMCODE
 
-### 1. **AI + Math Storytelling** (Chao Zhang)
-**Principle:** Concepts emerge from narrative, not from explanation.
+### 1. **AI + Math Storytelling** (Chao Zhang + Dr. John Drazan)
+**Principle:** Concepts emerge from narrative, not from explanation. Basketball is the language/framework for teaching BOTH coding AND math.
 
 **Application to BallCODE:**
 - Every episode starts with basketball action
-- AI and math concepts solve basketball problems
-- Students learn through story, not through lectures
-- The story is the vehicle, not the destination
+- **Coding concepts** emerge from basketball needs (e.g., "We need to repeat this move" → loops)
+- **Math concepts** solve basketball problems (e.g., "What's our best shot?" → expected value, probability, statistics)
+- Students learn coding AND math through story, not through lectures
+- Basketball is the language - students learn coding and math THROUGH basketball, not ABOUT basketball
 
 **Development Rules:**
 - ✅ Start with basketball situation
-- ✅ Show AI/math solving basketball problems
-- ✅ Make basketball success = proof of learning
+- ✅ Show coding concepts solving basketball problems
+- ✅ Show math concepts solving basketball problems
+- ✅ Make basketball success = proof of learning (for BOTH coding AND math)
+- ✅ Apply same three-phase pathway to coding AND math (Sports Language → Code Bridge → Python/Math)
 - ❌ Never start with "Today we're learning about..."
 - ❌ Never explain concepts before showing them in context
+- ❌ Never treat math as secondary to coding - they're equal partners
 
 **Example:**
 ```

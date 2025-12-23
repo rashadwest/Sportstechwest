@@ -680,23 +680,29 @@ The curriculum follows a **Three-Phase Learning Pathway** that MUST be consisten
 **Memory:** This rule ensures that every book, game exercise, website page, and integration point uses the same curriculum ideology, creating a streamlined, consistent learning experience across all systems.
 
 ### Basketball Story Framework (CRITICAL)
-**Basketball stories are the FRAMEWORK, not the subject being taught.**
+**Basketball is the LANGUAGE/FRAMEWORK, not the subject being taught. This applies to BOTH coding AND math equally.**
 
-- **Basketball = Framework/Vehicle** - The engaging narrative that makes learning accessible
-- **AI + Math + Coding = What Students Learn** - Concepts taught through basketball stories
+- **Basketball = Language/Framework** - The engaging narrative that makes learning accessible
+- **Coding + Math + AI = What Students Learn** - Concepts taught through basketball stories
+- **CRITICAL:** Basketball is the language students use to understand BOTH coding AND math concepts. Students learn coding and math THROUGH basketball, not ABOUT basketball.
 - **Every episode must:**
   1. Start with basketball action/situation (not concept explanation)
-  2. Show AI/math/coding concepts emerging FROM basketball needs
-  3. Follow 3-act structure: Act I (setup/problem), Act II (struggle/learning), Act III (resolution/success)
-  4. Make basketball success the proof of concept mastery
-  5. Keep story engaging and adventurous (70% story, 30% skill inserts)
+  2. Show coding concepts emerging FROM basketball needs (e.g., "We need to repeat this" → loops)
+  3. Show math concepts solving basketball problems (e.g., "What's our best shot?" → probability, expected value)
+  4. Show AI concepts enhancing basketball decisions (e.g., "What pattern does the defense use?" → pattern recognition)
+  5. Follow 3-act structure: Act I (setup/problem), Act II (struggle/learning), Act III (resolution/success)
+  6. Make basketball success the proof of concept mastery (for BOTH coding AND math)
+  7. Keep story engaging and adventurous (70% story, 30% skill inserts)
 
 **Story Writing Rules:**
-- ✅ DO: Start with basketball action, use basketball terminology naturally, show concepts solving basketball problems
+- ✅ DO: Start with basketball action, use basketball terminology naturally, show coding concepts solving basketball problems, show math concepts solving basketball problems
+- ✅ DO: Treat coding and math as equal partners - both use basketball as the language
 - ❌ DON'T: Start with "Today we're learning about X", explain concepts before basketball context, make basketball secondary
+- ❌ DON'T: Treat math as secondary to coding - they're equal partners using basketball as the language
 
 **Reference:** `Basketball-Story-Framework-Guide.md` for complete framework approach
 **AI Concepts:** `Foundational-AI-Grade-Specific-Integration.md` tells WHAT to teach, but stories must use basketball as framework
+**Expert:** Dr. John Drazan - Basketball as language for coding AND math integration
 
 ### Video Processing Scripts
 - Always validate video file paths

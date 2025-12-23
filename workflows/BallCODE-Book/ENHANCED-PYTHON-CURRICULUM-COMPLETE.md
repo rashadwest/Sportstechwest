@@ -12,48 +12,59 @@
 
 ## 🎯 EXECUTIVE SUMMARY
 
-**BallCODE teaches Python programming through basketball stories using a research-backed, three-phase learning pathway.**
+**BallCODE teaches Python programming AND math concepts through basketball stories using a research-backed, three-phase learning pathway.**
+
+**CRITICAL:** Basketball is the language/framework for teaching BOTH coding AND math equally. Students learn coding and math THROUGH basketball, not ABOUT basketball.
 
 **What Makes This Curriculum Best-in-Class:**
 1. **Story-First Approach** (Zhang) - Concepts emerge from narrative, not explanation
-2. **Constructionist Learning** (Resnick) - Students build to learn, not consume
-3. **Multiple Entry Points** (Reggio) - Story, game, code, visual pathways
-4. **Systematic Progression** (Hassabis) - Layer-by-layer deep learning
-5. **Simple, Beautiful Design** (Jobs) - "It just works" - intuitive and engaging
+2. **Basketball as Language** (Drazan) - Basketball is the framework for BOTH coding AND math
+3. **Constructionist Learning** (Resnick) - Students build to learn, not consume
+4. **Multiple Entry Points** (Reggio) - Story, game, code, visual pathways
+5. **Systematic Progression** (Hassabis) - Layer-by-layer deep learning
+6. **Simple, Beautiful Design** (Jobs) - "It just works" - intuitive and engaging
 
 **Target Audience:** Grades 3-8 (Elementary & Middle School)  
-**Format:** 3 books (expanding to 7+), each with story, game exercises, and Python progression  
-**Approach:** 70% story, 30% skill instruction with hands-on practice
+**Format:** 3 books (expanding to 7+), each with story, game exercises, Python progression, AND math application  
+**Approach:** 70% story, 30% skill instruction with hands-on practice (for BOTH coding AND math)
 
 ---
 
 ## 📚 THREE-PHASE LEARNING PATHWAY
 
-### Phase 1: Sports Language (Block Coding)
-**AIMCODE Alignment:** Resnick (Constructionist) + Reggio (Multiple Entry Points)
+### Phase 1: Sports Language (Block Coding + Math)
+**AIMCODE Alignment:** Resnick (Constructionist) + Reggio (Multiple Entry Points) + Drazan (Basketball as Language)
 
 **What Students Do:**
-- Learn coding concepts using basketball terminology
+- Learn coding concepts AND math concepts using basketball terminology
 - Visual block interface (no typing required)
-- Drag blocks together to create programs
+- Drag blocks together to create programs AND perform math calculations
 - Immediate feedback through integrated game exercises
 
-**Python Concepts Introduced:**
+**Coding Concepts Introduced:**
 - **Book 1:** Sequences and basic blocks
 - **Book 2:** If/then conditionals
 - **Book 3:** Loops and repetition
 
+**Math Concepts Introduced:**
+- **Book 1:** Counting, basic statistics (points, possessions)
+- **Book 2:** Probability, decision-making math
+- **Book 3:** Pattern analysis, data interpretation, ratios
+
 **How It Works:**
-- Students see blocks like "IF defender goes left, THEN crossover right"
-- No Python syntax yet - just concepts through blocks
-- Basketball terminology makes it accessible to all students
+- **Coding:** Students see blocks like "IF defender goes left, THEN crossover right"
+- **Math:** Students see blocks like "CALCULATE best shot probability" or "COUNT points per possession"
+- No Python syntax or complex math formulas yet - just concepts through blocks
+- Basketball terminology makes BOTH coding AND math accessible to all students
 - Multiple ways to engage: visual (blocks), auditory (story), kinesthetic (game)
 
 **Learning Objectives:**
 - Students understand coding concepts through familiar basketball language
+- Students understand math concepts through familiar basketball language
 - Students can create programs using visual blocks
-- Students see that code is just instructions
-- Students gain confidence before moving to text-based coding
+- Students can perform math calculations using visual blocks
+- Students see that code is just instructions AND math is just problem-solving
+- Students gain confidence before moving to text-based coding AND formal math
 
 **Assessment:**
 - Block coding exercises in game
@@ -62,25 +73,32 @@
 
 ---
 
-### Phase 2: Transition Bridge
-**AIMCODE Alignment:** Hassabis (Systematic) + Jobs (Simple Design)
+### Phase 2: Transition Bridge (Coding + Math)
+**AIMCODE Alignment:** Hassabis (Systematic) + Jobs (Simple Design) + Drazan (Basketball as Language)
 
 **What Students Do:**
-- See how sports language maps to code concepts
-- Side-by-side view of blocks and code
-- Understand that blocks = code
-- See Python syntax alongside blocks
+- See how sports language maps to code concepts AND math concepts
+- Side-by-side view of blocks and code/math
+- Understand that blocks = code AND blocks = math
+- See Python syntax AND math formulas alongside blocks
 
-**Python Concepts Reinforced:**
+**Coding Concepts Reinforced:**
 - Same concepts from Phase 1, now with syntax
 - Students see: "This block = this Python code"
 - Understanding deepens: "Code is just instructions"
 
+**Math Concepts Reinforced:**
+- Same concepts from Phase 1, now with formulas
+- Students see: "This block = this math calculation"
+- Understanding deepens: "Math is just problem-solving"
+
 **How It Works:**
-- Visual comparison: Block on left, Python code on right
-- Students see: `if defender_goes_left: crossover_right()`
-- Connection made: "Oh, this is the same thing!"
-- Gradual transition - no pressure to write code yet
+- **Coding:** Visual comparison: Block on left, Python code on right
+  - Students see: `if defender_goes_left: crossover_right()`
+- **Math:** Visual comparison: Block on left, math formula on right
+  - Students see: `best_shot_probability = calculate_expected_value(shot_data)`
+- Connection made: "Oh, this is the same thing!" (for BOTH coding AND math)
+- Gradual transition - no pressure to write code or solve complex math yet
 
 **Learning Objectives:**
 - Students understand that blocks and code are the same thing
@@ -95,31 +113,41 @@
 
 ---
 
-### Phase 3: Python Learning
-**AIMCODE Alignment:** Zhang (Story Context) + Resnick (Building)
+### Phase 3: Python Learning + Math Application
+**AIMCODE Alignment:** Zhang (Story Context) + Resnick (Building) + Drazan (Basketball as Language)
 
 **What Students Do:**
-- Progress to Python syntax
+- Progress to Python syntax AND math application
 - Same concepts, different representation
-- Real-world programming skills
-- Write actual Python code
+- Real-world programming skills AND real-world math skills
+- Write actual Python code AND apply math concepts
 
-**Python Concepts Mastered:**
+**Coding Concepts Mastered:**
 - **Book 1:** Sequences: `print()`, basic commands, variables
 - **Book 2:** Conditionals: `if/elif/else`, boolean logic
 - **Book 3:** Loops: `for` loops, `while` loops, pattern recognition
 
+**Math Concepts Mastered:**
+- **Book 1:** Basic statistics, counting, data collection
+- **Book 2:** Probability, expected value, decision-making math
+- **Book 3:** Pattern analysis, ratios, percentages, data interpretation
+
 **How It Works:**
-- Students write Python code to solve basketball problems
-- Same basketball context, now with real code
-- "I can code! This is Python!"
-- Real-world programming skills
+- **Coding:** Students write Python code to solve basketball problems
+  - Same basketball context, now with real code
+  - "I can code! This is Python!"
+- **Math:** Students apply math concepts to basketball data
+  - Same basketball context, now with real math
+  - "I can calculate! This is probability/statistics!"
+- Real-world programming skills AND real-world math skills
 
 **Learning Objectives:**
 - Students can write Python code
+- Students can apply math concepts
 - Students understand Python syntax
-- Students apply concepts in real code
-- Students are ready for advanced Python
+- Students understand math formulas and calculations
+- Students apply concepts in real code AND real math
+- Students are ready for advanced Python AND advanced math
 
 **Assessment:**
 - Python code writing exercises

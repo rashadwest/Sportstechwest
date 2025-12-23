@@ -11,77 +11,100 @@
 
 ## 🎯 CORE PRINCIPLE
 
-**Basketball stories are the FRAMEWORK, not the subject being taught.**
+**Basketball is the LANGUAGE/FRAMEWORK, not the subject being taught. This applies to BOTH coding AND math equally.**
 
-- **Basketball = Framework/Vehicle** - The engaging narrative that makes learning accessible
-- **Python + Math + AI = What Students Learn** - Concepts taught through basketball stories
+- **Basketball = Language/Framework** - The engaging narrative that makes learning accessible
+- **Coding + Math + AI = What Students Learn** - Concepts taught through basketball stories
+- **CRITICAL:** Basketball is the language students use to understand BOTH coding AND math concepts. Students learn coding and math THROUGH basketball, not ABOUT basketball.
 - **Every book must:**
   1. Start with basketball action/situation (not concept explanation)
-  2. Show Python/math/coding concepts emerging FROM basketball needs
-  3. Follow 3-act structure: Act I (setup/problem), Act II (struggle/learning), Act III (resolution/success)
-  4. Make basketball success the proof of concept mastery
-  5. Keep story engaging and adventurous (70% story, 30% skill inserts)
+  2. Show coding concepts emerging FROM basketball needs (e.g., "We need to repeat this" → loops)
+  3. Show math concepts solving basketball problems (e.g., "What's our best shot?" → probability, expected value)
+  4. Follow 3-act structure: Act I (setup/problem), Act II (struggle/learning), Act III (resolution/success)
+  5. Make basketball success the proof of concept mastery (for BOTH coding AND math)
+  6. Keep story engaging and adventurous (70% story, 30% skill inserts)
 
 ---
 
 ## 📚 THREE-PHASE LEARNING PATHWAY
 
-### Phase 1: Sports Language (Block Coding)
+### Phase 1: Sports Language (Block Coding + Math)
 **What students do:**
-- Learn coding concepts using basketball terminology
+- Learn coding concepts AND math concepts using basketball terminology
 - Visual block interface (no typing required)
-- Drag blocks together to create programs
+- Drag blocks together to create programs AND perform math calculations
 - Immediate feedback through integrated game exercises
 
-**Python concepts introduced:**
+**Coding concepts introduced:**
 - Sequences (Book 1)
 - Conditionals (Book 2)
 - Loops (Book 3)
 - Functions (Future books)
 
+**Math concepts introduced:**
+- Counting, basic statistics (Book 1)
+- Probability, decision-making math (Book 2)
+- Pattern analysis, ratios, percentages (Book 3)
+
 **How it works:**
-- Students see blocks like "IF defender goes left, THEN crossover right"
-- No Python syntax yet - just concepts through blocks
-- Basketball terminology makes it accessible
+- **Coding:** Students see blocks like "IF defender goes left, THEN crossover right"
+- **Math:** Students see blocks like "CALCULATE best shot probability" or "COUNT points per possession"
+- No Python syntax or complex math formulas yet - just concepts through blocks
+- Basketball terminology makes BOTH coding AND math accessible
 
 ---
 
-### Phase 2: Transition Bridge
+### Phase 2: Transition Bridge (Coding + Math)
 **What students do:**
-- See how sports language maps to code concepts
-- Side-by-side view of blocks and code
-- Understand that blocks = code
-- See Python syntax alongside blocks
+- See how sports language maps to code concepts AND math concepts
+- Side-by-side view of blocks and code/math
+- Understand that blocks = code AND blocks = math
+- See Python syntax AND math formulas alongside blocks
 
-**Python concepts reinforced:**
+**Coding concepts reinforced:**
 - Same concepts from Phase 1, now with syntax
 - Students see: "This block = this Python code"
 - Understanding deepens: "Code is just instructions"
 
+**Math concepts reinforced:**
+- Same concepts from Phase 1, now with formulas
+- Students see: "This block = this math calculation"
+- Understanding deepens: "Math is just problem-solving"
+
 **How it works:**
-- Visual comparison: Block on left, Python code on right
-- Students see: `if defender_goes_left: crossover_right()`
-- Connection made: "Oh, this is the same thing!"
+- **Coding:** Visual comparison: Block on left, Python code on right
+  - Students see: `if defender_goes_left: crossover_right()`
+- **Math:** Visual comparison: Block on left, math formula on right
+  - Students see: `best_shot_probability = calculate_expected_value(shot_data)`
+- Connection made: "Oh, this is the same thing!" (for BOTH coding AND math)
 
 ---
 
-### Phase 3: Python Learning
+### Phase 3: Python Learning + Math Application
 **What students do:**
-- Progress to Python syntax
+- Progress to Python syntax AND math application
 - Same concepts, different representation
-- Real-world programming skills
-- Write actual Python code
+- Real-world programming skills AND real-world math skills
+- Write actual Python code AND apply math concepts
 
-**Python concepts mastered:**
+**Coding concepts mastered:**
 - Sequences: `print("Hello")`
 - Conditionals: `if condition: action()`
 - Loops: `for i in range(10):`
 - Functions: `def function_name():`
 
+**Math concepts mastered:**
+- Basic statistics: Counting, averages, data collection
+- Probability: Expected value, decision-making math
+- Pattern analysis: Ratios, percentages, data interpretation
+
 **How it works:**
-- Students write Python code to solve basketball problems
-- Same basketball context, now with real code
-- "I can code! This is Python!"
+- **Coding:** Students write Python code to solve basketball problems
+  - Same basketball context, now with real code
+  - "I can code! This is Python!"
+- **Math:** Students apply math concepts to basketball data
+  - Same basketball context, now with real math
+  - "I can calculate! This is probability/statistics!"
 
 ---
 
