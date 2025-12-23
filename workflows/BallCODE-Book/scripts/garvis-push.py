@@ -121,89 +121,37 @@ def push_website(commit_message: str = "Garvis: Deploy website updates") -> Dict
         return {'status': 'error', 'error': str(e)}
 
 def push_game_levels(commit_message: str = "Garvis: Add Book 1, 2, 3 levels with curriculum") -> Dict:
-    """Push game levels to Unity repository"""
-    print_info("Checking game levels...")
+    """Push game levels to Unity repository via GitHub API"""
+    print_info("Pushing game levels via GitHub API...")
     
-    # Check if Unity repo is cloned locally
-    if not (UNITY_REPO_PATH / ".git").exists():
-        print_warning("Unity repository not found locally")
-        print_info("Game levels need to be pushed via GitHub UI")
-        print_info(f"Files to upload: {', '.join(LEVEL_FILES)}")
-        return {
-            'status': 'manual_required',
-            'message': 'Unity repo not found locally - use GitHub UI',
-            'files': LEVEL_FILES,
-            'instructions': f'Upload to: {GAME_REPO}/Assets/StreamingAssets/Levels/'
-        }
+    # Use UnityPusher module (standardized GitHub API approach)
+    sys.path.insert(0, str(Path(__file__).parent))
+    from modules.unity_pusher import UnityPusher
     
-    # Check if level files exist
-    missing_files = []
-    for level_file in LEVEL_FILES:
-        if not (GAME_LEVELS_PATH / level_file).exists():
-            missing_files.append(level_file)
+    pusher = UnityPusher()
+    results = pusher.push_levels(LEVEL_FILES, GAME_LEVELS_PATH, commit_message)
     
-    if missing_files:
+    if results["failed"]:
+        print_error(f"Failed to push: {', '.join([f['file'] for f in results['failed']])}")
         return {
             'status': 'error',
-            'error': f'Missing level files: {", ".join(missing_files)}'
+            'error': f"Failed to push: {', '.join([f['file'] for f in results['failed']])}",
+            'pushed': results["pushed"],
+            'failed': results["failed"]
         }
     
-    # Copy level files to Unity repo
-    target_path = UNITY_REPO_PATH / "Assets" / "StreamingAssets" / "Levels"
-    target_path.mkdir(parents=True, exist_ok=True)
+    if not results["pushed"]:
+        return {
+            'status': 'skipped',
+            'message': 'No levels to push'
+        }
     
-    copied_files = []
-    for level_file in LEVEL_FILES:
-        source = GAME_LEVELS_PATH / level_file
-        if source.exists():
-            import shutil
-            shutil.copy(source, target_path / level_file)
-            copied_files.append(level_file)
-    
-    if not copied_files:
-        return {'status': 'error', 'error': 'No level files to copy'}
-    
-    # Check for changes
-    status = check_git_status(UNITY_REPO_PATH)
-    if not status.get('has_changes'):
-        return {'status': 'skipped', 'message': 'No changes to commit'}
-    
-    try:
-        # Add changes
-        subprocess.run(
-            ["git", "add", "-A"],
-            cwd=UNITY_REPO_PATH,
-            check=True
-        )
-        
-        # Commit
-        subprocess.run(
-            ["git", "commit", "-m", commit_message],
-            cwd=UNITY_REPO_PATH,
-            check=True
-        )
-        
-        # Push
-        push_result = subprocess.run(
-            ["git", "push", "origin", "main"],
-            cwd=UNITY_REPO_PATH,
-            capture_output=True,
-            text=True
-        )
-        
-        if push_result.returncode == 0:
-            print_success(f"Game levels pushed to {GAME_REPO}")
-            return {
-                'status': 'success',
-                'message': f'Pushed levels to {GAME_REPO}',
-                'files': copied_files
-            }
-        else:
-            print_error(f"Game levels push failed: {push_result.stderr}")
-            return {'status': 'error', 'error': push_result.stderr}
-    except subprocess.CalledProcessError as e:
-        print_error(f"Game levels push error: {str(e)}")
-        return {'status': 'error', 'error': str(e)}
+    print_success(f"Pushed {len(results['pushed'])} level files to {GAME_REPO}")
+    return {
+        'status': 'success',
+        'message': f'Pushed {len(results["pushed"])} level files',
+        'files': results["pushed"]
+    }
 
 def trigger_unity_build() -> Dict:
     """Trigger Unity build via n8n webhook"""
