@@ -39,7 +39,9 @@ case "$COMMAND" in
             echo "Usage: ./garvis integrate \"<prompt>\""
             exit 1
         fi
-        python3 "$SCRIPT_DIR/garvis-execute-full-integration.py" "$@"
+        PROMPT="$1"
+        shift
+        python3 "$SCRIPT_DIR/garvis-execute-full-integration.py" "$PROMPT" "$@"
         ;;
     push)
         python3 "$SCRIPT_DIR/garvis-push.py" "$@"
