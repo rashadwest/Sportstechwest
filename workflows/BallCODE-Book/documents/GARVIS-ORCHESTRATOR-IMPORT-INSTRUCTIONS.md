@@ -1,105 +1,90 @@
-# ✅ Garvis Orchestrator - Import Instructions
+# 📥 Garvis Orchestrator - Import Instructions
 
 **Copyright © 2025 Rashad West. All Rights Reserved.**
 
 **Date:** December 23, 2025  
-**Status:** ✅ Fixed JSON Ready - Import via UI
+**Status:** ✅ Fixed - Ready to Import
 
 ---
 
-## ✅ What Was Fixed
+## ✅ WHAT WAS FIXED
 
-**All 5 Route nodes fixed:**
-- Changed from `array.contains` to `boolean.equals`
-- `leftValue`: `{{ $json.systems.includes('book') }}` (returns boolean)
-- `rightValue`: `true`
-- `operator`: `boolean.equals`
+### **Problem:**
+- Garvis Orchestrator calling non-existent webhooks (404 errors)
+- `/webhook/book-content-update` doesn't exist
+- `/webhook/curriculum-sync` doesn't exist
+- `/webhook/website-update` doesn't exist
 
-**Fixed nodes:**
-1. Route: Book System?
-2. Route: Curriculum System?
-3. Route: Game System?
-4. Route: Website System?
-5. Route: Sales System?
+### **Solution:**
+- Routed all systems to existing workflows:
+  - Book/Curriculum/Website/Sales → `/webhook/ballcode-dev` (Full Integration)
+  - Game/Unity → `/webhook/unity-build` (Unity Build Orchestrator)
 
 ---
 
-## 🚀 How to Import (UI Method - Recommended)
+## 📥 IMPORT INSTRUCTIONS
 
-**The API import is being strict, so use UI import instead:**
-
-### Step 1: Open n8n
-1. Go to: `http://192.168.1.226:5678`
+### **Step 1: Open n8n**
+1. Go to: http://192.168.1.226:5678
 2. Log in if needed
 
-### Step 2: Import Workflow
+### **Step 2: Import Workflow**
 1. Click **"Workflows"** in left sidebar
-2. Click **"Import from File"** button (top-right, or three dots menu → Import)
+2. Click **"Import from File"** button (top-right)
 3. Select file: `n8n-garvis-orchestrator-workflow.json`
-   - **Location options:**
-     - Desktop: `~/Desktop/n8n-garvis-orchestrator-workflow-FIXED.json`
-     - Project root: `/Users/rashadwest/Sportstechwest/workflows/BallCODE-Book/n8n-garvis-orchestrator-workflow.json`
 4. Click **"Import"**
 
-### Step 3: Replace Existing (if prompted)
-- If workflow already exists, choose **"Replace"** or **"Update"**
-- This will update the existing workflow with the fixed version
+### **Step 3: Activate Workflow**
+1. After import, workflow opens in editor
+2. Click **toggle switch** in top-right (to activate)
+3. Toggle should turn **green** (active)
 
-### Step 4: Activate Workflow
-1. Find: **"Garvis Orchestrator - BallCODE Fully Integrated System"**
-2. Toggle **"Active"** to **ON** (top-right)
-3. Click **"Save"**
-
-### Step 5: Verify Fix
-1. Click on **"Route: Book System?"** node
-2. Check Parameters:
-   - Left Value should show: `{{ $json.systems.includes('book') }}`
-   - Right Value should show: `true`
-   - Operator should be: `Boolean` → `Equals`
-3. Repeat for other Route nodes
+### **Step 4: Verify**
+1. Check webhook path: Should be `/webhook/garvis`
+2. Check all execute nodes:
+   - Book → `/webhook/ballcode-dev` ✅
+   - Curriculum → `/webhook/ballcode-dev` ✅
+   - Website → `/webhook/ballcode-dev` ✅
+   - Game → `/webhook/unity-build` ✅
+   - Sales → `/webhook/ballcode-dev` ✅
 
 ---
 
-## 🧪 Test the Workflow
+## 🧪 TEST AFTER IMPORT
 
-**Test webhook:**
+### **Test Command:**
 ```bash
-curl -X POST "http://192.168.1.226:5678/webhook/garvis" \
+curl -X POST http://192.168.1.226:5678/webhook/garvis \
   -H "Content-Type: application/json" \
   -d '{
-    "one_thing": "Update book content",
+    "one_thing": "Test fixed orchestrator",
     "tasks": ["book", "curriculum"],
-    "context": "Testing fixed orchestrator"
+    "context": "Testing webhook fix"
   }'
 ```
 
-**Expected:**
-- Should route to Book and Curriculum systems
-- No type validation errors
-- Workflow executes successfully
+### **Expected Result:**
+- ✅ No 404 errors
+- ✅ Routes to Full Integration workflow
+- ✅ Returns success response
 
 ---
 
-## 📋 Alternative: API Import (If UI Doesn't Work)
+## ✅ VERIFICATION CHECKLIST
 
-**If you want to try API import:**
-```bash
-cd /Users/rashadwest/Sportstechwest/workflows/BallCODE-Book
-./scripts/import-garvis-orchestrator.sh
-```
-
-**Note:** API import may still fail with "additional properties" error. UI import is more reliable.
-
----
-
-## ✅ Status
-
-- ✅ JSON file fixed in repository
-- ✅ Import script created
-- ✅ Ready for UI import
-- ⚠️ API import may have issues (use UI instead)
+After importing:
+- [ ] Workflow imported successfully
+- [ ] Workflow is active (toggle green)
+- [ ] Webhook path is `/webhook/garvis`
+- [ ] All execute nodes use correct webhooks:
+  - [ ] Book → `ballcode-dev`
+  - [ ] Curriculum → `ballcode-dev`
+  - [ ] Website → `ballcode-dev`
+  - [ ] Game → `unity-build`
+  - [ ] Sales → `ballcode-dev`
+- [ ] Test execution succeeds (no 404 errors)
 
 ---
 
-**Next:** Import via UI, then test with webhook above.
-
+**Status:** ✅ Ready to Import  
+**File:** `n8n-garvis-orchestrator-workflow.json`
