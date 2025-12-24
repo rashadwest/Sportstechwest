@@ -11,18 +11,24 @@
       "name": "Garvis Webhook Trigger",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
-      "position": [240, 300],
+      "position": [
+        240,
+        300
+      ],
       "webhookId": "garvis-webhook"
     },
     {
       "parameters": {
-        "jsCode": "// Garvis: Parse input and identify systems\nconst input = $input.item.json;\nconst body = input.body || {};\n\nconst jobId = body.job_id || `garvis-${Date.now()}`;\nconst oneThing = body.one_thing || body.oneThing || '';\nconst tasks = body.tasks || [];\nconst context = body.context || '';\n\n// Identify systems involved\nconst text = (oneThing + ' ' + tasks.join(' ')).toLowerCase();\nconst systems = [];\n\nif (text.match(/book|story|episode|content/)) systems.push('book');\nif (text.match(/curriculum|schema|lesson/)) systems.push('curriculum');\nif (text.match(/game|unity|build|exercise/)) systems.push('game');\nif (text.match(/website|deploy|netlify|page/)) systems.push('website');\nif (text.match(/email|sales|onboard|school/)) systems.push('sales');\n\n// Map tasks to workflows\nconst workflowMapping = {};\ntasks.forEach(task => {\n  const taskLower = task.toLowerCase();\n  if (taskLower.match(/book|story|content/)) {\n    workflowMapping[task] = 'book-content-update';\n  } else if (taskLower.match(/curriculum|schema|sync/)) {\n    workflowMapping[task] = 'curriculum-sync';\n  } else if (taskLower.match(/build|unity|game/)) {\n    workflowMapping[task] = 'unity-build';\n  } else if (taskLower.match(/website|deploy/)) {\n    workflowMapping[task] = 'website-auto-update';\n  } else if (taskLower.match(/school|onboard/)) {\n    workflowMapping[task] = 'school-onboarding';\n  } else if (taskLower.match(/email|sales/)) {\n    workflowMapping[task] = 'sales-automation';\n  } else {\n    workflowMapping[task] = 'full-integration';\n  }\n});\n\nreturn {\n  json: {\n    jobId,\n    oneThing,\n    tasks,\n    context,\n    systems: systems.length > 0 ? systems : ['general'],\n    workflowMapping,\n    timestamp: new Date().toISOString()\n  }\n};"
+        "jsCode": "// Garvis: Parse input and identify systems\nconst input = $input.item.json;\nconst body = input.body || {};\n\nconst jobId = body.job_id || `garvis-${Date.now()}`;\nconst oneThing = body.one_thing || body.oneThing || '';\nconst tasks = body.tasks || [];\nconst context = body.context || '';\n\n// Identify systems involved\nconst text = (oneThing + ' ' + tasks.join(' ')).toLowerCase();\nconst systems = [];\n\nif (text.match(/book|story|episode|content/)) systems.push('book');\nif (text.match(/curriculum|schema|lesson/)) systems.push('curriculum');\nif (text.match(/game|unity|build|exercise/)) systems.push('game');\nif (text.match(/website|deploy|netlify|page/)) systems.push('website');\nif (text.match(/email|sales|onboard|school/)) systems.push('sales');\n\n// Map tasks to workflows\nconst workflowMapping = {};\ntasks.forEach(task => {\n  const taskLower = task.toLowerCase();\n  if (taskLower.match(/book|story|content/)) {\n    workflowMapping[task] = 'ballcode-dev';  // Full Integration\n  } else if (taskLower.match(/curriculum|schema|sync/)) {\n    workflowMapping[task] = 'ballcode-dev';  // Full Integration\n  } else if (taskLower.match(/build|unity|game/)) {\n    workflowMapping[task] = 'unity-build';\n  } else if (taskLower.match(/website|deploy/)) {\n    workflowMapping[task] = 'ballcode-dev';  // Full Integration\n  } else if (taskLower.match(/school|onboard/)) {\n    workflowMapping[task] = 'ballcode-dev';  // Full Integration\n  } else if (taskLower.match(/email|sales/)) {\n    workflowMapping[task] = 'ballcode-dev';  // Full Integration\n  } else {\n    workflowMapping[task] = 'ballcode-dev';  // Full Integration (default)\n  }\n});\n\nreturn {\n  json: {\n    jobId,\n    oneThing,\n    tasks,\n    context,\n    systems: systems.length > 0 ? systems : ['general'],\n    workflowMapping,\n    timestamp: new Date().toISOString()\n  }\n};"
       },
       "id": "parse-input",
       "name": "Parse Input & Identify Systems",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [460, 300]
+      "position": [
+        460,
+        300
+      ]
     },
     {
       "parameters": {
@@ -51,7 +57,10 @@
       "name": "Route: Book System?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
-      "position": [680, 200]
+      "position": [
+        680,
+        200
+      ]
     },
     {
       "parameters": {
@@ -80,7 +89,10 @@
       "name": "Route: Curriculum System?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
-      "position": [680, 300]
+      "position": [
+        680,
+        300
+      ]
     },
     {
       "parameters": {
@@ -109,7 +121,10 @@
       "name": "Route: Game System?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
-      "position": [680, 400]
+      "position": [
+        680,
+        400
+      ]
     },
     {
       "parameters": {
@@ -138,7 +153,10 @@
       "name": "Route: Website System?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
-      "position": [680, 500]
+      "position": [
+        680,
+        500
+      ]
     },
     {
       "parameters": {
@@ -167,7 +185,10 @@
       "name": "Route: Sales System?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
-      "position": [680, 600]
+      "position": [
+        680,
+        600
+      ]
     },
     {
       "parameters": {
@@ -181,7 +202,10 @@
       "name": "Execute: Book Content Update (via Full Integration)",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [900, 200]
+      "position": [
+        900,
+        200
+      ]
     },
     {
       "parameters": {
@@ -195,7 +219,10 @@
       "name": "Execute: Curriculum Sync (via Full Integration)",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [900, 300]
+      "position": [
+        900,
+        300
+      ]
     },
     {
       "parameters": {
@@ -209,7 +236,10 @@
       "name": "Execute: Unity Build",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [900, 400]
+      "position": [
+        900,
+        400
+      ]
     },
     {
       "parameters": {
@@ -223,7 +253,10 @@
       "name": "Execute: Website Update (via Full Integration)",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [900, 500]
+      "position": [
+        900,
+        500
+      ]
     },
     {
       "parameters": {
@@ -237,7 +270,10 @@
       "name": "Execute: Sales/Onboarding (via Full Integration)",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [900, 600]
+      "position": [
+        900,
+        600
+      ]
     },
     {
       "parameters": {
@@ -247,7 +283,10 @@
       "name": "Aggregate Results",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [1120, 400]
+      "position": [
+        1120,
+        400
+      ]
     },
     {
       "parameters": {
@@ -258,54 +297,175 @@
       "name": "Respond with Results",
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
-      "position": [1340, 400]
+      "position": [
+        1340,
+        400
+      ]
     }
   ],
   "connections": {
     "Garvis Webhook Trigger": {
-      "main": [[{"node": "Parse Input & Identify Systems", "type": "main", "index": 0}]]
+      "main": [
+        [
+          {
+            "node": "Parse Input & Identify Systems",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Parse Input & Identify Systems": {
-      "main": [[
-        {"node": "Route: Book System?", "type": "main", "index": 0},
-        {"node": "Route: Curriculum System?", "type": "main", "index": 0},
-        {"node": "Route: Game System?", "type": "main", "index": 0},
-        {"node": "Route: Website System?", "type": "main", "index": 0},
-        {"node": "Route: Sales System?", "type": "main", "index": 0}
-      ]]
+      "main": [
+        [
+          {
+            "node": "Route: Book System?",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Route: Curriculum System?",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Route: Game System?",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Route: Website System?",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Route: Sales System?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Route: Book System?": {
-      "main": [[{"node": "Execute: Book Content Update", "type": "main", "index": 0}]]
+      "main": [
+        [
+          {
+            "node": "Execute: Book Content Update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Route: Curriculum System?": {
-      "main": [[{"node": "Execute: Curriculum Sync", "type": "main", "index": 0}]]
+      "main": [
+        [
+          {
+            "node": "Execute: Curriculum Sync",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Route: Game System?": {
-      "main": [[{"node": "Execute: Unity Build", "type": "main", "index": 0}]]
+      "main": [
+        [
+          {
+            "node": "Execute: Unity Build",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Route: Website System?": {
-      "main": [[{"node": "Execute: Website Update", "type": "main", "index": 0}]]
+      "main": [
+        [
+          {
+            "node": "Execute: Website Update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Route: Sales System?": {
-      "main": [[{"node": "Execute: Sales/Onboarding", "type": "main", "index": 0}]]
+      "main": [
+        [
+          {
+            "node": "Execute: Sales/Onboarding",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Execute: Book Content Update": {
-      "main": [[{"node": "Aggregate Results", "type": "main", "index": 0}]]
+      "main": [
+        [
+          {
+            "node": "Aggregate Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Execute: Curriculum Sync": {
-      "main": [[{"node": "Aggregate Results", "type": "main", "index": 0}]]
+      "main": [
+        [
+          {
+            "node": "Aggregate Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Execute: Unity Build": {
-      "main": [[{"node": "Aggregate Results", "type": "main", "index": 0}]]
+      "main": [
+        [
+          {
+            "node": "Aggregate Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Execute: Website Update": {
-      "main": [[{"node": "Aggregate Results", "type": "main", "index": 0}]]
+      "main": [
+        [
+          {
+            "node": "Aggregate Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Execute: Sales/Onboarding": {
-      "main": [[{"node": "Aggregate Results", "type": "main", "index": 0}]]
+      "main": [
+        [
+          {
+            "node": "Aggregate Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Aggregate Results": {
-      "main": [[{"node": "Respond with Results", "type": "main", "index": 0}]]
+      "main": [
+        [
+          {
+            "node": "Respond with Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "pinData": {},
@@ -318,4 +478,3 @@
   "updatedAt": "2025-12-17T00:00:00.000Z",
   "versionId": "1"
 }
-
