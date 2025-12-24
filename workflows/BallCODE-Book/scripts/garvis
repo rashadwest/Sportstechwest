@@ -2,7 +2,13 @@
 # Garvis Unified Command Interface
 # Single entry point for all Garvis operations
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Get the actual script directory (handles symlinks)
+if [ -L "${BASH_SOURCE[0]}" ]; then
+    # If called via symlink, resolve to actual script location
+    SCRIPT_DIR="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
+else
+    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+fi
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 # Colors
