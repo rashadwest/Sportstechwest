@@ -17,23 +17,35 @@
         "context": "Breaking the press with foundation blocks"
       },
       "curriculum": {
-        "gradeLevels": ["3-5", "6-8", "9-12"],
+        "gradeLevels": [
+          "3-5",
+          "6-8",
+          "9-12"
+        ],
         "standards": {
-          "csta": ["1B-AP-10", "1B-AP-11"],
-          "commonCore": ["MP.2", "MP.7"],
-          "ngss": ["ETS1-2"]
+          "csta": [
+            "1B-AP-10",
+            "1B-AP-11"
+          ],
+          "commonCore": [
+            "MP.2",
+            "MP.7"
+          ],
+          "ngss": [
+            "ETS1-2"
+          ]
         },
         "phases": {
           "phase1": {
             "name": "Sports Language (Block Coding)",
-            "description": "Learn sequences using basketball terminology. Visual block interface: START → BLOCK_1_POUND → BLOCK_1_POUND → ADVANCE",
-            "example": "START → BLOCK_1_POUND → BLOCK_1_POUND → BLOCK_1_POUND → ADVANCE",
+            "description": "Learn sequences using basketball terminology. Visual block interface: START \u2192 BLOCK_1_POUND \u2192 BLOCK_1_POUND \u2192 ADVANCE",
+            "example": "START \u2192 BLOCK_1_POUND \u2192 BLOCK_1_POUND \u2192 BLOCK_1_POUND \u2192 ADVANCE",
             "learningObjective": "Students understand that code is step-by-step instructions"
           },
           "phase2": {
             "name": "Transition Bridge",
             "description": "See how sports language maps to code concepts. Side-by-side view: Block sequence | Python code",
-            "example": "Block: START → BLOCK_1_POUND\nCode: start()\npound_dribble()\nadvance()",
+            "example": "Block: START \u2192 BLOCK_1_POUND\nCode: start()\npound_dribble()\nadvance()",
             "learningObjective": "Students understand that blocks = code"
           },
           "phase3": {
@@ -74,7 +86,9 @@
         ],
         "returnFlow": {
           "onComplete": "Return to Book 1 page with success status",
-          "unlocks": ["Python practice section"]
+          "unlocks": [
+            "Python practice section"
+          ]
         }
       },
       "website": {
@@ -107,7 +121,7 @@
         "prerequisites": [],
         "nextBook": 2,
         "nextBookReason": "After mastering sequences, students learn conditionals (if/then decisions) which build on sequential thinking",
-        "conceptProgression": "Sequences → Conditionals (decision-making builds on step-by-step thinking)"
+        "conceptProgression": "Sequences \u2192 Conditionals (decision-making builds on step-by-step thinking)"
       }
     },
     {
@@ -127,11 +141,23 @@
         "context": "Creating space with conditional decisions"
       },
       "curriculum": {
-        "gradeLevels": ["3-5", "6-8", "9-12"],
+        "gradeLevels": [
+          "3-5",
+          "6-8",
+          "9-12"
+        ],
         "standards": {
-          "csta": ["1B-AP-12", "1B-AP-13"],
-          "commonCore": ["MP.2", "MP.7"],
-          "ngss": ["ETS1-2"]
+          "csta": [
+            "1B-AP-12",
+            "1B-AP-13"
+          ],
+          "commonCore": [
+            "MP.2",
+            "MP.7"
+          ],
+          "ngss": [
+            "ETS1-2"
+          ]
         },
         "phases": {
           "phase1": {
@@ -184,7 +210,9 @@
         ],
         "returnFlow": {
           "onComplete": "Return to Book 2 page with success status",
-          "unlocks": ["Python practice section"]
+          "unlocks": [
+            "Python practice section"
+          ]
         }
       },
       "website": {
@@ -214,10 +242,12 @@
         }
       },
       "progression": {
-        "prerequisites": [1],
+        "prerequisites": [
+          1
+        ],
         "nextBook": 3,
         "nextBookReason": "After mastering conditionals, students learn loops (repetition) which combine sequences and conditionals",
-        "conceptProgression": "Conditionals → Loops (repetition builds on decision-making)"
+        "conceptProgression": "Conditionals \u2192 Loops (repetition builds on decision-making)"
       }
     },
     {
@@ -237,11 +267,26 @@
         "context": "Creating patterns and breaking them at the right moment"
       },
       "curriculum": {
-        "gradeLevels": ["3-5", "6-8", "9-12"],
+        "gradeLevels": [
+          "3-5",
+          "6-8",
+          "9-12"
+        ],
         "standards": {
-          "csta": ["1B-AP-11", "1B-AP-12", "1B-AP-15", "2-AP-13"],
-          "commonCore": ["MP.2", "MP.7", "MP.8"],
-          "ngss": ["ETS1-2"]
+          "csta": [
+            "1B-AP-11",
+            "1B-AP-12",
+            "1B-AP-15",
+            "2-AP-13"
+          ],
+          "commonCore": [
+            "MP.2",
+            "MP.7",
+            "MP.8"
+          ],
+          "ngss": [
+            "ETS1-2"
+          ]
         },
         "phases": {
           "phase1": {
@@ -294,7 +339,10 @@
         ],
         "returnFlow": {
           "onComplete": "Return to Book 3 page with success status",
-          "unlocks": ["Python practice section", "Data integration concepts"]
+          "unlocks": [
+            "Python practice section",
+            "Data integration concepts"
+          ]
         }
       },
       "website": {
@@ -324,18 +372,29 @@
         }
       },
       "progression": {
-        "prerequisites": [1, 2],
+        "prerequisites": [
+          1,
+          2
+        ],
         "nextBook": 4,
         "nextBookReason": "After mastering loops, students learn functions (combining sequences, conditionals, and loops)",
-        "conceptProgression": "Loops → Functions (combining concepts into reusable blocks)"
+        "conceptProgression": "Loops \u2192 Functions (combining concepts into reusable blocks)"
       }
     }
   ],
   "curriculum": {
-    "pathway": [1, 2, 3, 4, 5, 6, 7],
+    "pathway": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
     "phases": {
       "phase1": "Sports Language (Block Coding) - Students learn concepts using basketball terminology and visual blocks",
-      "phase2": "Transition Bridge - Students see blocks → Python code connection",
+      "phase2": "Transition Bridge - Students see blocks \u2192 Python code connection",
       "phase3": "Python Learning - Students write actual Python code"
     },
     "gradeLevels": {
@@ -355,12 +414,7 @@
   },
   "metadata": {
     "version": "1.0.0",
-    "lastUpdated": "2025-12-05T11:30:00Z",
+    "lastUpdated": "2025-12-23T19:25:23.288446",
     "updatedBy": "AIMCODE Unified Schema System"
   }
 }
-
-
-
-
-
