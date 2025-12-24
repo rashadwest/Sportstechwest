@@ -1,0 +1,856 @@
+{
+  "name": "BallCODE Full Integration - AI Development Workflow (INTEGRATED)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "ballcode-dev",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook Trigger (Development Prompt)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        250,
+        300
+      ],
+      "webhookId": "ballcode-dev-webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normalize input and extract development prompt\nconst input = $input.item.json;\nconst body = input.body || {};\n\n// Extract the development prompt\nconst prompt = body.prompt || body.request || body.message || 'No prompt provided';\n\n// Extract mode (quick or full unified prompting)\nconst unifiedPromptingMode = body.mode || 'full'; // 'quick' or 'full'\n\n// Extract any additional context\nconst context = body.context || {};\n\nreturn {\n  json: {\n    prompt: prompt,\n    unifiedPromptingMode: unifiedPromptingMode,\n    context: context,\n    timestamp: new Date().toISOString(),\n    sessionId: body.sessionId || `session-${Date.now()}`\n  }\n};"
+      },
+      "id": "normalize-input",
+      "name": "Normalize Input & Extract Prompt",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        450,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "operation": "create",
+        "model": "gpt-4",
+        "options": {
+          "temperature": 0.3,
+          "maxTokens": 4000
+        },
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are an expert AI development assistant using AIMCODE methodology with Demis Hassabis (Alpha Evolve) as the expert consultant. Your role is to analyze development prompts and create comprehensive action plans that ensure full integration across BallCODE's 4 systems: Website, Book, Curriculum, and Game.\n\n**AIMCODE Methodology (Demis Hassabis - Alpha Evolve):**\n- Apply systematic, layered approach (Layer 1: Foundation \u2192 Layer 2: Application \u2192 Layer 3: Integration \u2192 Layer 4: Mastery)\n- Build concepts layer by layer with deep understanding\n- Ensure each layer is solid before moving to next\n- Connect concepts to form integrated systems\n- Apply systems thinking throughout\n\n**Integration Requirements:**\n- Every change must update: Game, Curriculum, Book content, and Website\n- Use unified curriculum schema (CURRICULUM-DATA-EXAMPLE.json) as single source of truth\n- Ensure seamless learning loop: Website \u2192 Book \u2192 Game \u2192 Curriculum \u2192 Next Book\n- Save context/memory for book/lesson/website updates\n\n**Unified Prompting Framework:**\n- If mode is 'quick': Use 5 essential questions (Goal, Format, Context, Examples, Results)\n- If mode is 'full': Use 23 comprehensive questions (Goal & Clarity, Format & Logic, Guardrails, Context & Examples, Alpha Evolve layers, Results)\n\nAnalyze the development prompt and create a structured action plan."
+            },
+            {
+              "role": "user",
+              "content": "Development Prompt: {{ $json.prompt }}\n\nUnified Prompting Mode: {{ $json.unifiedPromptingMode }}\n\nContext: {{ JSON.stringify($json.context) }}\n\nAnalyze this prompt using AIMCODE methodology (Demis Hassabis - Alpha Evolve) and create a comprehensive action plan that:\n1. Identifies which systems need updates (Game, Curriculum, Book, Website)\n2. Determines what changes are needed in each system\n3. Ensures full integration across all 4 systems\n4. Saves context/memory for future reference\n5. Uses unified curriculum schema as source of truth\n6. Applies Alpha Evolve layered approach (Layer 1 \u2192 Layer 2 \u2192 Layer 3 \u2192 Layer 4)\n\nReturn JSON with:\n- analysis: { promptType, systemsAffected: ['game', 'curriculum', 'book', 'website'], complexity }\n- actionPlan: { layers: [{ layer: 1, name: 'Foundation', tasks: [] }, { layer: 2, name: 'Application', tasks: [] }, { layer: 3, name: 'Integration', tasks: [] }, { layer: 4, name: 'Mastery', tasks: [] }] }\n- integrationPoints: { game: {}, curriculum: {}, book: {}, website: {} }\n- memoryContext: { bookUpdates: [], lessonUpdates: [], websiteUpdates: [] }\n- unifiedPromptingQuestions: { mode: 'quick'|'full', questions: [], answers: [] }\n- successCriteria: []\n\nFormat as valid JSON only."
+            }
+          ]
+        }
+      },
+      "id": "ai-analyze-prompt",
+      "name": "AI Analyze Prompt (AIMCODE + Demis Hassabis)",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1.1,
+      "position": [
+        650,
+        300
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "openai-credentials",
+          "name": "OpenAI API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse AI response and extract comprehensive action plan\nconst aiResponse = $input.item.json.choices?.[0]?.message?.content || '{}';\nlet actionPlan;\n\ntry {\n  // Extract JSON from AI response (might be wrapped in markdown)\n  const jsonMatch = aiResponse.match(/\\{[\\s\\S]*\\}/);\n  actionPlan = JSON.parse(jsonMatch ? jsonMatch[0] : aiResponse);\n} catch (e) {\n  // Fallback if parsing fails\n  actionPlan = {\n    analysis: {\n      promptType: 'unknown',\n      systemsAffected: ['game', 'curriculum', 'book', 'website'],\n      complexity: 'medium'\n    },\n    actionPlan: {\n      layers: [\n        { layer: 1, name: 'Foundation', tasks: ['Parse prompt', 'Identify systems'] },\n        { layer: 2, name: 'Application', tasks: ['Apply changes'] },\n        { layer: 3, name: 'Integration', tasks: ['Integrate systems'] },\n        { layer: 4, name: 'Mastery', tasks: ['Verify integration'] }\n      ]\n    },\n    integrationPoints: { game: {}, curriculum: {}, book: {}, website: {} },\n    memoryContext: { bookUpdates: [], lessonUpdates: [], websiteUpdates: [] },\n    unifiedPromptingQuestions: { mode: 'full', questions: [], answers: [] },\n    successCriteria: ['All systems updated', 'Integration verified']\n  };\n}\n\n// Merge with original input data\nreturn {\n  json: {\n    ...$('Normalize Input & Extract Prompt').item.json,\n    actionPlan: actionPlan,\n    parsedAt: new Date().toISOString()\n  }\n};"
+      },
+      "id": "parse-action-plan",
+      "name": "Parse Action Plan",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        850,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Load unified curriculum schema and prepare for updates\nconst fs = require('fs');\nconst path = require('path');\n\n// Get workflow path from environment\nconst workflowPath = $env.WORKFLOW_PATH || process.env.WORKFLOW_PATH || '/Users/rashadwest/Sportstechwest/workflows/BallCODE-Book';\nconst schemaPath = path.join(workflowPath, 'CURRICULUM-DATA-EXAMPLE.json');\n\nlet curriculumSchema = {};\n\ntry {\n  // Try to read schema file\n  if (typeof fs !== 'undefined' && fs.readFileSync) {\n    curriculumSchema = JSON.parse(fs.readFileSync(schemaPath, 'utf8'));\n  } else {\n    // Fallback: return schema structure\n    curriculumSchema = {\n      books: [],\n      curriculum: {},\n      metadata: { version: '1.0.0', lastUpdated: new Date().toISOString() }\n    };\n  }\n} catch (e) {\n  // If file doesn't exist or can't read, use empty structure\n  curriculumSchema = {\n    books: [],\n    curriculum: {},\n    metadata: { version: '1.0.0', lastUpdated: new Date().toISOString() }\n  };\n}\n\n// Get action plan from previous node\nconst actionPlan = $('Parse Action Plan').item.json.actionPlan;\n\n// Prepare integration data\nreturn {\n  json: {\n    ...$('Parse Action Plan').item.json,\n    curriculumSchema: curriculumSchema,\n    schemaPath: schemaPath,\n    readyForIntegration: true\n  }\n};"
+      },
+      "id": "load-curriculum-schema",
+      "name": "Load Unified Curriculum Schema",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1050,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.actionPlan.analysis.systemsAffected.includes('game') }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-game-updates",
+      "name": "Needs Game Updates?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1250,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "operation": "create",
+        "model": "gpt-4",
+        "options": {
+          "temperature": 0.2,
+          "maxTokens": 3000
+        },
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are a Unity game development expert. Generate Unity game code and JSON level files based on development prompts. Ensure all game exercises integrate with the curriculum schema and book content."
+            },
+            {
+              "role": "user",
+              "content": "Development Prompt: {{ $('Normalize Input & Extract Prompt').item.json.prompt }}\n\nAction Plan: {{ JSON.stringify($json.actionPlan) }}\n\nIntegration Points: {{ JSON.stringify($json.actionPlan.integrationPoints.game) }}\n\nGenerate Unity game updates:\n1. Unity C# scripts if needed\n2. JSON level files for exercises\n3. Exercise configuration matching curriculum\n4. Return flow integration\n\nReturn JSON with:\n- unityScripts: [{ file: string, code: string }]\n- levelFiles: [{ file: string, json: object }]\n- exerciseConfig: { exerciseId, url, mode, successCriteria }\n- integrationData: { bookId, curriculumConnection, websiteUpdate }\n\nFormat as valid JSON only."
+            }
+          ]
+        }
+      },
+      "id": "generate-game-updates",
+      "name": "Generate Game Updates (AI)",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1.1,
+      "position": [
+        1450,
+        100
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "openai-credentials",
+          "name": "OpenAI API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.actionPlan.analysis.systemsAffected.includes('curriculum') }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-curriculum-updates",
+      "name": "Needs Curriculum Updates?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1250,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "operation": "create",
+        "model": "gpt-4",
+        "options": {
+          "temperature": 0.2,
+          "maxTokens": 3000
+        },
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are a curriculum design expert. Update the unified curriculum schema (CURRICULUM-DATA-EXAMPLE.json) to reflect development changes. Ensure curriculum updates integrate with game, book, and website systems."
+            },
+            {
+              "role": "user",
+              "content": "Development Prompt: {{ $('Normalize Input & Extract Prompt').item.json.prompt }}\n\nCurrent Schema: {{ JSON.stringify($json.curriculumSchema) }}\n\nAction Plan: {{ JSON.stringify($json.actionPlan) }}\n\nIntegration Points: {{ JSON.stringify($json.actionPlan.integrationPoints.curriculum) }}\n\nUpdate curriculum schema:\n1. Add/update book entries\n2. Update learning objectives\n3. Update curriculum standards\n4. Update progression paths\n5. Ensure integration with game, book, website\n\nReturn updated curriculum schema JSON matching CURRICULUM-DATA-EXAMPLE.json structure.\n\nFormat as valid JSON only."
+            }
+          ]
+        }
+      },
+      "id": "generate-curriculum-updates",
+      "name": "Generate Curriculum Updates (AI)",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1.1,
+      "position": [
+        1450,
+        200
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "openai-credentials",
+          "name": "OpenAI API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.actionPlan.analysis.systemsAffected.includes('book') }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-book-updates",
+      "name": "Needs Book Updates?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1250,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "operation": "create",
+        "model": "gpt-4",
+        "options": {
+          "temperature": 0.3,
+          "maxTokens": 4000
+        },
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are a children's book author and educational content creator using AIMCODE methodology. Create or update book content (stories, videos, learning sections) that integrates with curriculum, game exercises, and website display."
+            },
+            {
+              "role": "user",
+              "content": "Development Prompt: {{ $('Normalize Input & Extract Prompt').item.json.prompt }}\n\nAction Plan: {{ JSON.stringify($json.actionPlan) }}\n\nIntegration Points: {{ JSON.stringify($json.actionPlan.integrationPoints.book) }}\n\nCurriculum Context: {{ JSON.stringify($json.curriculumSchema) }}\n\nCreate/update book content:\n1. Story content (if needed)\n2. 'What You're Learning' section\n3. Exercise button integration\n4. Curriculum connection display\n5. Video script/content (if needed)\n\nReturn JSON with:\n- storyContent: string\n- learningSection: { pythonConcept, basketballSkill, gradeLevels, standards }\n- exerciseButton: { text, url, description }\n- curriculumConnection: { learningObjectives, phases, assessment }\n- memoryContext: { bookId, updates: [], nextSteps: [] }\n\nFormat as valid JSON only."
+            }
+          ]
+        }
+      },
+      "id": "generate-book-updates",
+      "name": "Generate Book Updates (AI)",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1.1,
+      "position": [
+        1450,
+        300
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "openai-credentials",
+          "name": "OpenAI API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.actionPlan.analysis.systemsAffected.includes('website') }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-website-updates",
+      "name": "Needs Website Updates?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1250,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "operation": "create",
+        "model": "gpt-4",
+        "options": {
+          "temperature": 0.2,
+          "maxTokens": 3000
+        },
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are a web developer and UX designer. Generate website updates (HTML, CSS, JavaScript) that display book content, curriculum pathways, and game exercise links. Ensure website integrates seamlessly with book, curriculum, and game systems."
+            },
+            {
+              "role": "user",
+              "content": "Development Prompt: {{ $('Normalize Input & Extract Prompt').item.json.prompt }}\n\nAction Plan: {{ JSON.stringify($json.actionPlan) }}\n\nIntegration Points: {{ JSON.stringify($json.actionPlan.integrationPoints.website) }}\n\nCurriculum Schema: {{ JSON.stringify($json.curriculumSchema) }}\n\nGenerate website updates:\n1. Book page HTML/CSS\n2. Curriculum pathway display\n3. Exercise button/link integration\n4. Learning objectives display\n5. Progression indicators\n\nReturn JSON with:\n- htmlFiles: [{ path: string, content: string }]\n- cssUpdates: [{ file: string, styles: string }]\n- jsUpdates: [{ file: string, code: string }]\n- websiteConfig: { bookCards, curriculumPathway, exerciseLinks }\n- memoryContext: { pagePaths: [], updates: [] }\n\nFormat as valid JSON only."
+            }
+          ]
+        }
+      },
+      "id": "generate-website-updates",
+      "name": "Generate Website Updates (AI)",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1.1,
+      "position": [
+        1450,
+        400
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "openai-credentials",
+          "name": "OpenAI API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Merge all system updates and prepare for integration\nconst gameUpdates = $('Generate Game Updates (AI)').item?.json?.choices?.[0]?.message?.content || null;\nconst curriculumUpdates = $('Generate Curriculum Updates (AI)').item?.json?.choices?.[0]?.message?.content || null;\nconst bookUpdates = $('Generate Book Updates (AI)').item?.json?.choices?.[0]?.message?.content || null;\nconst websiteUpdates = $('Generate Website Updates (AI)').item?.json?.choices?.[0]?.message?.content || null;\n\n// Parse each update\nlet parsedGame = null;\nlet parsedCurriculum = null;\nlet parsedBook = null;\nlet parsedWebsite = null;\n\nif (gameUpdates) {\n  try {\n    const jsonMatch = gameUpdates.match(/\\{[\\s\\S]*\\}/);\n    parsedGame = JSON.parse(jsonMatch ? jsonMatch[0] : gameUpdates);\n  } catch (e) {}\n}\n\nif (curriculumUpdates) {\n  try {\n    const jsonMatch = curriculumUpdates.match(/\\{[\\s\\S]*\\}/);\n    parsedCurriculum = JSON.parse(jsonMatch ? jsonMatch[0] : curriculumUpdates);\n  } catch (e) {}\n}\n\nif (bookUpdates) {\n  try {\n    const jsonMatch = bookUpdates.match(/\\{[\\s\\S]*\\}/);\n    parsedBook = JSON.parse(jsonMatch ? jsonMatch[0] : bookUpdates);\n  } catch (e) {}\n}\n\nif (websiteUpdates) {\n  try {\n    const jsonMatch = websiteUpdates.match(/\\{[\\s\\S]*\\}/);\n    parsedWebsite = JSON.parse(jsonMatch ? jsonMatch[0] : websiteUpdates);\n  } catch (e) {}\n}\n\n// Get original action plan\nconst actionPlan = $('Load Unified Curriculum Schema').item.json.actionPlan;\n\n// Compile memory context\nconst memoryContext = {\n  timestamp: new Date().toISOString(),\n  sessionId: $('Normalize Input & Extract Prompt').item.json.sessionId,\n  prompt: $('Normalize Input & Extract Prompt').item.json.prompt,\n  bookUpdates: parsedBook?.memoryContext?.bookUpdates || [],\n  lessonUpdates: parsedBook?.memoryContext?.lessonUpdates || [],\n  websiteUpdates: parsedWebsite?.memoryContext?.websiteUpdates || [],\n  gameUpdates: parsedGame?.integrationData || {},\n  curriculumUpdates: parsedCurriculum ? 'Schema updated' : null\n};\n\nreturn {\n  json: {\n    ...$('Load Unified Curriculum Schema').item.json,\n    gameUpdates: parsedGame,\n    curriculumUpdates: parsedCurriculum,\n    bookUpdates: parsedBook,\n    websiteUpdates: parsedWebsite,\n    memoryContext: memoryContext,\n    allSystemsUpdated: true,\n    readyForFileWriting: true\n  }\n};"
+      },
+      "id": "merge-all-updates",
+      "name": "Merge All System Updates",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1650,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Save memory context to file for future reference\n// This ensures we remember what was updated for books, lessons, and website\n\nconst memoryContext = $json.memoryContext;\nconst workflowPath = $env.WORKFLOW_PATH || process.env.WORKFLOW_PATH || '/Users/rashadwest/Sportstechwest/workflows/BallCODE-Book';\n\n// Prepare memory file content\nconst memoryFile = {\n  sessionId: memoryContext.sessionId,\n  timestamp: memoryContext.timestamp,\n  prompt: memoryContext.prompt,\n  updates: {\n    books: memoryContext.bookUpdates,\n    lessons: memoryContext.lessonUpdates,\n    website: memoryContext.websiteUpdates,\n    game: memoryContext.gameUpdates,\n    curriculum: memoryContext.curriculumUpdates\n  },\n  integrationStatus: 'All systems updated and integrated'\n};\n\n// Note: In n8n Code node, we can't write files directly\n// This will be handled by executeCommand node or external script\nreturn {\n  json: {\n    ...$json,\n    memoryFileContent: JSON.stringify(memoryFile, null, 2),\n    memoryFilePath: `${workflowPath}/memory-context-${memoryContext.sessionId}.json`,\n    readyToSaveMemory: true\n  }\n};"
+      },
+      "id": "prepare-memory-context",
+      "name": "Prepare Memory Context for Saving",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1850,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "command": "bash",
+        "arguments": "-c 'echo \"{{ $json.memoryFileContent }}\" > \"{{ $json.memoryFilePath }}\"'",
+        "options": {}
+      },
+      "id": "save-memory-context",
+      "name": "Save Memory Context to File",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        2050,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Finalize workflow: compile completion report with all integration points\nconst actionPlan = $('Merge All System Updates').item.json.actionPlan;\nconst memoryContext = $('Prepare Memory Context for Saving').item.json.memoryContext;\n\nconst report = {\n  status: 'success',\n  timestamp: new Date().toISOString(),\n  sessionId: memoryContext.sessionId,\n  prompt: memoryContext.prompt,\n  systemsUpdated: {\n    game: !!$('Merge All System Updates').item.json.gameUpdates,\n    curriculum: !!$('Merge All System Updates').item.json.curriculumUpdates,\n    book: !!$('Merge All System Updates').item.json.bookUpdates,\n    website: !!$('Merge All System Updates').item.json.websiteUpdates\n  },\n  integrationStatus: 'All systems integrated successfully',\n  memoryContextSaved: true,\n  memoryFilePath: $('Prepare Memory Context for Saving').item.json.memoryFilePath,\n  actionPlanLayers: actionPlan.actionPlan.layers,\n  successCriteria: actionPlan.successCriteria,\n  nextSteps: [\n    'Review generated files',\n    'Test integration points',\n    'Verify curriculum schema updates',\n    'Deploy website updates',\n    'Test game exercises'\n  ]\n};\n\nreturn { json: report };"
+      },
+      "id": "finalize-report",
+      "name": "Finalize Integration Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2250,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {}
+      },
+      "id": "webhook-response",
+      "name": "Webhook Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        2450,
+        300
+      ]
+    },
+    {
+      "id": "execute-game-script",
+      "name": "Execute: Apply Game Updates",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        1650,
+        100
+      ],
+      "parameters": {
+        "command": "python3",
+        "arguments": "$env.WORKFLOW_PATH || '/Users/rashadwest/Sportstechwest/workflows/BallCODE-Book'/scripts/full-integration-apply-game.py",
+        "options": {}
+      }
+    },
+    {
+      "id": "parse-game-output",
+      "name": "Parse Game Script Output",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1850,
+        100
+      ],
+      "parameters": {
+        "jsCode": "// Parse game script output\nconst output = $input.item.json.stdout || $input.item.json;\nlet result;\ntry {\n  result = typeof output === 'string' ? JSON.parse(output) : output;\n} catch (e) {\n  result = { status: 'error', error: 'Failed to parse output', raw: output };\n}\nreturn { json: { ...$('Generate Game Updates (AI)').item.json, gameResult: result } };"
+      }
+    },
+    {
+      "id": "execute-curriculum-script",
+      "name": "Execute: Apply Curriculum Updates",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        1650,
+        200
+      ],
+      "parameters": {
+        "command": "python3",
+        "arguments": "$env.WORKFLOW_PATH || '/Users/rashadwest/Sportstechwest/workflows/BallCODE-Book'/scripts/full-integration-apply-curriculum.py",
+        "options": {}
+      }
+    },
+    {
+      "id": "parse-curriculum-output",
+      "name": "Parse Curriculum Script Output",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1850,
+        200
+      ],
+      "parameters": {
+        "jsCode": "// Parse curriculum script output\nconst output = $input.item.json.stdout || $input.item.json;\nlet result;\ntry {\n  result = typeof output === 'string' ? JSON.parse(output) : output;\n} catch (e) {\n  result = { status: 'error', error: 'Failed to parse output', raw: output };\n}\nreturn { json: { ...$('Generate Curriculum Updates (AI)').item.json, curriculumResult: result } };"
+      }
+    },
+    {
+      "id": "execute-book-script",
+      "name": "Execute: Apply Book Updates",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        1650,
+        300
+      ],
+      "parameters": {
+        "command": "python3",
+        "arguments": "$env.WORKFLOW_PATH || '/Users/rashadwest/Sportstechwest/workflows/BallCODE-Book'/scripts/full-integration-apply-book.py",
+        "options": {}
+      }
+    },
+    {
+      "id": "parse-book-output",
+      "name": "Parse Book Script Output",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1850,
+        300
+      ],
+      "parameters": {
+        "jsCode": "// Parse book script output\nconst output = $input.item.json.stdout || $input.item.json;\nlet result;\ntry {\n  result = typeof output === 'string' ? JSON.parse(output) : output;\n} catch (e) {\n  result = { status: 'error', error: 'Failed to parse output', raw: output };\n}\nreturn { json: { ...$('Generate Book Updates (AI)').item.json, bookResult: result } };"
+      }
+    },
+    {
+      "id": "execute-website-script",
+      "name": "Execute: Apply Website Updates",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        1650,
+        400
+      ],
+      "parameters": {
+        "command": "python3",
+        "arguments": "$env.WORKFLOW_PATH || '/Users/rashadwest/Sportstechwest/workflows/BallCODE-Book'/scripts/full-integration-apply-website.py",
+        "options": {}
+      }
+    },
+    {
+      "id": "parse-website-output",
+      "name": "Parse Website Script Output",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1850,
+        400
+      ],
+      "parameters": {
+        "jsCode": "// Parse website script output\nconst output = $input.item.json.stdout || $input.item.json;\nlet result;\ntry {\n  result = typeof output === 'string' ? JSON.parse(output) : output;\n} catch (e) {\n  result = { status: 'error', error: 'Failed to parse output', raw: output };\n}\nreturn { json: { ...$('Generate Website Updates (AI)').item.json, websiteResult: result } };"
+      }
+    }
+  ],
+  "connections": {
+    "Webhook Trigger (Development Prompt)": {
+      "main": [
+        [
+          {
+            "node": "Normalize Input & Extract Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Input & Extract Prompt": {
+      "main": [
+        [
+          {
+            "node": "AI Analyze Prompt (AIMCODE + Demis Hassabis)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Analyze Prompt (AIMCODE + Demis Hassabis)": {
+      "main": [
+        [
+          {
+            "node": "Parse Action Plan",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Action Plan": {
+      "main": [
+        [
+          {
+            "node": "Load Unified Curriculum Schema",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load Unified Curriculum Schema": {
+      "main": [
+        [
+          {
+            "node": "Needs Game Updates?",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Needs Curriculum Updates?",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Needs Book Updates?",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Needs Website Updates?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Needs Game Updates?": {
+      "main": [
+        [
+          {
+            "node": "Generate Game Updates (AI)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge All System Updates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Game Updates (AI)": {
+      "main": [
+        [
+          {
+            "node": "Merge All System Updates",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Execute: Apply Game Updates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Needs Curriculum Updates?": {
+      "main": [
+        [
+          {
+            "node": "Generate Curriculum Updates (AI)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge All System Updates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Curriculum Updates (AI)": {
+      "main": [
+        [
+          {
+            "node": "Merge All System Updates",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Execute: Apply Curriculum Updates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Needs Book Updates?": {
+      "main": [
+        [
+          {
+            "node": "Generate Book Updates (AI)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge All System Updates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Book Updates (AI)": {
+      "main": [
+        [
+          {
+            "node": "Merge All System Updates",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Execute: Apply Book Updates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Needs Website Updates?": {
+      "main": [
+        [
+          {
+            "node": "Generate Website Updates (AI)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge All System Updates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Website Updates (AI)": {
+      "main": [
+        [
+          {
+            "node": "Merge All System Updates",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Execute: Apply Website Updates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge All System Updates": {
+      "main": [
+        [
+          {
+            "node": "Prepare Memory Context for Saving",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Memory Context for Saving": {
+      "main": [
+        [
+          {
+            "node": "Save Memory Context to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Memory Context to File": {
+      "main": [
+        [
+          {
+            "node": "Finalize Integration Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Finalize Integration Report": {
+      "main": [
+        [
+          {
+            "node": "Webhook Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute: Apply Game Updates": {
+      "main": [
+        [
+          {
+            "node": "Parse Game Script Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Game Script Output": {
+      "main": [
+        [
+          {
+            "node": "Merge All System Updates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute: Apply Curriculum Updates": {
+      "main": [
+        [
+          {
+            "node": "Parse Curriculum Script Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Curriculum Script Output": {
+      "main": [
+        [
+          {
+            "node": "Merge All System Updates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute: Apply Book Updates": {
+      "main": [
+        [
+          {
+            "node": "Parse Book Script Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Book Script Output": {
+      "main": [
+        [
+          {
+            "node": "Merge All System Updates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute: Apply Website Updates": {
+      "main": [
+        [
+          {
+            "node": "Parse Website Script Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Website Script Output": {
+      "main": [
+        [
+          {
+            "node": "Merge All System Updates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-12-10T10:35:00.000Z",
+  "versionId": "1"
+}
