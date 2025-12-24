@@ -1,0 +1,53 @@
+#!/bin/bash
+# Garvis Unified Command Interface
+# Single entry point for all Garvis operations
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+# Colors
+GREEN='\033[92m'
+BLUE='\033[94m'
+NC='\033[0m'
+
+# Show usage if no arguments
+if [ $# -eq 0 ]; then
+    echo -e "${BLUE}Garvis - BallCODE AI Assistant${NC}"
+    echo ""
+    echo "Usage:"
+    echo "  ./garvis deploy [--quick|--full|--game|--website]"
+    echo "  ./garvis integrate \"<prompt>\""
+    echo "  ./garvis push [--all|--game|--website]"
+    echo ""
+    echo "Examples:"
+    echo "  ./garvis deploy --full"
+    echo "  ./garvis integrate \"Update Book 1 with new exercise\""
+    echo "  ./garvis push --all"
+    exit 0
+fi
+
+COMMAND=$1
+shift
+
+case "$COMMAND" in
+    deploy)
+        python3 "$SCRIPT_DIR/garvis-deploy.py" "$@"
+        ;;
+    integrate)
+        if [ -z "$1" ]; then
+            echo "Error: Prompt required for integrate command"
+            echo "Usage: ./garvis integrate \"<prompt>\""
+            exit 1
+        fi
+        python3 "$SCRIPT_DIR/garvis-execute-full-integration.py" "$@"
+        ;;
+    push)
+        python3 "$SCRIPT_DIR/garvis-push.py" "$@"
+        ;;
+    *)
+        echo "Unknown command: $COMMAND"
+        echo "Available commands: deploy, integrate, push"
+        exit 1
+        ;;
+esac
+

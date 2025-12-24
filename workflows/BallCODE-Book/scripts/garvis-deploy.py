@@ -296,6 +296,9 @@ Examples:
   
   # Deploy website only
   python scripts/garvis-deploy.py --website
+  
+  # Execute Full Integration (AI-driven updates)
+  python scripts/garvis-execute-full-integration.py "Update Book 1"
         """
     )
     
