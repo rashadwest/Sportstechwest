@@ -21,7 +21,7 @@
       "strategy": {
         "strategyName": "Decision Crossover Sequence",
         "strategyType": "offensive",
-        "description": "Use if/then logic with Block 2 (Crossover). IF [defender left] THEN [Block 2 right] ELSE [Block 2 left].",
+        "description": "Use if/then logic with Block 2 (Crossover). IF [last move right] THEN [Block 2 left] ELSE [Block 2 right]. Direction-based conditional: react to your previous move.",
         "steps": [
           {
             "stepNumber": 1,
@@ -113,9 +113,9 @@
       "exercise": {
         "exerciseType": "BlockCoding",
         "blockCoding": {
-          "availableBlocks": ["START", "IF", "THEN", "ELSE", "BLOCK_2_CROSSOVER", "ADVANCE"],
+          "availableBlocks": ["START", "BLOCK_1_POUND", "IF", "THEN", "ELSE", "BLOCK_2_CROSSOVER", "BUCKET"],
           "requiredBlocks": ["IF", "THEN", "BLOCK_2_CROSSOVER"],
-          "targetCode": "START → IF [defender left] THEN [BLOCK_2_CROSSOVER right] ELSE [BLOCK_2_CROSSOVER left] → ADVANCE",
+          "targetCode": "START → BLOCK_1_POUND (right) → IF [last move right] THEN [BLOCK_2_CROSSOVER left] ELSE [BLOCK_2_CROSSOVER right] → BUCKET",
           "allowCustomBlocks": false
         },
         "scoring": {

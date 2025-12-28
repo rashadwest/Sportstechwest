@@ -196,6 +196,7 @@ public class GameModeManager : MonoBehaviour
     
     /// <summary>
     /// Load block coding mode from level data
+    /// Passes full level data to BlockCodingManager for Books 1, 2, 3
     /// </summary>
     void LoadBlockCodingModeFromLevel(LevelData level)
     {
@@ -205,14 +206,24 @@ public class GameModeManager : MonoBehaviour
             return;
         }
         
-        BlockCodingConfig config = new BlockCodingConfig
+        // Pass full level data to BlockCodingManager (preferred method)
+        // BlockCodingManager can access all level data: availableBlocks, targetCode, etc.
+        if (blockCodingMode is BlockCodingManager blockManager)
         {
-            episode = level.episodeNumber,
-            codingConcept = level.codingConcept,
-            monster = "Level Challenge"
-        };
-        
-        blockCodingMode.StartBlockCoding(config);
+            blockManager.StartBlockCodingFromLevel(level);
+        }
+        else
+        {
+            // Fallback: Use config method (legacy support)
+            BlockCodingConfig config = new BlockCodingConfig
+            {
+                episode = level.episodeNumber,
+                codingConcept = level.codingConcept,
+                monster = "Level Challenge"
+            };
+            
+            blockCodingMode.StartBlockCoding(config);
+        }
     }
     
     /// <summary>
