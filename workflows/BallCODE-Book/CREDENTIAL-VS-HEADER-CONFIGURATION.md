@@ -125,3 +125,4 @@ Looking at the workflow JSON (lines 126-131):
 
 **The workflow uses credentials, not manual headers - make sure you're using the credential dropdown!** ✅
 
+

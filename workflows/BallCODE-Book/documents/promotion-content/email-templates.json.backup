@@ -1,0 +1,58 @@
+{
+  "warm_contact": {
+    "subject": "Quick question about STEM programs at {school_name}",
+    "preheader": "Free pilot program for {school_name}",
+    "body_template": "Hi {contact_name},\n\nI hope you're doing well! I'm reaching out because I've been working on something I think you'd find interesting, and I'd love your perspective.\n\nI've created BallCODE - a program that teaches coding, math, and AI concepts through basketball. It's designed for grades 3-8, and we're offering a **free pilot program** to select schools.\n\nI know {school_name} has {specific_program}, and I think BallCODE could be a great fit. The pilot is completely free and includes:\n- Complete Episode 1 content (story, exercises, teacher guide)\n- Self-service onboarding (no training needed)\n- Ongoing support\n- Opportunity to be featured in a case study\n- **Be part of our CES 2026 launch** (January 7-10)\n\nI'd love to schedule a quick 15-minute call to see if this might work for your students. Would you be available for a brief conversation this week?\n\nThanks, and I hope to catch up soon!\n\nBest,\nRashad West\nCreator, BallCODE\n{email}\n{phone}",
+    "cta": "Schedule a Call",
+    "cta_link": "https://calendly.com/ballcode/demo"
+  },
+  "cold_outreach": {
+    "subject": "Free Pilot Program: BallCODE - STEM Learning Through Basketball",
+    "preheader": "Be part of our CES 2026 launch",
+    "body_template": "Dear {contact_name},\n\nI noticed that {school_name} has {specific_program}, and I believe you might be interested in a unique educational opportunity.\n\nI'm the creator of BallCODE, an innovative program that teaches coding, math, and AI concepts through basketball. We're currently offering a **free pilot program** to select schools, and I'd love to explore if {school_name} would be a good fit.\n\n**What BallCODE Offers:**\n- Combines basketball excitement with hands-on STEM learning\n- Teaches coding logic, math concepts, and AI fundamentals through sports\n- Designed for elementary to middle school students (grades 3-8)\n- Includes interactive game exercises and story-based learning\n\n**What the Pilot Program Includes:**\n- Free access to Episode 1 content and exercises\n- Teacher training and support materials\n- Student access to interactive game components\n- Ongoing support throughout the pilot period (2-4 weeks)\n- Opportunity to be featured in a case study\n- **Be part of our CES 2026 launch** (January 7-10)\n\n**What We're Looking For:**\n- Feedback on content effectiveness\n- Testimonials from educators and students\n- 2-4 week commitment to pilot the program\n- Willingness to share results (anonymized if preferred)\n\nI'd love to schedule a brief 15-minute call to discuss how BallCODE could benefit your students. Would you be available for a quick conversation this week or next?\n\nThank you for your time and consideration.\n\nBest regards,\nRashad West\nCreator, BallCODE\n{email}\n{phone}",
+    "cta": "Schedule a Call",
+    "cta_link": "https://calendly.com/ballcode/demo"
+  },
+  "follow_up_3_day": {
+    "subject": "Following up: BallCODE Pilot Program for {school_name}",
+    "preheader": "Still interested in the free pilot?",
+    "body_template": "Hi {contact_name},\n\nI wanted to follow up on my email about BallCODE's free pilot program for {school_name}.\n\nI know you're busy, so I'll keep this brief:\n\n**Quick Recap:**\nBallCODE teaches coding through basketball - perfect for grades 3-8. We're offering a completely free pilot program that includes everything you need to get started.\n\n**Why This Matters:**\n- Students learn real coding skills through engaging basketball stories\n- Teacher-ready implementation (minimal prep required)\n- **Be part of our CES 2026 launch** (January 7-10)\n- Opportunity to be featured in case studies\n\nWould you be open to a quick 15-minute call to see if this could work for your students?\n\nBest,\nRashad West\nCreator, BallCODE\n{email}\n{phone}",
+    "cta": "Schedule a Call",
+    "cta_link": "https://calendly.com/ballcode/demo"
+  },
+  "follow_up_7_day": {
+    "subject": "Still interested? BallCODE Pilot Program - CES Launch Opportunity",
+    "preheader": "Limited spots for CES launch participants",
+    "body_template": "Hi {contact_name},\n\nI wanted to check in one more time about BallCODE's free pilot program.\n\n**What's New:**\nWe're launching at CES 2026 (January 7-10), and we're looking for 10 pilot schools to be part of this launch. {school_name} could be one of them.\n\n**What You Get:**\n- Free pilot program (2-4 weeks)\n- Complete Episode 1 content\n- Teacher resources and support\n- **Featured in our CES launch story**\n- Case study opportunity\n\nIf you're interested, let's schedule a quick call. If not, no worries - I'll remove you from future emails.\n\nBest,\nRashad West\nCreator, BallCODE\n{email}\n{phone}",
+    "cta": "Schedule a Call",
+    "cta_link": "https://calendly.com/ballcode/demo"
+  },
+  "ces_launch_announcement": {
+    "subject": "BallCODE Launches at CES 2026 - Join 10 Pilot Schools",
+    "preheader": "10 pilot programs already running. Be next.",
+    "body_template": "Hi {contact_name},\n\n**Big News: BallCODE is launching at CES 2026!**\n\nWe've already secured 10 pilot programs, and we're opening sign-ups for the next 50 schools.\n\n**What Makes This Special:**\n- First sports-based coding education platform\n- Story-driven learning that actually works\n- 10 pilot schools already seeing success\n- **Launching at CES 2026** (January 7-10)\n\n**What You Get (Free Pilot):**\n- Complete Episode 1 content\n- Teacher resources and guides\n- Student access to interactive games\n- Ongoing support\n- Opportunity to be featured in case studies\n\n**Limited Spots Available:**\nWe're accepting the next 50 schools for our pilot program. {school_name} could be one of them.\n\nInterested? Let's schedule a quick call to see if this is a fit.\n\nBest,\nRashad West\nCreator, BallCODE\n{email}\n{phone}",
+    "cta": "Schedule a Call",
+    "cta_link": "https://calendly.com/ballcode/demo"
+  },
+  "ces_countdown_6_days": {
+    "subject": "6 Days Until CES Launch - Limited Pilot Spots Available",
+    "preheader": "Be part of our CES 2026 launch",
+    "body_template": "Hi {contact_name},\n\n**6 days until BallCODE launches at CES 2026!**\n\nWe've secured 10 pilot programs and are opening sign-ups for the next 50 schools.\n\n**Why Join Now:**\n- Be part of our CES launch story\n- Free pilot program (2-4 weeks)\n- Complete Episode 1 content\n- Teacher resources and support\n- Case study opportunity\n\n**Limited Spots:** Only 50 more schools will be accepted for the pilot program.\n\nInterested? Let's schedule a quick call.\n\nBest,\nRashad West\nCreator, BallCODE\n{email}\n{phone}",
+    "cta": "Schedule a Call",
+    "cta_link": "https://calendly.com/ballcode/demo"
+  },
+  "ces_countdown_3_days": {
+    "subject": "3 Days Until CES Launch - Last Chance for Pilot Program",
+    "preheader": "Final spots available for CES launch",
+    "body_template": "Hi {contact_name},\n\n**3 days until BallCODE launches at CES 2026!**\n\nThis is your last chance to be part of our pilot program before the big launch.\n\n**What You Get:**\n- Free pilot program\n- Complete Episode 1 content\n- **Featured in CES launch story**\n- Case study opportunity\n\n**Limited Spots:** Only a few spots remaining.\n\nInterested? Let's schedule a call today.\n\nBest,\nRashad West\nCreator, BallCODE\n{email}\n{phone}",
+    "cta": "Schedule a Call",
+    "cta_link": "https://calendly.com/ballcode/demo"
+  },
+  "new_year_messaging": {
+    "subject": "New Year, New Learning - BallCODE Pilot Program",
+    "preheader": "Start 2026 with innovative STEM education",
+    "body_template": "Hi {contact_name},\n\nHappy New Year! I hope 2026 is off to a great start for you and {school_name}.\n\nAs we kick off the new year, I wanted to remind you about BallCODE's free pilot program - perfect timing to bring innovative STEM education to your students.\n\n**What's New:**\n- **Launching at CES 2026** (January 7-10) - just 6 days away!\n- 10 pilot programs already secured\n- Opening sign-ups for next 50 schools\n\n**What You Get:**\n- Free pilot program (2-4 weeks)\n- Complete Episode 1 content\n- Teacher resources\n- Student access to interactive games\n- **Be part of our CES launch story**\n\nWould you like to be one of the next 50 schools? Let's schedule a quick call.\n\nBest,\nRashad West\nCreator, BallCODE\n{email}\n{phone}",
+    "cta": "Schedule a Call",
+    "cta_link": "https://calendly.com/ballcode/demo"
+  }
+}

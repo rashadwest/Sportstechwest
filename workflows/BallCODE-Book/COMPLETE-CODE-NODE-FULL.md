@@ -103,3 +103,4 @@ JSON Body: {{ $json.apiRequestBody }}
 **Status:** ✅ Ready to paste  
 **Next:** Copy code above, paste in Code node, configure HTTP Request as shown
 
+

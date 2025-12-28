@@ -110,3 +110,4 @@ echo "4. Re-run tests:"
 echo "   python3 scripts/robot-setup-n8n.py"
 echo ""
 
+

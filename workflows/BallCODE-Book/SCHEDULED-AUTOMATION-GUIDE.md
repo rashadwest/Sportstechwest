@@ -326,3 +326,4 @@ curl -s -X GET "http://192.168.1.226:5678/api/v1/executions?limit=5" \
 **Status:** Ready to enable  
 **Next:** Enable scheduled trigger when ready for automation
 
+

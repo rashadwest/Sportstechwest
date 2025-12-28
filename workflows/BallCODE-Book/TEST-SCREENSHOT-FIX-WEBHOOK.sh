@@ -40,3 +40,4 @@ echo ""
 echo "💡 To test with your own image:"
 echo "   bash TEST-SCREENSHOT-FIX-WEBHOOK.sh 'https://your-image-url.com/image.png' 'Your context'"
 
+

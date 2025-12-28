@@ -37,3 +37,4 @@ Alt text (for accessibility/SEO)
 Tip: keep filenames lowercase, use hyphens, and export as PNG (sRGB).
 
 
+

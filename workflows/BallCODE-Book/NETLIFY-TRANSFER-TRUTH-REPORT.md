@@ -181,3 +181,4 @@ Ask them to check:
 
 **Bottom line:** The developer is right that they can't do it themselves, but Netlify Support can definitely transfer it. This is the official process for free accounts.
 
+

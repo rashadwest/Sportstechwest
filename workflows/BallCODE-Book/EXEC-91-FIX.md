@@ -124,3 +124,4 @@ curl -X POST http://192.168.1.226:5678/webhook/screenshot-fix \
 
 **The workflow is ready - just use real image URLs!** ✅
 
+

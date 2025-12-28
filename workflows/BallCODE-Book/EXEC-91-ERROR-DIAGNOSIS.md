@@ -176,3 +176,4 @@ curl -X POST http://192.168.1.226:5678/webhook/screenshot-fix \
 
 **The credential is set, but executions are failing. Check Exec ID 91 to see the exact error - that will tell us what to fix!** 🔍
 
+

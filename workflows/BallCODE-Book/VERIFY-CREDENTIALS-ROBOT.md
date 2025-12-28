@@ -117,3 +117,4 @@ curl -X POST http://192.168.1.226:5678/webhook/screenshot-fix \
 
 **The credential appears set in the node. Check Exec ID 88 to see the exact error - that will tell us if it's a credential issue or something else!** 🔍
 
+

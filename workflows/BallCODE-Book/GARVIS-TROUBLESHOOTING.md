@@ -380,3 +380,4 @@ python scripts/garvis-dashboard.py
 
 **Most issues resolve themselves. Garvis is designed to handle errors gracefully and escalate only when truly needed.**
 
+

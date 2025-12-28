@@ -109,3 +109,4 @@ python3 scripts/robot-setup-n8n.py
 
 **The blocker is the webhook path configuration. Fix it in the node and the red lightning bolt will disappear!** 🔧
 
+

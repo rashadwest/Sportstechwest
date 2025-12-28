@@ -232,3 +232,4 @@ After checking, verify:
 **n8n URL:** Check `.n8n-env` file or use `http://192.168.1.226:5678`
 
 
+

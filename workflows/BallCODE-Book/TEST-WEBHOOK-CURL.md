@@ -176,3 +176,4 @@ curl -X POST http://localhost:5678/webhook/screenshot-fix \
 **Status:** ✅ Test Commands Ready  
 **Action:** Use URL method (easiest) or fix file path
 
+

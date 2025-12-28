@@ -45,3 +45,4 @@ echo "5. Test chat responsiveness"
 echo ""
 echo "If lag persists, continue to Phase 0.2 (Performance Monitoring)"
 
+

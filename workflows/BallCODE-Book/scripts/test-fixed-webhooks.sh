@@ -75,3 +75,4 @@ echo "  - Look for red nodes (errors)"
 echo "  - Most likely: OpenAI credentials need to be configured"
 
 
+

@@ -83,3 +83,4 @@ docker pull n8nio/n8n:latest
 **Status:** 🔍 Version Check  
 **Action:** Check if n8n update needed
 
+

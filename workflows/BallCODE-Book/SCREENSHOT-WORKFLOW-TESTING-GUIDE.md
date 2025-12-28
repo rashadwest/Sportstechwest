@@ -347,3 +347,4 @@ Save as: `scripts/test-screenshot-fix.sh`
 **Created:** January 2025  
 **Status:** ✅ Active Guide
 
+

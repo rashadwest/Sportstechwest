@@ -102,3 +102,4 @@ If "GitHub API" credential type doesn't work or isn't available:
 
 **Try "GitHub API" first, then "Header Auth" if needed!** ✅
 
+

@@ -1,0 +1,223 @@
+{
+  "metadata": {
+    "created": "2025-12-24T20:59:57.161972",
+    "purpose": "CES 2026 Launch Social Media Content",
+    "total_posts": 14,
+    "date_range": "2026-01-07 to 2026-01-10",
+    "methodology": "@Chao Zhang Story-First Approach"
+  },
+  "posts": [
+    {
+      "date": "2026-01-07",
+      "time": "09:00",
+      "platform": "all",
+      "type": "launch_announcement",
+      "content": "\ud83c\udf89 BallCODE launches at CES 2026! \ud83c\udfc0\ud83d\udcbb\n\nThe first sports-based coding education platform is here.\n\nTeaching coding through basketball stories. Students learn sequences by calling plays. They learn probability by analyzing shots. They learn AI by reading defenses.\n\n10 pilot schools already running. Opening sign-ups for next 50 schools.\n\n#CES2026 #EdTech #STEM #CodingEducation #Basketball #BallCODE\n\nLearn more: https://ballcode.co",
+      "hashtags": [
+        "#CES2026",
+        "#EdTech",
+        "#STEM",
+        "#CodingEducation",
+        "#Basketball",
+        "#BallCODE"
+      ]
+    },
+    {
+      "date": "2026-01-07",
+      "time": "12:00",
+      "platform": "twitter",
+      "type": "story",
+      "content": "\ud83c\udfc0 The Tip-off Trial \ud83c\udfc0\n\nStudents learn coding sequences by calling plays. They learn state management by tracking possession. They learn conditionals by reading the defense.\n\nIt's not coding ABOUT basketball. It's coding THROUGH basketball.\n\n#CES2026 #CodingEducation #BallCODE",
+      "hashtags": [
+        "#CES2026",
+        "#CodingEducation",
+        "#BallCODE"
+      ]
+    },
+    {
+      "date": "2026-01-07",
+      "time": "15:00",
+      "platform": "linkedin",
+      "type": "value_proposition",
+      "content": "Most coding education is abstract. Students learn \"if-then\" statements without context.\n\nBallCODE is different. We teach coding through basketball stories.\n\nWhen students call a play, they're learning sequences.\nWhen they analyze a shot, they're learning probability.\nWhen they read a defense, they're learning pattern recognition.\n\nStudents don't realize they're learning coding. They think they're playing basketball.\n\n10 pilot schools already running. Opening sign-ups for next 50 schools.\n\n#CES2026 #EdTech #STEM #CodingEducation #BallCODE\n\nLearn more: https://ballcode.co",
+      "hashtags": [
+        "#CES2026",
+        "#EdTech",
+        "#STEM",
+        "#CodingEducation",
+        "#BallCODE"
+      ]
+    },
+    {
+      "date": "2026-01-08",
+      "time": "09:00",
+      "platform": "all",
+      "type": "pilot_success",
+      "content": "10 pilot schools. 10 success stories.\n\nTeachers say it's the most engaging STEM program they've seen.\nStudents actually understand coding - not just memorize it.\n\nThe basketball framework makes it accessible to all students.\n\nOpening sign-ups for next 50 schools.\n\n#CES2026 #EdTech #STEM #BallCODE\n\nLearn more: https://ballcode.co",
+      "hashtags": [
+        "#CES2026",
+        "#EdTech",
+        "#STEM",
+        "#BallCODE"
+      ]
+    },
+    {
+      "date": "2026-01-08",
+      "time": "14:00",
+      "platform": "twitter",
+      "type": "story",
+      "content": "Three-Phase Learning Pathway:\n\n1\ufe0f\u20e3 Sports Language (Block Coding)\n   REPEAT [fake left] 3 TIMES\n\n2\ufe0f\u20e3 Transition Bridge\n   See blocks \u2192 Python code\n\n3\ufe0f\u20e3 Python Learning\n   for i in range(3): fake_left()\n\nSame concept. Different representation.\n\n#CES2026 #CodingEducation #BallCODE",
+      "hashtags": [
+        "#CES2026",
+        "#CodingEducation",
+        "#BallCODE"
+      ]
+    },
+    {
+      "date": "2026-01-09",
+      "time": "10:00",
+      "platform": "all",
+      "type": "value_proposition",
+      "content": "What if coding education felt like playing basketball?\n\nThat's BallCODE.\n\nStudents learn coding through basketball stories. They learn math by analyzing game situations. They learn AI by reading defensive patterns.\n\nIt's not coding ABOUT basketball. It's coding THROUGH basketball.\n\n#CES2026 #EdTech #STEM #CodingEducation #BallCODE\n\nLearn more: https://ballcode.co",
+      "hashtags": [
+        "#CES2026",
+        "#EdTech",
+        "#STEM",
+        "#CodingEducation",
+        "#BallCODE"
+      ]
+    },
+    {
+      "date": "2026-01-09",
+      "time": "16:00",
+      "platform": "linkedin",
+      "type": "curriculum",
+      "content": "BallCODE aligns with:\n\n\u2705 Computer Science Teachers Association (CSTA) Standards\n\u2705 Common Core Mathematics Standards\n\u2705 Next Generation Science Standards (NGSS)\n\nTeaching coding, math, and AI through basketball stories.\n\nGrades 3-8. Story-driven. Game-based. Curriculum-aligned.\n\n#CES2026 #EdTech #STEM #CodingEducation #BallCODE\n\nLearn more: https://ballcode.co",
+      "hashtags": [
+        "#CES2026",
+        "#EdTech",
+        "#STEM",
+        "#CodingEducation",
+        "#BallCODE"
+      ]
+    },
+    {
+      "date": "2026-01-10",
+      "time": "09:00",
+      "platform": "all",
+      "type": "call_to_action",
+      "content": "Last day of CES 2026 launch!\n\n10 pilot schools already running.\nOpening sign-ups for next 50 schools.\n\nFree pilot program includes:\n\u2705 Complete Episode 1: \"The Tip-off Trial\"\n\u2705 Teacher guides and resources\n\u2705 Interactive game exercises\n\u2705 Ongoing support\n\nLimited spots available.\n\n#CES2026 #EdTech #STEM #BallCODE\n\nSign up: https://ballcode.co",
+      "hashtags": [
+        "#CES2026",
+        "#EdTech",
+        "#STEM",
+        "#BallCODE"
+      ]
+    },
+    {
+      "date": "2026-01-10",
+      "time": "15:00",
+      "platform": "twitter",
+      "type": "story",
+      "content": "The Remarkable Result:\n\nStudents don't realize they're learning coding.\nThey think they're playing basketball.\n\nThat's the power of story-driven learning.\n\n#CES2026 #CodingEducation #BallCODE",
+      "hashtags": [
+        "#CES2026",
+        "#CodingEducation",
+        "#BallCODE"
+      ]
+    },
+    {
+      "date": "2026-01-07",
+      "time": "18:00",
+      "platform": "instagram",
+      "type": "behind_scenes",
+      "content": "Behind the scenes at CES 2026 \ud83c\udfac\n\nBallCODE is launching as the first sports-based coding education platform.\n\nTeaching coding through basketball stories.\nMaking STEM accessible to all students.\n\n10 pilot schools already seeing success.\n\n#CES2026 #EdTech #STEM #CodingEducation #Basketball #BallCODE",
+      "hashtags": [
+        "#CES2026",
+        "#EdTech",
+        "#STEM",
+        "#CodingEducation",
+        "#Basketball",
+        "#BallCODE"
+      ]
+    },
+    {
+      "date": "2026-01-08",
+      "time": "18:00",
+      "platform": "facebook",
+      "type": "community",
+      "content": "Join the BallCODE community! \ud83c\udfc0\ud83d\udcbb\n\nWe're building a community of educators who believe coding should be accessible to all students.\n\nThrough basketball stories, we're making STEM engaging and fun.\n\n10 pilot schools already running.\nOpening sign-ups for next 50 schools.\n\nFree pilot program. No strings attached.\n\n#CES2026 #EdTech #STEM #CodingEducation #BallCODE\n\nLearn more: https://ballcode.co",
+      "hashtags": [
+        "#CES2026",
+        "#EdTech",
+        "#STEM",
+        "#CodingEducation",
+        "#BallCODE"
+      ]
+    },
+    {
+      "date": "2026-01-09",
+      "time": "12:00",
+      "platform": "twitter",
+      "type": "quote",
+      "content": "\"Students don't realize they're learning coding. They think they're playing basketball.\"\n\nThat's the power of story-driven learning.\n\n#CES2026 #CodingEducation #BallCODE",
+      "hashtags": [
+        "#CES2026",
+        "#CodingEducation",
+        "#BallCODE"
+      ]
+    },
+    {
+      "date": "2026-01-10",
+      "time": "12:00",
+      "platform": "linkedin",
+      "type": "testimonial",
+      "content": "Pilot School Teacher:\n\n\"This is the most engaging STEM program I've seen. Students actually understand coding concepts because they can see them in action. The basketball framework makes it accessible to all students.\"\n\n10 pilot schools. 10 success stories.\n\nOpening sign-ups for next 50 schools.\n\n#CES2026 #EdTech #STEM #CodingEducation #BallCODE\n\nLearn more: https://ballcode.co",
+      "hashtags": [
+        "#CES2026",
+        "#EdTech",
+        "#STEM",
+        "#CodingEducation",
+        "#BallCODE"
+      ]
+    },
+    {
+      "date": "2026-01-10",
+      "time": "18:00",
+      "platform": "all",
+      "type": "closing",
+      "content": "Thank you, CES 2026! \ud83d\ude4f\n\nBallCODE launched successfully.\n\n10 pilot schools running.\n50 more schools signing up.\n\nTeaching coding through basketball stories.\nMaking STEM accessible to all students.\n\nThe journey continues.\n\n#CES2026 #EdTech #STEM #CodingEducation #BallCODE\n\nLearn more: https://ballcode.co",
+      "hashtags": [
+        "#CES2026",
+        "#EdTech",
+        "#STEM",
+        "#CodingEducation",
+        "#BallCODE"
+      ]
+    }
+  ],
+  "hashtags": {
+    "primary": [
+      "#CES2026",
+      "#EdTech",
+      "#STEM",
+      "#CodingEducation",
+      "#BallCODE"
+    ],
+    "secondary": [
+      "#Basketball",
+      "#CodingEducation",
+      "#EdTech"
+    ]
+  },
+  "scheduling": {
+    "platforms": [
+      "twitter",
+      "linkedin",
+      "facebook",
+      "instagram"
+    ],
+    "buffer_integration": true,
+    "n8n_integration": true
+  }
+}

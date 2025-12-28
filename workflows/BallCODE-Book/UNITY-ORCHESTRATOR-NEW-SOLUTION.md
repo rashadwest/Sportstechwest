@@ -226,3 +226,4 @@ curl -X POST "${N8N_URL}/api/v1/workflows" \
 **Confidence:** 99% (based on research + minimal structure)  
 **Next Step:** Import and test!
 
+

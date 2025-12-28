@@ -54,12 +54,12 @@ public class ImprovedButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         Neutral     // White/light gray, for game mode buttons
     }
     
-    private Vector3 originalScale;
-    private Color originalColor;
-    private bool isHovering = false;
-    private float pulseTimer = 0f;
+    protected Vector3 originalScale;
+    protected Color originalColor;
+    protected bool isHovering = false;
+    protected float pulseTimer = 0f;
     
-    void Start()
+    protected virtual void Start()
     {
         if (buttonRect == null)
             buttonRect = GetComponent<RectTransform>();
@@ -168,7 +168,7 @@ public class ImprovedButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         }
     }
     
-    void UpdateSelectionState()
+    protected void UpdateSelectionState()
     {
         if (isSelected)
         {
@@ -203,7 +203,7 @@ public class ImprovedButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         }
     }
     
-    public void OnPointerEnter(PointerEventData eventData)
+    public virtual void OnPointerEnter(PointerEventData eventData)
     {
         isHovering = true;
         
@@ -244,7 +244,7 @@ public class ImprovedButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         }
     }
     
-    public void OnPointerExit(PointerEventData eventData)
+    public virtual void OnPointerExit(PointerEventData eventData)
     {
         isHovering = false;
         

@@ -68,3 +68,4 @@ python3 main.py send --to EMAIL --subject "SUBJECT" --body "BODY"
 **Saved to memory for email project.**
 
 
+

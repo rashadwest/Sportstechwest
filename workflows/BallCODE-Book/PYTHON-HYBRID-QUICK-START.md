@@ -178,3 +178,4 @@ Hybrid:   Execute Python → Parse JSON → Finalize Report
 **Setup Complete!** ✅  
 Your hybrid workflow is ready to use.
 
+

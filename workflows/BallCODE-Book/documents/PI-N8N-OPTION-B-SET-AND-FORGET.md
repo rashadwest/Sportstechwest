@@ -161,3 +161,4 @@ docker compose up -d
 
 Pi should keep `N8N_SECURE_COOKIE=false` as long as you access it via **HTTP** on LAN.
 
+

@@ -122,3 +122,4 @@ After inspecting Network tab:
 **Status:** 🔍 Debugging Guide  
 **Action:** Check Network tab, see what was actually sent
 
+

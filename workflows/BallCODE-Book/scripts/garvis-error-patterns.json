@@ -1,0 +1,170 @@
+{
+  "errorPatterns": {
+    "headerError": {
+      "pattern": "Header name must be a valid HTTP token",
+      "severity": "high",
+      "fixable": true,
+      "fixType": "credential",
+      "fixAction": "updateCredentialHeaderName",
+      "fixParams": {
+        "correctValue": "Authorization"
+      },
+      "description": "HTTP header name contains invalid characters (spaces, special chars). Must be valid HTTP token."
+    },
+    "openaiBadRequest": {
+      "pattern": "Bad request - please check your parameters",
+      "severity": "high",
+      "fixable": true,
+      "fixType": "requestBody",
+      "fixAction": "validateOpenAIRequestBody",
+      "fixParams": {
+        "requiredFields": ["model", "messages"]
+      },
+      "description": "OpenAI API request missing required parameters (model, messages) or invalid JSON structure."
+    },
+    "credentialError": {
+      "pattern": "credential.*not found|credential.*missing",
+      "severity": "critical",
+      "fixable": false,
+      "fixType": "credential",
+      "fixAction": "verifyCredential",
+      "description": "Credential referenced in workflow does not exist or is not accessible."
+    },
+    "missingParameter": {
+      "pattern": "Missing required parameter",
+      "severity": "medium",
+      "fixable": true,
+      "fixType": "requestBody",
+      "fixAction": "addMissingParameter",
+      "description": "Request body is missing a required parameter."
+    },
+    "invalidJson": {
+      "pattern": "Invalid JSON|JSON parse error|Unexpected token",
+      "severity": "medium",
+      "fixable": true,
+      "fixType": "requestBody",
+      "fixAction": "fixJsonStructure",
+      "description": "Request body contains invalid JSON syntax."
+    },
+    "authenticationError": {
+      "pattern": "401|Unauthorized|authentication failed|Invalid API key",
+      "severity": "high",
+      "fixable": false,
+      "fixType": "credential",
+      "fixAction": "verifyCredential",
+      "description": "Authentication failed - API key invalid or expired."
+    },
+    "rateLimitError": {
+      "pattern": "429|rate limit|too many requests",
+      "severity": "medium",
+      "fixable": false,
+      "fixType": "rateLimit",
+      "fixAction": "waitAndRetry",
+      "description": "API rate limit exceeded - need to wait before retrying."
+    },
+    "timeoutError": {
+      "pattern": "timeout|timed out|ETIMEDOUT",
+      "severity": "low",
+      "fixable": false,
+      "fixType": "network",
+      "fixAction": "retry",
+      "description": "Request timed out - network or server issue."
+    },
+    "connectionError": {
+      "pattern": "ECONNREFUSED|connection refused|network error",
+      "severity": "medium",
+      "fixable": false,
+      "fixType": "network",
+      "fixAction": "checkConnectivity",
+      "description": "Cannot connect to server - network or server down."
+    }
+  },
+  "fixActions": {
+    "updateCredentialHeaderName": {
+      "description": "Update credential header name to valid HTTP token (usually 'Authorization')",
+      "params": {
+        "credentialId": "string (required)",
+        "correctValue": "string (default: 'Authorization')"
+      },
+      "implementation": "scripts/garvis-auto-fix.py"
+    },
+    "validateOpenAIRequestBody": {
+      "description": "Validate and fix OpenAI API request body to include required parameters",
+      "params": {
+        "nodeId": "string (required)",
+        "requiredFields": "array (default: ['model', 'messages'])"
+      },
+      "implementation": "scripts/garvis-auto-fix.py"
+    },
+    "addMissingParameter": {
+      "description": "Add missing required parameter to request body",
+      "params": {
+        "nodeId": "string (required)",
+        "parameterName": "string (required)",
+        "parameterValue": "any (required)"
+      },
+      "implementation": "scripts/garvis-auto-fix.py"
+    },
+    "fixJsonStructure": {
+      "description": "Fix invalid JSON structure in request body",
+      "params": {
+        "nodeId": "string (required)"
+      },
+      "implementation": "scripts/garvis-auto-fix.py"
+    },
+    "verifyCredential": {
+      "description": "Verify credential exists and is properly configured (requires manual review)",
+      "params": {
+        "credentialId": "string (required)"
+      },
+      "implementation": "manual"
+    },
+    "waitAndRetry": {
+      "description": "Wait for rate limit to reset and retry request",
+      "params": {
+        "waitSeconds": "number (default: 60)"
+      },
+      "implementation": "scripts/garvis-auto-fix.py"
+    },
+    "retry": {
+      "description": "Retry failed request (for transient errors)",
+      "params": {
+        "maxRetries": "number (default: 3)",
+        "retryDelay": "number (default: 5)"
+      },
+      "implementation": "scripts/garvis-auto-fix.py"
+    },
+    "checkConnectivity": {
+      "description": "Check network connectivity and server status",
+      "params": {},
+      "implementation": "manual"
+    }
+  },
+  "preventionRules": {
+    "credentialValidation": {
+      "description": "Validate credentials before workflow execution",
+      "checks": [
+        "Header name is valid HTTP token (no spaces, only alphanumeric and hyphens)",
+        "Header value is properly formatted (Bearer token, etc.)",
+        "Credential ID exists in n8n"
+      ]
+    },
+    "requestBodyValidation": {
+      "description": "Validate request bodies before API calls",
+      "checks": [
+        "JSON is valid syntax",
+        "Required parameters are present",
+        "Data types are correct"
+      ]
+    },
+    "nodeConfigurationValidation": {
+      "description": "Validate node configurations before activation",
+      "checks": [
+        "All required fields are set",
+        "Credential references exist",
+        "Expression syntax is valid"
+      ]
+    }
+  }
+}
+

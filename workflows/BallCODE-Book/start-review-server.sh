@@ -38,3 +38,4 @@ echo "💡 To stop server:"
 echo "   pkill -f 'python3 -m http.server $PORT'"
 echo "   or: kill $SERVER_PID"
 
+

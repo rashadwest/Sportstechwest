@@ -472,3 +472,4 @@ Layout:
 *Generated: December 16, 2025*  
 *All specifications ready for copy-paste into Canva*
 
+

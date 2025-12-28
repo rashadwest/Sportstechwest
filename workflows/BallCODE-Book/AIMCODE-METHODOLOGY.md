@@ -12,6 +12,7 @@
 - **Demis Hassabis (Alpha Evolve)** - AI systems thinking, deep learning principles
 - **Steve Jobs** - Design simplicity, user experience, "it just works"
 - **Dr. John Drazan** - Technology and education integration, coding and mathematical logic synthesis
+- **Shigeru Miyamoto** - Gameplay-first design, iterative development, user experience focus
 
 ---
 
@@ -117,6 +118,7 @@ R - Results: What are the measurable outcomes? How will we assess success?
    - **Reggio** - Multiple entry points, child agency
    - **Hassabis** - Systems thinking, deep learning
    - **Jobs** - Simplicity, beautiful design
+   - **Miyamoto** - Gameplay-first design, iterative playtesting, user experience focus
 2. Engage domain experts as needed (AI education, math pedagogy, coding education)
 3. Apply expert insights to enhance knowledge and flow
 4. Refine work based on expert guidance
@@ -134,6 +136,7 @@ R - Results: What are the measurable outcomes? How will we assess success?
 - "Would Reggio provide multiple entry points?"
 - "Would Hassabis ensure systematic progression?"
 - "Would Jobs make it simple and beautiful?"
+- "Would Miyamoto test this with students for 30 minutes? Does it feel fun?"
 
 ---
 
@@ -145,6 +148,7 @@ R - Results: What are the measurable outcomes? How will we assess success?
 3. **Children have "a hundred languages"** (Reggio) - Multiple ways to express understanding
 4. **AI systems require deep understanding** (Hassabis) - Concepts must be built layer by layer
 5. **Design must be invisible** (Jobs) - The experience should feel natural, not forced
+6. **Gameplay comes first** (Miyamoto) - If gameplay is fun, learning happens naturally. Mechanics before narrative, feel before theory.
 
 ---
 
@@ -664,6 +668,7 @@ R - Results: What are the measurable outcomes? How will we assess success?
 - Apply Reggio principles: Provide multiple entry points
 - Apply Hassabis principles: Build systematically
 - Apply Jobs principles: Keep it simple and beautiful
+- Apply Miyamoto principles: Gameplay-first design, iterative playtesting, user experience focus
 
 **You should:**
 - Verify alignment with AIMCODE principles
@@ -676,6 +681,7 @@ R - Results: What are the measurable outcomes? How will we assess success?
 - "Would Reggio provide multiple entry points?"
 - "Would Hassabis ensure systematic progression?"
 - "Would Jobs make it simple and beautiful?"
+- "Would Miyamoto test this with students for 30 minutes? Does it feel fun?"
 
 ---
 

@@ -207,3 +207,4 @@ Create a simple wrapper script that does the same thing without n8n complexity.
 
 **Recommendation:** Skip the integrated workflow import. Create a simple wrapper script instead. You'll get the same automation with way less complexity.
 
+

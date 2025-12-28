@@ -188,3 +188,4 @@ curl -X POST http://192.168.1.226:5678/webhook/unity-build \
 
 **Summary: Credentials are set up but need verification. Garvis nodes need GET→POST fix. Ready to test once lock clears!** ✅
 
+

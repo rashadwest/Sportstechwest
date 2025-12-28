@@ -76,3 +76,4 @@ echo "  - If 500: Workflow execution error (check n8n Executions tab)"
 echo "  - If empty: Workflow running but no response (check Respond node)"
 
 
+

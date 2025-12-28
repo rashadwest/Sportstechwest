@@ -432,3 +432,4 @@ NO GPU NEEDED ✅
 **Resource:** Raspberry Pi 4 is perfect for n8n
 
 
+

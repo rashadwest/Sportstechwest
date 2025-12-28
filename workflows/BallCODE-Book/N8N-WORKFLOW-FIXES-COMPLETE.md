@@ -201,3 +201,4 @@ Set these in n8n Settings → Environment Variables for full functionality:
 **Workflow:** ✅ **READY TO IMPORT**  
 **Next Step:** Import into n8n and test!
 
+

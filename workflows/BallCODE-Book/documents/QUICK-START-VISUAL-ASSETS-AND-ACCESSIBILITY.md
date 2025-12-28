@@ -127,3 +127,4 @@ python3 scripts/add-visuals-to-book1.py
 
 **Choose your path and let's go!** 🚀
 
+

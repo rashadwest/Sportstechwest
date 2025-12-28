@@ -103,3 +103,4 @@ class StatusReporter:
         else:
             return "partial"
 
+

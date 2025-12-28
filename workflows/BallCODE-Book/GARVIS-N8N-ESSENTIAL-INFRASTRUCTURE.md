@@ -474,3 +474,4 @@ POST http://192.168.1.226:5678/webhook/garvis
 
 **All 3 workflows are essential infrastructure for Garvis!** 🏗️✨
 
+

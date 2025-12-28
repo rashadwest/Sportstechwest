@@ -1,39 +1,39 @@
 {
-  "timestamp": "2025-12-21T16:45:13.392741",
+  "timestamp": "2025-12-24T20:50:10.381561",
   "local_system": {
     "cpu": {
-      "usage_percent": 30.0,
+      "usage_percent": 36.0,
       "core_count": 8,
       "frequency_mhz": 3204,
       "status": "healthy",
-      "score": 70.0
+      "score": 64.0
     },
     "memory": {
       "total_gb": 8.0,
-      "available_gb": 1.15,
-      "used_percent": 85.7,
-      "swap_total_gb": 10.0,
-      "swap_used_percent": 91.5,
+      "available_gb": 1.16,
+      "used_percent": 85.6,
+      "swap_total_gb": 14.0,
+      "swap_used_percent": 91.7,
       "status": "high_usage",
-      "score": 14.299999999999997
+      "score": 14.400000000000006
     },
     "disk": {
       "total_gb": 460.43,
       "used_gb": 8.54,
-      "free_gb": 74.72,
+      "free_gb": 70.5,
       "used_percent": 1.85,
       "status": "healthy",
       "score": 98.15
     },
     "network": {
-      "local_latency_ms": 18.86,
-      "external_latency_ms": 36.03,
+      "local_latency_ms": 24.23,
+      "external_latency_ms": 77.15,
       "connectivity": "connected",
       "status": "healthy",
-      "score": 63.96899223327637
+      "score": 22.852039337158203
     },
     "file_system": {
-      "total_files": 9231,
+      "total_files": 9555,
       "large_files_count": 10,
       "large_files": [
         {
@@ -41,8 +41,8 @@
           "size_mb": 13.89
         },
         {
-          "path": "BallCode/.git/objects/pack/pack-7d8bf79b4c03a61a7be29d4a169d9e37b50b66e2.pack",
-          "size_mb": 1434.8
+          "path": "BallCode/.git/objects/pack/pack-6cb0fbc73dc8cfe8b4df67eea01663c784168839.pack",
+          "size_mb": 1433.88
         },
         {
           "path": "BallCode/assets/Unity Assets/AllSkyFree/Epic_BlueSunset/Epic_BlueSunset_EquiRect_flat.png",
@@ -89,25 +89,25 @@
       "score": 100.0
     },
     "git_performance": {
-      "status_time_ms": 82.61,
-      "remote_time_ms": 283.07,
+      "status_time_ms": 62.46,
+      "remote_time_ms": 668.42,
       "status": "healthy",
-      "score": 82.30316638946533
+      "score": 71.4738925298055
     },
     "n8n_performance": {
       "local": {
         "url": "http://localhost:5678/healthz",
-        "response_time_ms": 74.18,
+        "response_time_ms": 108.36,
         "status_code": 200,
         "status": "healthy",
-        "score": 85.16478538513184
+        "score": 78.32717895507812
       },
       "pi": {
         "url": "http://192.168.1.226:5678/healthz",
-        "response_time_ms": 27.13,
+        "response_time_ms": 283.71,
         "status_code": 200,
         "status": "healthy",
-        "score": 94.57402229309082
+        "score": 43.25881004333496
       }
     }
   },
@@ -129,13 +129,13 @@
     "performance_gaps": [
       {
         "metric": "network_latency",
-        "local": 36.03,
+        "local": 77.15,
         "cloud": 50,
-        "advantage": "local",
-        "improvement": "Local is faster - maintain advantage"
+        "advantage": "cloud",
+        "improvement": "Optimize network stack"
       }
     ],
-    "overall": "local_competitive"
+    "overall": "cloud_better"
   },
   "performance_gaps": [],
   "improvement_opportunities": [

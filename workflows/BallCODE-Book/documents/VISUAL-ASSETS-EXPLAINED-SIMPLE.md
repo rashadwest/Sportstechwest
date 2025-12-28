@@ -101,3 +101,4 @@ Think of them like **illustrations in a children's book** - they help students *
 
 **Bottom Line:** Visual assets are just 3 pictures that make your story more engaging. We can automate most of it, but you'll need to generate the images in Glif (which is fast and free).
 
+

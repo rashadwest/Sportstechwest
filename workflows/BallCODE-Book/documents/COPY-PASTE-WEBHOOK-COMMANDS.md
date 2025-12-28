@@ -120,3 +120,4 @@ curl -X POST "http://localhost:5678/webhook/screenshot-fix" -H "Content-Type: ap
 **Status:** ✅ Ready to Copy-Paste
 
 
+

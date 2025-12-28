@@ -133,3 +133,4 @@ return {
 
 **This method avoids the n8n UI Settings issue entirely.** ✅
 
+

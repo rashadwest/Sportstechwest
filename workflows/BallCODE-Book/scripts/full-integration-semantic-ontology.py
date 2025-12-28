@@ -145,3 +145,4 @@ if __name__ == "__main__":
         print("Usage: --create or --query <type> --data <json>")
         sys.exit(1)
 
+

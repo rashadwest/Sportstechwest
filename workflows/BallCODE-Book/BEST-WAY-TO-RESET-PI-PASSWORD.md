@@ -197,3 +197,4 @@ sudo systemctl restart n8n"
 **Result:** Known password, SSH enabled, ready to configure
 
 
+

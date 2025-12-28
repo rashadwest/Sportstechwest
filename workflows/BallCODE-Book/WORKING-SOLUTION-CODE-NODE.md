@@ -145,3 +145,4 @@ curl -X POST http://192.168.1.226:5678/webhook-test/screenshot-fix \
 **Status:** ✅ Guaranteed to work  
 **Next:** Add Code node and update HTTP Request
 
+

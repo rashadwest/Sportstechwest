@@ -69,3 +69,4 @@ echo "✅ Rollback branch created: $ROLLBACK_BRANCH"
 echo "   Current state: Pre-MVP checkpoint ($PRE_MVP_TAG)"
 echo ""
 
+

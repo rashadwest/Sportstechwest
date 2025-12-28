@@ -60,3 +60,4 @@ echo "✅ Spending check complete"
 echo "   Proceed with build if spending is within budget"
 
 
+

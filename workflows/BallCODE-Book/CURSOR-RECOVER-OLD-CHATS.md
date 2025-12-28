@@ -312,3 +312,4 @@ tail -100 ~/Library/Logs/Cursor/*.log
 
 
 
+

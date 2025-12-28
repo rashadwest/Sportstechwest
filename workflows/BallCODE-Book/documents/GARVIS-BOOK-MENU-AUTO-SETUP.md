@@ -140,3 +140,4 @@ If the editor scripts don't work, follow the manual setup in:
 
 **Status:** ✅ Automated setup complete - Just 2 menu clicks!
 
+

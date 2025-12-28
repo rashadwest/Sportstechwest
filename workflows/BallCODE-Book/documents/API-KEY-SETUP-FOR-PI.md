@@ -218,3 +218,4 @@ After API key is set:
 
 **Need help?** Check the script output - it provides detailed error messages and troubleshooting tips.
 
+

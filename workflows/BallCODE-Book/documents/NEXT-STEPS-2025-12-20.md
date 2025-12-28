@@ -76,3 +76,4 @@ python3 scripts/performance_check.py
 
 **Ready?** Test performance first, then we'll proceed with Book 2!
 
+

@@ -222,3 +222,4 @@ python3 main.py stats
 **That's it! Your email system is accessible from Cursor terminal or n8n!** 🎉
 
 
+

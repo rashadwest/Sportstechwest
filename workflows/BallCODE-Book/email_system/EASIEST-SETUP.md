@@ -106,3 +106,4 @@ python3 main.py stats
 **That's it! Simple, free, and works immediately.** 🚀
 
 
+

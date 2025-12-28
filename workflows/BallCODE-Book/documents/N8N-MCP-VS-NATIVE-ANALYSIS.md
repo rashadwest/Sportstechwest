@@ -208,3 +208,4 @@
 **Decision:** ✅ **Proceed with adding n8n-mcp to Cursor and using Docker as primary**
 
 
+

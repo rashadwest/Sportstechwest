@@ -147,3 +147,4 @@ Generate a complete code fix in JSON format:
 
 **These prompts will make GPT-5.2 analyze the screenshot and generate precise code fixes!** 🚀
 
+

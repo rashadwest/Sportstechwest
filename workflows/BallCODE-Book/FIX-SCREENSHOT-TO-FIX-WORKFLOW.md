@@ -177,3 +177,4 @@
 
 **Once you add the credential, the workflow should work! The red lightning bolt on the webhook node might just be a warning - check its configuration if issues persist.** 🔧
 
+

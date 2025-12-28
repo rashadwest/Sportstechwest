@@ -10,6 +10,9 @@ public class ExitButton : ImprovedButton
 {
     void Start()
     {
+        // Call base Start first to initialize
+        base.Start();
+        
         // Configure as neutral button
         buttonType = ButtonType.Neutral;
         buttonText = ""; // Icon only, no text
@@ -65,4 +68,5 @@ public class ExitButton : ImprovedButton
         }
     }
 }
+
 

@@ -120,6 +120,54 @@ def push_website(commit_message: str = "Garvis: Deploy website updates") -> Dict
         print_error(f"Website push error: {str(e)}")
         return {'status': 'error', 'error': str(e)}
 
+def push_game_all_changes(commit_message: str = "Garvis: Deploy all game changes") -> Dict:
+    """Push all Unity game changes via git (C# scripts, levels, etc.)"""
+    print_info("Checking Unity repository for all changes...")
+    
+    status = check_git_status(UNITY_REPO_PATH)
+    if status.get('error'):
+        return {'status': 'error', 'error': status['error']}
+    
+    if not status.get('has_changes'):
+        return {'status': 'skipped', 'message': 'No Unity changes to commit'}
+    
+    try:
+        # Add all changes
+        subprocess.run(
+            ["git", "add", "-A"],
+            cwd=UNITY_REPO_PATH,
+            check=True
+        )
+        
+        # Commit
+        subprocess.run(
+            ["git", "commit", "-m", commit_message],
+            cwd=UNITY_REPO_PATH,
+            check=True
+        )
+        
+        # Push
+        push_result = subprocess.run(
+            ["git", "push", "origin", "main"],
+            cwd=UNITY_REPO_PATH,
+            capture_output=True,
+            text=True
+        )
+        
+        if push_result.returncode == 0:
+            print_success(f"All Unity changes pushed to repository")
+            return {
+                'status': 'success',
+                'message': f'Pushed all Unity changes',
+                'output': push_result.stdout
+            }
+        else:
+            print_error(f"Unity push failed: {push_result.stderr}")
+            return {'status': 'error', 'error': push_result.stderr}
+    except subprocess.CalledProcessError as e:
+        print_error(f"Unity push error: {str(e)}")
+        return {'status': 'error', 'error': str(e)}
+
 def push_game_levels(commit_message: str = "Garvis: Add Book 1, 2, 3 levels with curriculum") -> Dict:
     """Push game levels to Unity repository via GitHub API"""
     print_info("Pushing game levels via GitHub API...")
@@ -220,31 +268,58 @@ def main():
         results['website'] = website_result
         print()
     
-    # Push game levels
+    # Push game changes (all Unity changes + levels)
     if args.all or args.game:
         print(f"\n{BLUE}🎮 GAME DEPLOYMENT{NC}")
         print("-" * 60)
-        game_result = push_game_levels(
+        
+        # First, push all Unity changes via git
+        print_info("Step 1: Pushing all Unity changes (C# scripts, levels, etc.)...")
+        game_all_result = push_game_all_changes(
+            args.message or "Garvis: Deploy all game changes automatically"
+        )
+        
+        # Also push level files via GitHub API (for BTEBallCODE if different repo)
+        print_info("Step 2: Pushing level files via GitHub API...")
+        game_levels_result = push_game_levels(
             args.message or "Garvis: Add Book 1, 2, 3 levels with curriculum"
         )
-        results['game'] = game_result
+        
+        # Combine results
+        if game_all_result.get('status') == 'success' or game_levels_result.get('status') == 'success':
+            results['game'] = {
+                'status': 'success',
+                'message': 'Game changes pushed',
+                'all_changes': game_all_result,
+                'levels': game_levels_result
+            }
+        elif game_all_result.get('status') == 'skipped' and game_levels_result.get('status') == 'skipped':
+            results['game'] = {
+                'status': 'skipped',
+                'message': 'No game changes to push'
+            }
+        else:
+            results['game'] = {
+                'status': 'error',
+                'error': game_all_result.get('error') or game_levels_result.get('error')
+            }
         
         # If manual required, show instructions
-        if game_result.get('status') == 'manual_required':
+        if game_levels_result.get('status') == 'manual_required':
             print()
             print_warning("Manual push required via GitHub UI:")
             print_info(f"1. Go to: https://github.com/{GAME_REPO}")
             print_info(f"2. Navigate to: Assets/StreamingAssets/Levels/")
             print_info("3. Upload these files:")
-            for level_file in game_result.get('files', []):
+            for level_file in game_levels_result.get('files', []):
                 source = GAME_LEVELS_PATH / level_file
                 if source.exists():
                     size = source.stat().st_size
                     print_info(f"   - {level_file} ({size} bytes)")
             print_info(f"4. Commit message: {args.message or 'Add Book 1, 2, 3 levels with curriculum'}")
         
-        # Trigger Unity build if levels were pushed successfully
-        if game_result.get('status') == 'success':
+        # Trigger Unity build if changes were pushed successfully
+        if results['game'].get('status') == 'success':
             print()
             print_info("Triggering Unity build...")
             build_result = trigger_unity_build()

@@ -3,7 +3,7 @@
 
 **Copyright © 2025 Rashad West. All Rights Reserved.**
 
-**Date:** December 21, 2025  
+**Date:** December 24, 2025  
 **Methodology:** AIMCODE (Hassabis + Jobs Principles)
 
 ---
@@ -11,7 +11,7 @@
 ## 🎯 Executive Summary
 
 **Overall System Health:** ⚠️ Good (needs optimization)  
-**Local vs Cloud:** local_competitive
+**Local vs Cloud:** cloud_better
 
 ### Key Findings:
 - ✅ **Local Advantages:** 5 identified
@@ -23,33 +23,33 @@
 ## 📊 Local System Performance
 
 ### CPU Performance
-- **Usage:** 30.0%
+- **Usage:** 36.0%
 - **Cores:** 8
 - **Status:** healthy
-- **Score:** 70.0/100
+- **Score:** 64.0/100
 
 ### Memory Performance
 - **Total:** 8.0 GB
-- **Available:** 1.15 GB
-- **Used:** 85.7%
+- **Available:** 1.16 GB
+- **Used:** 85.6%
 - **Status:** high_usage
-- **Score:** 14.299999999999997/100
+- **Score:** 14.400000000000006/100
 
 ### Disk Performance
 - **Total:** 460.43 GB
 - **Used:** 8.54 GB (1.85%)
-- **Free:** 74.72 GB
+- **Free:** 70.5 GB
 - **Status:** healthy
 - **Score:** 98.15/100
 
 ### Network Performance
-- **Local Latency:** 18.86 ms
-- **External Latency:** 36.03 ms
+- **Local Latency:** 24.23 ms
+- **External Latency:** 77.15 ms
 - **Status:** healthy
-- **Score:** 63.96899223327637/100
+- **Score:** 22.852039337158203/100
 
 ### File System
-- **Total Files:** 9231
+- **Total Files:** 9555
 - **Large Files:** 10
 - **Git Size:** 0.0 MB
 - **Status:** healthy
@@ -63,24 +63,24 @@
 - **Score:** 100.0/100
 
 ### Git Performance
-- **Status Time:** 82.61 ms
-- **Remote Time:** 283.07 ms
+- **Status Time:** 62.46 ms
+- **Remote Time:** 668.42 ms
 - **Status:** healthy
-- **Score:** 82.30316638946533/100
+- **Score:** 71.4738925298055/100
 
 ### n8n Performance
 
 #### LOCAL n8n Instance
 - **URL:** http://localhost:5678/healthz
-- **Response Time:** 74.18 ms
+- **Response Time:** 108.36 ms
 - **Status:** healthy
-- **Score:** 85.16478538513184/100
+- **Score:** 78.32717895507812/100
 
 #### PI n8n Instance
 - **URL:** http://192.168.1.226:5678/healthz
-- **Response Time:** 27.13 ms
+- **Response Time:** 283.71 ms
 - **Status:** healthy
-- **Score:** 94.57402229309082/100
+- **Score:** 43.25881004333496/100
 
 ---
 
@@ -143,15 +143,15 @@
 
 | Category | Score | Status |
 |----------|-------|--------|
-| CPU | 70.0/100 | healthy |
-| Memory | 14.299999999999997/100 | high_usage |
+| CPU | 64.0/100 | healthy |
+| Memory | 14.400000000000006/100 | high_usage |
 | Disk | 98.15/100 | healthy |
-| Network | 63.96899223327637/100 | healthy |
+| Network | 22.852039337158203/100 | healthy |
 | File System | 80/100 | healthy |
 | Cursor | 100.0/100 | healthy |
-| Git | 82.30316638946533/100 | healthy |
+| Git | 71.4738925298055/100 | healthy |
 
-**Overall Score:** 72/100
+**Overall Score:** 64/100
 
 ---
 

@@ -1,0 +1,48 @@
+═══════════════════════════════════════════════════════════════
+  GET UNITY LICENSE IN 5 MINUTES (NOT 4 WEEKS!)
+═══════════════════════════════════════════════════════════════
+
+YOU DON'T NEED TO WAIT FOR UNITY SUPPORT!
+
+═══════════════════════════════════════════════════════════════
+STEP 1: UPLOAD FILE
+═══════════════════════════════════════════════════════════════
+
+1. I opened 3 windows for you:
+   ✅ Unity website (license.unity3d.com)
+   ✅ Folder with your file (Unity_v2021.3.10f1.alf)
+   ✅ GitHub Secrets page
+
+2. On Unity website:
+   - Find "Upload" or "Browse" button
+   - Click it
+   - Select file: Unity_v2021.3.10f1.alf
+   - Click "Upload"
+   - Wait 10-30 seconds
+
+═══════════════════════════════════════════════════════════════
+STEP 2: GET LICENSE NUMBER
+═══════════════════════════════════════════════════════════════
+
+Unity will show you:
+- A download button → Click it → Open file → Copy everything
+- OR a serial number → Copy the numbers
+
+═══════════════════════════════════════════════════════════════
+STEP 3: PUT IN GITHUB
+═══════════════════════════════════════════════════════════════
+
+1. On GitHub Secrets page (I opened it for you):
+   - Click "New repository secret"
+   - Name: UNITY_SERIAL (if you got numbers)
+     OR UNITY_LICENSE (if you got a file)
+   - Secret: Paste what Unity gave you
+   - Click "Add secret"
+
+2. Done!
+
+═══════════════════════════════════════════════════════════════
+THAT'S IT! 5 MINUTES, NOT 4 WEEKS!
+═══════════════════════════════════════════════════════════════
+
+

@@ -1,0 +1,281 @@
+{
+  "name": "Garvis Self-Healing System - Auto-Detect & Fix Workflow Errors",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "cronExpression": "*/5 * * * *"
+        }
+      },
+      "id": "monitor-trigger",
+      "name": "Monitor Executions (Every 5 min)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [220, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get all workflow executions from last 10 minutes\n// This will be called via n8n API\nconst N8N_URL = $env.N8N_URL || 'http://192.168.1.226:5678';\nconst N8N_API_KEY = $env.N8N_API_KEY || '';\n\n// Error patterns to detect\nconst errorPatterns = {\n  headerError: {\n    pattern: /Header name must be a valid HTTP token/i,\n    severity: 'high',\n    fixable: true,\n    fixType: 'credential'\n  },\n  openaiBadRequest: {\n    pattern: /Bad request - please check your parameters/i,\n    severity: 'high',\n    fixable: true,\n    fixType: 'requestBody'\n  },\n  credentialError: {\n    pattern: /credential.*not found|credential.*missing/i,\n    severity: 'critical',\n    fixable: false,\n    fixType: 'credential'\n  },\n  missingParameter: {\n    pattern: /Missing required parameter/i,\n    severity: 'medium',\n    fixable: true,\n    fixType: 'requestBody'\n  },\n  invalidJson: {\n    pattern: /Invalid JSON|JSON parse error/i,\n    severity: 'medium',\n    fixable: true,\n    fixType: 'requestBody'\n  },\n  authenticationError: {\n    pattern: /401|Unauthorized|authentication failed/i,\n    severity: 'high',\n    fixable: false,\n    fixType: 'credential'\n  }\n};\n\n// This will be populated by API call in next node\nreturn {\n  json: {\n    errorPatterns,\n    n8nUrl: N8N_URL,\n    timestamp: new Date().toISOString()\n  }\n};"
+      },
+      "id": "define-patterns",
+      "name": "Define Error Patterns",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [440, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $env.N8N_URL || 'http://192.168.1.226:5678' }}/api/v1/executions?limit=50&filter={%22finished%22:false}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "options": {
+          "headers": {
+            "Accept": "application/json"
+          }
+        }
+      },
+      "id": "get-executions",
+      "name": "Get Recent Executions",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [660, 300],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "n8n-api-key",
+          "name": "n8n API Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Detect errors in executions\nconst executions = $input.item.json.data || [];\nconst errorPatterns = $('Define Error Patterns').item.json.errorPatterns;\nconst detectedErrors = [];\n\nfor (const execution of executions) {\n  if (execution.finished && execution.stoppedAt && execution.data) {\n    // Check each node in the execution\n    for (const nodeName in execution.data.resultData?.runData || {}) {\n      const nodeData = execution.data.resultData.runData[nodeName];\n      \n      // Check for errors in node execution\n      for (const executionItem of nodeData || []) {\n        if (executionItem.error) {\n          const errorMessage = executionItem.error.message || '';\n          \n          // Match against error patterns\n          for (const [errorType, config] of Object.entries(errorPatterns)) {\n            if (config.pattern.test(errorMessage)) {\n              detectedErrors.push({\n                errorType,\n                errorMessage,\n                severity: config.severity,\n                fixable: config.fixable,\n                fixType: config.fixType,\n                workflowId: execution.workflowId,\n                workflowName: execution.workflowData?.name || 'Unknown',\n                nodeName,\n                executionId: execution.id,\n                timestamp: execution.stoppedAt\n              });\n              break; // Only match first pattern\n            }\n          }\n        }\n      }\n    }\n  }\n}\n\nreturn {\n  json: {\n    detectedErrors,\n    errorCount: detectedErrors.length,\n    timestamp: new Date().toISOString()\n  }\n};"
+      },
+      "id": "detect-errors",
+      "name": "Detect Errors",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [880, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json.errorCount }}",
+              "operation": "larger",
+              "value2": 0
+            }
+          ]
+        }
+      },
+      "id": "has-errors",
+      "name": "Has Errors?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [1100, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Diagnose each error and generate fix plan\nconst errors = $input.item.json.detectedErrors;\nconst diagnoses = [];\n\nfor (const error of errors) {\n  let diagnosis = {\n    ...error,\n    likelyCause: null,\n    fix: null,\n    confidence: 0\n  };\n  \n  switch (error.errorType) {\n    case 'headerError':\n      diagnosis.likelyCause = 'Invalid header name in credential (contains spaces or special characters)';\n      diagnosis.fix = {\n        action: 'updateCredentialHeaderName',\n        credentialId: null, // Will be extracted from workflow\n        correctValue: 'Authorization',\n        nodeName: error.nodeName\n      };\n      diagnosis.confidence = 0.9;\n      break;\n      \n    case 'openaiBadRequest':\n      diagnosis.likelyCause = 'Missing required parameters (model, messages) or invalid JSON in OpenAI request';\n      diagnosis.fix = {\n        action: 'validateOpenAIRequestBody',\n        nodeId: null, // Will be extracted from workflow\n        requiredFields: ['model', 'messages'],\n        nodeName: error.nodeName\n      };\n      diagnosis.confidence = 0.8;\n      break;\n      \n    case 'missingParameter':\n      diagnosis.likelyCause = 'Missing required parameter in request body';\n      diagnosis.fix = {\n        action: 'addMissingParameter',\n        nodeId: null,\n        nodeName: error.nodeName\n      };\n      diagnosis.confidence = 0.7;\n      break;\n      \n    case 'invalidJson':\n      diagnosis.likelyCause = 'Invalid JSON structure in request body';\n      diagnosis.fix = {\n        action: 'fixJsonStructure',\n        nodeId: null,\n        nodeName: error.nodeName\n      };\n      diagnosis.confidence = 0.75;\n      break;\n      \n    case 'credentialError':\n    case 'authenticationError':\n      diagnosis.likelyCause = 'Credential missing or invalid';\n      diagnosis.fix = {\n        action: 'verifyCredential',\n        credentialId: null,\n        nodeName: error.nodeName\n      };\n      diagnosis.confidence = 0.6;\n      break;\n      \n    default:\n      diagnosis.likelyCause = 'Unknown error type';\n      diagnosis.fix = {\n        action: 'manualReview',\n        nodeName: error.nodeName\n      };\n      diagnosis.confidence = 0.3;\n  }\n  \n  diagnoses.push(diagnosis);\n}\n\nreturn {\n  json: {\n    diagnoses,\n    fixableCount: diagnoses.filter(d => d.fixable && d.confidence > 0.7).length,\n    timestamp: new Date().toISOString()\n  }\n};"
+      },
+      "id": "diagnose-errors",
+      "name": "Diagnose Errors",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1320, 200]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.fixableCount > 0 }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "can-auto-fix",
+      "name": "Can Auto-Fix?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [1540, 200]
+    },
+    {
+      "parameters": {
+        "command": "python3",
+        "arguments": "={{ $env.WORKFLOW_PATH }}/scripts/garvis-auto-fix.py \"{{ JSON.stringify($json.diagnoses) }}\" \"{{ $env.N8N_URL || 'http://192.168.1.226:5678' }}\" \"{{ $env.N8N_API_KEY || '' }}\"",
+        "options": {}
+      },
+      "id": "apply-fixes",
+      "name": "Apply Auto-Fixes",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1760, 100]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Verify fixes by checking if errors are resolved\nconst fixResults = JSON.parse($input.item.json.stdout || '{}');\nconst originalDiagnoses = $('Diagnose Errors').item.json.diagnoses;\n\nconst verificationResults = [];\n\nfor (const result of fixResults.fixes || []) {\n  const originalDiagnosis = originalDiagnoses.find(d => d.nodeName === result.nodeName);\n  \n  verificationResults.push({\n    ...result,\n    originalError: originalDiagnosis?.errorMessage,\n    verified: result.success === true,\n    timestamp: new Date().toISOString()\n  });\n}\n\nreturn {\n  json: {\n    verificationResults,\n    successCount: verificationResults.filter(r => r.verified).length,\n    totalFixes: verificationResults.length,\n    timestamp: new Date().toISOString()\n  }\n};"
+      },
+      "id": "verify-fixes",
+      "name": "Verify Fixes",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1980, 100]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.NOTIFICATION_WEBHOOK_URL || '' }}",
+        "sendBody": true,
+        "bodyContentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({\n  type: 'garvis-self-healing-report',\n  timestamp: $json.timestamp,\n  errorsDetected: $('Detect Errors').item.json.errorCount,\n  fixesApplied: $json.totalFixes,\n  fixesSuccessful: $json.successCount,\n  details: $json.verificationResults\n}) }}",
+        "options": {}
+      },
+      "id": "send-notification",
+      "name": "Send Notification",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [2200, 100]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Log errors that need manual review\nconst diagnoses = $('Diagnose Errors').item.json.diagnoses;\nconst manualReviewNeeded = diagnoses.filter(d => !d.fixable || d.confidence < 0.7);\n\nif (manualReviewNeeded.length > 0) {\n  return {\n    json: {\n      manualReviewNeeded,\n      count: manualReviewNeeded.length,\n      timestamp: new Date().toISOString()\n    }\n  };\n}\n\nreturn {\n  json: {\n    manualReviewNeeded: [],\n    count: 0,\n    timestamp: new Date().toISOString()\n  }\n};"
+      },
+      "id": "log-manual-review",
+      "name": "Log Manual Review",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1320, 400]
+    }
+  ],
+  "connections": {
+    "Monitor Executions (Every 5 min)": {
+      "main": [
+        [
+          {
+            "node": "Define Error Patterns",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Define Error Patterns": {
+      "main": [
+        [
+          {
+            "node": "Get Recent Executions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Recent Executions": {
+      "main": [
+        [
+          {
+            "node": "Detect Errors",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Detect Errors": {
+      "main": [
+        [
+          {
+            "node": "Has Errors?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has Errors?": {
+      "main": [
+        [
+          {
+            "node": "Diagnose Errors",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Log Manual Review",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Diagnose Errors": {
+      "main": [
+        [
+          {
+            "node": "Can Auto-Fix?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Can Auto-Fix?": {
+      "main": [
+        [
+          {
+            "node": "Apply Auto-Fixes",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Log Manual Review",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apply Auto-Fixes": {
+      "main": [
+        [
+          {
+            "node": "Verify Fixes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verify Fixes": {
+      "main": [
+        [
+          {
+            "node": "Send Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/New_York"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-12-26T12:00:00.000Z",
+  "versionId": "1"
+}
+

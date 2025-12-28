@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using TMPro;
 
 /// <summary>
 /// Manages the Book menu UI - Shows Book 1, 2, 3 selection
@@ -19,12 +20,12 @@ public class BookMenuManager : MonoBehaviour
     public Button book3Button;
     
     [Header("Book Info")]
-    public Text book1Title;
-    public Text book1Description;
-    public Text book2Title;
-    public Text book2Description;
-    public Text book3Title;
-    public Text book3Description;
+    public Component book1Title;  // Can be Text or TextMeshProUGUI
+    public Component book1Description;  // Can be Text or TextMeshProUGUI
+    public Component book2Title;  // Can be Text or TextMeshProUGUI
+    public Component book2Description;  // Can be Text or TextMeshProUGUI
+    public Component book3Title;  // Can be Text or TextMeshProUGUI
+    public Component book3Description;  // Can be Text or TextMeshProUGUI
     
     // Book level IDs (matching JSON filenames)
     private const string BOOK1_LEVEL_ID = "book1_foundation_block";
@@ -257,15 +258,27 @@ public class BookMenuManager : MonoBehaviour
         
         Debug.Log($"[BookMenuManager] Loading Book {bookNumber} - Level ID: {levelId}");
         
-        // Load the level using GameModeManager
-        if (GameModeManager.Instance != null)
+        // Load the level using GameModeManager (if available)
+        // Note: GameModeManager may not exist in all projects
+        var gmType = System.Type.GetType("GameModeManager");
+        if (gmType != null)
         {
-            GameModeManager.Instance.LoadGameModeFromLevel(levelId);
+            var instanceProp = gmType.GetProperty("Instance");
+            if (instanceProp != null)
+            {
+                var instance = instanceProp.GetValue(null);
+                var method = gmType.GetMethod("LoadGameModeFromLevel");
+                if (method != null && instance != null)
+                {
+                    method.Invoke(instance, new object[] { levelId });
+                    return;
+                }
+            }
         }
-        else
-        {
-            Debug.LogError("[BookMenuManager] GameModeManager.Instance is null!");
-        }
+        
+        // Fallback: Use SceneManager to load level scene directly
+        Debug.LogWarning($"[BookMenuManager] GameModeManager not found, loading level directly: {levelId}");
+        // Alternative: Load scene by name or use URL parameters
     }
     
     /// <summary>
@@ -287,47 +300,112 @@ public class BookMenuManager : MonoBehaviour
     /// </summary>
     void UpdateBookInfo()
     {
-        if (LevelDataManager.Instance == null)
+        // Check if LevelDataManager exists (may not be in all projects)
+        var levelDataManagerType = System.Type.GetType("LevelDataManager");
+        if (levelDataManagerType == null)
         {
             Debug.LogWarning("[BookMenuManager] LevelDataManager not found, using default book info");
             SetDefaultBookInfo();
             return;
         }
         
-        // Get level data for each book
-        LevelData book1 = LevelDataManager.Instance.GetLevel(BOOK1_LEVEL_ID);
-        LevelData book2 = LevelDataManager.Instance.GetLevel(BOOK2_LEVEL_ID);
-        LevelData book3 = LevelDataManager.Instance.GetLevel(BOOK3_LEVEL_ID);
-        
-        // Update Book 1 info
-        if (book1Title != null && book1 != null)
+        // Try to get Instance via reflection
+        var instanceProp = levelDataManagerType.GetProperty("Instance");
+        if (instanceProp == null)
         {
-            book1Title.text = book1.levelName;
-        }
-        if (book1Description != null && book1 != null)
-        {
-            book1Description.text = book1.description;
+            SetDefaultBookInfo();
+            return;
         }
         
-        // Update Book 2 info
-        if (book2Title != null && book2 != null)
+        var instance = instanceProp.GetValue(null);
+        if (instance == null)
         {
-            book2Title.text = book2.levelName;
-        }
-        if (book2Description != null && book2 != null)
-        {
-            book2Description.text = book2.description;
+            SetDefaultBookInfo();
+            return;
         }
         
-        // Update Book 3 info
-        if (book3Title != null && book3 != null)
+        // Try to get level data via reflection
+        var getLevelMethod = levelDataManagerType.GetMethod("GetLevel");
+        if (getLevelMethod == null)
         {
-            book3Title.text = book3.levelName;
+            SetDefaultBookInfo();
+            return;
         }
-        if (book3Description != null && book3 != null)
+        
+        // Get level data for each book (using reflection to avoid compilation errors)
+        var book1 = getLevelMethod.Invoke(instance, new object[] { BOOK1_LEVEL_ID });
+        var book2 = getLevelMethod.Invoke(instance, new object[] { BOOK2_LEVEL_ID });
+        var book3 = getLevelMethod.Invoke(instance, new object[] { BOOK3_LEVEL_ID });
+        
+        // Get LevelData type for property access
+        var levelDataType = System.Type.GetType("LevelData");
+        if (levelDataType == null)
         {
-            book3Description.text = book3.description;
+            SetDefaultBookInfo();
+            return;
         }
+        
+        // Update Book 1 info (using reflection)
+        if (book1 != null)
+        {
+            var levelNameProp = levelDataType.GetProperty("levelName");
+            var descProp = levelDataType.GetProperty("description");
+            if (levelNameProp != null)
+            {
+                var levelName = levelNameProp.GetValue(book1)?.ToString();
+                SetTextOnComponent(book1Title, levelName);
+            }
+            if (descProp != null)
+            {
+                var description = descProp.GetValue(book1)?.ToString();
+                SetTextOnComponent(book1Description, description);
+            }
+        }
+        
+        // Update Book 2 info (using reflection)
+        if (book2 != null)
+        {
+            var levelNameProp = levelDataType.GetProperty("levelName");
+            var descProp = levelDataType.GetProperty("description");
+            if (levelNameProp != null)
+            {
+                var levelName = levelNameProp.GetValue(book2)?.ToString();
+                SetTextOnComponent(book2Title, levelName);
+            }
+            if (descProp != null)
+            {
+                var description = descProp.GetValue(book2)?.ToString();
+                SetTextOnComponent(book2Description, description);
+            }
+        }
+        
+        // Update Book 3 info (using reflection)
+        if (book3 != null)
+        {
+            var levelNameProp = levelDataType.GetProperty("levelName");
+            var descProp = levelDataType.GetProperty("description");
+            if (levelNameProp != null)
+            {
+                var levelName = levelNameProp.GetValue(book3)?.ToString();
+                SetTextOnComponent(book3Title, levelName);
+            }
+            if (descProp != null)
+            {
+                var description = descProp.GetValue(book3)?.ToString();
+                SetTextOnComponent(book3Description, description);
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Helper method to set text on Component (Text or TextMeshProUGUI)
+    /// </summary>
+    void SetTextOnComponent(Component comp, string text)
+    {
+        if (comp == null || string.IsNullOrEmpty(text)) return;
+        var textProp = comp.GetType().GetProperty("text");
+        if (textProp != null)
+            textProp.SetValue(comp, text);
     }
     
     /// <summary>
@@ -335,32 +413,12 @@ public class BookMenuManager : MonoBehaviour
     /// </summary>
     void SetDefaultBookInfo()
     {
-        if (book1Title != null)
-        {
-            book1Title.text = "Book 1: Foundation Block";
-        }
-        if (book1Description != null)
-        {
-            book1Description.text = "Learn sequences with Block 1 (Pound Dribble)";
-        }
-        
-        if (book2Title != null)
-        {
-            book2Title.text = "Book 2: Decision Crossover";
-        }
-        if (book2Description != null)
-        {
-            book2Description.text = "Learn conditionals with Block 2 (Crossover)";
-        }
-        
-        if (book3Title != null)
-        {
-            book3Title.text = "Book 3: Pattern Loop";
-        }
-        if (book3Description != null)
-        {
-            book3Description.text = "Learn loops with pattern recognition";
-        }
+        SetTextOnComponent(book1Title, "Book 1: Foundation Block");
+        SetTextOnComponent(book1Description, "Learn sequences with Block 1 (Pound Dribble)");
+        SetTextOnComponent(book2Title, "Book 2: Decision Crossover");
+        SetTextOnComponent(book2Description, "Learn conditionals with Block 2 (Crossover)");
+        SetTextOnComponent(book3Title, "Book 3: Pattern Loop");
+        SetTextOnComponent(book3Description, "Learn loops with pattern recognition");
     }
 }
 

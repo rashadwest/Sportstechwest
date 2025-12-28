@@ -679,3 +679,4 @@ netlify dev
 **Inspiration:** Steve Jobs simplicity + Duolingo fun + Notion clarity
 
 
+

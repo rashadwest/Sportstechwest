@@ -115,3 +115,4 @@ curl -X POST http://192.168.1.226:5678/webhook/unity-build \
 
 **Create "Header Auth" credentials with correct names - that's the safest approach!** ✅
 
+

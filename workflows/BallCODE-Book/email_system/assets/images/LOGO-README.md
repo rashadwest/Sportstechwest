@@ -78,3 +78,4 @@ The signature HTML references the logo as:
 Once added, the signature will automatically display it!
 
 
+

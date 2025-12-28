@@ -188,3 +188,4 @@ python scripts/garvis-command.py \
 
 **Ready to complete setup! Follow the checklist above.** 🚀
 
+

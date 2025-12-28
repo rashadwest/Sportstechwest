@@ -182,3 +182,4 @@ curl -X POST http://192.168.1.226:5678/webhook/full-integration \
 
 **The red lightning bolt is the blocker. Fix the webhook configuration and it should work!** 🔧
 
+

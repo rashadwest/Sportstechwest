@@ -61,3 +61,4 @@ You now have a free, local email system that works with Cursor and n8n!
 **Total setup time: < 2 minutes**
 
 
+
