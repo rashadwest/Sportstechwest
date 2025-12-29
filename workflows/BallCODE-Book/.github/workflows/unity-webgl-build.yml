@@ -46,15 +46,21 @@ jobs:
         echo "Activating Unity license from secret..."
         mkdir -p ~/.local/share/unity3d
         echo "${{ secrets.UNITY_LICENSE }}" | base64 -d > ~/.local/share/unity3d/Unity_lic.ulf
-        echo "✅ License file created"
+        echo "✅ License file created at ~/.local/share/unity3d/Unity_lic.ulf"
+        # Also create in alternative locations Unity might check
+        mkdir -p ~/.config/unity3d
+        echo "${{ secrets.UNITY_LICENSE }}" | base64 -d > ~/.config/unity3d/Unity_lic.ulf
+        echo "✅ License file also created at ~/.config/unity3d/Unity_lic.ulf"
         
     - name: Build Unity WebGL
       id: build
       uses: game-ci/unity-builder@v4
       env:
-        UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-        UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        # Don't pass email/password if license file exists - use existing license
         UNITY_LICENSE: ${{ secrets.UNITY_LICENSE || '' }}
+        # Only use email/password if no license file
+        UNITY_EMAIL: ${{ secrets.UNITY_EMAIL && secrets.UNITY_LICENSE == '' && secrets.UNITY_EMAIL || '' }}
+        UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD && secrets.UNITY_LICENSE == '' && secrets.UNITY_PASSWORD || '' }}
       with:
         targetPlatform: WebGL
         buildName: BallCODE-WebGL
