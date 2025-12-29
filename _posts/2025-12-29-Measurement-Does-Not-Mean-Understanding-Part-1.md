@@ -2,7 +2,7 @@
 layout: post
 title: "Measurement Does Not Mean Understanding (Part 1)"
 description: "Why sports technology has confused data collection with insight generation, and why humanized interpretation is the missing layer in performance technology."
-thumbnail: "/assets/images/blog-img/0001.webp"
+thumbnail: "/assets/images/blog-img/measurement-vs-understanding-hero.png"
 badge_color: "text-bg-primary"
 trending: true
 simple_nav: true
@@ -29,7 +29,7 @@ We measure movement, output, and physical load with precision. But we still cann
 This forces us to confront two distinct but connected problems in sports technology.
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/0002.webp" alt="Business Technology vs Performance Technology Gap" class="img-fluid">
+  <img src="/assets/images/blog-img/business-vs-performance-tech.png" alt="Business Technology vs Performance Technology Gap" class="img-fluid">
 </div>
 
 ---
@@ -53,7 +53,7 @@ You need to know how data is structured, how signals are separated from noise, h
 This is where most systems fail. They are technically sound but strategically shallow.
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/0003.webp" alt="Two Athletes with Identical Data, Different Performance Outcomes" class="img-fluid">
+  <img src="/assets/images/blog-img/identical-data-different-outcomes.png" alt="Two Athletes with Identical Data, Different Performance Outcomes" class="img-fluid">
 </div>
 
 ---
@@ -77,7 +77,7 @@ Data without context leads to false confidence. Context without technical execut
 The future belongs to people who can do both.
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/0004.webp" alt="The Missing Cognitive and Emotional Variables in Performance Data" class="img-fluid">
+  <img src="/assets/images/blog-img/missing-cognitive-variables.png" alt="The Missing Cognitive and Emotional Variables in Performance Data" class="img-fluid">
 </div>
 
 ---
@@ -97,7 +97,7 @@ Two athletes can have identical physical profiles, identical preparation, and id
 No one understands this better than the athlete. No one misunderstands it more than someone who has never been inside high pressure performance.
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/0005.webp" alt="The Overlap Between Athletes and Technologists in Sports Tech" class="img-fluid">
+  <img src="/assets/images/blog-img/athlete-technologist-overlap.png" alt="The Overlap Between Athletes and Technologists in Sports Tech" class="img-fluid">
 </div>
 
 ---
@@ -117,7 +117,7 @@ Sports remains the cleanest laboratory we have for studying human execution unde
 As robotics and AI systems move toward higher levels of autonomy, the hardest problem will not be movement. It will be decision making under uncertainty.
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/0006.webp" alt="Decision Making Under Pressure: The Future Challenge" class="img-fluid">
+  <img src="/assets/images/blog-img/decision-making-under-pressure.png" alt="Decision Making Under Pressure: The Future Challenge" class="img-fluid">
 </div>
 
 ---
@@ -135,7 +135,7 @@ Athletes and coaches are not just performers. They are data originators.
 The future of sports technology is not another dashboard or sensor. It is a deeper understanding of how humans perform when it matters most, supported by systems, models, and strategy that respect both the data and the human behind it.
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/0007.webp" alt="The Future of Sports Technology: Humanized Insight" class="img-fluid">
+  <img src="/assets/images/blog-img/future-of-sports-tech.png" alt="The Future of Sports Technology: Humanized Insight" class="img-fluid">
 </div>
 
 ---
