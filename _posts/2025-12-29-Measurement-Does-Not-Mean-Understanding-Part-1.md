@@ -2,7 +2,7 @@
 layout: post
 title: "Measurement Does Not Mean Understanding (Part 1)"
 description: "Why sports technology has confused data collection with insight generation, and why humanized interpretation is the missing layer in performance technology."
-thumbnail: "/assets/images/blog-img/measurement-vs-understanding-hero.png"
+thumbnail: "/assets/images/blog-img/measurement-vs-understanding-hero.jpg"
 badge_color: "text-bg-primary"
 trending: true
 simple_nav: true
@@ -77,7 +77,7 @@ Data without context leads to false confidence. Context without technical execut
 The future belongs to people who can do both.
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/missing-cognitive-variables.png" alt="The Missing Cognitive and Emotional Variables in Performance Data" class="img-fluid">
+  <img src="/assets/images/blog-img/missing-cognitive-variables.jpg" alt="The Missing Cognitive and Emotional Variables in Performance Data" class="img-fluid">
 </div>
 
 ---
@@ -117,7 +117,7 @@ Sports remains the cleanest laboratory we have for studying human execution unde
 As robotics and AI systems move toward higher levels of autonomy, the hardest problem will not be movement. It will be decision making under uncertainty.
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/decision-making-under-pressure.png" alt="Decision Making Under Pressure: The Future Challenge" class="img-fluid">
+  <img src="/assets/images/blog-img/decision-making-under-pressure.jpg" alt="Decision Making Under Pressure: The Future Challenge" class="img-fluid">
 </div>
 
 ---
@@ -135,7 +135,7 @@ Athletes and coaches are not just performers. They are data originators.
 The future of sports technology is not another dashboard or sensor. It is a deeper understanding of how humans perform when it matters most, supported by systems, models, and strategy that respect both the data and the human behind it.
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/future-of-sports-tech.png" alt="The Future of Sports Technology: Humanized Insight" class="img-fluid">
+  <img src="/assets/images/blog-img/future-of-sports-tech.jpg" alt="The Future of Sports Technology: Humanized Insight" class="img-fluid">
 </div>
 
 ---
