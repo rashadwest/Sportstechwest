@@ -12,6 +12,13 @@ import os
 from pathlib import Path
 from typing import Dict, List, Optional
 
+# Try to import requests (optional, for webhook)
+try:
+    import requests
+    REQUESTS_AVAILABLE = True
+except ImportError:
+    REQUESTS_AVAILABLE = False
+
 # Add modules to path
 sys.path.insert(0, str(Path(__file__).parent))
 from modules.unity_pusher import UnityPusher
@@ -128,6 +135,48 @@ def apply_game_updates(game_updates_json: str) -> dict:
             "files_pushed_count": len(results["files_pushed"]),
             "errors_count": len(results["errors"])
         }
+        
+        # Deployment automation: Trigger Unity Build Orchestrator webhook if updates were successful
+        if results["status"] in ["success", "partial"] and (results["files_updated"] or results["files_pushed"]):
+            try:
+                if not REQUESTS_AVAILABLE:
+                    results["deployment"] = {
+                        "status": "skipped",
+                        "message": "requests library not available"
+                    }
+                else:
+                    webhook_url = os.getenv("UNITY_BUILD_WEBHOOK_URL", "http://192.168.1.226:5678/webhook/unity-build")
+                    
+                    response = requests.post(
+                        webhook_url,
+                        json={
+                            "trigger": "full-integration",
+                            "source": "game-updates",
+                            "files_updated": results["files_updated"],
+                            "files_pushed": results["files_pushed"]
+                        },
+                        timeout=10
+                    )
+                    
+                    if response.status_code == 200:
+                        results["deployment"] = {
+                            "status": "success",
+                            "message": "Unity build triggered successfully",
+                            "webhook_response": response.json() if response.text else None
+                        }
+                    else:
+                        results["deployment"] = {
+                            "status": "error",
+                            "error": f"Webhook returned status {response.status_code}",
+                            "response": response.text
+                        }
+                        results["errors"].append(f"Unity build webhook failed: {response.status_code}")
+            except Exception as e:
+                results["deployment"] = {
+                    "status": "error",
+                    "error": str(e)
+                }
+                results["errors"].append(f"Unity build deployment error: {str(e)}")
         
         return results
         

@@ -13,6 +13,7 @@ from typing import Dict, List, Any
 
 # Project paths
 PROJECT_ROOT = Path(__file__).parent.parent
+SCRIPTS_DIR = PROJECT_ROOT / "scripts"
 WEBSITE_DIR = PROJECT_ROOT / "BallCode"
 
 def apply_website_updates(website_updates_json: str) -> dict:
@@ -153,6 +154,49 @@ def apply_website_updates(website_updates_json: str) -> dict:
             "files_created_count": len(results["files_created"]),
             "errors_count": len(results["errors"])
         }
+        
+        # Deployment automation: Deploy website if updates were successful
+        if results["status"] in ["success", "partial"] and (results["files_updated"] or results["files_created"]):
+            try:
+                import subprocess
+                deploy_script = SCRIPTS_DIR / "garvis-deploy.py"
+                if deploy_script.exists():
+                    deploy_process = subprocess.run(
+                        [sys.executable, str(deploy_script), "--website"],
+                        capture_output=True,
+                        text=True,
+                        timeout=300,
+                        encoding='utf-8'
+                    )
+                    if deploy_process.returncode == 0:
+                        results["deployment"] = {
+                            "status": "success",
+                            "message": "Website deployed successfully"
+                        }
+                    else:
+                        results["deployment"] = {
+                            "status": "error",
+                            "error": deploy_process.stderr or "Deployment failed",
+                            "stdout": deploy_process.stdout
+                        }
+                        results["errors"].append(f"Website deployment failed: {deploy_process.stderr}")
+                else:
+                    results["deployment"] = {
+                        "status": "skipped",
+                        "message": "garvis-deploy.py not found"
+                    }
+            except subprocess.TimeoutExpired:
+                results["deployment"] = {
+                    "status": "error",
+                    "error": "Deployment timeout"
+                }
+                results["errors"].append("Website deployment timeout")
+            except Exception as e:
+                results["deployment"] = {
+                    "status": "error",
+                    "error": str(e)
+                }
+                results["errors"].append(f"Website deployment error: {str(e)}")
         
         return results
         
