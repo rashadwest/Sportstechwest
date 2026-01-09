@@ -85,6 +85,22 @@ Improvised, real-time performance produces immediate media value. Stats, clips, 
 
 </div>
 
+Here is where the difference becomes most visible.
+
+Performance value in sports is dictated week to week, game by game. There is a 24 hour window after each game where value is created, regardless of whether the overall performance was good or bad. I have watched athletes have a terrible game overall, but a couple of good clips get clipped up, go viral, and generate hundreds of thousands of views across multiple platforms. The athlete gets exposure, engagement, and people giving them love in the comments. But there is no monetary value flowing back to them from the platforms that monetize that content.
+
+Think about a viral dunk clip. It plays on everyone's feed. Different creators make top 10 lists featuring it. Others show it from different angles. It gets reposted, remixed, and replayed. The clip generates millions of views across platforms. The athlete who created that moment might see a few thousand dollars in NIL deals if they are lucky, but the platforms and creators monetizing that content see far more.
+
+Now consider the comparison. A child actor with a speaking role in a television show or film enters a system where residuals are built in. That performance reruns, and they get paid. A musician with a viral hit sees streaming royalties, licensing deals, and performance rights payments that continue for years. The numbers are stark. Thousands of youth athletes and athletes outside of high level Division I generate viral content, millions of views, and significant engagement, yet receive minimal to no compensation from the platforms that monetize their performance. Meanwhile, a child actor with a recurring role or a musician with a viral song sees structured compensation that reflects the ongoing value of their work.
+
+<div class="text-center my-4">
+
+  <img src="/assets/images/blog-img/youth-entertainment-value-gap.png" alt="Youth Entertainment Value Gap - Child Netflix Star vs Basketball Child Prodigy" class="img-fluid">
+
+</div>
+
+This is not a small problem. This is a systemic gap that affects the majority of athletes who create value but lack the structural support to capture it. The opportunity is not just about building better systems. It is about recognizing that the value being created deserves pathways to flow back to the source.
+
 ---
 
 ## The Humanist Opportunity
@@ -122,7 +138,7 @@ High-major Division I athletes are currently the most structurally supported. Me
 
 But the same value creation dynamics exist elsewhere.
 
-Division II and Division III athletes generate performance data, social engagement, and media attention. Youth athletes often generate enormous interest early, through highlights, rankings, and online visibility.
+Lower Division I, Mid-major Division I, Division II, and Division III athletes generate performance data, social engagement, and media attention. Youth athletes often generate enormous interest early, through highlights, rankings, and online visibility.
 
 What differs is not the creation of value, but the structure around it.
 
