@@ -93,6 +93,12 @@ Think about a viral dunk clip. It plays on everyone's feed. Different creators m
 
 Now consider the comparison. A child actor with a speaking role in a television show or film enters a system where residuals are built in. That performance reruns, and they get paid. A musician with a viral hit sees streaming royalties, licensing deals, and performance rights payments that continue for years. The numbers are stark. Thousands of youth athletes and athletes outside of high level Division I generate viral content, millions of views, and significant engagement, yet receive minimal to no compensation from the platforms that monetize their performance. Meanwhile, a child actor with a recurring role or a musician with a viral song sees structured compensation that reflects the ongoing value of their work.
 
+Consider this specific example: A child Netflix star, age 12 to 20, can earn $20,000,000 or more through a guaranteed pay model. The infrastructure is provided by the industry. Payment is guaranteed. Legal protections and representation are built in from day one.
+
+Now consider a basketball child prodigy, age 11 to 21, who generates 200,000,000 plus views. They might earn $1,000,000 if they are extremely successful, but they operate under a self employed model. They had to build their own infrastructure. They had to hustle for merchandise, brand deals, and social media monetization. Most critically, they receive no pay when others monetize their content. For most, it never takes off.
+
+Both created similar value. One had infrastructure.
+
 <div class="text-center my-4">
 
   <img src="/assets/images/blog-img/youth-entertainment-value-gap.png" alt="Youth Entertainment Value Gap - Child Netflix Star vs Basketball Child Prodigy" class="img-fluid">
