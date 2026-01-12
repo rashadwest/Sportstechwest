@@ -15,6 +15,11 @@ import os
 import logging
 from typing import Dict, Optional
 from pathlib import Path
+import sys
+
+# Add utils to path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from utils.error_handler import retry_on_error, ErrorHandler
 
 logger = logging.getLogger(__name__)
 
@@ -129,7 +134,7 @@ class VoiceSynthesizer:
     
     def synthesize(self, text: str, output_path: str) -> str:
         """
-        Synthesize voice audio from text.
+        Synthesize voice audio from text with automatic retry.
         
         Args:
             text: Text to synthesize
@@ -146,17 +151,29 @@ class VoiceSynthesizer:
         output_path = Path(output_path)
         output_path.parent.mkdir(parents=True, exist_ok=True)
         
-        # Generate audio based on provider
-        if self.provider == 'elevenlabs':
-            audio_data = self._synthesize_elevenlabs(text)
-        elif self.provider == 'google':
-            audio_data = self._synthesize_google(text)
-        elif self.provider == 'azure':
-            audio_data = self._synthesize_azure(text)
-        elif self.provider == 'openai':
-            audio_data = self._synthesize_openai(text)
-        else:
-            raise ValueError(f"Unknown provider: {self.provider}")
+        # Use error handler for automatic retry
+        handler = ErrorHandler(max_retries=3, base_backoff=2)
+        
+        def _synthesize():
+            # Generate audio based on provider
+            if self.provider == 'elevenlabs':
+                return self._synthesize_elevenlabs(text)
+            elif self.provider == 'google':
+                return self._synthesize_google(text)
+            elif self.provider == 'azure':
+                return self._synthesize_azure(text)
+            elif self.provider == 'openai':
+                return self._synthesize_openai(text)
+            else:
+                raise ValueError(f"Unknown provider: {self.provider}")
+        
+        # Execute with automatic retry
+        result = handler.handle_with_retry(_synthesize)
+        
+        if not result["success"]:
+            raise Exception(f"Voice synthesis failed after {result['attempts']} attempts: {result['error']}")
+        
+        audio_data = result["result"]
         
         # Save audio file
         with open(output_path, 'wb') as f:

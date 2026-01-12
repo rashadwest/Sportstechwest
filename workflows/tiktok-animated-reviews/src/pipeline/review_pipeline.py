@@ -27,6 +27,8 @@ from src.animation.lip_sync import LipSyncSystem
 from src.voice.voice_synthesizer import VoiceSynthesizer
 from src.composition.video_composer import VideoComposer
 from src.composition.sync_manager import SyncManager
+from src.utils.health_checker import HealthChecker
+from src.utils.validator import Validator
 
 logger = logging.getLogger(__name__)
 
@@ -42,9 +44,10 @@ class ReviewPipeline:
     - Superhero CV: PhD-level video processing
     """
     
-    def __init__(self, config_path: Optional[str] = None):
+    def __init__(self, config_path: Optional[str] = None, skip_health_check: bool = False):
         """Initialize the review pipeline."""
         self.config = self._load_config(config_path)
+        self.config_path = config_path
         self.output_dir = Path(self.config.get('output_dir', 'output/reviews'))
         self.output_dir.mkdir(parents=True, exist_ok=True)
         
@@ -54,8 +57,33 @@ class ReviewPipeline:
         self.video_composer = VideoComposer(self.config.get('composition', {}))
         self.lip_sync = LipSyncSystem(self.config.get('lip_sync', {}))
         self.sync_manager = SyncManager()
+        self.health_checker = HealthChecker()
+        self.validator = Validator()
+        
+        # Run health check unless skipped
+        if not skip_health_check:
+            self._run_health_check()
         
         logger.info("✅ Review Pipeline initialized")
+    
+    def _run_health_check(self):
+        """Run health check on initialization."""
+        logger.info("🔍 Running system health check...")
+        report = self.health_checker.run_all_checks(config_path=self.config_path)
+        
+        if report["overall"] == "unhealthy":
+            logger.error("❌ System health check failed - critical issues found")
+            for check_name, check_result in report["checks"].items():
+                if check_result["status"] == "error":
+                    logger.error(f"  ❌ {check_name}: {check_result['message']}")
+            raise Exception("System health check failed - please fix issues before proceeding")
+        elif report["overall"] == "degraded":
+            logger.warning("⚠️  System health check shows warnings")
+            for check_name, check_result in report["checks"].items():
+                if check_result["status"] == "warning":
+                    logger.warning(f"  ⚠️  {check_name}: {check_result['message']}")
+        else:
+            logger.info("✅ System health check passed")
     
     def _load_config(self, config_path: Optional[str]) -> Dict:
         """Load configuration from file or use defaults."""
@@ -173,6 +201,22 @@ class ReviewPipeline:
         
         # Update character animator with selected character
         self.character_animator = CharacterAnimator(character_config)
+        
+        # Validate inputs
+        logger.info("🔍 Validating inputs...")
+        is_valid, errors = self.validator.validate_all(
+            config_path=self.config_path,
+            video_path=tiktok_video_path,
+            script_path=script_path,
+            character_paths={k: v.get("file_path") for k, v in character_config.items() if v.get("file_path")}
+        )
+        
+        if not is_valid:
+            error_msg = "Validation failed:\n" + "\n".join(f"  - {e}" for e in errors)
+            logger.error(f"❌ {error_msg}")
+            raise ValueError(error_msg)
+        
+        logger.info("✅ Input validation passed")
         
         # Load script
         with open(script_path, 'r') as f:
