@@ -1,0 +1,27 @@
+# TikTok Animated Review System - Dependencies
+
+# Video Processing
+moviepy>=1.0.3
+opencv-python>=4.8.0
+ffmpeg-python>=0.2.0
+
+# Voice Synthesis
+elevenlabs>=0.2.0
+google-cloud-texttospeech>=2.14.0
+azure-cognitiveservices-speech>=1.32.0
+openai>=1.0.0
+
+# Animation (optional, depending on format)
+# spine-python (if using Spine)
+# live2d (if using Live2D)
+# bpy (if using Blender)
+
+# Lip-Sync (optional)
+# wav2lip (if using Wav2Lip)
+# rhubarb-lip-sync (if using Rhubarb)
+
+# Utilities
+numpy>=1.24.0
+pillow>=10.0.0
+requests>=2.31.0
+

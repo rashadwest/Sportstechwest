@@ -1,0 +1,86 @@
+{
+  "output_dir": "output/reviews",
+  "characters": {
+    "youth": {
+      "name": "youth_character",
+      "file_path": "assets/characters/youth/character.mp4",
+      "voice_type": "youth",
+      "position": {
+        "x": "right",
+        "y": "center",
+        "size": "medium"
+      },
+      "animations": {
+        "idle": "idle_animation",
+        "talking": "talking_animation",
+        "reacting": "reacting_animation"
+      }
+    },
+    "adult": {
+      "name": "adult_character",
+      "file_path": "assets/characters/adult/character.mp4",
+      "voice_type": "adult",
+      "position": {
+        "x": "right",
+        "y": "center",
+        "size": "medium"
+      },
+      "animations": {
+        "idle": "idle_animation",
+        "talking": "talking_animation",
+        "reacting": "reacting_animation"
+      }
+    },
+    "robot": {
+      "name": "robot_character",
+      "file_path": "assets/characters/robot/character.mp4",
+      "voice_type": "robot",
+      "position": {
+        "x": "right",
+        "y": "center",
+        "size": "medium"
+      },
+      "animations": {
+        "idle": "idle_animation",
+        "talking": "talking_animation",
+        "reacting": "reacting_animation"
+      }
+    }
+  },
+  "character_selection": {
+    "youth_keywords": ["youth", "kid", "student", "young", "teen", "children", "kids"],
+    "robot_keywords": ["robot", "robotics", "ai", "automation", "machine", "artificial intelligence"],
+    "adult_keywords": ["adult", "professional", "grown", "mature"]
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "api_key": null,
+    "voice_id": null,
+    "settings": {
+      "stability": 0.75,
+      "similarity_boost": 0.75,
+      "style": 0.0,
+      "use_speaker_boost": true,
+      "speed": 1.0
+    }
+  },
+  "composition": {
+    "layout": "side_by_side",
+    "character_position": "right",
+    "character_size": "40%",
+    "tiktok_video_position": "left",
+    "background": "transparent",
+    "output": {
+      "format": "mp4",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30
+    }
+  },
+  "lip_sync": {
+    "method": "wav2lip",
+    "model_path": "models/wav2lip_gan.pth",
+    "wav2lip_path": "wav2lip"
+  }
+}
+
