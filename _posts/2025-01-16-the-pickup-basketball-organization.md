@@ -6,7 +6,7 @@ thumbnail: "/assets/images/blog-img/pickup-basketball-organization-hero.png"
 badge_color: "text-bg-primary"
 trending: true
 simple_nav: true
-date: 2025-01-XX
+date: 2025-01-16
 tags: [sports-tech, organizational-dynamics, basketball, culture, leadership, team-building, sports-analytics]
 categories: [Insights]
 author: "Rashad West"
