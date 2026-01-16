@@ -97,6 +97,8 @@ Then you have the Analytics Guy.
 
 Keeps score. Remembers matchups. Knows who is hot. Knows who should not be guarding who. He does not have a spreadsheet but his memory is data. He is ignored until he is proven right. Then suddenly everyone is asking him what he thinks. This is analytics before dashboards existed.
 
+I also would never imagine that I would become the stats/analytics guy in my lifetime. But here we are.
+
 ### The Glue Guy
 
 Then there is the Glue Guy.
@@ -123,13 +125,18 @@ No contracts. No HR. No tech stack. Yet roles emerge instantly. Power dynamics a
 
 This is why I love sports tech. Technology does not replace these dynamics. It amplifies them. If you understand the run you understand teams startups leagues and fan ecosystems.
 
+<div class="text-center my-5">
+  <img src="/assets/images/blog-img/pickup-basketball-teams-startups.png" alt="Teams = Startups - The Pickup Basketball Dynamic" class="img-fluid rounded shadow">
+  <p class="text-muted mt-2"><small><em>If you understand the run, you understand teams, startups, leagues, and fan ecosystems.</em></small></p>
+</div>
+
 Before you build platforms metrics or products you better understand the gym.
 
 Because the gym never lies.
 
 <div class="text-center my-5">
-  <img src="/assets/images/blog-img/pickup-basketball-to-sports-tech.png" alt="From Pickup Basketball to Sports Tech - Understanding the Gym" class="img-fluid rounded shadow">
-  <p class="text-muted mt-2"><small><em>Technology doesn't replace these dynamics. It amplifies them.</em></small></p>
+  <img src="/assets/images/blog-img/pickup-basketball-tech-amplifies-behavior.png" alt="Technology Amplifies Behavior - It Doesn't Replace It" class="img-fluid rounded shadow">
+  <p class="text-muted mt-2"><small><em>Technology amplifies behavior. It doesn't replace it.</em></small></p>
 </div>
 
 ---
