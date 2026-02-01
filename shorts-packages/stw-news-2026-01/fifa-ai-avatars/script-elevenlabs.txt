@@ -1,0 +1,9 @@
+FIFA is scanning every player at the 2026 World Cup into a digital twin — for offside.
+
+At CES this month, FIFA and Lenovo announced that all twelve hundred forty-eight players across forty-eight teams will get a 3D avatar. Each scan takes about a second — precise body dimensions — so the semi-automated offside system can track them even when they're obscured or moving fast.
+
+Right now, VAR offside uses generic body models. These avatars are player-specific. So a taller player and a shorter player get different lines — and that can change the call. The same avatars will show up in stadium and TV coverage so fans see a clearer, more accurate picture.
+
+FIFA also announced "Football AI Pro" — a data platform for all forty-eight nations. Same analysis tools for everyone. So smaller federations aren't stuck with last decade's tech while the big teams run custom models.
+
+That's STW News. More next time.

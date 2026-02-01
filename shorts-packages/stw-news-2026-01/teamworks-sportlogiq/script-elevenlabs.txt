@@ -1,0 +1,9 @@
+The company that runs operations for most of the NHL just bought the company that watches every game.
+
+This week Teamworks announced its acquisition of Sportlogiq — an AI and computer-vision company that tracks players from video. It was Teamworks' thirteenth acquisition. Sportlogiq works with thirty-one of thirty-two NHL teams and over two hundred clients in hockey, soccer, and football.
+
+Sportlogiq turns broadcast and arena video into tracking data: where players are, how they move. That data already fed into Teamworks Intelligence for position-specific metrics. Now they're under one roof — operations, video, and AI in one stack.
+
+So if you're asking "who actually runs the tech behind pro hockey?" — the answer is consolidating fast. One platform for the team, the video, and the models.
+
+That's STW News. More next time.
