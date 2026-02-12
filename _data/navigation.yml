@@ -18,10 +18,10 @@ main_menu:
     url: "/blogs"
   
   - text: "IQ Training"
-     url: "https://www.youtube.com/@SportsTechWest/"
-   
+    url: "https://www.youtube.com/@SportsTechWest/"
+
   - text: "STW News"
-     url: "https://www.youtube.com/@SportsTechWest/shorts"
+    url: "https://www.youtube.com/@SportsTechWest/shorts"
 
   # - text: "Pages"
   #   url: "/"
