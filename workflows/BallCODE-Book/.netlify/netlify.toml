@@ -1,0 +1,28 @@
+plugins = []
+headers = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "/Users/rashadwest/Sportstechwest/workflows/BallCODE-Book/WebGL"
+publishOrigin = "config"
+commandOrigin = "config"
+base = "/Users/rashadwest/Sportstechwest/workflows/BallCODE-Book"
+command = "echo 'Deploying static WebGL - no build'"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
