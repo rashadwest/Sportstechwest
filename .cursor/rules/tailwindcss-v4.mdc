@@ -1,0 +1,218 @@
+---
+description: Tailwind CSS v4 conventions — prevents agents from using v3 patterns that no longer apply
+globs: **/*.{html,tsx,jsx,ts,js,css,astro,svelte,vue}
+alwaysApply: false
+---
+
+# Tailwind CSS v4 — Key Changes
+
+This project uses **Tailwind CSS v4**. Do NOT use v3 patterns. Follow these rules precisely.
+
+---
+
+## Installation & Setup
+
+**No `tailwind.config.js` file.** Configuration lives in CSS.
+
+**PostCSS setup:**
+```js
+// postcss.config.js
+export default { plugins: ["@tailwindcss/postcss"] };
+```
+
+**Vite setup (preferred):**
+```ts
+// vite.config.ts
+import tailwindcss from "@tailwindcss/vite";
+export default defineConfig({ plugins: [tailwindcss()] });
+```
+
+**CSS entry point — one line only:**
+```css
+@import "tailwindcss";
+```
+❌ Never use `@tailwind base`, `@tailwind components`, `@tailwind utilities` — those are v3.
+
+---
+
+## Configuration: CSS-First (`@theme`)
+
+All design tokens are defined in CSS using `@theme`, not in a JS config file.
+
+```css
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Satoshi", sans-serif;
+  --breakpoint-3xl: 1920px;
+  --color-brand-500: oklch(0.72 0.19 142);
+  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+}
+```
+
+These automatically become CSS custom properties on `:root` and power all utilities.
+
+---
+
+## Content Detection
+
+❌ Do NOT configure a `content` array — it no longer exists.
+
+v4 automatically detects template files. To add a source manually:
+```css
+@import "tailwindcss";
+@source "../node_modules/@my-company/ui-lib";
+```
+
+---
+
+## Dynamic Utility Values
+
+Many utilities now accept **any value** without arbitrary value syntax:
+
+```html
+<!-- ✅ v4: any number works out of the box -->
+<div class="grid grid-cols-15 w-17 mt-29"></div>
+
+<!-- ❌ v3 style arbitrary values no longer needed for these -->
+<div class="grid grid-cols-[15] w-[4.25rem]"></div>
+```
+
+Spacing is derived from a single `--spacing` variable: `mt-8` → `calc(var(--spacing) * 8)`.
+
+---
+
+## Gradients
+
+`bg-gradient-*` is **renamed** to `bg-linear-*`.
+
+```html
+<!-- ✅ v4 -->
+<div class="bg-linear-to-r from-indigo-500 to-pink-500"></div>
+<div class="bg-linear-45 from-blue-500 to-teal-400"></div>
+
+<!-- ❌ v3 — do not use -->
+<div class="bg-gradient-to-r from-indigo-500 to-pink-500"></div>
+```
+
+New gradient types:
+```html
+<div class="bg-radial-[at_25%_25%] from-white to-zinc-900 to-75%"></div>
+<div class="bg-conic/[in_hsl_longer_hue] from-red-600 to-red-600"></div>
+```
+
+Interpolation modifiers: `bg-linear-to-r/oklch`, `bg-linear-to-r/srgb`, etc.
+
+---
+
+## Container Queries (Built-in)
+
+❌ Do NOT install `@tailwindcss/container-queries` — it's in core now.
+
+```html
+<div class="@container">
+  <div class="grid grid-cols-1 @sm:grid-cols-3 @lg:grid-cols-4"></div>
+</div>
+```
+
+Max-width container queries:
+```html
+<div class="grid grid-cols-3 @max-md:grid-cols-1"></div>
+```
+
+Range queries:
+```html
+<div class="flex @min-md:@max-xl:hidden"></div>
+```
+
+---
+
+## New Variants
+
+### `not-*`
+```html
+<div class="not-hover:opacity-75"></div>
+<div class="not-supports-hanging-punctuation:px-4"></div>
+```
+
+### `starting` (@starting-style — enter/exit transitions, no JS)
+```html
+<div popover class="transition-discrete starting:open:opacity-0 ..."></div>
+```
+
+### `inert`
+```html
+<div inert class="inert:opacity-50"></div>
+```
+
+### `in-*` (implicit group, no `group` class needed)
+```html
+<div class="in-hover:underline"></div>
+```
+
+### `nth-*`
+```html
+<li class="nth-2:font-bold"></li>
+```
+
+### `descendant`
+```html
+<div class="descendant:text-sm"></div>
+```
+
+---
+
+## 3D Transform Utilities (New)
+
+```html
+<div class="perspective-distant">
+  <article class="rotate-x-51 rotate-z-43 transform-3d"></article>
+</div>
+```
+
+New utilities: `rotate-x-*`, `rotate-y-*`, `scale-z-*`, `translate-z-*`, `perspective-*`, `transform-3d`.
+
+---
+
+## New Utility Classes
+
+| Utility | Purpose |
+|---|---|
+| `inset-shadow-*` | Inset box shadow (stack up to 4 layers) |
+| `inset-ring-*` | Inset ring shadow |
+| `field-sizing-content` | Auto-resize textarea without JS |
+| `color-scheme-dark` / `color-scheme-light` | Fix scrollbar color in dark mode |
+| `font-stretch-*` | Variable font width control |
+
+---
+
+## Color Palette
+
+Colors are now `oklch`-based (P3 wide gamut) instead of `rgb`. Values are more vivid. The naming scale (`-100` through `-900`) is the same, but exact color values have changed.
+
+Colors are accessible as CSS variables: `var(--color-blue-500)`, `var(--color-red-300)`, etc.
+
+---
+
+## Built-in `@import` Bundling
+
+❌ Do NOT add `postcss-import` — v4 handles CSS `@import` bundling natively.
+
+```js
+// ❌ v3 postcss.config.js — do not copy this
+export default { plugins: ["postcss-import", "@tailwindcss/postcss"] };
+
+// ✅ v4
+export default { plugins: ["@tailwindcss/postcss"] };
+```
+
+---
+
+## Custom Data Attributes (No Config Needed)
+
+```html
+<!-- ✅ Just use the attribute directly -->
+<div data-current class="opacity-75 data-current:opacity-100"></div>
+```
+
+No need to extend `tailwind.config.js` with `matchVariant` or custom variants for basic boolean data attributes.

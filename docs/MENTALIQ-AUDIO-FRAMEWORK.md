@@ -11,7 +11,7 @@
 | Rule | Value |
 |------|-------|
 | **Silence between segments** | 5 seconds |
-| **3-minute version** | ~8 segments (content ~2 min, gaps ~40 sec) |
+| **3-minute version** | 8 segments = 8 hour-parts compressed; 7 × 5 sec gaps (~2 min 25 sec speech + gaps ≈ 3 min) |
 | **1-hour version** | ~60 segments (content ~55 min, gaps ~5 min) |
 | **Segments** | One idea per segment. Pause 5 sec after each. |
 
@@ -19,50 +19,11 @@
 
 ## mentalIQ — 3-Minute Script (Audio)
 
-**Total segments:** 8  
-**Approx. content:** ~2 min 20 sec  
-**5-second gaps:** 7 × 5 sec = 35 sec  
-**Total:** ~3 min
+**Total segments:** 8 — **same architecture as the 1-hour:** one segment per **Part** (Intro → Why focus breaks → Breathing → Cues → Routines → Together → Mistakes → Close).  
+**5-second gaps:** 7 × 5 sec between segments 1–8 (identical rule as the hour: **5 sec silence after every segment**).  
+**Approx. content:** ~2 min 25 sec speech + ~35 sec gaps ≈ **3 min**
 
----
-
-### Segment 1
-Your body can only do what your mind lets it. That’s mentalIQ — mental focus for sports.
-
-**[5 sec silence]**
-
-### Segment 2
-Pros control where their attention goes before the play. Not after. Before.
-
-**[5 sec silence]**
-
-### Segment 3
-First: breath. Before any high-pressure moment, in for four, hold for four, out for four. Ten seconds. It tells your brain: we’re steady.
-
-**[5 sec silence]**
-
-### Segment 4
-Second: a cue. One word you repeat. Process. Lock in. Next play. It pulls you back when your mind drifts.
-
-**[5 sec silence]**
-
-### Segment 5
-Third: practice it. Do your breathing and cue word in practice so they’re automatic in games. Build the habit when stakes are low.
-
-**[5 sec silence]**
-
-### Segment 6
-The athletes who perform under pressure aren’t luckier. They’ve trained their focus. You can do the same.
-
-**[5 sec silence]**
-
-### Segment 7
-Try it this week: one breath, one cue, before your next big moment.
-
-**[5 sec silence]**
-
-### Segment 8
-That’s mentalIQ. More next time.
+**Full meditation copy (mirrors hour Parts 1–8):** `audio-scripts/mentalIQ-3min-meditation.txt`
 
 — Sportstechwest
 

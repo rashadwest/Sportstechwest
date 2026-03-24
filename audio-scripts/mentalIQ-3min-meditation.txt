@@ -1,0 +1,54 @@
+# mentalIQ — 3-Minute Meditation (Audio)
+# Same framework as the 1-hour: 8 parts, 1 segment per part, 5 sec silence after EVERY segment.
+# Maps to 1-hour Parts 1–8 (Intro → Why focus breaks → Breathing → Cues → Routines → Together → Mistakes → Close).
+# Total: 8 segments + 7 × 5 sec gaps ≈ 3 min.
+
+# --- Part 1 — Introduction (hour Segments 1–6) ---
+# Segment 1
+mentalIQ. Mental focus is a skill — not magic. This is three minutes to settle, same arc as the full hour, compressed.
+
+[5 sec]
+
+# --- Part 2 — Why focus breaks down (hour Segments 7–12) ---
+# Segment 2
+When pressure shows up, focus often lands on the wrong thing — threat, not task. Notice that without judging it. Let the story soften.
+
+[5 sec]
+
+# --- Part 3 — System 1: Breathing (hour Segments 13–20) ---
+# Segment 3
+Breathing is your fastest reset. In through the nose, out through the mouth — exhale a little longer than inhale. Two slow cycles. Nothing to prove.
+
+[5 sec]
+
+# --- Part 4 — System 2: Cue words (hour Segments 21–28) ---
+# Segment 4
+Pick one word for this session. Here. Steady. Next play. Say it silently once. That word is your anchor when the mind drifts.
+
+[5 sec]
+
+# --- Part 5 — System 3: Routines (hour Segments 29–36) ---
+# Segment 5
+One small physical routine: roll your shoulders back once. Unclench your jaw. Same sequence every time you reset — today it’s short, tomorrow it can grow.
+
+[5 sec]
+
+# --- Part 6 — Putting it together (hour Segments 37–42) ---
+# Segment 6
+Breath, then cue, then body. In that order. You’re not fixing everything — you’re giving your attention one clear lane.
+
+[5 sec]
+
+# --- Part 7 — Common mistakes (hour Segments 43–48) ---
+# Segment 7
+If you only do this when the game is on the line, it won’t be there. Low stakes count. This minute is enough.
+
+[5 sec]
+
+# --- Part 8 — Closing (hour Segments 49–60) ---
+# Segment 8
+Carry breath, cue, and routine into your warm-up, your run, or your next play. That’s mentalIQ. More next time.
+
+[5 sec]
+
+— Sportstechwest

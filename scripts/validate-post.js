@@ -66,7 +66,8 @@ function getLatestPostDate() {
   }
 
   const files = fs.readdirSync(postsDir);
-  const posts = files.filter(f => f.startsWith('2025-') && f.endsWith('.md'));
+  const currentYear = new Date().getFullYear();
+  const posts = files.filter(f => /^\d{4}-/.test(f) && f.endsWith('.md'));
   let latestDate = null;
 
   for (const postFile of posts) {
@@ -87,12 +88,13 @@ function getLatestPostDate() {
 function validateDate(dateStr) {
   const date = new Date(dateStr);
   const year = date.getFullYear();
+  const currentYear = new Date().getFullYear();
   const latestDate = getLatestPostDate();
 
   const errors = [];
 
-  if (year !== 2025) {
-    errors.push(`Date year must be 2025, got ${year}`);
+  if (year < currentYear - 1 || year > currentYear + 1) {
+    errors.push(`Date year looks wrong: ${year} (expected around ${currentYear})`);
   }
 
   if (latestDate && date <= latestDate) {

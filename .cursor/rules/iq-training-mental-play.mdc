@@ -1,0 +1,33 @@
+---
+description: IQ Training (mentalIQ, PlayIQ) — audio framework, scripts, and docs
+alwaysApply: true
+---
+
+# IQ Training — mentalIQ & PlayIQ (Sportstechwest)
+
+## mentalIQ (audio)
+
+- **Format:** Voice/audio only (no B-roll cues). **5 seconds silence after every segment** — same rule for 3-minute and 1-hour.
+- **3-minute:** **8 segments** = **8 parts**, mirroring the 1-hour architecture (Intro → Why focus breaks → Breathing → Cue words → Routines → Putting together → Mistakes → Closing). Not one continuous run; each segment is discrete + 5 sec gap.
+- **1-hour:** **60 segments**, 5 sec between each; ~55 min speech + ~5 min gaps ≈ 60 min.
+- **Canonical scripts:** `audio-scripts/mentalIQ-3min-meditation.txt`, `docs/MENTALIQ-AUDIO-FRAMEWORK.md`, `audio-scripts/youtube-mentalIQ-1hour-focus.txt`.
+
+## Automation (mentalIQ video / YouTube)
+
+- Assemble: `scripts/ship-mentalIQ-assemble.sh` → `output/video/mentalIQ-1hour-focus.mp4` (brain loop + looped voice + music 35%).
+- Full push: `scripts/ship-mentalIQ-push.sh` (assemble + upload).
+- Schedule without `at`: `scripts/schedule-mentalIQ-push-today.sh --delay-minutes N` (logs `output/mentalIQ-scheduled-push.log`). `at` needs `sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.atrun.plist`.
+- YouTube: `scripts/youtube-upload.py` + `secrets/client_secrets.json` + `pip install -r requirements-youtube.txt`.
+- Docs: `docs/MENTALIQ-PUSH-AUTOMATION.md`, `docs/MENTALIQ-POST-PLAN.md`. n8n: `workflows/n8n-mentalIQ-push.json`.
+
+## PlayIQ
+
+- **Spec:** `docs/PLAYIQ-SPEC.md` — play-first movement for offseason, friendlies, pickup, group runs; same **3 min / 1 hr** pattern as other IQs when built.
+
+## Assets (typical paths)
+
+- Brain video: `~/Desktop/Brain Videos/` (e.g. `MentalIQ_brain.mp4`).
+- Voice: `~/Desktop/SportsTechWest_visualizeIQ/` (e.g. `MentalIQ_1hour_focus.m4a`).
+- Music: `output/music/background-manifestation-60min/track-a.mp3`.
+
+When adding new IQ scripts, match **segment + 5 sec gap** structure and reuse assemble/upload patterns from mentalIQ.

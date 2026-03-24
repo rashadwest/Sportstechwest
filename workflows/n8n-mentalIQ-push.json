@@ -1,0 +1,67 @@
+{
+  "name": "mentalIQ Push — Assemble + YouTube Upload",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual-trigger",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "cronExpression": "0 18 24 3 *"
+        }
+      },
+      "id": "schedule-today",
+      "name": "Schedule 6PM Mar 24 (edit cron for your date)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [240, 480],
+      "disabled": true,
+      "notes": "Cron: min hour day month weekday. Example 0 18 24 3 * = Mar 24 18:00 local. Edit day/month for today, enable, then disable after run (or it fires yearly)."
+    },
+    {
+      "parameters": {
+        "command": "cd /Users/rashadwest/Sportstechwest && ./scripts/ship-mentalIQ-push.sh",
+        "options": {}
+      },
+      "id": "execute-push",
+      "name": "Execute mentalIQ Push",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [460, 380]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Execute mentalIQ Push",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule 6PM Mar 24 (edit cron for your date)": {
+      "main": [
+        [
+          {
+            "node": "Execute mentalIQ Push",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {},
+  "meta": {
+    "templateCredsSetupCompleted": true
+  }
+}

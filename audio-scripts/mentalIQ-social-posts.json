@@ -1,0 +1,14 @@
+{
+  "youtube_url_placeholder": "https://youtube.com/watch?v=VIDEO_ID",
+  "linkedin": {
+    "hook": "Your body can only do what your mind lets it.",
+    "body": "mentalIQ is live — 1 hour of mental focus training for sports. Breathing, cue words, routines. The same systems pros use, in a format you can play during pre-game or warm-up. 5-second pauses so you can practice as you listen. Drop a link in comments.",
+    "cta": "Link to YouTube video"
+  },
+  "instagram": {
+    "caption": "mentalIQ — 1 hour of mental focus for sports. Breathing. Cue words. Routines. Your body can only do what your mind lets it. Link in bio. 🧠"
+  },
+  "twitter": {
+    "tweet": "mentalIQ is live. 1 hour of mental focus for sports — breathing, cue words, routines. Your body can only do what your mind lets it. 5 sec between segments so you can practice as you listen. [link]"
+  }
+}

@@ -10,7 +10,7 @@
 cd /Users/rashadwest/Sportstechwest
 
 # Add the files you changed (e.g. new blog post)
-git add _posts/2026-03-17-Building-Entrepreneurs-as-a-VC-Scout.md
+git add _posts/2026-03-17-Teaching-Is-the-Greatest-Teacher.md
 # Or: git add .   (to add everything)
 
 # Commit

@@ -130,11 +130,11 @@ async function createOrUpdatePage(payload) {
         properties
       });
 
-      // Clear existing blocks and add new content
+      // Clear existing blocks in parallel (avoids N serial API calls)
       const blocks = await notion.blocks.children.list({ block_id: pageId });
-      for (const block of blocks.results) {
-        await notion.blocks.delete({ block_id: block.id });
-      }
+      await Promise.all(blocks.results.map(block =>
+        notion.blocks.delete({ block_id: block.id })
+      ));
 
       // Add body content
       if (payload.body_draft) {
