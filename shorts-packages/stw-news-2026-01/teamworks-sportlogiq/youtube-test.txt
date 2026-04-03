@@ -1,0 +1,16 @@
+STW News - Teamworks Acquires Sportlogiq | Sportstechwest
+
+STW News update: Teamworks acquired Sportlogiq, an AI and computer-vision company working with 31 of 32 NHL teams.
+
+Why this matters:
+- Team operations + video intelligence are consolidating into one stack
+- Player tracking from video becomes easier to operationalize
+- Sport analytics workflows are moving faster from clip to decision
+
+Source package:
+- shorts-packages/stw-news-2026-01/teamworks-sportlogiq
+
+- Sportstechwest
+
+TAGS (paste into YouTube Studio -> Tags):
+STW News, sportstech, Teamworks, Sportlogiq, NHL, AI, computer vision, analytics, Sportstechwest

@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "description": "High-signal sources + scoring for STW News daily scouting",
+  "sources": [
+    {
+      "name": "SportsPro",
+      "url": "https://www.sportspro.com/feed/",
+      "sourceAuthority": 9
+    },
+    {
+      "name": "SportBusiness",
+      "url": "https://www.sportbusiness.com/feed/",
+      "sourceAuthority": 8
+    },
+    {
+      "name": "Strava Press",
+      "url": "https://press.strava.com/articles.rss",
+      "sourceAuthority": 9
+    },
+    {
+      "name": "WHOOP Press",
+      "url": "https://www.whoop.com/us/en/press-center/feed/",
+      "sourceAuthority": 9
+    },
+    {
+      "name": "FIFA News",
+      "url": "https://inside.fifa.com/rss/news",
+      "sourceAuthority": 8
+    },
+    {
+      "name": "Nike News",
+      "url": "https://about.nike.com/en/newsroom.rss",
+      "sourceAuthority": 8
+    },
+    {
+      "name": "TechCrunch Sports",
+      "url": "https://techcrunch.com/tag/sports-tech/feed/",
+      "sourceAuthority": 7
+    }
+  ],
+  "weights": {
+    "sourceAuthority": 0.26,
+    "recency": 0.24,
+    "brandStrength": 0.2,
+    "athleteRelevance": 0.2,
+    "headlineClarity": 0.1
+  },
+  "keywordBoosts": {
+    "acquisition": 8,
+    "acquires": 8,
+    "partnership": 6,
+    "launch": 5,
+    "ai": 5,
+    "wearable": 6,
+    "world cup": 6,
+    "nfl": 6,
+    "nba": 5,
+    "olympic": 5,
+    "training": 4,
+    "coaching": 4
+  },
+  "brandBoosts": {
+    "strava": 10,
+    "whoop": 9,
+    "fifa": 9,
+    "nike": 8,
+    "adidas": 7,
+    "teamworks": 7,
+    "apple": 7,
+    "garmin": 7,
+    "peloton": 7,
+    "catapult": 6
+  }
+}

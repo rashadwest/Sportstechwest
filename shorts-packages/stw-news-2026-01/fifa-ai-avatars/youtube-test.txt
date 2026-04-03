@@ -1,0 +1,16 @@
+STW News - FIFA 2026 AI Avatars for Offside | Sportstechwest
+
+STW News update: FIFA announced player-specific 3D AI avatars for semi-automated offside at the 2026 World Cup.
+
+Why this matters:
+- Offside models become player-specific instead of generic
+- Broadcast explanation can become clearer for fans
+- AI tooling for federations is expanding across all teams
+
+Source package:
+- shorts-packages/stw-news-2026-01/fifa-ai-avatars
+
+- Sportstechwest
+
+TAGS (paste into YouTube Studio -> Tags):
+STW News, FIFA, World Cup 2026, VAR, offside, AI avatars, football analytics, sportstech, Sportstechwest

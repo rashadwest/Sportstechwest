@@ -1,20 +1,21 @@
-# STW News — Weekly post plan (one Short + one LinkedIn)
+# STW News — Weekly post plan (4 Shorts + LinkedIn)
 
-**Goal:** Ship **one STW News Short every week** on a fixed day, plus **one LinkedIn line** the same week so the feed isn’t only YouTube.
+**Goal:** Ship **four STW News Shorts every week** (Mon/Tue/Thu/Fri), plus LinkedIn support so the feed is not only YouTube.
 
-**Default publish day:** **Friday** (adjust once; keep the same slot every week).
+**Default publish days:** **Monday, Tuesday, Thursday, Friday** (keep the same time slot each day).
 
 ---
 
-## Weekly rhythm (about 2–3 hours total, spread across the week)
+## Weekly rhythm (about 4–6 hours total, spread across the week)
 
 | When | Task | Time |
 |------|------|------|
-| **Monday** | Pick **one** story (slug) under `shorts-packages/stw-news-2026-01/<slug>/` or add a new folder with `article-url.txt` + `company-url.txt`. Prefer big names (Strava, NFL, WHOOP, FIFA) for search. | 20–30 min |
-| **Tuesday** | Finalize `script-elevenlabs.txt` (already drafted for packaged stories). Trim to ~60s spoken. | 15–20 min |
-| **Wednesday** | **Voice once:** `python scripts/voice-generate.py --in .../script-elevenlabs.txt --out output/audio/stw-news-<story>.mp3 --preset stw-news` | 15 min |
-| **Thursday** | **Capture** article + company screenshots; **build** video: `./scripts/build-stw-news-video.sh <story>`. Watch once; fix only visuals if needed (no re-voice). | 45–60 min |
-| **Friday** | **Upload** Short (title + description + tags from `youtube-test.txt`). **Thumbnail** per `brand-kit/STW-NEWS-THUMBNAIL-SPEC.md`. **LinkedIn:** paste from `docs/LINKEDIN-POST-FRIDAY-2026-03-28-STW-NEWS.md` (swap `[LINK]` for the new Short or channel). | 30–45 min |
+| **Sunday** | Run scout selector and lock next week queue: `python3 scripts/stw-news-weekly-selector.py --write-queue --create-stubs` | 45–60 min |
+| **Monday** | Publish queue story #1 (`_data/stw_news_queue.csv`) | 30–45 min |
+| **Tuesday** | Publish queue story #2 | 30–45 min |
+| **Wednesday** | Buffer/rebuild + check analytics + prep thumbnails | 30 min |
+| **Thursday** | Publish queue story #3 | 30–45 min |
+| **Friday** | Publish queue story #4 + LinkedIn cross-post | 45–60 min |
 
 If you only have one block: do **Thursday build + Friday publish** back-to-back after story + voice exist.
 
@@ -22,25 +23,28 @@ If you only have one block: do **Thursday build + Friday publish** back-to-back 
 
 ## Minimum viable week (if you’re slammed)
 
-1. **Story** already chosen (e.g. `strava-runna`).
-2. **Voice** Wednesday.
-3. **Build + upload** Friday morning.
-4. **LinkedIn** Friday afternoon (2 sentences + link).
+1. Sunday queue has 4 stories.
+2. Publish Mon/Tue/Thu/Fri from queue.
+3. If one fails, Wednesday buffer catches up.
+4. LinkedIn on Friday with the best-performing short.
 
 Skip nothing except LinkedIn only if you must — the LinkedIn post costs almost no time and signals consistency off YouTube.
 
 ---
 
-## Queue file (optional)
+## Queue file (required for automation)
 
-If you use `_data/stw_news_queue.csv`, add one row per publish day:
+Update `_data/stw_news_queue.csv` each Sunday:
 
 ```csv
 date,story
-2026-04-04,strava-runna
+2026-04-06,strava-runna
+2026-04-07,teamworks-sportlogiq
+2026-04-09,fifa-ai-avatars
+2026-04-10,orreco-jennis
 ```
 
-One row = one Friday. If the file doesn’t exist yet, create it or track the date in your calendar instead.
+One row = one publish day. Dispatcher job `stw-news-queue-4x-week` reads this file.
 
 ---
 
@@ -56,7 +60,8 @@ This plan optimizes **shipping**, not vanity metrics. Volume of *finished* weeks
 ## Related
 
 - Links + capture: `docs/STW-NEWS-LINKS-READY.md`
-- Voice once rule: `.cursor/rules/stw-news-voice-once.mdc`
+- Voice + packaging standard: `docs/STWWIN-PACKAGING.md`
 - LinkedIn copy: `docs/LINKEDIN-POST-FRIDAY-2026-03-28-STW-NEWS.md`
+- Pi runbook: `docs/STW-NEWS-PI-AUTOMATION-RUNBOOK.md`
 
 — Sportstechwest

@@ -1,0 +1,84 @@
+{
+  "timezone": "local",
+  "schedule_notes": "Times use odd minutes and are spread across the day so STW/IQ uploads rarely collide with on-the-hour automations (e.g. hourly builds). All times are Pi local time. Adjust any slot that still clashes with your other workflows.",
+  "jobs": [
+    {
+      "id": "mentalIQ-1hour-focus",
+      "enabled": false,
+      "schedule": { "type": "daily", "time": "19:07", "daysOfWeek": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"] },
+      "action": "youtube_upload",
+      "mp4": "output/video/mentalIQ-1hour-focus.mp4",
+      "privacy": "unlisted",
+      "title": "1 Hour Mental Focus for Sports | mentalIQ | Sportstechwest",
+      "description": "mentalIQ — Mental focus for sports. One hour of breathing, cue words, and routines to train your mind like you train your body.",
+      "tags": ["mental focus", "sports psychology", "mental training", "pre-game", "athlete", "focus", "mentalIQ", "sportstechwest", "breathing", "performance"]
+    },
+    {
+      "id": "bikeiq-leisure",
+      "enabled": true,
+      "schedule": { "type": "daily", "time": "06:23" },
+      "action": "youtube_upload",
+      "mp4": "output/video/bikeiq-leisure.mp4",
+      "privacy": "unlisted",
+      "title": "1 Hour Pre-Affirmation for Bike | Sportstechwest",
+      "description": "bikeIQ — 1 hour of pre-affirmation to lock in your mindset for training and race day.",
+      "tags": ["bikeIQ", "pre-affirmation", "training mindset", "sportstechwest"]
+    },
+    {
+      "id": "walkingiq-leisure",
+      "enabled": false,
+      "schedule": { "type": "daily", "time": "10:41" },
+      "action": "youtube_upload",
+      "mp4": "output/video/walkingiq-leisure.mp4",
+      "privacy": "unlisted",
+      "title": "1 Hour Pre-Affirmation for Walking | Sportstechwest",
+      "description": "walkingIQ — 1 hour of pre-affirmation to build confidence before your run/walk session.",
+      "tags": ["walkingIQ", "pre-affirmation", "training mindset", "sportstechwest"]
+    },
+    {
+      "id": "workoutiq-leisure",
+      "enabled": false,
+      "schedule": { "type": "daily", "time": "12:13" },
+      "action": "youtube_upload",
+      "mp4": "output/video/workoutiq-leisure.mp4",
+      "privacy": "unlisted",
+      "title": "1 Hour Pre-Affirmation for Workout | Sportstechwest",
+      "description": "workoutIQ — 1 hour of pre-affirmation to sharpen focus and consistency for your workouts.",
+      "tags": ["workoutIQ", "pre-affirmation", "training mindset", "sportstechwest"]
+    },
+    {
+      "id": "yogaiq-leisure",
+      "enabled": false,
+      "schedule": { "type": "daily", "time": "14:47" },
+      "action": "youtube_upload",
+      "mp4": "output/video/yogaiq-leisure.mp4",
+      "privacy": "unlisted",
+      "title": "1 Hour Pre-Affirmation for Yoga | Sportstechwest",
+      "description": "yogaIQ — 1 hour of pre-affirmation to center your mind before practice.",
+      "tags": ["yogaIQ", "pre-affirmation", "training mindset", "sportstechwest"]
+    },
+    {
+      "id": "stw-news-queue-4x-week",
+      "enabled": true,
+      "schedule": { "type": "daily", "time": "16:29", "daysOfWeek": ["mon", "tue", "thu", "fri"] },
+      "action": "stw_news_queue_upload",
+      "queue_csv": "_data/stw_news_queue.csv",
+      "story_dir": "shorts-packages/stw-news-2026-01",
+      "video_template": "output/video/stw-news-{story}-ready.mp4",
+      "metadata_template": "shorts-packages/stw-news-2026-01/{story}/youtube-test.txt",
+      "privacy": "unlisted"
+    },
+    {
+      "id": "stw-news-orreco-jennis-ready",
+      "enabled": false,
+      "schedule": { "type": "daily", "time": "16:29" },
+      "action": "youtube_upload",
+      "mp4": "output/video/stw-news-orreco-jennis-ready.mp4",
+      "privacy": "unlisted",
+      "title": "STW News — Orreco acquires Jennis | Sportstechwest",
+      "description": "STW News — Orreco acquires Jennis. Quick sportstech current-events update from Sportstechwest.",
+      "tags": ["STW News", "sportstech", "basketball", "AI", "Sportstechwest"]
+    }
+  ]
+}
+
