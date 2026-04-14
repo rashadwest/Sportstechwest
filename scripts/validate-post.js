@@ -59,7 +59,7 @@ function parseFrontMatter(content) {
   return frontMatter;
 }
 
-function getLatestPostDate() {
+function getLatestPostDate(excludeAbsolutePath) {
   const postsDir = path.join(process.cwd(), '_posts');
   if (!fs.existsSync(postsDir)) {
     return null;
@@ -72,6 +72,9 @@ function getLatestPostDate() {
 
   for (const postFile of posts) {
     const postPath = path.join(postsDir, postFile);
+    if (excludeAbsolutePath && path.resolve(postPath) === path.resolve(excludeAbsolutePath)) {
+      continue;
+    }
     const content = fs.readFileSync(postPath, 'utf-8');
     const fm = parseFrontMatter(content);
     if (fm && fm.date) {
@@ -85,11 +88,11 @@ function getLatestPostDate() {
   return latestDate;
 }
 
-function validateDate(dateStr) {
+function validateDate(dateStr, excludePostPath) {
   const date = new Date(dateStr);
   const year = date.getFullYear();
   const currentYear = new Date().getFullYear();
-  const latestDate = getLatestPostDate();
+  const latestDate = getLatestPostDate(excludePostPath);
 
   const errors = [];
 
@@ -218,7 +221,7 @@ async function validatePost(postFile) {
 
   // Validate date
   if (frontMatter.date) {
-    const dateErrors = validateDate(frontMatter.date);
+    const dateErrors = validateDate(frontMatter.date, path.resolve(postFile));
     errors.push(...dateErrors);
   }
 
