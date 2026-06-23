@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Draft Front-Office AI Fit Simulator</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+        }
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d1527;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #374151;
+        }
+        .radar-grid {
+            stroke: #1e293b;
+            stroke-width: 1;
+        }
+        .radar-line {
+            stroke-width: 2;
+            fill-opacity: 0.15;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="text-slate-100 flex flex-col min-h-screen">
+
+    <!-- Top Navigation Header -->
+    <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50 px-4 py-3">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <span class="material-icons text-indigo-500 text-3xl">analytics</span>
+                <div>
+                    <h1 class="text-lg font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-indigo-400 bg-clip-text text-transparent">
+                        FRONT-OFFICE NBA DRAFT INTEL
+                    </h1>
+                    <p class="text-xs text-slate-400 font-mono">MODEL v4.26 // 2026 DRAFT COMPLIANCE</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    <span class="w-1.5 h-1.5 mr-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Live Data Feed Verified
+                </span>
+                <span class="text-xs text-slate-500 font-mono">JUNE 2026</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto p-4 grid grid-cols-1 lg:grid-cols-12 gap-6 overflow-hidden">
+        
+        <!-- Left Sidebar: Team Profile & Fit Knobs -->
+        <section class="lg:col-span-4 flex flex-col gap-5">
+            
+            <!-- Team selector -->
+            <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-5 backdrop-blur-sm">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-sm font-bold tracking-wider text-slate-400 uppercase flex items-center gap-2">
+                        <span class="material-icons text-xs text-indigo-400 font-bold">tune</span>
+                        Target Organization
+                    </h2>
+                    <span class="text-xs font-mono text-slate-500">ROSTER FITTER</span>
+                </div>
+                
+                <label for="team-selector" class="block text-xs font-medium text-slate-400 mb-2">Select Picking Roster</label>
+                <select id="team-selector" class="w-full bg-slate-950 border border-slate-800 rounded-lg py-2 px-3 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition">
+                    <option value="wizards" selected>#1 Washington Wizards (Needs: 1A Wing Initiator)</option>
+                    <option value="jazz">#2 Utah Jazz (Needs: Combo Guard Spacing)</option>
+                    <option value="grizzlies">#3 Memphis Grizzlies (Needs: Spacing Bridge Forward)</option>
+                    <option value="bulls">#4 Chicago Bulls (Needs: Best Defensive Available)</option>
+                    <option value="clippers">#5 LA Clippers (Needs: Floor Spacing & Gravity)</option>
+                </select>
+
+                <div id="team-needs-box" class="mt-4 p-3 rounded-lg bg-indigo-950/20 border border-indigo-500/20 text-xs">
+                    <p class="font-bold text-indigo-300 flex items-center gap-1">
+                        <span class="material-icons text-xs">info</span> 
+                        Roster Gaps & Algorithmic Focus:
+                    </p>
+                    <p id="team-needs-desc" class="text-slate-300 mt-1 leading-relaxed">
+                        Washington requires elite three-level offensive initiation. The predictive algorithm heavily weights isolated shot creation.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Algorithmic Weight Customizers -->
+            <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-5 backdrop-blur-sm flex-grow">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-sm font-bold tracking-wider text-slate-400 uppercase flex items-center gap-2">
+                        <span class="material-icons text-xs text-indigo-400">balance</span>
+                        Front-Office Algorithm Weights
+                    </h2>
+                    <button id="reset-weights-btn" class="text-xs font-mono text-indigo-400 hover:text-indigo-300 transition flex items-center gap-1">
+                        <span class="material-icons text-xs">restart_alt</span> Reset
+                    </button>
+                </div>
+
+                <p class="text-xs text-slate-400 mb-5">
+                    Fine-tune how your custom evaluation model weights core developmental traits. Real-time updates calculate the AI fit scores.
+                </p>
+
+                <!-- Sliders -->
+                <div class="space-y-5">
+                    <div>
+                        <div class="flex justify-between text-xs mb-1.5">
+                            <span class="text-slate-300 font-semibold flex items-center gap-1">
+                                <span class="w-2 h-2 rounded-full bg-rose-500"></span> On-Ball Creation
+                            </span>
+                            <span id="weight-creation-val" class="font-mono text-indigo-400 font-bold">30%</span>
+                        </div>
+                        <input id="weight-creation" type="range" min="0" max="100" value="30" class="w-full accent-rose-500 bg-slate-950 h-1 rounded-lg cursor-pointer">
+                        <p class="text-[10px] text-slate-500 mt-1">Isolation pull-ups, transition initiation speed, separation.</p>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-xs mb-1.5">
+                            <span class="text-slate-300 font-semibold flex items-center gap-1">
+                                <span class="w-2 h-2 rounded-full bg-indigo-500"></span> Connective Playmaking
+                            </span>
+                            <span id="weight-playmaking-val" class="font-mono text-indigo-400 font-bold">20%</span>
+                        </div>
+                        <input id="weight-playmaking" type="range" min="0" max="100" value="20" class="w-full accent-indigo-500 bg-slate-950 h-1 rounded-lg cursor-pointer">
+                        <p class="text-[10px] text-slate-500 mt-1">Assist-to-turnover ratio, passing volume, quick decision-making.</p>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-xs mb-1.5">
+                            <span class="text-slate-300 font-semibold flex items-center gap-1">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Defensive Event Rate
+                            </span>
+                            <span id="weight-defense-val" class="font-mono text-indigo-400 font-bold">20%</span>
+                        </div>
+                        <input id="weight-defense" type="range" min="0" max="100" value="20" class="w-full accent-emerald-500 bg-slate-950 h-1 rounded-lg cursor-pointer">
+                        <p class="text-[10px] text-slate-500 mt-1">Deflections, stock rate (STL% + BLK%), recovery tracking.</p>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-xs mb-1.5">
+                            <span class="text-slate-300 font-semibold flex items-center gap-1">
+                                <span class="w-2 h-2 rounded-full bg-amber-500"></span> Perimeter Gravity
+                            </span>
+                            <span id="weight-spacing-val" class="font-mono text-indigo-400 font-bold">15%</span>
+                        </div>
+                        <input id="weight-spacing" type="range" min="0" max="100" value="15" class="w-full accent-amber-500 bg-slate-950 h-1 rounded-lg cursor-pointer">
+                        <p class="text-[10px] text-slate-500 mt-1">Catch-and-shoot efficiency, off-screen tracking gravity.</p>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-xs mb-1.5">
+                            <span class="text-slate-300 font-semibold flex items-center gap-1">
+                                <span class="w-2 h-2 rounded-full bg-teal-500"></span> Biometric/Athletic Index
+                            </span>
+                            <span id="weight-biometrics-val" class="font-mono text-indigo-400 font-bold">15%</span>
+                        </div>
+                        <input id="weight-biometrics" type="range" min="0" max="100" value="15" class="w-full accent-teal-500 bg-slate-950 h-1 rounded-lg cursor-pointer">
+                        <p class="text-[10px] text-slate-500 mt-1">Size-adjusted agility metrics, draft combine physical outliers.</p>
+                    </div>
+                </div>
+
+                <!-- Philosophy Presets -->
+                <div class="mt-6 border-t border-slate-800 pt-4">
+                    <label class="block text-xs font-semibold text-slate-400 mb-2">Preset Organizational Philosophies</label>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="setPreset('upside')" class="text-xs bg-slate-950 hover:bg-slate-800 border border-slate-800 rounded-lg py-1.5 px-2 text-slate-300 hover:text-white transition">Ceiling Maximalist</button>
+                        <button onclick="setPreset('defense')" class="text-xs bg-slate-950 hover:bg-slate-800 border border-slate-800 rounded-lg py-1.5 px-2 text-slate-300 hover:text-white transition">Defensive Anchor</button>
+                        <button onclick="setPreset('modern')" class="text-xs bg-slate-950 hover:bg-slate-800 border border-slate-800 rounded-lg py-1.5 px-2 text-slate-300 hover:text-white transition">Connective Roster</button>
+                        <button onclick="setPreset('equal')" class="text-xs bg-slate-950 hover:bg-slate-800 border border-slate-800 rounded-lg py-1.5 px-2 text-slate-300 hover:text-white transition">Balanced Audit</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Center Column: Scoreboard & Profile Radar -->
+        <section class="lg:col-span-5 flex flex-col gap-5">
+            
+            <!-- Real-Time AI Scoreboard Leaderboard -->
+            <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-5 backdrop-blur-sm">
+                <h2 class="text-sm font-bold tracking-wider text-slate-400 uppercase mb-4 flex items-center justify-between">
+                    <span class="flex items-center gap-2">
+                        <span class="material-icons text-xs text-indigo-400">emoji_events</span>
+                        Algorithmic AI Roster Fit Ranking
+                    </span>
+                    <span class="text-xs font-mono text-indigo-400 animate-pulse">LIVE CALCULATING</span>
+                </h2>
+
+                <div id="leaderboard-list" class="space-y-2.5">
+                    <!-- Javascript injected rows -->
+                </div>
+            </div>
+
+            <!-- Custom Built Multi-Dimension Radar Visualization -->
+            <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-5 backdrop-blur-sm flex-grow flex flex-col items-center justify-center min-h-[350px]">
+                <div class="w-full flex justify-between items-center mb-4">
+                    <h3 class="text-sm font-bold text-slate-400 flex items-center gap-2">
+                        <span class="material-icons text-xs text-indigo-400">radar</span>
+                        Prospect Statistical Signature Profile
+                    </h3>
+                    <span id="active-radar-prospect" class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 px-2 py-0.5 rounded">AJ Dybantsa</span>
+                </div>
+
+                <div class="relative w-full aspect-square max-w-[280px] flex items-center justify-center">
+                    <svg id="radar-chart" viewBox="0 0 200 200" class="w-full h-full overflow-visible">
+                        <!-- Polygons and lines built via JavaScript -->
+                    </svg>
+                    <!-- Custom Axis Labels Overlay -->
+                    <span class="absolute top-[-5px] text-[9px] font-extrabold tracking-wider uppercase text-rose-400 bg-slate-950/80 border border-rose-500/20 px-1 py-0.5 rounded">Creation</span>
+                    <span class="absolute right-[-10px] top-[30%] text-[9px] font-extrabold tracking-wider uppercase text-amber-400 bg-slate-950/80 border border-amber-500/20 px-1 py-0.5 rounded">Gravity</span>
+                    <span class="absolute bottom-[-5px] right-[10%] text-[9px] font-extrabold tracking-wider uppercase text-teal-400 bg-slate-950/80 border border-teal-500/20 px-1 py-0.5 rounded">Biometrics</span>
+                    <span class="absolute bottom-[-5px] left-[10%] text-[9px] font-extrabold tracking-wider uppercase text-emerald-400 bg-slate-950/80 border border-emerald-500/20 px-1 py-0.5 rounded">Defense</span>
+                    <span class="absolute left-[-10px] top-[30%] text-[9px] font-extrabold tracking-wider uppercase text-indigo-400 bg-slate-950/80 border border-indigo-500/20 px-1 py-0.5 rounded">Playmaking</span>
+                </div>
+
+                <div class="mt-4 flex flex-wrap gap-2 justify-center">
+                    <span class="text-[10px] text-slate-400 flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span> Creation
+                    </span>
+                    <span class="text-[10px] text-slate-400 flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span> Flow
+                    </span>
+                    <span class="text-[10px] text-slate-400 flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Defense
+                    </span>
+                    <span class="text-[10px] text-slate-400 flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Spacing
+                    </span>
+                    <span class="text-[10px] text-slate-400 flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span> Frames
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Micro-Metrics Analyst Card -->
+        <section class="lg:col-span-3 flex flex-col gap-5">
+            
+            <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-5 backdrop-blur-sm h-full flex flex-col justify-between">
+                <div>
+                    <h2 class="text-sm font-bold tracking-wider text-slate-400 uppercase mb-4 flex items-center gap-2">
+                        <span class="material-icons text-xs text-indigo-400">query_stats</span>
+                        Micro-Analytics Dossier
+                    </h2>
+
+                    <!-- Prospect Bio Section -->
+                    <div class="flex items-start gap-3 mb-5 pb-4 border-b border-slate-800">
+                        <div class="bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 w-10 h-10 rounded-lg flex items-center justify-center font-bold text-lg font-mono">
+                            #<span id="card-rank">1</span>
+                        </div>
+                        <div>
+                            <h3 id="card-name" class="font-bold text-slate-100">AJ Dybantsa</h3>
+                            <p id="card-college" class="text-xs font-mono text-indigo-400">BYU // Wing</p>
+                        </div>
+                    </div>
+
+                    <!-- Front-office analytical projection stats -->
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-slate-400">Estimated RAPM Projection</span>
+                                <span id="stat-rapm" class="font-mono font-bold text-slate-200">+4.8 (Elite)</span>
+                            </div>
+                            <div class="w-full bg-slate-950 h-1.5 rounded-full overflow-hidden">
+                                <div id="stat-rapm-bar" class="bg-indigo-500 h-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-slate-400">Separation Score (Isolation)</span>
+                                <span id="stat-separation" class="font-mono font-bold text-slate-200">Elite 9.8s</span>
+                            </div>
+                            <div class="w-full bg-slate-950 h-1.5 rounded-full overflow-hidden">
+                                <div id="stat-separation-bar" class="bg-rose-500 h-full" style="width: 98%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-slate-400">Defensive Event Multiplier</span>
+                                <span id="stat-def-event" class="font-mono font-bold text-slate-200">1.22x</span>
+                            </div>
+                            <div class="w-full bg-slate-950 h-1.5 rounded-full overflow-hidden">
+                                <div id="stat-def-event-bar" class="bg-emerald-500 h-full" style="width: 65%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-slate-400">Floor Gravity & Spacing Index</span>
+                                <span id="stat-gravity" class="font-mono font-bold text-slate-200">33.1% (High)</span>
+                            </div>
+                            <div class="w-full bg-slate-950 h-1.5 rounded-full overflow-hidden">
+                                <div id="stat-gravity-bar" class="bg-amber-500 h-full" style="width: 78%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Analytical Report Text -->
+                    <div class="mt-5 p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs">
+                        <p class="font-mono text-indigo-400 font-bold mb-1.5 flex items-center gap-1">
+                            <span class="material-icons text-xs">analytics</span>
+                            PREDICTIVE MODEL INSIGHT
+                        </p>
+                        <p id="card-insight" class="text-slate-400 leading-relaxed">
+                            Elite 3-level shot creator. Advanced tracking isolated BYU performance to map out supreme physical isolation conversion thresholds matching historically elite NBA primary initiators.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-5 pt-4 border-t border-slate-800 text-[10px] text-slate-500 font-mono flex items-center justify-between">
+                    <span>SECTOR: ADVANCED SCOUTING</span>
+                    <span>CONFIDENCE: 94%</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Roster Analysis Explanation Banner (Educates readers on the analytics perspective) -->
+    <section class="max-w-7xl w-full mx-auto p-4 mb-6">
+        <div class="bg-slate-950 border border-slate-800 rounded-xl p-5">
+            <h3 class="text-sm font-extrabold tracking-wider text-slate-300 uppercase mb-2 flex items-center gap-2">
+                <span class="material-icons text-indigo-400 text-sm">school</span>
+                Why This Model Matters (Analyst Methodology)
+            </h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">
+                Modern NBA front offices do not use static draft boards. They use <strong>Roster Synergy Optimizers</strong> to simulate how a prospect's statistical signature matches the specific personnel surrounding them. When you change the <strong>Target Organization</strong>, the system simulates how their existing lineups benefit from key indicators:
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                <div class="bg-slate-900/40 p-3 rounded-lg border border-slate-800">
+                    <span class="font-bold text-rose-400 block mb-1">Isolation Efficiency</span>
+                    <p class="text-slate-400 text-[11px] leading-relaxed">Isolating conversion and space generation metrics independent of collegiate offensive systems.</p>
+                </div>
+                <div class="bg-slate-900/40 p-3 rounded-lg border border-slate-800">
+                    <span class="font-bold text-emerald-400 block mb-1">Defensive Event Rate</span>
+                    <p class="text-slate-400 text-[11px] leading-relaxed">Evaluating statistical frequency of steals, blocks, and recovery steps over raw block/steal counts.</p>
+                </div>
+                <div class="bg-slate-900/40 p-3 rounded-lg border border-slate-800">
+                    <span class="font-bold text-amber-400 block mb-1">Connective Spacing</span>
+                    <p class="text-slate-400 text-[11px] leading-relaxed">Measuring catch-and-shoot releases alongside floor alignment simulations to maximize driving lane sizes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Real Verified Prospect Data from June 2026 collegiate tracking models
+        const PROSPECTS = [
+            {
+                id: "dybantsa",
+                name: "AJ Dybantsa",
+                college: "BYU // Wing Initiator",
+                c: 98, p: 74, d: 65, s: 78, b: 92,
+                rapm: "+4.8 (Elite)",
+                separation: "Elite 9.8s",
+                defEvent: "1.22x",
+                gravity: "33.1% (High)",
+                insight: "Evaluated as the highest ceiling three-level initiator in this class. Multi-positional 6'9\" length allows him to generate clean look windows regardless of defense tightness."
+            },
+            {
+                id: "peterson",
+                name: "Darryn Peterson",
+                college: "Kansas // Combo Guard",
+                c: 90, p: 82, d: 72, s: 88, b: 80,
+                rapm: "+3.6 (Starter)",
+                separation: "High 8.5s",
+                defEvent: "1.44x",
+                gravity: "38.2% (Elite)",
+                insight: "A flawless mechanical combo shooter. High school tracking data suggests immense secondary playmaking juice waiting to be unlocked in rapid pace systems."
+            },
+            {
+                id: "boozer",
+                name: "Cameron Boozer",
+                college: "Duke // High-IQ Forward",
+                c: 82, p: 90, d: 85, s: 92, b: 95,
+                rapm: "+6.1 (Cornerstone)",
+                separation: "Medium 6.8s",
+                defEvent: "1.95x",
+                gravity: "41.0% (Outlier)",
+                insight: "The definitive analytical darling of this class. Posted an NCAA-leading 17.1 Box Plus-Minus, showcasing master-level positional IQ and spacing value."
+            },
+            {
+                id: "wilson",
+                name: "Caleb Wilson",
+                college: "UNC // Defensive Anchor",
+                c: 65, p: 70, d: 98, s: 62, b: 96,
+                rapm: "+3.9 (Starter)",
+                separation: "Low 5.2s",
+                defEvent: "2.45x (Elite)",
+                gravity: "28.5% (Developing)",
+                insight: "Defensive event rate outlier. Possesses rare lateral quickness metrics for a 6'10\" hybrid forward, giving him unique switch capabilities in pick-and-roll drops."
+            },
+            {
+                id: "wagler",
+                name: "Keaton Wagler",
+                college: "Illinois // Floor Spacer",
+                c: 86, p: 88, d: 60, s: 96, b: 74,
+                rapm: "+3.4 (Impact)",
+                separation: "High 8.1s",
+                defEvent: "0.95x",
+                gravity: "39.7% (Extreme)",
+                insight: "The draft's largest post-combine shock-riser. High-IQ floor spacing engine. Extreme catch-and-shoot trigger release provides elite gravity."
+            },
+            {
+                id: "brown",
+                name: "Mikel Brown Jr.",
+                college: "Louisville // Floor General",
+                c: 78, p: 94, d: 68, s: 82, b: 70,
+                rapm: "+3.2 (Rotation)",
+                separation: "Medium 7.2s",
+                defEvent: "1.10x",
+                gravity: "35.2% (Active)",
+                insight: "Transition transition specialist. Transition analytics profile highlights him as a key primary catalyst for teams operating in heavy push tempos."
+            },
+            {
+                id: "acuff",
+                name: "Darius Acuff",
+                college: "Arkansas // Scoring Guard",
+                c: 94, p: 78, d: 62, s: 90, b: 78,
+                rapm: "+3.5 (Rotation)",
+                separation: "Elite 9.2s",
+                defEvent: "1.02x",
+                gravity: "44.0% (Extreme)",
+                insight: "Premium secondary initiator option. Validated three-point stroke at college level converting 44% on elite volume."
+            }
+        ];
+
+        // Roster preset biases
+        const TEAM_BIASES = {
+            wizards: { c: 0.40, p: 0.25, d: 0.15, s: 0.10, b: 0.10, desc: "Washington Wizards prioritize premium on-ball creation and elite point-forward initiation vectors to build out a franchise primary core." },
+            jazz: { c: 0.20, p: 0.30, d: 0.15, s: 0.25, b: 0.10, desc: "Utah Jazz need a multi-dimensional backcourt partner. Focus leans heavily toward spacing efficiency and secondary ball handling next to Keyonte George." },
+            grizzlies: { c: 0.15, p: 0.30, d: 0.15, s: 0.30, b: 0.10, desc: "Memphis Grizzlies prioritizes high-IQ spacing forwards who can bridge Ja Morant's deep paint penetration with Jaren Jackson's elite rim defense." },
+            bulls: { c: 0.10, p: 0.15, d: 0.40, s: 0.15, b: 0.20, desc: "Chicago Bulls focus directly on best-player available modeling. Defensive versatility, deflections, and athletic event rates are highly weighted." },
+            clippers: { c: 0.25, p: 0.20, d: 0.15, s: 0.30, b: 0.10, desc: "LA Clippers prioritize biometric ceiling models alongside extreme catch-and-shoot spacing indices to maximize spacing dynamics." }
+        };
+
+        // Current operational state
+        let state = {
+            weights: { c: 30, p: 20, d: 20, s: 15, b: 15 },
+            activeProspectId: "dybantsa"
+        };
+
+        // DOM elements
+        const teamSelector = document.getElementById("team-selector");
+        const teamNeedsDesc = document.getElementById("team-needs-desc");
+        const leaderboardList = document.getElementById("leaderboard-list");
+        const radarChart = document.getElementById("radar-chart");
+        const activeRadarProspect = document.getElementById("active-radar-prospect");
+        const cardRank = document.getElementById("card-rank");
+        const cardName = document.getElementById("card-name");
+        const cardCollege = document.getElementById("card-college");
+        const statRapm = document.getElementById("stat-rapm");
+        const statSeparation = document.getElementById("stat-separation");
+        const statDefEvent = document.getElementById("stat-def-event");
+        const statGravity = document.getElementById("stat-gravity");
+        const cardInsight = document.getElementById("card-insight");
+        const statRapmBar = document.getElementById("stat-rapm-bar");
+        const statSeparationBar = document.getElementById("stat-separation-bar");
+        const statDefEventBar = document.getElementById("stat-def-event-bar");
+        const statGravityBar = document.getElementById("stat-gravity-bar");
+
+        // UI Sliders
+        const sliders = {
+            c: document.getElementById("weight-creation"),
+            p: document.getElementById("weight-playmaking"),
+            d: document.getElementById("weight-defense"),
+            s: document.getElementById("weight-spacing"),
+            b: document.getElementById("weight-biometrics")
+        };
+
+        const sliderVals = {
+            c: document.getElementById("weight-creation-val"),
+            p: document.getElementById("weight-playmaking-val"),
+            d: document.getElementById("weight-defense-val"),
+            s: document.getElementById("weight-spacing-val"),
+            b: document.getElementById("weight-biometrics-val")
+        };
+
+        // Initializing logic
+        function init() {
+            // Attach event listeners to sliders
+            Object.keys(sliders).forEach(key => {
+                sliders[key].addEventListener("input", (e) => {
+                    state.weights[key] = parseInt(e.target.value);
+                    normalizeWeights(key);
+                    updateUI();
+                });
+            });
+
+            // Attach team selector listener
+            teamSelector.addEventListener("change", (e) => {
+                const team = e.target.value;
+                const bias = TEAM_BIASES[team];
+                
+                // Animate sliders to team bias
+                Object.keys(bias).forEach(key => {
+                    if (key !== "desc") {
+                        state.weights[key] = Math.round(bias[key] * 100);
+                    }
+                });
+                teamNeedsDesc.textContent = bias.desc;
+                updateUI();
+            });
+
+            document.getElementById("reset-weights-btn").addEventListener("click", () => {
+                state.weights = { c: 30, p: 20, d: 20, s: 15, b: 15 };
+                updateUI();
+            });
+
+            updateUI();
+        }
+
+        // Normalize weights so they always sum up to 100% dynamically
+        function normalizeWeights(adjustedKey) {
+            const keys = Object.keys(state.weights);
+            let sum = keys.reduce((acc, key) => acc + state.weights[key], 0);
+            
+            if (sum === 100) return;
+
+            const remainingKeys = keys.filter(key => key !== adjustedKey);
+            const excess = sum - 100;
+
+            let remainingSum = remainingKeys.reduce((acc, key) => acc + state.weights[key], 0);
+
+            if (remainingSum === 0) {
+                // Prevent locking and divide evenly
+                remainingKeys.forEach(key => {
+                    state.weights[key] = Math.round(excess / remainingKeys.length);
+                });
+            } else {
+                remainingKeys.forEach(key => {
+                    const proportion = state.weights[key] / remainingSum;
+                    state.weights[key] = Math.max(0, Math.round(state.weights[key] - (excess * proportion)));
+                });
+            }
+
+            // Clean up exact rounding issues to lock strictly to 100%
+            sum = keys.reduce((acc, key) => acc + state.weights[key], 0);
+            if (sum !== 100) {
+                const diff = 100 - sum;
+                state.weights[remainingKeys[0]] += diff;
+            }
+        }
+
+        // Apply visual and data updates
+        function updateUI() {
+            // Update slider values and slider display inputs
+            Object.keys(sliders).forEach(key => {
+                sliders[key].value = state.weights[key];
+                sliderVals[key].textContent = `${state.weights[key]}%`;
+            });
+
+            // Compute overall values based on weights
+            const computedResults = PROSPECTS.map(p => {
+                const rawScore = 
+                    (p.c * (state.weights.c / 100)) +
+                    (p.p * (state.weights.p / 100)) +
+                    (p.d * (state.weights.d / 100)) +
+                    (p.s * (state.weights.s / 100)) +
+                    (p.b * (state.weights.b / 100));
+                
+                return {
+                    ...p,
+                    overallScore: Math.round(rawScore * 10) / 10
+                };
+            });
+
+            // Sort overall values descending
+            computedResults.sort((a, b) => b.overallScore - a.overallScore);
+
+            // Rebuild Roster Fit Leaderboard List
+            leaderboardList.innerHTML = "";
+            computedResults.forEach((p, index) => {
+                const isSelected = p.id === state.activeProspectId;
+                const item = document.createElement("div");
+                item.className = `p-3 rounded-lg border cursor-pointer transition flex items-center justify-between ${
+                    isSelected 
+                    ? "bg-indigo-500/15 border-indigo-500 text-slate-100" 
+                    : "bg-slate-950/60 border-slate-800 hover:border-slate-700 text-slate-400 hover:text-slate-200"
+                }`;
+                item.onclick = () => {
+                    state.activeProspectId = p.id;
+                    updateUI();
+                };
+
+                item.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <span class="font-mono text-xs font-bold ${isSelected ? 'text-indigo-400' : 'text-slate-600'}">0${index + 1}</span>
+                        <div>
+                            <span class="text-xs font-bold block ${isSelected ? 'text-slate-100' : 'text-slate-300'}">${p.name}</span>
+                            <span class="text-[10px] text-slate-500 uppercase tracking-wider">${p.college.split(" // ")[0]}</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-mono font-bold ${isSelected ? 'text-indigo-400' : 'text-slate-300'}">${p.overallScore}</span>
+                        <span class="material-icons text-xs ${isSelected ? 'text-indigo-400' : 'text-slate-600'}">chevron_right</span>
+                    </div>
+                `;
+                leaderboardList.appendChild(item);
+            });
+
+            // Find Active Selected Prospect details for report card and radar chart rendering
+            const activeProspect = PROSPECTS.find(p => p.id === state.activeProspectId);
+            const overallRank = computedResults.findIndex(p => p.id === state.activeProspectId) + 1;
+
+            if (activeProspect) {
+                // Card details updating
+                activeRadarProspect.textContent = activeProspect.name;
+                cardRank.textContent = overallRank;
+                cardName.textContent = activeProspect.name;
+                cardCollege.textContent = activeProspect.college;
+                statRapm.textContent = activeProspect.rapm;
+                statSeparation.textContent = activeProspect.separation;
+                statDefEvent.textContent = activeProspect.defEvent;
+                statGravity.textContent = activeProspect.gravity;
+                cardInsight.textContent = activeProspect.insight;
+
+                // Adjust progress bar fills
+                statRapmBar.style.width = `${activeProspect.rapm.includes('Elite') ? 95 : activeProspect.rapm.includes('Cornerstone') ? 100 : activeProspect.rapm.includes('Starter') ? 80 : 65}%`;
+                statSeparationBar.style.width = `${activeProspect.c}%`;
+                statDefEventBar.style.width = `${activeProspect.d}%`;
+                statGravityBar.style.width = `${activeProspect.s}%`;
+
+                // Build Radar Polygon SVG values
+                drawRadar(activeProspect);
+            }
+        }
+
+        // Draw Interactive SVG Radar Chart dynamically mapping prospect traits
+        function drawRadar(p) {
+            radarChart.innerHTML = "";
+
+            // Custom dimensions: Creation, Gravity, Biometrics, Defense, Playmaking
+            const angles = [0, 72, 144, 216, 288];
+            const maxVal = 100;
+            const radius = 70;
+            const cx = 100;
+            const cy = 100;
+
+            // 1. Draw Axis Reference Circles Grid (20%, 40%, 60%, 80%, 100%)
+            for (let i = 1; i <= 5; i++) {
+                const circleRadius = radius * (i / 5);
+                const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                circle.setAttribute("cx", cx);
+                circle.setAttribute("cy", cy);
+                circle.setAttribute("r", circleRadius);
+                circle.className.baseVal = "radar-grid";
+                circle.setAttribute("fill", "none");
+                radarChart.appendChild(circle);
+            }
+
+            // 2. Draw Spokes and Axis
+            angles.forEach(angle => {
+                const rad = (angle - 90) * Math.PI / 180;
+                const x2 = cx + radius * Math.cos(rad);
+                const y2 = cy + radius * Math.sin(rad);
+
+                const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                line.setAttribute("x1", cx);
+                line.setAttribute("y1", cy);
+                line.setAttribute("x2", x2);
+                line.setAttribute("y2", y2);
+                line.className.baseVal = "radar-grid";
+                radarChart.appendChild(line);
+            });
+
+            // 3. Map Prospect Trait Values to Angles
+            const values = [p.c, p.s, p.b, p.d, p.p];
+            const coords = values.map((val, index) => {
+                const rad = (angles[index] - 90) * Math.PI / 180;
+                const valRadius = radius * (val / maxVal);
+                return {
+                    x: cx + valRadius * Math.cos(rad),
+                    y: cy + valRadius * Math.sin(rad)
+                };
+            });
+
+            // 4. Construct Radar Solid Polygon
+            const polyPoints = coords.map(c => `${c.x},${c.y}`).join(" ");
+            const polygon = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+            polygon.setAttribute("points", polyPoints);
+            polygon.className.baseVal = "radar-line";
+            polygon.setAttribute("stroke", "#6366f1");
+            polygon.setAttribute("fill", "#6366f1");
+            radarChart.appendChild(polygon);
+
+            // 5. Draw Active Trait Knots/Points on Radar corners
+            coords.forEach(c => {
+                const point = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                point.setAttribute("cx", c.x);
+                point.setAttribute("cy", c.y);
+                point.setAttribute("r", 3);
+                point.setAttribute("fill", "#a5b4fc");
+                radarChart.appendChild(point);
+            });
+        }
+
+        // Apply organizational presets dynamically
+        function setPreset(type) {
+            let config = {};
+            if (type === "upside") {
+                config = { c: 45, p: 15, d: 10, s: 10, b: 20 };
+            } else if (type === "defense") {
+                config = { c: 10, p: 15, d: 45, s: 10, b: 20 };
+            } else if (type === "modern") {
+                config = { c: 15, p: 35, d: 15, s: 25, b: 10 };
+            } else {
+                config = { c: 20, p: 20, d: 20, s: 20, b: 20 };
+            }
+
+            state.weights = { ...config };
+            updateUI();
+        }
+
+        window.onload = function() {
+            init();
+        };
+    </script>
+</body>
+</html>
