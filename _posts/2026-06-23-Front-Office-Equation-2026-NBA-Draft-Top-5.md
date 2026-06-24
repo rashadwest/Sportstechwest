@@ -57,7 +57,7 @@ Use our live interactive model below to adjust draft-board philosophy weights. C
 To visualize how these profiles overlap, our modeling engine maps each prospect across five core developmental pillars. Note how the shape of each player's polygon highlights their unique strategic role:
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/nba-draft-2026-synergy-map.png" alt="Front-Office Draft Synergy Map — top 5 prospects across on-ball creation, playmaking, gravity, defense, biometrics, and transition" class="img-fluid">
+  <img src="https://sportstechwest.com/assets/images/blog-img/nba-draft-2026-synergy-map.png?v=20260623" alt="Front-Office Draft Synergy Map — top 5 prospects across on-ball creation, playmaking, gravity, defense, biometrics, and transition" class="img-fluid">
 </div>
 
 *Washington's Dybantsa dominates on-ball creation. Memphis's Boozer fills the connective tissue gap. Chicago's Wilson spikes defensive event rate. LA's fracture point at five shows three completely different polygon shapes depending on philosophy.*

@@ -34,8 +34,9 @@
     {% assign shown = shown | plus: 1 %}
     <li>
       {% if post.thumbnail %}
+      {% assign post_thumb_src = post.thumbnail | remove_first: '/' %}
       <figure class="rounded"><a href="blog-post.html">
-        <img src="{{site.url}}/{{post.thumbnail}}" alt="{{post.title}}"/></a>
+        <img src="{{ site.url }}{{ post_thumb_src }}" alt="{{post.title}}"/></a>
       </figure>
       {% endif %}
       <div class="post-content">

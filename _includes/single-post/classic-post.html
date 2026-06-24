@@ -56,8 +56,9 @@
           {% endif %}
           {% else %}
           {% if page.thumbnail %}
+          {% assign thumb_src = page.thumbnail | remove_first: '/' %}
           <figure class="rounded text-center">
-            <img src="{{site.url}}/{{page.thumbnail}}" alt="{{page.title}}" style="  display: block;
+            <img src="{{ site.url }}{{ thumb_src }}" alt="{{page.title}}" style="  display: block;
   width: 100%;
   max-width: 100%;
   height: auto;
