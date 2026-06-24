@@ -1,56 +1,66 @@
 ---
 layout: post
 title: "The Front-Office Equation: Deconstructing the 2026 NBA Draft Top 5 with Predictive Analytics"
-description: "How spatial tracking, event-rate models, and roster-fit simulators are reshaping draft war rooms — and what the top five picks look like through that lens."
+description: "Behind the curtain of modern NBA draft war rooms — how spatial tracking, event-rate algorithms, and roster-fit simulators are reshaping the top five picks in the 2026 class."
 permalink: /blog/front-office-equation-2026-nba-draft-top-5/
-thumbnail: "/assets/images/blog-img/NBA-analytics-staffers-8-3.webp"
+thumbnail: "/assets/images/blog-img/nba-draft-2026-hero.png"
 badge_color: "text-bg-primary"
 trending: true
 simple_nav: true
 date: 2026-06-23
-tags: [basketball, nba, analytics, draft, data-science]
+tags: [basketball, nba, analytics, draft, data-science, tracking-data]
 categories: [Insights]
 author: "Rashad West"
 ---
 
 🏀📊 **The Front-Office Equation**
 
-I've been digging into [**NBA draft**](https://www.nba.com/draft/2026) tracking data ahead of tonight — and here's what's clear: the gap between **public consensus boards** and **what front offices actually model** is wider than most fans realize.
+I've been digging into [**NBA draft**](https://www.nba.com/draft/2026) tracking data ahead of tonight — and here's what's clear: the era of vibes-based scouting is fading fast. Public boards still lean on traditional media narratives and raw box-score counting stats. Behind closed doors, teams are running machine learning pipelines — tracking-sensor metrics, biometric outlier thresholds, lineup synergy simulators.
 
-Media boards still lean on narrative and box-score counting stats. Behind closed doors, teams are running machine learning pipelines — tracking-sensor metrics, biometric thresholds, lineup synergy simulators. The question is no longer only *"Who is the best player available?"* It's *"Whose statistical signature closes our roster's structural gaps?"*
+As a consensus top-five tier solidifies across major outlets, a quiet analytical divide has emerged. Teams are no longer asking only *"Who is the best player available?"* They are asking: *"Whose statistical signature closes our roster's structural gaps?"*
 
-That's the analytical reality behind the top five in the 2026 NBA Draft.
+That's the analytical reality of the top five in the 2026 NBA Draft.
 
 ---
 
 ## The Consensus Board Matrix
 
-As the top-five tier solidifies across major outlets, a quiet divide has emerged. Here is how the consensus maps — and what the models are actually optimizing for:
-
-**#1 Washington — AJ Dybantsa (BYU)**  
-6'9" initiator wing | Elite spatial separation and three-level shot creation | **Franchise 1A scoring engine**
-
-**#2 Utah — Darryn Peterson (Kansas)**  
-6'5" combo guard | High school isolation tracking + college catch-and-shoot processing | **Multi-dimensional backcourt partner**
-
-**#3 Memphis — Cameron Boozer (Duke)**  
-6'9" power forward | +17.1 Box Plus-Minus outlier; 41% catch-and-shoot three-point regression | **High-IQ connective tissue / spacing bridge**
-
-**#4 Chicago — Caleb Wilson (UNC)**  
-6'10" versatile forward | Rare defensive event rates (deflections, blocks, recovery tracking) | **Switchable defensive weapon**
-
-**#5 LA Clippers — Split: Wagler / Brown / Acuff**  
-Variety of guards | Biometric and agility outliers vs. transition and release-speed profiles | **High-volatility floor gravity / playmaker**
+| Pick / Team | Prospect | Position / Build | Core AI Modeling Catalyst | Roster Fit Role |
+|---|---|---|---|---|
+| **#1 Washington** | AJ Dybantsa (BYU) | 6'9" Initiator Wing | Elite spatial separation and 3-level shot creation efficiency | Franchise 1A Scoring Engine |
+| **#2 Utah** | Darryn Peterson (Kansas) | 6'5" Combo Guard | High school isolation tracking + college catch-and-shoot processing | Multi-Dimensional Backcourt Partner |
+| **#3 Memphis** | Cameron Boozer (Duke) | 6'9" Power Forward | +17.1 Box Plus-Minus outlier; 41% catch-and-shoot 3PT linear regression | High-IQ Connective Tissue / Spacing Bridge |
+| **#4 Chicago** | Caleb Wilson (UNC) | 6'10" Versatile Forward | Rare defensive event rates (deflections, blocks, recovery tracking) | Switchable Defensive Weapon |
+| **#5 LA Clippers** | Split: Wagler / Brown / Acuff | Variety of Guards | Biometric and agility outliers vs. transition and release-speed profiles | High-Volatility Floor Gravity / Playmaker |
 
 ---
 
 ## Interactive Sandbox: Front-Office Strategy Simulator
 
-Use our live interactive model to adjust draft-board philosophy weights. Change the balance between **shot creation**, **defensive event rate**, and **roster synergy** — and watch how AI fit scores recalibrate across this year's top prospects.
+Use our live interactive model below to adjust draft-board philosophy weights. Change the balance between **shot creation**, **defensive event rate**, and **roster synergy** — and watch how AI fit scores recalibrate across this year's top prospects.
 
-**[Open the Front-Office NBA Draft Simulator](https://sportstechwest.com/Front_Office_NBA_Draft_Dashboard.html)**
+<div class="text-center my-4" style="width:100%; overflow:hidden; border-radius:12px; border:1px solid #1e293b;">
+  <iframe
+    src="/Front_Office_NBA_Draft_Dashboard.html"
+    title="Front-Office NBA Draft Simulator"
+    style="width:100%; min-height:720px; border:0;"
+    loading="lazy">
+  </iframe>
+</div>
 
-*If you want to see what goes into the analysis behind these picks — how teams weight isolation efficiency, defensive event rate, and connective spacing by organization — start here.*
+**[Open the simulator full-screen](https://sportstechwest.com/Front_Office_NBA_Draft_Dashboard.html)** if the embed is cramped on mobile.
+
+---
+
+## The Front-Office Draft Synergy Map
+
+To visualize how these profiles overlap, our modeling engine maps each prospect across five core developmental pillars. Note how the shape of each player's polygon highlights their unique strategic role:
+
+<div class="text-center my-4">
+  <img src="/assets/images/blog-img/nba-draft-2026-synergy-map.png" alt="Front-Office Draft Synergy Map — top 5 prospects across on-ball creation, playmaking, gravity, defense, biometrics, and transition" class="img-fluid">
+</div>
+
+*Washington's Dybantsa dominates on-ball creation. Memphis's Boozer fills the connective tissue gap. Chicago's Wilson spikes defensive event rate. LA's fracture point at five shows three completely different polygon shapes depending on philosophy.*
 
 ---
 
@@ -62,7 +72,7 @@ Evaluating high-volume collegiate scorers is a historical minefield. System spac
 
 For AJ Dybantsa, the tracking data reveals something rare. His footwork, deceleration, and hip fluidity produce a **spatial separation metric in the 98th percentile** of all prospects mapped over the last five years.
 
-In plain English: regardless of how tightly he is guarded, Dybantsa has a mechanical release that generates clean shot windows. He hits every major usage and physical length threshold that historical models associate with elite playoff initiator wings — think [**Jayson Tatum**](https://www.basketball-reference.com/players/t/tatumja01.html)-type profiles. For a rebuilding Washington franchise looking for an offensive foundation, he is the mathematically aligned pick.
+In plain English: regardless of how tightly he is contested, Dybantsa has a mechanical release that generates clean shot windows. He hits every major usage and physical length threshold that historical models associate with elite playoff initiator wings — think [**Jayson Tatum**](https://www.basketball-reference.com/players/t/tatumja01.html)-type profiles. For a rebuilding Washington franchise looking for an offensive foundation, he is the mathematically aligned pick.
 
 ### 2. Cameron Boozer is a broken linear regression — in the best way
 
@@ -99,9 +109,7 @@ Converting **44%** of high-volume collegiate three-point attempts, Acuff offers 
 
 ## Why This Matters
 
-As draft night approaches, boards keep shifting behind closed doors. Front offices run simulations up until the final hours. Mathematical profiles do not eliminate bust risk — but they **reduce variance** compared to tape-only instincts.
-
-The draft stops looking like a high-stakes lottery and starts looking like calculated roster engineering.
+As draft night approaches, boards keep shifting behind closed doors. Front offices run simulations up until the final hours. By using mathematical profiles rather than tape-only instincts, teams are reducing draft-night variance — turning the lottery from a high-stakes gamble into calculated roster engineering.
 
 ---
 
@@ -122,7 +130,7 @@ Smart front offices do not just pick players. They solve roster equations.
 
 The 2026 class is a case study in how [**NBA analytics**](https://www.nba.com/stats) has moved from the back office to the war room. Spatial separation, Box Plus-Minus outliers, defensive event rates, biometric thresholds — these are not buzzwords. They are the inputs teams use when the clock is running.
 
-If you want to stress-test the model yourself, open the simulator, pick an organization, and move the weights. You will see why Washington, Utah, Memphis, Chicago, and LA are not all asking the same question tonight — even if they are staring at the same board.
+Open the simulator, pick an organization, and move the weights. You will see why Washington, Utah, Memphis, Chicago, and LA are not all asking the same question tonight — even if they are staring at the same board.
 
 ---
 
