@@ -3,7 +3,7 @@ layout: post
 title: "The Front-Office Equation: Deconstructing the 2026 NBA Draft Top 5 with Predictive Analytics"
 description: "Behind the curtain of modern NBA draft war rooms — how spatial tracking, event-rate algorithms, and roster-fit simulators are reshaping the top five picks in the 2026 class."
 permalink: /blog/front-office-equation-2026-nba-draft-top-5/
-thumbnail: "/assets/images/blog-img/nba-draft-2026-hero.png"
+thumbnail: "/assets/images/blog-img/nba-draft-2026-main.png"
 badge_color: "text-bg-primary"
 trending: true
 simple_nav: true
@@ -32,6 +32,10 @@ That's the analytical reality of the top five in the 2026 NBA Draft.
 | **#3 Memphis** | Cameron Boozer (Duke) | 6'9" Power Forward | +17.1 Box Plus-Minus outlier; 41% catch-and-shoot 3PT linear regression | High-IQ Connective Tissue / Spacing Bridge |
 | **#4 Chicago** | Caleb Wilson (UNC) | 6'10" Versatile Forward | Rare defensive event rates (deflections, blocks, recovery tracking) | Switchable Defensive Weapon |
 | **#5 LA Clippers** | Split: Wagler / Brown / Acuff | Variety of Guards | Biometric and agility outliers vs. transition and release-speed profiles | High-Volatility Floor Gravity / Playmaker |
+
+<div class="text-center my-4">
+  <img src="https://sportstechwest.com/assets/images/blog-img/nba-draft-2026-hero.png?v=20260623c" alt="The Front-Office Equation — deconstructing the 2026 NBA Draft top 5 by team, prospect, and roster fit role" class="img-fluid">
+</div>
 
 ---
 
