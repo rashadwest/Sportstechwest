@@ -12,3 +12,7 @@ _site
 output/music/
 output/video/
 output/audio/
+
+# Python bytecode
+__pycache__/
+*.pyc
