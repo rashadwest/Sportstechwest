@@ -22,14 +22,16 @@ Related: [[SportsTechWest YouTube - Growth Plan]] · [[SportsTechWest YouTube - 
 - [ ] Build voice + video for Mon/Tue stories minimum
 - [ ] "We're back" post on LinkedIn / community tab
 
-## Weekly rhythm (4–6 h/week)
+## Weekly rhythm (4–6 h/week + ~30 min/day social)
+
+See `docs/SOCIAL-CROSS-PLATFORM-STRATEGY.md` — rule: never just drop a link; native shape + a take on every platform.
 
 - [ ] **Sun** — Selector run, lock queue for the week (45–60 min)
-- [ ] **Mon** — Short #1 ships (verify upload happened)
-- [ ] **Tue** — Short #2 ships
-- [ ] **Wed** — Analytics check (Studio 28-day: views, swipe-away, CTR) + Breakdown production
-- [ ] **Thu** — Short #3 ships
-- [ ] **Fri** — Short #4 ships + LinkedIn cross-post
+- [ ] **Mon** — Short #1 ships → X take + FB Reel same day
+- [ ] **Tue** — Short #2 ships → X take + FB Reel
+- [ ] **Wed** — Analytics check (Studio 28-day: views, swipe-away, CTR) + Breakdown production + FB evergreen post + X reply block (10 min)
+- [ ] **Thu** — Short #3 ships → X take + FB Reel
+- [ ] **Fri** — Short #4 ships → X take + FB Reel + X weekly thread + LinkedIn cross-post
 - [ ] Weekly Breakdown (long-form) shipped? (starting week of Jul 13)
 
 ## Streak tracker
