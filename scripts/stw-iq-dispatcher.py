@@ -144,6 +144,16 @@ def queue_story_for_date(queue_path: Path, date_iso: str) -> str:
     return ""
 
 
+def queue_has_future_story(queue_path: Path, date_iso: str) -> bool:
+    if not queue_path.exists():
+        return False
+    with queue_path.open("r", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            if (row.get("date") or "").strip() >= date_iso:
+                return True
+    return False
+
+
 def resolve_queue_job(job: Dict[str, Any], repo: Path, now: datetime, log_lines: List[str]) -> Dict[str, Any] | None:
     queue_csv = Path(str(job.get("queue_csv") or "_data/stw_news_queue.csv"))
     if not queue_csv.is_absolute():
@@ -151,6 +161,11 @@ def resolve_queue_job(job: Dict[str, Any], repo: Path, now: datetime, log_lines:
     story = queue_story_for_date(queue_csv, now.date().isoformat())
     if not story:
         log_lines.append(f"JOB {job.get('id')}: no queue story for {now.date().isoformat()}")
+        if not queue_has_future_story(queue_csv, now.date().isoformat()):
+            log_lines.append(
+                f"WARNING: queue {queue_csv} has no stories dated {now.date().isoformat()} or later — "
+                "run: python3 scripts/stw-news-weekly-selector.py --write-queue --create-stubs"
+            )
         return None
 
     story_dir = Path(str(job.get("story_dir") or "shorts-packages/stw-news-2026-01"))
@@ -176,7 +191,7 @@ def resolve_queue_job(job: Dict[str, Any], repo: Path, now: datetime, log_lines:
         "id": f"{job.get('id')}:{story}",
         "action": "youtube_upload",
         "mp4": str(mp4_path),
-        "privacy": str(job.get("privacy") or "unlisted"),
+        "privacy": str(job.get("privacy") or "public"),
         "title": parsed.get("title") or derive_title_from_filename(mp4_path),
         "description": parsed.get("description") or str(job.get("description") or ""),
         "tags": parsed.get("tags") or job.get("tags") or [],
@@ -206,7 +221,7 @@ def run_youtube_upload(job: Dict[str, Any], repo: Path, dry_run: bool, log_lines
     title = str(job.get("title") or "").strip() or derive_title_from_filename(mp4_path)
     description = str(job.get("description") or "").strip()
     tags = job.get("tags") or []
-    privacy = str(job.get("privacy") or "unlisted").strip()
+    privacy = str(job.get("privacy") or "public").strip()
 
     cmd: List[str] = [
         sys.executable,
@@ -382,6 +397,10 @@ def main() -> None:
 
     log_path.parent.mkdir(parents=True, exist_ok=True)
     log_path.write_text("\n".join(log_lines) + "\n", encoding="utf-8")
+
+    for line in log_lines:
+        if line.startswith("WARNING:"):
+            print(line)
 
     # n8n executeCommand marks failure if exit code non-zero; we keep it 0 so the workflow doesn't get stuck.
     # The log captures failures.
