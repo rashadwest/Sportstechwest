@@ -62,7 +62,7 @@ It uses basketball — stories, decisions, if/then choices — as the familiar l
 Coding, in that frame, is just thinking like a computer — breaking a task into clear steps. Sports needs people who can think in systems and then break those systems down so players can execute them.
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/translator-analytics-ballcode.png" alt="Adult and young learners reviewing BallCODE on a laptop in a basketball gym" class="img-fluid">
+  <img src="/assets/images/blog-img/translator-analytics-whiteboard.png" alt="Coach and player reviewing lanes and angles on a whiteboard beside a tablet court diagram" class="img-fluid">
 </div>
 
 We usually focus on younger players. The same skill matters for coaches and athletes at every level.
@@ -82,6 +82,10 @@ The translator’s job is to preserve what is true while changing how it is comm
 We are the mediators. We help decide which tendencies to focus on, what to look for, and how to say it in a simple, concise way about the game.
 
 I call that skillset Hoop Tendency Expertise. Hoop Tendency Experts are players and hybrid staff who see patterns early and can explain them so athletes can act. BallCODE is the product side of the same mission. The skill and the product are related. They are not the same thing.
+
+<div class="text-center my-4">
+  <img src="/assets/images/blog-img/translator-analytics-terms.png" alt="The Translation System: Translator, Hoop Tendency Experts, BallCODE, and BallCODEChess" class="img-fluid">
+</div>
 
 Coaches need tactical and developmental meaning. Players need clear cues and behaviors they can test. Analysts need confidence that the finding still holds after it has been translated.
 
@@ -131,6 +135,13 @@ Less footage. Clearer direction. Focused film and one actionable instruction bea
 
 There is another way we think through scenarios in BallCODE. Instead of only studying a fluid human player, we use robots and controlled objects so we can treat the situation like something we can define, repeat, and code. That makes the pattern easier to see — and it points toward a future where programming robots to play is part of how people learn systems thinking through sport.
 
+<div class="text-center my-4">
+  <video class="player img-fluid" playsinline controls preload="metadata" style="max-width:100%;">
+    <source src="/assets/media/ballchess-teaser-v1.mp4" type="video/mp4">
+  </video>
+  <p class="text-muted mt-2"><small><em>BallCODEChess teaser — robots and scenarios as controllable objects for pattern recognition.</em></small></p>
+</div>
+
 ---
 
 ## Why Hoop Tendency Experts Matter
@@ -156,6 +167,10 @@ That is the job.
 ## BallCODEChess and the Reps That Make It Stick
 
 BallCODEChess is the competitive layer of BallCODE. It tests your knowledge every day mentally the same way lifting, running, or playing does physically. Reps. Decisions. Pattern recognition under pressure.
+
+<div class="text-center my-4">
+  <img src="/assets/images/blog-img/translator-analytics-ballcode.png" alt="Coach and player reviewing a basketball court diagram on a monitor" class="img-fluid">
+</div>
 
 If you lead player development, try one scenario in BallCODEChess. Compete through it more than once. See whether repeating the same context sharpens your thought process more than only talking through it.
 
