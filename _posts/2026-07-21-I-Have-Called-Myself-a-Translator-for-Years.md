@@ -15,7 +15,7 @@ author: "Rashad West"
 
 ## I Have Called Myself a Translator for Years
 
-Playing overseas, my coach sat me down with Steve Nash film and showed how Nash used the referee lanes to create angles on the court. That was the moment I saw basketball as math in motion — lanes, spacing, geometry, decisions.
+Playing overseas, my coach sat me down with Steve Nash film and showed how Nash used the referee lanes to create angles on the court. That was the moment I saw basketball as math in motion: lanes, spacing, geometry, decisions.
 
 From then on, I have used sport to build curriculum, analytics tools, and games.
 
@@ -23,7 +23,7 @@ I have called myself a translator for years.
 
 Not because I speak for data scientists or speak down to athletes. I use the word because much of my career has taken place between different basketball worlds.
 
-I have been the player receiving information. I have trained young athletes trying to understand their development. I have worked with NBA teams on player-tendency and analytics questions. I have helped people around the game — including families of NBA players — understand what analytics mean and how they connect to development.
+I have been the player receiving information. I have trained young athletes trying to understand their development. I have worked with NBA teams on player-tendency and analytics questions. I have helped people around the game, including families of NBA players, understand what analytics mean and how they connect to development.
 
 At the end of the day, analytics are tendencies. The numbers are accumulated evidence that help us see those patterns more clearly.
 
@@ -47,7 +47,7 @@ More information does not automatically produce more understanding.
 
 Sometimes it produces longer meetings, conflicting interpretations, athlete confusion, and reports that never become a clear next action.
 
-The missing piece is often day-to-day training — reps that teach people how to see a pattern and use it. Recognize the tendency. Then act on it.
+The missing piece is often day-to-day training: reps that teach people how to see a pattern and use it. Recognize the tendency. Then act on it.
 
 Sports does not have a data shortage. It has a translation gap.
 
@@ -57,9 +57,9 @@ Sports does not have a data shortage. It has a translation gap.
 
 BallCODE is how I turned that translation work into a system.
 
-It uses basketball — stories, decisions, if/then choices — as the familiar language, then builds a bridge into analytics, logic, coding, and decision-making. The idea is simple: start where the learner is fluent, then carry them into something harder without stripping the intelligence out of the idea.
+It uses basketball (stories, decisions, if/then choices) as the familiar language, then builds a bridge into analytics, logic, coding, and decision-making. The idea is simple: start where the learner is fluent, then carry them into something harder without stripping the intelligence out of the idea.
 
-Coding, in that frame, is just thinking like a computer — breaking a task into clear steps. Sports needs people who can think in systems and then break those systems down so players can execute them.
+Coding, in that frame, is just thinking like a computer: breaking a task into clear steps. Sports needs people who can think in systems and then break those systems down so players can execute them.
 
 <div class="text-center my-4">
   <img src="/assets/images/blog-img/translator-analytics-whiteboard.png" alt="Coach and player reviewing lanes and angles on a whiteboard beside a tablet court diagram" class="img-fluid">
@@ -103,7 +103,7 @@ I played professional basketball outside the NBA. That experience matters becaus
 
 I moved into training and performance work with young athletes. There, the translation problem showed up again. Athletes will accept a metric as a score. They learn faster when someone explains what the measurement represents, why it matters, what behavior may have produced it, and what to work on next. Analytics should not function as a report card. It should function as a development map.
 
-Before and alongside that work, I started with premier sports technology companies — from data entry to testing products — learning how tools actually get used inside basketball environments. Then I built models, read film with numbers beside it, and checked whether an insight still made sense when it reached the coach and player. Through BTE Analytics, that work moved into early innovation pilots with NBA teams.
+Before and alongside that work, I started with premier sports technology companies, from data entry to testing products, learning how tools actually get used inside basketball environments. Then I built models, read film with numbers beside it, and checked whether an insight still made sense when it reached the coach and player. Through BTE Analytics, that work moved into early innovation pilots with NBA teams.
 
 The second beat came from the people around the game. In conversations with NBA-team personnel and other basketball experts, I kept seeing the same pattern: the number lands differently depending on who is listening. Analysts need confidence in the measurement. Coaches need basketball value. Players need a next action. Families and people close to athletes often come to me when someone says something about analytics that does not yet make sense in human language. Without translation, a chart can look like judgment instead of opportunity.
 
@@ -113,9 +113,9 @@ Each stage looked different on paper. The skill was the same.
 
 ## A Practical Coaching Principle
 
-Working memory is limited, and poorly organized instruction creates unnecessary load. Clearer direction helps. Film works best when coaches define its purpose and guide athletes toward what matters. Attention research points in a similar direction for motor skill — guidance, not a guarantee.
+Working memory is limited, and poorly organized instruction creates unnecessary load. Clearer direction helps. Film works best when coaches define its purpose and guide athletes toward what matters. Attention research points in a similar direction for motor skill: guidance, not a guarantee.
 
-A clear example of that progression is HoopStudy’s breakdown of paint touches, [Get EASIER BASKETS with analytics](https://www.youtube.com/watch?v=_H-LD2iDe5g). The video moves from a statistic, to film examples, to decisions players can execute — finish, drop to a big, hit a cutter, or kick for an open three. That is translation. The work is incomplete until the player understands the next action.
+A clear example of that progression is HoopStudy’s breakdown of paint touches, [Get EASIER BASKETS with analytics](https://www.youtube.com/watch?v=_H-LD2iDe5g). The video moves from a statistic, to film examples, to decisions players can execute: finish, drop to a big, hit a cutter, or kick for an open three. That is translation. The work is incomplete until the player understands the next action.
 
 So I use a flexible loop, not a formula:
 
@@ -133,13 +133,13 @@ The exact number of clips will vary by athlete and situation. The larger princip
 
 Less footage. Clearer direction. Focused film and one actionable instruction beat a highlight dump that leaves everyone nodding and nobody changing.
 
-There is another way we think through scenarios in BallCODE. Instead of only studying a fluid human player, we use robots and controlled objects so we can treat the situation like something we can define, repeat, and code. That makes the pattern easier to see — and it points toward a future where programming robots to play is part of how people learn systems thinking through sport.
+There is another way we think through scenarios in BallCODE. Instead of only studying a fluid human player, we use robots and controlled objects so we can treat the situation like something we can define, repeat, and code. That makes the pattern easier to see. It also points toward a future where programming robots to play is part of how people learn systems thinking through sport.
 
 <div class="text-center my-4">
   <video class="player img-fluid" playsinline controls preload="metadata" style="max-width:100%;">
-    <source src="/assets/media/ballchess-teaser-v1.mp4" type="video/mp4">
+    <source src="/assets/media/ballchess-teaser-v1.mp4?v=20260723f" type="video/mp4">
   </video>
-  <p class="text-muted mt-2"><small><em>BallCODEChess teaser — robots and scenarios as controllable objects for pattern recognition.</em></small></p>
+  <p class="text-muted mt-2"><small><em>BallCODEChess teaser. Robots and scenarios as controllable objects for pattern recognition.</em></small></p>
 </div>
 
 ---
@@ -152,7 +152,7 @@ They need enough technological and analytical literacy to ask the right question
 
 For simple applications, visualizations, and communication, you do not need heavy mathematical specialization on every staff seat. Math still matters for advanced models and for checking the work. What staffs need day to day are Hoop Tendency Experts: people who can see the pattern, show it clearly, and explain it so a player can use it.
 
-There is nothing like someone who can see the game from a different vantage point. That is what diversity looks like in basketball decision-making. Organizations that ignore people who have played — and who can read patterns in visualizations that speak basketball language — leave value on the table.
+There is nothing like someone who can see the game from a different vantage point. That is what diversity looks like in basketball decision-making. Organizations that ignore people who have played, and who can read patterns in visualizations that speak basketball language, leave value on the table.
 
 Not instead of analysts.
 
@@ -188,11 +188,11 @@ But information alone does not teach.
 
 Someone still has to decide what matters. Someone has to connect the number to the game. Someone has to communicate it in language the athlete trusts and can use.
 
-The game is moving toward patterns over raw numbers. That is where it is going, and that is where the right talent needs to be — Hoop Tendency Experts who understand the patterns, know how to visualize them, and know how to communicate them.
+The game is moving toward patterns over raw numbers. That is where it is going, and that is where the right talent needs to be: Hoop Tendency Experts who understand the patterns, know how to visualize them, and know how to communicate them.
 
 The organizations that learn to do that will not simply become more data-driven. They will become better at developing people.
 
-The future of sports will not belong only to the organizations with the most data. It will belong to the organizations that can turn that data into understanding — and that understanding into action.
+The future of sports will not belong only to the organizations with the most data. It will belong to the organizations that can turn that data into understanding, and that understanding into action.
 
 That has been my work for years.
 
