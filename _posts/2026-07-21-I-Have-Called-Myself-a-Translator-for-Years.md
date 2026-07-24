@@ -84,7 +84,7 @@ We are the mediators. We help decide which tendencies to focus on, what to look 
 I call that skillset Hoop Tendency Expertise. Hoop Tendency Experts are players and hybrid staff who see patterns early and can explain them so athletes can act. BallCODE is the product side of the same mission. The skill and the product are related. They are not the same thing.
 
 <div class="text-center my-4">
-  <img src="https://sportstechwest.com/assets/images/blog-img/translator-analytics-terms.png?v=20260723g" alt="The Translation System: Translator, BTE Analytics, BallCODE, and BallCODEChess" class="img-fluid">
+  <img src="https://sportstechwest.com/assets/images/blog-img/translator-analytics-terms.png?v=20260723h" alt="The Translation System: Sportstechwest, BTE Analytics, BallCODE, and BallCODEChess" class="img-fluid">
 </div>
 
 Coaches need tactical and developmental meaning. Players need clear cues and behaviors they can test. Analysts need confidence that the finding still holds after it has been translated.
