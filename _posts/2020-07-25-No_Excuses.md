@@ -3,8 +3,7 @@ layout: post
 title: "No Excuses"
 thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 ---
-T
-he code below was right and I needed no hint and it all made sense.  I am getting somewhere. Stick with it. 
+The code below was right, I needed no hint, and it all made sense.  I am getting somewhere. Stick with it. 
 
 ```
  # Create variables var1 and var2
@@ -21,7 +20,7 @@ print(len(var1))
 out2 = int(var2)
 ```
 
-Im not sure what they are talking about with this problem set.  I am looking to learn more about this now.  
+I'm not sure what they are talking about with this problem set.  I am looking to learn more about this now.  
 
 Maybe you already know the name of a Python function, but you still have to figure out how to use it. Ironically, you have to ask for information about a function with another function: help(). In IPython specifically, you can also use ? before the function name.
 
@@ -41,7 +40,7 @@ complex() takes two arguments: real and imag. real is a required argument, imag 
 complex() takes two arguments: real and imag. If you don't specify imag, it is set to 1 by Python.
 
 
-I figured most of this problem set out but I struggle with how to sort full_sorted.  I had to take the hind and then the answer for the first time in a while. 
+I figured most of this problem set out, but I struggled with how to sort full_sorted.  I had to take the hint and then the answer for the first time in a while. 
 
 -asking
 Multiple arguments

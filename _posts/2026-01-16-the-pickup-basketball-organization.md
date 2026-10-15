@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Pickup Basketball Organization"
-description: "Every run has structure whether people want to admit it or not. Roles emerge naturally. Value is decided in real time. Politics are unavoidable. And culture determines whether the run lasts one week or ten years."
+description: "Every run has structure, whether people want to admit it or not. Roles emerge naturally. Value is decided in real time. Politics are unavoidable. And culture determines whether the run lasts one week or ten years."
 thumbnail: "/assets/images/blog-img/pickup-basketball-organization-hero.png"
 badge_color: "text-bg-primary"
 trending: true
@@ -14,7 +14,7 @@ author: "Rashad West"
 
 ## The Pickup Basketball Organization
 
-Every run has structure whether people want to admit it or not. Roles emerge naturally. Value is decided in real time. Politics are unavoidable. And culture determines whether the run lasts one week or ten years.
+Every run has structure, whether people want to admit it or not. Roles emerge naturally. Value is decided in real time. Politics are unavoidable. And culture determines whether the run lasts one week or ten years.
 
 Let me walk you through it.
 
@@ -29,7 +29,7 @@ Let me walk you through it.
 
 It always starts with the President of Basketball Ops.
 
-This is the person who organizes the run. Finds the gym. Sets the time. Unlocks the door. Decides when games start and when they end. They might not be the best player but they control the infrastructure. Without them there is no ecosystem. They rarely get credit but they quietly hold the most power.
+This is the person who organizes the run. Finds the gym. Sets the time. Unlocks the door. Decides when games start and when they end. They might not be the best player, but they control the infrastructure. Without them, there is no ecosystem. They rarely get credit, but they quietly hold the most power.
 
 ---
 
@@ -45,7 +45,7 @@ The GM builds teams in real time. Calling next. Figuring out who fits. Some GMs 
 
 Then there is the Superstar.
 
-Everyone wants them. They play every game win lose or draw while others sit. Teams get reshuffled quietly to make room. Players get cut without being told they were cut. Their value is so high people believe they are the difference between winning and losing. Sometimes they are. Sometimes they are not. But perception is reality and scarcity drives everything.
+Everyone wants them. They play every game, win, lose, or draw, while others sit. Teams get reshuffled quietly to make room. Players get cut without being told they were cut. Their value is so high people believe they are the difference between winning and losing. Sometimes they are. Sometimes they are not. But perception is reality, and scarcity drives everything.
 
 <div class="text-center my-4">
   <img src="/assets/images/blog-img/pickup-basketball-roles-organization.png" alt="Pickup Basketball Roles - The Organizational Structure" class="img-fluid">
@@ -57,15 +57,15 @@ Everyone wants them. They play every game win lose or draw while others sit. Tea
 
 You also have the Trainer.
 
-This is the person helping guys get shots up before the run starts. Rarely shoots themselves. Focused on rhythm timing confidence. They add value without demanding spotlight. Nobody notices them until they are gone and suddenly everyone starts slow. This is what real performance support looks like.
+This is the person helping guys get shots up before the run starts. Rarely shoots themselves. Focused on rhythm, timing, confidence. They add value without demanding the spotlight. Nobody notices them until they are gone and suddenly everyone starts slow. This is what real performance support looks like.
 
 ---
 
 ## The Worst Physical Trainer on Earth
 
-Ironically everyone else becomes the worst physical trainer on earth.
+Ironically, everyone else becomes the worst physical trainer on earth.
 
-When someone gets hurt everybody huddles around. No one actually knows what to do. Lots of opinions. No solutions. It looks supportive but it is mostly noise. This happens in organizations all the time. Presence does not equal value.
+When someone gets hurt, everybody huddles around. No one actually knows what to do. Lots of opinions. No solutions. It looks supportive, but it is mostly noise. This happens in organizations all the time. Presence does not equal value.
 
 ---
 
@@ -73,7 +73,7 @@ When someone gets hurt everybody huddles around. No one actually knows what to d
 
 Then there is Media.
 
-In pickup basketball everyone is media now. Big play. Big argument. Big moment. If there is footage it is posted. If there is no footage it stays in the gym. Honestly it used to be better when reputations lived inside the gym. It kept things competitive daily. Now too many people are playing for the clip instead of the win.
+In pickup basketball, everyone is media now. Big play. Big argument. Big moment. If there is footage, it is posted. If there is no footage, it stays in the gym. Honestly, it used to be better when reputations lived inside the gym. It kept things competitive daily. Now too many people are playing for the clip instead of the win.
 
 <div class="text-center my-4">
   <img src="/assets/images/blog-img/pickup-basketball-value-dynamics.png" alt="Pickup Basketball Value Dynamics - Real-Time Decision Making" class="img-fluid">
@@ -85,9 +85,9 @@ In pickup basketball everyone is media now. Big play. Big argument. Big moment. 
 
 Now let me add the missing characters that really explain the ecosystem.
 
-### The Rasheed Wallace Draymond Green Type
+### The Rasheed Wallace/Draymond Green Type
 
-First is the Rasheed Wallace Draymond Green type.
+First is the Rasheed Wallace/Draymond Green type.
 
 This guy stops the game on every call. Argues everything. Fouls constantly. Lives in chaos. But somehow he is always involved. He shifts momentum not with skill but with disruption. Sometimes he fires his team up. Sometimes he kills the run. Every organization has this person. Emotional energy can be an asset or a tax.
 
@@ -95,9 +95,9 @@ This guy stops the game on every call. Argues everything. Fouls constantly. Live
 
 Then you have the Analytics Guy.
 
-Keeps score. Remembers matchups. Knows who is hot. Knows who should not be guarding who. He does not have a spreadsheet but his memory is data. He is ignored until he is proven right. Then suddenly everyone is asking him what he thinks. This is analytics before dashboards existed.
+Keeps score. Remembers matchups. Knows who is hot. Knows who should not be guarding who. He does not have a spreadsheet, but his memory is data. He is ignored until he is proven right. Then suddenly everyone is asking him what he thinks. This is analytics before dashboards existed.
 
-I also would never imagine that I would become the stats/analytics guy in my lifetime. But here we are.
+I never would have imagined that I would become the stats/analytics guy. But here we are.
 
 ### The Glue Guy
 
@@ -107,7 +107,7 @@ Not the best player. Not the loudest. But everyone wants him on their team. He m
 
 ### The Fan
 
-Finally you have the Fan.
+Finally, you have the Fan.
 
 They might be sitting on the sideline or leaning against the wall. They react. Comment. Influence perception without playing a single minute. Their presence adds pressure. Sometimes they hype players up. Sometimes they create narratives that are not real. Fans shape behavior whether athletes admit it or not.
 
@@ -123,14 +123,14 @@ That is the pickup basketball organization.
 
 No contracts. No HR. No tech stack. Yet roles emerge instantly. Power dynamics are clear. Culture determines longevity. And value is decided every single possession.
 
-This is why I love sports tech. Technology does not replace these dynamics. It amplifies them. If you understand the run you understand teams startups leagues and fan ecosystems.
+This is why I love sports tech. Technology does not replace these dynamics. It amplifies them. If you understand the run, you understand teams, startups, leagues, and fan ecosystems.
 
 <div class="text-center my-5">
   <img src="/assets/images/blog-img/pickup-basketball-teams-startups.png" alt="Teams = Startups - The Pickup Basketball Dynamic" class="img-fluid rounded shadow">
   <p class="text-muted mt-2"><small><em>If you understand the run, you understand teams, startups, leagues, and fan ecosystems.</em></small></p>
 </div>
 
-Before you build platforms metrics or products you better understand the gym.
+Before you build platforms, metrics, or products, you had better understand the gym.
 
 Because the gym never lies.
 

@@ -12,8 +12,8 @@ We hope to bring that to you. Our thought process is to bring you games that are
 
 How about your whole school day is playing a sport?
 
-This is my vision for the future of edcuation.
+This is my vision for the future of education.
 
-Everyone can play sports. It is the best team activity known to man and adding educational elements is the only rational thing to do.
+Everyone can play sports. It is the best team activity known to man, and adding educational elements is the only rational thing to do.
 
 Wait until you hear more about STEM Star Sports and Beat The Expert. We are going to make learning fun.

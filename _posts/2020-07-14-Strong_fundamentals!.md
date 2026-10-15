@@ -15,6 +15,6 @@ data types
 servers and remote storage
 - Local and Remote Servers. Local and remote TM1® servers provide access to cubes and data stored either on your computer or on other computers in your network. A local server gives you exclusive access to data and objects in a set of Windows folders called data directories.
 databases
-- a structured set of data held in a computer, especially one that is accessible in various ways.algorithms
+- a structured set of data held in a computer, especially one that is accessible in various ways.
 algorithms
 - a process or set of rules to be followed in calculations or other problem-solving operations, especially by a computer.

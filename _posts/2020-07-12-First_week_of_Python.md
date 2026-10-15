@@ -9,15 +9,15 @@ thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 
 Operation with other types 
 
-I struggled with this example. The instructions got me confused.  I have listed them below.
+I struggled with this example. The instructions confused me.  I have listed them below.
 
 Calculate the product of savings and growth_multiplier. Store the result in year1.
-- To me I thought to put the code below for this one so I got this right.
+- I thought to put the code below for this one, so I thought I got this right.
 ```
 growth_multipler * savings = year1
 ```
 What do you think the resulting type will be? Find out by printing out the type of year1.
-- I had no idea what to do here because we never talked about this type formula.  How was I supposed to figure this out.  I think I will try to use stack overflow next time.
+- I had no idea what to do here because we never talked about this type formula.  How was I supposed to figure this out?  I think I will try to use Stack Overflow next time.
 
 Calculate the sum of desc and desc and store the result in a new variable doubledesc.
 - This was pretty easy
@@ -48,14 +48,14 @@ print(doubledesc)
 ```
 
 Type Conversion 
-- Using + operator to paste together 2 strings can be very useful 
+- Using the + operator to paste together 2 strings can be very useful 
 
 All of these can be used to do type conversion.
 str() 
 float()
 int()
 
-I didnt understand how to type convert in the problem they game me. 
+I didn't understand how to type convert in the problem they gave me. 
 - I am still working on the problem. 
 
 ```
@@ -77,7 +77,7 @@ pi_float = float(pi_string)
 I got it right!  I used the hint because I did not understand how to create this at first glance. 
 - Use float() on pi_string and store the result in pi_float.
 
-I ended up prining out with the code above and it worked!
+I ended up printing it out with the code above and it worked!
 
 ```
 In [11]: I started with $100 and now have $194.87171000000012. Awesome!

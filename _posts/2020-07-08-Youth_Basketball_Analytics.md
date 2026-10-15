@@ -11,7 +11,7 @@ thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 - Develop programs that advance them beyond the court
 - Build systems that develop skills 
 - Have great coaches that can teach life skills 
-- Put them in closes and shoes that empower them and their self image 
+- Put them in clothes and shoes that empower them and their self image 
 - Have apprentice programs 
 - Have them travel and know the significance of where they are historically 
 - Educate them on personal finances

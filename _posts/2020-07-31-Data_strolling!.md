@@ -10,11 +10,11 @@ I am not sure what this is at the bottom.  Even though I use .head I still do no
 
 ![Exploring the NSFG data]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-08-01%20at%2012.52.13%20AM.webp)
 
-I am starting to learn more here about how to explore data.  I am having trouble on getting the solution to submit as correct even though when I run the code it seems that I executed the assignment.
+I am starting to learn more here about how to explore data.  I am having trouble getting the solution to submit as correct even though when I run the code it seems that I executed the assignment.
 
 ![Clean a variable]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-08-01%20at%201.05.16%20PM.webp)
 
-The solution is below.  It turns out I was missing a set of parathesis. 
+The solution is below.  It turns out I was missing a set of parentheses. 
 ```
 # Replace the value 8 with NaN
 nsfg['nbrnaliv'].replace([8], np.nan, inplace=True)

@@ -16,12 +16,12 @@ In this article, you see what most gamblers look at when they are trying to make
 
 I think the aim is to score more points than your opponent. Tonight I saw a display put on where the Dallas Mavericks simply outscored the Suns.
 
-They did it in a way where they were up 30 points at halftime. This enabled them to keep the lead the entire game. Their top two scorers scored 21 and 27 points
+They did it in a way where they were up 30 points at halftime. This enabled them to keep the lead the entire game. Their top two scorers had 21 and 27 points
 
-in the first half and the Sun’s top 3 scorers had 3 points combined.
+in the first half, and the Suns’ top 3 scorers had 3 points combined.
 
-I realized that if a team knows how to stop a team’s top 3 performers, then maybe that is a way to win a key game. The game tonight ended with the Suns stars barely scoring
+I realized that if a team knows how to stop a team’s top 3 performers, then maybe that is a way to win a key game. The game tonight ended with the Suns’ stars barely scoring
 
 in double figures and shooting a terrible percentage.
 
-I can not wait to tell you what I am thinking regarding this tomorrow.
+I cannot wait to tell you what I am thinking regarding this tomorrow.

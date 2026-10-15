@@ -128,8 +128,8 @@ Golden State
 Nate Silver
 - @natesilver538 
 
-Kurt Goldsberry
-- @kurtgoldsberry
+Kirk Goldsberry
+- @kirkgoldsberry
 
 Seth Partnow
 - @SethPartnow
@@ -140,7 +140,7 @@ Ben Falk
 Anwar Mcqueen
 - @TeamQ
 
-Dan Oliver
+Dean Oliver
 - @DeanO_Lytics
 
 Rashad West

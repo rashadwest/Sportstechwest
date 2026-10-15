@@ -5,7 +5,7 @@ thumbnail: "assets/images/blog-img/20240110_160544.webp"
 trending: true
 ---
 
-# CES_XR_AI_Main_Show
+# CES XR and AI Main Show
 
 The advancements in XR (Extended Reality) at CES 2024 demonstrated a significant step forward in the field of augmented reality, particularly with the debut of products like the XREAL Air 2 Ultra AR glasses. These glasses are notable for their advanced features such as six degrees of freedom, Full HD visuals for each eye, and a comfortable, lightweight design. They signify a move towards making spatial computing and immersive experiences more accessible and practical for a wide range of applications, including sports and entertainment.
 

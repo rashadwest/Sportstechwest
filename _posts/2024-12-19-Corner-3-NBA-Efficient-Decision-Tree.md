@@ -23,11 +23,11 @@ The [**Corner 3**](https://www.basketball-reference.com/about/glossary.html) isn
 ## The Corner 3 Decision Tree
 
 ### Step 1: Primary Check
-* If corner shooter is open → Pass it immediately (38% makes, 1.14 points per shot)
+* If the corner shooter is open → Pass it immediately (38% makes, 1.14 points per shot)
 
 ### Step 2: Setup
 * If defense helps → Create advantage, kick to corner
-* If no look → Keep the ball moving
+* If there's no look → Keep the ball moving
 
 ### Step 3: Execute
 * When the condition is right → Take the highest-value shot. Deviate only when you must

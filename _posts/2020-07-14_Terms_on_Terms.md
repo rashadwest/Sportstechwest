@@ -17,20 +17,20 @@ I will use this blog to add words or terms in which I may have some understandin
   - the study of how people learn
 3. Cloud Computing 
 - Cloud computing is the on-demand availability of computer system resources, especially data storage and computing power, without direct active management by the user
-  - You dont have to manage the computer power, resources, and data storage 
+  - You don't have to manage the computing power, resources, and data storage 
 4. AWS
 - Amazon Web Services is a subsidiary of Amazon that provides on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered pay-as-you-go basis.
   - A pay as you go cloud computing platform
 5. Machine Learning 
 - Machine learning is the study of computer algorithms that improve automatically through experience. It is seen as a subset of artificial intelligence.
-  - The computer learns from experience (reminds me alot of a human)
+  - The computer learns from experience (reminds me a lot of a human)
 6. Data Simply 
 - The cloud platform to enable impact investing for professional investors, leveraging machine intelligence and SASB standards.
   - Cloud platform for impact investing 
 7. Domain Knowledge 
 -  is understanding, ability and information that applies to a specific topic, profession or activity.
   - how much do you know 
-8. Unsuperized learning 
+8. Unsupervised learning 
 - is a type of machine learning algorithm used to draw inferences from datasets consisting of input data without labeled responses. The most common unsupervised learning method is cluster analysis, which is used for exploratory data analysis to find hidden patterns or grouping in data.
   -  is a self-learning technique that uses input
 9. Supervised learning 

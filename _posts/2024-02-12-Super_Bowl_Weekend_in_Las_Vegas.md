@@ -58,10 +58,10 @@ I spent quality time with good friends from [Hampton University](https://home.ha
 I attended gatherings hosted by **The Players Impact Group**, [Lawrence Taylor](https://www.profootballhof.com/players/lawrence-taylor/)'s camp event, and pitch sessions at **WeWork** and other venues across Las Vegas. From [Marshawn Lynch](https://www.nfl.com/players/marshawn-lynch/) and [Too Short](https://www.youtube.com/channel/UCT5WSvzLbxkwTvTwpPVkUFw)’s event to the high energy at each pitch, the entire weekend was packed with inspiration and connection.
 
 <div style="text-align: center">
-  <img src="{{site.baseurl}}/assets/images/blog-img/superbowl-result.webp" alt="Superbowl result, Febuary 11th 2024">
-  <p style="font-style: italic; font-size: 0.9em; font-weight:bold;">Superbowl result, Febuary 11th 2024</p>
+  <img src="{{site.baseurl}}/assets/images/blog-img/superbowl-result.webp" alt="Super Bowl result, February 11th 2024">
+  <p style="font-style: italic; font-size: 0.9em; font-weight:bold;">Super Bowl result, February 11th 2024</p>
 </div>
 
 ### Reflecting on the 49ers and Future Goals
 
-The only downside? My childhood team, the [San Francisco 49ers](https://www.49ers.com/), didn’t make it to the game. Although I didn’t attend this year’s Super Bowl, I plan to go into it next year to get the full experience. This weekend reminded me just how powerful connections and experiences can be, pushing me forward in both life and work.
+The only downside? My childhood team, the [San Francisco 49ers](https://www.49ers.com/), didn’t make it to the game. Although I didn’t attend this year’s Super Bowl, I plan to go next year to get the full experience. This weekend reminded me just how powerful connections and experiences can be, pushing me forward in both life and work.

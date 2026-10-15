@@ -8,14 +8,14 @@ thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 
 ## Creating a presentation for my project (Shad loves the kids)
 
-I will be working with my friend Ray tonight to talk about this presentaiton/deck. He is a person who great at creating these types of presentaiton for companies. 
+I will be working with my friend Ray tonight to talk about this presentation/deck. He is great at creating these types of presentations for companies. 
 
 Here is what I am looking to focus on:
 
 1. Start with the end project and how that looks
-2. Basketball Anayltics 
+2. Basketball Analytics 
 3. Basketball League that is virtual 
-4. Basketball Curriculum and Mathmatical system 
+4. Basketball Curriculum and Mathematical system 
 5. Show key metrics and how we can take off this year 
 
 
@@ -30,16 +30,16 @@ Big Idea:
 League vs. WebApp
 
 Notes:
-How does Tik tok & Instagram look for people who create
-Seeing the kids on Steam 
+How do TikTok & Instagram look for people who create?
+Seeing the kids on STEAM 
 
 What is the big picture of what I am doing?
-Lebrons Media company hosting our show parntering with the NBA and it being the biggest 
+LeBron's media company hosting our show, partnering with the NBA, and it being the biggest 
 
 It may need to be easier to access the curriculum.  
 
 STEAM (E)sports: 
-- This is so new who can help us?
+- This is so new, who can help us?
 - How much do they charge? What is our focus?
 - Doing the AR is different for this.
 - These are the top esports teams.

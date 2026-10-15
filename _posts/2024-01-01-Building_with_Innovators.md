@@ -9,7 +9,7 @@ tag: Innovation
 
 ## A Transformative Journey with Techstars Washington, DC
 
-My time with \*\*[Techstars Washington, DC](https://www.techstars.com/) was nothing short of transformative. I had the privilege of building alongside an exceptional group of [entrepreneurs](https://en.wikipedia.org/wiki/Entrepreneurship) and visionaries. This experience deepened my understanding of [business](https://www.investopedia.com/terms/b/business.asp) and allowed me to create a network that has become invaluable in my professional journey, especially as I grow in the field of [sports analytics](https://www.datacamp.com/blog/sports-analytics-how-different-sports-use-data-analysis).
+My time with [Techstars Washington, DC](https://www.techstars.com/) was nothing short of transformative. I had the privilege of building alongside an exceptional group of [entrepreneurs](https://en.wikipedia.org/wiki/Entrepreneurship) and visionaries. This experience deepened my understanding of [business](https://www.investopedia.com/terms/b/business.asp) and allowed me to create a network that has become invaluable in my professional journey, especially as I grow in the field of [sports analytics](https://www.datacamp.com/blog/sports-analytics-how-different-sports-use-data-analysis).
 
 ![Rashad West at Techstars]({{site.baseurl}}/assets/images/blog-img/Techstars_DC.webp)
 

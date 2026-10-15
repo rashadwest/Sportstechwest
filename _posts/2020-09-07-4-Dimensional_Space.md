@@ -4,11 +4,11 @@ title: "4-Dimensional Space"
 thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 ---
 
-# 4-Dimensional_Space 
+# 4-Dimensional Space 
 
 ![]({{site.url}}{{site.baseurl}}/assets/img/blog-img/4D.webp?raw=true)
 
-I am doing a history lesson on 4D.  After watching the Lakers vs. Rockets game's ESPN highlights, the commentator said that Lebron dunked the ball in 4D.  
+I am doing a history lesson on 4D.  After watching the Lakers vs. Rockets game's ESPN highlights, the commentator said that LeBron dunked the ball in 4D.  
 Interestingly, I think that most people only know about 3-dimensional spaces.  Bringing on a 4th variable enables individuals to play around with space more.
 I grabbed the information below from Wikipedia to go into further detail about 4D. 
 

@@ -25,7 +25,7 @@ Beyond that unexpected adventure, the weekend was filled with some of the best e
   <div class="container inner">
     <div class="row">
       <div class="col-lg-10 offset-lg-1">
-        <h2 class="section-title mb-40 text-center">The Hennessey event</h2>
+        <h2 class="section-title mb-40 text-center">The Hennessy event</h2>
         <video poster="{{relative_url}}/assets/media/poster/The Hennessey event.png" class="player" playsinline controls preload="none">
           <source src="{{relative_url}}/assets/media/The Hennessey event.webm" type="video/webm">
         </video>

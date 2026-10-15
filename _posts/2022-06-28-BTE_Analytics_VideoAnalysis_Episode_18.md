@@ -6,7 +6,7 @@ thumbnail: "assets/images/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 
 # Video Analysis
 
-We added something new to our video analysis. It is a mew form of measuring analytics using our unique metrics. This will be a fun journey.
+We added something new to our video analysis. It is a new form of measuring analytics using our unique metrics. This will be a fun journey.
 
 1. We have our analyst talking through what happened in the game
 2. We have the dribble combos used throughout the game

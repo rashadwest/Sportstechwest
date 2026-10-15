@@ -14,9 +14,9 @@ I also shared with them our unique analytics and how we are using them to help t
 
 We will change the culture of analytics. Our platform is changing how individuals look at data and analytics in sports. We use it to teach and also for team evaluation.
 
-If you are playing or just watching, there is always something to do. It is back to the days of when you have to do the work.
+If you are playing or just watching, there is always something to do. It is back to the days when you had to do the work.
 
-Back to when you have fun playing games like king of the court, 50, 21, etc. with friends.
+Back to when you had fun playing games like king of the court, 50, 21, etc. with friends.
 
 We are bringing the fun back to the game and making it about more than just highlights by giving the players and statisticians the power over their own data.
 

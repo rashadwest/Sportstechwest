@@ -12,7 +12,7 @@ Here is Ky's BTE Advanced Analytics for his 60 point game for the Brooklyn Nets.
 - It gives his percentages of when he goes off the dribble with these moves
 - It gives his percentages of when he is stationary
 - It gives the percentages of his top combos
-- It gives his frequencies of his best combos
-- It gives his effeciency score
+- It gives the frequencies of his best combos
+- It gives his efficiency score
 
 We are able to break down basketball advanced analytics that have never been seen before.

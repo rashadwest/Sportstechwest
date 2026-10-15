@@ -4,7 +4,7 @@ title: "CES Sports Innovation Lab Lounge"
 thumbnail: "assets/images/blog-img/Speaker3.webp"
 ---
 
-# Sports_Innovation_Lab_Lounge
+# Sports Innovation Lab Lounge
 
 I am grateful for the invitation to the Sports Innovation Lab Lounge at CES in Las Vegas. I connected with some amazing individuals in the sports and entertainment industry.
 

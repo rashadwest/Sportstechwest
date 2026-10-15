@@ -14,7 +14,7 @@ Our dribble tree consists of the five commonly known dribbles in basketball.
 - 1 = Pound, 2 = Crossover, 3 = In & Out, 4 = Between the legs, 5 = Behind the back.  
 
 Within the dribble tree system, an individual has two dribble combos and three dribble combos.  When you combine a dribble, you are doing arithmetic.  If you put together 
-1 + 2, then that equals 3.  If you then determine that you are going to 30, then now you are doing algebra.  So the equation would be x(1+2) = 30.  This is just one of the ways we teach math in our Beat the Expert game.
+1 + 2, then that equals 3.  If you then determine how many times you need to do it to get to 30, now you are doing algebra.  So the equation would be x(1+2) = 30.  This is just one of the ways we teach math in our Beat the Expert game.
 
 ![Dribble Tree Intro]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-08-30%20at%209.37.28%20PM.webp?raw=true)
 ![Dribble Tree Explained]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-08-30%20at%209.37.09%20PM.webp?raw=true)

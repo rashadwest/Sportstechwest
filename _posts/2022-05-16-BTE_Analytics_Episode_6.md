@@ -6,7 +6,7 @@ thumbnail: "assets/images/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 
 # We want to make all the data you don’t use useful
 
-This is something I have been thinking.
+This is something I have been thinking about.
 
 I have seen that most of the data that is looked at as useless is what we use. It is that data that tells where a player went on the court and how often he went there.
 
@@ -16,7 +16,7 @@ The more times a player does a certain thing, the more you can plan for when tha
 
 it as much with analytics.
 
-The analytics insights are often looking for a conclusion for the coach or scouting report, but often that is not not the best approach.
+The analytics insights are often looking for a conclusion for the coach or scouting report, but often that is not the best approach.
 
 I think the best approach is to give a coach something that is open-ended that makes sense and get them to think about it in new ways. It is more theatrical than practical.
 

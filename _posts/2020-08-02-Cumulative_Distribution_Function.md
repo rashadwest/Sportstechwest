@@ -12,9 +12,9 @@ Histograms, PMF, and CDF are all graphs that help in data science.
 
 ![Learning CDF's]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-08-04%20at%2012.30.03%20PM.webp?raw=true)
 
-I am so mad at myself this morning.  I did messed up on one part and was frustrated instead of just taking my time and figuring it out.  Here is the solution that was found in the screenshot and my code below that. I missed puting income into the Cdf.
+I am so mad at myself this morning.  I messed up on one part and was frustrated instead of just taking my time and figuring it out.  Here is the solution that was found in the screenshot and my code below that. I missed putting income into the Cdf.
 
-![Ploting CDF's]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-08-05%20at%205.41.59%20AM.webp?raw=true)
+![Plotting CDF's]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-08-05%20at%205.41.59%20AM.webp?raw=true)
 
 ```
 # Select realinc

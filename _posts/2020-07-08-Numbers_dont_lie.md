@@ -1,27 +1,27 @@
 ---
 layout: post
-title: "Numbers dont lie"
+title: "Numbers don't lie"
 thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 ---
 
-# Numbers Dont Lie 
+# Numbers Don't Lie 
 
 ## Learning how to approach the project 
 
-Today I learned aboout the Data Science Lifecycle.  For me doing things in basketball I think it is all about the numbers.  I think learning this lifecycle will help me determine the 
-performance of most players, coaches, trainers, athletic directors, exectuvies, and even the league commissioners.  This has been a dream of mine since around 2014
+Today I learned about the Data Science Lifecycle.  For me, doing things in basketball I think it is all about the numbers.  I think learning this lifecycle will help me determine the 
+performance of most players, coaches, trainers, athletic directors, executives, and even the league commissioners.  This has been a dream of mine since around 2014
 without even realizing it. 
 
-8 years ago I had a dream about how I will use the game of basketball to teach math.  Sense that dream I have developed or am in development on an app, a game, an online platform,
+8 years ago I had a dream about how I will use the game of basketball to teach math.  Since that dream I have developed or am in development on an app, a game, an online platform,
 and now I am learning data science so I can create metrics, models, and analyze performance in the hoops world.  I am so happy I was persistent in going after this feat.  This is one of the highlights of the journey. 
 Never in my wildest dreams would I have thought the guy who hated school and just wanted to play ball would be excited about data science. 
 
 I saw this quote on my morning workout this morning and I think it is relevant for this moment. 
-"So many of our dreams at first seem impossible, then they seem improbable, and then, when we summon the will, they soon become inevitable." Christopher Reeves
+"So many of our dreams at first seem impossible, then they seem improbable, and then, when we summon the will, they soon become inevitable." Christopher Reeve
 
-I will get into my journey in another post but for now lets focus on the work at hand.
+I will get into my journey in another post, but for now let's focus on the work at hand.
 
-I was told by a data scientist that the Data Science Lifecycle is the most important work in data science.  So I will go through each one.  I will also say what each one means in my own words below the 
+I was told by a data scientist that the Data Science Lifecycle is the most important work in data science.  So I will go through each step.  I will also say what each one means in my own words below the 
 brief description.
 
 1. Business Understanding 
@@ -34,7 +34,7 @@ brief description.
 
 3. Data Cleaning 
 - Fix the inconsistencies within the data and handle the missing values.
-  - Make sure the data is consistent and make sure I find something to put in the place for whats missing
+  - Make sure the data is consistent and make sure I find something to put in place of what's missing
 
 4. Data Exploration 
 - Form Hypotheses about your data through visualizing the data 
@@ -47,13 +47,13 @@ brief description.
 
 6. Predictive Modeling 
 - Train machine learning models, evaluate their performance, and use them to make predictions.
-  - I am somewhat confused on how data mining and machine learning work together.
+  - I am somewhat confused about how data mining and machine learning work together.
 
 7. Data Visualization
 - Communicate the findings with key stakeholders using plots and interactive visualizations 
-  - I think this is when you show other people what your data project consists of to get feeback before publishing it.
+  - I think this is when you show other people what your data project consists of to get feedback before publishing it.
   
- I have tried to simplify it even further after reading Alivias notes again.
+ I have tried to simplify it even further after reading Alivia's notes again.
  
 Business Understanding
 - Understanding how the business and the data work together 

@@ -42,7 +42,7 @@ With it, we know how to debug, correct, and build systems that actually serve us
 That is exactly what I have been working on with [**BallCode.co**](https://ballcode.co).  
 
 BallCode is a sports coding language that connects basketball with programming.  
-At first, it sounds crazy, but when you look closer the connection is obvious.  
+At first, it sounds crazy, but when you look closer, the connection is obvious.  
 
 - Every possession is an if/then statement  
 - Every defensive rotation is a loop  
@@ -73,7 +73,7 @@ That is the whole point of BallCode: teaching kids the machine’s language thro
 
 ## The Bigger Picture  
 
-We don’t stop teaching kids to read just because voice to text exists.  
+We don’t stop teaching kids to read just because voice-to-text exists.  
 We don’t stop teaching them to write just because AI can summarize.  
 
 So why would we stop teaching coding just because AI can code?  
@@ -93,6 +93,6 @@ If reading and writing were the superpowers of the industrial era, coding is the
 
 It is how we unlock control, automation, and creativity.  
 
-And the earlier we teach it in ways that feel natural and fun the better prepared our kids will be.  
+And the earlier we teach it in ways that feel natural and fun, the better prepared our kids will be.  
 
 That is what BallCode is all about.  

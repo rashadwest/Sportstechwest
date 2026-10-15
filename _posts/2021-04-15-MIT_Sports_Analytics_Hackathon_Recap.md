@@ -10,16 +10,16 @@ title: "MIT Sports Analytics Hackathon Recap"
 
 I enjoyed the MIT SSAC hackathon. We did a project for the MLB and what we decided to do was create an algo that gamifies pitching. We wanted to develop a way for individuals to look at past pitches to help people with gambling predictions. I had a team of 4 people, and they were all great data scientists. However, it came with unique challenges and opportunities.
 
-Here is the link of our pitch to the MLB.
-[Gamifiying_Pitching](https://studio.youtube.com/video/INJxUeqSe6k/edit)
+Here is the link to our pitch to the MLB.
+[Gamifying_Pitching](https://studio.youtube.com/video/INJxUeqSe6k/edit)
 
 ## Here are a few takeaways.
 
 1. What we overcame
 
 - Enormous amounts of data from the MLB needed parsing. We had to go through it to figure out what we needed for our project.
-- We had individuals on our team that had priorities like school, covid shot, meetings, user testing during the hackathon that made it hard for us to have everyone on the project through the hackathon's duration.
-- Figuring out new team members skill sets on the fly with one entered in by mistake
+- We had individuals on our team who had priorities like school, covid shot, meetings, user testing during the hackathon that made it hard for us to have everyone on the project through the hackathon's duration.
+- Figuring out new team members' skill sets on the fly, with one entered by mistake
 
 2. Stating the problem and the resolution
 
@@ -44,15 +44,15 @@ Tell your teammates what you have going on immediately. Clear communication is b
 
 Identify key team members to partner with during the hackathon.
 
-- I should have paid attention to skill sets and built the dream team with the contact list looking back in hindsight. They gave us the option to create our team or let them put us on a team. I chose the latter.
+- Looking back, I should have paid attention to skill sets and built the dream team from the contact list. They gave us the option to create our team or let them put us on a team. I chose the latter.
 
 Produce a list of tasks for each person.
 
-- We worked in silos for the most part, and we did not have a solid list of what each person was doing. I wish I would have done that instead of having everyone working on the same things.
+- We worked in silos for the most part, and we did not have a solid list of what each person was doing. I wish I had done that instead of having everyone working on the same things.
 
 Create a code of conduct.
 
-- Make sure you can hold everyone accountable for fulfilling their job that is assigned. If your teammates do not want their role, you should ask them what they want to do. Roles are critical to all teams but especially a hackathon because you have limited time and resources.
+- Make sure you can hold everyone accountable for fulfilling their job that is assigned. If your teammates do not want their role, you should ask them what they want to do. Roles are critical to all teams, but especially in a hackathon because you have limited time and resources.
 
 Create a one-pager for your solution.
 

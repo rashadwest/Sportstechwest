@@ -24,7 +24,7 @@ The industry has optimized for what sensors can detect, not for what humans actu
 
 ## What we measure versus what drives performance
 
-We measure movement, output, and physical load with precision. But we still cannot meaningfully measure pre performance thought processes, in the moment decision framing, visual perception under speed, emotional regulation under pressure, or how an athlete cognitively resets after success or failure. These internal processes are not edge cases. They are the drivers of performance.
+We measure movement, output, and physical load with precision. But we still cannot meaningfully measure pre-performance thought processes, in-the-moment decision framing, visual perception under speed, emotional regulation under pressure, or how an athlete cognitively resets after success or failure. These internal processes are not edge cases. They are the drivers of performance.
 
 This forces us to confront two distinct but connected problems in sports technology.
 
@@ -60,7 +60,7 @@ This is where most systems fail. They are technically sound but strategically sh
 
 ## The quiet reality
 
-A quiet reality in sports technology is that much of today's performance data is being analyzed by people who have never actually competed at a high level. They understand the numbers, but not the moments those numbers come from. Without having lived inside pressure, fatigue, and real time decision making, it is easy to misinterpret what the data is actually saying.
+A quiet reality in sports technology is that much of today's performance data is being analyzed by people who have never actually competed at a high level. They understand the numbers, but not the moments those numbers come from. Without having lived inside pressure, fatigue, and real-time decision-making, it is easy to misinterpret what the data is actually saying.
 
 Most of the research and models shaping performance technology today were developed by observing athletes, not by researchers who lived inside elite competition themselves.
 
@@ -144,6 +144,6 @@ The future of sports technology is not another dashboard or sensor. It is a deep
 
 This intersection of humanist performance understanding and technologist execution is exactly where I spend my time. If you are building technology, investing in performance, or working with athletes and coaches and want to explore how mental performance data and advanced analytics can actually be applied in the real world, I am open to the conversation.
 
-This is Part 1 of a broader conversation. In Part 2, I will explore how the shift from purely technical thinking toward human centered performance systems extends far beyond sports and why it may shape the future of human performance altogether.
+This is Part 1 of a broader conversation. In Part 2, I will explore how the shift from purely technical thinking toward human-centered performance systems extends far beyond sports and why it may shape the future of human performance altogether.
 
 That is the opportunity most people are missing. And it is the one I am building toward.

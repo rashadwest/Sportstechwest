@@ -237,7 +237,7 @@ The logic is straightforward.
 
 **Your value becomes unquestionable when you show real examples, not theories.**
 
-Examples from your track record include:
+Examples from my track record include:
 
 - Built early stage computer vision based sports analytics workflows focused on data automation and insight generation
 - Built early stage VR and AR powered training prototypes designed for athlete learning and testing

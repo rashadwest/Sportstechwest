@@ -6,7 +6,7 @@ thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 
 # Being able to get through errors 
 
-I have been running into errors lately and instead of getting frustrated and going off and doing something else and then coming back I am going to 
+I have been running into errors lately, and instead of getting frustrated, going off to do something else and then coming back, I am going to 
 try to figure it out myself more now.  I see that it is always simple mistakes.  
 
 ![Error]({{site.url}}{{site.baseurl}}/assets/img/blog-img/Screen%20Shot%202020-07-19%20at%202.10.55%20PM.webp)
@@ -52,4 +52,4 @@ np_baseball = np.array(baseball)
 # Print out the shape of np_baseball
 print(np_baseball.shape)
 ```
-I thought that I would need to put np_baseball = np.array([[baseball]]).  I thought the two brackets would do the trick but it did not need them. 
+I thought that I would need to put np_baseball = np.array([[baseball]]).  I thought the two brackets would do the trick, but it did not need them. 

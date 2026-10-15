@@ -12,13 +12,13 @@ categories: [Insights]
 author: "Rashad West"
 ---
 
-There is something about watching a [one on one matchup](https://www.basketball-reference.com/about/glossary.html) that strips basketball down to its rawest form. No help side defense. No drawn up plays. Just one athlete trying to impose their will on another. And in this [**Unrivaled**](https://www.unrivaled.basketball/) one on one Tournament matchup, [**Aaliyah Edwards**](https://www.wnba.com/draft/2024/prospects/aaliyah-edwards) did not just win. She dominated one of the greatest to ever do it, shutting out [**Breanna Stewart**](https://www.wnba.com/player/1627668/breanna-stewart) twelve to zero in Game One.
+There is something about watching a [one on one matchup](https://www.basketball-reference.com/about/glossary.html) that strips basketball down to its rawest form. No help-side defense. No drawn-up plays. Just one athlete trying to impose their will on another. And in this [**Unrivaled**](https://www.unrivaled.basketball/) one on one Tournament matchup, [**Aaliyah Edwards**](https://www.wnba.com/draft/2024/prospects/aaliyah-edwards) did not just win. She dominated one of the greatest to ever do it, shutting out [**Breanna Stewart**](https://www.wnba.com/player/1627668/breanna-stewart) twelve to zero in Game One.
 
 But this was not just power. This was precision. She was making Stewart guess all game, using the [double cross](https://www.breakthroughbasketball.com/training/beginner-crossover.html) with surgical rhythm. What stood out was how clear and concise she was with each move. No wasted motion. It was not a mixtape. It was a masterclass.
 
 Edwards is a young player with a lot of promise. What we saw at [Unrivaled](https://www.unrivaled.basketball/) this year was her raw talent breaking through on a bigger stage. Her staying healthy and gaining more experience is going to be critical moving forward.
 
-Last season, during her rookie campaign with the [**Washington Mystics**](https://www.wnba.com/mystics/), she posted solid numbers across thirty four games — 7.6 points, 5.6 rebounds, and 1.4 assists per game in just under 22 minutes. That is efficient for a first year big adjusting to the [pro pace](https://stats.wnba.com/).
+Last season, during her rookie campaign with the [**Washington Mystics**](https://www.wnba.com/mystics/), she posted solid numbers across thirty four games — 7.6 points, 5.6 rebounds, and 1.4 assists per game in just under 22 minutes. That is efficient for a first-year big adjusting to the [pro pace](https://stats.wnba.com/).
 
 But this year has been a tougher road. Through thirteen games in twenty twenty five, her production has dipped to 4.9 points and 3.3 rebounds in about 14.5 minutes a game. The decline is tied to a [back injury](https://www.espn.com/wnba/story/_/id/44953672/mystics-forward-aaliyah-edwards-back-sidelined-two-weeks) that sidelined her early in the season, plus the depth at her position. With [**Shakira Austin**](https://www.wnba.com/player/1631022) back and rookie [**Kiki Iriafen**](https://www.wnba.com/draft/2025/prospects/kiki-iriafen) making noise, minutes are tighter. And that is limiting her rhythm.
 
@@ -28,7 +28,7 @@ Still, when the floor opened up and it was just her versus the best in Unrivaled
 
 ### She controlled pace through simplicity
 
-Across seven possessions, Edwards only used nineteen total moves, averaging just two point seven moves per possession. That is low dribble high impact basketball. Eighty nine percent of her entire handle was split between just Pound Dribbles at forty seven percent and Crosses at forty two percent. That is a big telling you I do not need the extras I am here to work.
+Across seven possessions, Edwards only used nineteen total moves, averaging just two point seven moves per possession. That is low-dribble, high-impact basketball. Eighty nine percent of her entire handle was split between just Pound Dribbles at forty seven percent and Crosses at forty two percent. That is a big telling you: I do not need the extras, I am here to work.
 
 ### She did not even try most of her different moves
 
@@ -38,15 +38,15 @@ No In and Out. No Behind the Back. No Spin. Nothing fancy. She went into the mat
 
 The stepbacks and sidesteps showed up big. Stewart could not predict if Edwards was going downhill or pulling back. Being able to hit from multiple angles while playing off two hands added a layer Stewart was not ready for. That mobility at that size is what makes her different.
 
-What is wild is how this version of Edwards evolved from her performance against [**Napheesa Collier**](https://stats.wnba.com/player/1629483/) in the finals. Against Collier, she lost the edge. She forced up shots without an advantage. Looked gassed. Mental fatigue crept in. It happens and one on one exposes that. You are not just playing your opponent. You are battling your own [decision making under pressure](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4684807/). That is the beauty of this format.
+What is wild is how this version of Edwards evolved from her performance against [**Napheesa Collier**](https://stats.wnba.com/player/1629483/) in the finals. Against Collier, she lost the edge. She forced up shots without an advantage. Looked gassed. Mental fatigue crept in. It happens, and one on one exposes that. You are not just playing your opponent. You are battling your own [decision making under pressure](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4684807/). That is the beauty of this format.
 
 ## Her movement heat map says it all
 
-Most of her attacks start from the left wing or top of the key. These are areas where she can see the floor and on the sides she passes out quick and gets it back to get started before Stewart could get set. She was not just running plays. She was setting traps, making Stewart commit, then blowing by or taking the shot.
+Most of her attacks start from the left wing or top of the key. These are areas where she can see the floor, and on the sides she passes out quickly and gets it back before Stewart can get set. She was not just running plays. She was setting traps, making Stewart commit, then blowing by or taking the shot.
 
 ## Her full Unrivaled run was a breakthrough
 
-Edwards advanced to the championship round and finished runner up, earning fifty thousand dollars. Along the way she dropped sixteen points and six rebounds in one game and had twelve points and four boards in another. She handled multiple elite matchups and proved she can go toe to toe with top names.
+Edwards advanced to the championship round and finished runner-up, earning fifty thousand dollars. Along the way, she dropped sixteen points and six rebounds in one game and had twelve points and four boards in another. She handled multiple elite matchups and proved she can go toe to toe with top names.
 
 ## The big picture
 

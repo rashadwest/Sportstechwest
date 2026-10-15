@@ -170,7 +170,7 @@ The framework isn't just about basketball skills. It's about building decision-m
 ## 10 Tips for Youth Development: Seamless Progression Through the Framework
 
 ### 1. Start with Footwork Before Adding Decision-Making
-Youth players need solid athletic foundation. Master triple threat position, pivot footwork, and basic stance before introducing decision trees. Bad habits formed early become harder to break later.
+Youth players need a solid athletic foundation. Master triple threat position, pivot footwork, and basic stance before introducing decision trees. Bad habits formed early become harder to break later.
 
 ### 2. Use Age-Appropriate Time Limits
 - **Ages 8-10:** 5-8 second 1v1 possessions (adjust depending on skill level)
@@ -202,7 +202,7 @@ Keep it age-appropriate: "If open lane, drive. If help comes, pass." Complex ter
 
 Switch between formats frequently to maintain engagement while building different skills.
 
-### 9. Create Positive Failure Environment
+### 9. Create a Positive Failure Environment
 Youth players fear making mistakes. Celebrate "good tries" and learning moments. When a player makes the right read but executes poorly, emphasize the correct decision-making process.
 
 ### 10. Match Practice Complexity to Game Demands

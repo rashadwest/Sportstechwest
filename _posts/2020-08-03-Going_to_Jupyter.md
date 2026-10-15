@@ -8,5 +8,5 @@ thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 
 ## Learning the Notebook 
 
-I have taken a NBA data set and have put it into the Jupyter Notebook.  I am exploring the dataset and will let you know how it goes. 
+I have taken an NBA dataset and have put it into the Jupyter Notebook.  I am exploring the dataset and will let you know how it goes. 
 

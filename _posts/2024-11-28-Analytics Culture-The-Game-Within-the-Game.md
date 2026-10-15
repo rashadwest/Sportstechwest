@@ -34,7 +34,7 @@ _Disclaimer: The historical content in this section references [“The Mega-Bran
 
 <img  src="{{site.baseurl}}/assets/images/blog-img/Bumps_that_enabled_modern_day_palming_of_the_ball.webp" alt="Bumps_that_enabled_modern_day_palming_of_the_ball" >
 
-<p style="font-style: italic; font-size: 0.9em; font-weight: bold; text-align: center;">Bumps that enabled modern day palming of the ball</p>
+<p style="font-style: italic; font-size: 0.9em; font-weight: bold; text-align: center;">Bumps that enabled modern-day palming of the ball</p>
 
 The redesigned basketball not only allowed players to dribble effectively but also enabled them to control the ball when shooting or carrying it. That breakthrough opened the door for dribbling to evolve into an art form. From the crossover to the hesitation to the spin, all these moves we celebrate today wouldn’t exist without that critical step forward.
 
@@ -56,13 +56,13 @@ Through our **advanced metrics**, we’re not just measuring the game; we’re r
 
 ## Why Style and Tendencies Matter
 
-I’ve always said, **_the numbers don’t tell the whole story-highlights do_**. And let’s be real: with full game viewership on the decline, like it or not, highlights drive the sport.
+I’ve always said, **_the numbers don’t tell the whole story—highlights do_**. And let’s be real: with full game viewership on the decline, like it or not, highlights drive the sport.
 
 That’s why we’re focused on metrics that bring the highlights to life. Fans don’t just want to know you scored 20 points; they want to see how you scored them. Was it the pull-up jumper in crunch time? The no-look assist that caught the defense sleeping? Or that lethal hesitation move that froze your defender?
 
 <img  src="{{site.baseurl}}/assets/images/blog-img/First_Designs_for_basketball.webp" alt="First_Designs_for_basketball" >
 
-Our dribble metrics are built to capture those moments. We spotlight the style that separates you from everyone else. For [soccer players(football player)](https://en.wikipedia.org/wiki/Football_player), it’s the same idea. Are you the player who dismantles defenders with your footwork, or the one orchestrating the attack with pinpoint passes? Those tendencies and styles aren’t just stats—they’re your identity.
+Our dribble metrics are built to capture those moments. We spotlight the style that separates you from everyone else. For [soccer players (football players)](https://en.wikipedia.org/wiki/Football_player), it’s the same idea. Are you the player who dismantles defenders with your footwork, or the one orchestrating the attack with pinpoint passes? Those tendencies and styles aren’t just stats—they’re your identity.
 
 <img  src="{{site.baseurl}}/assets/images/blog-img/soccer-player.webp" alt="Soccer player" >
 
@@ -80,7 +80,7 @@ Our innovative approach brings modern tools to basketball, enabling athletes to 
 
 <img  src="{{site.baseurl}}/assets/images/blog-img/basketball-metric.webp" alt="basketball-metric" >
 
-This is more than analytics, it’s storytelling for the [modern athlete](https://www.modernathlete.co.za/). By combining our advanced metrics with the game’s visual appeal, we give athletes a platform to show their personality and define their legacy in a way that’s never been done before.
+This is more than analytics; it’s storytelling for the [modern athlete](https://www.modernathlete.co.za/). By combining our advanced metrics with the game’s visual appeal, we give athletes a platform to show their personality and define their legacy in a way that’s never been done before.
 
 ---
 

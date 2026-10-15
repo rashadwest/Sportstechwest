@@ -23,14 +23,14 @@ The [**Corner 3**](https://www.basketball-reference.com/about/glossary.html) isn
 ## The Corner 3 Decision Tree
 
 ### Step 1: Primary Check
-* If corner shooter is open → Pass it immediately (38% makes, 1.14 points per shot)
+* If the corner shooter is open → Pass it immediately (38% makes, 1.14 points per shot)
 
 ### Step 2: Setup
 * If defense helps → Create advantage, kick to corner
-* If no look → Keep the ball moving
+* If there's no look → Keep the ball moving
 
 ### Step 3: Execute
-* When the condition is right → Take the highest-value shot (layup if available (1.20 PPP)→ corner 3 if available (1.14 PPP) → Above the Break 3 Pointer → etc. Deviate when you have other options that make sense for your situation or personnel.
+* When the condition is right → Take the highest-value shot (layup if available (1.20 PPP) → corner 3 if available (1.14 PPP) → above-the-break 3-pointer → etc.). Deviate when you have other options that make sense for your situation or personnel.
 
 ---
 
@@ -133,4 +133,4 @@ The data is clear: teams that master this systematic approach don't just compete
 
 ---
 
-**Keywords:** Corner 3, NBA Analytics, Basketball Strategy, Decision Making, Teamwork, Basketball Efficiency, Basketball Data, Steve Kerr, Boston Celtics, Golden State Warriors, Basketball Fundamentals, Systematic Thinking](https://sportstechwest.com/blog/10-Championship-Basketball-is-Systematic-Thinking/)
+**Keywords:** Corner 3, NBA Analytics, Basketball Strategy, Decision Making, Teamwork, Basketball Efficiency, Basketball Data, Steve Kerr, Boston Celtics, Golden State Warriors, Basketball Fundamentals, Systematic Thinking

@@ -110,10 +110,10 @@ That's when I realized this isn't just about automating a process. It's about *t
 
 1. Generated an API key: Basically a backstage pass for Claude to talk to my automation.  
 2. Built a small bridge program: A translator so Claude and n8n speak the same language.  
-3. Configured Claude: Pointed it to my local system, added the API key, and connection details.  
-4. Restarted everything: Fully quit and reopen. Don't just close windows. It matters.  
+3. Configured Claude: Pointed it to my local system and added the API key and connection details.  
+4. Restarted everything: Fully quit and reopened. Don't just close windows. It matters.  
 
-Each line of code was like building a muscle. I wasn't just setting up automation, I was *learning how intelligence moves through a system.*  
+Each line of code was like building a muscle. I wasn't just setting up automation; I was *learning how intelligence moves through a system.*  
 
 <div class="text-center my-4">
   <img src="/assets/images/blog-img/gmail-consultation-new.png" alt="Gmail approval email showing paid consultation opportunity">
@@ -172,7 +172,7 @@ The best part? It's all happening locally. These notifications don't go through 
    - AI draft: Pulls in our standard policies and preferences  
    - Me: Approve routine stuff; I handle exceptions  
 
-Every one of these cases teaches me something about language, tone, and intent. All lessons I can apply to future AI projects.  
+Every one of these cases teaches me something about language, tone, and intent, all lessons I can apply to future AI projects.  
 
 ---
 
@@ -194,7 +194,7 @@ Instead of hiring someone for every tweak, I describe what I want and Claude doe
 It's like having a technical co-founder who never sleeps.  
 
 But the bigger breakthrough is what it's teaching me.  
-Each project like this sharpens my ability to design systems that are not only smart but human-aware tools that respect boundaries, context, and creativity.  
+Each project like this sharpens my ability to design systems that are not only smart but human-aware: tools that respect boundaries, context, and creativity.  
 
 ---
 
@@ -207,7 +207,7 @@ Each project like this sharpens my ability to design systems that are not only s
 
 Same principle: AI does the work. I make the calls.  
 
-The next evolution is connecting these systems: my AI assistant, BallCode, and future local agents into one intelligent network that learns *my rhythm.*  
+The next evolution is connecting these systems (my AI assistant, BallCode, and future local agents) into one intelligent network that learns *my rhythm.*  
 Every experiment like this gets me closer to that.  
 
 ---
