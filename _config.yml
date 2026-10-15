@@ -104,3 +104,29 @@ feed:
       path: "/index.xml"
 
 highlighter: rouge
+
+# Keep internal tooling, notes and automation out of the published site.
+exclude:
+  - docs/
+  - workflows/
+  - Sportstechwest/
+  - scripts/
+  - config/
+  - output/
+  - audio-scripts/
+  - shorts-packages/
+  - brand-kit/
+  - previews/
+  - README.md
+  - AIMCODE-DEPLOYMENT-SYSTEM.md
+  - DEPLOYMENT-SYSTEM-MEMORY.md
+  - deploy-to-github.sh
+  - deployment-*
+  - package.json
+  - package-lock.json
+  - stw-publish-schedule.json
+  - requirements-youtube.txt
+  - .cursorrules-ballcode-book
+  - .cursor/
+  - .DS_Store
+  - 10_Tips_Youth_Bball_Development.png
