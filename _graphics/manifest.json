@@ -1,0 +1,86 @@
+[
+  {
+    "src": "clear/intro.html",
+    "out": "assets/images/blog-img/clear-intro-sports-ai.png",
+    "w": 1024,
+    "h": 1024
+  },
+  {
+    "src": "clear/methodology.html",
+    "out": "assets/images/blog-img/clear-methodology-breakdown.jpg",
+    "w": 1024,
+    "h": 1024
+  },
+  {
+    "src": "clear/logic.html",
+    "out": "assets/images/blog-img/clear-logic-section.jpg",
+    "w": 1024,
+    "h": 1024
+  },
+  {
+    "src": "clear/examples.html",
+    "out": "assets/images/blog-img/clear-examples-section.jpg",
+    "w": 1024,
+    "h": 1024
+  },
+  {
+    "src": "clear/adaptation.html",
+    "out": "assets/images/blog-img/clear-adaptation-section.jpg",
+    "w": 1024,
+    "h": 1024
+  },
+  {
+    "src": "clear/results.html",
+    "out": "assets/images/blog-img/clear-results-section.jpg",
+    "w": 1024,
+    "h": 1024
+  },
+  {
+    "src": "clear/conclusion.html",
+    "out": "assets/images/blog-img/clear-conclusion-partnership.jpg",
+    "w": 1024,
+    "h": 1024
+  },
+  {
+    "src": "value/chain.html",
+    "out": "assets/images/blog-img/value-creation-chain.png",
+    "w": 1536,
+    "h": 1024,
+    "scale": 1
+  },
+  {
+    "src": "value/levels.html",
+    "out": "assets/images/blog-img/athlete-levels-value-extraction.png",
+    "w": 1536,
+    "h": 1024,
+    "scale": 1
+  },
+  {
+    "src": "value/align.html",
+    "out": "assets/images/blog-img/fixing-the-chain.png",
+    "w": 1536,
+    "h": 1024,
+    "scale": 1
+  },
+  {
+    "src": "draft/hero.html",
+    "out": "assets/images/blog-img/nba-draft-2026-hero.png",
+    "w": 1600,
+    "h": 872,
+    "scale": 1
+  },
+  {
+    "src": "draft/synergy.html",
+    "out": "assets/images/blog-img/nba-draft-2026-synergy-map.png",
+    "w": 1600,
+    "h": 872,
+    "scale": 1
+  },
+  {
+    "src": "measurement/identical.html",
+    "out": "assets/images/blog-img/identical-data-different-outcomes.png",
+    "w": 1408,
+    "h": 768,
+    "scale": 1.25
+  }
+]

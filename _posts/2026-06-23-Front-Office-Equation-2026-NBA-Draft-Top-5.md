@@ -34,7 +34,7 @@ That's the analytical reality of the top five in the 2026 NBA Draft.
 | **#5 LA Clippers** | Split: Wagler / Brown / Acuff | Variety of Guards | Biometric and agility outliers vs. transition and release-speed profiles | High-Volatility Floor Gravity / Playmaker |
 
 <div class="text-center my-4">
-  <img src="https://sportstechwest.com/assets/images/blog-img/nba-draft-2026-hero.png?v=20260623c" alt="The Front-Office Equation — deconstructing the 2026 NBA Draft top 5 by team, prospect, and roster fit role" class="img-fluid">
+  <img src="https://sportstechwest.com/assets/images/blog-img/nba-draft-2026-hero.png?v=20261015" alt="The Front-Office Equation — deconstructing the 2026 NBA Draft top 5 by team, prospect, and roster fit role" class="img-fluid">
 </div>
 
 ---
@@ -61,7 +61,7 @@ Use our live interactive model below to adjust draft-board philosophy weights. C
 To visualize how these profiles overlap, our modeling engine maps each prospect across five core developmental pillars. Note how the shape of each player's polygon highlights their unique strategic role:
 
 <div class="text-center my-4">
-  <img src="https://sportstechwest.com/assets/images/blog-img/nba-draft-2026-synergy-map.png?v=20260623b" alt="Front-Office Draft Synergy Map — top 5 prospects across on-ball creation, playmaking, gravity, defense, biometrics, and transition" class="img-fluid">
+  <img src="https://sportstechwest.com/assets/images/blog-img/nba-draft-2026-synergy-map.png?v=20261015" alt="Front-Office Draft Synergy Map — top 5 prospects across on-ball creation, playmaking, gravity, defense, biometrics, and transition" class="img-fluid">
 </div>
 
 *Washington's Dybantsa dominates on-ball creation. Memphis's Boozer fills the connective tissue gap. Chicago's Wilson spikes defensive event rate. LA's fracture point at five shows three completely different polygon shapes depending on philosophy.*
