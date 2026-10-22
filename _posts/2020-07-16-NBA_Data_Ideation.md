@@ -1,14 +1,14 @@
 ---
 layout: post
 title: "NBA Data Ideation"
-thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
+thumbnail: "assets/images/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 ---
 
 # NBA Data Ideation 
 ## Still looking for x,y coordinates
 
 FGA for Lillard, Damian during GSW vs POR - 01/20/2020
-![alt text]({{ site.url }}{{ site.baseurl }}/assets/img/blog-img/shotchart.webp)
+![alt text]({{ site.url }}{{ site.baseurl }}/assets/images/blog-img/shotchart.webp)
 
 
 I was unable to find the x,y coordinates.  This is important for me and what I am looking to do.  I reached out to the NBA advanced analytics team with this email to

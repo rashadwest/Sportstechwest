@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "Sports Data Analyst vs Sports Analyst"
-thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
+thumbnail: "assets/images/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 ---
 
 # Sports Data Analyst vs. Sports Analyst
 
-![]({{site.url}}{{site.baseurl}}/assets/img/blog-img/data-sports.webp?raw=true)
+![]({{site.url}}{{site.baseurl}}/assets/images/blog-img/data-sports.webp?raw=true)
 
 After Moneyball in 2003 a bunch of teams were trying to figure out how to build their version of the Oakland A's. 
 

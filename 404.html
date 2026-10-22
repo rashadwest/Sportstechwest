@@ -1,9 +1,29 @@
 ---
 layout: page
-title: "404"
+title: "Page Not Found"
 sub_title: |
-  Page Not Found <a href="/">Go Home</a>
+  That page moved or never existed. Try the <a href="/blogs">blog</a>, the <a href="/portfolios">portfolio</a>, or head <a href="/">home</a>.
 permalink: /404.html
+sitemap: false
 ---
 
-<div class="pt-120"></div>
+<div class="wrapper light-wrapper">
+  <div class="container inner">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h3 class="mb-30">Latest posts</h3>
+        <ul class="list-unstyled">
+          {% assign hidden_slugs = site.data.hidden_posts.slugs | default: nil %}
+          {% assign shown = 0 %}
+          {% for post in site.posts %}
+          {% if shown >= 5 %}{% break %}{% endif %}
+          {% assign post_slug = post.title | slugify %}
+          {% if hidden_slugs and hidden_slugs contains post_slug %}{% continue %}{% endif %}
+          {% assign shown = shown | plus: 1 %}
+          <li class="mb-15"><a href="{{ post.url | relative_url }}">{{ post.title }}</a> <span class="text-muted">· {{ post.date | date: "%b %-d, %Y" }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

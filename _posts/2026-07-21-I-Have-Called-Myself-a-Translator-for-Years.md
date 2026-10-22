@@ -3,12 +3,12 @@ layout: post
 title: "I Have Called Myself a Translator for Years. Sports Has a Translation Gap."
 description: "Sports does not have a data shortage. It has a translation gap. Why athlete-informed analytics translators turn numbers and film into cues coaches and players can use."
 permalink: /blog/i-have-called-myself-a-translator-for-years/
-thumbnail: "/assets/images/blog-img/translator-analytics-hero.png"
+thumbnail: "/assets/images/blog-img/translator-analytics-hero.jpg"
 badge_color: "text-bg-primary"
 trending: true
 simple_nav: true
 date: 2026-07-21
-tags: [analytics, basketball, coaching, translation, sportstechwest, ballcode, player-development]
+tags: [analytics, basketball, coaching, translation, sportstechwest, BallCODE, player-development]
 categories: [Insights]
 author: "Rashad West"
 ---
@@ -70,7 +70,7 @@ I call that skillset Hoop Tendency Expertise. Hoop Tendency Experts see patterns
 BallCODE is the product. The skill is separate.
 
 <div class="text-center my-4">
-  <img src="https://sportstechwest.com/assets/images/blog-img/translator-analytics-terms.png?v=20260724a" alt="The Translation System: Sportstechwest, BTE Analytics, BallCODE, and BallCODEChess" class="img-fluid">
+  <img src="https://sportstechwest.com/assets/images/blog-img/translator-analytics-terms.jpg?v=20260724a" alt="The Translation System: Sportstechwest, BTE Analytics, BallCODE, and BallCODEChess" class="img-fluid">
 </div>
 
 Coaches need tactical and developmental meaning. Players need clear cues and behaviors they can test. Analysts need confidence that the finding still holds after it has been translated.
@@ -108,7 +108,7 @@ It starts with basketball: stories, decisions, and if/then choices. That familia
 Coding, in this context, means thinking like a computer. Break a task into clear steps, understand the conditions, and decide what happens next.
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/translator-analytics-whiteboard.png" alt="Coach and player reviewing lanes and angles on a whiteboard beside a tablet court diagram" class="img-fluid">
+  <img src="/assets/images/blog-img/translator-analytics-whiteboard.jpg" alt="Coach and player reviewing lanes and angles on a whiteboard beside a tablet court diagram" class="img-fluid">
 </div>
 
 We usually introduce BallCODE to younger learners. The same thinking matters for coaches and athletes at every level.
@@ -175,7 +175,7 @@ BallCODEChess tests knowledge mentally in the same way lifting, running, and pla
 Reps. Decisions. Pattern recognition under pressure.
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/translator-analytics-ballcode.png" alt="Coach and player reviewing a basketball court diagram on a monitor" class="img-fluid">
+  <img src="/assets/images/blog-img/translator-analytics-ballcode.jpg" alt="Coach and player reviewing a basketball court diagram on a monitor" class="img-fluid">
 </div>
 
 If you lead player development, try one scenario more than once. See whether repeating the same context sharpens the decisions.
@@ -196,6 +196,6 @@ That has been my work for years.
 
 I translate the game.
 
-Related: [SportsTechWest the Analytics Translator (2020)](/blog/SportsTechWest-the-Analytics-Translator/)
+Related: [SportsTechWest the Analytics Translator (2020)](/blog/SportsTechWest_the_Analytics_Translator/)
 
 - Rashad West | Sportstechwest

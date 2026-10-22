@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "Building Value in AI"
-thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
+thumbnail: "assets/images/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 ---
 
-![Building value in AI]({{site.url}}{{site.baseurl}}/assets/img/blog-img/AI.webp?raw=true)
+![Building value in AI]({{site.url}}{{site.baseurl}}/assets/images/blog-img/AI.webp?raw=true)
 
 How can you be successful in business or investing?  Build a platform that is a solid foundation and making it a sustainable product that adds value. 
 

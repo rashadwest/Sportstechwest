@@ -56,9 +56,9 @@
           {% endif %}
           {% else %}
           {% if page.thumbnail %}
-          {% assign thumb_src = page.thumbnail | remove_first: '/' %}
+          {% assign thumb_src = page.thumbnail | prepend: '/' | replace_first: '//', '/' %}
           <figure class="rounded text-center">
-            <img src="{{ site.url }}{{ thumb_src }}" alt="{{page.title}}" style="  display: block;
+            <img src="{{ thumb_src | relative_url }}" alt="{{page.title}}" style="  display: block;
   width: 100%;
   max-width: 100%;
   height: auto;
@@ -75,13 +75,13 @@
                 class="badge rounded-pill {{badge_color}}">{{page.categories[0]}}</a>
             </div>
             {% endif %}
-            <h2 class="post-title text-center">{{page.title}}</h2>
+            <h1 class="post-title h2 text-center">{{page.title}}</h1>
             <div class="meta text-center">
               {% if page.date %}
               <span class="date"><i class="jam jam-clock"></i>{{page.date | date_to_string}}</span>
               {% endif %}
               {% if page.author %}
-              <span class="author"><i class="jam jam-user"></i><a href="/author/{{page.author | slugify}}">By
+              <span class="author"><i class="jam jam-user"></i><a href="/about">By
                   {{page.author}}</a></span>
               {% endif %}
             </div>

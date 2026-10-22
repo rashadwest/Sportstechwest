@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "BTE Analytics AdvancedAnalytics Episode 11"
+title: "BTE Analytics AdvancedAnalytics Episode 11 (Part 1)"
+permalink: /blog/BTE_Analytics_AdvancedAnalytics_Episode_11_Part_1/
 thumbnail: "assets/images/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 ---
 

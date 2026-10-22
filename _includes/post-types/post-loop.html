@@ -1,10 +1,10 @@
 {% if post.thumbnail %}
-{% assign post_thumb_src = post.thumbnail | remove_first: '/' %}
+{% assign post_thumb_src = post.thumbnail | prepend: '/' | replace_first: '//', '/' %}
 <figure class="overlay overlay1 rounded mb-30">
   <a href="{{post.url}}"
     ><img
       class="post-thumb"
-      src="{{ site.url }}{{ post_thumb_src }}"
+      src="{{ post_thumb_src | relative_url }}"
       alt="{{post.title}}"
   /></a>
   <figcaption>
@@ -33,6 +33,6 @@
   {% endif %}
   <span class="comments"
     ><i class="jam jam-user"></i
-    ><a href="/authors/{{post.author | slugify}}"> {{post.author}}</a></span
+    ><a href="/about"> {{post.author}}</a></span
   >
 </div>
