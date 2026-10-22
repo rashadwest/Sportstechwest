@@ -1,8 +1,63 @@
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://sportstechwest.com/" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://sportstechwest.com" # no trailing slash, or every generated URL gets "//"; the base hostname & protocol for your site, e.g. http://example.com
 permalink: "blog/:title/"
 
 email: sportstechwest@sportstechwest.com
+
+title: SportsTechWest
+description: >-
+  A blog exploring the journey from professional athlete to sports tech
+  vagabonder, at the intersection of sport, science and technology.
+logo: /assets/images/logo.png
+author: Rashad West
+twitter:
+  username: sportstechwest
+social:
+  name: Rashad West
+  links:
+    - https://www.twitter.com/sportstechwest
+    - https://www.instagram.com/sportstechwest/
+    - https://www.youtube.com/@SportsTechWest
+    - https://github.com/rashadwest
+
+# Internal notes, automation, tooling and unused theme demo pages live in this
+# repo but must not be published on the website.
+exclude:
+  - .cursor
+  - .cursorrules-ballcode-book
+  - AIMCODE-DEPLOYMENT-SYSTEM.md
+  - DEPLOYMENT-SYSTEM-MEMORY.md
+  - README.md
+  - deploy-to-github.sh
+  - "deployment-*" # reports/logs written by deploy-to-github.sh
+  - requirements-youtube.txt
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - package-lock.json
+  - node_modules
+  - vendor
+  - workflows
+  - docs
+  - scripts
+  - config
+  - output
+  - audio-scripts
+  - shorts-packages
+  - brand-kit
+  - previews
+  - Sportstechwest
+  - stw-publish-schedule.json
+  - elements
+  - features
+  - contact/contact-1.html
+  - contact/contact-2.html
+  - contact/contact-3.html
+  - contact/contact-4.html
+  - blank_page.html
+  - scroll.html
+  - waves.html
+  - wrappers.html
 
 # Build settings
 #theme: minima
@@ -32,7 +87,7 @@ pagination:
   enabled: true
 
   # Set to 'true' to enable pagination debugging. This can be enabled in the site config or only for individual pagination pages
-  debug: true
+  debug: false
 
   # The default document collection to paginate if nothing is specified ('posts' is default)
   collection: "posts"
@@ -93,7 +148,13 @@ tag_page_dir: tag
 tag_permalink_style: pretty
 
 jekyll-archives:
-  enabled: all
+  # Tag pages come from jekyll-tagging (tag_page_* above); generating them here
+  # too made both plugins write the same /tag/... files.
+  enabled:
+    - categories
+    - year
+    - month
+    - day
   layout: category
   permalinks:
     category: "/category/:name/"
