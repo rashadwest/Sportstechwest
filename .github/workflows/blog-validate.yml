@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # full history, so the base/previous commit can be diffed
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -29,11 +31,12 @@ jobs:
 
       - name: Validate new posts
         run: |
-          # Get changed post files
+          # Get newly added post files (the rules, e.g. "date after latest post",
+          # only make sense for new posts, so edits to old posts are not checked)
           if [ "${{ github.event_name }}" == "pull_request" ]; then
-            CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep '^_posts/.*\.md$' || true)
+            CHANGED_FILES=$(git diff --diff-filter=A --name-only origin/${{ github.base_ref }}...HEAD | grep '^_posts/.*\.md$' || true)
           else
-            CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD | grep '^_posts/.*\.md$' || true)
+            CHANGED_FILES=$(git diff --diff-filter=A --name-only ${{ github.event.before }} HEAD | grep '^_posts/.*\.md$' || true)
           fi
           
           if [ -z "$CHANGED_FILES" ]; then
@@ -42,10 +45,10 @@ jobs:
           fi
           
           # Validate each changed post
-          for file in $CHANGED_FILES; do
+          while IFS= read -r file; do
             echo "Validating: $file"
             node scripts/validate-post.js "$file" || exit 1
-          done
+          done <<< "$CHANGED_FILES"
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
