@@ -1,8 +1,4 @@
-<link
-  rel="shortcut icon"
-  href="{{site.data.general_settings.favicon | relative_url}}"
-/>
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3"></script>
 <link
   rel="stylesheet"
   type="text/css"
@@ -13,6 +9,7 @@
   type="text/css"
   href="{{relative_url}}/assets/css/plugins.css"
 />
+{% if page.revolution_slider %}
 <link
   rel="stylesheet"
   type="text/css"
@@ -28,6 +25,7 @@
   type="text/css"
   href="{{relative_url}}/assets/revolution/css/navigation.css"
 />
+{% endif %}
 <link
   rel="stylesheet"
   type="text/css"
