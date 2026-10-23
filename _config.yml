@@ -2,7 +2,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://sportstechwest.com" # no trailing slash, or every generated URL gets "//"; the base hostname & protocol for your site, e.g. http://example.com
 permalink: "blog/:title/"
 
-email: sportstechwest@sportstechwest.com
+email: sportstechwest1@gmail.com
 
 title: SportsTechWest
 description: >-
