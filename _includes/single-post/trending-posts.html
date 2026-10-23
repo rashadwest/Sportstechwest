@@ -28,7 +28,7 @@
               {% assign post_thumb_src = post.thumbnail | prepend: '/' | replace_first: '//', '/' %}
               <figure class="overlay overlay1 rounded mb-30">
                 <a href="{{post.url}}">
-                  <img
+                  <img loading="eager"
                     class="post-thumb"
                     src="{{ post_thumb_src | relative_url }}"
                     alt="{{post.title}}"

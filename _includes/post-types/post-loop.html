@@ -15,14 +15,20 @@
 <div class="category">
   <a
     href="/category/{{post.categories[0] | slugify}}"
-    class="badge rounded-pill {{post.badge_color}} "
+    class="badge rounded-pill {{ post.badge_color | default: 'text-bg-primary' }}"
     >{{post.categories[0]}}</a
   >
 </div>
 {% endif %}
 <h2 class="post-title"><a href="{{post.url}}">{{post.title}}</a></h2>
 <div class="post-content">
-  <p>{{post.excerpt | strip_html | truncatewords: 25}}</p>
+  {%- comment -%} Many posts open with a heading that repeats the title, so
+  summarise from the description, or the body text with the title removed. {%- endcomment -%}
+  {%- assign summary = post.meta_description | default: post.description -%}
+  {%- unless summary -%}
+    {%- assign summary = post.content | strip_html | normalize_whitespace | remove_first: post.title -%}
+  {%- endunless %}
+  <p>{{ summary | strip_html | truncatewords: 25 }}</p>
 </div>
 <!-- /.post-content -->
 <div class="meta mb-0">

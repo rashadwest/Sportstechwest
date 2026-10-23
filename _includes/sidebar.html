@@ -77,6 +77,8 @@
   <ul class="list-unstyled tag-list">
     {% capture tags %}
       {% for tag in site.tags %}
+        {%- comment -%} One-off tags crowd the list; they still have tag pages. {%- endcomment -%}
+        {% if tag[1].size < 2 %}{% continue %}{% endif %}
         <li data-sort="{{ site.posts.size | minus: tag[1].size | prepend: '0000' | slice: -4, 4 }}">
            <a class="btn btn-s" href="/{{ site.tag_page_dir }}/{{ tag[0] | slugify: 'pretty' }}">{{ tag[0] }} <span> ({{ tag[1].size }})</span></a>
         </li>

@@ -31,8 +31,8 @@
   {%- assign meta_description = page.meta_description -%}
 {%- elsif page.description -%}
   {%- assign meta_description = page.description -%}
-{%- elsif page.excerpt and page.collection == "posts" -%}
-  {%- assign meta_description = page.excerpt -%}
+{%- elsif page.collection == "posts" -%}
+  {%- assign meta_description = page.content | strip_html | normalize_whitespace | remove_first: page.title -%}
 {%- else -%}
   {%- assign meta_description = site.description -%}
 {%- endif -%}

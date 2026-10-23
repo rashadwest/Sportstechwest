@@ -1,6 +1,7 @@
 # Adds native lazy loading to images so pages only download pictures as the
 # reader scrolls to them. The first few images on a page (logo, hero, post
 # thumbnail) are left alone so above-the-fold content still loads right away.
+# Images that already set loading= (e.g. carousel slides marked eager) are skipped.
 module LazyImages
   EAGER_IMAGES = 3
 

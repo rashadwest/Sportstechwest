@@ -3,7 +3,7 @@ layout: post
 title: "Accelerating Data Innovation: My Journey with Rolling Insights"
 thumbnail: "assets/images/thumbnails/BTE_Future11.webp"
 tags: Innovation
-category: Insight
+category: Insights
 author: Rashad West
 trending: true
 badge_color: "bg-meander"

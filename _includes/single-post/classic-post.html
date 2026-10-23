@@ -72,7 +72,7 @@
             {% if page.categories %}
             <div class="category text-center">
               <a href="/category/{{page.categories[0] | slugify}}"
-                class="badge rounded-pill {{badge_color}}">{{page.categories[0]}}</a>
+                class="badge rounded-pill {{ page.badge_color | default: 'text-bg-primary' }}">{{page.categories[0]}}</a>
             </div>
             {% endif %}
             <h1 class="post-title h2 text-center">{{page.title}}</h1>

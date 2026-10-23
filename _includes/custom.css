@@ -98,3 +98,8 @@ li {
   list-style-type: disc;
   padding-left: 20px;
 }
+
+/* Darken photo overlays so white headings stay readable on bright images */
+.image-wrapper.gradient-overlay:before {
+  background-color: rgba(20, 24, 31, 0.55);
+}

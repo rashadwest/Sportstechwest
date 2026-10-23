@@ -7,7 +7,7 @@
       {% for post in slider_posts %}
       <div class="item">
         <figure class="overlay caption caption-overlay rounded mb-0">
-          <a href="{{post.url}}"><img src="{{post.post_image}}" alt="{{post.title}}"/></a>
+          <a href="{{post.url}}"><img loading="eager" src="{{post.post_image}}" alt="{{post.title}}"/></a>
           <figcaption class="d-flex text-left p-30">
             <div class="align-self-end mt-auto">
               {% if post.categories %}
