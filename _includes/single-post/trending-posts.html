@@ -28,7 +28,7 @@
               {% assign post_thumb_src = post.thumbnail | prepend: '/' | replace_first: '//', '/' %}
               <figure class="overlay overlay1 rounded mb-30">
                 <a href="{{post.url}}">
-                  <img loading="eager"
+                  <img
                     class="post-thumb"
                     src="{{ post_thumb_src | relative_url }}"
                     alt="{{post.title}}"
@@ -42,7 +42,7 @@
               <div class="category">
                 <a
                   href="/category/{{post.categories[0] | slugify}}"
-                  class="badge rounded-pill {{badge_color}}"
+                  class="badge rounded-pill {{ post.badge_color | default: 'text-bg-primary' }}"
                   >{{post.categories[0]}}</a
                 >
               </div>

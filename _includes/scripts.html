@@ -20,8 +20,33 @@
   jQuery.fn.revolution = jQuery.fn.revolution || function () { return this; };
 </script>
 {% endif %}
+<script>
+  // Owl Carousel renders its dots as unlabeled buttons; name them for screen readers
+  jQuery(document).on("initialized.owl.carousel refreshed.owl.carousel", function (e) {
+    jQuery(e.target).find(".owl-dot").each(function (i) {
+      this.setAttribute("aria-label", "Go to slide " + (i + 1));
+    });
+  });
+</script>
 <script src="{{relative_url}}/assets/js/plugins.js"></script>
 <script src="{{relative_url}}/assets/js/simple-jekyll-search.min.js"></script>
 <script src="{{relative_url}}/assets/js/scripts.js"></script>
+<script>
+  // Images in masonry grids are lazy-loaded, so they can finish loading after
+  // Isotope has measured the grid. Re-run the layout as each one arrives, or
+  // cards overlap each other and the footer.
+  (function () {
+    var pending;
+    document.addEventListener("load", function (e) {
+      if (e.target.tagName !== "IMG" || !e.target.closest(".isotope")) return;
+      clearTimeout(pending);
+      pending = setTimeout(function () {
+        jQuery(".isotope").each(function () {
+          if (jQuery(this).data("isotope")) jQuery(this).isotope("layout");
+        });
+      }, 100);
+    }, true);
+  })();
+</script>
 
   

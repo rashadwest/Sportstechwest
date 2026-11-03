@@ -29,7 +29,7 @@
     {% if page.extended_nav== true %}
     <div class="topbar d-flex flex-row w-100 justify-content-between align-items-center">
       <div class="navbar-brand">
-        <a href="{{site.url}}">
+        <a href="{{site.url}}" aria-label="{{site.data.general_settings.title}} home">
           {% if include.light_logo %}
           <img src="{{site.data.general_settings.light_logo_1x}}"
             srcset="{{site.data.general_settings.light_logo_1x}} 1x, {{site.data.general_settings.light_logo_2x}} 2x"
@@ -122,7 +122,7 @@
     {% else %}
     <div class="navbar-brand">
 
-      <a href="{{site.url}}">
+      <a href="{{site.url}}" aria-label="{{site.data.general_settings.title}} home">
         {% if include.light_logo %}
 
         <img src="{{site.data.general_settings.light_logo_1x}}"
@@ -170,11 +170,11 @@
     {% endif %}
     <div class="navbar-collapse offcanvas-nav">
       <div class="offcanvas-header d-lg-none d-xl-none">
-        <a href="{{site.url}}">
+        <a href="{{site.url}}" aria-label="{{site.data.general_settings.title}} home">
           <img src="{{site.data.general_settings.light_logo_1x}}"
             srcset="{{site.data.general_settings.light_logo_1x}} 1x, {{site.data.general_settings.light_logo_2x}} 2x"
             alt="{{site.data.general_settings.title}}" /></a>
-        <button class="plain offcanvas-close offcanvas-nav-close"><i class="jam jam-close"></i></button>
+        <button class="plain offcanvas-close offcanvas-nav-close" aria-label="Close"><i class="jam jam-close"></i></button>
       </div>
       <ul
         class="navbar-nav {% if include.alignment_class %} {{include.alignment_class}} {% else %} ms-auto {% endif %}">
@@ -257,8 +257,8 @@
 </nav>
 <!-- /.navbar -->
 <div class="offcanvas-info inverse-text">
-  <button class="plain offcanvas-close offcanvas-info-close"><i class="jam jam-close"></i></button>
-  <a href="{{site.url}}">
+  <button class="plain offcanvas-close offcanvas-info-close" aria-label="Close"><i class="jam jam-close"></i></button>
+  <a href="{{site.url}}" aria-label="{{site.data.general_settings.title}} home">
     <img src="{{site.data.general_settings.light_logo_1x}}"
       srcset="{{site.data.general_settings.light_logo_1x}} 1x, {{site.data.general_settings.light_logo_2x}} 2x"
       class="{% if include.logo_class %} {{include.logo_class}} {% else %} logo-light {% endif %}"
@@ -292,7 +292,7 @@
     {% endif %}
     <ul class="social social-mute social-s ms-auto">
       {% for social_info in site.data.general_settings.social_accounts.links %}
-      <li><a href="{{social_info.url}}"><i class="{{social_info.icon}}"></i></a></li>
+      <li><a href="{{social_info.url}}" aria-label="{{ social_info.icon | split: 'fa-' | last | capitalize }}"><i class="{{social_info.icon}}"></i></a></li>
       {% endfor %}
     </ul>
   </div>

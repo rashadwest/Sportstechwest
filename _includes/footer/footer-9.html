@@ -87,7 +87,7 @@
             {% for social_info in
             site.data.general_settings.social_accounts.links %}
             <li>
-              <a href="{{social_info.url}}"
+              <a href="{{social_info.url}}" aria-label="{{ social_info.icon | split: 'fa-' | last | capitalize }}"
                 ><i class="{{social_info.icon}}"></i
               ></a>
             </li>

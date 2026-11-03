@@ -58,7 +58,7 @@
           {% if page.thumbnail %}
           {% assign thumb_src = page.thumbnail | prepend: '/' | replace_first: '//', '/' %}
           <figure class="rounded text-center">
-            <img src="{{ thumb_src | relative_url }}" alt="{{page.title}}" style="  display: block;
+            <img loading="eager" fetchpriority="high" src="{{ thumb_src | relative_url }}" alt="{{page.title}}" style="  display: block;
   width: 100%;
   max-width: 100%;
   height: auto;

@@ -103,3 +103,43 @@ li {
 .image-wrapper.gradient-overlay:before {
   background-color: rgba(20, 24, 31, 0.55);
 }
+
+/* Accessible contrast: the theme's #999 meta text (dates, captions, certificate
+   labels) is too light to read on white and light-gray backgrounds */
+:root {
+  --color-gray: #666; /* theme default #999; drives .color-gray headings */
+}
+.meta,
+.meta a,
+.meta span {
+  color: #666;
+}
+.text-muted {
+  color: #666 !important; /* overrides the theme's own !important #808080 */
+}
+
+/* Links inside post text are underlined so they don't rely on color alone */
+.post-content p a,
+.post-content li a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* The about-section animation is a <video>; give it the same blob mask the theme gives images */
+.img-blob video {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+.img-blob.blob12 video {
+  /* mirrors .img-blob img + .img-blob.blob12 img in style.css */
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: auto auto;
+  -webkit-mask-box-image: url(/assets/images/blob/blob12.svg);
+  -webkit-mask-image: url(/assets/images/blob/blob12.svg);
+  mask-image: url(/assets/images/blob/blob12.svg);
+  -webkit-mask-box-image-repeat: space;
+}

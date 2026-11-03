@@ -6,7 +6,13 @@
             <div class="position-relative">
               {% if site.data.about_index.about_area.image %}
               <figure>
-                <div class="img-blob blob12"><img src="{{relative_url}}/assets/images/display/Newest_STW.gif" style="width: 30rem" alt="" /></div>
+                <div class="img-blob blob12">
+                  <!-- MP4 instead of the original 3.6 MB GIF (same animation, ~290 KB) -->
+                  <video autoplay muted loop playsinline preload="metadata" width="480" height="288" style="width: 30rem" poster="{{relative_url}}/assets/images/display/Newest_STW-poster.webp" aria-hidden="true">
+                    <source src="{{relative_url}}/assets/images/display/Newest_STW.mp4" type="video/mp4" />
+                    <source src="{{relative_url}}/assets/images/display/Newest_STW.webm" type="video/webm" />
+                  </video>
+                </div>
               </figure>
               {% endif %}
               <!-- <div class="row counter counter-s position-absolute" style="top: 45%; right: 8%;">
