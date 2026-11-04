@@ -1,5 +1,5 @@
 blogs_area:
   enable: true
-  title: "Our Journal"
-  description: "Here are the latest posts from <br> my blog that grabbed the most attention"
+  title: "Latest from the Blog"
+  description: "New writing on sports analytics, player development, <br> and building in sports tech"
   posts_number: 3

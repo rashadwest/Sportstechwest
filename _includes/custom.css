@@ -172,3 +172,8 @@ li {
   margin-top: 0.15rem;
   color: rgba(255, 255, 255, 0.65);
 }
+
+/* Keep the footer call-to-action button on one line */
+.footer-dark-wrapper .overflow-bottom .btn {
+  white-space: nowrap;
+}

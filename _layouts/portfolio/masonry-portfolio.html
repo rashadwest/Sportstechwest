@@ -24,8 +24,13 @@ layout: page
       <div class="clearfix"></div>
       <div class="tiles text-center light-gallery-wrapper">
         <div class="row isotope">
+          {%- comment -%} Two passes: projects and photos first, certificates after. {%- endcomment -%}
+          {% for pass in (1..2) %}
           {% for portfolio in
           site.data.portfolio_page.portfolios_area.portfolios %}
+          {%- if portfolio.filters contains "certificates" -%}{%- assign is_cert = true -%}{%- else -%}{%- assign is_cert = false -%}{%- endif -%}
+          {%- if pass == 1 and is_cert -%}{%- continue -%}{%- endif -%}
+          {%- if pass == 2 and is_cert == false -%}{%- continue -%}{%- endif %}
           <div
             class="item grid-sizer col-md-6 col-lg-4 {% for filter in portfolio.filters %} {{filter}} {% endfor %}"
           >
@@ -44,6 +49,7 @@ layout: page
             <!-- /.box -->
           </div>
           <!-- /.item -->
+          {% endfor %}
           {% endfor %}
         </div>
         <!-- /.row -->

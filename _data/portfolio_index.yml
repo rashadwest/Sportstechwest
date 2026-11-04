@@ -1,9 +1,9 @@
 portfolios_area:
   enable: true
-  title: "My Portfolio"
-  sub_title: "Check out some of my Projects and Achievements"
+  title: "Selected Work"
+  sub_title: "Projects, events, and analytics from the court to the classroom"
   button_url: "/portfolios"
-  button_text: "View my Portfolios"
+  button_text: "See All Work & Certificates"
   categories:
     - title: "Gallery"
       filter: "gallery"
