@@ -143,3 +143,32 @@ li {
   mask-image: url(/assets/images/blob/blob12.svg);
   -webkit-mask-box-image-repeat: space;
 }
+
+/* Header search results */
+.site-search-results {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 1.25rem 1rem;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.site-search-results li {
+  padding: 0.55rem 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.site-search-results li:last-child {
+  border-bottom: 0;
+}
+.site-search-results a {
+  color: #fff;
+}
+.site-search-results a:hover {
+  text-decoration: underline;
+}
+.site-search-results small {
+  display: block;
+  margin-top: 0.15rem;
+  color: rgba(255, 255, 255, 0.65);
+}

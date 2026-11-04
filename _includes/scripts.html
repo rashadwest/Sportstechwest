@@ -32,6 +32,46 @@
 <script src="{{relative_url}}/assets/js/simple-jekyll-search.min.js"></script>
 <script src="{{relative_url}}/assets/js/scripts.js"></script>
 <script>
+  // Header search. Works in both the page header and the sticky copy that
+  // scripts.js clones on scroll, so handlers are delegated from document.
+  (function ($) {
+    var posts = null;
+    function load(done) {
+      if (posts) return done();
+      $.getJSON("{{ '/search.json' | relative_url }}", function (data) { posts = data; done(); });
+    }
+    function esc(s) { return $("<div>").text(s).html(); }
+    $(document).on("click", ".search-dropdown .collapse-toggle", function (e) {
+      e.preventDefault();
+      var $menu = $(this).siblings(".dropdown-menu");
+      var opening = !$menu.hasClass("show");
+      $menu.collapse(opening ? "show" : "hide");
+      $(this).attr("aria-expanded", opening);
+      if (opening) { load(function () {}); setTimeout(function () { $menu.find(".site-search-input").trigger("focus"); }, 150); }
+    });
+    $(document).on("input", ".site-search-input", function () {
+      var $input = $(this);
+      var $out = $input.closest(".dropdown-menu").find(".site-search-results");
+      var terms = $.trim($input.val()).toLowerCase().split(/\s+/).filter(Boolean);
+      if (!terms.length) { $out.empty(); return; }
+      load(function () {
+        var hits = posts.filter(function (p) {
+          var text = (p.title + " " + p.tags + " " + p.category).toLowerCase();
+          return terms.every(function (t) { return text.indexOf(t) !== -1; });
+        }).slice(0, 8);
+        $out.html(hits.length ? hits.map(function (p) {
+          return '<li><a href="' + p.url + '">' + esc(p.title) + "</a> <small>" + esc(p.date) + "</small></li>";
+        }).join("") : "<li>No posts found</li>");
+      });
+    });
+    $(document).on("submit", ".search-dropdown form", function (e) {
+      e.preventDefault();
+      var first = $(this).closest(".dropdown-menu").find(".site-search-results a").first();
+      if (first.length) window.location = first.attr("href");
+    });
+  })(jQuery);
+</script>
+<script>
   // Images in masonry grids are lazy-loaded, so they can finish loading after
   // Isotope has measured the grid. Re-run the layout as each one arrives, or
   // cards overlap each other and the footer.

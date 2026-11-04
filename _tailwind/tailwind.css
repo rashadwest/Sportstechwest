@@ -10,3 +10,8 @@
 @source "../*.html";
 @source "../portfolios";
 @source "../contact";
+
+/* Bootstrap's .collapse (hidden until .show) shares its name with Tailwind's
+   visibility: collapse utility, which kept opened panels like the header
+   search invisible. Let Bootstrap own that class. */
+@source not inline("collapse");
