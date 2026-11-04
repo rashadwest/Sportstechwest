@@ -55,6 +55,7 @@ exclude:
   - contact/contact-3.html
   - contact/contact-4.html
   - blank_page.html
+  - insight.html # unfinished /insights page (template placeholder)
   - scroll.html
   - waves.html
   - wrappers.html
