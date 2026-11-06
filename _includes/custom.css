@@ -177,3 +177,36 @@ li {
 .footer-dark-wrapper .overflow-bottom .btn {
   white-space: nowrap;
 }
+
+/* Homepage BallCODE section */
+.ballcode-video {
+  position: relative;
+}
+.ballcode-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.4);
+  border: 0;
+  cursor: pointer;
+}
+.ballcode-play[hidden] {
+  display: none;
+}
+.ballcode-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #000;
+}
+/* a darker shade of the theme blue: the default only reaches 4.2:1 on gray */
+#ballcode .title-color,
+.ballcode-link {
+  color: #2f5fb8 !important;
+}
+.ballcode-link {
+  display: inline-block;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
