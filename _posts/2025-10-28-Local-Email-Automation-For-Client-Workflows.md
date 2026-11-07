@@ -2,7 +2,7 @@
 layout: post
 title: "Local Email Automation: From Inbox to Action for Client Workflows"
 description: "How I built a private, in-house email automation system to streamline client ops and help friends and colleagues automate theirs."
-thumbnail: "/assets/images/blog-img/n8n-title-page.png"
+thumbnail: "/assets/images/blog-img/n8n-title-page.jpg"
 badge_color: "text-bg-primary"
 trending: true
 simple_nav: true
@@ -52,7 +52,7 @@ It's not replacing my judgment. It's giving me space to think more deeply and re
 *Note: I tested this system extensively on my personal email before deploying it to my main inbox. Safety first, especially with automation.*  
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/n8n-email-workflow.png" alt="n8n email automation workflow">
+  <img src="/assets/images/blog-img/n8n-email-workflow.jpg" alt="n8n email automation workflow">
 </div>
 
 ---
@@ -66,7 +66,7 @@ It's not replacing my judgment. It's giving me space to think more deeply and re
 The setup isn't just technical. It's educational. Each step is teaching me how modern AI systems think, how they interpret context, and how they can safely take action on my behalf.  
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/claude-mcp-n8n-setup.png" alt="Claude AI, MCP, and n8n architecture diagram">
+  <img src="/assets/images/blog-img/claude-mcp-n8n-setup.jpg" alt="Claude AI, MCP, and n8n architecture diagram">
 </div>
 
 ---
@@ -101,7 +101,7 @@ After: Same message. Claude fixes it in seconds and shows me exactly what change
 That's when I realized this isn't just about automating a process. It's about *teaching AI how to maintain and improve itself* while I stay in the driver's seat.  
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/n8n-mcp-breakthrough.png" alt="Before and after: MCP breakthrough showing slow manual fixes vs fast AI-powered automation">
+  <img src="/assets/images/blog-img/n8n-mcp-breakthrough.jpg" alt="Before and after: MCP breakthrough showing slow manual fixes vs fast AI-powered automation">
 </div>
 
 ---

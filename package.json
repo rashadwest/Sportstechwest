@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "init-draft": "node scripts/cursor-init-draft.js",
     "notion-upsert": "node scripts/notion-upsert.js",
-    "validate-post": "node scripts/validate-post.js"
+    "validate-post": "node scripts/validate-post.js",
+    "build:css": "tailwindcss -i _tailwind/tailwind.css -o assets/css/tailwind.css --minify"
   },
   "keywords": [],
   "author": "",
@@ -16,9 +17,10 @@
     "@notionhq/client": "^2.2.15"
   },
   "devDependencies": {
+    "@tailwindcss/cli": "4.3.3",
+    "@types/node": "^20.10.0",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.3",
-    "tailwindcss": "^4.0.14",
-    "@types/node": "^20.10.0"
+    "tailwindcss": "4.3.3"
   }
 }

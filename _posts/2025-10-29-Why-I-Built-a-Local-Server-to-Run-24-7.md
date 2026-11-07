@@ -2,12 +2,12 @@
 layout: post
 title: "Why I Built a Local Server to Run 24/7"
 description: "Why I decided to build my own always-on infrastructure for automation, AI workflows, and continuous learning — and why it changed everything."
-thumbnail: "/assets/images/blog-img/24-7-server-hero.png"
+thumbnail: "/assets/images/blog-img/24-7-server-hero.jpg"
 badge_color: "text-bg-primary"
 trending: true
 simple_nav: true
 date: 2025-10-29
-tags: [server, automation, docker, 24/7, local, infrastructure, mcp]
+tags: [server, automation, docker, 24-7, local, infrastructure, mcp]
 categories: [Insights]
 author: "Rashad West"
 ---
@@ -47,7 +47,7 @@ Here's what's live 24/7:
 Everything runs locally, not in the cloud. It's private, fast, and completely under my control.
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/24-7-automation-workflows.png" alt="24/7 Automation Workflows" class="img-fluid">
+  <img src="/assets/images/blog-img/24-7-automation-workflows.jpg" alt="24/7 Automation Workflows" class="img-fluid">
 </div>
 
 ---
@@ -69,7 +69,7 @@ I'm not paying for servers that sit idle. My Mac was already running — now it'
 This isn't about being anti-cloud. It's about truly understanding and owning the systems that run my business.
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/24-7-server-comparison.png" alt="Before and After: Cloud vs Local 24/7" class="img-fluid">
+  <img src="/assets/images/blog-img/24-7-server-comparison.jpg" alt="Before and After: Cloud vs Local 24/7" class="img-fluid">
 </div>
 
 ---
@@ -87,7 +87,7 @@ Everything starts automatically when the machine boots. If a container crashes, 
 The setup is lightweight, reliable, and doesn't need babysitting.
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/24-7-server-architecture.png" alt="24/7 Server Architecture Diagram" class="img-fluid">
+  <img src="/assets/images/blog-img/24-7-server-architecture.jpg" alt="24/7 Server Architecture Diagram" class="img-fluid">
 </div>
 
 ---

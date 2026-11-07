@@ -3,7 +3,7 @@ layout: post
 title: "From the Court to the Tech World: My Unforgettable Experience at the Paris Olympics and What It Means for BTE Analytics"
 thumbnail: "assets/images/thumbnails/olympics-paris.webp"
 author: Rashad West
-tag: Sports
+tag: sports
 category: [Analytics, BTE]
 trending: true
 badge_color: "bg-meander"

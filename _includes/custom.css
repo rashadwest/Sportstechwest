@@ -98,3 +98,115 @@ li {
   list-style-type: disc;
   padding-left: 20px;
 }
+
+/* Darken photo overlays so white headings stay readable on bright images */
+.image-wrapper.gradient-overlay:before {
+  background-color: rgba(20, 24, 31, 0.55);
+}
+
+/* Accessible contrast: the theme's #999 meta text (dates, captions, certificate
+   labels) is too light to read on white and light-gray backgrounds */
+:root {
+  --color-gray: #666; /* theme default #999; drives .color-gray headings */
+}
+.meta,
+.meta a,
+.meta span {
+  color: #666;
+}
+.text-muted {
+  color: #666 !important; /* overrides the theme's own !important #808080 */
+}
+
+/* Links inside post text are underlined so they don't rely on color alone */
+.post-content p a,
+.post-content li a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* The about-section animation is a <video>; give it the same blob mask the theme gives images */
+.img-blob video {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+.img-blob.blob12 video {
+  /* mirrors .img-blob img + .img-blob.blob12 img in style.css */
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: auto auto;
+  -webkit-mask-box-image: url(/assets/images/blob/blob12.svg);
+  -webkit-mask-image: url(/assets/images/blob/blob12.svg);
+  mask-image: url(/assets/images/blob/blob12.svg);
+  -webkit-mask-box-image-repeat: space;
+}
+
+/* Header search results */
+.site-search-results {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 1.25rem 1rem;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.site-search-results li {
+  padding: 0.55rem 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.site-search-results li:last-child {
+  border-bottom: 0;
+}
+.site-search-results a {
+  color: #fff;
+}
+.site-search-results a:hover {
+  text-decoration: underline;
+}
+.site-search-results small {
+  display: block;
+  margin-top: 0.15rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Keep the footer call-to-action button on one line */
+.footer-dark-wrapper .overflow-bottom .btn {
+  white-space: nowrap;
+}
+
+/* Homepage BallCODE section */
+.ballcode-video {
+  position: relative;
+}
+.ballcode-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.4);
+  border: 0;
+  cursor: pointer;
+}
+.ballcode-play[hidden] {
+  display: none;
+}
+.ballcode-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #000;
+}
+/* a darker shade of the theme blue: the default only reaches 4.2:1 on gray */
+#ballcode .title-color,
+.ballcode-link {
+  color: #2f5fb8 !important;
+}
+.ballcode-link {
+  display: inline-block;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

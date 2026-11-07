@@ -41,7 +41,7 @@ Each AI agent can tweak what it shares based on what people actually like or eng
 The whole point isn't to teach blockchain like a classroom — it's just to make learning **fun and effortless**.
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/defi_blog1.png" alt="Blockchain Learning" class="img-fluid">
+  <img src="/assets/images/blog-img/defi_blog1.jpg" alt="Blockchain Learning" class="img-fluid">
 </div>
 
 We get to learn together, talk about new ideas, and actually understand what's shaping the digital future instead of just hearing the buzzwords.
@@ -53,7 +53,7 @@ That's pretty much the vibe of this mini AI + blockchain experiment.
 And honestly, it's been a great way to stay curious and explore what's next — together.
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/Play-to-Earn_Defi_BLog.png" alt="Play to Earn DeFi" class="img-fluid">
+  <img src="/assets/images/blog-img/Play-to-Earn_Defi_BLog.jpg" alt="Play to Earn DeFi" class="img-fluid">
 </div>
 
 

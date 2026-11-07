@@ -18,7 +18,7 @@
               {% if contact_data.field_type == "input" %}
               <div class="col-md-6">
                 <div class="form-group">
-                  <input id="{{contact_data.field_name}}" type="text" name="{{contact_data.field_name}}" class="form-control" placeholder="{{contact_data.placeholder}} *" required="required" data-error="{{contact_data.error_message}}">
+                  <input id="{{contact_data.field_name}}" type="{% if contact_data.field_name contains 'email' %}email{% else %}text{% endif %}" name="{{contact_data.field_name}}" class="form-control" placeholder="{{contact_data.placeholder}} *" required="required" data-error="{{contact_data.error_message}}">
                   <div class="help-block with-errors"></div>
                 </div>
               </div>

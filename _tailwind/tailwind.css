@@ -1,0 +1,17 @@
+/* Source for assets/css/tailwind.css, built with `npm run build:css`.
+   Matches what the @tailwindcss/browser script generated in the browser,
+   but ahead of time so pages don't wait on a script before rendering. */
+@import "tailwindcss" source(none);
+
+@source "../_includes";
+@source "../_layouts";
+@source "../_data";
+@source "../_posts";
+@source "../*.html";
+@source "../portfolios";
+@source "../contact";
+
+/* Bootstrap's .collapse (hidden until .show) shares its name with Tailwind's
+   visibility: collapse utility, which kept opened panels like the header
+   search invisible. Let Bootstrap own that class. */
+@source not inline("collapse");

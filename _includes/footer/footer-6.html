@@ -3,7 +3,7 @@
 <div class="wrapper footer-dark-wrapper">
   <div class="container">
     <div class="overflow-bottom">
-      <div class="box shadow p-60 image-wrapper bg-full bg-image inverse-text rounded d-md-flex align-items-md-center justify-content-md-between" data-image-src="{% if include.image_src %} {{include.image_src}} {% else %}/assets/images/art/bg9.webp {% endif %}">
+      <div class="box shadow p-60 image-wrapper bg-full bg-image inverse-text rounded d-md-flex align-items-md-center justify-content-md-between" data-image-src="{% if include.image_src %}{{include.image_src}}{% else %}/assets/images/art/bg9.webp{% endif %}">
         <h3 class="display-3 mb-0">Convinced yet? Let's make something great together.</h3>
         <div class="space30 d-md-none"></div>
         <a href="#" class="btn btn-white btn-strong-hover mb-0">Contact Us</a>
@@ -89,7 +89,7 @@
               {% endif %}
               <ul class="social social-mute social-s ms-auto">
                 {% for social_info in site.data.general_settings.social_accounts.links %}
-                <li><a href="{{social_info.url}}"><i class="{{social_info.icon}}"></i></a></li>
+                <li><a href="{{social_info.url}}" aria-label="{{ social_info.icon | split: 'fa-' | last | capitalize }}"><i class="{{social_info.icon}}"></i></a></li>
                 {% endfor %}
               </ul>
             </div>

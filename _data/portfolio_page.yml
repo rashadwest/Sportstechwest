@@ -286,8 +286,8 @@ portfolios_area:
 
     - title: "BTE Analytics Moveahead Partnership"
       sub_title: "Analysis"
-      sm_image: "/assets/images/portfolio/BTE_Analytics_Moveahead_Partnership.png"
-      big_image: "/assets/images/portfolio/BTE_Analytics_Moveahead_Partnership.png"
+      sm_image: "/assets/images/portfolio/BTE_Analytics_Moveahead_Partnership.jpg"
+      big_image: "/assets/images/portfolio/BTE_Analytics_Moveahead_Partnership.jpg"
       url: "#"
       filters:
         - analytics_culture

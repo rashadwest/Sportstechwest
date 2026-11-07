@@ -1,14 +1,14 @@
 ---
 layout: post
 title: "SportsTechWest the Analytics Translator"
-thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
+thumbnail: "assets/images/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 ---
 
 # SportsTechWest the Analytics Translator
 
 ## The problem I am solving 
 
-![]({{site.url}}{{site.baseurl}}/assets/img/blog-img/translator.webp?raw=true)
+![]({{site.url}}{{site.baseurl}}/assets/images/blog-img/translator.webp?raw=true)
 
 "Every yeare we come here and we have the same discussion about how the geeks communicate with the jocks," Zack Lowe during the MIT Sloan Sports Analytics conference during the Basketball Analytics talk.  
 

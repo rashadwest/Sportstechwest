@@ -2,7 +2,7 @@
 layout: post
 title: "Digital Language: Why Coding Is As Essential As Reading and Writing"
 description: "Why coding is the new literacy in an AI-powered world. How BallCode bridges basketball and programming to teach kids systematic thinking, decision-making, and the language of machines."
-thumbnail: "assets/images/Basketball Meets Coding Innovation.png"
+thumbnail: "assets/images/Basketball Meets Coding Innovation.jpg"
 badge_color: "text-bg-primary"
 trending: true
 simple_nav: true

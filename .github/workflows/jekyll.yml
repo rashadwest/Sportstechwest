@@ -29,7 +29,7 @@ concurrency:
 jobs:
   # Build job
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # pinned: the pinned ruby/setup-ruby release does not recognize ubuntu-latest (26.04)
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -43,6 +43,15 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Build Tailwind CSS
+        # Regenerate assets/css/tailwind.css so classes used in new posts are included
+        run: |
+          npm ci
+          npm run build:css
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
@@ -57,7 +66,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # same image as the build job
     needs: build
     steps:
       - name: Deploy to GitHub Pages

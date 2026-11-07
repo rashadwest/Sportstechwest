@@ -8,7 +8,7 @@
             <div class="item-inner">
               <div class="box bg-white shadow">
                   <blockquote>
-                    <p>"{{feedback.quote | truncate: 150}}"</p>
+                    <p>"{{feedback.quote | strip | truncate: 150}}"</p>
                     <div class="blockquote-details">
                       {% if feedback.image %}
                       <div class="img-blob blob1">

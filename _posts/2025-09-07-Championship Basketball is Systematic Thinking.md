@@ -133,4 +133,4 @@ The data is clear: teams that master this systematic approach don't just compete
 
 ---
 
-**Keywords:** Corner 3, NBA Analytics, Basketball Strategy, Decision Making, Teamwork, Basketball Efficiency, Basketball Data, Steve Kerr, Boston Celtics, Golden State Warriors, Basketball Fundamentals, Systematic Thinking](https://sportstechwest.com/blog/10-Championship-Basketball-is-Systematic-Thinking/)
+**Keywords:** Corner 3, NBA Analytics, Basketball Strategy, Decision Making, Teamwork, Basketball Efficiency, Basketball Data, Steve Kerr, Boston Celtics, Golden State Warriors, Basketball Fundamentals, Systematic Thinking

@@ -25,12 +25,12 @@
             {% assign shown = shown | plus: 1 %}
             <div class="item">
               {% if post.thumbnail %}
-              {% assign post_thumb_src = post.thumbnail | remove_first: '/' %}
+              {% assign post_thumb_src = post.thumbnail | prepend: '/' | replace_first: '//', '/' %}
               <figure class="overlay overlay1 rounded mb-30">
                 <a href="{{post.url}}">
                   <img
                     class="post-thumb"
-                    src="{{ site.url }}{{ post_thumb_src }}"
+                    src="{{ post_thumb_src | relative_url }}"
                     alt="{{post.title}}"
                   />
                 </a>
@@ -41,8 +41,8 @@
               {% endif %} {% if post.categories %}
               <div class="category">
                 <a
-                  href="{{post.categories[0] | slugify}}"
-                  class="badge rounded-pill {{badge_color}}"
+                  href="/category/{{post.categories[0] | slugify}}"
+                  class="badge rounded-pill {{ post.badge_color | default: 'text-bg-primary' }}"
                   >{{post.categories[0]}}</a
                 >
               </div>

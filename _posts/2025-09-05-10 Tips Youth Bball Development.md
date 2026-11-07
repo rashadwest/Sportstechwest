@@ -2,7 +2,7 @@
 layout: post
 title: "10 Tips for Youth Bball Development"
 description: "From Individual Skills to Team Basketball: A Progressive Framework"
-thumbnail: "assets/images/thumbnails/10_Tips_Youth_Bball_Development.png"
+thumbnail: "assets/images/thumbnails/10_Tips_Youth_Bball_Development.jpg"
 badge_color: "text-bg-primary"
 trending: true
 simple_nav: true

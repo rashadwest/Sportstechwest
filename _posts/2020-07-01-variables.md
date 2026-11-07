@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "variables"
-thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
+thumbnail: "assets/images/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 ---
 
 # Variables 
@@ -27,4 +27,4 @@ SyntaxError: can't assign to literal
 
 Adding image
 
-![alt text]({{ site.url }}{{ site.baseurl }}/assets/img/blog-img/Screen Shot 2020-07-07 at 11.53.25 AM.webp)
+![alt text]({{ site.url }}{{ site.baseurl }}/assets/images/blog-img/Screen Shot 2020-07-07 at 11.53.25 AM.webp)

@@ -8,7 +8,7 @@ badge_color: "text-bg-primary"
 trending: true
 simple_nav: true
 date: 2026-06-23
-tags: [basketball, nba, analytics, draft, data-science, tracking-data]
+tags: [basketball, NBA, analytics, draft, data-science, tracking-data]
 categories: [Insights]
 author: "Rashad West"
 ---
