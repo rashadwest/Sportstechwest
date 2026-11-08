@@ -3,6 +3,9 @@
 ballcode_area:
   enable: true
   eyebrow: "BallCODE"
+  band_image: "/assets/images/display/School_Photo_kids.jpeg"
+  band_title: "BallCODE"
+  band_sub: "Kids learn to program robots through basketball strategy"
   title: "Kids program robots to play basketball"
   text: "Kids learn what a robot is and how to program one. It's coding through basketball strategy. Free to play, ages 7 to 18."
   byline: "Built by Rashad West, a former pro player."
