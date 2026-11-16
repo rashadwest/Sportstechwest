@@ -3,9 +3,9 @@
 
 **Purpose:** Hand this conversation to another agent (Claude, Cursor, Garvis, n8n, etc.) so it can continue the work or reuse the post's research without re-deriving anything.
 **Owner:** Rashad West (Sportstechwest)
-**Last updated:** 2026-11-16
+**Last updated:** 2026-11-16 (voice pass + ship)
 **Repo:** `rashadwest/Sportstechwest`
-**Branch:** `claude/determined-tesla-0r6btx` (pushed; NOT merged to `main`; no PR opened yet)
+**Branch:** `claude/determined-tesla-0r6btx` (merged to `main` via PR; live on the site)
 
 > Agent instructions: read this whole file first. Treat the "Verified facts" and "Research" sections as the source of truth for this topic. Do not re-add anything listed under "Decisions already made" as open questions. If you change the post, update this file in the same commit.
 
@@ -17,6 +17,7 @@
 2. **"Give me a good article to push."** Identified the topic as the **Michael Beasley vs. Lance Stephenson MMA fight (May 23, 2026)**. Wrote a new post, built a hero image, validated, committed, pushed.
 3. **"Use AIMCODE/Thanos to make sure we are doing this all right."** Ran the Thanos review (AIMCODE + Garvis + Launch, per `workflows/BallCODE-Book/documents/AT-COMMANDS-QUICK-REFERENCE.md`). Added 6 peer-reviewed citations, a pressure/choking section, a measurable "Pressure Gap" drill, brand-color hero, inline image with alt text, and a social launch kit. Committed and pushed.
 4. **"Was this ever pushed? Create a CCO."** Confirmed pushed to the branch (not live). Created this file.
+5. **"Let's push it. Make it a consistent thing. Spell/grammar check, my voice."** Voice and proofreading pass on the post (short standalone lines, first-person experience as player/trainer/translator, ties to Rashad's film coaching loop). Made the CCO a standard step: `README.md` (process + Thanos post workflow) and `CCO-TEMPLATE.md` in this folder. Opened a PR into `main` and merged it.
 
 ---
 
@@ -97,6 +98,7 @@ Caveat: verified from abstracts and citing papers, not full texts. Claims in the
 - Stephenson's quote is used without the slur that preceded it.
 - Finish time is given as a range, not one number.
 - Hero image is typographic only (no player photos, no rights issues), brand colors.
+- Voice: short standalone lines, measured not hype, "I watched it as a translator," references Rashad's real roles (player receiving information in live competition, trainer of young athletes) and his film loop (observation, cue, behavior to test, follow-up measurement). No invented anecdotes.
 - Date in front matter: 2026-11-09 (must stay after the latest post date for `scripts/validate-post.js`).
 
 ---
@@ -110,17 +112,16 @@ Caveat: verified from abstracts and citing papers, not full texts. Claims in the
 | Images exist, alt text | Pass |
 | Full Jekyll build | Not run locally (sandbox Ruby env issues). Runs in CI on PR (`blog-validate.yml`) and on merge to main (`jekyll.yml`). |
 | Pushed | Yes, branch `claude/determined-tesla-0r6btx` |
-| Live | **No.** Needs a PR into `main` and a merge |
+| Proofread + voice pass | Done (manual read; no spell-check tool available in the sandbox) |
+| Live | Merged to `main`; GitHub Pages deploys via `jekyll.yml` |
 
 ---
 
 ## 8. Next steps for any agent picking this up
 
-1. Rashad reviews the post wording in his voice.
-2. Open a PR `claude/determined-tesla-0r6btx` → `main`; confirm `Validate Blog Posts` CI passes.
-3. Merge (Rashad's call) → GitHub Pages deploys via `jekyll.yml`. Confirm the live URL loads with the image.
-4. Run the posting plan in the launch kit (LinkedIn → X → X thread → Instagram → newsletter). Do not post before the page is live.
-5. One week after launch: pull views/clicks per channel, record what worked (BML).
+1. Confirm the live URL loads with the image after the `jekyll.yml` deploy finishes.
+2. Run the posting plan in the launch kit (LinkedIn → X → X thread → Instagram → newsletter). Do not post before the page is live.
+3. One week after launch: pull views/clicks per channel, record what worked (BML).
 
 ## 9. Reuse ideas
 
