@@ -14,8 +14,10 @@ Key behaviors:
 from __future__ import annotations
 
 import argparse
+import atexit
 import csv
 import json
+import os
 import re
 import subprocess
 import sys
@@ -144,7 +146,7 @@ def queue_story_for_date(queue_path: Path, date_iso: str) -> str:
     return ""
 
 
-def resolve_queue_job(job: Dict[str, Any], repo: Path, now: datetime, log_lines: List[str]) -> Dict[str, Any] | None:
+def resolve_queue_job(job: Dict[str, Any], repo: Path, now: datetime, log_lines: List[str], dry_run: bool = False) -> Dict[str, Any] | None:
     queue_csv = Path(str(job.get("queue_csv") or "_data/stw_news_queue.csv"))
     if not queue_csv.is_absolute():
         queue_csv = repo / queue_csv
@@ -164,12 +166,34 @@ def resolve_queue_job(job: Dict[str, Any], repo: Path, now: datetime, log_lines:
     metadata_path = Path(metadata_template.format(story=story))
     if not metadata_path.is_absolute():
         metadata_path = repo / metadata_path
-    if not mp4_path.exists():
+    build_cmd = job.get("build_if_missing")
+    if not mp4_path.exists() and build_cmd and dry_run:
+        log_lines.append(f"JOB {job.get('id')}: would build missing video with: {str(build_cmd).format(story=story)}")
+    elif not mp4_path.exists() and build_cmd:
+        # e.g. "scripts/rasun-video.py build --slug {story}"
+        parts = str(build_cmd).format(story=story).split()
+        cmd = [sys.executable, str(repo / parts[0])] + parts[1:]
+        log_lines.append(f"JOB {job.get('id')}: building missing video: {' '.join(cmd)}")
+        proc = subprocess.run(cmd, cwd=str(repo), capture_output=True, text=True)
+        if proc.returncode != 0:
+            log_lines.append(f"JOB {job.get('id')}: build failed rc={proc.returncode}: {(proc.stderr or proc.stdout)[-800:]}")
+    if not mp4_path.exists() and not (dry_run and build_cmd):
         log_lines.append(f"JOB {job.get('id')}: queued story '{story}' missing mp4 {mp4_path}")
         return None
     if not metadata_path.exists():
         log_lines.append(f"JOB {job.get('id')}: queued story '{story}' missing metadata {metadata_path}")
         return None
+
+    thumbnail = ""
+    thumb_template = str(job.get("thumbnail_template") or "")
+    if thumb_template:
+        for candidate in thumb_template.split("|"):
+            tp = Path(candidate.format(story=story))
+            if not tp.is_absolute():
+                tp = repo / tp
+            if tp.exists():
+                thumbnail = str(tp)
+                break
 
     parsed = parse_metadata_file(metadata_path)
     return {
@@ -180,14 +204,16 @@ def resolve_queue_job(job: Dict[str, Any], repo: Path, now: datetime, log_lines:
         "title": parsed.get("title") or derive_title_from_filename(mp4_path),
         "description": parsed.get("description") or str(job.get("description") or ""),
         "tags": parsed.get("tags") or job.get("tags") or [],
-        "thumbnail": str(job.get("thumbnail") or ""),
+        "thumbnail": thumbnail or str(job.get("thumbnail") or ""),
+        "story": story,
+        "record_video_id_in": str(job.get("record_video_id_in") or ""),
     }
 
 
 def run_youtube_upload(job: Dict[str, Any], repo: Path, dry_run: bool, log_lines: List[str], now: datetime) -> int:
     action = str(job.get("action") or "youtube_upload").lower()
-    if action == "stw_news_queue_upload":
-        resolved = resolve_queue_job(job, repo, now, log_lines)
+    if action in ("stw_news_queue_upload", "queue_upload"):
+        resolved = resolve_queue_job(job, repo, now, log_lines, dry_run=dry_run)
         if resolved is None:
             return -2
         job = resolved
@@ -243,7 +269,26 @@ def run_youtube_upload(job: Dict[str, Any], repo: Path, dry_run: bool, log_lines
     if dry_run:
         return 0
 
-    proc = subprocess.run(cmd, cwd=str(repo))
+    proc = subprocess.run(cmd, cwd=str(repo), capture_output=True, text=True)
+    sys.stdout.write(proc.stdout or "")
+    sys.stderr.write(proc.stderr or "")
+    m = re.search(r"Video ID:\s*(\S+)", proc.stdout or "")
+    if m:
+        log_lines.append(f"JOB {job.get('id')}: uploaded https://youtu.be/{m.group(1)}")
+        record = str(job.get("record_video_id_in") or "")
+        if proc.returncode == 0 and record and job.get("story"):
+            # Write the YouTube ID back into the episode's package.json (if it has one).
+            pkg_path = Path(record.format(story=job["story"]))
+            if not pkg_path.is_absolute():
+                pkg_path = repo / pkg_path
+            if pkg_path.exists():
+                try:
+                    data = json.loads(pkg_path.read_text(encoding="utf-8"))
+                    data["youtube_video_id"] = m.group(1)
+                    data["uploaded_at"] = now.isoformat()
+                    pkg_path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+                except Exception as e:
+                    log_lines.append(f"JOB {job.get('id')}: could not record video id: {e}")
     return int(proc.returncode)
 
 
@@ -278,6 +323,22 @@ def main() -> None:
     log_path = Path(args.log)
     if not log_path.is_absolute():
         log_path = repo / log_path
+
+    # One dispatcher at a time: a RaSun build can outlast the 5-minute trigger interval.
+    lock_path = state_path.parent / "stw-iq-dispatcher.lock"
+    if not args.dry_run:
+        lock_path.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+            os.write(fd, str(os.getpid()).encode())
+            os.close(fd)
+        except FileExistsError:
+            age = datetime.now().timestamp() - lock_path.stat().st_mtime
+            if age < 2 * 3600:
+                print("Another dispatcher run is in progress; exiting.")
+                return
+            lock_path.write_text(str(os.getpid()), encoding="utf-8")  # stale lock
+        atexit.register(lambda: lock_path.unlink(missing_ok=True))
 
     config = load_json(config_path, default={})
     jobs = config.get("jobs") or []

@@ -6,6 +6,7 @@ One-time: Get client_secrets.json from Google Cloud Console (YouTube Data API v3
 """
 
 import argparse
+import mimetypes
 import os
 import re
 import sys
@@ -134,7 +135,7 @@ def upload(youtube, mp4_path: str, metadata: dict, privacy: str, thumbnail_path:
         try:
             youtube.thumbnails().set(
                 videoId=video_id,
-                media_body=MediaFileUpload(thumbnail_path, mimetype="image/jpeg", resumable=False),
+                media_body=MediaFileUpload(thumbnail_path, mimetype=mimetypes.guess_type(thumbnail_path)[0] or "image/jpeg", resumable=False),
             ).execute()
             print("Thumbnail set.")
         except HttpError as e:

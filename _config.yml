@@ -44,6 +44,7 @@ exclude:
   - output
   - audio-scripts
   - shorts-packages
+  - video-packages
   - brand-kit
   - previews
   - Sportstechwest

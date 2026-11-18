@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 Generate MP3 from plain text using ElevenLabs TTS.
-Loads .env from repo root: ELEVENLABS_API_KEY, ELEVENLABS_VOICE_ID, ELEVENLABS_VOICE_ID_STW_NEWS.
+Loads .env from repo root: ELEVENLABS_API_KEY, ELEVENLABS_VOICE_ID, ELEVENLABS_VOICE_ID_STW_NEWS,
+ELEVENLABS_VOICE_ID_RASUN.
 
 Usage:
   python scripts/voice-generate.py --in shorts-packages/.../script-elevenlabs.txt \\
@@ -63,6 +64,12 @@ def _resolve_voice_id(preset: str | None, out_path: str, voice_id_arg: str | Non
     if voice_id_arg:
         return voice_id_arg
     out_lower = out_path.lower()
+    if preset == "rasun":
+        vid = os.environ.get("ELEVENLABS_VOICE_ID_RASUN", "").strip()
+        if not vid:
+            print("RaSun voice: set ELEVENLABS_VOICE_ID_RASUN in .env (ElevenLabs → Voices → RaSun → ID).", file=sys.stderr)
+            sys.exit(1)
+        return vid
     use_stw = preset == "stw-news" or "stw-news" in out_lower
     if use_stw:
         vid = os.environ.get("ELEVENLABS_VOICE_ID_STW_NEWS", "").strip()
@@ -109,7 +116,7 @@ def main() -> None:
     p = argparse.ArgumentParser(description="ElevenLabs TTS to MP3")
     p.add_argument("--in", dest="in_path", required=True, help="Input text file")
     p.add_argument("--out", dest="out_path", required=True, help="Output .mp3 path")
-    p.add_argument("--preset", choices=["stw-news"], default=None)
+    p.add_argument("--preset", choices=["stw-news", "rasun"], default=None)
     p.add_argument("--voice-id", default=None)
     p.add_argument("--dry-run", action="store_true", help="Print text only, no API call")
     p.add_argument("--show-voice-id", action="store_true", help="Show resolved voice id and exit")

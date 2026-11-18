@@ -2,5 +2,7 @@
 google-api-python-client>=2.0.0
 # For scripts/voice-generate.py (ElevenLabs TTS)
 requests>=2.28.0
+# Optional, for scripts/rasun-video.py to draft scripts with Claude (needs ANTHROPIC_API_KEY)
+anthropic
 google-auth-oauthlib>=1.0.0
 google-auth-httplib2>=0.1.0
