@@ -19,3 +19,6 @@ node_modules/
 .jekyll-cache/
 .bundle/
 vendor/
+
+# Python bytecode
+__pycache__/
