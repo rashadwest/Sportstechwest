@@ -67,6 +67,21 @@ python3 scripts/rasun-video.py build --slug <slug>
 
 It writes `output/audio/rasun-<slug>.mp3` and `output/video/rasun-<slug>.mp4`. If you edit `script.txt` later, the next build re-voices it automatically.
 
+## IQ sessions (bikeIQ, walkingIQ style)
+
+A package with `"format": "iq-session"` in `package.json` builds as a long guided session instead of a blog breakdown. It uses the same pattern as the walking and mentalIQ videos:
+
+- One spoken segment per paragraph in `script.txt`, voiced separately in RaSun's voice, with **5 seconds of quiet after each**.
+- A line `[ride 90]` under a segment swaps that 5-second gap for about 90 seconds of music-only time. The builder stretches or shrinks all ride blocks together so the session lands exactly on `duration_seconds` (3600 = 60:00).
+- Lines starting with `#` are notes and are never read aloud.
+- Music bed: `music` at `music_volume` (default `output/music/background-manifestation-60min/track-a.mp3` at 35%), looped and faded. If the file is missing, it renders voice only and warns.
+- Visual: `visual.png`/`visual.mp4` in the package folder (an MP4 loops for the hour). Thumbnail: `thumbnail.jpg`.
+- Segments are cached by their text, so editing one line re-voices only that line.
+
+Example: `video-packages/rasun/bikeiq-breathe-every-5-pedals/` (breathe in for 5 pedals, out for 5 pedals; 1 hour).
+
+To start a new one, copy that folder, rewrite `script.txt`, `youtube.txt` and the card, set `"approved": true`, then run `rasun-video.py schedule`.
+
 ## Knobs
 
 | What | Where |

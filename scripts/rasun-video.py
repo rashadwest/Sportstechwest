@@ -418,6 +418,169 @@ def render_video(visual: Path, audio: Path, out: Path) -> int:
     return subprocess.run(cmd).returncode
 
 
+# ---------------------------------------------------------------- IQ sessions (bikeIQ, walkingIQ style)
+#
+# package.json "format": "iq-session" switches build to this path. Same structure as the
+# walking/mentalIQ sessions: one spoken segment per paragraph, 5 seconds of quiet after each,
+# music bed at 35%, looped visual, fixed total length. A "[ride N]" line after a segment
+# replaces the 5-second gap with ~N seconds of music-only time; ride blocks are scaled so the
+# session lands exactly on the target length.
+
+DEFAULT_MUSIC = "output/music/background-manifestation-60min/track-a.mp3"
+SEGMENT_GAP = 5.0
+
+
+def parse_session(text: str) -> List[Tuple[str, Optional[float]]]:
+    """Return [(segment_text, ride_seconds or None)]. None means the standard 5-second gap."""
+    segments: List[Tuple[str, Optional[float]]] = []
+    for block in re.split(r"\n\s*\n", text):
+        lines = [l.strip() for l in block.splitlines() if l.strip() and not l.strip().startswith("#")]
+        ride: Optional[float] = None
+        spoken: List[str] = []
+        for l in lines:
+            m = re.fullmatch(r"\[ride\s+(\d+(?:\.\d+)?)\]", l, re.I)
+            if m:
+                ride = float(m.group(1))
+            else:
+                spoken.append(l)
+        if spoken:
+            segments.append((" ".join(spoken), ride))
+        elif ride is not None and segments:
+            t, _ = segments[-1]
+            segments[-1] = (t, ride)
+    return segments
+
+
+def spoken_text(text: str) -> str:
+    return "\n\n".join(t for t, _ in parse_session(text))
+
+
+def media_duration(path: Path) -> float:
+    out = subprocess.run(
+        ["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(path)],
+        capture_output=True, text=True, check=True,
+    ).stdout.strip()
+    return float(out)
+
+
+def build_session(slug: str, force: bool, dry_run: bool) -> int:
+    import hashlib
+
+    d = PKG_ROOT / slug
+    pkg = load_pkg(slug)
+    target = float(pkg.get("duration_seconds") or 3600)
+    segments = parse_session((d / "script.txt").read_text(encoding="utf-8"))
+    if not segments:
+        print(f"{slug}: script has no segments", file=sys.stderr)
+        return 1
+
+    seg_dir = AUDIO_DIR / f"rasun-{slug}-segments"
+    seg_dir.mkdir(parents=True, exist_ok=True)
+    mp4 = video_path(slug)
+
+    # 1) Voice each segment (cached by text, so editing one line re-voices only that line).
+    seg_files: List[Path] = []
+    for i, (text, _) in enumerate(segments):
+        h = hashlib.sha1(text.encode("utf-8")).hexdigest()[:10]
+        out = seg_dir / f"{i:03d}-{h}.mp3"
+        seg_files.append(out)
+        if out.exists() and not force:
+            continue
+        txt = seg_dir / f"{i:03d}-{h}.txt"
+        txt.write_text(text + "\n", encoding="utf-8")
+        cmd = [sys.executable, str(REPO / "scripts" / "voice-generate.py"),
+               "--in", str(txt), "--out", str(out), "--preset", "rasun"]
+        if dry_run:
+            print("RUN:", " ".join(cmd[1:3]), f"... segment {i + 1}/{len(segments)}")
+            continue
+        rc = subprocess.run(cmd).returncode
+        if rc != 0:
+            return rc
+    if dry_run:
+        print(f"would assemble {len(segments)} segments into {target / 60:.0f} minutes → {rel(mp4)}")
+        return 0
+
+    if mp4.exists() and not force and all(mp4.stat().st_mtime > f.stat().st_mtime for f in seg_files):
+        print(f"{slug}: ready → {rel(mp4)}")
+        return 0
+    if shutil.which("ffmpeg") is None:
+        print("ffmpeg not installed", file=sys.stderr)
+        return 1
+
+    # 2) Fit ride blocks to the target length.
+    durs = [media_duration(f) for f in seg_files]
+    speech = sum(durs)
+    fixed_gaps = sum(SEGMENT_GAP for _, r in segments if r is None)
+    ride_base = sum(r for _, r in segments if r is not None)
+    room = target - speech - fixed_gaps
+    scale = max(0.3, room / ride_base) if ride_base else 1.0
+    print(f"speech {speech / 60:.1f} min, gaps {fixed_gaps:.0f}s, ride blocks {ride_base:.0f}s × {scale:.2f}")
+
+    # 3) Voice timeline: segment, gap, segment, gap ... as one WAV padded/trimmed to target.
+    work = seg_dir / "assemble"
+    work.mkdir(exist_ok=True)
+    concat_list = work / "list.txt"
+    lines: List[str] = []
+    silence_cache: Dict[int, Path] = {}
+    for f, (_, ride) in zip(seg_files, segments):
+        wav = work / (f.stem + ".wav")
+        if not wav.exists() or wav.stat().st_mtime < f.stat().st_mtime:
+            subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(f), "-ar", "44100", "-ac", "2", str(wav)], check=True)
+        gap_ms = int(round((SEGMENT_GAP if ride is None else ride * scale) * 1000))
+        if gap_ms not in silence_cache:
+            sil = work / f"silence-{gap_ms}.wav"
+            subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-f", "lavfi", "-i",
+                            "anullsrc=r=44100:cl=stereo", "-t", f"{gap_ms / 1000:.3f}", str(sil)], check=True)
+            silence_cache[gap_ms] = sil
+        lines.append(f"file '{wav}'")
+        lines.append(f"file '{silence_cache[gap_ms]}'")
+    concat_list.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    voice = work / "voice.wav"
+    subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0", "-i", str(concat_list),
+                    "-af", f"apad=whole_dur={target}", "-t", str(target), str(voice)], check=True)
+
+    # 4) Music bed at 35% (looped), voice on top. Music is optional.
+    music = REPO / (pkg.get("music") or DEFAULT_MUSIC)
+    mix = work / "mix.m4a"
+    if music.exists():
+        vol = float(pkg.get("music_volume") or 0.35)
+        subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(voice), "-stream_loop", "-1", "-i", str(music),
+                        "-filter_complex",
+                        f"[1:a]volume={vol},afade=t=in:d=3,afade=t=out:st={target - 8}:d=8[m];"
+                        f"[0:a][m]amix=inputs=2:duration=first:dropout_transition=0:normalize=0,"
+                        f"loudnorm=I=-16:TP=-1.5:LRA=11[a]",
+                        "-map", "[a]", "-t", str(target), "-c:a", "aac", "-b:a", "192k", str(mix)], check=True)
+    else:
+        print(f"WARNING: music not found at {rel(music)}; rendering voice only.", file=sys.stderr)
+        subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(voice), "-af", "loudnorm=I=-16:TP=-1.5:LRA=11",
+                        "-t", str(target), "-c:a", "aac", "-b:a", "192k", str(mix)], check=True)
+
+    # 5) Video: looped clip or still card, cheap to encode for an hour.
+    visual = choose_visual(slug)
+    if visual is None:
+        print(f"{slug}: no visual found", file=sys.stderr)
+        return 1
+    tmp = mp4.with_name(mp4.stem + ".partial.mp4")
+    mp4.parent.mkdir(parents=True, exist_ok=True)
+    scale_vf = "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,setsar=1"
+    if visual.suffix.lower() in (".mp4", ".mov"):
+        vin = ["-stream_loop", "-1", "-i", str(visual)]
+        venc = ["-vf", scale_vf + ",fps=30", "-c:v", "libx264", "-preset", "veryfast", "-crf", "23"]
+    else:
+        vin = ["-loop", "1", "-framerate", "6", "-i", str(visual)]
+        venc = ["-vf", scale_vf, "-r", "6", "-c:v", "libx264", "-preset", "veryfast", "-tune", "stillimage", "-crf", "22"]
+    cmd = ["ffmpeg", "-loglevel", "error", "-stats", "-y"] + vin + ["-i", str(mix), "-map", "0:v:0", "-map", "1:a:0",
+           "-t", str(target)] + venc + ["-pix_fmt", "yuv420p", "-c:a", "copy", "-movflags", "+faststart", str(tmp)]
+    print("RUN:", " ".join(cmd))
+    rc = subprocess.run(cmd).returncode
+    if rc != 0:
+        tmp.unlink(missing_ok=True)
+        return rc
+    tmp.replace(mp4)
+    print(f"{slug}: ready → {rel(mp4)} ({media_duration(mp4) / 60:.1f} min)")
+    return 0
+
+
 def build_one(slug: str, force: bool, dry_run: bool) -> int:
     d = PKG_ROOT / slug
     script = d / "script.txt"
@@ -427,6 +590,8 @@ def build_one(slug: str, force: bool, dry_run: bool) -> int:
     if not load_pkg(slug).get("approved"):
         print(f"{slug}: not approved (set \"approved\": true in package.json)", file=sys.stderr)
         return 1
+    if load_pkg(slug).get("format") == "iq-session":
+        return build_session(slug, force=force, dry_run=dry_run)
     mp3, mp4 = audio_path(slug), video_path(slug)
 
     # Re-voice when the script changed after the last render.
@@ -502,7 +667,10 @@ def cmd_status(_: argparse.Namespace) -> int:
         flags.append("video" if video_path(s).exists() else "no video")
         if pkg.get("youtube_video_id"):
             flags.append(f"youtu.be/{pkg['youtube_video_id']}")
-        wc = word_count((PKG_ROOT / s / "script.txt").read_text(encoding="utf-8")) if (PKG_ROOT / s / "script.txt").exists() else 0
+        sp = PKG_ROOT / s / "script.txt"
+        wc = word_count(spoken_text(sp.read_text(encoding="utf-8"))) if sp.exists() else 0
+        if pkg.get("format") == "iq-session" and (AUDIO_DIR / f"rasun-{s}-segments").exists():
+            flags[1] = "audio"
         print(f"{when:<20} {s:<50} {wc:>4}w  {' · '.join(flags)}")
     return 0
 
