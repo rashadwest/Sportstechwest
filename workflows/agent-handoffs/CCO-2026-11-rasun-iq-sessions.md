@@ -3,7 +3,7 @@
 
 **Purpose:** Hand this work to Cursor (or any agent) so it can finish the build and ship without re-deriving anything.
 **Owner:** Rashad West (Sportstechwest)
-**Last updated:** 2026-11-19 (Thanos review)
+**Last updated:** 2026-11-19 (Cursor activate: C2–C4 + phase 1b listen gate; C1 blocked on .env + merge)
 **Repo:** `rashadwest/Sportstechwest`
 **Branch:** `claude/keen-volta-y1ux2u` (pushed, **not merged**, no PR yet)
 
@@ -170,6 +170,7 @@ Caveat: verified from abstracts and indexes, not full texts. Claims are kept gen
 ## 8. Cursor build tasks (in order)
 
 ### C1. Ship to the machine (blocker, before Nov 20 11:17 local time)
+**Status (2026-11-19):** In progress. Music file present. `ELEVENLABS_VOICE_ID_RASUN` **missing** from `.env` (API key is set). No bikeIQ MP4 yet. PR opened from this branch when Cursor activated; Rashad still merges + pulls.
 1. Open a PR `claude/keen-volta-y1ux2u` into `main`. Wait for CI (`blog-validate.yml`, `site-health.yml`, `jekyll.yml`) and merge (Rashad merges).
 2. On the Mac: `cd /Users/rashadwest/Sportstechwest && git checkout main && git pull`.
 3. Add `ELEVENLABS_VOICE_ID_RASUN=<RaSun voice ID>` to `.env`.
@@ -182,12 +183,14 @@ Caveat: verified from abstracts and indexes, not full texts. Claims are kept gen
 **Done when:** `output/video/rasun-bikeiq-breathe-every-5-pedals.mp4` exists on the Mac, is 60:00, and the voice and music sound right.
 
 ### C2. AI disclosure on upload (high)
+**Status (2026-11-19): DONE (code + dry-run).** Real Studio label still needs one live/unlisted upload.
 - `scripts/youtube-upload.py`: add `--synthetic-media` flag; when set, put `"containsSyntheticMedia": true` in `body["status"]`.
 - `scripts/stw-iq-dispatcher.py`: if a job (or resolved queue job) has `"contains_synthetic_media": true`, pass `--synthetic-media`.
 - `stw-publish-schedule.json`: add `"contains_synthetic_media": true` to `rasun-every-other-day`.
 - **Done when:** a dry run shows `--synthetic-media` in the RUN line, and a real upload shows the "Altered or synthetic content" label in YouTube Studio.
 
 ### C3. Chapters in descriptions (high)
+**Status (2026-11-19): DONE.** Dry-run build writes `chapters.txt`; dispatcher dry-run appends Chapters + `--synthetic-media`.
 - Script syntax: a line `## Chapter title` starts a chapter at the next segment. Today `#` lines are comments, so `## ` must be checked first in `parse_session`.
 - In `build_session`, while laying out the timeline, record each chapter's start time and write `video-packages/rasun/<slug>/chapters.txt` (`0:00 Intro`, `4:35 Learn the count`, ...). YouTube rules: the first chapter at 0:00, at least 3 chapters, each at least 10 s.
 - In the dispatcher's `resolve_queue_job`, if `chapters.txt` exists next to `youtube.txt`, append it to the description under a "Chapters" heading.
@@ -195,12 +198,16 @@ Caveat: verified from abstracts and indexes, not full texts. Claims are kept gen
 - **Done when:** a test build writes a valid `chapters.txt` and the dispatcher dry run shows chapters in the description.
 
 ### C4. Nightly prebuild (high)
+**Status (2026-11-19): DONE (launchd).** `com.sportstechwest.rasun-prebuild` at 02:13; registry row `stw-rasun-prebuild`; amber until first scheduled run.
 - Add a scheduled run (new n8n workflow next to `n8n-stw-iq-dispatcher.json`, or launchd) at **02:13** local time:
   ```bash
   cd /Users/rashadwest/Sportstechwest && python3 scripts/rasun-video.py build --upcoming 2 >> output/rasun-prebuild.log 2>&1
   ```
 - It only builds approved, queued episodes for today to today+2. `build_if_missing` in the dispatcher stays as the fallback.
 - **Done when:** the MP4 for the next queued date exists before 11:17 without a manual build.
+
+### Phase 1b. Unlisted listen + Morning Report
+**Status (2026-11-19): Infra DONE.** Manifest `stw-iq-test-listen.manifest.json` (bikeIQ + hikingIQ + walkingIQ senses). Helpers: `scripts/stw-iq-listen-test-push.sh`, `scripts/stw-sync-listen-checklist.sh`, `--write-listen-queue` on uploader. Morning Report reads `output/stw-iq-listen-queue.json` (`stw_listen`) and has three YouTube checklist rows. No real unlisted upload until bikeIQ MP4 exists.
 
 ### C5. Duplicate bikeIQ job (Rashad decides first)
 - If Rashad agrees, set `"enabled": false` on `bikeiq-leisure` in `stw-publish-schedule.json`. Don't change anything else in that job.

@@ -449,29 +449,72 @@ DEFAULT_MUSIC = "output/music/background-manifestation-60min/track-a.mp3"
 SEGMENT_GAP = 5.0
 
 
-def parse_session(text: str) -> List[Tuple[str, Optional[float]]]:
-    """Return [(segment_text, ride_seconds or None)]. None means the standard 5-second gap."""
-    segments: List[Tuple[str, Optional[float]]] = []
+def parse_session(text: str) -> List[Tuple[str, Optional[float], Optional[str]]]:
+    """Return [(segment_text, ride_seconds or None, chapter_title or None)].
+
+    None for ride means the standard 5-second gap.
+    A line starting with ``## `` starts a YouTube chapter at the next spoken segment
+    (checked before ``#`` comments). Spoken text is unchanged.
+    """
+    segments: List[Tuple[str, Optional[float], Optional[str]]] = []
+    pending_chapter: Optional[str] = None
     for block in re.split(r"\n\s*\n", text):
-        lines = [l.strip() for l in block.splitlines() if l.strip() and not l.strip().startswith("#")]
         ride: Optional[float] = None
         spoken: List[str] = []
-        for l in lines:
+        for raw in block.splitlines():
+            l = raw.strip()
+            if not l:
+                continue
+            if l.startswith("## "):
+                pending_chapter = l[3:].strip() or pending_chapter
+                continue
+            if l.startswith("#"):
+                continue
             m = re.fullmatch(r"\[(?:ride|walk|hike|run|quiet)\s+(\d+(?:\.\d+)?)\]", l, re.I)
             if m:
                 ride = float(m.group(1))
             else:
                 spoken.append(l)
         if spoken:
-            segments.append((" ".join(spoken), ride))
+            chapter = pending_chapter
+            pending_chapter = None
+            segments.append((" ".join(spoken), ride, chapter))
         elif ride is not None and segments:
-            t, _ = segments[-1]
-            segments[-1] = (t, ride)
+            t, _, ch = segments[-1]
+            segments[-1] = (t, ride, ch)
     return segments
 
 
+def format_chapter_ts(seconds: float) -> str:
+    """YouTube chapter timestamp: M:SS or H:MM:SS."""
+    total = max(0, int(round(seconds)))
+    h, rem = divmod(total, 3600)
+    m, s = divmod(rem, 60)
+    if h:
+        return f"{h}:{m:02d}:{s:02d}"
+    return f"{m}:{s:02d}"
+
+
+def write_chapters_file(
+    path: Path,
+    chapters: List[Tuple[float, str]],
+) -> None:
+    """Write YouTube-style chapters.txt (first at 0:00, titles only)."""
+    if not chapters:
+        return
+    # Enforce first chapter at 0:00.
+    fixed: List[Tuple[float, str]] = []
+    for i, (t, title) in enumerate(chapters):
+        if i == 0:
+            fixed.append((0.0, title))
+        else:
+            fixed.append((max(t, fixed[-1][0] + 10.0), title))
+    lines = [f"{format_chapter_ts(t)} {title}" for t, title in fixed]
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
 def spoken_text(text: str) -> str:
-    return "\n\n".join(t for t, _ in parse_session(text))
+    return "\n\n".join(t for t, _, _ in parse_session(text))
 
 
 def media_duration(path: Path) -> float:
@@ -499,7 +542,7 @@ def build_session(slug: str, force: bool, dry_run: bool) -> int:
 
     # 1) Voice each segment (cached by text, so editing one line re-voices only that line).
     seg_files: List[Path] = []
-    for i, (text, _) in enumerate(segments):
+    for i, (text, _, _) in enumerate(segments):
         h = hashlib.sha1(text.encode("utf-8")).hexdigest()[:10]
         out = seg_dir / f"{i:03d}-{h}.mp3"
         seg_files.append(out)
@@ -516,6 +559,18 @@ def build_session(slug: str, force: bool, dry_run: bool) -> int:
         if rc != 0:
             return rc
     if dry_run:
+        # Still emit a provisional chapters.txt from markers + estimated gaps (no media durs).
+        chapters_est: List[Tuple[float, str]] = []
+        t_est = 0.0
+        for i, (_, ride, chapter) in enumerate(segments):
+            if chapter:
+                chapters_est.append((t_est, chapter))
+            elif i == 0:
+                chapters_est.append((0.0, "Intro"))
+            t_est += 8.0 + (SEGMENT_GAP if ride is None else float(ride or 0))
+        if chapters_est:
+            write_chapters_file(d / "chapters.txt", chapters_est)
+            print(f"wrote {rel(d / 'chapters.txt')} ({len(chapters_est)} chapters, estimated)")
         print(f"would assemble {len(segments)} segments into {target / 60:.0f} minutes → {rel(mp4)}")
         return 0
 
@@ -529,23 +584,31 @@ def build_session(slug: str, force: bool, dry_run: bool) -> int:
     # 2) Fit ride blocks to the target length.
     durs = [media_duration(f) for f in seg_files]
     speech = sum(durs)
-    fixed_gaps = sum(SEGMENT_GAP for _, r in segments if r is None)
-    ride_base = sum(r for _, r in segments if r is not None)
+    fixed_gaps = sum(SEGMENT_GAP for _, r, _ in segments if r is None)
+    ride_base = sum(r for _, r, _ in segments if r is not None)
     room = target - speech - fixed_gaps
     scale = max(0.3, room / ride_base) if ride_base else 1.0
     print(f"speech {speech / 60:.1f} min, gaps {fixed_gaps:.0f}s, ride blocks {ride_base:.0f}s × {scale:.2f}")
 
     # 3) Voice timeline: segment, gap, segment, gap ... as one WAV padded/trimmed to target.
+    #    Also record YouTube chapter start times from ## markers.
     work = seg_dir / "assemble"
     work.mkdir(exist_ok=True)
     concat_list = work / "list.txt"
     lines: List[str] = []
     silence_cache: Dict[int, Path] = {}
-    for f, (_, ride) in zip(seg_files, segments):
+    chapters: List[Tuple[float, str]] = []
+    t_cursor = 0.0
+    for f, (seg_text, ride, chapter), dur in zip(seg_files, segments, durs):
+        if chapter:
+            chapters.append((t_cursor, chapter))
+        elif not chapters and t_cursor == 0.0:
+            chapters.append((0.0, "Intro"))
         wav = work / (f.stem + ".wav")
         if not wav.exists() or wav.stat().st_mtime < f.stat().st_mtime:
             subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(f), "-ar", "44100", "-ac", "2", str(wav)], check=True)
-        gap_ms = int(round((SEGMENT_GAP if ride is None else ride * scale) * 1000))
+        gap_s = SEGMENT_GAP if ride is None else ride * scale
+        gap_ms = int(round(gap_s * 1000))
         if gap_ms not in silence_cache:
             sil = work / f"silence-{gap_ms}.wav"
             subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-f", "lavfi", "-i",
@@ -553,6 +616,9 @@ def build_session(slug: str, force: bool, dry_run: bool) -> int:
             silence_cache[gap_ms] = sil
         lines.append(f"file '{wav}'")
         lines.append(f"file '{silence_cache[gap_ms]}'")
+        t_cursor += float(dur) + float(gap_s)
+    write_chapters_file(d / "chapters.txt", chapters)
+    print(f"wrote {rel(d / 'chapters.txt')} ({len(chapters)} chapters)")
     concat_list.write_text("\n".join(lines) + "\n", encoding="utf-8")
     voice = work / "voice.wav"
     subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0", "-i", str(concat_list),

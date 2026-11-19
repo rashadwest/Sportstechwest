@@ -2,6 +2,7 @@
 # Same 5-4-3-2-1 senses tool, aimed at stress: the walk after a long day, a hard practice or a bad game.
 # One segment per paragraph, 5 seconds of quiet after each. "[walk N]" = music-only stretch (scaled to fill 60:00).
 
+## Let the day out
 This is walkingIQ. A reset walk. For after a long day, a tough practice, or a game that didn't go your way.
 
 Walk somewhere safe, eyes up, one ear open.
@@ -37,6 +38,7 @@ When your mind replays the mistake, that's normal. Your brain is trying to prote
 I am more than one moment.
 [walk 90]
 
+## More specific rounds
 Round two. Five sounds this time, instead of three. Reach for the quiet ones.
 [walk 60]
 
@@ -53,6 +55,7 @@ Quiet stretch. Just walk. If the day creeps back in, start a round.
 
 Here's the athlete's version. After a bad possession, you don't have an hour. You have one breath. One thing you see, one thing you hear. Then next play.
 
+## Athlete short version
 Practice the short version now. One thing you see. One thing you hear. Breathe out. Next step.
 [walk 90]
 
@@ -68,9 +71,11 @@ Five you see. Four you touch. Three you hear. Two you smell. One you taste.
 I learn from the day. I don't live in it.
 [walk 120]
 
+## Quiet stretches
 Long quiet stretch. Let the music carry you for a while.
 [walk 150]
 
+## Cool-down
 Start to slow down. Easier steps. Long exhales.
 [walk 75]
 

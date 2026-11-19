@@ -3,7 +3,9 @@
 # A line "[ride N]" after a segment = about N seconds of music-only riding instead of the 5-second gap.
 # The builder stretches or shrinks the ride blocks so the whole session lands on 60:00.
 # Lines starting with # are notes and are never read aloud.
+# Lines starting with ## are YouTube chapter titles (not spoken); they apply to the next segment.
 
+## Warm-up
 This is bikeIQ. One hour. One rhythm. Breathe every five pedals.
 
 Ride somewhere safe for this. An indoor trainer, a bike path, a quiet road. Keep one ear open to the world around you.
@@ -51,6 +53,7 @@ That's the skill. Not perfect counting. Coming back.
 I come back to the rhythm. Every time.
 [ride 75]
 
+## Build
 Let's build a little. Add some pressure to the pedals. Same cadence. Same breath. In for five. Out for five.
 [ride 90]
 
@@ -70,6 +73,7 @@ I am strong in the middle of the ride. Not just at the start.
 Settle your face. Loose jaw. Soft eyes. Effort lives in the legs, not the face.
 [ride 90]
 
+## Climb
 Now picture a climb. Shift so the pedals get heavier. Your cadence drops a little, so each five pedals takes a little longer. Let the breath stretch with it.
 [ride 90]
 
@@ -95,6 +99,7 @@ Feel how fast your breath settles when the count is already there. That's the pa
 I recover on purpose.
 [ride 75]
 
+## Cruise
 Cruising now. Easy pressure. Five in. Five out. Let the miles pass under you.
 [ride 120]
 
@@ -117,6 +122,7 @@ Still with me. In for five. Out for five. Good.
 I finish what I start.
 [ride 120]
 
+## Cool-down
 Let's bring it down. Ease off the pressure. Keep spinning light.
 
 Stretch the breath one more time. In for five. Out for six if it feels good. Long, slow, all the way out.

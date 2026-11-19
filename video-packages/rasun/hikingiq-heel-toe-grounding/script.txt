@@ -3,6 +3,7 @@
 # Same format as the walking/IQ sessions: one segment per paragraph, 5 seconds of quiet after each.
 # "[hike N]" = about N seconds of music-only hiking instead of the 5-second gap (scaled to fill 60:00).
 
+## Warm-up
 This is hikingIQ. One hour on the trail. One way to stay grounded. Heel, then toe.
 
 Hike somewhere you know, or with someone who does. Keep one ear open to the trail around you.
@@ -21,6 +22,7 @@ Now add the breath. In for three steps. Heel, toe. Heel, toe. Heel, toe. Out for
 If you lose the count, wait for your next heel to touch down, and start again at one.
 [hike 90]
 
+## Grounding
 Notice the ground under you. Dirt, rock, roots, leaves. Every surface feels a little different through the heel.
 
 I am here. I am grounded.
@@ -47,6 +49,7 @@ Feel the heel strike. Feel the roll. Feel the push through the toe. Three steps 
 I don't have to rush. The trail will wait for me.
 [hike 75]
 
+## Terrain
 If the path tilts uphill, shorten your steps. Keep the same count. Three in. Four out. Smaller steps, same rhythm.
 [hike 90]
 
@@ -79,6 +82,7 @@ The trail asks for one thing at a time. This step. Then the next one.
 I take life one step at a time.
 [hike 120]
 
+## Quiet stretches
 One long quiet stretch now. No new instructions. Just heel, toe, three in, four out.
 [hike 150]
 
@@ -87,6 +91,7 @@ Still with it. Good.
 I leave the trail lighter than I found it.
 [hike 120]
 
+## Cool-down
 Let's start to slow down. Easy steps. Still heel first. Still the count.
 
 Try one breath with a longer exhale. In for three steps. Out for five, if it feels good.

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>PYTHON_BIN</key>
+		<string>/Users/rashadwest/Sportstechwest/.venv/bin/python</string>
+		<key>STW_NONINTERACTIVE</key>
+		<string>1</string>
+		<key>STW_REPO_ROOT</key>
+		<string>/Users/rashadwest/Sportstechwest</string>
+	</dict>
+	<key>Label</key>
+	<string>com.sportstechwest.rasun-prebuild</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/zsh</string>
+		<string>-lc</string>
+		<string>/Users/rashadwest/Sportstechwest/scripts/rasun-prebuild.sh</string>
+	</array>
+	<key>RunAtLoad</key>
+	<false/>
+	<key>StandardErrorPath</key>
+	<string>/Users/rashadwest/Sportstechwest/output/automation/launchd-rasun-prebuild.err.log</string>
+	<key>StandardOutPath</key>
+	<string>/Users/rashadwest/Sportstechwest/output/automation/launchd-rasun-prebuild.out.log</string>
+	<key>StartCalendarInterval</key>
+	<dict>
+		<key>Hour</key>
+		<integer>2</integer>
+		<key>Minute</key>
+		<integer>13</integer>
+	</dict>
+</dict>
+</plist>

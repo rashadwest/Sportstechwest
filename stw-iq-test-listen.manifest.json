@@ -1,0 +1,33 @@
+{
+  "notes": "Phase 1b listen gate: three RaSun IQ sessions for unlisted channel listens before public. Upload with scripts/stw-iq-listen-test-push.sh. Morning Report reads output/stw-iq-listen-queue.json.",
+  "listen_queue": "output/stw-iq-listen-queue.json",
+  "drops": [
+    {
+      "id": "bikeiq-breathe-every-5-pedals",
+      "title": "1 Hour Breathing Ride: Breathe Every 5 Pedals | bikeIQ | Sportstechwest",
+      "mp4": "output/video/rasun-bikeiq-breathe-every-5-pedals.mp4",
+      "metadata_txt": "video-packages/rasun/bikeiq-breathe-every-5-pedals/youtube.txt",
+      "thumbnail": "video-packages/rasun/bikeiq-breathe-every-5-pedals/thumbnail.jpg",
+      "synthetic_media": true,
+      "privacy": "unlisted"
+    },
+    {
+      "id": "hikingiq-heel-toe-grounding",
+      "title": "1 Hour Grounding Hike: Heel-Toe Breathing, 3 In 4 Out | hikingIQ | Sportstechwest",
+      "mp4": "output/video/rasun-hikingiq-heel-toe-grounding.mp4",
+      "metadata_txt": "video-packages/rasun/hikingiq-heel-toe-grounding/youtube.txt",
+      "thumbnail": "video-packages/rasun/hikingiq-heel-toe-grounding/thumbnail.jpg",
+      "synthetic_media": true,
+      "privacy": "unlisted"
+    },
+    {
+      "id": "walkingiq-5-4-3-2-1-senses",
+      "title": "1 Hour 5-4-3-2-1 Grounding Walk: Anchor Yourself With Your Senses | walkingIQ | Sportstechwest",
+      "mp4": "output/video/rasun-walkingiq-5-4-3-2-1-senses.mp4",
+      "metadata_txt": "video-packages/rasun/walkingiq-5-4-3-2-1-senses/youtube.txt",
+      "thumbnail": "video-packages/rasun/walkingiq-5-4-3-2-1-senses/thumbnail.jpg",
+      "synthetic_media": true,
+      "privacy": "unlisted"
+    }
+  ]
+}

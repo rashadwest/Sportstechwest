@@ -2,6 +2,7 @@
 # Anchor with the senses: 5 things you see, 4 you can touch, 3 you hear, 2 you smell, 1 you taste. Repeat in rounds.
 # One segment per paragraph, 5 seconds of quiet after each. "[walk N]" = music-only stretch (scaled to fill 60:00).
 
+## Learn the round
 This is walkingIQ. One hour. One simple way to get out of your head and back into the moment. Five, four, three, two, one.
 
 Walk somewhere safe. Keep your eyes up and one ear open to what's around you.
@@ -36,6 +37,7 @@ I am here. Right now. That's enough.
 Keep walking. Let the pace find you. Your breath, your steps, the world going by.
 [walk 90]
 
+## Rounds two and three
 Round two. This time, find things you missed the first time. Five new things you can see. Look high. Look low.
 [walk 50]
 
@@ -51,6 +53,7 @@ Two smells. One thing to taste.
 I notice more when I slow down.
 [walk 90]
 
+## Short version
 Use this anytime your mind starts racing. Before a game. Before a meeting. When you feel the spiral starting. Five, four, three, two, one.
 
 You don't have to fix the thought. You just have to give your attention somewhere better to go.
@@ -73,6 +76,7 @@ Two you smell. One you taste.
 I am calm. I am present. I am steady.
 [walk 120]
 
+## Quiet stretches
 Long quiet stretch now. If your mind wanders, start a round on your own. Five things you see.
 [walk 150]
 
@@ -92,6 +96,7 @@ Grounding isn't about a perfect walk. It's about coming back, again and again, t
 I come back to the moment. Every time.
 [walk 120]
 
+## Cool-down
 Start to slow down. Easier steps. Longer exhales.
 [walk 75]
 

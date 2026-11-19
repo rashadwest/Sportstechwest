@@ -196,17 +196,30 @@ def resolve_queue_job(job: Dict[str, Any], repo: Path, now: datetime, log_lines:
                 break
 
     parsed = parse_metadata_file(metadata_path)
+    description = parsed.get("description") or str(job.get("description") or "")
+    # Append YouTube chapters when chapters.txt sits next to youtube.txt (C3).
+    chapters_path = metadata_path.parent / "chapters.txt"
+    if chapters_path.exists():
+        chapters_body = chapters_path.read_text(encoding="utf-8").strip()
+        if chapters_body:
+            if "\nChapters\n" not in description and not description.rstrip().endswith("Chapters"):
+                description = description.rstrip() + "\n\nChapters\n" + chapters_body + "\n"
+            else:
+                description = description.rstrip() + "\n" + chapters_body + "\n"
+            log_lines.append(f"JOB {job.get('id')}: appended chapters from {chapters_path}")
+
     return {
         "id": f"{job.get('id')}:{story}",
         "action": "youtube_upload",
         "mp4": str(mp4_path),
         "privacy": str(job.get("privacy") or "unlisted"),
         "title": parsed.get("title") or derive_title_from_filename(mp4_path),
-        "description": parsed.get("description") or str(job.get("description") or ""),
+        "description": description,
         "tags": parsed.get("tags") or job.get("tags") or [],
         "thumbnail": thumbnail or str(job.get("thumbnail") or ""),
         "story": story,
         "record_video_id_in": str(job.get("record_video_id_in") or ""),
+        "contains_synthetic_media": bool(job.get("contains_synthetic_media")),
     }
 
 
@@ -264,6 +277,9 @@ def run_youtube_upload(job: Dict[str, Any], repo: Path, dry_run: bool, log_lines
         if not thumb_path.is_absolute():
             thumb_path = repo / thumb_path
         cmd.extend(["--thumbnail", str(thumb_path)])
+
+    if job.get("contains_synthetic_media"):
+        cmd.append("--synthetic-media")
 
     log_lines.append(f"RUN: {' '.join(cmd)}")
     if dry_run:

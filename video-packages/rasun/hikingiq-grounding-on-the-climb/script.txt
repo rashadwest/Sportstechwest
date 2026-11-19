@@ -2,6 +2,7 @@
 # Same breath pattern: in over 3 heel-to-toe steps, out over 4. This one is built around terrain: flat, uphill, downhill.
 # One segment per paragraph, 5 seconds of quiet after each. "[hike N]" = music-only stretch (scaled to fill 60:00).
 
+## Flat warm-up
 This is hikingIQ. Last week we found the ground. This week we take it uphill.
 
 Same rule. Hike somewhere safe, know your route, and keep one ear on the trail.
@@ -21,6 +22,7 @@ I bring the ground with me.
 
 Think about the hill ahead of you, whether it's real or not. Most people meet a climb by rushing and holding their breath. We're going to do the opposite.
 
+## The climb
 When the trail tilts up, shorten your step. Half the length. Same count. Three in, four out.
 [hike 90]
 
@@ -48,6 +50,7 @@ A climb is just a lot of single steps. You only ever have to take this one.
 One step. Then the next.
 [hike 90]
 
+## The summit
 Reach the top. Stop for a moment if you want. Stand with both heels on the ground. Feel how solid it is.
 [hike 60]
 
@@ -56,6 +59,7 @@ Look around. Take in the view for a few breaths. You earned it, one step at a ti
 I am proud of the work I put in.
 [hike 90]
 
+## The descent
 Now the way down. Downhill is where most slips happen, so this part matters.
 
 Soften your knees. Shorter steps again. Let the heel land gently, then roll to the toe. Three in, four out.
@@ -74,6 +78,7 @@ Back on the flat. Let your stride open up again. Same count.
 I trust my legs on any terrain.
 [hike 120]
 
+## Quiet stretches and cool-down
 One long quiet stretch. Just the trail, your feet, and three in, four out.
 [hike 150]
 

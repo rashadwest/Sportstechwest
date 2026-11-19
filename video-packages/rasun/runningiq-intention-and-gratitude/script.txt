@@ -2,6 +2,7 @@
 # Start with a positive intention / mantra, cultivate gratitude for nature, then come back to the mantra again and again.
 # Mantra: "Light feet. Grateful heart." One segment per paragraph, 5 seconds of quiet after each. "[run N]" = music-only stretch.
 
+## Set your intention
 This is runningIQ. One hour. One intention. Light feet. Grateful heart.
 
 Run somewhere safe. Keep one ear open to traffic, bikes, and the world around you.
@@ -26,6 +27,7 @@ Let the pace come up a little. Easy enough that you could still talk.
 Light feet. Grateful heart.
 [run 90]
 
+## Easy miles
 Look around. Name one thing in nature you're thankful for right now. The sky. A tree. The cold air. The light.
 [run 90]
 
@@ -48,6 +50,7 @@ Find something that's working right now. Your arms swinging. Your breath finding
 Light feet. Grateful heart.
 [run 90]
 
+## Middle miles
 Think of one person who helped you get here. A coach. A parent. A teammate. Run the next stretch for them.
 [run 120]
 
@@ -65,6 +68,7 @@ Light feet. Grateful heart.
 If your mind has wandered off to your to-do list, no problem. Come back. Light feet. Grateful heart.
 [run 120]
 
+## Quiet stretches
 Long quiet stretch now. Say the mantra on your own. Match it to your steps if you like. Light, feet. Grate, ful, heart.
 [run 150]
 
@@ -77,6 +81,7 @@ Look up for a moment. Whatever the sky looks like today, it's the only one like 
 Light feet. Grateful heart.
 [run 120]
 
+## Cool-down
 Start to ease the pace down. Let your breath come back to easy.
 [run 75]
 
