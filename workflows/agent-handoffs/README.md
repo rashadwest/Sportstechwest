@@ -54,3 +54,4 @@ Every post runs the same play:
 | CCO | Post | Status |
 |---|---|---|
 | [CCO-2026-11-beasley-stephenson-post.md](CCO-2026-11-beasley-stephenson-post.md) | Practicing Isn't Pressure | Shipped to `main` |
+| [CCO-2026-11-rasun-iq-sessions.md](CCO-2026-11-rasun-iq-sessions.md) | RaSun Video module + IQ sessions (Nov 20 to Dec 3) | Thanos reviewed; branch not merged; Cursor tasks C1 to C7 |

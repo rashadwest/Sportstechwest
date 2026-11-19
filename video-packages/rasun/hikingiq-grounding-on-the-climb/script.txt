@@ -1,4 +1,4 @@
-# hikingIQ — Grounding on the Climb (1-hour guided hike, week 2)
+# hikingIQ: Grounding on the Climb (1-hour guided hike, week 2)
 # Same breath pattern: in over 3 heel-to-toe steps, out over 4. This one is built around terrain: flat, uphill, downhill.
 # One segment per paragraph, 5 seconds of quiet after each. "[hike N]" = music-only stretch (scaled to fill 60:00).
 

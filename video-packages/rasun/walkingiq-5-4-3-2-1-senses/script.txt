@@ -1,4 +1,4 @@
-# walkingIQ — 5-4-3-2-1 Senses (1-hour guided walk)
+# walkingIQ: 5-4-3-2-1 Senses (1-hour guided walk)
 # Anchor with the senses: 5 things you see, 4 you can touch, 3 you hear, 2 you smell, 1 you taste. Repeat in rounds.
 # One segment per paragraph, 5 seconds of quiet after each. "[walk N]" = music-only stretch (scaled to fill 60:00).
 

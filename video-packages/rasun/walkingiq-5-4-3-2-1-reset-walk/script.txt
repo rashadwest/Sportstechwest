@@ -1,4 +1,4 @@
-# walkingIQ — 5-4-3-2-1 Reset Walk (1-hour guided walk, week 2)
+# walkingIQ: 5-4-3-2-1 Reset Walk (1-hour guided walk, week 2)
 # Same 5-4-3-2-1 senses tool, aimed at stress: the walk after a long day, a hard practice or a bad game.
 # One segment per paragraph, 5 seconds of quiet after each. "[walk N]" = music-only stretch (scaled to fill 60:00).
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-RaSun Video — turn Sportstechwest blog posts into narrated YouTube videos
+RaSun Video: turn Sportstechwest blog posts into narrated YouTube videos
 using the RaSun voice in ElevenLabs, published every other day.
 
 One "episode" = one folder in video-packages/rasun/<slug>/:
@@ -53,7 +53,7 @@ TARGET_WORDS = (380, 520)  # ~2.5–3.5 minutes at a natural pace
 
 CHANNEL_FOOTER = (
     "Read the full breakdown: {url}\n\n"
-    "Sportstechwest — sports, technology, and the systems behind performance.\n"
+    "Sportstechwest: sports, technology, and the systems behind performance.\n"
     "Subscribe for a new RaSun breakdown every other day."
 )
 

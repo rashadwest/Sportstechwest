@@ -1,4 +1,4 @@
-# hikingIQ — Heel-Toe Grounding (1-hour guided hike)
+# hikingIQ: Heel-Toe Grounding (1-hour guided hike)
 # Pattern: breathe in over 3 heel-to-toe steps, breathe out over 4 heel-to-toe steps. Repeat.
 # Same format as the walking/IQ sessions: one segment per paragraph, 5 seconds of quiet after each.
 # "[hike N]" = about N seconds of music-only hiking instead of the 5-second gap (scaled to fill 60:00).

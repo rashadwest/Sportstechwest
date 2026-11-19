@@ -1,4 +1,4 @@
-# bikeIQ — Breathe Every 5 Pedals (1-hour guided ride)
+# bikeIQ: Breathe Every 5 Pedals (1-hour guided ride)
 # Format: same as the walking/IQ sessions. One segment per paragraph, 5 seconds of quiet after each.
 # A line "[ride N]" after a segment = about N seconds of music-only riding instead of the 5-second gap.
 # The builder stretches or shrinks the ride blocks so the whole session lands on 60:00.
