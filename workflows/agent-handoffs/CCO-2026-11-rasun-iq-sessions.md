@@ -11,6 +11,20 @@
 
 ---
 
+## 0. Getting the files (do this first)
+
+Everything referenced below lives on the branch, not on `main` yet:
+
+```bash
+cd /Users/rashadwest/Sportstechwest
+git fetch origin claude/keen-volta-y1ux2u
+git checkout claude/keen-volta-y1ux2u
+```
+
+Then open this file at `workflows/agent-handoffs/CCO-2026-11-rasun-iq-sessions.md`. The appendix at the bottom has every episode's details, so this file works on its own even before you open the scripts.
+
+---
+
 ## 1. Timeline
 
 1. **"RaSun voice in ElevenLabs sounds good. Make a mod to push a video every other day."** Built the RaSun Video module on top of the existing ElevenLabs voice script, YouTube uploader and STW/IQ dispatcher. First episode drafted from the Beasley post (still awaiting review, not scheduled).
@@ -217,3 +231,99 @@ Caveat: verified from abstracts and indexes, not full texts. Claims are kept gen
 - **Blog:** "Breathe on rhythm" post tying the IQ sessions to the research in section 5, linking each video.
 - **BallCODE / curriculum:** breath math (pedals per minute to breaths per minute) is a ready-made rate lesson.
 - **Teams:** the 5-4-3-2-1 short version ("one thing you see, one you hear, next play") as a timeout or free-throw routine.
+
+---
+
+## Appendix A. Rashad's requests, word for word
+
+1. "RaSun voice in 11 Labs now sounds really good. We could use it for pushing a video maybe every other day on the site. So can we create a mod for that so that we can push more videos on the Sports Tech West YouTube channel?"
+2. "Lets go with a new post starting tomorrow schedule it and create it. I wa thinking about a bike IQ one where you hare breathing during every 5 pedals. Do that the same way we have been doing our walking ones"
+3. "Lets plan for the next two weeks. Saturday, Tuesday, Thursday. Change the imagery each time. I am thinking Saturday to do one around "hikingIQ" focusing on grounding. Keep telling them to focus on heel toe for 3 breathes in and then heal toe for 4 breathes out, repeat. "WalkingIQ" 5-4-3-2-1 technique to anchor yourself by identifying five things you see, four you can touch, three you hear, two you smell, and one you taste with. Do a "RunningIQ" Start your run with a positive intention or mantra to guide your focus and cultivate gratitude for nature. Then do it over and over again through the [cut off]. Go through each so I can approve each one"
+4. "Use AIMCODE/Thanos to make sure this is what I should do and then give me the CCO so cursor can build it"
+
+---
+
+## Appendix B. How the RaSun Video module works
+
+```
+Blog post or IQ idea
+   │  rasun-video.py new --post <post>     (blog breakdowns: drafts script with Claude if ANTHROPIC_API_KEY is set)
+   │  or a hand-written iq-session folder  (all 7 episodes here)
+   ▼
+video-packages/rasun/<slug>/   script.txt · youtube.txt · package.json · visual.png · thumbnail.jpg
+   │  Rashad reviews → rasun-video.py approve <slug>
+   ▼
+_data/rasun_queue.csv          date,story (planned_date honored; otherwise every other day)
+   │  stw-iq-dispatcher.py, job "rasun-every-other-day", daily 11:17, uploads only on queued dates
+   │    ├─ builds if the MP4 is missing: RaSun voice per segment (ElevenLabs) + 60:00 assembly (ffmpeg)
+   │    └─ uploads public to YouTube, writes youtube_video_id back into package.json
+   ▼
+YouTube
+```
+
+- **Two formats:**
+  - **Blog breakdown** (default): one 2.5 to 3.5 minute narration over the post's hero image with a slow push-in.
+  - **`iq-session`** (`"format": "iq-session"` in `package.json`): per-segment voice, 5 s gaps, pause blocks, music bed, fixed duration.
+- **Segment voice cache:** keyed by text, so editing one line re-voices only that line.
+- **Output paths:**
+  - `output/audio/rasun-<slug>-segments/` (voice segments)
+  - `output/video/rasun-<slug>.mp4` (the finished video)
+  - `output/stw-iq-dispatcher.log` (scheduler log)
+- **Safety:**
+  - Renders write to `*.partial.mp4` and are renamed only when finished.
+  - The dispatcher holds a lock (`output/stw-iq-dispatcher.lock`, considered stale after 2 h), so overlapping 5-minute runs can't double-upload.
+  - Dry runs never build or call ElevenLabs.
+- **`package.json` keys for sessions:** `format`, `duration_seconds` (3600), `music`, `music_volume` (0.35), `approved`, `planned_date`, `publish_date`, `youtube_video_id`, `card` (theme, motif, kicker, line1, line2, sub, thumb).
+
+---
+
+## Appendix C. Episode details
+
+All episodes: 1 hour, RaSun voice, safety line in the intro ("somewhere safe, one ear open"), short affirmations between practice blocks, closing line "...again with us. Sportstechwest. I'm RaSun."
+
+### 1. Fri Nov 20 · bikeIQ: Breathe Every 5 Pedals (`bikeiq-breathe-every-5-pedals`) · APPROVED
+- **YouTube title:** 1 Hour Breathing Ride: Breathe Every 5 Pedals | bikeIQ | Sportstechwest
+- **Practice:** count one pedal each time the right foot reaches the bottom. In for 5, out for 5. On climbs, drop to 4 and 4 if needed, then come back.
+- **Arc:** learn the count → add the breath → build pressure → climb → crest and recover → cruise → cool-down (in 5, out 6).
+- **Lines:** "I breathe on rhythm. I ride on rhythm." · "I can be uncomfortable and still be in control." · "I recover on purpose."
+- **Art:** navy panel, bike wheel with 5 orange (in) and 5 white (out) pedal marks. Thumbnail: "BREATHE EVERY 5 PEDALS."
+- **Size:** 780 spoken words, 51 segments.
+
+### 2. Sat Nov 21 · hikingIQ: Heel-Toe Grounding (`hikingiq-heel-toe-grounding`)
+- **YouTube title:** 1 Hour Grounding Hike: Heel-Toe Breathing, 3 In 4 Out | hikingIQ | Sportstechwest
+- **Practice:** every step lands heel first and rolls to the toe. Inhale over 3 heel-to-toe steps, exhale over 4. Repeat all hour.
+- **Arc:** find the step → add the count → notice ground, sounds, air → uphill (shorter steps), downhill (soft knees) → quiet blocks → cool-down (out for 5).
+- **Lines:** "I am here. I am grounded." · "Every step brings me back." · "I move with the ground, not against it."
+- **Art:** forest green, topographic contours with a dotted trail to the summit. Thumbnail: "HEEL / TOE / 3 IN · 4 OUT."
+
+### 3. Tue Nov 24 · walkingIQ: 5-4-3-2-1 Senses (`walkingiq-5-4-3-2-1-senses`)
+- **YouTube title:** 1 Hour 5-4-3-2-1 Grounding Walk: Anchor Yourself With Your Senses | walkingIQ | Sportstechwest
+- **Practice:** 5 things you see, 4 you can touch, 3 you hear, 2 you smell, 1 you taste. Four rounds: learn it, find what you missed, one breath per sense, then on your own. Includes a color game (find 5 things of one color) and a one-of-each closing round.
+- **Lines:** "I am here. Right now. That's enough." · "My senses bring me home." · "I come back to the moment. Every time."
+- **Art:** teal, rows of dots 5-4-3-2-1 labeled SEE / TOUCH / HEAR / SMELL / TASTE. Thumbnail: "5-4-3-2-1 / GROUNDING / WALK."
+
+### 4. Thu Nov 26 (Thanksgiving) · runningIQ: Intention & Gratitude (`runningiq-intention-and-gratitude`)
+- **YouTube title:** 1 Hour Gratitude Run: Light Feet, Grateful Heart | runningIQ | Sportstechwest
+- **Practice:** set an intention before the pace rises: "Light feet. Grateful heart." RaSun repeats it about 15 times and the runner says it back. Gratitude prompts: one thing in nature, then a stretch for someone who helped you get here, the ground under you, the sky.
+- **Close:** "Happy Thanksgiving from Sportstechwest. I'm RaSun."
+- **Art:** warm sunrise over a road. Thumbnail: "LIGHT FEET. / GRATEFUL / HEART."
+
+### 5. Sat Nov 28 · hikingIQ: Grounding on the Climb (`hikingiq-grounding-on-the-climb`)
+- **YouTube title:** 1 Hour Uphill Grounding Hike: 3 In, 4 Out on Any Terrain | hikingIQ | Sportstechwest
+- **Practice:** same 3-in, 4-out heel-toe breath. Flat warm-up → climb with half-length steps, lean from the ankles, 2 in / 3 out if needed → pause at the summit on both heels → descent with soft knees, quiet feet → flat → cool-down.
+- **Lines:** "I climb at my own pace." · "I can be breathing hard and still be grounded." · "I bring the ground with me."
+- **Art:** dusk purple, two mountains with a switchback trail and a summit flag. Thumbnail: "GROUNDED / ON THE / CLIMB."
+
+### 6. Tue Dec 1 · walkingIQ: 5-4-3-2-1 Reset Walk (`walkingiq-5-4-3-2-1-reset-walk`)
+- **YouTube title:** 1 Hour Reset Walk: 5-4-3-2-1 Grounding After a Hard Day | walkingIQ | Sportstechwest
+- **Practice:** let the day out, name what you're carrying and set it down, then 5-4-3-2-1 rounds that get more specific (the shape of one leaf, the quietest sound). Includes the athlete's short version: "One thing you see. One thing you hear. Next play."
+- **Lines:** "I am more than one moment." · "I learn from the day. I don't live in it." · "I am reset. I am ready for tomorrow."
+- **Art:** night navy, road lined with glowing streetlights. Thumbnail: "RESET / YOUR / HEAD."
+
+### 7. Thu Dec 3 · runningIQ: One Word Mantra (`runningiq-one-word-mantra`)
+- **YouTube title:** 1 Hour One Word Mantra Run: Pick Your Word, Run With It | runningIQ | Sportstechwest
+- **Practice:** pick one word (strong, smooth, free, steady, thankful, or your own). Say it on every left foot. Find something in nature that matches the word. When it gets hard, shrink the world to the word on the next step. You're allowed to change the word.
+- **Art:** ember red, rings around "YOUR WORD." Thumbnail: "ONE / WORD / RUN."
+
+### Not scheduled · Beasley breakdown (`practicing-is-not-pressure-beasley-vs-stephenson`)
+- A blog-breakdown format test (416 words, about 3 minutes) from the "Practicing Isn't Pressure" post. Awaiting Rashad's review. Not part of the IQ calendar.
