@@ -9,14 +9,14 @@
   "post_url": "",
   "visual": "",
   "drafted_by": "claude-code",
-  "approved": false,
+  "approved": true,
   "planned_date": "2026-12-01",
-  "publish_date": "",
+  "publish_date": "2026-12-01",
   "youtube_video_id": "",
   "card": {
     "theme": "night",
     "motif": "streetlights",
-    "kicker": "walkingIQ  ·  1 HOUR RESET WALK",
+    "kicker": "walkingIQ  \u00b7  1 HOUR RESET WALK",
     "line1": "THE RESET",
     "line2": "WALK",
     "sub": [
@@ -27,6 +27,7 @@
       "RESET",
       "YOUR",
       "HEAD"
-    ]
+    ],
+    "silhouette": "walker"
   }
 }

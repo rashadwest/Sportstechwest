@@ -3,7 +3,7 @@
 
 **Purpose:** Hand this work to Cursor (or any agent) so it can finish the build and ship without re-deriving anything.
 **Owner:** Rashad West (Sportstechwest)
-**Last updated:** 2026-11-19 (Cursor activate: C2–C4 + phase 1b listen gate; C1 blocked on .env + merge)
+**Last updated:** 2026-11-19 (C5 decisions applied: leisure off, 06:07, private drafts, silhouettes; music cleared by Rashad)
 **Repo:** `rashadwest/Sportstechwest`
 **Branch:** `claude/keen-volta-y1ux2u` (pushed, **not merged**, no PR yet)
 
@@ -61,12 +61,12 @@ It **does not git pull**. It runs whatever is checked out in that folder.
 | Date | Episode (slug) | Practice | Art | Status |
 |---|---|---|---|---|
 | Fri Nov 20 | `bikeiq-breathe-every-5-pedals` | In for 5 right-foot pedals, out for 5 | Navy, bike wheel with 5 in / 5 out marks | **Approved, queued** |
-| Sat Nov 21 | `hikingiq-heel-toe-grounding` | Heel-toe steps: in over 3 steps, out over 4 | Forest, topo contours | Awaiting approval |
-| Tue Nov 24 | `walkingiq-5-4-3-2-1-senses` | 5 see, 4 touch, 3 hear, 2 smell, 1 taste, in rounds | Teal, 5-4-3-2-1 dot rows | Awaiting approval |
-| Thu Nov 26 | `runningiq-intention-and-gratitude` | Mantra "Light feet. Grateful heart." + gratitude for nature (Thanksgiving) | Sunrise over a road | Awaiting approval |
-| Sat Nov 28 | `hikingiq-grounding-on-the-climb` | Same 3/4 heel-toe breath on uphill and downhill | Dusk, switchback mountain | Awaiting approval |
-| Tue Dec 1 | `walkingiq-5-4-3-2-1-reset-walk` | 5-4-3-2-1 aimed at resetting after a hard day | Night, streetlights | Awaiting approval |
-| Thu Dec 3 | `runningiq-one-word-mantra` | Pick one word, say it on every left foot | Ember, rings around "YOUR WORD" | Awaiting approval |
+| Sat Nov 21 | `hikingiq-heel-toe-grounding` | Heel-toe steps: in over 3 steps, out over 4 | Forest, topo contours + hiker silhouette | **Approved** (private draft) |
+| Tue Nov 24 | `walkingiq-5-4-3-2-1-senses` | 5 see, 4 touch, 3 hear, 2 smell, 1 taste, in rounds | Teal, 5-4-3-2-1 dot rows + walker silhouette | **Approved** (private draft) |
+| Thu Nov 26 | `runningiq-intention-and-gratitude` | Mantra "Light feet. Grateful heart." + gratitude for nature (Thanksgiving) | Sunrise over a road + runner silhouette | **Approved** (private draft) |
+| Sat Nov 28 | `hikingiq-grounding-on-the-climb` | Same 3/4 heel-toe breath on uphill and downhill | Dusk, switchback mountain + hiker silhouette | **Approved** (private draft) |
+| Tue Dec 1 | `walkingiq-5-4-3-2-1-reset-walk` | 5-4-3-2-1 aimed at resetting after a hard day | Night, streetlights + walker silhouette | **Approved** (private draft) |
+| Thu Dec 3 | `runningiq-one-word-mantra` | Pick one word, say it on every left foot | Ember, rings around "YOUR WORD" + runner silhouette | **Approved** (private draft) |
 
 **Session format (all seven):** 60:00 total. One RaSun segment per paragraph, 5 seconds of quiet after each. `[ride|walk|hike|run|quiet N]` lines are music-only stretches, scaled together so the session lands exactly on 60:00. Music bed at 35%, looped and faded. Still card as the video (6 fps, `-tune stillimage`). About 3 to 5 minutes of speech per hour; the rest is guided practice time with music.
 
@@ -155,9 +155,12 @@ Caveat: verified from abstracts and indexes, not full texts. Claims are kept gen
 
 - **Format:** walkingIQ/mentalIQ structure, 1 hour, 5 s after every segment, music at 35%, still card.
 - **Voice:** RaSun (ElevenLabs), ending "Sportstechwest. I'm RaSun."
-- **Lane:** RaSun queue (`_data/rasun_queue.csv`), job `rasun-every-other-day`, **public**.
+- **Lane:** RaSun queue (`_data/rasun_queue.csv`), job `rasun-every-other-day`, **private** Studio drafts until Rashad sets Public (changed from public 2026-11-19).
+- **Upload time:** **06:07** local (changed from 11:17 2026-11-19).
 - **Calendar:** Fri Nov 20 bikeIQ, then Sat/Tue/Thu from Nov 21 to Dec 3, as in section 3. Week 2 = second takes on the same three ideas, with new art.
-- **Approval gate:** nothing uploads unless `approved: true`. Rashad approves each one.
+- **Approval gate:** nothing uploads unless `approved: true`. All seven IQ sessions approved 2026-11-19.
+- **Music:** keep `output/music/background-manifestation-60min/track-a.mp3` (Rashad cleared 2026-11-19).
+- **Art:** typographic cards + athlete silhouette matching the lane (cyclist/hiker/walker/runner).
 - **hikingIQ breath:** "3 breaths in, 4 out" is implemented as **one inhale over 3 heel-to-toe steps, one exhale over 4**. Change only if Rashad says so.
 - **bikeIQ count:** one pedal = right foot at the bottom (one revolution).
 - **runningIQ:** Rashad's prompt cut off at "over and over again through the…". Implemented as "through the run."
@@ -210,6 +213,7 @@ Caveat: verified from abstracts and indexes, not full texts. Claims are kept gen
 **Status (2026-11-19): Infra DONE.** Manifest `stw-iq-test-listen.manifest.json` (bikeIQ + hikingIQ + walkingIQ senses). Helpers: `scripts/stw-iq-listen-test-push.sh`, `scripts/stw-sync-listen-checklist.sh`, `--write-listen-queue` on uploader. Morning Report reads `output/stw-iq-listen-queue.json` (`stw_listen`) and has three YouTube checklist rows. No real unlisted upload until bikeIQ MP4 exists.
 
 ### C5. Duplicate bikeIQ job (Rashad decides first)
+**Status (2026-11-19): DONE.** `bikeiq-leisure` set `"enabled": false`. Upload time moved to **06:07**. Job privacy **private** (Studio drafts until Rashad sets Public). All 6 remaining IQ episodes **approved** and queued on planned dates. Athlete silhouettes added to cards (`scripts/add-iq-athlete-silhouette.py`). Music: keep `track-a.mp3` (Rashad: cleared / sourced for STW).
 - If Rashad agrees, set `"enabled": false` on `bikeiq-leisure` in `stw-publish-schedule.json`. Don't change anything else in that job.
 
 ### C6. 3-minute / Shorts versions (phase 2, after week-1 metrics)
@@ -226,11 +230,14 @@ Caveat: verified from abstracts and indexes, not full texts. Claims are kept gen
 
 ## 9. Rashad's decisions needed
 
-1. **Approve episodes** (each one: `rasun-video.py approve <slug>`, or tell Claude/Cursor). Nov 21 hikingIQ first, since it's due Saturday.
-2. **Music license:** where `track-a.mp3` came from and whether it's cleared for YouTube. If unsure, swap in a YouTube Audio Library track and set `music` in each `package.json`.
-3. **Upload time:** keep 11:17, or move to 05:47 / the evening before.
-4. **`bikeiq-leisure`:** disable the daily re-upload?
-5. **AI disclosure:** recommended on (task C2).
+**Resolved 2026-11-19:**
+1. Episodes approved (all 7 IQ sessions). Uploads go up **private** so Rashad publishes from Studio after listen.
+2. Music: keep `track-a.mp3` (cleared by Rashad).
+3. Upload time: **06:07**.
+4. `bikeiq-leisure`: **disabled**.
+5. AI disclosure: on (C2).
+
+**Still open (C1):** merge PR #5, `git pull`, set `ELEVENLABS_VOICE_ID_RASUN`, build bikeIQ, listen.
 
 ## 10. Reuse ideas
 

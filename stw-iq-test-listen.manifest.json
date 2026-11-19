@@ -1,5 +1,5 @@
 {
-  "notes": "Phase 1b listen gate: three RaSun IQ sessions for unlisted channel listens before public. Upload with scripts/stw-iq-listen-test-push.sh. Morning Report reads output/stw-iq-listen-queue.json.",
+  "notes": "Phase 1b listen gate: private Studio drafts for bikeIQ + hikingIQ + walkingIQ senses. Publish Public after listen.",
   "listen_queue": "output/stw-iq-listen-queue.json",
   "drops": [
     {
@@ -9,7 +9,7 @@
       "metadata_txt": "video-packages/rasun/bikeiq-breathe-every-5-pedals/youtube.txt",
       "thumbnail": "video-packages/rasun/bikeiq-breathe-every-5-pedals/thumbnail.jpg",
       "synthetic_media": true,
-      "privacy": "unlisted"
+      "privacy": "private"
     },
     {
       "id": "hikingiq-heel-toe-grounding",
@@ -18,7 +18,7 @@
       "metadata_txt": "video-packages/rasun/hikingiq-heel-toe-grounding/youtube.txt",
       "thumbnail": "video-packages/rasun/hikingiq-heel-toe-grounding/thumbnail.jpg",
       "synthetic_media": true,
-      "privacy": "unlisted"
+      "privacy": "private"
     },
     {
       "id": "walkingiq-5-4-3-2-1-senses",
@@ -27,7 +27,7 @@
       "metadata_txt": "video-packages/rasun/walkingiq-5-4-3-2-1-senses/youtube.txt",
       "thumbnail": "video-packages/rasun/walkingiq-5-4-3-2-1-senses/thumbnail.jpg",
       "synthetic_media": true,
-      "privacy": "unlisted"
+      "privacy": "private"
     }
   ]
 }

@@ -11,5 +11,21 @@
   "drafted_by": "claude-code",
   "approved": true,
   "publish_date": "2026-11-20",
-  "youtube_video_id": ""
+  "youtube_video_id": "",
+  "card": {
+    "theme": "navy",
+    "motif": "wheel",
+    "silhouette": "cyclist",
+    "kicker": "bikeIQ  \u00b7  1 HOUR GUIDED RIDE",
+    "line1": "BREATHE EVERY",
+    "line2": "5 PEDALS",
+    "sub": [
+      "In for 5 pedals. Out for 5 pedals."
+    ],
+    "thumb": [
+      "BREATHE",
+      "EVERY",
+      "5 PEDALS"
+    ]
+  }
 }

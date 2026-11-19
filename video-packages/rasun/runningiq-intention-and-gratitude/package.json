@@ -9,14 +9,14 @@
   "post_url": "",
   "visual": "",
   "drafted_by": "claude-code",
-  "approved": false,
+  "approved": true,
   "planned_date": "2026-11-26",
-  "publish_date": "",
+  "publish_date": "2026-11-26",
   "youtube_video_id": "",
   "card": {
     "theme": "sunrise",
     "motif": "sunrise",
-    "kicker": "runningIQ  ·  1 HOUR GUIDED RUN",
+    "kicker": "runningIQ  \u00b7  1 HOUR GUIDED RUN",
     "line1": "LIGHT FEET.",
     "line2": "GRATEFUL HEART.",
     "sub": [
@@ -27,6 +27,7 @@
       "LIGHT FEET.",
       "GRATEFUL",
       "HEART."
-    ]
+    ],
+    "silhouette": "runner"
   }
 }

@@ -9,14 +9,14 @@
   "post_url": "",
   "visual": "",
   "drafted_by": "claude-code",
-  "approved": false,
+  "approved": true,
   "planned_date": "2026-11-21",
-  "publish_date": "",
+  "publish_date": "2026-11-21",
   "youtube_video_id": "",
   "card": {
     "theme": "forest",
     "motif": "contours",
-    "kicker": "hikingIQ  ·  1 HOUR GUIDED HIKE",
+    "kicker": "hikingIQ  \u00b7  1 HOUR GUIDED HIKE",
     "line1": "HEEL-TOE",
     "line2": "GROUNDING",
     "sub": [
@@ -26,7 +26,8 @@
     "thumb": [
       "HEEL",
       "TOE",
-      "3 IN · 4 OUT"
-    ]
+      "3 IN \u00b7 4 OUT"
+    ],
+    "silhouette": "hiker"
   }
 }

@@ -9,14 +9,14 @@
   "post_url": "",
   "visual": "",
   "drafted_by": "claude-code",
-  "approved": false,
+  "approved": true,
   "planned_date": "2026-11-28",
-  "publish_date": "",
+  "publish_date": "2026-11-28",
   "youtube_video_id": "",
   "card": {
     "theme": "dusk",
     "motif": "switchback",
-    "kicker": "hikingIQ  ·  1 HOUR GUIDED HIKE",
+    "kicker": "hikingIQ  \u00b7  1 HOUR GUIDED HIKE",
     "line1": "GROUNDING",
     "line2": "ON THE CLIMB",
     "sub": [
@@ -27,6 +27,7 @@
       "GROUNDED",
       "ON THE",
       "CLIMB"
-    ]
+    ],
+    "silhouette": "hiker"
   }
 }

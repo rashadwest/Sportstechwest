@@ -15,7 +15,7 @@
     },
     {
       "id": "bikeiq-leisure",
-      "enabled": true,
+      "enabled": false,
       "schedule": { "type": "daily", "time": "06:23" },
       "action": "youtube_upload",
       "mp4": "output/video/bikeiq-leisure.mp4",
@@ -82,7 +82,7 @@
     {
       "id": "rasun-every-other-day",
       "enabled": true,
-      "schedule": { "type": "daily", "time": "11:17" },
+      "schedule": { "type": "daily", "time": "06:07" },
       "action": "queue_upload",
       "queue_csv": "_data/rasun_queue.csv",
       "story_dir": "video-packages/rasun",
@@ -91,8 +91,9 @@
       "thumbnail_template": "video-packages/rasun/{story}/thumbnail.jpg|video-packages/rasun/{story}/thumbnail.png",
       "build_if_missing": "scripts/rasun-video.py build --slug {story}",
       "record_video_id_in": "video-packages/rasun/{story}/package.json",
-      "privacy": "public",
-      "contains_synthetic_media": true
+      "privacy": "private",
+      "contains_synthetic_media": true,
+      "schedule_notes": "06:07 morning slot (Rashad 2026-11-19). private = Studio draft until you set Public after listen."
     }
   ]
 }

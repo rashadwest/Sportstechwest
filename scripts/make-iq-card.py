@@ -29,7 +29,37 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
-FONT_DIR = "/usr/share/fonts/opentype/inter/"
+# Prefer Inter (Linux CI / Debian). Fall back to common Mac system fonts.
+_FONT_CANDIDATES = [
+    Path("/usr/share/fonts/opentype/inter"),
+    Path("/Library/Fonts"),
+    Path.home() / "Library/Fonts",
+]
+_FONT_MAP = {
+    "InterDisplay-Black.otf": ["InterDisplay-Black.otf", "Arial Black.ttf", "Arial Black", "Helvetica.ttc"],
+    "Inter-Bold.otf": ["Inter-Bold.otf", "Arial Bold.ttf", "Arial.ttf", "Helvetica.ttc"],
+    "Inter-Medium.otf": ["Inter-Medium.otf", "Arial.ttf", "Helvetica.ttc"],
+}
+
+
+def _resolve_font_file(name: str) -> str:
+    for base in _FONT_CANDIDATES:
+        if not base.exists():
+            continue
+        for cand in _FONT_MAP.get(name, [name]):
+            p = base / cand
+            if p.exists():
+                return str(p)
+            # Mac sometimes stores fonts without extension in the path listing
+            matches = list(base.glob(cand + "*")) if not Path(cand).suffix else []
+            if matches:
+                return str(matches[0])
+    raise FileNotFoundError(f"No font for {name}; install Inter or Arial")
+
+
+def font(name: str, size: int) -> ImageFont.FreeTypeFont:
+    return ImageFont.truetype(_resolve_font_file(name), size)
+
 
 THEMES = {
     #           background      panel           accent          secondary       text            muted
@@ -40,10 +70,6 @@ THEMES = {
     "sunrise": ((44, 24, 22),   (60, 32, 28),   (255, 176, 64), (240, 104, 72), (250, 240, 232), (210, 178, 164)),
     "ember":   ((38, 14, 18),   (54, 20, 26),   (255, 122, 92), (240, 186, 96), (248, 236, 234), (206, 164, 164)),
 }
-
-
-def font(name: str, size: int) -> ImageFont.FreeTypeFont:
-    return ImageFont.truetype(FONT_DIR + name, size)
 
 
 def mix(a, b, t):
@@ -192,6 +218,17 @@ def draw(card: dict, W: int, H: int, thumb: bool) -> Image.Image:
     text_w = int(1030 * s)
     motif_box = (int(1290 * s), int(220 * s), int(1740 * s), int(860 * s))
     MOTIFS[card["motif"]](d, motif_box, T, s)
+    # Optional athlete silhouette (cyclist/hiker/walker/runner) — see add-iq-athlete-silhouette.py
+    sil = (card.get("silhouette") or "").strip().lower()
+    if sil in {"cyclist", "hiker", "walker", "runner"}:
+        import importlib.util
+        spec = importlib.util.spec_from_file_location(
+            "sil", Path(__file__).with_name("add-iq-athlete-silhouette.py")
+        )
+        mod = importlib.util.module_from_spec(spec)
+        assert spec.loader is not None
+        spec.loader.exec_module(mod)
+        mod.DRAWERS[sil](d, motif_box, T[2], s)
 
     if thumb:
         lines = card.get("thumb") or [card["line1"], card["line2"]]

@@ -9,14 +9,14 @@
   "post_url": "",
   "visual": "",
   "drafted_by": "claude-code",
-  "approved": false,
+  "approved": true,
   "planned_date": "2026-12-03",
-  "publish_date": "",
+  "publish_date": "2026-12-03",
   "youtube_video_id": "",
   "card": {
     "theme": "ember",
     "motif": "rings",
-    "kicker": "runningIQ  ·  1 HOUR GUIDED RUN",
+    "kicker": "runningIQ  \u00b7  1 HOUR GUIDED RUN",
     "line1": "ONE WORD.",
     "line2": "ONE HOUR.",
     "sub": [
@@ -27,6 +27,7 @@
       "ONE",
       "WORD",
       "RUN"
-    ]
+    ],
+    "silhouette": "runner"
   }
 }

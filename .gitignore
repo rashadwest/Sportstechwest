@@ -20,5 +20,8 @@ node_modules/
 .bundle/
 vendor/
 
+# One-time backups before silhouette composite
+*.pre-silhouette
+
 # Python bytecode
 __pycache__/
