@@ -1,0 +1,32 @@
+{
+  "slug": "runningiq-intention-and-gratitude",
+  "title": "runningIQ: Intention & Gratitude (1 hour guided run)",
+  "format": "iq-session",
+  "duration_seconds": 3600,
+  "music": "output/music/background-manifestation-60min/track-a.mp3",
+  "music_volume": 0.35,
+  "source_post": "",
+  "post_url": "",
+  "visual": "",
+  "drafted_by": "claude-code",
+  "approved": false,
+  "planned_date": "2026-11-26",
+  "publish_date": "",
+  "youtube_video_id": "",
+  "card": {
+    "theme": "sunrise",
+    "motif": "sunrise",
+    "kicker": "runningIQ  ·  1 HOUR GUIDED RUN",
+    "line1": "LIGHT FEET.",
+    "line2": "GRATEFUL HEART.",
+    "sub": [
+      "Set your intention. Thank the ground under you.",
+      "Come back to it every mile."
+    ],
+    "thumb": [
+      "LIGHT FEET.",
+      "GRATEFUL",
+      "HEART."
+    ]
+  }
+}

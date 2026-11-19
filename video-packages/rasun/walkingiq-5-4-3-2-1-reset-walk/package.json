@@ -1,0 +1,32 @@
+{
+  "slug": "walkingiq-5-4-3-2-1-reset-walk",
+  "title": "walkingIQ: 5-4-3-2-1 Reset Walk (1 hour guided walk)",
+  "format": "iq-session",
+  "duration_seconds": 3600,
+  "music": "output/music/background-manifestation-60min/track-a.mp3",
+  "music_volume": 0.35,
+  "source_post": "",
+  "post_url": "",
+  "visual": "",
+  "drafted_by": "claude-code",
+  "approved": false,
+  "planned_date": "2026-12-01",
+  "publish_date": "",
+  "youtube_video_id": "",
+  "card": {
+    "theme": "night",
+    "motif": "streetlights",
+    "kicker": "walkingIQ  ·  1 HOUR RESET WALK",
+    "line1": "THE RESET",
+    "line2": "WALK",
+    "sub": [
+      "5-4-3-2-1 for the end of a long day,",
+      "a tough practice, or a bad game."
+    ],
+    "thumb": [
+      "RESET",
+      "YOUR",
+      "HEAD"
+    ]
+  }
+}

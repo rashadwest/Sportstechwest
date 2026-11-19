@@ -80,7 +80,19 @@ A package with `"format": "iq-session"` in `package.json` builds as a long guide
 
 Example: `video-packages/rasun/bikeiq-breathe-every-5-pedals/` (breathe in for 5 pedals, out for 5 pedals; 1 hour).
 
-To start a new one, copy that folder, rewrite `script.txt`, `youtube.txt` and the card, set `"approved": true`, then run `rasun-video.py schedule`.
+To start a new one, copy a session folder, rewrite `script.txt`, `youtube.txt` and the `card` block in `package.json`, then redraw the art:
+
+```bash
+python3 scripts/make-iq-card.py video-packages/rasun/<slug>
+```
+
+Themes: `forest`, `dusk`, `teal`, `night`, `sunrise`, `ember`. Motifs: `contours`, `switchback`, `senses`, `streetlights`, `sunrise`, `rings`. Pause lines can be written `[ride N]`, `[walk N]`, `[hike N]`, `[run N]` or `[quiet N]`.
+
+Set `planned_date` in `package.json` to pin an episode to a date. Approving it puts it on that date:
+
+```bash
+python3 scripts/rasun-video.py approve <slug>
+```
 
 ## Knobs
 

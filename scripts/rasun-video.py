@@ -367,6 +367,25 @@ def cmd_schedule(args: argparse.Namespace) -> int:
         future = [d for d, _ in rows if d >= today]
         nxt = (max(future) + timedelta(days=args.gap)) if future else today + timedelta(days=1)
 
+    # Episodes with a "planned_date" in package.json go on that date; the rest fill
+    # every-other-day slots after the last queued date.
+    planned = sorted((s for s in pending if load_pkg(s).get("planned_date")), key=lambda s: load_pkg(s)["planned_date"])
+    for slug in planned:
+        when = date.fromisoformat(load_pkg(slug)["planned_date"])
+        if when < today:
+            print(f"SKIP {slug}: planned date {when} has passed; set a new planned_date")
+            continue
+        clash = [s for d, s in rows if d == when]
+        if clash:
+            print(f"SKIP {slug}: {when} already has {clash[0]}")
+            continue
+        rows.append((when, slug))
+        pkg = load_pkg(slug)
+        pkg["publish_date"] = when.isoformat()
+        save_pkg(slug, pkg)
+        print(f"{when.isoformat()}  {slug}  (planned)")
+    pending = [s for s in pending if s not in planned]
+
     for slug in pending:
         while any(d == nxt for d, _ in rows):
             nxt += timedelta(days=1)
@@ -438,7 +457,7 @@ def parse_session(text: str) -> List[Tuple[str, Optional[float]]]:
         ride: Optional[float] = None
         spoken: List[str] = []
         for l in lines:
-            m = re.fullmatch(r"\[ride\s+(\d+(?:\.\d+)?)\]", l, re.I)
+            m = re.fullmatch(r"\[(?:ride|walk|hike|run|quiet)\s+(\d+(?:\.\d+)?)\]", l, re.I)
             if m:
                 ride = float(m.group(1))
             else:
@@ -648,6 +667,19 @@ def cmd_build(args: argparse.Namespace) -> int:
 
 # ---------------------------------------------------------------- status
 
+def cmd_approve(args: argparse.Namespace) -> int:
+    """Mark episodes approved and put them on the calendar (planned_date, else next open slot)."""
+    for slug in args.slugs:
+        if not (PKG_ROOT / slug / "package.json").exists():
+            print(f"No episode named {slug}", file=sys.stderr)
+            return 1
+        pkg = load_pkg(slug)
+        pkg["approved"] = True
+        save_pkg(slug, pkg)
+        print(f"approved {slug}")
+    return cmd_schedule(argparse.Namespace(start=None, gap=DEFAULT_GAP_DAYS, include_unapproved=False, dry_run=False))
+
+
 def cmd_status(_: argparse.Namespace) -> int:
     dates = {s: d for d, s in read_queue()}
     slugs = all_slugs()
@@ -655,10 +687,14 @@ def cmd_status(_: argparse.Namespace) -> int:
         print("No RaSun episodes yet. Start one with: rasun-video.py new --post _posts/<post>.md")
         return 0
     today = date.today()
-    for s in sorted(slugs, key=lambda x: (dates.get(x) or date.max, x)):
+    def sort_key(x: str):
+        planned = load_pkg(x).get("planned_date")
+        return (dates.get(x) or (date.fromisoformat(planned) if planned else date.max), x)
+
+    for s in sorted(slugs, key=sort_key):
         pkg = load_pkg(s)
         d = dates.get(s)
-        when = d.isoformat() if d else "unscheduled"
+        when = d.isoformat() if d else (f"planned {pkg['planned_date']}" if pkg.get("planned_date") else "unscheduled")
         if d and d < today:
             when += " (past)"
         flags = []
@@ -669,7 +705,7 @@ def cmd_status(_: argparse.Namespace) -> int:
             flags.append(f"youtu.be/{pkg['youtube_video_id']}")
         sp = PKG_ROOT / s / "script.txt"
         wc = word_count(spoken_text(sp.read_text(encoding="utf-8"))) if sp.exists() else 0
-        if pkg.get("format") == "iq-session" and (AUDIO_DIR / f"rasun-{s}-segments").exists():
+        if pkg.get("format") == "iq-session" and any((AUDIO_DIR / f"rasun-{s}-segments").glob("*.mp3")):
             flags[1] = "audio"
         print(f"{when:<20} {s:<50} {wc:>4}w  {' · '.join(flags)}")
     return 0
@@ -702,6 +738,10 @@ def main() -> None:
     p.add_argument("--force", action="store_true", help="Re-voice and re-render even if files exist")
     p.add_argument("--dry-run", action="store_true")
     p.set_defaults(fn=cmd_build)
+
+    p = sub.add_parser("approve", help="Approve episodes and schedule them")
+    p.add_argument("slugs", nargs="+")
+    p.set_defaults(fn=cmd_approve)
 
     p = sub.add_parser("status", help="List episodes")
     p.set_defaults(fn=cmd_status)

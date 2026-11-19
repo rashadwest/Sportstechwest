@@ -1,0 +1,32 @@
+{
+  "slug": "hikingiq-grounding-on-the-climb",
+  "title": "hikingIQ: Grounding on the Climb (1 hour guided hike)",
+  "format": "iq-session",
+  "duration_seconds": 3600,
+  "music": "output/music/background-manifestation-60min/track-a.mp3",
+  "music_volume": 0.35,
+  "source_post": "",
+  "post_url": "",
+  "visual": "",
+  "drafted_by": "claude-code",
+  "approved": false,
+  "planned_date": "2026-11-28",
+  "publish_date": "",
+  "youtube_video_id": "",
+  "card": {
+    "theme": "dusk",
+    "motif": "switchback",
+    "kicker": "hikingIQ  ·  1 HOUR GUIDED HIKE",
+    "line1": "GROUNDING",
+    "line2": "ON THE CLIMB",
+    "sub": [
+      "Same rhythm: 3 steps in, 4 steps out.",
+      "Short steps up. Soft knees down."
+    ],
+    "thumb": [
+      "GROUNDED",
+      "ON THE",
+      "CLIMB"
+    ]
+  }
+}
