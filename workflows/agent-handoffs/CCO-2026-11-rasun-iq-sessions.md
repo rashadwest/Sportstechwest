@@ -3,7 +3,7 @@
 
 **Purpose:** Hand this work to Cursor (or any agent) so it can finish the build and ship without re-deriving anything.
 **Owner:** Rashad West (Sportstechwest)
-**Last updated:** 2026-11-20 (short-snip Ra bikeIQ: content-hash reuse, TTS 0.55/0.8/0.0, private draft `vnUv0Yno31Q`)
+**Last updated:** 2026-11-20 (new RaSun voice `uERtS79IUtxplcyW7IEG`; bikeIQ wiped/rebuilt; private draft `e4PHspR9TPA`)
 **Repo:** `rashadwest/Sportstechwest`
 **Branch:** `claude/keen-volta-y1ux2u` (pushed, **not merged**, no PR yet)
 
@@ -39,7 +39,7 @@ Then open this file at `workflows/agent-handoffs/CCO-2026-11-rasun-iq-sessions.m
 | File | What it is |
 |---|---|
 | `scripts/rasun-video.py` | The module: `new`, `schedule`, `approve`, `build`, `status`. `iq-session` builder lives here (`build_session`). |
-| `scripts/voice-generate.py` | ElevenLabs TTS. `--preset rasun` → Ra `XZrsM88QEbRreJGsS4Xf`; short-snip settings stability 0.55 / similarity 0.8 / style 0.0. Segment cache is content-addressed so identical cues reuse one take. |
+| `scripts/voice-generate.py` | ElevenLabs TTS. `--preset rasun` → RaSun `uERtS79IUtxplcyW7IEG` via `ELEVENLABS_VOICE_ID_RASUN`; short-snip settings 0.55 / 0.8 / 0.0; content-addressed segment cache. Prior Ra `XZrs…` / SunRa `Rzqjd…` attempts parked. |
 | `scripts/stw-iq-dispatcher.py` | Scheduler. Generic `queue_upload` action with `build_if_missing`, `thumbnail_template`, `record_video_id_in`, and a run lock. |
 | `scripts/youtube-upload.py` | Uploader (thumbnail MIME type now set from the file). |
 | `scripts/make-iq-card.py` | Draws `visual.png` + `thumbnail.jpg` from the `card` block in `package.json` (6 themes, 6 motifs). |
@@ -154,7 +154,7 @@ Caveat: verified from abstracts and indexes, not full texts. Claims are kept gen
 ## 7. Decisions already made (do not reopen)
 
 - **Format:** walkingIQ/mentalIQ structure, 1 hour, 5 s after every segment, music at 35%, still card.
-- **Voice:** **Ra** ElevenLabs ID `XZrsM88QEbRreJGsS4Xf` (locked on `ELEVENLABS_VOICE_ID` and `ELEVENLABS_VOICE_ID_RASUN`). SunRa `RzqjdNWFyMhEwNbRm3ek` retired from STW + TraditionalChess `SUNRA` constant. **Short-snip path (2026-11-20):** rasun TTS stability 0.55 / similarity_boost 0.8 / style 0.0; `rasun-video.py` caches segments by text hash so repeated cues (e.g. `In for five. Out for five.`) reuse one take; bikeIQ script rewritten into ~5–10s snips and re-uploaded private as `vnUv0Yno31Q`. Card credit remains **Voice: Rashad West**. Spoken close stays "Sportstechwest. I'm RaSun."
+- **Voice:** **RaSun** ElevenLabs ID `uERtS79IUtxplcyW7IEG` (locked on `ELEVENLABS_VOICE_ID` and `ELEVENLABS_VOICE_ID_RASUN` as of 2026-11-20). Prior Ra `XZrsM88QEbRreJGsS4Xf` and deleted SunRa `RzqjdNWFyMhEwNbRm3ek` attempts parked — do not delete a working voice without A/B proof. Short-snip path: TTS 0.55 / 0.8 / 0.0; content-hash cue reuse; bikeIQ-only rebuild + private draft `e4PHspR9TPA`. Other six IQ sessions still on older local builds until bikeIQ is approved. Card credit **Voice: Rashad West**. Close: "Sportstechwest. I'm RaSun."
 - **Lane:** RaSun queue (`_data/rasun_queue.csv`), job `rasun-every-other-day`, **private** Studio drafts until Rashad sets Public (changed from public 2026-11-19).
 - **Upload time:** **06:07** local (changed from 11:17 2026-11-19).
 - **Calendar:** Fri Nov 20 bikeIQ, then Sat/Tue/Thu from Nov 21 to Dec 3, as in section 3. Week 2 = second takes on the same three ideas, with new art.
