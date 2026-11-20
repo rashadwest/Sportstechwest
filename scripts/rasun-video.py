@@ -632,7 +632,8 @@ def build_session(slug: str, force: bool, dry_run: bool) -> int:
         subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(voice), "-stream_loop", "-1", "-i", str(music),
                         "-filter_complex",
                         f"[1:a]volume={vol},afade=t=in:d=3,afade=t=out:st={target - 8}:d=8[m];"
-                        f"[0:a][m]amix=inputs=2:duration=first:dropout_transition=0:normalize=0,"
+                        # Some Homebrew ffmpeg builds lack amix normalize=; loudnorm restores level.
+                        f"[0:a][m]amix=inputs=2:duration=first:dropout_transition=0,"
                         f"loudnorm=I=-16:TP=-1.5:LRA=11[a]",
                         "-map", "[a]", "-t", str(target), "-c:a", "aac", "-b:a", "192k", str(mix)], check=True)
     else:

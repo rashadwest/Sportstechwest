@@ -87,15 +87,26 @@ def _resolve_voice_id(preset: str | None, out_path: str, voice_id_arg: str | Non
     return vid
 
 
-def _tts(api_key: str, voice_id: str, text: str, out_path: Path) -> None:
+def _voice_settings(preset: str | None) -> dict:
+    # Ra / IQ sessions: match TraditionalChess booth clone settings (SunRa pack).
+    if preset == "rasun":
+        return {
+            "stability": 0.4,
+            "similarity_boost": 0.8,
+            "style": 0.35,
+        }
+    return {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+    }
+
+
+def _tts(api_key: str, voice_id: str, text: str, out_path: Path, preset: str | None = None) -> None:
     url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"
     payload = {
         "text": text,
         "model_id": "eleven_multilingual_v2",
-        "voice_settings": {
-            "stability": 0.5,
-            "similarity_boost": 0.75,
-        },
+        "voice_settings": _voice_settings(preset),
     }
     r = requests.post(
         url,
@@ -149,7 +160,7 @@ def main() -> None:
         print("Set ELEVENLABS_API_KEY in .env", file=sys.stderr)
         sys.exit(1)
 
-    _tts(api_key, voice_id, text, out_path)
+    _tts(api_key, voice_id, text, out_path, preset=args.preset)
 
 
 if __name__ == "__main__":

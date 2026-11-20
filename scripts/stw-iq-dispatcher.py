@@ -155,6 +155,23 @@ def resolve_queue_job(job: Dict[str, Any], repo: Path, now: datetime, log_lines:
         log_lines.append(f"JOB {job.get('id')}: no queue story for {now.date().isoformat()}")
         return None
 
+    # Skip episodes already uploaded (e.g. listen-test private draft before the scheduled slot).
+    record_tmpl = str(job.get("record_video_id_in") or "")
+    if record_tmpl:
+        pkg_path = Path(record_tmpl.format(story=story))
+        if not pkg_path.is_absolute():
+            pkg_path = repo / pkg_path
+        if pkg_path.exists():
+            try:
+                existing_id = str((json.loads(pkg_path.read_text(encoding="utf-8")) or {}).get("youtube_video_id") or "").strip()
+            except Exception:
+                existing_id = ""
+            if existing_id:
+                log_lines.append(
+                    f"JOB {job.get('id')}: already uploaded story '{story}' as {existing_id}; skipping"
+                )
+                return None
+
     story_dir = Path(str(job.get("story_dir") or "shorts-packages/stw-news-2026-01"))
     if not story_dir.is_absolute():
         story_dir = repo / story_dir
