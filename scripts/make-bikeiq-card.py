@@ -3,9 +3,26 @@
 Usage: python3 scripts/make-bikeiq-card.py video-packages/rasun/bikeiq-breathe-every-5-pedals
 Needs Pillow and the Inter fonts (paths below)."""
 import math, sys
+from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
-F="/usr/share/fonts/opentype/inter/"
-def font(n,s): return ImageFont.truetype(F+n,s)
+_FONT_DIRS = [
+    Path("/usr/share/fonts/opentype/inter"),
+    Path("/Library/Fonts"),
+    Path("/System/Library/Fonts"),
+    Path("/System/Library/Fonts/Supplemental"),
+]
+_FONT_FALLBACKS = {
+    "Inter-Bold.otf": ["Inter-Bold.otf", "Arial Bold.ttf", "Helvetica.ttc", "Arial.ttf"],
+    "InterDisplay-Black.otf": ["InterDisplay-Black.otf", "Arial Black.ttf", "Helvetica.ttc", "Arial.ttf"],
+    "Inter-Medium.otf": ["Inter-Medium.otf", "Arial.ttf", "Helvetica.ttc"],
+}
+def font(n, s):
+    for base in _FONT_DIRS:
+        for cand in _FONT_FALLBACKS.get(n, [n]):
+            p = base / cand
+            if p.exists():
+                return ImageFont.truetype(str(p), s)
+    return ImageFont.load_default()
 BG=(22,28,40); PANEL=(28,35,49); ORANGE=(232,104,42); BLUE=(43,123,196); WHITE=(236,238,242); GREY=(160,168,182)
 
 def wheel(d, cx, cy, r, scale):

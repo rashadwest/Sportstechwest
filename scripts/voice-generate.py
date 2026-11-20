@@ -88,12 +88,11 @@ def _resolve_voice_id(preset: str | None, out_path: str, voice_id_arg: str | Non
 
 
 def _voice_settings(preset: str | None) -> dict:
-    # Ra / IQ sessions: short-snip friendly (higher stability, no style exaggeration).
+    # RaSun IQ: match ElevenLabs UI export (s50 / sim75); no Chess style exaggeration.
     if preset == "rasun":
         return {
-            "stability": 0.55,
-            "similarity_boost": 0.8,
-            "style": 0.0,
+            "stability": 0.5,
+            "similarity_boost": 0.75,
         }
     return {
         "stability": 0.5,

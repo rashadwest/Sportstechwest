@@ -3,7 +3,7 @@
 
 **Purpose:** Hand this work to Cursor (or any agent) so it can finish the build and ship without re-deriving anything.
 **Owner:** Rashad West (Sportstechwest)
-**Last updated:** 2026-11-20 (new RaSun voice `uERtS79IUtxplcyW7IEG`; bikeIQ wiped/rebuilt; private draft `e4PHspR9TPA`)
+**Last updated:** 2026-11-20 (bikeIQ right way: s50/sim75 TTS, side-view cyclist, private `fcwyc6akpX0`)
 **Repo:** `rashadwest/Sportstechwest`
 **Branch:** `claude/keen-volta-y1ux2u` (pushed, **not merged**, no PR yet)
 
@@ -39,7 +39,7 @@ Then open this file at `workflows/agent-handoffs/CCO-2026-11-rasun-iq-sessions.m
 | File | What it is |
 |---|---|
 | `scripts/rasun-video.py` | The module: `new`, `schedule`, `approve`, `build`, `status`. `iq-session` builder lives here (`build_session`). |
-| `scripts/voice-generate.py` | ElevenLabs TTS. `--preset rasun` → RaSun `uERtS79IUtxplcyW7IEG` via `ELEVENLABS_VOICE_ID_RASUN`; short-snip settings 0.55 / 0.8 / 0.0; content-addressed segment cache. Prior Ra `XZrs…` / SunRa `Rzqjd…` attempts parked. |
+| `scripts/voice-generate.py` | ElevenLabs TTS. `--preset rasun` → RaSun `uERtS79IUtxplcyW7IEG`; UI-matched **s50/sim75** (0.5 / 0.75); content-addressed segment cache. |
 | `scripts/stw-iq-dispatcher.py` | Scheduler. Generic `queue_upload` action with `build_if_missing`, `thumbnail_template`, `record_video_id_in`, and a run lock. |
 | `scripts/youtube-upload.py` | Uploader (thumbnail MIME type now set from the file). |
 | `scripts/make-iq-card.py` | Draws `visual.png` + `thumbnail.jpg` from the `card` block in `package.json` (6 themes, 6 motifs). |
@@ -131,7 +131,7 @@ Caveat: verified from abstracts and indexes, not full texts. Claims are kept gen
 |---|---|---|
 | Builder, scaling to 60:00, dispatcher, lock, ID write-back | Pass | Section 4 tests. |
 | **Code reaches the machine** | **BLOCKER** | The Mac runs a local checkout with no pull. Merge to `main` and pull, or tomorrow's bikeIQ never runs. |
-| **RaSun voice ID on the Mac** | Pass (2026-11-19) | Ra `XZrsM88QEbRreJGsS4Xf` on `ELEVENLABS_VOICE_ID` + `ELEVENLABS_VOICE_ID_RASUN`. SunRa retired in code. |
+| **RaSun voice ID on the Mac** | Pass (2026-11-20) | RaSun `uERtS79IUtxplcyW7IEG` on `ELEVENLABS_VOICE_ID` + `ELEVENLABS_VOICE_ID_RASUN`. Prior Ra `XZrsM88QEbRreJGsS4Xf` and SunRa retired. |
 | **Music license** | **BLOCKER** | Unknown source. A claimed track on 7 hour-long uploads means Content ID claims or blocks. |
 | AI disclosure | High | RaSun is a synthetic, realistic voice. Set `containsSyntheticMedia` on upload (task C2). |
 | Build at upload time | High | Each session voices about 50 segments plus an hour-long encode at 11:17. Prebuild nightly (task C4). |
@@ -154,7 +154,7 @@ Caveat: verified from abstracts and indexes, not full texts. Claims are kept gen
 ## 7. Decisions already made (do not reopen)
 
 - **Format:** walkingIQ/mentalIQ structure, 1 hour, 5 s after every segment, music at 35%, still card.
-- **Voice:** **RaSun** ElevenLabs ID `uERtS79IUtxplcyW7IEG` (locked on `ELEVENLABS_VOICE_ID` and `ELEVENLABS_VOICE_ID_RASUN` as of 2026-11-20). Prior Ra `XZrsM88QEbRreJGsS4Xf` and deleted SunRa `RzqjdNWFyMhEwNbRm3ek` attempts parked — do not delete a working voice without A/B proof. Short-snip path: TTS 0.55 / 0.8 / 0.0; content-hash cue reuse; bikeIQ-only rebuild + private draft `e4PHspR9TPA`. Other six IQ sessions still on older local builds until bikeIQ is approved. Card credit **Voice: Rashad West**. Close: "Sportstechwest. I'm RaSun."
+- **Voice:** **RaSun** `uERtS79IUtxplcyW7IEG` with TTS **stability 0.5 / similarity 0.75** (match ElevenLabs UI export). Short-snip script + hash cue reuse. bikeIQ right-way private draft `fcwyc6akpX0` (side-view cyclist; dial unchanged). Prior attempts parked. Other six IQs wait on bikeIQ approval. Card credit **Voice: Rashad West**. Close: "Sportstechwest. I'm RaSun."
 - **Lane:** RaSun queue (`_data/rasun_queue.csv`), job `rasun-every-other-day`, **private** Studio drafts until Rashad sets Public (changed from public 2026-11-19).
 - **Upload time:** **06:07** local (changed from 11:17 2026-11-19).
 - **Calendar:** Fri Nov 20 bikeIQ, then Sat/Tue/Thu from Nov 21 to Dec 3, as in section 3. Week 2 = second takes on the same three ideas, with new art.
@@ -173,10 +173,10 @@ Caveat: verified from abstracts and indexes, not full texts. Claims are kept gen
 ## 8. Cursor build tasks (in order)
 
 ### C1. Ship to the machine (blocker, before Nov 20 06:07 local time)
-**Status (2026-11-19): MOSTLY DONE on this Mac.** `.env` has Ra `XZrsM88QEbRreJGsS4Xf` on both voice IDs. All seven IQ sessions force-rebuilt with Ra + Chess booth settings (`output/video/rasun-*.mp4`, ~3600 s each). bikeIQ smoke: `output/audio/rasun-bikeiq-listen-2min.mp3` (~120 s) played OK. Still open: merge PR #5 to `main` (or keep running from `claude/keen-volta-y1ux2u` checkout — dispatcher does not git pull).
+**Status (2026-11-20): MOSTLY DONE on this Mac.** `.env` has RaSun `uERtS79IUtxplcyW7IEG` on both voice IDs (longer-trained; switched 2026-11-20). Prior local builds may still be on older Ra audio until force-rebuild. Still open: merge PR #5 to `main` (or keep running from `claude/keen-volta-y1ux2u` checkout — dispatcher does not git pull).
 1. Open a PR `claude/keen-volta-y1ux2u` into `main`. Wait for CI (`blog-validate.yml`, `site-health.yml`, `jekyll.yml`) and merge (Rashad merges).
 2. On the Mac: `cd /Users/rashadwest/Sportstechwest && git checkout main && git pull` (or stay on the feature branch if that is what launchd/n8n runs).
-3. Confirm `.env`: `ELEVENLABS_VOICE_ID_RASUN=XZrsM88QEbRreJGsS4Xf` (Ra; not SunRa).
+3. Confirm `.env`: `ELEVENLABS_VOICE_ID_RASUN=uERtS79IUtxplcyW7IEG` (RaSun longer-trained; not prior Ra/SunRa).
 4. Prebuild / force-rebuild if cache is stale:
    ```bash
    python3 scripts/rasun-video.py build --force --slug bikeiq-breathe-every-5-pedals

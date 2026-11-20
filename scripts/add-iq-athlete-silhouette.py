@@ -46,29 +46,51 @@ def _poly(draw: ImageDraw.ImageDraw, pts, fill):
 
 
 def draw_cyclist(d: ImageDraw.ImageDraw, box, fill, s: float) -> None:
+    """Side-view road bike + rider silhouette (profile facing right)."""
     x0, y0, x1, y1 = box
     cx = (x0 + x1) / 2
-    cy = (y0 + y1) / 2 + 40 * s
-    r = min(x1 - x0, y1 - y0) * 0.16
-    # wheels
-    for wx in (cx - 95 * s, cx + 95 * s):
-        d.ellipse([wx - r, cy - r, wx + r, cy + r], outline=fill, width=max(3, int(5 * s)))
-        d.ellipse([wx - r * 0.2, cy - r * 0.2, wx + r * 0.2, cy + r * 0.2], fill=fill)
-    # frame
-    d.line([(cx - 95 * s, cy), (cx - 10 * s, cy - 70 * s), (cx + 70 * s, cy - 55 * s), (cx + 95 * s, cy)], fill=fill, width=max(3, int(6 * s)))
-    d.line([(cx - 10 * s, cy - 70 * s), (cx + 20 * s, cy), (cx + 95 * s, cy)], fill=fill, width=max(3, int(5 * s)))
-    # rider
-    head = (cx + 5 * s, cy - 130 * s)
-    hr = 22 * s
+    cy = (y0 + y1) / 2 + 55 * s
+    r = min(x1 - x0, y1 - y0) * 0.15
+    lw = max(3, int(5 * s))
+    thick = max(4, int(9 * s))
+
+    rear = (cx - 100 * s, cy)
+    front = (cx + 100 * s, cy)
+    for wx, wy in (rear, front):
+        d.ellipse([wx - r, wy - r, wx + r, wy + r], outline=fill, width=lw)
+        hub = r * 0.18
+        d.ellipse([wx - hub, wy - hub, wx + hub, wy + hub], fill=fill)
+
+    bb = (cx - 5 * s, cy)
+    saddle = (cx - 35 * s, cy - 95 * s)
+    stem = (cx + 55 * s, cy - 88 * s)
+    d.line([rear, saddle], fill=fill, width=lw)
+    d.line([saddle, bb], fill=fill, width=lw)
+    d.line([bb, stem], fill=fill, width=lw)
+    d.line([saddle, stem], fill=fill, width=lw)
+    d.line([bb, front], fill=fill, width=lw)
+    d.line([stem, front], fill=fill, width=lw)
+    d.line([(stem[0] - 8 * s, stem[1]), (stem[0] + 35 * s, stem[1] + 8 * s)], fill=fill, width=lw)
+    d.ellipse([saddle[0] - 18 * s, saddle[1] - 8 * s, saddle[0] + 22 * s, saddle[1] + 6 * s], fill=fill)
+
+    head = (cx + 18 * s, cy - 155 * s)
+    hr = 18 * s
     d.ellipse([head[0] - hr, head[1] - hr, head[0] + hr, head[1] + hr], fill=fill)
-    _poly(d, [
-        (cx - 25 * s, cy - 100 * s), (cx + 40 * s, cy - 105 * s),
-        (cx + 55 * s, cy - 40 * s), (cx + 10 * s, cy - 20 * s),
-        (cx - 40 * s, cy - 35 * s),
-    ], fill)
-    d.line([(cx + 10 * s, cy - 20 * s), (cx + 5 * s, cy + 5 * s)], fill=fill, width=max(4, int(8 * s)))  # leg
-    d.line([(cx - 20 * s, cy - 40 * s), (cx - 50 * s, cy + 10 * s)], fill=fill, width=max(4, int(8 * s)))
-    d.line([(cx + 40 * s, cy - 105 * s), (cx + 85 * s, cy - 70 * s)], fill=fill, width=max(3, int(6 * s)))  # arms to bars
+    _poly(
+        d,
+        [
+            (cx - 5 * s, cy - 135 * s),
+            (cx + 40 * s, cy - 125 * s),
+            (cx + 15 * s, cy - 55 * s),
+            (cx - 40 * s, cy - 70 * s),
+        ],
+        fill,
+    )
+    d.line([(cx + 30 * s, cy - 120 * s), (stem[0] + 20 * s, stem[1] + 5 * s)], fill=fill, width=thick)
+    d.line([(cx + 20 * s, cy - 110 * s), (stem[0] + 10 * s, stem[1] + 8 * s)], fill=fill, width=max(3, int(7 * s)))
+    hip = (cx - 20 * s, cy - 70 * s)
+    d.line([hip, (cx - 55 * s, cy - 15 * s), (bb[0] - 25 * s, cy + 8 * s)], fill=fill, width=thick)
+    d.line([hip, (cx + 25 * s, cy - 25 * s), (bb[0] + 30 * s, cy + 5 * s)], fill=fill, width=thick)
 
 
 def draw_hiker(d: ImageDraw.ImageDraw, box, fill, s: float) -> None:
@@ -217,6 +239,9 @@ def process_slug(slug: str) -> int:
         bak = path.with_suffix(path.suffix + ".pre-silhouette")
         if not bak.exists():
             bak.write_bytes(path.read_bytes())
+        else:
+            # Always re-composite from the clean dial (never stack silhouettes).
+            path.write_bytes(bak.read_bytes())
         composite(path, athlete, accent)
     print(f"{slug}: {athlete}")
     return 0
