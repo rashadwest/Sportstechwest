@@ -88,12 +88,12 @@ def _resolve_voice_id(preset: str | None, out_path: str, voice_id_arg: str | Non
 
 
 def _voice_settings(preset: str | None) -> dict:
-    # Ra / IQ sessions: match TraditionalChess booth clone settings (SunRa pack).
+    # Ra / IQ sessions: short-snip friendly (higher stability, no style exaggeration).
     if preset == "rasun":
         return {
-            "stability": 0.4,
+            "stability": 0.55,
             "similarity_boost": 0.8,
-            "style": 0.35,
+            "style": 0.0,
         }
     return {
         "stability": 0.5,

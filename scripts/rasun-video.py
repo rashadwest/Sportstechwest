@@ -540,24 +540,29 @@ def build_session(slug: str, force: bool, dry_run: bool) -> int:
     seg_dir.mkdir(parents=True, exist_ok=True)
     mp4 = video_path(slug)
 
-    # 1) Voice each segment (cached by text, so editing one line re-voices only that line).
+    # 1) Voice each unique line once (content-addressed). Identical cues reuse the same take.
     seg_files: List[Path] = []
+    regenerated: set[str] = set()
     for i, (text, _, _) in enumerate(segments):
         h = hashlib.sha1(text.encode("utf-8")).hexdigest()[:10]
-        out = seg_dir / f"{i:03d}-{h}.mp3"
+        out = seg_dir / f"{h}.mp3"
         seg_files.append(out)
-        if out.exists() and not force:
+        if out.exists() and (not force or h in regenerated):
+            regenerated.add(h)
             continue
-        txt = seg_dir / f"{i:03d}-{h}.txt"
+        txt = seg_dir / f"{h}.txt"
         txt.write_text(text + "\n", encoding="utf-8")
         cmd = [sys.executable, str(REPO / "scripts" / "voice-generate.py"),
                "--in", str(txt), "--out", str(out), "--preset", "rasun"]
         if dry_run:
-            print("RUN:", " ".join(cmd[1:3]), f"... segment {i + 1}/{len(segments)}")
+            print("RUN:", " ".join(cmd[1:3]), f"... segment {i + 1}/{len(segments)} hash={h}")
+            regenerated.add(h)
             continue
         rc = subprocess.run(cmd).returncode
         if rc != 0:
             return rc
+        regenerated.add(h)
+        print(f"voiced unique line {len(regenerated)} (segment {i + 1}/{len(segments)})")
     if dry_run:
         # Still emit a provisional chapters.txt from markers + estimated gaps (no media durs).
         chapters_est: List[Tuple[float, str]] = []
