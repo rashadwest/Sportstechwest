@@ -252,7 +252,7 @@ def draw(card: dict, W: int, H: int, thumb: bool) -> Image.Image:
         fb = font("Inter-Bold.otf", int(44 * s))
         d.text((x, int(880 * s)), "SPORTSTECHWEST", font=fb, fill=T[4])
         tw = d.textlength("SPORTSTECHWEST", font=fb)
-        d.text((x + tw + int(24 * s), int(880 * s)), "·  voice: RaSun", font=font("Inter-Medium.otf", int(44 * s)), fill=T[5])
+        d.text((x + tw + int(24 * s), int(880 * s)), "·  Voice: Rashad West", font=font("Inter-Medium.otf", int(44 * s)), fill=T[5])
     return im
 
 
