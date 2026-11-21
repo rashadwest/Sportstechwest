@@ -3,7 +3,7 @@
 
 **Purpose:** Hand this work to Cursor (or any agent) so it can finish the build and ship without re-deriving anything.
 **Owner:** Rashad West (Sportstechwest)
-**Last updated:** 2026-11-20 (roadmap: shelve stretchIQ then swimIQ until next week — one of each, low credits)
+**Last updated:** 2026-11-21 (stretchIQ + swimIQ built; private drafts `nkpIy8LZydY` / `BRNl91t9qvo`; queued Dec 5 / Dec 8)
 **Repo:** `rashadwest/Sportstechwest`
 **Branch:** `claude/keen-volta-y1ux2u` (pushed, **not merged**, no PR yet)
 
@@ -225,14 +225,15 @@ Caveat: verified from abstracts and indexes, not full texts. Claims are kept gen
 - Adding to a playlist needs the `https://www.googleapis.com/auth/youtube` scope (the current token only has `youtube.upload`), so Rashad will need to re-consent once.
 - Add an optional `--playlist-id` to `youtube-upload.py` (`playlistItems.insert` after upload), plus a `playlist_id` on the job.
 
-### C8. stretchIQ then swimIQ (shelved — next week, low credits)
-**Status (2026-11-20): ROADMAP ONLY. Do not build or call ElevenLabs until Rashad opens this.** Check ElevenLabs credits first.
+### C8. stretchIQ then swimIQ
+**Status (2026-11-21): DONE (private drafts).** Credits opened; one of each built with short snips + locked RaSun stack.
 
-Same locked stack as bikeIQ: voice ID `uERtS79IUtxplcyW7IEG`, TTS s50/sim75, customer-facing **Rashad West** / **Sports Tech West**, short snips (**~5 seconds max** per spoken line), content-hash cue reuse, music 35%, private draft then unlisted on Tue/Thu/Sat when scheduled.
+| Date | Slug | Practice | Private draft |
+|------|------|----------|---------------|
+| Sat Dec 5 | `stretchiq-exhale-into-the-hold` | In for three, out for four; soften on the exhale | https://youtube.com/watch?v=nkpIy8LZydY |
+| Tue Dec 8 | `swimiq-breathe-every-5-strokes` | In for five strokes, out for five strokes | https://youtube.com/watch?v=BRNl91t9qvo |
 
-1. **One stretchIQ only** (build first). Example practice: exhale into the hold (3 soft / 4 long), or 5-4-3-2-1 on the mat. Pause blocks as `[quiet N]` / stretch holds — not long coaching paragraphs.
-2. **One swimIQ only** after stretch is approved. Example practice: breath every N strokes (mirror “every 5 pedals”). Prefer stretch before swim because casual swimmers rarely have underwater headphones; swim is niche but fine as week-two follow-on.
-3. Do **not** batch six new episodes. One of each to start. Draft scripts for approval before any force-rebuild TTS.
+Silhouettes: `stretch`, `swimmer` in `add-iq-athlete-silhouette.py`. Queue rows appended to `_data/rasun_queue.csv`. Job still **private** at 06:07.
 
 **General rules for Cursor:** keep `[ride|walk|hike|run|quiet N]` and the 5 s gap behaviour; don't touch scripts' spoken text without Rashad; keep the approval gate; no em dashes; update this CCO in the same commit as any change.
 
@@ -255,7 +256,7 @@ Same locked stack as bikeIQ: voice ID `uERtS79IUtxplcyW7IEG`, TTS s50/sim75, cus
 - **Blog:** "Breathe on rhythm" post tying the IQ sessions to the research in section 5, linking each video.
 - **BallCODE / curriculum:** breath math (pedals per minute to breaths per minute) is a ready-made rate lesson.
 - **Teams:** the 5-4-3-2-1 short version ("one thing you see, one you hear, next play") as a timeout or free-throw routine.
-- **Next activity lanes (C8):** stretchIQ first, then swimIQ — one episode each, shelved until next week pending ElevenLabs credit check.
+- **Next activity lanes (C8):** stretchIQ + swimIQ built 2026-11-21 (one each); private drafts ready for Dec 5 / Dec 8.
 
 ---
 

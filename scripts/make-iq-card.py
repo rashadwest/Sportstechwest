@@ -33,10 +33,12 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 _FONT_CANDIDATES = [
     Path("/usr/share/fonts/opentype/inter"),
     Path("/Library/Fonts"),
+    Path("/System/Library/Fonts/Supplemental"),
+    Path("/System/Library/Fonts"),
     Path.home() / "Library/Fonts",
 ]
 _FONT_MAP = {
-    "InterDisplay-Black.otf": ["InterDisplay-Black.otf", "Arial Black.ttf", "Arial Black", "Helvetica.ttc"],
+    "InterDisplay-Black.otf": ["InterDisplay-Black.otf", "Arial Black.ttf", "Arial Bold.ttf", "Arial.ttf", "Helvetica.ttc"],
     "Inter-Bold.otf": ["Inter-Bold.otf", "Arial Bold.ttf", "Arial.ttf", "Helvetica.ttc"],
     "Inter-Medium.otf": ["Inter-Medium.otf", "Arial.ttf", "Helvetica.ttc"],
 }
@@ -220,7 +222,7 @@ def draw(card: dict, W: int, H: int, thumb: bool) -> Image.Image:
     MOTIFS[card["motif"]](d, motif_box, T, s)
     # Optional athlete silhouette (cyclist/hiker/walker/runner) — see add-iq-athlete-silhouette.py
     sil = (card.get("silhouette") or "").strip().lower()
-    if sil in {"cyclist", "hiker", "walker", "runner"}:
+    if sil in {"cyclist", "hiker", "walker", "runner", "stretch", "swimmer"}:
         import importlib.util
         spec = importlib.util.spec_from_file_location(
             "sil", Path(__file__).with_name("add-iq-athlete-silhouette.py")

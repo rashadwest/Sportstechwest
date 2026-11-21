@@ -27,13 +27,17 @@ PKG_ROOT = REPO / "video-packages" / "rasun"
 
 def infer_athlete(slug: str, card: dict) -> str:
     explicit = (card.get("silhouette") or "").strip().lower()
-    if explicit in {"cyclist", "hiker", "walker", "runner"}:
+    if explicit in {"cyclist", "hiker", "walker", "runner", "stretch", "swimmer"}:
         return explicit
     s = slug.lower()
     if "bike" in s:
         return "cyclist"
     if "hik" in s:
         return "hiker"
+    if "swim" in s:
+        return "swimmer"
+    if "stretch" in s or "yoga" in s:
+        return "stretch"
     if "run" in s:
         return "runner"
     if "walk" in s:
@@ -155,11 +159,70 @@ def draw_runner(d: ImageDraw.ImageDraw, box, fill, s: float) -> None:
     d.line([(cx - 10 * s, head_y + 45 * s), (cx - 70 * s, base - 170 * s)], fill=fill, width=max(4, int(9 * s)))
 
 
+def draw_stretch(d: ImageDraw.ImageDraw, box, fill, s: float) -> None:
+    """Side-view seated forward fold silhouette."""
+    x0, y0, x1, y1 = box
+    cx = (x0 + x1) / 2
+    base = y1 - 50 * s
+    hr = 18 * s
+    head = (cx + 70 * s, base - 90 * s)
+    d.ellipse([head[0] - hr, head[1] - hr, head[0] + hr, head[1] + hr], fill=fill)
+    # torso folding forward
+    _poly(
+        d,
+        [
+            (cx - 40 * s, base - 160 * s),
+            (cx + 10 * s, base - 150 * s),
+            (cx + 55 * s, base - 70 * s),
+            (cx - 10 * s, base - 55 * s),
+        ],
+        fill,
+    )
+    # legs extended
+    thick = max(5, int(12 * s))
+    d.line([(cx - 15 * s, base - 55 * s), (cx + 110 * s, base - 20 * s)], fill=fill, width=thick)
+    d.line([(cx - 5 * s, base - 50 * s), (cx + 100 * s, base - 5 * s)], fill=fill, width=max(4, int(10 * s)))
+    # arms toward feet
+    d.line([(cx + 40 * s, base - 85 * s), (cx + 95 * s, base - 25 * s)], fill=fill, width=max(3, int(8 * s)))
+
+
+def draw_swimmer(d: ImageDraw.ImageDraw, box, fill, s: float) -> None:
+    """Side-view freestyle swimmer silhouette."""
+    x0, y0, x1, y1 = box
+    cx = (x0 + x1) / 2
+    cy = (y0 + y1) / 2 + 20 * s
+    hr = 16 * s
+    head = (cx + 95 * s, cy - 25 * s)
+    d.ellipse([head[0] - hr, head[1] - hr, head[0] + hr, head[1] + hr], fill=fill)
+    # long torso
+    _poly(
+        d,
+        [
+            (cx - 80 * s, cy - 10 * s),
+            (cx + 70 * s, cy - 35 * s),
+            (cx + 75 * s, cy + 5 * s),
+            (cx - 70 * s, cy + 25 * s),
+        ],
+        fill,
+    )
+    thick = max(4, int(10 * s))
+    # kicking legs
+    d.line([(cx - 75 * s, cy + 10 * s), (cx - 140 * s, cy - 25 * s)], fill=fill, width=thick)
+    d.line([(cx - 70 * s, cy + 15 * s), (cx - 130 * s, cy + 45 * s)], fill=fill, width=thick)
+    # recovering arm up / pulling arm forward
+    d.line([(cx + 20 * s, cy - 20 * s), (cx + 50 * s, cy - 90 * s)], fill=fill, width=max(3, int(8 * s)))
+    d.line([(cx + 40 * s, cy), (cx + 120 * s, cy + 15 * s)], fill=fill, width=max(3, int(8 * s)))
+    # water line hint
+    d.line([(x0 + 20 * s, cy + 55 * s), (x1 - 20 * s, cy + 55 * s)], fill=fill, width=max(2, int(3 * s)))
+
+
 DRAWERS = {
     "cyclist": draw_cyclist,
     "hiker": draw_hiker,
     "walker": draw_walker,
     "runner": draw_runner,
+    "stretch": draw_stretch,
+    "swimmer": draw_swimmer,
 }
 
 

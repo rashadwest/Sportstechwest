@@ -64,6 +64,24 @@
       "thumbnail": "video-packages/rasun/runningiq-one-word-mantra/thumbnail.jpg",
       "synthetic_media": true,
       "privacy": "private"
+    },
+    {
+      "id": "stretchiq-exhale-into-the-hold",
+      "title": "1 Hour Stretch Session: Exhale Into the Hold | stretchIQ | Sports Tech West",
+      "mp4": "output/video/rasun-stretchiq-exhale-into-the-hold.mp4",
+      "metadata_txt": "video-packages/rasun/stretchiq-exhale-into-the-hold/youtube.txt",
+      "thumbnail": "video-packages/rasun/stretchiq-exhale-into-the-hold/thumbnail.jpg",
+      "synthetic_media": true,
+      "privacy": "private"
+    },
+    {
+      "id": "swimiq-breathe-every-5-strokes",
+      "title": "1 Hour Swim Session: Breathe Every 5 Strokes | swimIQ | Sports Tech West",
+      "mp4": "output/video/rasun-swimiq-breathe-every-5-strokes.mp4",
+      "metadata_txt": "video-packages/rasun/swimiq-breathe-every-5-strokes/youtube.txt",
+      "thumbnail": "video-packages/rasun/swimiq-breathe-every-5-strokes/thumbnail.jpg",
+      "synthetic_media": true,
+      "privacy": "private"
     }
   ]
 }

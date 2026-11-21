@@ -1,0 +1,92 @@
+# swimIQ: Breathe Every 5 Strokes (1-hour guided swim)
+# Short snips (~5 seconds). Identical cues reuse one voice take.
+# [quiet N] = music-only swim time. ## = YouTube chapter (not spoken).
+
+## Warm-up
+This is swimIQ. One hour. One rhythm. Breathe every five strokes.
+
+Swim somewhere safe. Pool or open water you know.
+
+Keep one ear open to your body. Stop if you need air.
+
+Count one stroke each time a hand enters the water.
+
+In for five strokes. Out for five strokes.
+
+That is the whole session.
+
+Start easy. No race pace yet.
+[quiet 45]
+
+In for five strokes. Out for five strokes.
+
+Smooth hands. Soft kick. Steady head.
+[quiet 60]
+
+I breathe on rhythm. I swim on rhythm.
+[quiet 60]
+
+## Build
+Add a little pace. Keep the same count.
+
+In for five strokes. Out for five strokes.
+[quiet 90]
+
+If five feels long, go to three. Come back when you can.
+[quiet 75]
+
+The breath wants to rush. Do not let it.
+
+In for five strokes. Out for five strokes.
+[quiet 90]
+
+I control the pace. The pace does not control me.
+[quiet 75]
+
+## Lengths
+Picture a long length. Same count wall to wall.
+
+In for five strokes. Out for five strokes.
+[quiet 120]
+
+At the wall, reset. Push off. Pick the count back up at one.
+[quiet 75]
+
+I keep my rhythm when it gets hard.
+[quiet 90]
+
+In for five strokes. Out for five strokes.
+[quiet 120]
+
+I recover on purpose.
+[quiet 75]
+
+## Cruise
+Easy pressure. Just the strokes and the breath.
+
+In for five strokes. Out for five strokes.
+[quiet 150]
+
+Notice the water on your skin. The sound of your kick.
+[quiet 90]
+
+In for five strokes. Out for five strokes.
+[quiet 120]
+
+I finish what I start.
+[quiet 90]
+
+## Cool-down
+Ease off. Light kick. Soft hands.
+
+In for five strokes. Out for five strokes.
+[quiet 60]
+
+Let the counting go. Float or stand easy for a moment.
+[quiet 45]
+
+That's swimIQ. Breathe every five strokes.
+
+Take it into your next swim.
+
+Swim again with us. Sports Tech West. I'm Rashad West.
