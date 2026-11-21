@@ -15,7 +15,7 @@
     },
     {
       "id": "bikeiq-leisure",
-      "enabled": true,
+      "enabled": false,
       "schedule": { "type": "daily", "time": "06:23" },
       "action": "youtube_upload",
       "mp4": "output/video/bikeiq-leisure.mp4",
@@ -78,7 +78,22 @@
       "title": "STW News — Orreco acquires Jennis | Sportstechwest",
       "description": "STW News — Orreco acquires Jennis. Quick sportstech current-events update from Sportstechwest.",
       "tags": ["STW News", "sportstech", "basketball", "AI", "Sportstechwest"]
+    },
+    {
+      "id": "rasun-every-other-day",
+      "enabled": true,
+      "schedule": { "type": "daily", "time": "06:07" },
+      "action": "queue_upload",
+      "queue_csv": "_data/rasun_queue.csv",
+      "story_dir": "video-packages/rasun",
+      "video_template": "output/video/rasun-{story}.mp4",
+      "metadata_template": "video-packages/rasun/{story}/youtube.txt",
+      "thumbnail_template": "video-packages/rasun/{story}/thumbnail.jpg|video-packages/rasun/{story}/thumbnail.png",
+      "build_if_missing": "scripts/rasun-video.py build --slug {story}",
+      "record_video_id_in": "video-packages/rasun/{story}/package.json",
+      "privacy": "unlisted",
+      "contains_synthetic_media": true,
+      "schedule_notes": "06:07 morning slot. unlisted listen draft; set Public in Studio after listen (Rashad 2026-11-21)."
     }
   ]
 }
-

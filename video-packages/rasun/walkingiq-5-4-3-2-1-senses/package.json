@@ -1,0 +1,34 @@
+{
+  "slug": "walkingiq-5-4-3-2-1-senses",
+  "title": "walkingIQ: 5-4-3-2-1 Senses (1 hour guided walk)",
+  "format": "iq-session",
+  "duration_seconds": 3600,
+  "music": "output/music/background-manifestation-60min/track-a.mp3",
+  "music_volume": 0.35,
+  "source_post": "",
+  "post_url": "",
+  "visual": "",
+  "drafted_by": "claude-code",
+  "approved": true,
+  "planned_date": "2026-11-24",
+  "publish_date": "2026-11-24",
+  "youtube_video_id": "oypiXn7Lk0k",
+  "card": {
+    "theme": "teal",
+    "motif": "senses",
+    "kicker": "walkingIQ  \u00b7  1 HOUR GUIDED WALK",
+    "line1": "5-4-3-2-1",
+    "line2": "SENSES",
+    "sub": [
+      "5 you see. 4 you touch. 3 you hear.",
+      "2 you smell. 1 you taste."
+    ],
+    "thumb": [
+      "5-4-3-2-1",
+      "GROUNDING",
+      "WALK"
+    ],
+    "silhouette": "walker"
+  },
+  "uploaded_at": "2026-11-20T22:04:02.968303-05:00"
+}

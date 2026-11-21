@@ -19,3 +19,9 @@ node_modules/
 .jekyll-cache/
 .bundle/
 vendor/
+
+# One-time backups before silhouette composite
+*.pre-silhouette
+
+# Python bytecode
+__pycache__/

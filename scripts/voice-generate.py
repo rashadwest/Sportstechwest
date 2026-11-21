@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 Generate MP3 from plain text using ElevenLabs TTS.
-Loads .env from repo root: ELEVENLABS_API_KEY, ELEVENLABS_VOICE_ID, ELEVENLABS_VOICE_ID_STW_NEWS.
+Loads .env from repo root: ELEVENLABS_API_KEY, ELEVENLABS_VOICE_ID, ELEVENLABS_VOICE_ID_STW_NEWS,
+ELEVENLABS_VOICE_ID_RASUN.
 
 Usage:
   python scripts/voice-generate.py --in shorts-packages/.../script-elevenlabs.txt \\
@@ -63,6 +64,12 @@ def _resolve_voice_id(preset: str | None, out_path: str, voice_id_arg: str | Non
     if voice_id_arg:
         return voice_id_arg
     out_lower = out_path.lower()
+    if preset == "rasun":
+        vid = os.environ.get("ELEVENLABS_VOICE_ID_RASUN", "").strip()
+        if not vid:
+            print("RaSun voice: set ELEVENLABS_VOICE_ID_RASUN in .env (ElevenLabs → Voices → RaSun → ID).", file=sys.stderr)
+            sys.exit(1)
+        return vid
     use_stw = preset == "stw-news" or "stw-news" in out_lower
     if use_stw:
         vid = os.environ.get("ELEVENLABS_VOICE_ID_STW_NEWS", "").strip()
@@ -80,15 +87,25 @@ def _resolve_voice_id(preset: str | None, out_path: str, voice_id_arg: str | Non
     return vid
 
 
-def _tts(api_key: str, voice_id: str, text: str, out_path: Path) -> None:
+def _voice_settings(preset: str | None) -> dict:
+    # RaSun IQ: match ElevenLabs UI export (s50 / sim75); no Chess style exaggeration.
+    if preset == "rasun":
+        return {
+            "stability": 0.5,
+            "similarity_boost": 0.75,
+        }
+    return {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+    }
+
+
+def _tts(api_key: str, voice_id: str, text: str, out_path: Path, preset: str | None = None) -> None:
     url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"
     payload = {
         "text": text,
         "model_id": "eleven_multilingual_v2",
-        "voice_settings": {
-            "stability": 0.5,
-            "similarity_boost": 0.75,
-        },
+        "voice_settings": _voice_settings(preset),
     }
     r = requests.post(
         url,
@@ -109,7 +126,7 @@ def main() -> None:
     p = argparse.ArgumentParser(description="ElevenLabs TTS to MP3")
     p.add_argument("--in", dest="in_path", required=True, help="Input text file")
     p.add_argument("--out", dest="out_path", required=True, help="Output .mp3 path")
-    p.add_argument("--preset", choices=["stw-news"], default=None)
+    p.add_argument("--preset", choices=["stw-news", "rasun"], default=None)
     p.add_argument("--voice-id", default=None)
     p.add_argument("--dry-run", action="store_true", help="Print text only, no API call")
     p.add_argument("--show-voice-id", action="store_true", help="Show resolved voice id and exit")
@@ -142,7 +159,7 @@ def main() -> None:
         print("Set ELEVENLABS_API_KEY in .env", file=sys.stderr)
         sys.exit(1)
 
-    _tts(api_key, voice_id, text, out_path)
+    _tts(api_key, voice_id, text, out_path, preset=args.preset)
 
 
 if __name__ == "__main__":
