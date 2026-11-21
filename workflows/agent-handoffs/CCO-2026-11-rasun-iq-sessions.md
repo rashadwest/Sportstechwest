@@ -3,7 +3,7 @@
 
 **Purpose:** Hand this work to Cursor (or any agent) so it can finish the build and ship without re-deriving anything.
 **Owner:** Rashad West (Sportstechwest)
-**Last updated:** 2026-11-21 (stretchIQ + swimIQ built; private drafts `nkpIy8LZydY` / `BRNl91t9qvo`; queued Dec 5 / Dec 8)
+**Last updated:** 2026-11-21 (future IQ uploads = unlisted; existing private drafts unchanged)
 **Repo:** `rashadwest/Sportstechwest`
 **Branch:** `claude/keen-volta-y1ux2u` (pushed, **not merged**, no PR yet)
 
@@ -156,7 +156,7 @@ Caveat: verified from abstracts and indexes, not full texts. Claims are kept gen
 - **Format:** walkingIQ/mentalIQ structure, 1 hour, 5 s after every segment, music at 35%, still card.
 - **Voice:** ElevenLabs ID `uERtS79IUtxplcyW7IEG` (internal label RaSun) with TTS **stability 0.5 / similarity 0.75**. Customer-facing name is always **Rashad West** / **Sports Tech West** (see `.cursor/rules/customer-facing-brand.mdc`). Spoken close: "I'm Rashad West." Card credit: Voice: Rashad West.
 - **Private drafts (2026-11-20 lock pass):** bikeIQ `dT2uzEB-ED0`; hikingiq heel-toe `YbBbdtQaRiM`; walkingiq senses `oypiXn7Lk0k`; runningiq gratitude `HYwwGaxmieQ`; hikingiq climb `DGQMIU77-KM`; walkingiq reset `kIyhqQn3xao`; runningiq mantra `UWhSgIj9t_M`.
-- **Lane:** RaSun queue (`_data/rasun_queue.csv`), job `rasun-every-other-day`, **private** Studio drafts until Rashad sets Public (changed from public 2026-11-19).
+- **Lane:** RaSun queue (`_data/rasun_queue.csv`), job `rasun-every-other-day`, **unlisted** listen drafts at 06:07 until Rashad sets Public (was private 2026-11-19; unlisted from 2026-11-21). Existing already-uploaded private drafts stay private unless flipped in Studio.
 - **Upload time:** **06:07** local (changed from 11:17 2026-11-19).
 - **Calendar:** Fri Nov 20 bikeIQ, then Sat/Tue/Thu from Nov 21 to Dec 3, as in section 3. Week 2 = second takes on the same three ideas, with new art.
 - **Approval gate:** nothing uploads unless `approved: true`. All seven IQ sessions approved 2026-11-19.
@@ -214,8 +214,7 @@ Caveat: verified from abstracts and indexes, not full texts. Claims are kept gen
 **Status (2026-11-19): Infra DONE.** Manifest `stw-iq-test-listen.manifest.json` (bikeIQ + hikingIQ + walkingIQ senses). Helpers: `scripts/stw-iq-listen-test-push.sh`, `scripts/stw-sync-listen-checklist.sh`, `--write-listen-queue` on uploader. Morning Report reads `output/stw-iq-listen-queue.json` (`stw_listen`) and has three YouTube checklist rows. No real unlisted upload until bikeIQ MP4 exists.
 
 ### C5. Duplicate bikeIQ job (Rashad decides first)
-**Status (2026-11-19): DONE.** `bikeiq-leisure` set `"enabled": false`. Upload time moved to **06:07**. Job privacy **private** (Studio drafts until Rashad sets Public). All 6 remaining IQ episodes **approved** and queued on planned dates. Athlete silhouettes added to cards (`scripts/add-iq-athlete-silhouette.py`). Music: keep `track-a.mp3` (Rashad: cleared / sourced for STW).
-- If Rashad agrees, set `"enabled": false` on `bikeiq-leisure` in `stw-publish-schedule.json`. Don't change anything else in that job.
+**Status (2026-11-19): DONE.** `bikeiq-leisure` set `"enabled": false`. Upload time moved to **06:07**. Job privacy updated **2026-11-21 to unlisted** (listen link + prep, then Public in Studio). All IQ episodes approved. Athlete silhouettes added. Music: keep `track-a.mp3`.
 
 ### C6. 3-minute / Shorts versions (phase 2, after week-1 metrics)
 - `rasun-video.py short --slug <slug>`: 1080x1920, 45 to 60 s, the hook segment plus the core instruction segments with 1 s gaps, a vertical version of the card (add a vertical layout to `make-iq-card.py`), music at 35%.
@@ -233,7 +232,7 @@ Caveat: verified from abstracts and indexes, not full texts. Claims are kept gen
 | Sat Dec 5 | `stretchiq-exhale-into-the-hold` | In for three, out for four; soften on the exhale | https://youtube.com/watch?v=nkpIy8LZydY |
 | Tue Dec 8 | `swimiq-breathe-every-5-strokes` | In for five strokes, out for five strokes | https://youtube.com/watch?v=BRNl91t9qvo |
 
-Silhouettes: `stretch`, `swimmer` in `add-iq-athlete-silhouette.py`. Queue rows appended to `_data/rasun_queue.csv`. Job still **private** at 06:07.
+Silhouettes: `stretch`, `swimmer` in `add-iq-athlete-silhouette.py`. Queue rows appended to `_data/rasun_queue.csv`. Job privacy **unlisted** at 06:07 (from 2026-11-21).
 
 **General rules for Cursor:** keep `[ride|walk|hike|run|quiet N]` and the 5 s gap behaviour; don't touch scripts' spoken text without Rashad; keep the approval gate; no em dashes; update this CCO in the same commit as any change.
 
@@ -242,7 +241,7 @@ Silhouettes: `stretch`, `swimmer` in `add-iq-athlete-silhouette.py`. Queue rows 
 ## 9. Rashad's decisions needed
 
 **Resolved 2026-11-19:**
-1. Episodes approved (all 7 IQ sessions). Uploads go up **private** so Rashad publishes from Studio after listen.
+1. Episodes approved. New uploads go up **unlisted** so Rashad can listen via link, then set Public in Studio.
 2. Music: keep `track-a.mp3` (cleared by Rashad).
 3. Upload time: **06:07**.
 4. `bikeiq-leisure`: **disabled**.

@@ -91,9 +91,9 @@
       "thumbnail_template": "video-packages/rasun/{story}/thumbnail.jpg|video-packages/rasun/{story}/thumbnail.png",
       "build_if_missing": "scripts/rasun-video.py build --slug {story}",
       "record_video_id_in": "video-packages/rasun/{story}/package.json",
-      "privacy": "private",
+      "privacy": "unlisted",
       "contains_synthetic_media": true,
-      "schedule_notes": "06:07 morning slot (Rashad 2026-11-19). private = Studio draft until you set Public after listen."
+      "schedule_notes": "06:07 morning slot. unlisted listen draft; set Public in Studio after listen (Rashad 2026-11-21)."
     }
   ]
 }

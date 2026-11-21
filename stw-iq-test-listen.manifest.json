@@ -1,5 +1,5 @@
 {
-  "notes": "Private Studio drafts for all seven RaSun IQ sessions. Publish Public after listen.",
+  "notes": "Unlisted listen drafts for RaSun IQ sessions. Set Public in Studio after listen.",
   "listen_queue": "output/stw-iq-listen-queue.json",
   "drops": [
     {
@@ -9,7 +9,7 @@
       "metadata_txt": "video-packages/rasun/bikeiq-breathe-every-5-pedals/youtube.txt",
       "thumbnail": "video-packages/rasun/bikeiq-breathe-every-5-pedals/thumbnail.jpg",
       "synthetic_media": true,
-      "privacy": "private"
+      "privacy": "unlisted"
     },
     {
       "id": "hikingiq-heel-toe-grounding",
@@ -18,7 +18,7 @@
       "metadata_txt": "video-packages/rasun/hikingiq-heel-toe-grounding/youtube.txt",
       "thumbnail": "video-packages/rasun/hikingiq-heel-toe-grounding/thumbnail.jpg",
       "synthetic_media": true,
-      "privacy": "private"
+      "privacy": "unlisted"
     },
     {
       "id": "walkingiq-5-4-3-2-1-senses",
@@ -27,7 +27,7 @@
       "metadata_txt": "video-packages/rasun/walkingiq-5-4-3-2-1-senses/youtube.txt",
       "thumbnail": "video-packages/rasun/walkingiq-5-4-3-2-1-senses/thumbnail.jpg",
       "synthetic_media": true,
-      "privacy": "private"
+      "privacy": "unlisted"
     },
     {
       "id": "runningiq-intention-and-gratitude",
@@ -36,7 +36,7 @@
       "metadata_txt": "video-packages/rasun/runningiq-intention-and-gratitude/youtube.txt",
       "thumbnail": "video-packages/rasun/runningiq-intention-and-gratitude/thumbnail.jpg",
       "synthetic_media": true,
-      "privacy": "private"
+      "privacy": "unlisted"
     },
     {
       "id": "hikingiq-grounding-on-the-climb",
@@ -45,7 +45,7 @@
       "metadata_txt": "video-packages/rasun/hikingiq-grounding-on-the-climb/youtube.txt",
       "thumbnail": "video-packages/rasun/hikingiq-grounding-on-the-climb/thumbnail.jpg",
       "synthetic_media": true,
-      "privacy": "private"
+      "privacy": "unlisted"
     },
     {
       "id": "walkingiq-5-4-3-2-1-reset-walk",
@@ -54,7 +54,7 @@
       "metadata_txt": "video-packages/rasun/walkingiq-5-4-3-2-1-reset-walk/youtube.txt",
       "thumbnail": "video-packages/rasun/walkingiq-5-4-3-2-1-reset-walk/thumbnail.jpg",
       "synthetic_media": true,
-      "privacy": "private"
+      "privacy": "unlisted"
     },
     {
       "id": "runningiq-one-word-mantra",
@@ -63,7 +63,7 @@
       "metadata_txt": "video-packages/rasun/runningiq-one-word-mantra/youtube.txt",
       "thumbnail": "video-packages/rasun/runningiq-one-word-mantra/thumbnail.jpg",
       "synthetic_media": true,
-      "privacy": "private"
+      "privacy": "unlisted"
     },
     {
       "id": "stretchiq-exhale-into-the-hold",
@@ -72,7 +72,7 @@
       "metadata_txt": "video-packages/rasun/stretchiq-exhale-into-the-hold/youtube.txt",
       "thumbnail": "video-packages/rasun/stretchiq-exhale-into-the-hold/thumbnail.jpg",
       "synthetic_media": true,
-      "privacy": "private"
+      "privacy": "unlisted"
     },
     {
       "id": "swimiq-breathe-every-5-strokes",
@@ -81,7 +81,7 @@
       "metadata_txt": "video-packages/rasun/swimiq-breathe-every-5-strokes/youtube.txt",
       "thumbnail": "video-packages/rasun/swimiq-breathe-every-5-strokes/thumbnail.jpg",
       "synthetic_media": true,
-      "privacy": "private"
+      "privacy": "unlisted"
     }
   ]
 }
