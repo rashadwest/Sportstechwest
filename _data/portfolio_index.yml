@@ -49,6 +49,14 @@ portfolios_area:
       filters:
         - certificates
 
+    - title: "Rashad West, Former Pro"
+      sub_title: "Pro basketball in Europe, South America, and Asia"
+      sm_image: "/assets/images/portfolio/rashad-west-pro-game.webp"
+      big_image: "/assets/images/portfolio/rashad-west-pro-game.webp"
+      url: "/about"
+      filters:
+        - gallery
+
     - title: "NBA All Stars Event"
       sub_title: "Photo with Paul Roberson"
       sm_image: "/assets/images/portfolio/nba-all-stars-1.webp"
