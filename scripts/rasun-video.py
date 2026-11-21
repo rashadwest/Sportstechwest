@@ -53,8 +53,8 @@ TARGET_WORDS = (380, 520)  # ~2.5–3.5 minutes at a natural pace
 
 CHANNEL_FOOTER = (
     "Read the full breakdown: {url}\n\n"
-    "Sportstechwest: sports, technology, and the systems behind performance.\n"
-    "Subscribe for a new RaSun breakdown every other day."
+    "Sports Tech West: sports, technology, and the systems behind performance.\n"
+    "Subscribe for a new Sports Tech West breakdown every other day."
 )
 
 
@@ -160,7 +160,7 @@ Write a script RaSun will read out loud with an ElevenLabs voice. Rules:
   Never add facts, stats or quotes that are not in the post.
 - Write numbers the way they should be spoken when it helps the voice ("one twenty-six", "twenty twenty-six").
 - Use a paragraph break where RaSun should pause.
-- End with one takeaway line, then: "The full breakdown is on Sportstechwest dot com. I'm RaSun. See you in two days."
+- End with one takeaway line, then: "The full breakdown is on Sports Tech West dot com. I'm Rashad West. See you in two days."
 Return only the script text."""
 
 
@@ -229,7 +229,7 @@ def draft_outline(title: str, description: str, plain: str) -> str:
             out.append(p)
             budget -= word_count(p)
     out.append(
-        "The full breakdown is on Sportstechwest dot com. I'm RaSun. See you in two days."
+        "The full breakdown is on Sports Tech West dot com. I'm Rashad West. See you in two days."
     )
     return "\n\n".join(out)
 
@@ -292,10 +292,10 @@ def cmd_new(args: argparse.Namespace) -> int:
     (d / "script.txt").write_text(script.strip() + "\n", encoding="utf-8")
 
     yt_title = title if len(title) <= 85 else title[:82].rstrip() + "…"
-    yt_title = f"{yt_title} | RaSun"
+    yt_title = f"{yt_title} | Sports Tech West"
     if len(yt_title) > 100:
         yt_title = yt_title[:100]
-    tags = [t for t in fm_list(fm.get("tags", "")) if t] + ["RaSun", "Sportstechwest"]
+    tags = [t for t in fm_list(fm.get("tags", "")) if t] + ["Rashad West", "Sports Tech West"]
     seen, uniq = set(), []
     for t in tags:
         key = t.lower()

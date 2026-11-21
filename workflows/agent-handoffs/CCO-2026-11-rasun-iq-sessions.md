@@ -3,7 +3,7 @@
 
 **Purpose:** Hand this work to Cursor (or any agent) so it can finish the build and ship without re-deriving anything.
 **Owner:** Rashad West (Sportstechwest)
-**Last updated:** 2026-11-20 (bikeIQ right way: s50/sim75 TTS, side-view cyclist, private `fcwyc6akpX0`)
+**Last updated:** 2026-11-20 (locked uERt… s50/sim75 + customer-facing Rashad West / Sports Tech West; all 7 IQ private drafts uploaded)
 **Repo:** `rashadwest/Sportstechwest`
 **Branch:** `claude/keen-volta-y1ux2u` (pushed, **not merged**, no PR yet)
 
@@ -154,7 +154,8 @@ Caveat: verified from abstracts and indexes, not full texts. Claims are kept gen
 ## 7. Decisions already made (do not reopen)
 
 - **Format:** walkingIQ/mentalIQ structure, 1 hour, 5 s after every segment, music at 35%, still card.
-- **Voice:** **RaSun** `uERtS79IUtxplcyW7IEG` with TTS **stability 0.5 / similarity 0.75** (match ElevenLabs UI export). Short-snip script + hash cue reuse. bikeIQ right-way private draft `fcwyc6akpX0` (side-view cyclist; dial unchanged). Prior attempts parked. Other six IQs wait on bikeIQ approval. Card credit **Voice: Rashad West**. Close: "Sportstechwest. I'm RaSun."
+- **Voice:** ElevenLabs ID `uERtS79IUtxplcyW7IEG` (internal label RaSun) with TTS **stability 0.5 / similarity 0.75**. Customer-facing name is always **Rashad West** / **Sports Tech West** (see `.cursor/rules/customer-facing-brand.mdc`). Spoken close: "I'm Rashad West." Card credit: Voice: Rashad West.
+- **Private drafts (2026-11-20 lock pass):** bikeIQ `dT2uzEB-ED0`; hikingiq heel-toe `YbBbdtQaRiM`; walkingiq senses `oypiXn7Lk0k`; runningiq gratitude `HYwwGaxmieQ`; hikingiq climb `DGQMIU77-KM`; walkingiq reset `kIyhqQn3xao`; runningiq mantra `UWhSgIj9t_M`.
 - **Lane:** RaSun queue (`_data/rasun_queue.csv`), job `rasun-every-other-day`, **private** Studio drafts until Rashad sets Public (changed from public 2026-11-19).
 - **Upload time:** **06:07** local (changed from 11:17 2026-11-19).
 - **Calendar:** Fri Nov 20 bikeIQ, then Sat/Tue/Thu from Nov 21 to Dec 3, as in section 3. Week 2 = second takes on the same three ideas, with new art.

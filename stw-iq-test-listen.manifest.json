@@ -1,5 +1,5 @@
 {
-  "notes": "Phase 1b listen gate: private Studio drafts for bikeIQ + hikingIQ + walkingIQ senses. Publish Public after listen.",
+  "notes": "Private Studio drafts for all seven RaSun IQ sessions. Publish Public after listen.",
   "listen_queue": "output/stw-iq-listen-queue.json",
   "drops": [
     {
@@ -26,6 +26,42 @@
       "mp4": "output/video/rasun-walkingiq-5-4-3-2-1-senses.mp4",
       "metadata_txt": "video-packages/rasun/walkingiq-5-4-3-2-1-senses/youtube.txt",
       "thumbnail": "video-packages/rasun/walkingiq-5-4-3-2-1-senses/thumbnail.jpg",
+      "synthetic_media": true,
+      "privacy": "private"
+    },
+    {
+      "id": "runningiq-intention-and-gratitude",
+      "title": "1 Hour Gratitude Run: Light Feet, Grateful Heart | runningIQ | Sportstechwest",
+      "mp4": "output/video/rasun-runningiq-intention-and-gratitude.mp4",
+      "metadata_txt": "video-packages/rasun/runningiq-intention-and-gratitude/youtube.txt",
+      "thumbnail": "video-packages/rasun/runningiq-intention-and-gratitude/thumbnail.jpg",
+      "synthetic_media": true,
+      "privacy": "private"
+    },
+    {
+      "id": "hikingiq-grounding-on-the-climb",
+      "title": "1 Hour Uphill Grounding Hike: 3 In, 4 Out on Any Terrain | hikingIQ | Sportstechwest",
+      "mp4": "output/video/rasun-hikingiq-grounding-on-the-climb.mp4",
+      "metadata_txt": "video-packages/rasun/hikingiq-grounding-on-the-climb/youtube.txt",
+      "thumbnail": "video-packages/rasun/hikingiq-grounding-on-the-climb/thumbnail.jpg",
+      "synthetic_media": true,
+      "privacy": "private"
+    },
+    {
+      "id": "walkingiq-5-4-3-2-1-reset-walk",
+      "title": "1 Hour Reset Walk: 5-4-3-2-1 Grounding After a Hard Day | walkingIQ | Sportstechwest",
+      "mp4": "output/video/rasun-walkingiq-5-4-3-2-1-reset-walk.mp4",
+      "metadata_txt": "video-packages/rasun/walkingiq-5-4-3-2-1-reset-walk/youtube.txt",
+      "thumbnail": "video-packages/rasun/walkingiq-5-4-3-2-1-reset-walk/thumbnail.jpg",
+      "synthetic_media": true,
+      "privacy": "private"
+    },
+    {
+      "id": "runningiq-one-word-mantra",
+      "title": "1 Hour One Word Mantra Run: Pick Your Word, Run With It | runningIQ | Sportstechwest",
+      "mp4": "output/video/rasun-runningiq-one-word-mantra.mp4",
+      "metadata_txt": "video-packages/rasun/runningiq-one-word-mantra/youtube.txt",
+      "thumbnail": "video-packages/rasun/runningiq-one-word-mantra/thumbnail.jpg",
       "synthetic_media": true,
       "privacy": "private"
     }
