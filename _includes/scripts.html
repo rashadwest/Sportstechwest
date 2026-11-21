@@ -64,6 +64,10 @@
         }).join("") : "<li>No posts found</li>");
       });
     });
+    // Portfolio filters are <a role="button">: let Enter and Space activate them
+    $(document).on("keydown", ".isotope-filter [role=button]", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); $(this).trigger("click"); }
+    });
     $(document).on("submit", ".search-dropdown form", function (e) {
       e.preventDefault();
       var first = $(this).closest(".dropdown-menu").find(".site-search-results a").first();

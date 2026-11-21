@@ -1,5 +1,12 @@
 {% assign bc = site.data.ballcode.ballcode_area %}
 {% if bc.enable %}
+<!-- BallCODE section: classroom banner, then the video and pitch -->
+<div class="wrapper image-wrapper bg-image gradient-overlay inverse-text" data-image-src="{{ bc.band_image }}">
+  <div class="container inner pt-140 pb-140 text-center">
+    <h2 class="section-title text-center font-bold">{{ bc.band_title }}</h2>
+    <p class="lead larger text-center font-bold mb-0">{{ bc.band_sub }}</p>
+  </div>
+</div>
 <div class="wrapper gray-wrapper" id="ballcode">
   <div class="container inner">
     <div class="row align-items-center gy-5">

@@ -210,3 +210,16 @@ li {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+/* Reserve the full-screen hero's height before the slider script sizes it;
+   otherwise everything below jumps down when the slider starts. */
+.rev_slider_wrapper.fullscreen-container {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+/* Testimonials (.overflow-top) pull up 150px over the section before them;
+   give a video band in that spot room so the cards don't crowd its play button */
+.video-area:has(+ .overflow-top) .inner {
+  padding-bottom: calc(7rem + 150px) !important; /* the theme's .pb-140 is 7rem !important */
+}

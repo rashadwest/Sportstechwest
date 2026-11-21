@@ -12,12 +12,12 @@
     <div class="grid grid-view boxed">
       <div class="isotope-filter text-center">
         <ul>
-          <li><a class="button active" data-filter="*">All</a></li>
+          <li><a class="button active" role="button" tabindex="0" data-filter="*">All</a></li>
           {% for category in
           site.data.portfolio_index.portfolios_area.categories %}
           {%- if category.filter == "certificates" -%}{%- continue -%}{%- endif %}
           <li>
-            <a class="button" data-filter=".{{category.filter}}"
+            <a class="button" role="button" tabindex="0" data-filter=".{{category.filter}}"
               >{{category.title}}</a
             >
           </li>
