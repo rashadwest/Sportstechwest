@@ -23,6 +23,9 @@ main_menu:
   - text: "STW News"
     url: "https://www.youtube.com/@SportsTechWest/shorts"
 
+  - text: "Contact"
+    url: "/contact"
+
   # - text: "Pages"
   #   url: "/"
   #   menu_type: "dropdown"

@@ -1,0 +1,32 @@
+{
+  "slug": "bikeiq-breathe-every-5-pedals",
+  "title": "bikeIQ: Breathe Every 5 Pedals (1 hour guided ride)",
+  "format": "iq-session",
+  "duration_seconds": 3600,
+  "music": "output/music/background-manifestation-60min/track-a.mp3",
+  "music_volume": 0.35,
+  "source_post": "",
+  "post_url": "",
+  "visual": "",
+  "drafted_by": "claude-code",
+  "approved": true,
+  "publish_date": "2026-11-20",
+  "youtube_video_id": "dT2uzEB-ED0",
+  "card": {
+    "theme": "navy",
+    "motif": "wheel",
+    "silhouette": "cyclist",
+    "kicker": "bikeIQ  \u00b7  1 HOUR GUIDED RIDE",
+    "line1": "BREATHE EVERY",
+    "line2": "5 PEDALS",
+    "sub": [
+      "In for 5 pedals. Out for 5 pedals."
+    ],
+    "thumb": [
+      "BREATHE",
+      "EVERY",
+      "5 PEDALS"
+    ]
+  },
+  "uploaded_at": "2026-11-20T22:04:02.968303-05:00"
+}

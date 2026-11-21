@@ -103,7 +103,7 @@ CLEAR gives sports leaders, coaches, executives, universities, and founders a si
 **Read the full CLEAR breakdown:** [Jump to the evaluation](#using-clear-to-understand-the-value-rashad-west-brings-to-sports-technology-and-ai)
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/clear-intro-sports-ai.png" alt="Sports Technology and AI Intersection" class="img-fluid">
+  <img src="/assets/images/blog-img/clear-intro-sports-ai.jpg" alt="Sports Technology and AI Intersection" class="img-fluid">
 </div>
 
 ---
@@ -336,11 +336,11 @@ It is about **giving the sports ecosystem a way to understand how AI can create 
 ## Try CLEAR on your challenge
 
 - Want a quick pass? Request a 15‑minute walkthrough of how CLEAR applies to your team.  
-  <a href="/contact.html">Contact me</a>
+  <a href="/contact">Contact me</a>
 - Prefer to self‑serve? Ask for the one‑page template to run CLEAR on your next project.  
-  <a href="/contact.html">Request the template</a>
+  <a href="/contact">Request the template</a>
 - Already know the problem? Share it and I’ll map a CLEAR‑based plan you can execute internally or with me.  
-  <a href="/contact.html">Start here</a>
+  <a href="/contact">Start here</a>
 
 <div class="text-center my-4">
   <img src="/assets/images/blog-img/clear-conclusion-partnership.jpg" alt="Partnership: CLEAR Framework for Sports Technology Solutions" class="img-fluid">

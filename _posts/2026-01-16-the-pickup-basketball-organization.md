@@ -2,7 +2,7 @@
 layout: post
 title: "The Pickup Basketball Organization"
 description: "Every run has structure whether people want to admit it or not. Roles emerge naturally. Value is decided in real time. Politics are unavoidable. And culture determines whether the run lasts one week or ten years."
-thumbnail: "/assets/images/blog-img/pickup-basketball-organization-hero.png"
+thumbnail: "/assets/images/blog-img/pickup-basketball-organization-hero.jpg"
 badge_color: "text-bg-primary"
 trending: true
 simple_nav: true
@@ -19,7 +19,7 @@ Every run has structure whether people want to admit it or not. Roles emerge nat
 Let me walk you through it.
 
 <div class="text-center my-5">
-  <img src="/assets/images/blog-img/pickup-basketball-organization-hero.png" alt="The Pickup Basketball Organization - Roles and Dynamics" class="img-fluid rounded shadow">
+  <img src="/assets/images/blog-img/pickup-basketball-organization-hero.jpg" alt="The Pickup Basketball Organization - Roles and Dynamics" class="img-fluid rounded shadow">
   <p class="text-muted mt-2"><small><em>The Pickup Basketball Organization: Where roles emerge naturally and value is decided in real time</em></small></p>
 </div>
 
@@ -48,7 +48,7 @@ Then there is the Superstar.
 Everyone wants them. They play every game win lose or draw while others sit. Teams get reshuffled quietly to make room. Players get cut without being told they were cut. Their value is so high people believe they are the difference between winning and losing. Sometimes they are. Sometimes they are not. But perception is reality and scarcity drives everything.
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/pickup-basketball-roles-organization.png" alt="Pickup Basketball Roles - The Organizational Structure" class="img-fluid">
+  <img src="/assets/images/blog-img/pickup-basketball-roles-organization.jpg" alt="Pickup Basketball Roles - The Organizational Structure" class="img-fluid">
 </div>
 
 ---
@@ -76,7 +76,7 @@ Then there is Media.
 In pickup basketball everyone is media now. Big play. Big argument. Big moment. If there is footage it is posted. If there is no footage it stays in the gym. Honestly it used to be better when reputations lived inside the gym. It kept things competitive daily. Now too many people are playing for the clip instead of the win.
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/pickup-basketball-value-dynamics.png" alt="Pickup Basketball Value Dynamics - Real-Time Decision Making" class="img-fluid">
+  <img src="/assets/images/blog-img/pickup-basketball-value-dynamics.jpg" alt="Pickup Basketball Value Dynamics - Real-Time Decision Making" class="img-fluid">
 </div>
 
 ---
@@ -112,7 +112,7 @@ Finally you have the Fan.
 They might be sitting on the sideline or leaning against the wall. They react. Comment. Influence perception without playing a single minute. Their presence adds pressure. Sometimes they hype players up. Sometimes they create narratives that are not real. Fans shape behavior whether athletes admit it or not.
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/pickup-basketball-ecosystem-roles.png" alt="Complete Pickup Basketball Ecosystem - All Roles" class="img-fluid">
+  <img src="/assets/images/blog-img/pickup-basketball-ecosystem-roles.jpg" alt="Complete Pickup Basketball Ecosystem - All Roles" class="img-fluid">
 </div>
 
 ---
@@ -126,7 +126,7 @@ No contracts. No HR. No tech stack. Yet roles emerge instantly. Power dynamics a
 This is why I love sports tech. Technology does not replace these dynamics. It amplifies them. If you understand the run you understand teams startups leagues and fan ecosystems.
 
 <div class="text-center my-5">
-  <img src="/assets/images/blog-img/pickup-basketball-teams-startups.png" alt="Teams = Startups - The Pickup Basketball Dynamic" class="img-fluid rounded shadow">
+  <img src="/assets/images/blog-img/pickup-basketball-teams-startups.jpg" alt="Teams = Startups - The Pickup Basketball Dynamic" class="img-fluid rounded shadow">
   <p class="text-muted mt-2"><small><em>If you understand the run, you understand teams, startups, leagues, and fan ecosystems.</em></small></p>
 </div>
 
@@ -135,7 +135,7 @@ Before you build platforms metrics or products you better understand the gym.
 Because the gym never lies.
 
 <div class="text-center my-5">
-  <img src="/assets/images/blog-img/pickup-basketball-tech-amplifies-behavior.png" alt="Technology Amplifies Behavior - It Doesn't Replace It" class="img-fluid rounded shadow">
+  <img src="/assets/images/blog-img/pickup-basketball-tech-amplifies-behavior.jpg" alt="Technology Amplifies Behavior - It Doesn't Replace It" class="img-fluid rounded shadow">
   <p class="text-muted mt-2"><small><em>Technology amplifies behavior. It doesn't replace it.</em></small></p>
 </div>
 

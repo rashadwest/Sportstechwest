@@ -1,0 +1,333 @@
+#!/usr/bin/env python3
+"""
+Composite a simple athlete silhouette onto an IQ session visual.png / thumbnail.jpg
+so the card matches the movement theme (bike / hike / walk / run).
+
+  python3 scripts/add-iq-athlete-silhouette.py video-packages/rasun/<slug>
+  python3 scripts/add-iq-athlete-silhouette.py --all
+
+Reads package.json "card.silhouette" if set, else infers from slug:
+  bikeIQ → cyclist, hikingIQ → hiker, walkingIQ → walker, runningIQ → runner
+
+Does not change spoken scripts. Overwrites visual.png and thumbnail.jpg in place
+(after writing *.pre-silhouette backups once).
+"""
+from __future__ import annotations
+
+import json
+import math
+import sys
+from pathlib import Path
+
+from PIL import Image, ImageDraw, ImageFilter
+
+REPO = Path(__file__).resolve().parents[1]
+PKG_ROOT = REPO / "video-packages" / "rasun"
+
+
+def infer_athlete(slug: str, card: dict) -> str:
+    explicit = (card.get("silhouette") or "").strip().lower()
+    if explicit in {"cyclist", "hiker", "walker", "runner", "stretch", "swimmer"}:
+        return explicit
+    s = slug.lower()
+    if "bike" in s:
+        return "cyclist"
+    if "hik" in s:
+        return "hiker"
+    if "swim" in s:
+        return "swimmer"
+    if "stretch" in s or "yoga" in s:
+        return "stretch"
+    if "run" in s:
+        return "runner"
+    if "walk" in s:
+        return "walker"
+    return "walker"
+
+
+def _poly(draw: ImageDraw.ImageDraw, pts, fill):
+    draw.polygon(pts, fill=fill)
+
+
+def draw_cyclist(d: ImageDraw.ImageDraw, box, fill, s: float) -> None:
+    """Side-view road bike + rider silhouette (profile facing right)."""
+    x0, y0, x1, y1 = box
+    cx = (x0 + x1) / 2
+    cy = (y0 + y1) / 2 + 55 * s
+    r = min(x1 - x0, y1 - y0) * 0.15
+    lw = max(3, int(5 * s))
+    thick = max(4, int(9 * s))
+
+    rear = (cx - 100 * s, cy)
+    front = (cx + 100 * s, cy)
+    for wx, wy in (rear, front):
+        d.ellipse([wx - r, wy - r, wx + r, wy + r], outline=fill, width=lw)
+        hub = r * 0.18
+        d.ellipse([wx - hub, wy - hub, wx + hub, wy + hub], fill=fill)
+
+    bb = (cx - 5 * s, cy)
+    saddle = (cx - 35 * s, cy - 95 * s)
+    stem = (cx + 55 * s, cy - 88 * s)
+    d.line([rear, saddle], fill=fill, width=lw)
+    d.line([saddle, bb], fill=fill, width=lw)
+    d.line([bb, stem], fill=fill, width=lw)
+    d.line([saddle, stem], fill=fill, width=lw)
+    d.line([bb, front], fill=fill, width=lw)
+    d.line([stem, front], fill=fill, width=lw)
+    d.line([(stem[0] - 8 * s, stem[1]), (stem[0] + 35 * s, stem[1] + 8 * s)], fill=fill, width=lw)
+    d.ellipse([saddle[0] - 18 * s, saddle[1] - 8 * s, saddle[0] + 22 * s, saddle[1] + 6 * s], fill=fill)
+
+    head = (cx + 18 * s, cy - 155 * s)
+    hr = 18 * s
+    d.ellipse([head[0] - hr, head[1] - hr, head[0] + hr, head[1] + hr], fill=fill)
+    _poly(
+        d,
+        [
+            (cx - 5 * s, cy - 135 * s),
+            (cx + 40 * s, cy - 125 * s),
+            (cx + 15 * s, cy - 55 * s),
+            (cx - 40 * s, cy - 70 * s),
+        ],
+        fill,
+    )
+    d.line([(cx + 30 * s, cy - 120 * s), (stem[0] + 20 * s, stem[1] + 5 * s)], fill=fill, width=thick)
+    d.line([(cx + 20 * s, cy - 110 * s), (stem[0] + 10 * s, stem[1] + 8 * s)], fill=fill, width=max(3, int(7 * s)))
+    hip = (cx - 20 * s, cy - 70 * s)
+    d.line([hip, (cx - 55 * s, cy - 15 * s), (bb[0] - 25 * s, cy + 8 * s)], fill=fill, width=thick)
+    d.line([hip, (cx + 25 * s, cy - 25 * s), (bb[0] + 30 * s, cy + 5 * s)], fill=fill, width=thick)
+
+
+def draw_hiker(d: ImageDraw.ImageDraw, box, fill, s: float) -> None:
+    x0, y0, x1, y1 = box
+    cx = (x0 + x1) / 2 + 20 * s
+    base = y1 - 40 * s
+    hr = 24 * s
+    head_y = base - 280 * s
+    d.ellipse([cx - hr, head_y - hr, cx + hr, head_y + hr], fill=fill)
+    # torso + backpack
+    _poly(d, [
+        (cx - 28 * s, head_y + hr), (cx + 28 * s, head_y + hr),
+        (cx + 36 * s, base - 140 * s), (cx - 36 * s, base - 140 * s),
+    ], fill)
+    _poly(d, [
+        (cx + 28 * s, head_y + 20 * s), (cx + 70 * s, head_y + 30 * s),
+        (cx + 65 * s, base - 150 * s), (cx + 30 * s, base - 145 * s),
+    ], fill)
+    # legs mid-stride
+    d.line([(cx - 10 * s, base - 140 * s), (cx - 55 * s, base)], fill=fill, width=max(6, int(14 * s)))
+    d.line([(cx + 10 * s, base - 140 * s), (cx + 50 * s, base - 10 * s)], fill=fill, width=max(6, int(14 * s)))
+    # poles
+    d.line([(cx - 70 * s, head_y + 40 * s), (cx - 90 * s, base)], fill=fill, width=max(2, int(4 * s)))
+    d.line([(cx + 40 * s, head_y + 50 * s), (cx + 95 * s, base - 20 * s)], fill=fill, width=max(2, int(4 * s)))
+
+
+def draw_walker(d: ImageDraw.ImageDraw, box, fill, s: float) -> None:
+    x0, y0, x1, y1 = box
+    cx = (x0 + x1) / 2
+    base = y1 - 35 * s
+    hr = 22 * s
+    head_y = base - 270 * s
+    d.ellipse([cx - hr, head_y - hr, cx + hr, head_y + hr], fill=fill)
+    _poly(d, [
+        (cx - 26 * s, head_y + hr), (cx + 26 * s, head_y + hr),
+        (cx + 30 * s, base - 130 * s), (cx - 30 * s, base - 130 * s),
+    ], fill)
+    # walking legs
+    d.line([(cx - 8 * s, base - 130 * s), (cx - 45 * s, base)], fill=fill, width=max(6, int(13 * s)))
+    d.line([(cx + 8 * s, base - 130 * s), (cx + 55 * s, base - 5 * s)], fill=fill, width=max(6, int(13 * s)))
+    # swinging arms
+    d.line([(cx - 20 * s, head_y + 50 * s), (cx - 70 * s, base - 160 * s)], fill=fill, width=max(4, int(9 * s)))
+    d.line([(cx + 20 * s, head_y + 50 * s), (cx + 65 * s, base - 150 * s)], fill=fill, width=max(4, int(9 * s)))
+
+
+def draw_runner(d: ImageDraw.ImageDraw, box, fill, s: float) -> None:
+    x0, y0, x1, y1 = box
+    cx = (x0 + x1) / 2
+    base = y1 - 30 * s
+    hr = 20 * s
+    head_y = base - 250 * s
+    d.ellipse([cx - hr + 15 * s, head_y - hr, cx + hr + 15 * s, head_y + hr], fill=fill)
+    # forward lean torso
+    _poly(d, [
+        (cx - 5 * s, head_y + hr), (cx + 45 * s, head_y + hr + 10 * s),
+        (cx + 20 * s, base - 120 * s), (cx - 35 * s, base - 130 * s),
+    ], fill)
+    # stride
+    d.line([(cx - 15 * s, base - 125 * s), (cx - 80 * s, base - 20 * s)], fill=fill, width=max(5, int(12 * s)))
+    d.line([(cx + 5 * s, base - 120 * s), (cx + 90 * s, base)], fill=fill, width=max(5, int(12 * s)))
+    d.line([(cx + 30 * s, head_y + 40 * s), (cx + 100 * s, base - 180 * s)], fill=fill, width=max(4, int(9 * s)))
+    d.line([(cx - 10 * s, head_y + 45 * s), (cx - 70 * s, base - 170 * s)], fill=fill, width=max(4, int(9 * s)))
+
+
+def draw_stretch(d: ImageDraw.ImageDraw, box, fill, s: float) -> None:
+    """Side-view seated forward fold silhouette."""
+    x0, y0, x1, y1 = box
+    cx = (x0 + x1) / 2
+    base = y1 - 50 * s
+    hr = 18 * s
+    head = (cx + 70 * s, base - 90 * s)
+    d.ellipse([head[0] - hr, head[1] - hr, head[0] + hr, head[1] + hr], fill=fill)
+    # torso folding forward
+    _poly(
+        d,
+        [
+            (cx - 40 * s, base - 160 * s),
+            (cx + 10 * s, base - 150 * s),
+            (cx + 55 * s, base - 70 * s),
+            (cx - 10 * s, base - 55 * s),
+        ],
+        fill,
+    )
+    # legs extended
+    thick = max(5, int(12 * s))
+    d.line([(cx - 15 * s, base - 55 * s), (cx + 110 * s, base - 20 * s)], fill=fill, width=thick)
+    d.line([(cx - 5 * s, base - 50 * s), (cx + 100 * s, base - 5 * s)], fill=fill, width=max(4, int(10 * s)))
+    # arms toward feet
+    d.line([(cx + 40 * s, base - 85 * s), (cx + 95 * s, base - 25 * s)], fill=fill, width=max(3, int(8 * s)))
+
+
+def draw_swimmer(d: ImageDraw.ImageDraw, box, fill, s: float) -> None:
+    """Side-view freestyle swimmer silhouette."""
+    x0, y0, x1, y1 = box
+    cx = (x0 + x1) / 2
+    cy = (y0 + y1) / 2 + 20 * s
+    hr = 16 * s
+    head = (cx + 95 * s, cy - 25 * s)
+    d.ellipse([head[0] - hr, head[1] - hr, head[0] + hr, head[1] + hr], fill=fill)
+    # long torso
+    _poly(
+        d,
+        [
+            (cx - 80 * s, cy - 10 * s),
+            (cx + 70 * s, cy - 35 * s),
+            (cx + 75 * s, cy + 5 * s),
+            (cx - 70 * s, cy + 25 * s),
+        ],
+        fill,
+    )
+    thick = max(4, int(10 * s))
+    # kicking legs
+    d.line([(cx - 75 * s, cy + 10 * s), (cx - 140 * s, cy - 25 * s)], fill=fill, width=thick)
+    d.line([(cx - 70 * s, cy + 15 * s), (cx - 130 * s, cy + 45 * s)], fill=fill, width=thick)
+    # recovering arm up / pulling arm forward
+    d.line([(cx + 20 * s, cy - 20 * s), (cx + 50 * s, cy - 90 * s)], fill=fill, width=max(3, int(8 * s)))
+    d.line([(cx + 40 * s, cy), (cx + 120 * s, cy + 15 * s)], fill=fill, width=max(3, int(8 * s)))
+    # water line hint
+    d.line([(x0 + 20 * s, cy + 55 * s), (x1 - 20 * s, cy + 55 * s)], fill=fill, width=max(2, int(3 * s)))
+
+
+DRAWERS = {
+    "cyclist": draw_cyclist,
+    "hiker": draw_hiker,
+    "walker": draw_walker,
+    "runner": draw_runner,
+    "stretch": draw_stretch,
+    "swimmer": draw_swimmer,
+}
+
+
+def composite(path: Path, athlete: str, accent_rgb: tuple[int, int, int]) -> None:
+    im = Image.open(path).convert("RGBA")
+    W, H = im.size
+    s = W / 1920
+    overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(overlay)
+    # Right-side motif box (matches make-iq-card layout)
+    box = (int(1290 * s), int(220 * s), int(1740 * s), int(860 * s))
+    if W <= 1400:  # thumbnail 1280x720 — tighter box
+        box = (int(820 * s * (1920 / 1280)), int(160 * (H / 720)), int(1180 * (W / 1280)), int(600 * (H / 720)))
+        box = (int(W * 0.62), int(H * 0.18), int(W * 0.95), int(H * 0.88))
+    fill = (*accent_rgb, 210)
+    DRAWERS[athlete](d, box, fill, s if W > 1400 else max(0.55, s))
+    # Soft shadow under silhouette
+    shadow = overlay.filter(ImageFilter.GaussianBlur(radius=max(2, int(4 * s))))
+    out = Image.alpha_composite(im, shadow)
+    out = Image.alpha_composite(out, overlay)
+    if path.suffix.lower() in {".jpg", ".jpeg"}:
+        out.convert("RGB").save(path, quality=92)
+    else:
+        out.convert("RGB").save(path)
+    print(f"  + {athlete} → {path.relative_to(REPO)}")
+
+
+def theme_accent(theme: str) -> tuple[int, int, int]:
+    # Keep in sync with make-iq-card THEMES accent column
+    accents = {
+        "forest": (236, 168, 72),
+        "dusk": (240, 128, 82),
+        "teal": (250, 196, 84),
+        "night": (255, 206, 102),
+        "sunrise": (255, 176, 64),
+        "ember": (255, 122, 92),
+        "navy": (232, 104, 42),
+    }
+    return accents.get(theme, (236, 180, 90))
+
+
+def process_slug(slug: str) -> int:
+    d = PKG_ROOT / slug
+    pkg_path = d / "package.json"
+    if not pkg_path.exists():
+        print(f"skip {slug}: no package.json", file=sys.stderr)
+        return 1
+    pkg = json.loads(pkg_path.read_text(encoding="utf-8"))
+    card = pkg.get("card") or {}
+    athlete = infer_athlete(slug, card)
+    theme = card.get("theme") or ("navy" if "bike" in slug else "teal")
+    accent = theme_accent(theme)
+    # Persist silhouette choice for regenerations
+    if "card" not in pkg or pkg["card"] is None:
+        if "bike" in slug:
+            pkg["card"] = {
+                "theme": "navy",
+                "motif": "wheel",
+                "silhouette": "cyclist",
+                "kicker": "bikeIQ  ·  1 HOUR GUIDED RIDE",
+                "line1": "BREATHE EVERY",
+                "line2": "5 PEDALS",
+                "sub": ["In for 5 pedals. Out for 5 pedals."],
+                "thumb": ["BREATHE", "EVERY", "5 PEDALS"],
+            }
+        else:
+            pkg["card"] = card
+    else:
+        pkg["card"]["silhouette"] = athlete
+    pkg_path.write_text(json.dumps(pkg, indent=2) + "\n", encoding="utf-8")
+
+    for name in ("visual.png", "thumbnail.jpg"):
+        path = d / name
+        if not path.exists():
+            print(f"  missing {path}", file=sys.stderr)
+            continue
+        bak = path.with_suffix(path.suffix + ".pre-silhouette")
+        if not bak.exists():
+            bak.write_bytes(path.read_bytes())
+        else:
+            # Always re-composite from the clean dial (never stack silhouettes).
+            path.write_bytes(bak.read_bytes())
+        composite(path, athlete, accent)
+    print(f"{slug}: {athlete}")
+    return 0
+
+
+def main() -> int:
+    args = sys.argv[1:]
+    if not args:
+        print("Usage: add-iq-athlete-silhouette.py <slug>|--all", file=sys.stderr)
+        return 2
+    if args == ["--all"]:
+        slugs = sorted(
+            p.name for p in PKG_ROOT.iterdir()
+            if p.is_dir() and (p / "package.json").exists() and (p / "visual.png").exists()
+            and "beasley" not in p.name
+        )
+    else:
+        slugs = args
+    rc = 0
+    for slug in slugs:
+        rc = process_slug(slug) or rc
+    return rc
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

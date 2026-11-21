@@ -1,0 +1,14 @@
+---
+description: Customer-facing brand naming — Rashad West or Sports Tech West only
+alwaysApply: true
+---
+
+# Customer-facing brand naming
+
+On anything a customer sees or hears — spoken scripts, YouTube titles/descriptions/tags, video stills, thumbnails, site copy, social posts — use **Rashad West** or **Sports Tech West** only.
+
+Never use internal codenames on those surfaces: RaSun, SunRa, STW, Rawson, or similar.
+
+Internal-only (code, folder names, presets like `rasun`, ElevenLabs voice labels, `.env` keys) may keep those names.
+
+Series product titles such as bikeIQ / hikingIQ stay as public series names.

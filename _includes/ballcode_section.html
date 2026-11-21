@@ -1,0 +1,46 @@
+{% assign bc = site.data.ballcode.ballcode_area %}
+{% if bc.enable %}
+<div class="wrapper gray-wrapper" id="ballcode">
+  <div class="container inner">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-7">
+        <figure class="rounded shadow overflow-hidden mb-0 ballcode-video">
+          <!-- preload="none": the 3.4 MB video only downloads when someone presses play -->
+          <video controls playsinline preload="none" width="1280" height="720" poster="{{ bc.poster | relative_url }}" aria-label="{{ bc.video_label }}">
+            <source src="{{ bc.video | relative_url }}" type="video/mp4" />
+          </video>
+          <button type="button" class="btn-play ballcode-play" aria-label="Play {{ bc.video_label }}" hidden></button>
+        </figure>
+      </div>
+      <!--/column -->
+      <div class="col-lg-5">
+        <p class="title-color color-default mb-10">{{ bc.eyebrow }}</p>
+        <h2 class="section-title mb-20">{{ bc.title }}</h2>
+        <p class="lead">{{ bc.text }}</p>
+        <p class="mb-30">{{ bc.byline }}</p>
+        <a href="{{ bc.button_url }}" class="btn btn-default mb-10" target="_blank" rel="noopener">{{ bc.button_text }}</a>
+        <a href="{{ bc.link_url }}" class="ballcode-link ms-lg-3" target="_blank" rel="noopener">{{ bc.link_text }} &rarr;</a>
+      </div>
+      <!--/column -->
+    </div>
+    <!--/.row -->
+  </div>
+  <!-- /.container -->
+</div>
+<!-- /.wrapper -->
+<script>
+  // Show the theme's play button over the poster; native controls take over once playing.
+  (function () {
+    var fig = document.querySelector("#ballcode .ballcode-video");
+    if (!fig) return;
+    var video = fig.querySelector("video"), btn = fig.querySelector(".ballcode-play");
+    video.removeAttribute("controls");
+    btn.hidden = false;
+    btn.addEventListener("click", function () {
+      btn.hidden = true;
+      video.setAttribute("controls", "");
+      video.play();
+    });
+  })();
+</script>
+{% endif %}

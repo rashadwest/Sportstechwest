@@ -1,14 +1,29 @@
 ---
 tags: [time, youtube, sportstechwest]
 area: Time
-updated: 2026-07-05
+updated: 2026-11-21
 ---
 
 # SportsTechWest YouTube — Dashboard
 
 **Channel:** https://www.youtube.com/@SportsTechWest
-**Status (2026-07-05):** ~2 weeks behind last post; queue stale since 2026-04-18. Restart mode.
-**Rule:** Forward restart — no backfilling missed weeks. News expires.
+**Status (2026-11-21):** RaSun IQ sessions live, 3/week (Sat/Tue/Thu) through Dec 8. 9 episodes built as private drafts. STW News dormant since April. Review: `docs/YOUTUBE-BUILD-REVIEW-2026-11.md`.
+
+## Now (Nov 2026)
+
+- [ ] Publish bikeIQ (Nov 20) and hikingIQ (Nov 21) in Studio if still private
+- [ ] Merge PR #5, then the youtube-growth branch; pull on the Mac
+- [ ] Run `python3 scripts/rasun-schedule-publish.py` (one-time browser consent)
+- [ ] Decide: retire STW News job, add 1 blog breakdown/week (fix "I'm RaSun" close in Beasley script first)
+- [ ] Shorts from each session's hook line (task C6, pull forward)
+- [ ] Write the music source/license into `docs/RASUN-VIDEO-MODULE.md`
+- [ ] Nov 28: Studio check per session (views, avg view duration, subs, traffic source)
+
+**Sunday routine (45 min):** listen to the week's drafts → run schedule-publish → approve one breakdown.
+
+---
+
+*July 2026 restart notes below (kept for history).*
 
 Related: [[SportsTechWest YouTube - Growth Plan]] · [[SportsTechWest YouTube - Thanos Assessment 2026-07]]
 

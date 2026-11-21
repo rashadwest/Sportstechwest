@@ -1,14 +1,14 @@
 ---
 layout: post
 title: "Leaders in Basketball Analytics"
-thumbnail: "assets/img/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
+thumbnail: "assets/images/blog-img/Screen Shot 2020-08-30 at 9.37.28 PM.webp"
 ---
 
 # Leadership in Basketball Analytics 
 
 Here are some of the leaders in the space of basketball data and analytics.  Please forgive me if I miss anyone.  This is only from my limited research.  
 
-![NBA Analytics Staff]({{site.url}}{{site.baseurl}}/assets/img/blog-img/NBA-analytics-staffers-8-3.webp?raw=true)
+![NBA Analytics Staff]({{site.url}}{{site.baseurl}}/assets/images/blog-img/NBA-analytics-staffers-8-3.webp?raw=true)
 
 
 ## Twitter Handles: People who work for teams

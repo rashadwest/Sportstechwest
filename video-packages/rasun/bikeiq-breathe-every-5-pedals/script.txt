@@ -1,0 +1,236 @@
+# bikeIQ: Breathe Every 5 Pedals (1-hour guided ride)
+# Format: short snips (about 5 to 10 seconds). One segment per paragraph, 5 seconds of quiet after each.
+# Identical cue lines reuse the same voice take (content-addressed cache).
+# A line "[ride N]" after a segment = about N seconds of music-only riding instead of the 5-second gap.
+# The builder stretches or shrinks the ride blocks so the whole session lands on 60:00.
+# Lines starting with # are notes and are never read aloud.
+# Lines starting with ## are YouTube chapter titles (not spoken); they apply to the next segment.
+
+## Warm-up
+This is bikeIQ. One hour. One rhythm.
+
+Breathe every five pedals.
+
+Ride somewhere safe for this.
+
+An indoor trainer, a bike path, or a quiet road.
+
+Keep one ear open to the world around you.
+
+Your legs already keep time.
+
+We're going to let your breathing ride on that time.
+
+Count one pedal every time your right foot reaches the bottom.
+
+Right foot down. One.
+
+In for five. Out for five.
+
+That's it. That's the whole session.
+
+Start easy. No pushing yet.
+
+Just find the bottom of each right pedal and start counting.
+[ride 45]
+
+Now add the breath.
+
+In for five. Out for five.
+
+In through the nose if you can.
+
+Out through the mouth, slow and long.
+
+If five feels short, your cadence is quick.
+
+If five feels long, your cadence is slow.
+
+Either way, the pedals set the pace, not the clock.
+
+Take the next ten breaths on your own.
+
+Count the pedals. Let the breath follow.
+[ride 90]
+
+Good. Notice what happened.
+
+Your mind had one job, and the noise got quieter.
+
+I breathe on rhythm. I ride on rhythm.
+[ride 60]
+
+Relax your hands on the bars.
+
+Drop your shoulders away from your ears.
+
+Your breath is the steering wheel for your nervous system.
+
+Slow, even breaths tell your body you're safe.
+
+So your legs can work.
+
+In for five. Out for five.
+[ride 90]
+
+I am steady. Every pedal is a rep. Every breath is a choice.
+[ride 60]
+
+Check your cadence. Smooth circles, not stomps.
+
+Push through the front, pull through the bottom.
+
+If you lose the count, don't restart the whole ride.
+
+Wait for the next right foot at the bottom.
+
+Pick it back up at one.
+[ride 90]
+
+That's the skill. Not perfect counting. Coming back.
+
+I come back to the rhythm. Every time.
+[ride 75]
+
+## Build
+Let's build a little.
+
+Add some pressure to the pedals.
+
+Same cadence. Same breath.
+
+In for five. Out for five.
+[ride 90]
+
+As the effort rises, the breath wants to rush.
+
+Don't let it.
+
+The pedals stay on beat, so the breath stays on beat.
+
+I control the pace. The pace does not control me.
+[ride 90]
+
+Make the exhale the strong part.
+
+Push the air out over all five pedals, all the way to the end.
+
+A full exhale makes room for a full inhale.
+
+You don't have to pull air in. Just empty, and let it come back.
+[ride 90]
+
+I am strong in the middle of the ride. Not just at the start.
+[ride 75]
+
+Settle your face. Loose jaw. Soft eyes.
+
+Effort lives in the legs, not the face.
+
+In for five. Out for five.
+[ride 90]
+
+## Climb
+Now picture a climb.
+
+Shift so the pedals get heavier.
+
+Your cadence drops a little.
+
+Let the breath stretch with it.
+[ride 90]
+
+If five is too long to hold right now, go to four.
+
+In for four. Out for four.
+
+It's still rhythm.
+
+Come back to five when you can.
+
+I can be uncomfortable and still be in control.
+[ride 90]
+
+Climbs don't get won at the top.
+
+They get won one breath at a time, right here.
+
+In for five. Out for five.
+[ride 90]
+
+I keep my rhythm when it gets hard.
+[ride 90]
+
+Crest the hill. Shift back.
+
+Let the pedals spin lighter. Keep the count.
+[ride 75]
+
+Feel how fast your breath settles when the count is already there.
+
+That's the payoff. You trained it, so it's ready.
+
+I recover on purpose.
+[ride 75]
+
+## Cruise
+Cruising now. Easy pressure.
+
+In for five. Out for five.
+
+Let the miles pass under you.
+[ride 120]
+
+This rhythm goes with you.
+
+Off the bike, before a big moment, use the same count.
+
+I trust my breath. I trust my legs.
+[ride 120]
+
+Notice what's around you.
+
+The road. The air. The sound of the wheels.
+
+Stay with the ride you're in.
+
+I am exactly where I need to be.
+[ride 120]
+
+One more steady block.
+
+No new instructions. Just the count.
+
+In for five. Out for five.
+[ride 150]
+
+I finish what I start.
+[ride 120]
+
+## Cool-down
+Let's bring it down.
+
+Ease off the pressure. Keep spinning light.
+
+Stretch the breath one more time.
+
+In for five. Out for five.
+[ride 75]
+
+Your heart rate is coming down because you told it to.
+
+That's a skill you just practiced for an hour.
+
+I breathe on rhythm. I ride on rhythm.
+[ride 60]
+
+Take three more breaths on the count.
+
+Then let the counting go and just ride.
+[ride 45]
+
+That's bikeIQ. Breathe every five pedals.
+
+Take it on your next ride, and the one after that.
+
+Ride again with us. Sports Tech West. I'm Rashad West.

@@ -13,6 +13,16 @@ output/music/
 output/video/
 output/audio/
 
+# Dependencies and OS junk
+node_modules/
+.DS_Store
+.jekyll-cache/
+.bundle/
+vendor/
+
+# One-time backups before silhouette composite
+*.pre-silhouette
+
 # Python bytecode
 __pycache__/
 *.pyc

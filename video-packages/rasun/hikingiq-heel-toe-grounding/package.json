@@ -1,0 +1,34 @@
+{
+  "slug": "hikingiq-heel-toe-grounding",
+  "title": "hikingIQ: Heel-Toe Grounding (1 hour guided hike)",
+  "format": "iq-session",
+  "duration_seconds": 3600,
+  "music": "output/music/background-manifestation-60min/track-a.mp3",
+  "music_volume": 0.35,
+  "source_post": "",
+  "post_url": "",
+  "visual": "",
+  "drafted_by": "claude-code",
+  "approved": true,
+  "planned_date": "2026-11-21",
+  "publish_date": "2026-11-21",
+  "youtube_video_id": "YbBbdtQaRiM",
+  "card": {
+    "theme": "forest",
+    "motif": "contours",
+    "kicker": "hikingIQ  \u00b7  1 HOUR GUIDED HIKE",
+    "line1": "HEEL-TOE",
+    "line2": "GROUNDING",
+    "sub": [
+      "In for 3 steps. Out for 4 steps.",
+      "Heel first, then roll through to the toe."
+    ],
+    "thumb": [
+      "HEEL",
+      "TOE",
+      "3 IN \u00b7 4 OUT"
+    ],
+    "silhouette": "hiker"
+  },
+  "uploaded_at": "2026-11-20T22:04:02.968303-05:00"
+}

@@ -5,7 +5,7 @@ title: "Where Does the Value Actually Live? The Humanist Opportunity in Sports E
 
 description: "In Part 1, I wrote about how measurement does not automatically lead to understanding. There is a deeper opportunity underneath that idea. Where does the value in sports actually live?"
 
-thumbnail: "/assets/images/blog-img/value-chain-hero.png"
+thumbnail: "/assets/images/blog-img/value-chain-hero.jpg"
 
 badge_color: "text-bg-primary"
 
@@ -55,7 +55,7 @@ That gap is where the humanist perspective becomes essential.
 
 <div class="text-center my-4">
 
-  <img src="/assets/images/blog-img/value-creation-chain.png" alt="Value Creation Chain - From Athletes to Monetization" class="img-fluid">
+  <img src="/assets/images/blog-img/value-creation-chain.jpg" alt="Value Creation Chain - From Athletes to Monetization" class="img-fluid">
 
 </div>
 
@@ -81,7 +81,7 @@ Improvised, real-time performance produces immediate media value. Stats, clips, 
 
 <div class="text-center my-4">
 
-  <img src="/assets/images/blog-img/improvised-vs-finished-product.png" alt="Improvised Performance vs. Finished Product" class="img-fluid">
+  <img src="/assets/images/blog-img/improvised-vs-finished-product.jpg" alt="Improvised Performance vs. Finished Product" class="img-fluid">
 
 </div>
 
@@ -130,7 +130,7 @@ This is not about fault. It is about design.
 
 <div class="text-center my-4">
 
-  <img src="/assets/images/blog-img/humanist-vs-technologist-value.png" alt="Humanist vs. Technologist - Where Value Lives" class="img-fluid">
+  <img src="/assets/images/blog-img/humanist-vs-technologist-value.jpg" alt="Humanist vs. Technologist - Where Value Lives" class="img-fluid">
 
 </div>
 
@@ -156,7 +156,7 @@ It is an opportunity to design systems that help athletes understand the value t
 
 <div class="text-center my-4">
 
-  <img src="/assets/images/blog-img/athlete-levels-value-extraction.png" alt="Athlete Levels - Value Creation Across All Levels" class="img-fluid">
+  <img src="/assets/images/blog-img/athlete-levels-value-extraction.jpg" alt="Athlete Levels - Value Creation Across All Levels" class="img-fluid">
 
 </div>
 
@@ -178,7 +178,7 @@ With the right education and infrastructure, data does not just measure athletes
 
 <div class="text-center my-4">
 
-  <img src="/assets/images/blog-img/performance-data-becomes-media.png" alt="Performance Data Becomes Media - Ownership and Compensation" class="img-fluid">
+  <img src="/assets/images/blog-img/performance-data-becomes-media.jpg" alt="Performance Data Becomes Media - Ownership and Compensation" class="img-fluid">
 
 </div>
 
@@ -206,7 +206,7 @@ Because the real value lives in the athlete. The systems should reflect that.
 
 <div class="text-center my-4">
 
-  <img src="/assets/images/blog-img/fixing-the-chain.png" alt="Building Systems That Align Value" class="img-fluid">
+  <img src="/assets/images/blog-img/fixing-the-chain.jpg" alt="Building Systems That Align Value" class="img-fluid">
 
 </div>
 
@@ -230,6 +230,6 @@ Part 3 will explore how this same human-centered framework extends beyond sports
 
 ## Related Posts
 
-- [Part 1: Measurement Does Not Mean Understanding](/blog/measurement-does-not-mean-understanding)
-- [Part 3: Beyond Sports - The Future of Human Performance](/blog/beyond-sports-human-performance) (Coming Soon)
+- [Part 1: Measurement Does Not Mean Understanding](/blog/Measurement-Does-Not-Mean-Understanding-Part-1/)
+- Part 3: Beyond Sports - The Future of Human Performance (Coming Soon)
 

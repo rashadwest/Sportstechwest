@@ -29,7 +29,7 @@
       data-default-logo="{{ include.default_logo | default: 'white' }}"
     >
       <!-- White Logo -->
-      <a href="{{site.url}}"
+      <a href="{{site.url}}" aria-label="{{site.data.general_settings.title}} home"
         ><img
           src="{{site.data.general_settings.light_logo_1x}}"
           srcset="
@@ -40,7 +40,7 @@
           alt="{{site.data.general_settings.title}}"
       /></a>
 
-      <a href="{{site.url}}">
+      <a href="{{site.url}}" aria-label="{{site.data.general_settings.title}} home">
         <!-- Black Logo -->
         <img
           src="{{site.data.general_settings.black_logo_1x}}"
@@ -64,7 +64,7 @@
     <!-- /.navbar-other -->
     <div class="navbar-collapse offcanvas-nav">
       <div class="offcanvas-header d-lg-none d-xl-none">
-        <a href="{{site.url}}">
+        <a href="{{site.url}}" aria-label="{{site.data.general_settings.title}} home">
           <img
             src="{{site.data.general_settings.light_logo_1x}}"
             srcset="
@@ -74,7 +74,7 @@
             alt="{{site.data.general_settings.title}}"
             style="width: 120px; filter: invert(1)"
         /></a>
-        <button class="plain offcanvas-close offcanvas-nav-close">
+        <button class="plain offcanvas-close offcanvas-nav-close" aria-label="Close">
           <i class="jam jam-close"></i>
         </button>
       </div>
@@ -169,10 +169,10 @@
 </nav>
 <!-- /.navbar -->
 <div class="offcanvas-info inverse-text">
-  <button class="plain offcanvas-close offcanvas-info-close">
+  <button class="plain offcanvas-close offcanvas-info-close" aria-label="Close">
     <i class="jam jam-close"></i>
   </button>
-  <a href="{{site.url}}">
+  <a href="{{site.url}}" aria-label="{{site.data.general_settings.title}} home">
     <img
       src="{{site.data.general_settings.light_logo_1x}}"
       srcset="
@@ -225,7 +225,7 @@
     <ul class="social social-mute social-s ms-auto">
       {% for social_info in site.data.general_settings.social_accounts.links %}
       <li>
-        <a href="{{social_info.url}}"><i class="{{social_info.icon}}"></i></a>
+        <a href="{{social_info.url}}" aria-label="{{ social_info.icon | split: 'fa-' | last | capitalize }}"><i class="{{social_info.icon}}"></i></a>
       </li>
       {% endfor %}
     </ul>

@@ -6,9 +6,12 @@ One-time: Get client_secrets.json from Google Cloud Console (YouTube Data API v3
 """
 
 import argparse
+import json
+import mimetypes
 import os
 import re
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 # Optional deps - fail with clear message if missing
@@ -106,7 +109,55 @@ def get_authenticated_service():
     return build(API_SERVICE, API_VERSION, credentials=creds)
 
 
-def upload(youtube, mp4_path: str, metadata: dict, privacy: str, thumbnail_path: str = None):
+def append_listen_queue(
+    queue_path: Path,
+    video_id: str,
+    title: str,
+    privacy: str,
+    listen_id: str = "",
+) -> None:
+    """Append an unlisted/public listen entry for Morning Report (phase 1b)."""
+    queue_path = Path(queue_path)
+    queue_path.parent.mkdir(parents=True, exist_ok=True)
+    data = {"drops": []}
+    if queue_path.exists():
+        try:
+            data = json.loads(queue_path.read_text(encoding="utf-8"))
+        except Exception:
+            data = {"drops": []}
+    if not isinstance(data.get("drops"), list):
+        data["drops"] = []
+    drop_id = listen_id.strip() or re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")[:48]
+    watch_url = f"https://youtube.com/watch?v={video_id}"
+    # Replace existing row with same id; otherwise append.
+    data["drops"] = [d for d in data["drops"] if str(d.get("id") or "") != drop_id]
+    data["drops"].append(
+        {
+            "id": drop_id,
+            "title": title,
+            "watch_url": watch_url,
+            "video_id": video_id,
+            "privacy": privacy,
+            "listen_by": "manual public in Studio",
+            "uploaded_at": datetime.now(timezone.utc).isoformat(),
+        }
+    )
+    queue_path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+    print(f"Listen queue updated: {queue_path} ({drop_id})")
+
+
+def upload(
+    youtube,
+    mp4_path: str,
+    metadata: dict,
+    privacy: str,
+    thumbnail_path: str = None,
+    synthetic_media: bool = False,
+):
+    status = {"privacyStatus": privacy}
+    # YouTube Data API: status.containsSyntheticMedia (disclosure for AI / altered media).
+    if synthetic_media:
+        status["containsSyntheticMedia"] = True
     body = {
         "snippet": {
             "title": metadata["title"],
@@ -114,7 +165,7 @@ def upload(youtube, mp4_path: str, metadata: dict, privacy: str, thumbnail_path:
             "tags": metadata.get("tags", []),
             "categoryId": "17",  # 17 = Sports
         },
-        "status": {"privacyStatus": privacy},
+        "status": status,
     }
 
     media = MediaFileUpload(mp4_path, mimetype="video/mp4", resumable=True, chunksize=8 * 1024 * 1024)
@@ -134,7 +185,7 @@ def upload(youtube, mp4_path: str, metadata: dict, privacy: str, thumbnail_path:
         try:
             youtube.thumbnails().set(
                 videoId=video_id,
-                media_body=MediaFileUpload(thumbnail_path, mimetype="image/jpeg", resumable=False),
+                media_body=MediaFileUpload(thumbnail_path, mimetype=mimetypes.guess_type(thumbnail_path)[0] or "image/jpeg", resumable=False),
             ).execute()
             print("Thumbnail set.")
         except HttpError as e:
@@ -152,6 +203,21 @@ def main():
     ap.add_argument("--tags", help="Comma-separated tags (override)")
     ap.add_argument("--privacy", default="public", choices=VALID_PRIVACY)
     ap.add_argument("--thumbnail", help="Path to thumbnail image")
+    ap.add_argument(
+        "--synthetic-media",
+        action="store_true",
+        help="Mark upload as altered or synthetic media (status.containsSyntheticMedia)",
+    )
+    ap.add_argument(
+        "--write-listen-queue",
+        metavar="PATH",
+        help="After upload, append watch URL to this JSON queue (for Morning Report listen gate)",
+    )
+    ap.add_argument(
+        "--listen-id",
+        default="",
+        help="Optional id when using --write-listen-queue (defaults to video title slug)",
+    )
     ap.add_argument("--confirm", action="store_true", help="Skip confirmation prompt")
     args = ap.parse_args()
 
@@ -174,6 +240,8 @@ def main():
 
     print(f"Title: {metadata['title']}")
     print(f"Privacy: {args.privacy}")
+    if args.synthetic_media:
+        print("Synthetic media: yes (containsSyntheticMedia)")
     if not args.confirm:
         r = input("Upload? [y/N]: ")
         if r.lower() != "y":
@@ -182,8 +250,23 @@ def main():
 
     youtube = get_authenticated_service()
     try:
-        vid = upload(youtube, str(mp4_path), metadata, args.privacy, args.thumbnail)
+        vid = upload(
+            youtube,
+            str(mp4_path),
+            metadata,
+            args.privacy,
+            args.thumbnail,
+            synthetic_media=args.synthetic_media,
+        )
         print(f"URL: https://youtube.com/watch?v={vid}")
+        if args.write_listen_queue:
+            append_listen_queue(
+                Path(args.write_listen_queue),
+                video_id=vid,
+                title=metadata["title"],
+                privacy=args.privacy,
+                listen_id=args.listen_id or "",
+            )
     except HttpError as e:
         print(f"HTTP error: {e}")
         sys.exit(1)
