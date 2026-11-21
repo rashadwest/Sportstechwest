@@ -1,6 +1,9 @@
 video_area:
   enable: true
-  title: "Meet BTE Analytics"
-  sub_title: "A short introduction to BTE Analytics"
+  title: "BallCODE in the Classroom"
+  sub_title: "Kids learn to code through basketball. Watch the BallCHESS teaser."
   image: "/assets/images/display/School_Photo_kids.jpeg"
-  video_url: "https://youtu.be/yElSKkmqHbk"
+  # A video file on this site plays in the lightbox; use video_url instead for YouTube.
+  video_file: "/assets/media/ballchess-teaser-v1.mp4"
+  video_poster: "/assets/media/poster/ballchess-teaser.webp"
+  video_label: "Play the BallCHESS teaser (29 seconds)"

@@ -16,10 +16,27 @@
           </p>
           <div class="space10"></div>
           <div class="light-gallery-wrapper">
+            {% assign va = site.data.video_area.video_area %}
+            {% if va.video_file %}
+            {%- comment -%} No href: lightGallery only treats data-html as a
+            video when the item has no src, so this is a button, not a link. {%- endcomment -%}
+            <button
+              type="button"
+              data-html="#video-area-file"
+              class="btn-play lightbox border-0"
+              aria-label="{{ va.video_label | default: 'Play video' }}"
+            ></button>
+            <div style="display: none" id="video-area-file">
+              <video class="lg-video-object lg-html5" controls preload="none"{% if va.video_poster %} poster="{{ va.video_poster | relative_url }}"{% endif %}>
+                <source src="{{ va.video_file | relative_url }}" type="video/mp4" />
+              </video>
+            </div>
+            {% else %}
             <a
-              href="{{site.data.video_area.video_area.video_url}}"
+              href="{{va.video_url}}"
               class="btn-play lightbox" aria-label="Play video"
             ></a>
+            {% endif %}
           </div>
         </div>
       </div>

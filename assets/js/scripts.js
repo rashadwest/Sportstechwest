@@ -365,7 +365,7 @@ $(document).ready(function() {
 			loop: false,
 			hash: false,
 			mousewheel: true,
-			videojs: true,
+			videojs: false, // video.js isn't loaded; native <video> plays self-hosted files
 			share: false
 		});
 	}
