@@ -1,0 +1,15 @@
+# Homepage BallCODE section (_includes/ballcode_section.html). Copy is taken
+# from ballcode.co so the two sites say the same thing.
+ballcode_area:
+  enable: true
+  eyebrow: "BallCODE"
+  title: "Kids program robots to play basketball"
+  text: "Kids learn what a robot is and how to program one. It's coding through basketball strategy. Free to play, ages 7 to 18."
+  byline: "Built by Rashad West, a former pro player."
+  video: "/assets/media/ballcode-intro.mp4"
+  poster: "/assets/media/poster/ballcode-intro.webp"
+  video_label: "BallCODE: who we are (51 seconds)"
+  button_text: "Visit BallCODE"
+  button_url: "https://ballcode.co"
+  link_text: "Bring BallCODE to your group"
+  link_url: "https://ballcode.co/#contact"

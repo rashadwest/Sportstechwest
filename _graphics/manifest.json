@@ -1,7 +1,7 @@
 [
   {
     "src": "clear/intro.html",
-    "out": "assets/images/blog-img/clear-intro-sports-ai.png",
+    "out": "assets/images/blog-img/clear-intro-sports-ai.jpg",
     "w": 1024,
     "h": 1024
   },
@@ -43,21 +43,21 @@
   },
   {
     "src": "value/chain.html",
-    "out": "assets/images/blog-img/value-creation-chain.png",
+    "out": "assets/images/blog-img/value-creation-chain.jpg",
     "w": 1536,
     "h": 1024,
     "scale": 1
   },
   {
     "src": "value/levels.html",
-    "out": "assets/images/blog-img/athlete-levels-value-extraction.png",
+    "out": "assets/images/blog-img/athlete-levels-value-extraction.jpg",
     "w": 1536,
     "h": 1024,
     "scale": 1
   },
   {
     "src": "value/align.html",
-    "out": "assets/images/blog-img/fixing-the-chain.png",
+    "out": "assets/images/blog-img/fixing-the-chain.jpg",
     "w": 1536,
     "h": 1024,
     "scale": 1
@@ -78,7 +78,7 @@
   },
   {
     "src": "measurement/identical.html",
-    "out": "assets/images/blog-img/identical-data-different-outcomes.png",
+    "out": "assets/images/blog-img/identical-data-different-outcomes.jpg",
     "w": 1408,
     "h": 768,
     "scale": 1.25

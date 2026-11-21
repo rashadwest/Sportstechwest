@@ -27,7 +27,7 @@
 
 ## 2. INTRODUCTION SECTION IMAGE
 **Location:** After "Why I Use the CLEAR Framework" section, before "A Brief Background"
-**File:** `/assets/images/blog-img/clear-intro-sports-ai.png`
+**File:** `/assets/images/blog-img/clear-intro-sports-ai.jpg`
 **Placement:** After line 28 (after the intro paragraph, before the horizontal rule)
 
 **Image Description:**
@@ -209,7 +209,7 @@
 ### Required Images (9 total):
 
 1. ✅ **clear-framework-hero.png** - Thumbnail/Hero
-2. ✅ **clear-intro-sports-ai.png** - Introduction section
+2. ✅ **clear-intro-sports-ai.jpg** - Introduction section
 3. ✅ **clear-methodology-breakdown.png** - CLEAR overview
 4. ✅ **clear-clarity-section.png** - C section
 5. ✅ **clear-logic-section.png** - L section

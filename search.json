@@ -1,15 +1,21 @@
 ---
 layout: none
+sitemap: false
 ---
 [
-  {% for post in site.posts %}
-    {
-      "title"    : "{{ post.title | escape }}",
-      "category" : "{{ post.category }}",
-      "tags"     : "{{ post.tags | join: ', ' }}",
-      "url"      : "{{ site.baseurl }}{{ post.url }}",
-      "date"     : "{{ post.date }}",
-      "desc"     : "{{post.title}}"
-    } {% unless forloop.last %},{% endunless %}
-  {% endfor %}
+  {%- assign hidden_slugs = site.data.hidden_posts.slugs | default: nil -%}
+  {%- assign first = true -%}
+  {%- for post in site.posts -%}
+    {%- assign post_slug = post.title | slugify -%}
+    {%- if hidden_slugs and hidden_slugs contains post_slug -%}{%- continue -%}{%- endif -%}
+    {%- unless first -%},{%- endunless -%}
+    {%- assign first = false %}
+  {
+    "title": {{ post.title | strip_html | jsonify }},
+    "category": {{ post.categories | join: ", " | jsonify }},
+    "tags": {{ post.tags | join: ", " | jsonify }},
+    "url": {{ post.url | relative_url | jsonify }},
+    "date": {{ post.date | date: "%b %-d, %Y" | jsonify }}
+  }
+  {%- endfor %}
 ]

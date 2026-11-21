@@ -1,16 +1,4 @@
 User-agent: *
-Disallow: /node_modules/
-Disallow: /features/
-Disallow: /_data/
-Disallow: /_includes/
-Disallow: /elements/
-Disallow: /assets/revolution/
+Allow: /
 
-# Allow specific content
-Allow: /assets/images/gallery/
-Allow: /_posts/
-Allow: /categories/
-Allow: /tags/
-
-# Sitemap location
 Sitemap: https://sportstechwest.com/sitemap.xml

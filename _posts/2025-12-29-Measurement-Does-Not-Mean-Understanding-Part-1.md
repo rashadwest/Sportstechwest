@@ -29,7 +29,7 @@ We measure movement, output, and physical load with precision. But we still cann
 This forces us to confront two distinct but connected problems in sports technology.
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/business-vs-performance-tech.png" alt="Business Technology vs Performance Technology Gap" class="img-fluid">
+  <img src="/assets/images/blog-img/business-vs-performance-tech.jpg" alt="Business Technology vs Performance Technology Gap" class="img-fluid">
 </div>
 
 ---
@@ -53,7 +53,7 @@ You need to know how data is structured, how signals are separated from noise, h
 This is where most systems fail. They are technically sound but strategically shallow.
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/identical-data-different-outcomes.png" alt="Two Athletes with Identical Data, Different Performance Outcomes" class="img-fluid">
+  <img src="/assets/images/blog-img/identical-data-different-outcomes.jpg" alt="Two Athletes with Identical Data, Different Performance Outcomes" class="img-fluid">
 </div>
 
 ---
@@ -97,7 +97,7 @@ Two athletes can have identical physical profiles, identical preparation, and id
 No one understands this better than the athlete. No one misunderstands it more than someone who has never been inside high pressure performance.
 
 <div class="text-center my-4">
-  <img src="/assets/images/blog-img/athlete-technologist-overlap.png" alt="The Overlap Between Athletes and Technologists in Sports Tech" class="img-fluid">
+  <img src="/assets/images/blog-img/athlete-technologist-overlap.jpg" alt="The Overlap Between Athletes and Technologists in Sports Tech" class="img-fluid">
 </div>
 
 ---

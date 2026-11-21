@@ -1,9 +1,9 @@
 portfolios_area:
   enable: true
-  title: "My Portfolio"
-  sub_title: "Check out some of my Projects and Achievements"
+  title: "Selected Work"
+  sub_title: "Projects, events, and analytics from the court to the classroom"
   button_url: "/portfolios"
-  button_text: "View my Portfolios"
+  button_text: "See All Work & Certificates"
   categories:
     - title: "Gallery"
       filter: "gallery"
@@ -114,8 +114,8 @@ portfolios_area:
 
     - title: "BTE Analytics Moveahead Partnership"
       sub_title: "Analysis"
-      sm_image: "/assets/images/portfolio/BTE_Analytics_Moveahead_Partnership.png"
-      big_image: "/assets/images/portfolio/BTE_Analytics_Moveahead_Partnership.png"
+      sm_image: "/assets/images/portfolio/BTE_Analytics_Moveahead_Partnership.jpg"
+      big_image: "/assets/images/portfolio/BTE_Analytics_Moveahead_Partnership.jpg"
       url: "#"
       filters:
         - analytics_culture

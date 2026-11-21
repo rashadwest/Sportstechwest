@@ -10,7 +10,7 @@ author: Rashad West
 badge_color: "bg-meander"
 ---
 
-At [BTE Analytics](https://sportstechwest.com/analytics-culture), we’re not just about numbers. We’re about what makes you, you. Coming from my own background as a basketball player, I’ve always believed that what truly separates good players from great ones isn’t just the stats you see on paper. It’s the subtle stuff. The tendencies, the rhythm, the style. That’s the soul of the game.
+At [BTE Analytics](/blog/Analytics_Culture/), we’re not just about numbers. We’re about what makes you, you. Coming from my own background as a basketball player, I’ve always believed that what truly separates good players from great ones isn’t just the stats you see on paper. It’s the subtle stuff. The tendencies, the rhythm, the style. That’s the soul of the game.
 
 <!-- /.wrapper -->
 <div class="wrapper light-wrapper">
@@ -48,7 +48,7 @@ The collaboration between **Spalding and Naismith** wasn’t just about solving 
 
 That mindset inspired generations of thinkers to push the boundaries of what’s possible in sports. Their creation of a [better basketball](https://coachtube.com/users/betterbasketball) wasn’t just about performance; it was about unlocking creativity. **With a ball that could be dribbled more effectively**, players could suddenly invent their own moves, express their individuality, and rewrite the playbook.
 
-At [BTE Analytics](https://sportstechwest.com/analytics-culture), we carry forward that same spirit. We believe that innovation in sports isn’t just about technology; it’s about making the game more accessible, more engaging, and more meaningful. Just as Spalding and Naismith’s design opened up a new world of possibilities for athletes, we’re pushing the limits by giving players new ways to understand and monetize their performance.
+At [BTE Analytics](/blog/Analytics_Culture/), we carry forward that same spirit. We believe that innovation in sports isn’t just about technology; it’s about making the game more accessible, more engaging, and more meaningful. Just as Spalding and Naismith’s design opened up a new world of possibilities for athletes, we’re pushing the limits by giving players new ways to understand and monetize their performance.
 
 Through our **advanced metrics**, we’re not just measuring the game; we’re redefining how it’s played and experienced. Athletes today have the tools not only to perform but also to leave a lasting legacy. Innovation like this continues to shape sports, and we’re proud to be part of that journey.
 
@@ -76,7 +76,7 @@ Just as [Spalding’s design advanced basketball](https://sportstechwest.com/ass
 
 Our innovative approach brings modern tools to basketball, enabling athletes to measure the subtle but critical aspects of their game, like tendencies and efficiency off the dribble. For example, imagine knowing exactly how many defenders were beaten with a crossover or the percentage of successful possessions initiated by a hesitation dribble. These are the insights that not only help players refine their craft but also allow fans and brands to connect with their unique style.
 
-<img  src="{{site.baseurl}}/assets/images/blog-img/2.gif" alt="basketball analysis" >
+<img  src="{{site.baseurl}}/assets/images/portfolio/2.gif" alt="basketball analysis" >
 
 <img  src="{{site.baseurl}}/assets/images/blog-img/basketball-metric.webp" alt="basketball-metric" >
 
